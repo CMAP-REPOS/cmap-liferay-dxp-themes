@@ -65,11 +65,11 @@
 		</#if>
 	</section>
 
-	<!-- footer id="footer" role="contentinfo">
+	<footer id="footer" role="contentinfo">
 		<p class="powered-by">
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
 		</p>
-	</footer -->
+	</footer>
 </div>
 
 <@liferay_util["include"] page=body_bottom_include />
@@ -77,6 +77,9 @@
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
+
+<script src="${javascript_folder}/vendor/jquery.simpleselect.min.js" type="text/javascript"></script>
+
 <!-- endinject -->
 
 </body>

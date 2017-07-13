@@ -1,4 +1,4 @@
-@import "global/vars";
+/* @import "global/vars";
 @import "global/mixins";
 
 @import "global/utilities";
@@ -52,9 +52,12 @@
 @import "components/slider-asset-publisher";
 @import "components/slider-hero";
 @import "components/slider-double";
-@import "components/slider-carousel";
+@import "components/slider-carousel"; */
 
-@import "global/print";
+@import "vendor/c3.min";
+@import "vendor/jquery.simpleselect.min";
+
+/* @import "global/print";
 
 .homepage {
   .site-main {
@@ -90,7 +93,7 @@
     }
 
     .ds-shim {
-      /* @include box-shadow(inset 10px 20px 15px -15px rgba(0, 0, 0, 0.3)); */
+      @include box-shadow(inset 10px 20px 15px -15px rgba(0, 0, 0, 0.3));
 
       height: 18px;
       z-index: 2;
@@ -123,7 +126,7 @@
 
   .slider-component {
     &.featuring {
-      /* @include box-shadow(inset 10px 20px 15px -15px $color-grey); */
+      @include box-shadow(inset 10px 20px 15px -15px $color-grey);
 
       background-color: $color-grey-80;
 
@@ -279,5 +282,5 @@ a:hover {
       }
     }
   }
-}
+} */
 
