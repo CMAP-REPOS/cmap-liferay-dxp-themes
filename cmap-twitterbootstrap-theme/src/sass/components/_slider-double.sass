@@ -1,0 +1,38 @@
+.slider-partner-spotlight 
+  .slider
+    .slider-title
+      position: absolute
+      top: 0
+      left: 0
+      &:nth-of-type(2)
+        display: none
+    .width-50
+      @include box-sizing(border-box)
+      width: 50%
+      margin-top: 6em
+      float: left
+      padding-right: 1.5em
+      overflow: hidden
+      @include border(right)
+      &.slide-right
+        padding-left: 2.5em
+        padding-right: 0
+        border: none
+      img
+        margin-bottom: 1em
+  .flex-control-nav
+    &.flex-control-paging
+      display: inline-block
+      width: auto
+      position: static
+      line-height: 1
+      vertical-align: middle
+      li
+        a
+          height: .5em
+          width: .5em
+          @include box-shadow(none)
+          @include border(all, $color: $color-blue)
+          background-color: transparent
+          &.flex-active
+            background-color: $color-blue

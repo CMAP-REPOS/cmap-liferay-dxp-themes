@@ -1,0 +1,28 @@
+.site-main
+  .signed-in &
+    background-image: none
+.portlet-column
+  .signed-in &
+    outline: 1px dashed #ccc
+  .portlet-column-content
+    padding: 0
+.portlet-boundary
+  .signed-in &
+    outline: 1px dashed #ccc
+  .portlet-topper
+    .portlet-title
+      @extend .hidden
+      .signed-in &
+        display: block
+        margin: 0
+        background-color: #eee
+        font-size: 1em
+        line-height: 2
+        text-indent: -9999px
+        visibility: visible
+  .portlet-content
+    padding: 0
+    .breadcrumbs
+      margin: 0
+
+

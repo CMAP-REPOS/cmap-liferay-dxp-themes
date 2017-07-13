@@ -1,0 +1,268 @@
+.portlet-search {
+  margin-left: 0;
+
+  form {
+    margin-left: 0;
+
+    .aui-fieldset {
+      @include box-sizing(border-box);
+      @include box-shadow(inset 10px 20px 15px -15px rgba(0, 0, 0, 0.3));
+
+      @extend .row-fluid;
+
+      max-height: 5 * $spacing;
+      height: 5 * $spacing;
+      margin-bottom: 0;
+      margin-left: 0;
+      padding-top: $spacing;
+      border-bottom: 1px solid $color-grey-60;
+      background-color: $color-grey-80;
+      color: $color-grey;
+      font-family: $font-sans;
+      font-size: 0.75em;
+      font-weight: bold;
+      line-height: 1;
+
+      .aui-fieldset-content {
+        margin-left: 0;
+        float: left;
+
+        .aui-field-select,
+        .aui-button-image {
+          @extend .hidden;
+        }
+
+        input {
+          padding: ($spacing / 4) $spacing;
+        }
+      }
+    }
+
+    .aui-column-content {
+      padding: 0;
+    }
+  }
+
+  .lfr-token-list.aui-liferaytokenlist {
+    @extend .hidden;
+  }
+
+  .search-layoutX-content {
+    overflow: hidden;
+  }
+
+  .row-fluid {
+    position: relative;
+
+    #column-2 {
+      @include box-shadow(0 0 15px 5px $color-grey);
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: $color-grey-80;
+    }
+
+    .resultX {
+      float: left;
+      padding-bottom: 9 * $spacing;
+    }
+  }
+
+  table {
+    .portlet-section-header.results-header,
+    .lfr-template {
+      @extend .hidden;
+    }
+
+    .results-row {
+      /*background-image: url(../images/icons/icon-arrow-link.png) !important */
+      background-repeat: no-repeat !important;
+      background-position: right 4px !important;
+      margin-left: -200px;
+      padding-left: 200px;
+
+      td {
+        display: block;
+        padding: 0 !important;
+        border: none;
+
+        .asset-entry-title {
+          a {
+            display: inline-block;
+            width: 94%;
+          }
+        }
+      }
+
+      &.alt {
+        td {
+          background-color: transparent;
+        }
+      }
+
+      &.hover {
+        td {
+          background-color: transparent;
+        }
+      }
+
+      &.last {
+        td {
+          border-bottom: none !important;
+        }
+      }
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 2 * $spacing;
+      padding-bottom: 3 * $spacing;
+      border-bottom: 1px solid $color-grey-60;
+    }
+  }
+
+  .results-grid.aui-searchcontainer-content {
+    border: none;
+  }
+
+  .menuX {
+    @include box-sizing(border-box);
+
+    padding: 0 (4 * $spacing);
+    float: right;
+
+    .modified {
+      li {
+        padding: $spacing 0;
+        border-radius: 0 !important;
+        border-bottom: 1px solid $color-grey-60;
+        font-size: 0.75em;
+      }
+    }
+
+    .modified {
+      margin-top: 6 * $spacing;
+      border-top: 2px solid $color-grey-60;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+}
+
+.gs-title,
+a.gs-title:link {
+  border-bottom: 1px dotted !important;
+  color: $color-blue !important;
+}
+
+.gs-bidi-start-align,
+.gs-visibleUrl,
+.gs-visibleUrl-long {
+  color: $color-charcoal !important;
+}
+
+// .portlet-search
+//   margin-left: 0
+//   form
+//     margin-left: 0
+//     .aui-fieldset
+//       @include box-sizing(border-box)
+//       @include box-shadow(inset 10px 20px 15px -15px $color-grey)
+//       @extend .row-fluid
+//       max-height: 5*$spacing
+//       height: 5*$spacing
+//       margin-bottom: 0
+//       margin-left: 0
+//       padding-top: $spacing
+//       border-bottom: 1px solid $color-grey-60
+//       background-color: $color-grey-80
+//       color: $color-grey
+//       font-family: $font-sans
+//       font-size: .75em
+//       font-weight: bold
+//       line-height: 1
+//       .aui-fieldset-content
+//         @extend .span7
+//         @extend .offset3
+//         margin-left: 0
+//         float: left
+//         .aui-field-select,
+//         .aui-button-image
+//           @extend .hidden
+//         input
+//           padding: $spacing/4 $spacing
+//     .aui-column-content
+//       padding: 0
+//   .lfr-token-list.aui-liferaytokenlist
+//     @extend .hidden
+//   .search-layoutX-content
+//     overflow: hidden
+//   .row-fluid
+//     position: relative
+//     #column-2
+//       @include box-shadow(0 0 15px 5px $color-grey)
+//       position: absolute
+//       top: 0
+//       bottom: 0
+//       background-color: $color-grey-80
+//     .resultX
+//       @extend .span7
+//       @extend .offset3
+//       @extend .offset3:first-child
+//       float: left
+//       padding-bottom: 9*$spacing
+//   table
+//     .portlet-section-header.results-header,
+//     .lfr-template
+//       @extend .hidden
+//     .results-row
+//       background-image: url(../images/icons/icon-arrow-link.png)
+//       background-repeat: no-repeat
+//       background-position: right 4px
+//       &.alt
+//         td
+//           background: transparent
+//       td
+//         display: block
+//         padding: 0
+//         border: none
+//         .asset-entry-title
+//           a
+//             display: inline-block
+//             width: 94%
+//     tr
+//       display: block
+//       margin-bottom: 2*$spacing
+//       padding-bottom: 3*$spacing
+//       border-bottom: 1px solid $color-grey-60
+//   .results-grid.aui-searchcontainer-content
+//     border: none
+//   .menuX
+//     @include box-sizing(border-box)
+//     padding-right: 4*$spacing
+//     .tag-list,
+//     .modified
+//       margin-top: 6*$spacing
+//       border-top: 2px solid $color-grey-60
+//       li
+//         padding: $spacing 0
+//         border-radius: 0 !important
+//         border-bottom: 1px solid $color-grey-60
+//         font-size: 0.75em
+//     .modified
+//       margin-bottom: 0
+//       margin-left: 0
+//       margin-right: 0
+//       padding: 0
+//       list-style: none
+
+// .aui-dialog-iframe-popup
+//   .portlet-search
+//     form
+//       .aui-fieldset
+//         max-height: 1000px
+//         height: auto

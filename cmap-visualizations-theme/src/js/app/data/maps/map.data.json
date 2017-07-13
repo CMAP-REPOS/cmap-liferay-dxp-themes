@@ -1,0 +1,497 @@
+{
+	"roads": {
+		"indicators": {
+			"congestion": {
+				"mapData": {
+					"avgSpeed": [34.540047,34.4442,34.29744,33.594025,32.513725,31.845781,31.573177,30.795515,30.261263,30.051466,30.414917,30.568415,30.478996,30.693619,31.138338,31.592518,31.68403,31.816599,31.946907,32.168575,32.07305,32.0481,32.12441,32.041393,31.889143,31.824518,31.776737,31.6917,31.582817,31.57887,31.640633,31.66419,31.576406,31.56169,31.571844,31.327719,31.160372,30.878386,30.947344,30.509832,30.35996,29.887976,29.8797,29.463995,29.472044,29.131308,29.174139,28.643923,28.714542,29.20471,29.912495,30.427015,30.950016,31.47915,32.034428,32.378838,32.62882,32.780704]
+				}
+			},
+			"ride-quality": {
+				"mapData": {
+					"overall": {
+						"Interstate_CRS_fair":
+						{
+								"name":"Interstates (CRS) Fair or better",
+								"key": 0,
+								"selection-name":"Interstate_CRS_fair",
+								"color":"#a59d64",
+								"2008":1.00,
+								"2009":1.00,
+								"2010":1.00,
+								"2011":1.00,
+								"2012":0.99,
+								"2013":0.99,
+								"timeline":{
+										"years":[2008,2009,2010,2011,2012,2013],
+										"values":[],
+										"ticks":6,
+										"labels":[2008,2009,2010,2011,2012,2013],
+											"sliderPosition": "end"
+								}
+						},
+						"NonInterstate_CRS_fair":
+						{
+								"name":"Non-Interstates (CRS) Fair or better",
+								"key": 1,
+								"selection-name":"NonInterstate_CRS_fair",
+								"color":"#0eb0c6",
+								"2008": 0.94,
+								"2009": 0.95,
+								"2010": 0.95,
+								"2011": 0.97,
+								"2012": 0.97,
+								"2013": 0.94,
+								"timeline":{
+										"years":[2008,2009,2010,2011,2012,2013],
+										"values":[],
+										"ticks":6,
+										"labels":[2008,2009,2010,2011,2012,2013],
+											"sliderPosition": "end"
+								}
+						},
+						"Interstate_IRI_acceptable":
+						{
+								"name":"Interstates (IRI) Acceptable or better",
+								"key": 2,
+								"color":"#f36343",
+								"selection-name":"Interstate_IRI_acceptable",
+								"2008":0.98,
+								"2009":0.98,
+								"2010":0.95,
+								"2011":0.95,
+								"2012":0.97,
+								"2013":0.97,
+								"timeline":{
+										"years":[2008,2009,2010,2011,2012,2013],
+										"values":[],
+										"ticks":6,
+										"labels":[2008,2009,2010,2011,2012,2013],
+											"sliderPosition": "end"
+								}
+						},
+						"NonInterstate_IRI_acceptable":
+						{
+								"name":"Non-Interstates (IRI) Acceptable or better",
+								"key": 3,
+								"selection-name":"NonInterstate_IRI_acceptable",
+								"color":"#29aacc",
+								"2008": 0.47,
+								"2009": 0.49,
+								"2010": 0.52,
+								"2011": 0.59,
+								"2012": 0.65,
+								"2013": 0.65,
+								"timeline":{
+										"years":[2008,2009,2010,2011,2012,2013],
+										"values":[],
+										"ticks":6,
+										"labels":[2008,2009,2010,2011,2012,2013],
+											"sliderPosition": "end"
+								}
+						},
+						"BLoS":
+						{
+								"name":"Bicycle Level of Service",
+								"key": 4,
+								"selection-name":"BLoS",
+								"color":"#ec008c",
+								"2002": 4.05,
+								"2013": 3.84,
+								"timeline":{
+										"years":[2002,2013],
+										"values":[],
+										"ticks":2,
+										"labels":[2002,2013],
+											"sliderPosition": "end"
+								}
+						},
+						"PLoS":
+						{
+								"name":"Pedestrian Level of Service",
+								"key": 5,
+								"selection-name":"PLoS",
+								"color":"#f03167",
+								"2002": 4.20,
+								"2013": 3.88,
+								"timeline":{
+										"years":[2002,2013],
+										"values":[],
+										"ticks":2,
+										"labels":[2002,2013],
+											"sliderPosition": "end"
+								}
+						}
+					},
+					"byCounty": {
+						"Cook": {
+							"Interstate_CRS_fair": {"2008":1.00,"2009":1.00,"2010":1.00,"2011":1.00,"2012":0.98,"2013":0.98},
+							"Interstate_CRS_good": {"2008":0.72,"2009":0.73,"2010":0.90,"2011":0.90,"2012":0.98,"2013":0.98},
+							"Interstate_CRS_excellent": {"2008":0.45,"2009":0.45,"2010":0.58,"2011":0.58,"2012":0.65,"2013":0.65},
+							"NonInterstate_CRS_fair": {"2008": 0.92, "2009": 0.95, "2010": 0.94, "2011": 0.95, "2012": 0.96, "2013": 0.96},
+							"NonInterstate_CRS_good": {"2008": 0.62, "2009": 0.71, "2010": 0.63, "2011": 0.64, "2012": 0.63, "2013": 0.63},
+							"NonInterstate_CRS_excellent": {"2008": 0.24, "2009": 0.27, "2010": 0.27, "2011": 0.27, "2012": 0.31, "2013": 0.31},
+							"Interstate_IRI_acceptable": {"2008":0.97,"2009":0.97,"2010":0.92,"2011":0.92,"2012":0.98,"2013":0.98},
+							"Interstate_IRI_good": {"2008":0.45,"2009":0.46,"2010":0.47,"2011":0.48,"2012":0.74,"2013":0.74},
+							"NonInterstate_IRI_acceptable": {"2008": 0.26, "2009": 0.29, "2010": 0.37, "2011": 0.37, "2012": 0.47, "2013": 0.47},
+							"NonInterstate_IRI_good": {"2008": 0.01, "2009": 0.02, "2010": 0.02, "2011": 0.02, "2012": 0.05, "2013": 0.05},
+							"BLoS": {"2002": 3.92, "2013": 3.86},
+							"PLoS": {"2002": 3.41, "2013": 3.32}
+						},
+						"DuPage": {
+							"Interstate_CRS_fair": {"2008":1.00,"2009":1.00,"2010":1.00,"2011":1.00,"2012":1.00,"2013":1.00},
+							"Interstate_CRS_good": {"2008":0.66,"2009":0.68,"2010":1.00,"2011":1.00,"2012":1.00,"2013":1.00},
+							"Interstate_CRS_excellent": {"2008":0.15,"2009":0.21,"2010":0.60,"2011":0.60,"2012":0.65,"2013":0.65},
+							"NonInterstate_CRS_fair": {"2008": 0.97, "2009": 0.93, "2010": 0.94, "2011": 0.98, "2012": 0.98, "2013": 0.99},
+							"NonInterstate_CRS_good": {"2008": 0.69, "2009": 0.60, "2010": 0.60, "2011": 0.73, "2012": 0.71, "2013": 0.61},
+							"NonInterstate_CRS_excellent": {"2008": 0.25, "2009": 0.14, "2010": 0.13, "2011": 0.28, "2012": 0.28, "2013": 0.29},
+							"Interstate_IRI_acceptable": {"2008":1.00,"2009":1.00,"2010":1.00,"2011":1.00,"2012":0.86,"2013":0.86},
+							"Interstate_IRI_good": {"2008":0.45,"2009":0.42,"2010":0.39,"2011":0.39,"2012":0.64,"2013":0.64},
+							"NonInterstate_IRI_acceptable": {"2008": 0.68, "2009": 0.66, "2010": 0.65, "2011": 0.71, "2012": 0.70, "2013": 0.72},
+							"NonInterstate_IRI_good": {"2008": 0.01, "2009": 0.02, "2010": 0.02, "2011": 0.02, "2012": 0.03, "2013": 0.07},
+							"BLoS": {"2002": 4.20, "2013": 3.47 },
+							"PLoS": {"2002": 4.58, "2013": 3.96}
+						},
+						"Kane": {
+							"Interstate_CRS_fair": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_excellent": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_CRS_fair": {"2008": 0.94, "2009": 0.95, "2010": 0.96, "2011": 0.99, "2012": 0.99, "2013": 0.94},
+							"NonInterstate_CRS_good": {"2008": 0.64, "2009": 0.56, "2010": 0.56, "2011": 0.59, "2012": 0.61, "2013": 0.66},
+							"NonInterstate_CRS_excellent": {"2008": 0.15, "2009": 0.16, "2010": 0.16, "2011": 0.36, "2012": 0.38, "2013": 0.29},
+							"Interstate_IRI_acceptable": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_IRI_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_IRI_acceptable": {"2008": 0.65, "2009": 0.63, "2010": 0.65, "2011": 0.80, "2012": 0.82, "2013": 0.80},
+							"NonInterstate_IRI_good": {"2008": 0.09, "2009": 0.07, "2010": 0.06, "2011": 0.22, "2012": 0.23, "2013": 0.30},
+							"BLoS": {"2002": 4.54, "2013": 4.44},
+							"PLoS": {"2002": 4.82, "2013": 4.63}
+						},
+						"Kendall": {
+							"Interstate_CRS_fair": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_excellent": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_CRS_fair": {"2008": 0.93, "2009": 0.98, "2010": 0.98, "2011": 0.98, "2012": 0.98, "2013": 0.98},
+							"NonInterstate_CRS_good": {"2008": 0.64, "2009": 0.62, "2010": 0.61, "2011": 0.60, "2012": 0.60, "2013": 0.38},
+							"NonInterstate_CRS_excellent": {"2008": 0.34, "2009": 0.22, "2010": 0.21, "2011": 0.26, "2012": 0.23, "2013": 0.21},
+							"Interstate_IRI_acceptable": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_IRI_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_IRI_acceptable": {"2008": 0.78, "2009": 0.94, "2010": 0.94, "2011": 0.94, "2012": 0.94, "2013": 0.97},
+							"NonInterstate_IRI_good": {"2008": 0.44, "2009": 0.58, "2010": 0.59, "2011": 0.41, "2012": 0.46, "2013": 0.40},
+							"BLoS": {"2002": 4.14, "2013": 4.39},
+							"PLoS": {"2002": 4.40, "2013": 4.85}
+						},
+						"Lake": {
+							"Interstate_CRS_fair": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_excellent": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_CRS_fair": {"2008": 0.98, "2009": 0.94, "2010": 0.94, "2011": 0.99, "2012": 0.97, "2013": 0.90},
+							"NonInterstate_CRS_good": {"2008": 0.66, "2009": 0.45, "2010": 0.45, "2011": 0.51, "2012": 0.54, "2013": 0.61},
+							"NonInterstate_CRS_excellent": {"2008": 0.26, "2009": 0.18, "2010": 0.17, "2011": 0.38, "2012": 0.38, "2013": 0.30},
+							"Interstate_IRI_acceptable": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_IRI_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_IRI_acceptable": {"2008": 0.66, "2009": 0.66, "2010": 0.67, "2011": 0.77, "2012": 0.83, "2013": 0.83},
+							"NonInterstate_IRI_good": {"2008": 0.05, "2009": 0.03, "2010": 0.03, "2011": 0.17, "2012": 0.18, "2013": 0.19},
+							"BLoS": {"2002": 3.85, "2013": 3.88},
+							"PLoS": {"2002": 4.52, "2013": 4.03}
+						},
+						"McHenry": {
+							"Interstate_CRS_fair": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_CRS_excellent": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_CRS_fair": {"2008": 0.96, "2009": 0.99, "2010": 0.99, "2011": 1.00, "2012": 0.97, "2013": 0.94},
+							"NonInterstate_CRS_good": {"2008": 0.63, "2009": 0.64, "2010": 0.64, "2011": 0.63, "2012": 0.64, "2013": 0.62},
+							"NonInterstate_CRS_excellent": {"2008": 0.31, "2009": 0.09, "2010": 0.09, "2011": 0.29, "2012": 0.31, "2013": 0.27},
+							"Interstate_IRI_acceptable": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"Interstate_IRI_good": {"2008":null,"2009":null,"2010":null,"2011":null,"2012":null,"2013":null},
+							"NonInterstate_IRI_acceptable": {"2008": 0.73, "2009": 0.87, "2010": 0.88, "2011": 0.90, "2012": 0.91, "2013": 0.90},
+							"NonInterstate_IRI_good": {"2008": 0.05, "2009": 0.09, "2010": 0.11, "2011": 0.25, "2012": 0.30, "2013": 0.35},
+							"BLoS": {"2002": 4.27, "2013": 4.03},
+							"PLoS": {"2002": 5.17, "2013": 4.79}
+						},
+						"Will": {
+							"Interstate_CRS_fair": {"2008":1.00,"2009":1.00,"2010":1.00,"2011":1.00,"2012":1.00,"2013":1.00},
+							"Interstate_CRS_good": {"2008":0.69,"2009":0.69,"2010":0.93,"2011":0.93,"2012":1.00,"2013":1.00},
+							"Interstate_CRS_excellent": {"2008":0.26,"2009":0.26,"2010":0.62,"2011":0.63,"2012":0.72,"2013":0.72},
+							"NonInterstate_CRS_fair": {"2008": 0.96, "2009": 0.93, "2010": 0.92, "2011": 0.96, "2012": 0.96, "2013": 0.90},
+							"NonInterstate_CRS_good": {"2008": 0.61, "2009": 0.56, "2010": 0.57, "2011": 0.74, "2012": 0.73, "2013": 0.70},
+							"NonInterstate_CRS_excellent": {"2008": 0.26, "2009": 0.21, "2010": 0.21, "2011": 0.47, "2012": 0.47, "2013": 0.42},
+							"Interstate_IRI_acceptable": {"2008":1.00,"2009":0.99,"2010":0.99,"2011":0.99,"2012":0.99,"2013":0.99},
+							"Interstate_IRI_good": {"2008":0.56,"2009":0.55,"2010":0.76,"2011":0.75,"2012":0.98,"2013":0.98},
+							"NonInterstate_IRI_acceptable": {"2008": 0.57, "2009": 0.60, "2010": 0.60, "2011": 0.74, "2012": 0.75, "2013": 0.77},
+							"NonInterstate_IRI_good": {"2008": 0.05, "2009": 0.08, "2010": 0.08, "2011": 0.19, "2012": 0.19, "2013": 0.20},
+							"BLoS": {"2002": 4.10, "2013": 3.77},
+							"PLoS": {"2002": 4.67, "2013": 4.12}
+						}
+					}
+				}
+			},
+			"bridge-condition": {
+				"mapData": {}
+			}
+		}
+	},
+	"transit": {
+		"indicators": {
+			"access-to-transit": {
+				"mapData": {
+					"points": [
+						{
+							"name": "Access to transit",
+							"description": "This index combines the four factors described below.",
+							"color" : "#00FFFF"
+						},
+						{
+							"name": "Walkability",
+							"description": "Measures walkable street density to gauge the degree to which areas are pedestrian friendly.",
+							"color" : "#ff00ff"
+						},
+						{
+							"name": "Connectivity",
+							"description": "Measures the activities that can be reached from an area via one direct transit route.",
+							"color" : "#ffce00"
+						},
+						{
+							"name": "Frequency",
+							"description": "Measures the average number of times a location is visited during one week by a fixed-route transit service vehicle (train or bus).",
+							"color" : "#C8D4DB"
+						},
+						{
+							"name": "Proximity",
+							"description": "Measures the average distance a person would to travel -- regardless of mode -- from an area to reach a transit stop.",
+							"color" : "#00ff00"
+						}
+					]
+				}
+			},
+			"weekday-trips": {
+				"mapData": {
+					"totalRidership": 1033564,
+					"maxRidership":234232,
+					"minRidership":68230,
+					"groups": {
+						"metra": "Metra system",
+						"cta": "CTA 'L' system"
+					},
+					"lines": [
+						{
+							"group": "cta",
+							"name": "Red",
+							"ridership2013": 234232,
+							"legends": ["RD","RDPR","RPB"],
+							"color" : "rgb(197,10,50)"
+						},
+						{
+							"group": "cta",
+							"name": "Blue",
+							"ridership2013": 176120,
+							"legends": ["BL"],
+							"color" : "rgb(8,163,220)"
+						},
+						{
+							"group": "cta",
+							"name": "Brown",
+							"ridership2013": 108529,
+							"legends": ["BR","BRPR","RPB","L3","L4"],
+							"color" : "rgb(98,53,29)"
+						},
+						{
+							"group": "cta",
+							"name": "Green",
+							"ridership2013": 68230,
+							"legends": ["GR","GROR","PKGR","L4"],
+							"color" : "rgb(22,154,63)"
+						},
+						{
+							"group": "cta",
+							"name": "Orange",
+							"ridership2013": 58765,
+							"legends": ["OR","GROR","L3","L4"],
+							"color" : "rgb(247,68,36)"
+						},
+						{
+							"group": "cta",
+							"name": "Purple",
+							"ridership2013": 42673,
+							"legends": ["BRPR","RDPR","RPB","L3","L4"],
+							"color" : "rgb(80,43,150)"
+						},
+						{
+							"group": "cta",
+							"name": "Pink",
+							"ridership2013": 31572,
+							"legends": ["PK","PKGR","L3","L4"],
+							"color" : "rgb(253,87,149)"
+						},
+						{
+							"group": "cta",
+							"name": "Yellow",
+							"ridership2013": 6338,
+							"legends": ["YL"],
+							"color" :"rgb(249,224,43)"
+						},
+						{
+							"group": "metra",
+							"name": "Burlington Northern Santa Fe",
+							"ridership2013": 66200,
+							"legends": ["BNSF","BNSF, Heritage, SWS"],
+							"color" : "rgb(121,177,63)"
+						},
+						{
+							"group": "metra",
+							"name": "Union Pacific Northwest",
+							"ridership2013": 39100,
+							"legends": ["UP-NW","UP-N, UP-NW, UP-W","UP-N, UP-NW"],
+							"color" : "rgb(250,223,51)"
+						},
+						{
+							"group": "metra",
+							"name": "Union Pacific North",
+							"ridership2013": 34600,
+							"legends": ["UP-N","UP-N, UP-NW, UP-W","UP-N, UP-NW"],
+							"color" : "rgb(38,97,25)"
+						},
+						{
+							"group": "metra",
+							"name": "Metra Electric",
+							"ridership2013": 33800,
+							"legends": ["Electric, S. Shore","Electric-Main Line","Electric-Blue Island","Electric","Electric-South Chicago"],
+							"color" :"rgb(245,123,124)"
+						},
+						{
+							"group": "metra",
+							"name": "Rock Island District",
+							"ridership2013": 29900,
+							"legends": ["Rock Is.","Rock Is.-Branch","Rock Is.-Main"],
+							"color" :"rgb(176,47,50)"
+						},
+						{
+							"group": "metra",
+							"name": "Union Pacific West",
+							"ridership2013": 28600,
+							"legends": ["UP-W","UP-N, UP-NW, UP-W"],
+							"color" : "rgb(253,186,249)"
+						},
+						{
+							"group": "metra",
+							"name": "Milwaukee District West",
+							"ridership2013": 22800,
+							"legends": ["Milw-W","Milw-W, NCS","Milw-N, Milw-W, NCS"],
+							"color" : "rgb(254,160,45)"
+						},
+						{
+							"group": "metra",
+							"name": "Milwaukee District North",
+							"ridership2013": 22200,
+							"legends": ["Milw-N","Milw-N, Milw-W, NCS"],
+							"color" : "rgb(254,128,42)"
+						},
+						{
+							"group": "metra",
+							"name": "South Shore (N. IN Commuter District)",
+							"ridership2013": 12205,
+							"legends": ["Electric, S. Shore","S. Shore"],
+							"color" : "rgb(42,21,112)"
+						},
+						{
+							"group": "metra",
+							"name": "SouthWest Service",
+							"ridership2013": 9600,
+							"legends": ["SWS","Heritage, SWS","BNSF, Heritage, SWS"],
+							"color" : "rgb(19,125,171)"
+						},
+						{
+							"group": "metra",
+							"name": "North Central Service",
+							"ridership2013": 5600,
+							"legends": ["NCS","Milw-W, NCS","Milw-N, Milw-W, NCS"],
+							"color" : "rgb(123,87,173)"
+						},
+						{
+							"group": "metra",
+							"name": "Heritage Corridor",
+							"ridership2013": 2500,
+							"legends": ["Heritage","Heritage, SWS","BNSF, Heritage, SWS"],
+							"color" : "rgb(236,71,74)"
+						}
+					]
+				}
+			},
+			"state-of-repair": {
+				"mapData": {}
+			}
+		}
+	},
+	"freight": {
+		"indicators": {
+			"crossing-delay": {
+				"mapData": {}
+			},
+			"create-projects": {
+				"mapData": {
+					"points": [
+						{
+							"title": "Status of projects",
+							"options": [
+								{
+									"name": "Future separation project",
+									"shortcut": "GS",
+									"icon" : "images/icons/create-triangle.svg"
+								},
+								{
+									"name": "Future rail project",
+									"shortcut": "RL",
+									"icon" : "images/icons/create-diamond.svg"
+								},
+								{
+									"name": "IDOT Phase 1 (Environmental & Preliminary Engineering)",
+									"shortcut": "P1",
+									"icon" : "images/icons/create-circle-01.svg"
+								},
+								{
+									"name": "IDOT Phase 2 (Final Design)",
+									"shortcut": "P2",
+									"icon" : "images/icons/create-circle-02.svg"
+								},
+								{
+									"name": "IDOT Phase 3 (Construction)",
+									"shortcut": "P3",
+									"icon" : "images/icons/create-circle-03.svg"
+								},
+								{
+									"name": "Completed",
+									"shortcut": "CP",
+									"icon" : "images/icons/create-circle-04.svg"
+								}
+							]
+						},
+						{
+							"title": "Corridors",
+							"options": [
+								{
+									"name": "Passenger corridors",
+									"id" : 0,
+									"color" : "#FFFF00"
+
+								},
+								{
+									"name": "East-West corridor",
+									"id" : 1,
+									"color" : "#00FFFF"
+								},
+								{
+									"name": "Beltway corridor",
+									"id" : 3,
+									"color" : "#5BC5F1"
+								},
+								{
+									"name": "Western Avenue corridor",
+									"id" : 2,
+									"color" : "#00FF00"
+								}
+							]
+						}
+					]
+				}
+			}
+		}
+	}
+}

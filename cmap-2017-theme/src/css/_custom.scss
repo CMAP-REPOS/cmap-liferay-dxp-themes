@@ -1,0 +1,283 @@
+@import "global/vars";
+@import "global/mixins";
+
+@import "global/utilities";
+@import "global/typography";
+
+@import "portal/reset";
+
+@import "section/layout";
+@import "section/header";
+@import "section/2-columns";
+@import "section/levelonelayout";
+@import "section/leveltwolayout";
+@import "section/infographic";
+@import "section/storymap";
+@import "layouts/hero-fullbg";
+@import "layouts/updates-layout";
+@import "section/footer";
+
+@import "components/navigation-main";
+@import "components/navigation-main-mobile";
+@import "components/navigation-meta";
+@import "components/navigation-meta-mobile";
+@import "components/navigation-secondary";
+@import "components/navigation-secondary-mobile";
+@import "components/navigation-inline";
+@import "components/navigation-category";
+
+@import "components/responsive-arrow-dropdown";
+@import "components/multiselect-component";
+@import "components/addthis";
+@import "components/calendar";
+@import "components/bg-intro";
+@import "components/breadcrumbs";
+@import "components/searchbar";
+@import "components/accordion-list";
+@import "components/table";
+@import "components/image";
+@import "components/partners-logo";
+@import "components/featured-card";
+@import "components/figure";
+@import "components/modal";
+@import "components/modal-loader";
+@import "components/modal-youtube";
+@import "components/forms";
+@import "components/search-results";
+@import "components/updates-asset-publisher";
+@import "components/updates-results";
+@import "components/social-network-block";
+@import "components/sort-list-component";
+@import "components/slider";
+@import "components/slider-asset-publisher";
+@import "components/slider-hero";
+@import "components/slider-double";
+@import "components/slider-carousel";
+
+@import "global/print";
+
+.homepage {
+  .site-main {
+    margin-bottom: 4em;
+
+    @include rwd(tablet) {
+      margin-bottom: 0;
+    }
+
+
+    [class*="span"] {
+      margin: 0;
+      padding: 0;
+    }
+
+    @extend .clearfix;
+
+    position: relative;
+
+    .bg-shim {
+      background-color: $color-grey-80;
+      height: 480px;
+
+      @include rwd(tablet) {
+        height: 400px;
+      }
+
+
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .ds-shim {
+      /* @include box-shadow(inset 10px 20px 15px -15px rgba(0, 0, 0, 0.3)); */
+
+      height: 18px;
+      z-index: 2;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  #column-3 {
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+
+    @include rwd(tablet) {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  #column-4 {
+    position: absolute;
+    z-index: 0;
+
+    @include rwd(tablet) {
+      position: relative;
+    }
+  }
+
+  .slider-component {
+    &.featuring {
+      /* @include box-shadow(inset 10px 20px 15px -15px $color-grey); */
+
+      background-color: $color-grey-80;
+
+      .slider-title[title="Featuring"] {
+        margin-top: 8.5em;
+
+        @include rwd(phone) {
+          margin-top: $spacing * 4;
+        }
+      }
+
+      .slide {
+        min-height: 480px;
+        background-position: left top;
+
+        @include rwd(phone) {
+          padding-bottom: 40px;
+        }
+
+
+        .mobile-fade {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          opacity: 0.8;
+        }
+
+        .slide-description {
+          font-size: 1.75em;
+
+          @include rwd(phone) {
+            font-size: 1.45em;
+          }
+        }
+
+        h3 {
+          margin-top: 74px !important;
+
+          @include rwd(phone) {
+            margin-top: ($spacing * 3) !important;
+          }
+        }
+      }
+
+      .cmap-control-paging {
+        display: none;
+
+        @include rwd(phone) {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          z-index: 2;
+
+          li {
+            a {
+              border-color: #fff;
+
+              &:hover,
+              &.cmap-active {
+                background-color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.partner-spotlight {
+      border-bottom: 0;
+
+      @include rwd(tablet) {
+        padding: 0 2em;
+      }
+    }
+  }
+}
+
+.main-content {
+  .row-fluid {
+    position: relative;
+
+    .secondary {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
+p {
+  &.pull-left-image {
+    display: block;
+    width: 1000px;
+    margin-left: -1000px;
+    background-color: #ecefec;
+
+    img {
+      display: block;
+      margin-left: 1000px;
+    }
+  }
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.block-follow-us {
+  // margin: 48px 0 0
+  // width: 272px
+  // @include rwd(phone)
+  //   width: 100%
+  //   padding: ($spacing*4) 0 0
+  //   border-top: 1px solid #c9d5dd
+}
+
+.block-partner-spotlight {
+  margin-bottom: 2em;
+
+  // float: none
+  // margin: 48px 0 0 ( ($bs-width + $bs-margin) * 3 )
+  // @include rwd(phone)
+  //   margin: 0
+  //   padding: ($spacing*4) ($spacing*4) 0
+}
+
+.bs-span-reverse {
+  margin-left: 0 !important;
+
+  &.span3 {
+    overflow: hidden;
+  }
+}
+
+.levelonelayout {
+  .main-content {
+    .portlet-column-content-last {
+      // right content column
+      h1, h2, h3, h4, h5,
+      p,
+      ul,
+      a {
+        color: #fff;
+        text-shadow: none;
+      }
+
+      h1, h2, h3, h4, h5,
+      a {
+        border-color: #fff;
+      }
+    }
+  }
+}
+

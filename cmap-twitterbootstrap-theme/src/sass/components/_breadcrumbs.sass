@@ -1,0 +1,19 @@
+.breadcrumbs
+  &:before
+    line-height: 2.5
+    visibility: visible
+    color: $color-grey
+    content: "\25A0"
+  a
+    border: none
+  li
+    line-height: 2.5
+    font-size: 1em !important
+    &:before
+      display: inline-block
+      padding: 0 .5em
+      color: $color-grey
+      content: " | "
+    &.first,
+    &.only
+      margin-left: .5em

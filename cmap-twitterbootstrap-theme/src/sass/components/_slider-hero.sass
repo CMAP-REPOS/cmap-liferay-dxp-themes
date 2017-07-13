@@ -1,0 +1,119 @@
+.slider-hero
+  position: relative
+  [class*="span"]
+    margin: 0
+    padding: 0
+  &.slider-tabs
+    .slides
+      li
+        background-position: left top
+        .slide-description
+          margin-top: 10%
+          @extend .offset3
+          @extend .span8
+          padding: 0
+          @include rwd(tablet)
+            .row-fluid &
+              @include box-sizing(border-box)
+              width: 100%
+              margin-left: 0
+              margin-right: 0
+              padding: 0 1.5em
+  .slides
+    li
+      min-height: 480px
+      background-position: center center
+      background-repeat: no-repeat
+      @include background-size(cover)
+      &.white-text
+        color: #fff
+        a
+          color: #fff
+          @include border($style: dotted, $color: #fff)
+      &.white-title-text
+        .slider-title
+          color: #fff
+      &.white-title-border
+        .slider-title
+          border-color: #fff
+      .mobile-fade
+        @include rwd(tablet)
+          position: absolute
+          top: 0
+          bottom: 0
+          left: 0
+          right: 0
+          z-index: -1
+          opacity: .8
+      .slide-description
+        margin-top: 5%
+        margin-left: 23.2%
+        margin-right: 23.2%
+        @include typeset(28, (32/28))
+        font-family: $font-serif
+        font-weight: lighter
+        h3
+          margin: 0 0 (16/28)+em 0
+          padding: 0
+          font-weight: normal
+          @include typeset(16, (32/28))
+      .photo-credit
+        margin-right: 23.2%
+        position: absolute
+        bottom: 0
+        right: 0
+        @include typeset(12, (32/12))
+      .slider-title
+        margin: 1.75em 3em
+        position: absolute
+        top: 0
+        left: 0
+        color: $color
+  .slide-tabs
+    margin-top: 3.3em
+    counter-reset: slide-item
+    @include rwd(tablet)
+      display: none
+    li
+      @include transition( background-color .4s )
+      display: block
+      max-height: 5em
+      height: 5em
+      padding-left: 1.5em
+      @include border(top, $color: $color-grey-60)
+      background-color: transparent
+      @include typeset(12, (20/12))
+      color: $color-charcoal
+      cursor: pointer
+      &:before
+        display: block
+        margin-bottom: .5em
+        color: $color-blue
+        font-weight: bold
+        counter-increment: slide-item
+        content: counter(slide-item)
+      &:hover
+        background-color: rgba(#fff, .4)
+      &.flex-active
+        background-color: #fff
+    h3
+      margin: 0
+      padding: 0
+      @include typeset(16, (20/16))
+  .flex-control-nav
+    width: auto
+    margin-left: 23.2%
+    bottom: 0
+    z-index: 2
+    text-align: left
+    &.flex-control-paging
+      li
+        a
+          height: .5em
+          width: .5em
+          @include box-shadow(none)
+          @include border(all, $color: #fff)
+          background-color: transparent
+          &.flex-active
+            background-color: #fff
+

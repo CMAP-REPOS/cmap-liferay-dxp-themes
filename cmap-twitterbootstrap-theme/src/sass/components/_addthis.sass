@@ -1,0 +1,85 @@
+.share-this-block
+  position: relative
+  // @include rwd(tablet)
+  //   width: 8*$spacing
+  //   position: absolute
+  //   top: $spacing
+  //   right: 0
+  .tbs-1-1-1-2-columns-hero-slider-container &
+    @include box-sizing(border-box)
+    @extend .span2
+    position: absolute
+    top: 7px
+    right: -1em
+    z-index: 1
+    .share
+      font-family: $font-sans
+      font-size: 0.75em
+      font-weight: bold
+    .share-container
+      margin-top: 2px
+  .icon
+    padding-right: 32px
+  .share
+    display: inline-block
+    background-image: url(../images/icons/icon-share.png)
+    background-position: right 4px
+    background-repeat: no-repeat
+    line-height: 2
+    // @media (max-width:768px)
+    //   display: block
+    //   width: 8*$spacing
+    //   margin: 0
+    //   background-position: center
+    //   text-indent: -20000%
+  #share-this-toggle:checked ~ .share-container
+    display: block
+  .share-container
+    display: none
+    padding: 1em
+    position: absolute
+    top: 2em
+    left: -1em
+    right: 0
+    z-index: 2
+    background-color: $color-grey-80
+    border: 1px solid $color-grey-60
+    border-top: none
+    .share-this-label
+      color: $color-grey
+    @media (max-width:768px)
+      margin: 0
+      left: -3em
+      a
+        margin: 0
+        padding: .5em 0
+    a
+      display: block
+      margin-bottom: .5em
+
+      border: none
+      color: $color-grey
+      cursor: pointer
+      display: block
+      font-family: $font-sans
+      font-size: 12px
+      font-weight: bold
+      height: 2.5em
+      line-height: 2.5em
+      margin: 0 0 .5em 0
+      visibility: visible
+      &:hover
+        border: none
+        text-decoration: none
+      .page &
+        display: block
+      &:after
+        display: inline-block
+        padding-left: .75em
+        font-weight: normal
+        content: attr(title)
+      &:last-child
+        margin-bottom: 0
+      span
+        display: inline-block
+        vertical-align: middle

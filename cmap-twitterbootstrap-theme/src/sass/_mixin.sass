@@ -1,0 +1,46 @@
+@mixin rwd($screen)
+  @if $mobile
+    @if $screen == phone
+      @media only screen and (max-width: $phone)
+        @content
+    @else if $screen == tablet
+      @media only screen and (max-width: $tablet)
+        @content
+    @else if $screen == desktop
+      @media only screen and (max-width: $desktop)
+        @content
+        
+@mixin typeset($size: 16, $lineheight: 1.5)
+  font-size: $size + px
+  font-size: ($size/16) + em
+  line-height: $lineheight
+
+@mixin border($side: bottom, $width: 1px, $style: solid, $color: $color-grey-60)
+  @if $side == all
+    border: $width $style $color
+  @else if $side == top
+    border-top: $width $style $color
+  @else if $side == left
+    border-left: $width $style $color
+  @else if $side == right
+    border-right: $width $style $color
+  @else
+    border-bottom: $width $style $color
+
+@mixin background($box-shadow: inset 10px 20px 15px -15px $color-grey, $remove: false)
+  @if $remove == false
+    @include box-shadow($box-shadow)
+    background-color: $color-grey-80
+  @else
+    @include box-shadow(none)
+    background-color: transparent
+
+@mixin no_list
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    display: inline-block
+
+
+

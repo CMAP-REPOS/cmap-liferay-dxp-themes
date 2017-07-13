@@ -1,0 +1,19 @@
+.youtube {
+  iframe {
+    display: block;
+    width: 100%;
+  }
+
+  .content-wrap {
+    h4 {
+      margin-bottom: 3 * $spacing;
+    }
+  }
+}
+
+//   &.modal
+//     .iframe-wrap
+//       padding: $default-spacing $default-spacing $default-spacing/2
+
+//     .content-wrap
+//       padding-right: $default-spacing

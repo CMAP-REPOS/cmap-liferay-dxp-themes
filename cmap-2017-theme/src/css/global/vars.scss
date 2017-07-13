@@ -1,0 +1,93 @@
+// Font
+$font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$font-serif: "Prensa LF", serif;
+
+// Colors
+$color: #000;
+$color-charcoal: rgb(35, 39, 45);
+
+// $color-charcoal: rgb(70, 80, 90)
+$color-grey: rgb(121, 150, 171);
+$color-grey-90: tint($color-grey, 90%);
+$color-grey-80: tint($color-grey, 80%);
+$color-grey-60: tint($color-grey, 60%);
+$color-grey-40: tint($color-grey, 40%);
+$color-grey-20: tint($color-grey, 20%);
+$color-grey-10: tint($color-grey, 10%);
+$color-blue: rgb(50, 150, 200);
+$color-metropulse: #00508B;
+$blue-dark: #3c5976;
+$blue-med: #88a0b2;
+$blue-light: #e4eaee;
+$white: #ffffff;
+$accent: #3897c6;
+
+// Units
+$spacing: 8px;
+$bs-width: 5.98291%;
+$bs-margin: 2.5641%;
+$space-lrg: 50px;
+$space-sm: 25px;
+
+//mobile
+$m-space-lrg: 30px;
+$m-space-sm: 25px;
+
+// Mega menu height
+$main-megamenu-height: 540px;
+
+// Media Queries
+$mobile: true !default;
+$phone: 420px;
+$flexslidermobile: 860px;
+$tablet: 768px;
+$smallestdesktop: 825px;
+$smallerdesktop: 850px;
+$smalldesktop: 875px;
+$desktop: 960px;
+$bigdesktop: 1024px;
+$levelonethreshold2: 1174px;
+$levelonethreshold1: 1274px;
+$levelonethreshold: 1374px;
+
+//font icons
+
+$icomoon-font-path: "../fonts";
+
+$icon-back-light: "";
+$icon-back-white: "";
+$icon-close-light: "";
+$icon-close-white: "";
+$icon-info-dark: "";
+$icon-info-white: "";
+$icon-key-light: "";
+$icon-key-white: "";
+$icon-layers-dark: "";
+$icon-layers-white: "";
+$icon-map-large-accent: "";
+$icon-map-large-accent_1: "";
+$icon-map-large-dark: "";
+$icon-map-large-dark_1: "";
+$icon-map-med-dark: "";
+$icon-map-med-dark_1: "";
+$icon-map-med-white: "";
+$icon-map-med-white_1: "";
+$icon-map-small-light: "";
+$icon-map-small-light_1: "";
+$icon-map-small-white: "";
+$icon-map-small-white_1: "";
+$icon-marp-large-white: "";
+$icon-nav-left-dark: "";
+$icon-nav-left-dark_1: "";
+$icon-nav-left-white: "";
+$icon-nav-left-white_1: "";
+$icon-nav-right-dark: "";
+$icon-nav-right-dark_1: "";
+$icon-nav-right-white: "";
+$icon-nav-right-white_1: "";
+$icon-paragraphh-white: "";
+$icon-paragraph-light: "";
+$icon-paragraph-light_1: "";
+$icon-paragraph-white: "";
+$icon-share-light: "";
+$icon-share-white: "";

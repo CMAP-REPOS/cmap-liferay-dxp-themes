@@ -1,0 +1,26 @@
+.primary
+  counter-reset: figures
+.figure-portlet
+  @extend .row-fluid
+  @extend .span9
+  margin-left: 0
+  counter-increment: figures
+  .page-maximized &
+    float: none
+  .figure-title,
+  .figure-caption,
+  .figure-download
+    margin-bottom: 2*$spacing
+    font-family: $font-sans
+    font-size: 0.84375em
+    line-height: 1.1851851852
+  .figure-title
+    &:before
+      display: inline-block
+      margin-right: 1em
+      font-size: 0.8888888889em
+      font-weight: bold
+      text-transform: uppercase
+      content: "Fig: " counter(figures)
+  .figure-download
+    word-break: break-word

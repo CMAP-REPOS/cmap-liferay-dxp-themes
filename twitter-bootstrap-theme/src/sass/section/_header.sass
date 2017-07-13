@@ -1,0 +1,37 @@
+.site-header
+  .main-mobile-active &
+    @include rwd(tablet) 
+      position: absolute
+      height: 100%
+      z-index: 5
+      width: 100%
+  font-family: $font-sans
+  .header-main
+    height: inherit
+    .container-fluid
+      line-height: 4.5em
+      .branding
+        padding-left: 2em
+        .site-title
+          margin: 0
+          position: relative
+          display: inline-block
+          font:
+            family: $font-sans
+            size: 1.5em
+            weight: normal
+          line-height: inherit
+          a
+            display: block
+            color: #000
+            white-space: nowrap
+            overflow: visible
+            height: 68px
+          img
+            margin-left: 2em
+            vertical-align: middle
+            margin-top: 2px
+            width: 23px !important
+            height: 23px !important
+
+

@@ -1,0 +1,34 @@
+.accordion-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid $color-grey-60;
+  list-style: none;
+
+  li {
+    margin-top: 1.5 * $spacing;
+    border-bottom: 1px solid $color-grey-60;
+  }
+
+  .title {
+    @include transition(all 0.2s);
+
+    padding-bottom: 1.5 * $spacing;
+    font-weight: bold;
+    cursor: pointer;
+
+    p {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  .description {
+    display: none;
+  }
+
+  .current {
+    .title {
+      font-size: 120%;
+    }
+  }
+}

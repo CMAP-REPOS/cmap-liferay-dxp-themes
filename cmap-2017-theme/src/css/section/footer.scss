@@ -1,0 +1,89 @@
+.site-footer {
+  border-top: 1px solid $color-grey-60;
+
+  @include rwd(tablet) {
+    margin-left: 2em;
+  }
+
+
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  color: $color-grey;
+  font-family: $font-sans;
+
+  @include rwd(tablet) {
+    margin-left: 2em;
+  }
+
+
+  .page-maximized & {
+    margin-top: 0;
+  }
+
+  .row-fluid {
+    padding: 0 0 0 2em;
+
+    @include rwd(tablet) {
+      padding: 0;
+
+      .footer-1 {
+        width: 100%;
+      }
+    }
+  }
+
+  a {
+    color: $color-grey;
+
+    @include rwd(tablet) {
+      display: block;
+    }
+  }
+
+  .items-h {
+    li {
+      margin-left: $spacing;
+      padding-top: $spacing;
+      padding-bottom: $spacing;
+      padding-left: $spacing;
+      font-size: 0.85em;
+
+      @include rwd(tablet) {
+        padding: 0;
+        margin: 0;
+        line-height: 3em;
+      }
+
+
+      border-left: 1px solid $color-grey-60;
+
+      @include rwd(tablet) {
+        border-left: none;
+        border-top: 1px solid $color-grey-60;
+        display: block;
+        width: 100%;
+      }
+
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:first-child,
+      &:last-child {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+      }
+
+      &:last-child {
+        float: right;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

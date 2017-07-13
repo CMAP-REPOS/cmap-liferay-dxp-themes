@@ -1,0 +1,47 @@
+#meta-nav {
+  @media (max-width: 768px) {
+    width: 8 * $spacing;
+    position: absolute;
+    top: 0;
+    right: 8 * $spacing;
+    float: none;
+
+    .nav-meta {
+      margin-top: 0;
+
+      .items-h {
+        li {
+          display: none;
+
+          a {
+            display: block;
+            width: 8 * $spacing;
+            height: 8 * $spacing;
+            padding: 0;
+            padding-bottom: 0;
+            border-top: none;
+            font-size: 1em;
+            text-indent: -20000%;
+
+            &:hover {
+              border-top: none;
+            }
+          }
+        }
+
+        .icon {
+          padding-right: 0;
+        }
+
+        .search {
+          margin: 0;
+          float: none;
+          background-color: #fff;
+          background-image: url(../images/icons/icon-search.png);
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

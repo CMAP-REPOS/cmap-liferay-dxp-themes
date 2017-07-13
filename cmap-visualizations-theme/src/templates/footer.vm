@@ -1,0 +1,11 @@
+<footer id="footer" class="site-footer" role="contentinfo">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span9 pull-right footer-1">
+        #if ( $footer_section_1 )
+          $footer_section_1
+        #end
+      </div> <!-- .footer-1 -->
+    </div> <!-- .row-fluid -->
+  </div> <!-- .container-fluid -->
+</footer> <!-- #footer -->

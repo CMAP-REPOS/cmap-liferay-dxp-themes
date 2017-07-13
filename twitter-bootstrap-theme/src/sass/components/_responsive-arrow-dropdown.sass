@@ -1,0 +1,19 @@
+.rad-wrapper
+  position: absolute
+  z-index: 2
+  left: 0
+  .rad-arrow-holder
+    position: relative
+    &:before
+      content: ''
+      height: 0
+      position: absolute
+      width: 0
+      top: -19px
+      left: 50%
+      border: 10px solid transparent
+      border-bottom-color: #C9D5DC
+      z-index: 9999
+      transform: translate(-50%, 0)
+      -webkit-transform: translate(-50%, 0)
+      overflow: hidden

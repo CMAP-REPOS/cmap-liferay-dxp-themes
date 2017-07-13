@@ -1,0 +1,108 @@
+.hidden_select_container {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.simpleselect,
+.simpleselect * {
+	box-sizing: content-box;
+}
+
+.simpleselect {
+	position: relative !important;
+	max-width: 100%;
+	height: 36px;
+	color: #A6B8C5;
+	font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+.simpleselect .options {
+	width: 198px;
+}
+
+.simpleselect .placeholder,
+.simpleselect .options .option,
+.simpleselect .options .optgroup .optgroup-label {
+    padding: 0 10px;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+.simpleselect .options .optgroup .optgroup-label {
+	cursor: default;
+	font-weight: bold;
+}
+
+.simpleselect .options .optgroup .option {
+	padding-left: 20px;
+}
+
+.simpleselect .placeholder,
+.simpleselect .options {
+	background: #fff;
+	border: 1px solid #c9d5de;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.simpleselect .placeholder {
+	position: relative;
+}
+
+.simpleselect .placeholder:after {
+	content: "\f0d7";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 10px;
+	width: 8px;
+	font-family: FontAwesome;
+	line-height: 36px;
+	color: #3297C8;
+}
+@media only screen and (max-width: 415px){
+.simpleselect.active .placeholder:after {
+	content: "\f00d";
+}
+}
+
+.simpleselect .placeholder:hover {
+	background: #fafafa;
+}
+
+.simpleselect .options {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  margin-top: 42px;
+  border-radius: 4px;
+  color: #46505a;
+}
+
+/*.simpleselect .options .option:first-child,
+.simpleselect .options .option.active:first-child {
+	display: none;
+}*/
+
+.simpleselect .options .option.active {
+	background: #f9f9f9;
+}
+
+.simpleselect.disabled .placeholder,
+.simpleselect.disabled .placeholder:hover {
+	background: #fafafa;
+	color: #aaa;
+	border-color: #eee;
+	cursor: default;
+}
+
+.simpleselect.disabled .placeholder:after {
+	opacity: .5;
+}

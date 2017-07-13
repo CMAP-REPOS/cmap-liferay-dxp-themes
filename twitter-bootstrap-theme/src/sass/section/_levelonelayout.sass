@@ -1,0 +1,34 @@
+.site-main.levelonelayout
+  background-position: right top
+  @include rwd(levelonethreshold)
+    background-position: 105% top
+  @include rwd(levelonethreshold1)
+    background-position: 110% top
+  @include rwd(levelonethreshold2)
+    background-position: 115% top
+  @include rwd(bigdesktop)
+    background-position: 123% top
+  @include rwd(desktop)
+    background-position: 127% top
+  @include rwd(smalldesktop)
+    background-position: 138% top
+  @include rwd(smallerdesktop)
+    background-position: 144% top
+  @include rwd(smallestdesktop)
+    background-position: 146% top
+  @include rwd(tablet)
+    background-position: -9999px -9999px
+  .primary
+    color: #fff
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2)
+
+  // Slider
+  .slider.portlet-asset-publisher 
+    .asset-abstract 
+      .asset-title
+        a
+          color: #fff
+      .asset-content 
+        .asset-more 
+          a
+            color: #fff

@@ -1,0 +1,52 @@
+.tbs-1-1-1-2-columns-hero-slider-container
+  [class*="span"]
+    .row-fluid
+      margin: 0
+      *margin: 0
+  .row-fluid
+    [class*="span"]
+      padding: 0
+  #content
+    .content-primary
+      margin-left: 0
+      padding: 0 3em 0 0
+      font-family: $font-serif
+      @include rwd(tablet)
+        padding: 0 3em
+      .container-fluid
+        padding: 0
+    .content-secondary
+      padding-left: 3em
+      position: static
+      @include background($remove: true)
+  .hero-slider
+    @include background
+  .site-footer
+    margin-top: 3em
+    @include border(top)
+    @include typeset(14, (40/14))
+    .footer-1
+      margin: 0 auto
+      padding: 0
+      float: none
+      .items
+        margin-bottom: 0
+        margin-left: 3em
+        li
+          margin-right: 1.5em
+          padding-right: 1.5em
+          float: left
+          @include border(right)
+          &.copyright
+            margin: 0
+            padding: 0
+            border: none
+            float: right
+            @include rwd(tablet)
+              float: none
+            p
+              margin-bottom: 0
+              color: $color-grey
+          a
+            color: $color-grey
+            border: none

@@ -1,0 +1,48 @@
+.site-main.leveltwolayout {
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  @include rwd(levelonethreshold) {
+    background-position: 110% top;
+  }
+
+
+  @include rwd(levelonethreshold1) {
+    background-position: 115% top;
+  }
+
+
+  @include rwd(levelonethreshold2) {
+    background-position: 123% top;
+  }
+
+
+  @include rwd(bigdesktop) {
+    background-position: 127% top;
+  }
+
+
+  @include rwd(desktop) {
+    background-position: 138% top;
+  }
+
+
+  @include rwd(smalldesktop) {
+    background-position: 144% top;
+  }
+
+
+  @include rwd(smallerdesktop) {
+    background-position: 146% top;
+  }
+
+
+  @include rwd(smallestdesktop) {
+    background-position: (-9999px) -9999px;
+  }
+
+
+  @include rwd(tablet) {
+    background-position: (-9999px) -9999px;
+  }
+}

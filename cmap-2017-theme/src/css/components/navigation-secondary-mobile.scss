@@ -1,0 +1,61 @@
+.secondary {
+  @include rwd(tablet) {
+    display: none !important;
+  }
+}
+
+.mobile-secondary-menu {
+  display: none;
+
+  .eventslayout & {
+    display: block;
+    visibility: visible;
+    width: 100%;
+  }
+
+  @include rwd(tablet) {
+    display: block;
+    visibility: visible;
+  }
+
+
+  position: relative;
+  float: left;
+
+  select {
+    @include appearance(none);
+
+    margin: 0;
+    padding: 0 (3 * $spacing) 0 $spacing;
+    outline: none;
+    border-radius: 0;
+    border: 1px solid $color-grey-60;
+    background: $color-grey-90;
+    cursor: pointer;
+  }
+
+  label {
+    display: block;
+    width: 16px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 2 * $spacing;
+
+    &:after {
+      height: 30px;
+      width: 16px;
+      margin: 0;
+      padding: 0 0 0 (1.5 * $spacing);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 1px solid $color-grey-60;
+      background-image: url(../images/icons/icon-scroll.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      content: "";
+    }
+  }
+}

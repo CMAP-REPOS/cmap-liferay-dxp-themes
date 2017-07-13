@@ -1,0 +1,68 @@
+.nav-meta {
+  margin: 0 !important;
+  font-size: 1em;
+  min-width: 129px;
+
+  @include rwd(tablet) {
+    display: none !important;
+  }
+
+
+  .items {
+    white-space: nowrap;
+    overflow: visible;
+    width: 400px;
+
+    li {
+      float: left;
+      display: inline-block;
+      margin-left: 1em;
+      font-size: 0.75em;
+
+      @include rwd(desktop) {
+        display: block;
+      }
+
+
+      margin-left: 1em;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      .homepage & {
+        &:first-child {
+          margin-left: 16px;
+        }
+      }
+
+      a {
+        @include transition(border-color 0.3s);
+
+        display: block;
+        padding-top: 12px;
+        border-top: 2px solid transparent;
+
+        &:hover {
+          border-color: darken($color-grey, 30%);
+        }
+      }
+    }
+
+    .icon {
+      padding-right: 23px;
+    }
+
+    .search {
+      background-image: url(../images/icons/icon-search.png);
+      background-position: right 14px;
+      background-repeat: no-repeat;
+    }
+
+    &.items-inline {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}

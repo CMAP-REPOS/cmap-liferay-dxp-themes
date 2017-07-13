@@ -1,0 +1,135 @@
+.portlet-asset-publisher {
+  margin-left: 0 !important;
+
+  .search-pages {
+    display: none;
+  }
+
+  .asset-abstract {
+    padding-top: 0;
+    padding-bottom: 3 * $spacing;
+    width: ($bs-width + $bs-margin) * 9;
+
+    @include rwd(tablet) {
+      width: auto;
+    }
+
+
+    border-top: 1px solid $color-grey-60;
+
+    .asset-publish-date {
+      font-famliy: $font-sans;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .asset-title {
+      margin: 0;
+      padding: 0;
+      border-bottom: none;
+      line-height: 1.25;
+
+      a {
+        border-bottom: none;
+        font-family: $font-serif;
+        font-size: 18px;
+        color: $color-charcoal;
+        padding: 0 0 2px 0;
+
+        img {
+          @extend .hidden;
+        }
+      }
+    }
+
+    .asset-content {
+      margin: 0 0 16px 0;
+      padding: 0;
+
+      .asset-more, .asset-more a {
+        color: #000;
+      }
+    }
+  }
+
+  .asset-full-content .asset-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .taglib-header {
+    border: none;
+
+    .header-title {
+      margin: 0;
+    }
+  }
+
+  .comment-link {
+    background-image: url(../images/icons/icon-discussion.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 3 * $spacing;
+    margin-right: $spacing / 2;
+    border-bottom: none;
+  }
+
+  .comment-link:hover {
+    border-bottom: none;
+  }
+
+  .permalink-link {
+    background-image: url(../images/icons/icon-link.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 38px;
+    line-height: 38px;
+    margin-right: $spacing / 2;
+    margin-left: 82px;
+    border-bottom: none;
+  }
+
+  .permalink-link:hover {
+    border-bottom: none;
+  }
+
+  .permalink-link.open {
+    padding-right: 0;
+    background-image: none;
+  }
+
+  input[type="text"], input[type="text"]:focus {
+    border: 1px solid #C8D4DC;
+    border-radius: 5px;
+    color: #46505A;
+    line-height: 16px;
+    padding: 8px 8px 8px 32px;
+    font-weight: normal;
+    font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+    font-size: 16px;
+    cursor: text;
+    margin-bottom: $spacing / 2;
+    background-color: #F2F4F7;
+  }
+
+  input.link {
+    background-image: url(../images/icons/icon-link.png);
+    background-repeat: no-repeat;
+    line-height: $spacing * 5;
+    background-position: $spacing center;
+  }
+
+  .header-back-to {
+    a {
+      border-bottom: 0px solid white;
+    }
+  }
+}
+
+.bot {
+  .portlet-asset-publisher {
+    .search-pages {
+      display: block;
+    }
+  }
+}

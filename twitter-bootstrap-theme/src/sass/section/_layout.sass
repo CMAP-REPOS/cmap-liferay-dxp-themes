@@ -1,0 +1,158 @@
+*
+  @include box-sizing(border-box)
+
+.container-fluid
+  max-width: 1200px
+  margin: 0 auto
+
+.page-meta-data
+  @include box-sizing(border-box)
+  @include box-shadow(inset 10px 20px 15px -15px rgba(0,0,0,0.3))
+  position: relative
+  z-index: 3
+  border-bottom: 1px solid $color-grey-60
+  background-color: $color-grey-80
+  color: $color-grey
+  font:
+    family: $font-sans
+    size: .75em
+    weight: bold
+  line-height: 2
+  min-height: 4em
+  .fixed &
+    position: fixed
+    top: 0
+    z-index: 3
+    width: 100%
+  .signed-in &
+    min-height: (5 * $spacing)
+  .row-fluid
+    padding: 0
+    @include rwd(tablet)
+      padding: 0 2.33em
+    .levelonelayout &,
+    .layout12_0212_0 &,
+    .eventslayout &
+      @include rwd(tablet)
+        padding: 0
+    .updateslayout &
+      @include rwd(tablet)
+        padding: 0
+        //.more-in-section,
+        .breadcrumbs-wrap
+          display: inline-block
+          width: auto
+        .more-in-section
+          margin-top: 0
+          width: 100%
+          margin-left: -2em
+          padding-left: 2em
+    .more-in-section
+      height: 4em
+      overflow: visible
+      padding-left: 2em
+      @include rwd(tablet)
+        padding-left: 0
+        width: 100%
+        p
+          display: none
+      .mobile-secondary-menu
+        display: none
+        .eventslayout &
+          display: block
+          width: 100%
+          margin-top: 12px
+        @include rwd(tablet)
+          display: block
+          width: 100%
+          margin-top: 12px
+        .simpleselect
+          position: initial !important
+          margin-top: 0
+          font-size: 1.333em
+          font-weight: normal
+          height: 1.5em
+          @include rwd(tablet)
+            margin-left: 2em
+          width: 75%
+          padding-right: 25%
+          .placeholder
+            line-height: 1.5em
+            color: #46505a
+            &:after
+              line-height: 1.5em
+              color: #46505a
+          .options
+            position: absolute
+            width: 95%
+            left: 2.5%
+            margin-top: 1.8em
+            .option
+              &:first-child, &:nth-child(2)
+                display: none
+#jumpToSelectContainer
+  .mobile-secondary-menu
+    .simpleselect
+      .options
+        .option
+          &:first-child, &:nth-child(2)
+            display: block !important
+          
+    .breadcrumbs-wrap
+      .levelonelayout &,
+      .layout12_0212_0 & /* remove/edit when layouts change */
+        // margin-left: 0
+      @include rwd(tablet)
+        display: none
+  a
+    color: $color-grey
+  p
+    margin-bottom: 0
+
+
+
+.page
+  margin-top: -120px
+  position: relative
+  overflow: hidden
+  &.searchbar-active
+    @include transition(margin-top .4s)
+    margin-top: 0
+  #column-1,
+  .width-limit
+    max-width: 1200px
+    margin: 0 auto
+    position: relative
+.col_1_2_1-12_48_12
+  .portlet-layout
+    max-width: 1200px
+    width: 100%
+    margin: 0 auto
+    position: relative
+
+.site-main
+  .main-content
+    overflow: hidden
+  .columns-1
+    padding-bottom: 4.5*$spacing
+    position: relative
+  .primary
+    margin: 0
+    padding-top: 8px
+    padding-bottom: 72px
+    background-position: top right
+    background-repeat: no-repeat
+    @include rwd(tablet)
+      padding-left: 2em
+      padding-right: 2em
+      width: 100%
+      .the-content
+        width: 100%
+  .secondary
+    @include box-shadow(-1000px 0 0 1000px $color-grey-80, 0 0 $spacing $spacing/2 $color-grey)
+    position: relative
+    z-index: 2
+    border-collapse: separate
+    background-color: $color-grey-80
+
+

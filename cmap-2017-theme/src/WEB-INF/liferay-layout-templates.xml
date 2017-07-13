@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 7.0.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_7_0_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="eventslayout" name="Events Layout">
+			<template-path>/layouttpl/custom/eventslayout-layouttpl/eventslayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/eventslayout-layouttpl/eventslayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="fullbackgroundimage1212210" name="Full Background Image Layout">
+			<template-path>/layouttpl/custom/fullbackgroundimage1212210-layouttpl/fullbackgroundimage_1212210.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/fullbackgroundimage1212210-layouttpl/fullbackgroundimage_1212210.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="infographiclayout" name="Infographic Layout">
+			<template-path>/layouttpl/custom/infographiclayout-layouttpl/infographiclayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/infographiclayout-layouttpl/infographiclayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="infographiclayout_old" name="Infographic Layout Old">
+			<template-path>/layouttpl/custom/infographiclayout-old-layouttpl/infographiclayout_old.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/infographiclayout-old-layouttpl/infographiclayout_old.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="layout12_0212_0" name="Twitter Bootstrap Layout - cols( 12, 2-12 )">
+			<template-path>/layouttpl/custom/layout12_0212_0-layouttpl/layout12_0212_0.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/layout12_0212_0-layouttpl/layout12_0212_0.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="levelonelayout" name="Level One Layout">
+			<template-path>/layouttpl/custom/levelonelayout-layouttpl/levelonelayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/levelonelayout-layouttpl/levelonelayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="leveltwolayout" name="Level Two Layout">
+			<template-path>/layouttpl/custom/leveltwolayout-layouttpl/leveltwolayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/leveltwolayout-layouttpl/leveltwolayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="storymaplayout" name="Story Map Layout">
+			<template-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="tbs_1_1_1_2_columns_hero_slider" name="TBS 1, 1, 1-2 Columns Hero Slider">
+			<template-path>/layouttpl/custom/tbs-1-1-1-2-columns-hero-slider-layouttpl/tbs_1_1_1_2_columns_hero_slider.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/tbs-1-1-1-2-columns-hero-slider-layouttpl/tbs_1_1_1_2_columns_hero_slider.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="updateslayout" name="Updates Layout">
+			<template-path>/layouttpl/custom/updateslayout-layouttpl/updateslayout.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/updateslayout-layouttpl/updateslayout.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="updateslayout_new" name="Updates Layout NEW">
+			<template-path>/layouttpl/custom/updateslayout-new-layouttpl/updateslayout_new.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/updateslayout-new-layouttpl/updateslayout_new.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>
+
+
