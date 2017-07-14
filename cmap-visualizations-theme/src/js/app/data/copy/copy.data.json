@@ -14,7 +14,7 @@
 					"content": {
 						"title": "Prioritizing the future",
 						"description": ["Metropolitan Chicago must pursue clear regional objectives as established in the GO TO 2040 comprehensive plan, which urges prioritized investments to maintain and modernize our transportation system."],
-						"image": "images/introduction/cmap_mob_image_challenge01.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/introduction/cmap_mob_image_challenge01.jpg"
 					}
 				},
 				{
@@ -26,7 +26,7 @@
 							"Getting around is something each of us may take for granted -- at least until we get stuck in traffic or our train or bus gets delayed.",
 							"As a region, metropolitan Chicago cannot afford to take transportation infrastructure for granted.  It is simply critical to our quality of life and our economy."
 						],
-						"image": "images/introduction/cmap_mob_image_challenge02.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/introduction/cmap_mob_image_challenge02.jpg"
 					}
 				},
 				{
@@ -35,7 +35,7 @@
 					"content": {
 						"title": "An aging system",
 						"description": ["The regional system of roads, transit, and freight is not being adequately maintained, and resources to upgrade these assets are more scarce and precious than ever."],
-						"image": "images/introduction/cmap_mob_image_challenge03.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/introduction/cmap_mob_image_challenge03.jpg"
 					}
 				}
 			]
@@ -48,7 +48,7 @@
 			"content": {
 				"title": ["Roads"],
 				"description": ["The region must invest wisely because we cannot build our way out of congestion, which costs more than $7 billion each year in lost fuel and productivity."],
-				"image": "images/indicators/roads/cmap_mob_image_roads.jpg"
+				"image": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/cmap_mob_image_roads.jpg"
 			},
 			"indicators": [
 				{
@@ -59,7 +59,7 @@
 						"description": ["While state and federal dollars will remain critical to maintain our transportation system, we need regional solutions to reduce congestion and pay for needed improvements."],
 						"mapTitle": "Highway congestion (hours per weekday)",
 						"mapSubtitle": "This map is a snapshot for an average weekday of traffic flow on selected expressway and tollway facilities. From 5:30 a.m. through 7:00 p.m., congestion hotspots emerge during peak travel times, as shown in red. As a facility returns to free flow, the color transitions to pale blue. CMAP is urging the use of express toll lanes that will help manage traffic and give drivers better choices for getting around.",
-						"mapLegendImage": "images/indicators/roads/congestion-legend.png",
+						"mapLegendImage": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/congestion-legend.png",
 						"video": {
 							"title": "Tracking congestion",
 							"description": "Congestion has been increasing 5 percent annually for 30 years. The average commuter has spent the following time stuck in traffic:",
@@ -73,9 +73,9 @@
 									"71 hours/year"
 								]
 							],
-							"src": "video/indicators/roads/congestion-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/roads/congestion-hd"
 						},
-						"poster": "images/indicators/roads/congestion-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/congestion-poster.jpg"
 					},
 					"map": {
 						"headTime": "Time of day",
@@ -91,7 +91,7 @@
 						"description": ["One measure of the overall regional transportation system is road condition. By looking at how this changes over time, we can infer whether metropolitan Chicago is investing adequately to improve its existing expressways and arterials."],
 						"mapTitle": "Highway ride quality trends",
 						"mapSubtitle": "Ride quality is a good indication of travelers' experience on highways, so it's important to track regionally using various measures over time.  The color intensity and size of dots reflect differences in ride quality from county to county; more intensity and larger dots mean better quality, while lower intensity and smaller dots indicate less quality. (Note that data availability is limited based on geography and type of road.)",
-						"mapLegendImage": "images/indicators/roads/ride-quality-legend.png",
+						"mapLegendImage": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/ride-quality-legend.png",
 						"video": {
 							"title": "Tracking road quality",
 							"description": "Estimated 50-year lifetime costs of an expressway, in current dollars:",
@@ -113,9 +113,9 @@
 									"<b>$87,500,000 <small class='unit'>/ mile</small></b>"
 								]
 							],
-							"src": "video/indicators/roads/ride-quality-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/roads/ride-quality-hd"
 						},
-						"poster": "images/indicators/roads/ride-quality-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/ride-quality-poster.jpg"
 					}
 				},
 				{
@@ -129,9 +129,9 @@
 						"video": {
 							"title": "Tracking bridge quality",
 							"description": "<p>The number of bridges in our region spiked dramatically in the late 1950s when the national Interstate Highway system was built.</p> <p><b>Along with other aging infrastructure, they are now in need of extensive maintenance and modernization.</b></p>",
-							"src": "video/indicators/roads/bridge-condition-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/roads/bridge-condition-hd"
 						},
-						"poster": "images/indicators/roads/bridge-condition-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/roads/bridge-condition-poster.jpg"
 					}
 				}
 			]
@@ -142,7 +142,7 @@
 			"content": {
 				"title": ["Transit"],
 				"description": ["The region must increase its commitment to making public transit the preferred option for getting around."],
-				"image": "images/indicators/transit/cmap_mob_image_transit.jpg"
+				"image": "/o/cmap-visualizations-theme/js/app/images/indicators/transit/cmap_mob_image_transit.jpg"
 			},
 			"indicators": [
 				{
@@ -153,13 +153,13 @@
 						"description": ["By providing residents with access to safe, reliable, and economical public transportation, more people will be able to use transit, walk, or bike — so driving becomes a choice rather than a necessity."],
 						"mapTitle": "The Access to Transit Index",
 						"mapSubtitle": "CMAP has developed a new method of measuring the percentage of regional population and jobs with access to transit. This map shows the overall access index, along with the four separate factors from which it is derived.",
-						"mapLegendImage": "images/indicators/transit/access-to-transit-legend.png",
+						"mapLegendImage": "/o/cmap-visualizations-theme/js/app/images/indicators/transit/access-to-transit-legend.png",
 						"video": {
 							"title": "Tracking access to transit",
 							"description": "<p><b>Commuting by car is approximately 12 times more expensive than commuting by transit.</b></p><p>Making transit a better \"first option\" for more residents to get around the region will help keep cars off the road, reduce congestion for drivers, and improve air quality for all.</p>",
-							"src": "video/indicators/transit/access-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/transit/access-hd"
 						},
-						"poster": "images/indicators/transit/access-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/transit/access-poster.jpg"
 					}
 				},
 				{
@@ -173,9 +173,9 @@
 						"video": {
 							"title": "Tracking transit ridership",
 							"description": "<p>By increasing the ridership of CTA, Metra, and Pace, the region can enhance quality of life, create economic opportunity, and reduce congestion for all residents.</p><p><b>A well-maintained system will consistently attract and retain more riders.</b></p>",
-							"src": "video/indicators/transit/ridership-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/transit/ridership-hd"
 						},
-						"poster": "images/indicators/transit/ridership-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/transit/ridership-poster.jpg"
 					}
 				},
 				{
@@ -191,9 +191,9 @@
 								"<b>$13.4 billion</b> to maintain the current condition",
 								"<b>$20.0 billion</b> additional to eliminate capital backlog"
 							],
-							"src": "video/indicators/transit/maintenance-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/transit/maintenance-hd"
 						},
-						"poster": "images/indicators/transit/maintenance-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/transit/maintenance-poster.jpg"
 					}
 				}
 			]
@@ -204,7 +204,7 @@
 			"content": {
 				"title": ["Freight"],
 				"description": ["Our region and nation must emphasize the importance of metropolitan Chicago as America's leading freight hub."],
-				"image": "images/indicators/freight/cmap_mob_image_freight01.jpg"
+				"image": "/o/cmap-visualizations-theme/js/app/images/indicators/freight/cmap_mob_image_freight01.jpg"
 			},
 			"indicators": [
 				{
@@ -215,13 +215,13 @@
 						"description": ["Delays created when rail traffic forces cars and trucks to wait are a drag on the regional economy and quality of life. Increased freight volumes create new jobs but also new infrastructure needs."],
 						"mapTitle": "Tracking rail crossing delays",
 						"mapSubtitle": "An important measure of our freight system's performance is the frequency and duration of delays at rail crossings. While the past two decades have seen improvements such as \"flyovers\" to separate rail from motor vehicle traffic, we still have much to do. See the top 10 most delayed crossings, and explore the map to see other crossings across the region.",
-						"mapLegendImage": "images/indicators/freight/crossing-delay-legend.png",
+						"mapLegendImage": "/o/cmap-visualizations-theme/js/app/images/indicators/freight/crossing-delay-legend.png",
 						"video": {
 							"title": "Tracking motorist delays",
 							"description": "<b>Cars and trucks are delayed at rail crossings for 7,800 hours each weekday </b> &mdash; more than 2 million hours of delay per year across the region.",
-							"src": "video/indicators/freight/crossing-delay-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/freight/crossing-delay-hd"
 						},
-						"poster": "images/indicators/freight/crossing-delay-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/freight/crossing-delay-poster.jpg"
 					}
 				},
 				{
@@ -235,9 +235,9 @@
 						"video": {
 							"title": "Tracking CREATE progress",
 							"description": "A program of national significance, CREATE will invest billions in critically needed improvements to increase the efficiency of the region's passenger and freight rail infrastructure and enhance quality of life for Chicago-area residents.",
-							"src": "video/indicators/freight/create-projects-hd"
+							"src": "/o/cmap-visualizations-theme/js/app/video/indicators/freight/create-projects-hd"
 						},
-						"poster": "images/indicators/freight/create-projects-poster.jpg"
+						"poster": "/o/cmap-visualizations-theme/js/app/images/indicators/freight/create-projects-poster.jpg"
 					}
 				}
 			]
@@ -248,7 +248,7 @@
 			"content": {
 				"title": ["Forward"],
 				"description": ["Regional mobility is a major emphasis of Metropolitan Chicago's GO TO 2040 comprehensive plan, which CMAP and its partners are working to implement."],
-				"image": "images/forward/cmap_mob_image_forward.jpg"
+				"image": "/o/cmap-visualizations-theme/js/app/images/forward/cmap_mob_image_forward.jpg"
 			},
 			"indicators": [
 				{
@@ -257,7 +257,7 @@
 					"content": {
 						"title": "Integrate",
 						"description": "<p>Illinois needs to carefully target its infrastructure investments by integrating land use and transportation planning to pursue measurable objectives for reducing road congestion, increasing travel alternatives, and enhancing communities' livability.  Priorities include the need to:</p><ul><li><a href='http://www.cmap.illinois.gov/about/2040/regional-mobility/invest-transportation' target='_blank'>Maintain and modernize</a> existing transportation assets.</li><li>Build <a href='http://www.cmap.illinois.gov/documents/10180/332742/Update+Major+Capital+Projects+FINAL.pdf/51a1943f-0c2d-4243-8d94-9232f4598566' target='_blank'>major capital projects</a> selected to maximize regional benefits for mobility, quality of life, and economic growth.  </li><li>Plan for land use that supports transit investments, including <a href='http://www.cmap.illinois.gov/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/supportive-land-use-strategies-for-expressway-based-brt' target='_blank'>bus rapid transit (BRT)</a>.</li><li>Reform state transportation funding while upholding CMAP's <a href='http://www.cmap.illinois.gov/documents/10180/75514/BoardMemo--StateCapitalProgramPrinciples05-08-2013.pdf/daa90735-9826-4126-b445-9e64475f12a4' target='_blank'>principles for a new state capital program</a>.</li></ul>",
-						"image": "images/forward/cmap_mob_image_forward_integrate.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/forward/cmap_mob_image_forward_integrate.jpg"
 					}
 				},
 				{
@@ -266,7 +266,7 @@
 					"content": {
 						"title": "Innovate",
 						"description": "<p>CMAP believes taxpayers will support investing in a transportation system that improves their quality of life.  To accomplish this, Illinois needs innovative approaches to achieve measurable outcomes:</p><ul><li>Implement <a href='http://www.cmap.illinois.gov/mobility/roads/congestion-pricing' target='_blank'>express toll lanes</a> with congestion pricing to manage traffic and provide choices for getting around.  </li><li>Implement <a href='http://www.cmap.illinois.gov/mobility/strategic-investment/performance-based-funding' target='_blank'>performance-based funding</a> in the evaluation and selection of transportation projects.</li><li>Implement the full CREATE program for reducing rail crossing delays, improving passenger rail service, and enhancing the flow of freight.</li></ul>",
-						"image": "images/forward/cmap_mob_image_forward_innovate.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/forward/cmap_mob_image_forward_innovate.jpg"
 					}
 				},
 				{
@@ -275,7 +275,7 @@
 					"content": {
 						"title": "Implement the FUND 2040 proposal",
 						"description": "<p>Metropolitan Chicago must compete globally against regions whose public investments have for decades far outpaced our own. Current infrastructure funding mechanisms are simply not adequate to meet our region's infrastructure needs.  A coalition led by CMAP is proposing <a href='http://www.fund2040.org/' target='_blank'>FUND 2040</a>.  Though it won’t solve all our anticipated needs, the fund can advance a significant number of prioritized projects while leveraging private and public funding sources.  It would support:</p><ul><li><b>Transportation.</b>  FUND 2040 will help modernize roads, transit, and freight infrastructure.  Projects will reduce congestion, improve access to jobs and housing, and support the movement of goods.</li><li><b>Water.</b>  FUND 2040 will support communities’ efforts to deal effectively with water challenges, including flood control, stormwater, sewer, and leaky pipes. In addition to built infrastructure, systems of “green infrastructure” will be improved to create natural solutions for managing water.</li><li><b>Open Space.</b>  FUND 2040 will support projects that improve residents’ access to green spaces that are essential for recreation and well-being. One emphasis will be to improve links between parks, forest preserves, and trails, contributing to the regional network of open space.</li></ul>",
-						"image": "images/forward/cmap_mob_image_forward_fund.jpg"
+						"image": "/o/cmap-visualizations-theme/js/app/images/forward/cmap_mob_image_forward_fund.jpg"
 					}
 				}
 			]
