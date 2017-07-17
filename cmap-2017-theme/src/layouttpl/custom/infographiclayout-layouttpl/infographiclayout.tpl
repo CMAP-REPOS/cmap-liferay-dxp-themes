@@ -1,4 +1,5 @@
 <!-- 
+https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisplay
 <p>getPathThemeRoot: $themeDisplay.getPathThemeRoot()</p>
 <p>getPathThemeTemplates: $themeDisplay.getPathThemeTemplates()</p>
 <p>getPathThemeJavaScript: $themeDisplay.getPathThemeJavaScript()</p>
@@ -11,15 +12,10 @@
     define.amd = false;
 </script>
 
-<!-- 
-workaround to include external libraries that are defined as modules but should not be picked up by Liferay AMD Loader
-https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries
- -->
-
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script> -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+<!-- https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries -->
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/d3.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/c3.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/infographics.js"></script>
     
 <script>
     define.amd = define._amd;
@@ -33,7 +29,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-li
 		<div class="vertical-centered grid-align">
 			<div class="middle">
 				<div class="infospacer"></div>
-				<div class="pageTitle">$layout.getName()</div>
+				<div class="pageTitle">$layout.getName($locale)</div>
 			</div>
 			<div id="shareModule" class="right-button">
 				<div class="share-this-block">

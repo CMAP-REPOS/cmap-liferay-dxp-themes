@@ -1,4 +1,8 @@
-/* @import "global/vars";
+@import "vendor/c3.min";
+@import "vendor/jquery.simpleselect.min";
+
+/* 
+@import "global/vars";
 @import "global/mixins";
 
 @import "global/utilities";
@@ -52,12 +56,9 @@
 @import "components/slider-asset-publisher";
 @import "components/slider-hero";
 @import "components/slider-double";
-@import "components/slider-carousel"; */
+@import "components/slider-carousel";
 
-@import "vendor/c3.min";
-@import "vendor/jquery.simpleselect.min";
-
-/* @import "global/print";
+@import "global/print";
 
 .homepage {
   .site-main {
@@ -282,5 +283,6 @@ a:hover {
       }
     }
   }
-} */
+} 
+*/
 
