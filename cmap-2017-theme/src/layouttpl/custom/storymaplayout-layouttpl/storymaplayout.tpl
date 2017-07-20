@@ -6,14 +6,26 @@
 <p>getPathThemeImages: $themeDisplay.getPathThemeImages()</p>
  -->
 
-<script type="text/javascript"
-	src="$themeDisplay.getPathThemeRoot()/vendor/leaflet/leaflet.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<script>
+    define._amd = define.amd;
+    define.amd = false;
+</script>
+
+<!-- https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries -->
+
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/leaflet.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/mapbox.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/storymaps.js"></script>
+    
+<script>
+    define.amd = define._amd;
+</script>
+
 
 <link rel="stylesheet"
-	href="$themeDisplay.getPathThemeRoot()/vendor/leaflet/leaflet.css" />
+	href="$themeDisplay.getPathThemeRoot()/vendor/leaflet.css" />
 <link rel="stylesheet"
-	href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" />
+	href="$themeDisplay.getPathThemeRoot()/vendor/mapbox.min.css" />
 
 <div class="storymap" id="main-content" role="main">
 	<div class="portlet-layout row">
