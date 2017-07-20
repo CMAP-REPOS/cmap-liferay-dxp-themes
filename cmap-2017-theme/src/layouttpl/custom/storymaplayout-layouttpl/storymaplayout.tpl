@@ -1,4 +1,5 @@
 <!-- 
+https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisplay
 <p>getPathThemeRoot: $themeDisplay.getPathThemeRoot()</p>
 <p>getPathThemeTemplates: $themeDisplay.getPathThemeTemplates()</p>
 <p>getPathThemeJavaScript: $themeDisplay.getPathThemeJavaScript()</p>
@@ -12,7 +13,6 @@
 </script>
 
 <!-- https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries -->
-
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/leaflet.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/mapbox.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/storymaps.js"></script>
@@ -21,11 +21,10 @@
     define.amd = define._amd;
 </script>
 
-
 <link rel="stylesheet"
-	href="$themeDisplay.getPathThemeRoot()/vendor/leaflet.css" />
+	href="$themeDisplay.getPathThemeCss()/vendor/leaflet.css" />
 <link rel="stylesheet"
-	href="$themeDisplay.getPathThemeRoot()/vendor/mapbox.min.css" />
+	href="$themeDisplay.getPathThemeCss()/vendor/mapbox.min.css" />
 
 <div class="storymap" id="main-content" role="main">
 	<div class="portlet-layout row">
