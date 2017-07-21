@@ -1,14 +1,9 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        // AMD. Register as a "named" module.
         define('infographics', [], factory);
     } else if (typeof module === 'object' && module.exports) {
-        // Node. Does not work with strict CommonJS, but
-        // only CommonJS-like environments that support module.exports,
-        // like Node.
         module.exports = factory();
     } else {
-        // Browser globals (root is window)
         root.infographics = factory();
   }
 }(this, function () {
@@ -679,7 +674,7 @@
 //            });    		
     	},
     	bindDonutLegendEvents: function(options) {
-    	    console.log('infographics.generateDonutLegend');
+    	    console.log('infographics.bindDonutLegendEvents');
     	    console.log(options);
 		    if ($(window).width() > 420) {
 		        //the legend-hover class is given to everything in mobile....

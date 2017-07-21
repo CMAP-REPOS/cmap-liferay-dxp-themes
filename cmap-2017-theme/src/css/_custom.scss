@@ -1,12 +1,15 @@
-@import "vendor/c3.min";
+@import "global/vars";
+@import "global/mixins";
+@import "global/utilities";
+@import "global/typography";
+
+@import "section/infographic";
+@import "section/storymap";
+
 @import "vendor/jquery.simpleselect.min";
 
 /* 
-@import "global/vars";
-@import "global/mixins";
 
-@import "global/utilities";
-@import "global/typography";
 
 @import "portal/reset";
 
@@ -16,7 +19,6 @@
 @import "section/levelonelayout";
 @import "section/leveltwolayout";
 @import "section/infographic";
-@import "section/storymap";
 @import "layouts/hero-fullbg";
 @import "layouts/updates-layout";
 @import "section/footer";
