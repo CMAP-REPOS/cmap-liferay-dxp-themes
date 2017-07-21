@@ -26,7 +26,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <link rel="stylesheet"
 	href="$themeDisplay.getPathThemeCss()/vendor/mapbox.min.css" />
 
-<div class="storymap" id="main-content" role="main">
+<div class="storymaplayout" id="main-content" role="main">
 	<div class="portlet-layout row">
 		<div class="col-md-12 portlet-column portlet-column-only"
 			id="column-1">$processor.processColumn("column-1",

@@ -24,7 +24,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <link rel="stylesheet"
 	href="$themeDisplay.getPathThemeCss()/vendor/c3.min.css" />
 	
-<div class="infographic" id="main-content" role="main">
+<div class="infographiclayout" id="main-content" role="main">
 	<div class="infographic-nav">
 		<div class="vertical-centered grid-align">
 			<div class="middle">
