@@ -1,29 +1,28 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This repository contains theme projects for the CMAP Liferay DXP instance.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Clone this repository into your Liferay `themes` directory.
+* Check out [Liferay Themes and Layout Templates](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) in the Liferay documentation.
+* Install Node.js, Yeoman, and gulp. See [Install the Liferay Theme Generator](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) for more info.
+* Run `npm install` in each theme's root directory.
+* Add a `liferay-theme.json` file to each theme's root directory: 
+
+>     {
+>       "LiferayTheme": {
+>         "appServerPath": "[bundle path]/tomcat-8.0.32",
+>         "deployPath": "[bundle path]/deploy",
+>         "url": "http://localhost:8080",
+>         "appServerPathPlugin": "[bundle path]/webapps/[theme project name]",
+>         "deployed": false,
+>         "pluginName": "[theme project name]"
+>       }
+>     }
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
 ### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
