@@ -8,7 +8,7 @@ This repository contains theme projects for the CMAP Liferay DXP instance.
 
 * Clone this repository into your Liferay "themes" directory.
 
-  `clone git@bitbucket.org:workstate-code/cmap-liferay-dxp-themes.git .`
+        `clone git@bitbucket.org:workstate-code/cmap-liferay-dxp-themes.git .`
 
 * Check out [Liferay Themes and Layout Templates](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) in the Liferay documentation.
  
@@ -18,22 +18,22 @@ This repository contains theme projects for the CMAP Liferay DXP instance.
 
 * Add a "liferay-theme.json" file to each theme's root directory: 
 
-       {
-         "LiferayTheme": {
-          "appServerPath": "[bundle path]/tomcat-8.0.32",
-          "deployPath": "[bundle path]/deploy",
-          "url": "http://localhost:8080",
-          "appServerPathPlugin": "[bundle path]/webapps/[theme project name]",
-          "deployed": false,
-          "pluginName": "[theme project name]"
+        {
+            "LiferayTheme": {
+                "appServerPath": "[bundle path]/tomcat-8.0.32",
+                "deployPath": "[bundle path]/deploy",
+                "url": "http://localhost:8080",
+                "appServerPathPlugin": "[bundle path]/webapps/[theme project name]",
+                "deployed": false,
+                "pluginName": "[theme project name]"
+            }
         }
-      }
 
-  This file is part of Liferay's default .gitignore for theme projects and should be different for each local environment.
+    This file is part of Liferay's default .gitignore for theme projects and should be different for each local environment.
 
-  The "[bundle path]" value is the path to Tomcat's parent directory.
+    The "[bundle path]" value is the path to Tomcat's parent directory.
   
-  The "[theme project name]" value is the same as the theme's root folder (e.g., "cmap-2017-theme"). 
+    The "[theme project name]" value is the same as the theme's root folder (e.g., "cmap-2017-theme"). 
 
 ### How do I build and deploy themes? ###
 
