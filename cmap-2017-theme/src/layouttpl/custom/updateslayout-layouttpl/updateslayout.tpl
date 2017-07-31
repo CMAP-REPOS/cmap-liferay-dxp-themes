@@ -38,7 +38,7 @@
         </div> <!-- .portlet-column -->
 
         <div class="portlet-column span7 offset1 breadcrumbs-wrap">
-          <!-- $processor.processPortlet("73_INSTANCE_Nj25") -->
+          <!-- processor.processPortlet("73_INSTANCE_Nj25") -->
         </div> <!-- .portlet-column -->
 
         <div class="portlet-column portlet-column-last span2 share-this-block">  

@@ -8,7 +8,7 @@
         </td> <!-- .portlet-column -->
 
         <td width="40%" class="portlet-column breadcrumbs-wrap">
-          $processor.processPortlet("73_INSTANCE_Nj25")
+          <!-- processor.processPortlet("73_INSTANCE_Nj25") -->
         </td> <!-- .portlet-column -->
 
         <td width="30%" class="portlet-column portlet-column-last share-this-block">
@@ -22,12 +22,12 @@
       <tr>
         <td class="portlet-column portlet-column-first secondary" id="column-2">
           <p class="menu-heading">More in this section:</p>
-          $processor.processPortlet("71_INSTANCE_Nj25")
+          <!-- processor.processPortlet("71_INSTANCE_Nj25") -->
           $processor.processColumn("column-2", "portlet-column-content portlet-column-content-first")
         </td> <!-- .portlet-column -->
         
         <td class="portlet-column portlet-column-last primary" id="column-3">
-          $processor.processPortlet("73_INSTANCE_Nj25")
+          <!-- processor.processPortlet("73_INSTANCE_Nj25") -->
           $processor.processColumn("column-3", "portlet-column-content portlet-column-content-last")
         </td> <!-- .portlet-column -->
       </tr>
@@ -41,7 +41,7 @@
         </div> <!-- .portlet-column -->
 
         <div class="portlet-column span7 offset1 breadcrumbs-wrap">
-          $processor.processPortlet("73_INSTANCE_Nj25")
+          <!-- processor.processPortlet("73_INSTANCE_Nj25") -->
         </div> <!-- .portlet-column -->
 
         <div class="portlet-column portlet-column-last span2 share-this-block">  
@@ -59,7 +59,7 @@
         
         <div class="portlet-column portlet-column-first span2 secondary" id="column-2">
           <p class="menu-heading">More in this section:</p>
-          $processor.processPortlet("71_INSTANCE_Nj25")
+          <!-- processor.processPortlet("71_INSTANCE_Nj25") -->
           $processor.processColumn("column-2", "portlet-column-content portlet-column-content-first")
         </div> <!-- .portlet-column -->
       </div> <!-- .row-fluid -->
