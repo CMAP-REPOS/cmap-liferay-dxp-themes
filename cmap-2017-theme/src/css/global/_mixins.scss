@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @mixin rwd($screen) {
   @if $mobile {
     @if $screen == phone {
