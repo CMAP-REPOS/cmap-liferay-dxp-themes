@@ -81,6 +81,7 @@
 <!-- inject:js -->
 
 <script src="${javascript_folder}/vendor/jquery.simpleselect.min.js" type="text/javascript"></script>
+<script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
 
 <!-- endinject -->
 
