@@ -1,65 +1,7 @@
 @charset "UTF-8";
 
-/*
-@import "global/vars";
-@import "global/mixins";
-@import "global/utilities";
-@import "global/typography";
-
-@import "section/infographic";
-@import "section/storymap";
-
-@import "vendor/jquery.simpleselect.min";
-
-@import "portal/reset";
-
-@import "section/layout";
-@import "section/header";
-@import "section/2-columns";
-@import "section/levelonelayout";
-@import "section/leveltwolayout";
-@import "section/infographic";
-@import "layouts/hero-fullbg";
-@import "layouts/updates-layout";
-@import "section/footer";
-
-@import "components/navigation-main";
-@import "components/navigation-main-mobile";
-@import "components/navigation-meta";
-@import "components/navigation-meta-mobile";
-@import "components/navigation-secondary";
-@import "components/navigation-secondary-mobile";
-@import "components/navigation-inline";
-@import "components/navigation-category";
-
-@import "components/responsive-arrow-dropdown";
-@import "components/multiselect-component";
-@import "components/addthis";
-@import "components/calendar";
-@import "components/bg-intro";
-@import "components/breadcrumbs";
-@import "components/searchbar";
-@import "components/accordion-list";
-@import "components/table";
-@import "components/image";
-@import "components/partners-logo";
-@import "components/featured-card";
-@import "components/figure";
-@import "components/modal";
-@import "components/modal-loader";
-@import "components/modal-youtube";
-@import "components/forms";
-@import "components/search-results";
-@import "components/updates-asset-publisher";
-@import "components/updates-results";
-@import "components/social-network-block";
-@import "components/sort-list-component";
-@import "components/slider";
-@import "components/slider-asset-publisher";
-@import "components/slider-hero";
-@import "components/slider-double";
-@import "components/slider-carousel";
-
-@import "global/print";
-*/
-
+#portlet_com_liferay_calendar_web_portlet_CalendarPortlet {
+	.scheduler-base-views {
+		display: none;
+	}
+}
