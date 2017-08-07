@@ -52,7 +52,7 @@
 			</a>
 		</#if>
 
-		<!-- h2 class="portlet-title-text">${portlet_title}</h2 -->
+		<#-- h2 class="portlet-title-text">${portlet_title}</h2 -->
 
 		${portlet_display.writeContent(writer)}
 	</div>
