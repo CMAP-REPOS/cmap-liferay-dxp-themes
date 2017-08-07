@@ -1,4 +1,4 @@
-<nav class="sort-pages modify-pages navbar navbar-default">
+<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cmap-main-navbar" aria-expanded="false">
@@ -15,42 +15,42 @@
 		</div>
 		<div class="collapse navbar-collapse" id="cmap-main-navbar-1">
 			<ul aria-label="Site Pages" role="menubar" class="nav navbar-nav">
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/about" role="menuitem">
 						<span>
 							About CMAP
 						</span>
 					</a>
 				</li>
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/programs-and-resources" role="menuitem">
 						<span>
 							Programs &amp; Resources
 						</span>
 					</a>
 				</li>
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/about/involvement/committees" role="menuitem">
 						<span>
 							Committees
 						</span>
 					</a>
 				</li>
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/data" role="menuitem">
 						<span>
 							Data &amp; Analysis
 						</span>
 					</a>
 				</li>
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/about/updates" role="menuitem">
 						<span>
 							Updates &amp; News
 						</span>
 					</a>
 				</li>
-				<li class=" dropdown" role="presentation">
+				<li role="presentation">
 					<a href="/contact-us" role="menuitem">
 						<span>
 							Contact Us
