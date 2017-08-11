@@ -10,20 +10,91 @@
 
 	function getDataValue() {
 		console.log('getDataValue');
-	}
+	};
 
     function removeAllFade() {
         var activeClass = "c3-defocused";
         d3.selectAll('g').classed(activeClass, false);
-    }
+    };
 
     function updateInfo() {
         var thisID = $('.button-container').find('.on').attr('id');
-
         $('.side-narrative').find('#' + thisID).addClass('display');
         $('.mini-info:not(#' + thisID + ')').removeClass('display');
+    };
+    
+	function generateLegend(options) {
+	    console.log('infographics.generateLegend');
+	    console.log(options);
+	    var d = options.d;
+        d3.select('.legend-info.' + options.chartType + '.' + options.chartId).insert('div', '.chart')
+            .attr('class', 'legend')
+            .selectAll('div')
+            .data(d3.keys(d[0]))
+            .enter().append('p')
+            .attr('class', function (id) {
+                return id;
+           })
+           .html(function (id) {
+               return '<span></span>' + id;
+           })
+           .each(function (id) {
+               d3.select(this).select('span').append("svg").attr("width", 8).attr("height", 8).append("circle").attr("cx", 4).attr("cy", 4).attr("r", 4).style('fill', options.chart.color(id));
+           })
+           .on('mouseover', function (id) {
+//                if (options.chartType === "donut_chart") {
+//                	
+//                 // We get our title from id and then our number from
+//					// 'data-value'
+//
+//                 if (options.axis_y_tick_format === 'dollars') {
+//                     var valueFormatted = '$' + getDataValue(d, id);
+//                 } else if (options.axis_y_tick_format === 'percent')
+//                     var valueFormatted = getDataValue(d, id) + '%';
+//                 } else {
+//                     var valueFormatted = getDataValue(d, id);
+//                 }
+//                 
+//                 d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node().innerHTML = "<tspan>" + valueFormatted + "</tspan><tspan class='upper' x='-1' y='25'>" + id + "</tspan>";
+//	}
+//                 if ($(window).width() > 420) {
+//                     chart.focus(id);
+//                     var childButtons = $('.button-container').children();
+//                     if (childButtons.hasClass('on')) {
+//                         childButtons.removeClass('on');
+//                         $('.side-narrative').children().removeClass('display');
+//                     }
+//                 }
+//                     
+//                }
 
-    }    		
+               if ($(window).width() > 420) {
+                   options.chart.api.focus(id);
+                   var childButtons = $('.button-container').children();
+                   if (childButtons.hasClass('on')) {
+                       childButtons.removeClass('on');
+                       $('.side-narrative').children().removeClass('display');
+                   }
+               }
+           	})
+           .on('mouseout', function (id) {
+                options.chart.api.revert();
+           })
+           .on('click', function (id) {
+                if ($(window).width() < 420) {
+                    $(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
+                    $(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
+                    chart.focus(id);
+
+                    if (!$(this).hasClass('legend-clicked')) {
+                        chart.revert();
+                        $(this).removeClass('m-legend-fade').siblings().removeClass('m-legend-fade');
+                    }
+
+                    return false;
+                }
+           });    		
+	}; 
 
     var labelPosition = 'inner-middle';
     var axisPosition = false;
@@ -73,7 +144,7 @@
     	                    position: 'outer-center'
     	                },
     	                tick: {
-    	                    //can prolly be a function for multiples of 12..
+    	                    // can prolly be a function for multiples of 12..
     	                    values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
     	                    multiline: false
     	                }
@@ -85,7 +156,8 @@
     	                    position: labelPosition
     	                },
     	                tick: {
-    	                    format: //custom formatting to make sure we dont have a lot of 0's
+    	                    format: // custom formatting to make sure we dont
+									// have a lot of 0's
     	                    function (d) {
     	                        if (d > 1000) {
     	                            return siFormat(d).replace(",000", "");
@@ -106,12 +178,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                var offset = $('#'+options.chartId).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
     	                    + color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + d3.format(",")(d[0].value) + "<br/>"
@@ -121,6 +187,16 @@
     	        },
     	        legend: {
     	            show: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'area_stacked', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	},
@@ -146,7 +222,7 @@
     	            left: 0,
     	        },
     	        data: {
-    	            //the file variable goes here.
+    	            // the file variable goes here.
     	            url: options.data_url,
     	            hide: [headings[0]],
     	            order: [d3.keys(d[0])],
@@ -186,13 +262,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                //tracking mouse position within unique div - get offset on page.
-//    	                var offset = $('#'+options.chartID).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                var toolTipFormat = axis_y_tick_format(d[0].value);
     	                return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
@@ -203,6 +272,16 @@
     	        },
     	        legend: {
     	            show: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'bar_chart_grouped', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	},
@@ -271,12 +350,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                var offset = $('#'+options.chartId).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                var toolTipFormat = axis_y_tick_format(d[0].value);
     	                return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
@@ -287,6 +360,16 @@
     	        },
     	        legend: {
     	            show: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'bar_chart_stacked', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	},
@@ -319,7 +402,8 @@
     	                    "</tspan><tspan class='upper' x='-1' y='25'>" +
     	                    d.id +
     	                    "</tspan>";
-    	                // append node to its parent so that is rendered on top of arcs
+    	                // append node to its parent so that is rendered on top
+						// of arcs
     	                node.parentNode.append(node);
     	            }
     	        },
@@ -362,7 +446,8 @@
     	            url: options.data_url,
     	            type: 'line',
     	            x: headings[0],
-    	            xFormat: '%Y', // 'xFormat' can be used as custom format of 'x' w/ d3 formatting strings.
+    	            xFormat: '%Y', // 'xFormat' can be used as custom format of
+									// 'x' w/ d3 formatting strings.
     	        },
     	        color: {
     	            pattern: ["rbga(255, 255, 255, 0)", "#00396e", "#51c0ec", "#a3ce72", "#e6b936", "#DA2128", "rgba(60, 89, 118, 0.2)"]
@@ -407,12 +492,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                var offset = $('#'+options.chartId).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                var toolTipFormat = axis_y_tick_format(d[0].value);
     	                if (color(d[0]) != "rgba(60, 89, 118, 0.2)") {
@@ -428,6 +507,16 @@
     	                }
     	            },
     	            grouped: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'multi_line', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	},   
@@ -451,7 +540,8 @@
     	            type: 'line',
     	            types: options.data_types,
     	            x: headings[0],
-    	            xFormat: '%Y', // 'xFormat' can be used as custom format of 'x' w/ d3 formatting strings.
+    	            xFormat: '%Y', // 'xFormat' can be used as custom format of
+									// 'x' w/ d3 formatting strings.
     	        },
     	        color: {
     	            pattern: ["rbga(255, 255, 255, 0)", "#00396e", "#51c0ec", "#a3ce72", "#e6b936", "#DA2128", "rgba(60, 89, 118, 0.2)"]
@@ -496,12 +586,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                var offset = $('#'+options.chartId).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                var toolTipFormat = axis_y_tick_format(d[0].value);
     	                if (color(d[0]) != "rgba(60, 89, 118, 0.2)") {
@@ -517,6 +601,16 @@
     	                }
     	            },
     	            grouped: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'multi_line_area', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	},   
@@ -540,7 +634,8 @@
     	            type: 'line',
     	            types: options.data_types,
     	            x: headings[0],
-    	            xFormat: '%Y', // 'xFormat' can be used as custom format of 'x' w/ d3 formatting strings.
+    	            xFormat: '%Y', // 'xFormat' can be used as custom format of
+									// 'x' w/ d3 formatting strings.
     	        },
     	        color: {
     	            pattern: ["rbga(255, 255, 255, 0)", "#00396e", "#51c0ec", "#a3ce72", "#e6b936", "#DA2128", "rgba(60, 89, 118, 0.2)"]
@@ -585,12 +680,6 @@
     	            }
     	        },
     	        tooltip: {
-//    	            position: function (data, width, height, element) {
-//    	                var offset = $('#'+options.chartId).offset();
-//    	                var xPos = event.pageX - offset.left;
-//    	                var yPos = event.pageY - offset.top;
-//    	                return { top: yPos - 85, left: xPos };
-//    	            },
     	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
     	                var toolTipFormat = axis_y_tick_format(d[0].value);
     	                if (color(d[0]) != "rgba(60, 89, 118, 0.2)") {
@@ -606,6 +695,16 @@
     	                }
     	            },
     	            grouped: false
+    	        },
+    	        onrendered: function() {
+    	        	generateLegend({
+    	        		d: d,
+    	        		chart: this,
+    	        		chartId: options.chartId,
+    	        		chartType: 'multi_line_bar', 
+    	                axis_x_tick_format: options.axis_x_tick_format,
+    	                axis_y_tick_format: options.axis_y_tick_format
+    	        	})
     	        }
     	    });
     	}, 
@@ -629,68 +728,14 @@
     		}
     	},
     	generateLegend: function(options) {
-    	    console.log('infographics.generateLegend');
-    	    console.log(options);
-//    	    d3.select('.legend-info.' + options.chartType + '.' + options.chartId).insert('div', '.chart').attr('class', 'legend').selectAll('div')
-//            .data(d3.keys(d[0]))
-//            .enter().append('p')
-//            .attr('class', function (id) {
-//                return id;
-//            })
-//            .html(function (id) {
-//                return '<span></span>' + id;
-//            })
-//            .each(function (id) {
-//                d3.select(this).select('span').append("svg").attr("width", 8).attr("height", 8).append("circle").attr("cx", 4).attr("cy", 4).attr("r", 4).style('fill', chart.color(id));
-//            })
-//            .on('mouseover', function (id) {
-//                if (options.chartType === "donut_chart")
-//	                var dataValue = $(this).children('div').attr('data-value');
-//	                //We get our title from id and then our number from 'data-value'
-//	
-//	            	if (options.axis_y_tick_format === 'dollars') {
-//	                    var valueFormatted = '$' + getDataValue(d, id);
-//	            	} else if (options.axis_y_tick_format === 'percent')
-//	            		var valueFormatted = getDataValue(d, id) + '%';
-//	                } else {
-//	                    var valueFormatted = getDataValue(d, id);
-//	                }
-//	                d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node().innerHTML = "<tspan>" + valueFormatted + "</tspan><tspan class='upper' x='-1' y='25'>" + id + "</tspan>";
-//
-//	                if ($(window).width() > 420) {
-//	                    chart.focus(id);
-//	                    var childButtons = $('.button-container').children();
-//	                    if (childButtons.hasClass('on')) {
-//	                        childButtons.removeClass('on');
-//	                        $('.side-narrative').children().removeClass('display');
-//	                    }
-//	                }
-//	                    	
-//                }
-//            })
-//            .on('mouseout', function (id) {
-//                chart.revert();
-//            })
-//            .on('click', function (id) {
-//                if ($(window).width() < 420) {
-//                    $(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
-//                    $(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
-//                    chart.focus(id);
-//
-//                    if (!$(this).hasClass('legend-clicked')) {
-//                        chart.revert();
-//                        $(this).removeClass('m-legend-fade').siblings().removeClass('m-legend-fade');
-//                    }
-//
-//                    return false;
-//                }
-//            });    		
+    		console.log('infographics.generateLegend');
+    		console.log(options);
     	},
     	bindDonutLegendEvents: function(options) {
     	    console.log('infographics.bindDonutLegendEvents');
     	    console.log(options);
 		    if ($(window).width() > 420) {
-		        //the legend-hover class is given to everything in mobile....
+		        // the legend-hover class is given to everything in mobile....
 		        $('.legend-info.donut_chart .legend p').mouseover(function () {
 		            d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
 		        });
@@ -700,11 +745,17 @@
 		    }
 		    else {
 		        $('.legend-info.donut_chart .legend p').click(function () {
-		            //so this isn't being processed after the event and classes are all added... its as though its processing before the classes change. It works the first time with just this statement, but not repeatedly.
+		            // so this isn't being processed after the event and classes
+					// are all added... its as though its processing before the
+					// classes change. It works the first time with just this
+					// statement, but not repeatedly.
 		            d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-		            //well we just remove it from the focused one 'cause D3 doesn't get it.
+		            // well we just remove it from the focused one 'cause D3
+					// doesn't get it.
 		            d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target.c3-focused').classed('legend-hover', false);
-		            //now check the legend for a clicked class... if we don't have it then we should remove all instances of legend-hover
+		            // now check the legend for a clicked class... if we don't
+					// have it then we should remove all instances of
+					// legend-hover
 		            if (!$(this).hasClass('legend-clicked')) {
 		                d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
 		            }
@@ -714,7 +765,8 @@
     	},
     	bindEvents: function() {
             
-    		//$(this).closest('parent').find('child') since we're looking in the section local to the button that was clicked.
+    		// $(this).closest('parent').find('child') since we're looking in
+			// the section local to the button that was clicked.
             $(".icon-info-white").click(function () {
                 $(this).closest(".info-icon-container").find('.icon-info-white').toggleClass('on');
                 $(this).closest('.chart-top-container').find('.left-info').toggleClass('hide');
@@ -729,15 +781,19 @@
                 var thisID = $(this).attr('id');
                 var closestParent = $(this).closest('.infographic-section');
                 var chartClass = closestParent.find('#chart').attr('class');
-                //this only works for up to 5 categories... not sure of the intended behavior otherwise.
-                //could be remedied maybe by window.load function and normal jq. will try soon.
+                // this only works for up to 5 categories... not sure of the
+				// intended behavior otherwise.
+                // could be remedied maybe by window.load function and normal
+				// jq. will try soon.
                 var firstChild = closestParent.find('g.c3-chart-lines').children(':nth-child(1)')[0];
                 var secondChild = closestParent.find('g.c3-chart-lines').children(':nth-child(2)')[0];
                 var thirdChild = closestParent.find('g.c3-chart-lines').children(':nth-child(3)')[0];
                 var fourthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(4)')[0];
                 var fifthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(5)')[0];
-                //we need to be more specific in our selection, to make sure we select the chart closest to the buttons,
-                //and apply the fade to probably nth-children depending on chart type.
+                // we need to be more specific in our selection, to make sure we
+				// select the chart closest to the buttons,
+                // and apply the fade to probably nth-children depending on
+				// chart type.
                 if ($(window).width() < 420) {
                     closestParent.find('.side-narrative.desktop-narrative').hide();
 
@@ -762,13 +818,18 @@
                 if ($(this).hasClass('on')) {
                     if ($(this).is(":first-child")) {
                         removeAllFade();
-                        //[0] to make sure we get the pure dom element for js .classList. 
-                        //jq wont select svg elements to add/remove classes. this is our workaround to preserve the classes existing there
+                        // [0] to make sure we get the pure dom element for js
+						// .classList.
+                        // jq wont select svg elements to add/remove classes.
+						// this is our workaround to preserve the classes
+						// existing there
                         thirdChild.classList.add('c3-defocused');
                         fourthChild.classList.add('c3-defocused');
                         fifthChild.classList.add('c3-defocused');
-                        //put the addFade function here. 
-                        //will likely want an array of the children at some point, and pass those values to the function as before.
+                        // put the addFade function here.
+                        // will likely want an array of the children at some
+						// point, and pass those values to the function as
+						// before.
                     }
                     else if ($(this).is(":nth-child(2)")) {
                         removeAllFade();
@@ -795,12 +856,14 @@
                     $(this).removeClass('on');
                     removeAllFade();
                     $('.side-narrative.desktop-narrative').hide();
-                    //remember to remove the 'off' class from the paragraph button.
+                    // remember to remove the 'off' class from the paragraph
+					// button.
                     closestButton.find('.icon-paragraphh-white').removeClass('off');
                 }
             });
             
-            //need to know where we're clicking in terms of multiples... will need (this).closest(parent).find(child)
+            // need to know where we're clicking in terms of multiples... will
+			// need (this).closest(parent).find(child)
             $('.icon-paragraphh-white').click(function () {
                 var container = $(this).closest('.btn-toggle');
                 if (container.hasClass('on')) {
@@ -816,7 +879,8 @@
                 return false;
             });
             
-            //will need to have some way of finding which place we're in, so we dont close all of them.
+            // will need to have some way of finding which place we're in, so we
+			// dont close all of them.
             $('.icon-close-white').click(function () {
                 if ($('.side-narrative').is(":visible")) {
                     $('.side-narrative').hide();

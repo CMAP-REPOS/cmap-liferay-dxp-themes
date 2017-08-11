@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li role="presentation">
-                    <a href="/https://www.cmap.illinois.gov/sitemap" role="menuitem">
+                    <a href="/sitemap" role="menuitem">
                         <span>
                             Sitemap
                         </span>
