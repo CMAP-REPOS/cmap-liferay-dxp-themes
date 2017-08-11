@@ -8,7 +8,13 @@ This repository contains theme projects for the CMAP Liferay DXP instance.
 
 * Clone this repository into your Liferay "themes" directory.
 
-        clone git@bitbucket.org:workstate-code/cmap-liferay-dxp-themes.git .
+        git clone git@bitbucket.org:workstate-code/cmap-liferay-dxp-themes.git .
+
+    or
+
+        git clone https://[user]@bitbucket.org/workstate-code/cmap-liferay-dxp-themes.git .
+
+    The . at the end will clone the project into your current directory, without creating the "cmap-liferay-dxp-modules" directory.
 
 * Check out [Liferay Themes and Layout Templates](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) in the Liferay documentation.
  
