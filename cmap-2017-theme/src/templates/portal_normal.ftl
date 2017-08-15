@@ -22,10 +22,8 @@
 
 <div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
-
-		<div id="heading">
-			<h1 class="site-title clearfix">
-			    <span class="pull-left">
+		<div id="heading" class="row clearfix">
+			<h1 class="site-title pull-left col-sm-8">
 				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
 				</a>
@@ -35,11 +33,16 @@
 						${site_name}
 					</span>
 				</#if>
-				</span>
-				<span class="pull-right">
-				<input type="text" value="Search">
-				<span>
 			</h1>
+			<div class="col-sm-4">
+                <div class="input-group pull-right">
+                    <span class="input-group-btn">
+                        <button id="site-search-button" class="btn btn-default" type="button"><i class=" icon-search"></i><span class="sr-only">Search</span></button>
+                    </span>
+                    <input id="site-search-input" type="text" class="form-control" placeholder="Search" aria-describedby="site-search-addon">
+                </div>
+			</div>
+
 		</div>
 
         <#-- 
