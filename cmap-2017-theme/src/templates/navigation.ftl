@@ -18,7 +18,14 @@
 				<li role="presentation">
 					<a href="/about" role="menuitem">
 						<span>
-							About CMAP
+							About
+						</span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="/onto2050" role="menuitem">
+						<span>
+							Developing ON TO 2050
 						</span>
 					</a>
 				</li>
