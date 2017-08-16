@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* STAFF DIRECTORY */
+.staffdirectory {
+	.staffdirectory-showall {
+	    display: none;
+	}
+	.staffdirectory-member {
+	    border-top: 1px solid #c8d5dd;
+	    padding: 1em 0;
+		&.contracted {
+			.staffdirectory-detail {
+				display: none;
+			}
+		}
+		&:last-of-type {
+		    border-bottom: 1px solid #c8d5dd;
+		}
+		.staffdirectory-row {
+		    cursor: pointer;
+		}
+	}
+}
