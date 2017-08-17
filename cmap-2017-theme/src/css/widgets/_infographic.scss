@@ -1,0 +1,87 @@
+/* 
+vars 
+	#3c5976;
+	#88a0b2;
+*/
+
+.infographiclayout {
+	
+	.infographic-nav {
+	    background-color: #3c5976;
+	    color: #88a0b2;
+	    padding: 1em 0;
+	    ul {
+		    padding: 0;
+		    margin: 0;
+	    }
+	}
+	
+	.infographic-article {
+		background-color: #88a0b2;
+	    margin: 0;
+		padding: 1em 0;
+	}
+
+	.infographic-section {
+		padding: 1em 0;
+        .infographic-aside {
+        	color: #e4eaee;
+        	font-size: 12px;
+        }
+		.infographic-info {
+			a {
+				color: #fff;		
+			}
+		}
+		.infographic-source {
+        	color: #e4eaee;
+			font-size: 9px;
+		}
+		.infographic-title {
+			color: #fff;		
+		}
+	}
+		
+	.infographic-chart {
+		line {
+			stroke: #e4eaee;
+		}
+		path {
+			fill: none;
+		}
+		svg {
+			font: 14px sans-serif;
+		}
+		text {
+			fill: #e4eaee;
+		}
+		.c3-axis-x, .c3-axis-y {
+			path {
+				display: none;
+			}
+			.tick {
+				line {
+					display: none;
+				}
+			}
+		}
+		.c3-xgrid, .c3-ygrid {
+			opacity: .3 !important;
+			stroke-dasharray: 0
+		}
+		.c3-xgrid-focus, .c3-ygrid-focus {
+			line {
+				opacity: .3 !important;
+			} 
+		}
+		&.bar_chart_grouped {
+			.c3-axis-x {
+				.tick {
+					&:first-of-type, &:last-of-type {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

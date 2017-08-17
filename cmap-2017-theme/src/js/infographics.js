@@ -27,6 +27,7 @@
 	    console.log('infographics.generateLegend');
 	    console.log(options);
 	    var d = options.d;
+	    d3.select('.legend-info.' + options.chartType + '.' + options.chartId).html('');
         d3.select('.legend-info.' + options.chartType + '.' + options.chartId).insert('div', '.chart')
             .attr('class', 'legend')
             .selectAll('div')
@@ -215,14 +216,7 @@
     	    
     	    var chart = c3.generate({
     	        bindto: d3.select($('#'+options.chartId).get(0)),
-    	        padding: {
-    	            top: 10,
-    	            right: 0,
-    	            bottom: 0,
-    	            left: 0,
-    	        },
     	        data: {
-    	            // the file variable goes here.
     	            url: options.data_url,
     	            hide: [headings[0]],
     	            order: [d3.keys(d[0])],
@@ -246,7 +240,6 @@
     	                },
     	            },
     	            y: {
-    	                inner: true,
     	                label: {
     	                    text: options.axis_y_label_text,
     	                    position: labelPosition,
@@ -261,15 +254,15 @@
     	                show: true,
     	            }
     	        },
-    	        tooltip: {
-    	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-    	                var toolTipFormat = axis_y_tick_format(d[0].value);
-    	                return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
-    	                    + color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + toolTipFormat + "<br/>"
-    	                    + defaultTitleFormat(d[0].x) + "</p></div>";
-    	            },
-    	            grouped: false
-    	        },
+//    	        tooltip: {
+//    	            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+//    	                var toolTipFormat = axis_y_tick_format(d[0].value);
+//    	                return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
+//    	                    + color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + toolTipFormat + "<br/>"
+//    	                    + defaultTitleFormat(d[0].x) + "</p></div>";
+//    	            },
+//    	            grouped: false
+//    	        },
     	        legend: {
     	            show: false
     	        },
@@ -472,7 +465,6 @@
     	                }
     	            },
     	            y: {
-    	                inner: true,
     	                label: {
     	                    text: options.axis_y_label_text,
     	                    position: options.axis_y_label_position
@@ -566,7 +558,6 @@
     	                }
     	            },
     	            y: {
-    	                inner: true,
     	                label: {
     	                    text: options.axis_y_label_text,
     	                    position: options.axis_y_label_position
@@ -660,7 +651,6 @@
     	                }
     	            },
     	            y: {
-    	                inner: true,
     	                label: {
     	                    text: options.axis_y_label_text,
     	                    position: options.axis_y_label_position
