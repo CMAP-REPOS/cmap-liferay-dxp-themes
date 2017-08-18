@@ -16,19 +16,19 @@ vars
 	    }
 	}
 	
-	.infographic-article {
+	.infographic-content {
 		background-color: #88a0b2;
 	    margin: 0;
 		padding: 1em 0;
 	}
 
-	.infographic-section {
+	.infographic-info {
 		padding: 1em 0;
         .infographic-aside {
         	color: #e4eaee;
         	font-size: 12px;
         }
-		.infographic-info {
+		.infographic-description {
 			a {
 				color: #fff;		
 			}
@@ -41,7 +41,7 @@ vars
 			color: #fff;		
 		}
 	}
-		
+		     
 	.infographic-chart {
 		line {
 			stroke: #e4eaee;
@@ -50,7 +50,7 @@ vars
 			fill: none;
 		}
 		svg {
-			font: 14px sans-serif;
+	      font: 13px sans-serif; 
 		}
 		text {
 			fill: #e4eaee;
@@ -65,6 +65,9 @@ vars
 				}
 			}
 		}
+	     .c3-line {
+	        stroke-width: 3px
+	     }
 		.c3-xgrid, .c3-ygrid {
 			opacity: .3 !important;
 			stroke-dasharray: 0
@@ -74,6 +77,21 @@ vars
 				opacity: .3 !important;
 			} 
 		}
+		
+	    .c3-tooltip-container {
+	    	.c3-tooltip {
+				table, td {
+			        border-color: 1px solid #c9d5dd;
+			    }
+			    td {
+			        border-left: none;
+				}
+				th {
+					background-color: #3c5976;
+				}
+	    	}
+	    }
+
 		&.bar_chart_grouped {
 			.c3-axis-x {
 				.tick {
@@ -84,4 +102,10 @@ vars
 			}
 		}
 	}
+	
+     .infographic-legend li {
+        color: #fff;
+        cursor: pointer;
+        text-transform: uppercase;
+     }
 }
