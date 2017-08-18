@@ -67,10 +67,14 @@
 				return id;
 			})
 			.html(function (id) {
-				if (options.altDataType && (options.altDataType.toLowerCase() === id.toLowerCase())) {
-					return '<span><i class="icon-circle" style="color: ' + options.altDataColor + '"></i> </span>' + id;
+				if (options.chartType != 'donut_chart') {
+					if (options.altDataType && (options.altDataType.toLowerCase() === id.toLowerCase())) {
+						return '<span><i class="icon-circle" style="color: ' + options.altDataColor + '"></i> </span>' + id;
+					} else {
+						return '<span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id;
+					}
 				} else {
-					return '<span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id;
+					return '<span></span>' + '<div class="item-value" data-value="' + getDataValue(d, id) + '"></div>' + id;
 				}
 			})
 			.on('mouseover', function (id) {
@@ -428,6 +432,16 @@
 				},
 				legend: {
 					show: false
+				},
+				onrendered: function() {
+					generateLegend({
+						d: d,
+						chart: this,
+						chartId: options.chartId,
+						chartType: 'donut_chart',
+						axis_x_tick_format: options.axis_x_tick_format,
+						axis_y_tick_format: options.axis_y_tick_format
+					})
 				}
 			});
 		},

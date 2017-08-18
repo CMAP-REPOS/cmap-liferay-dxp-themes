@@ -112,7 +112,14 @@
 				}
 			}
 		}
-
+		
+		&.donut_chart {
+		    height: 520px;
+		    display: flex;
+		    .c3-chart-arc path {
+			    stroke: none
+			}
+		}
 	}
 
 	.infographic-legend {
@@ -164,7 +171,18 @@
 				font-size: 18px;
 			}
 		}
-		
+	}
+
+	.donut-flex {
+		display: -webkit-box;
+   		display: -ms-flexbox;
+   		display: flex;
+	    max-width: 1200px;
+	    margin: 0 auto;
+	    display: flex;
+	    -webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	    justify-content: space-between;
 	}
 
 	.side-narratives {
