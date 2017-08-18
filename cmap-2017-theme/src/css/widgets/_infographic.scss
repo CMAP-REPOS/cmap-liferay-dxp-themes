@@ -1,14 +1,10 @@
-/* 
-vars 
-	#3c5976;
-	#88a0b2;
-*/
+@charset "UTF-8";
 
 .infographiclayout {
 	
 	.infographic-nav {
-	    background-color: #3c5976;
-	    color: #88a0b2;
+	    background-color: $blue-dark;
+	    color: $blue-med;
 	    padding: 1em 0;
 	    ul {
 		    padding: 0;
@@ -17,7 +13,7 @@ vars
 	}
 	
 	.infographic-content {
-		background-color: #88a0b2;
+		background-color: $blue-med;
 	    margin: 0;
 		padding: 1em 0;
 	}
@@ -25,35 +21,36 @@ vars
 	.infographic-info {
 		padding: 1em 0;
         .infographic-aside {
-        	color: #e4eaee;
+        	color: $blue-light;
         	font-size: 12px;
         }
 		.infographic-description {
 			a {
-				color: #fff;		
+				color: $white;		
 			}
 		}
 		.infographic-source {
-        	color: #e4eaee;
+        	color: $blue-light;
 			font-size: 9px;
 		}
 		.infographic-title {
-			color: #fff;		
+			color: $white;		
 		}
 	}
 		     
 	.infographic-chart {
+
 		line {
-			stroke: #e4eaee;
+			stroke: $blue-light;
 		}
 		path {
 			fill: none;
 		}
 		svg {
-	      font: 13px sans-serif; 
+	      font: 13px $font-sans; 
 		}
 		text {
-			fill: #e4eaee;
+			fill: $blue-light;
 		}
 		.c3-axis-x, .c3-axis-y {
 			path {
@@ -92,6 +89,20 @@ vars
 	    	}
 	    }
 
+		.side-narrative {
+		    position: absolute;
+		    top: 10%;
+		    right: 5%;
+		    color: #fff;
+		    width: 30%;
+		}
+
+		&.area_stacked {
+			.c3-area {
+				opacity: 1 !important;
+			}
+		}
+
 		&.bar_chart_grouped {
 			.c3-axis-x {
 				.tick {
@@ -101,11 +112,130 @@ vars
 				}
 			}
 		}
+
 	}
-	
-     .infographic-legend li {
-        color: #fff;
-        cursor: pointer;
-        text-transform: uppercase;
+
+	.infographic-legend {
+		padding: 1em 0;
+		li {
+	        color: $white;
+	        cursor: pointer;
+	        text-transform: uppercase;
+	     }
      }
+
+	 .infographic-buttons {
+		display: -webkit-box;
+   		display: -ms-flexbox;
+   		display: flex;
+		-webkit-box-pack: space-evenly;
+		-ms-flex-pack: space-evenly;
+		justify-content: space-evenly;
+		padding: 1em 0;
+
+		button {
+			background: $blue-med;
+			border: 2px solid $blue-dark;
+			border-radius: 21px;
+			color: $blue-dark;
+			cursor: pointer;
+			display: -webkit-box;
+    		display: -ms-flexbox;
+    		display: flex;
+			font-size: 12;
+			font-family: $font-sans;
+			font-weight: 600;
+			height: 45px;
+		    -webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		    justify-content: space-between;
+			letter-spacing: 0.05em;
+			line-height: 1.5em;
+			padding: 0 10px 0 10px;
+			text-transform: uppercase;
+			width: 190px;
+			
+			&:hover, &.on {
+				background: $blue-dark;
+				color: $white;
+			}
+
+			.icon {
+				font-size: 18px;
+			}
+		}
+		
+	}
+
+	.side-narratives {
+		display: none;
+	}
 }
+
+@media only screen and (max-width : 1200px) {
+}
+
+@media only screen and (max-width : 992px) {
+}
+
+@media only screen and (max-width : 768px) {
+
+	.infographiclayout {
+	
+		.infographic-nav {
+		}
+		
+		.infographic-content {
+			.infographic-aside {
+				display: none;
+			}
+			.infographic-source {
+				display: none;
+			}
+			.infographic-title {
+				
+			}
+		}
+	
+		.infographic-info {
+		}
+			     
+		.infographic-chart {
+
+			.c3-axis-x-label, .c3-axis-y-label {
+				display: none;
+			}
+			
+			.c3-axis-x {
+				.tick {
+					&:nth-of-type(even) {
+						display: none;
+					}
+				}
+			}	
+			
+			&.area_stacked {
+			}
+	
+			&.bar_chart_grouped {
+			}
+		}
+		
+	     .infographic-legend {
+	     	ul {
+	     		li {
+	     			display: block;
+	     			text-align: left;
+	     		}
+	     	}
+	     }
+	}		
+}
+
+@media only screen and (max-width : 480px) {
+}
+
+@media only screen and (max-width : 320px) {
+}
+
+

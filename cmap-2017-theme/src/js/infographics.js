@@ -32,10 +32,29 @@
 			return d3.format(",")(value);
 		}
 	};
+	
+	function getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options) {
+		var formatColor = function (e) {
+			if (options.altDataType && e.name.toLowerCase() === options.altDataType.toLowerCase()) {
+				return altDataColor;
+			} else {
+				return color(e);
+			}
+		}
+		var lines = [];
+		lines.push('<div><table class="c3-tooltip"><thead><tr>');
+		lines.push('<th colspan="2">' + defaultTitleFormat(d[0].x) + '</th>');
+		lines.push('</tr></thead><tbody>')
+		$.each(d, function (i, e) {
+			lines.push('<tr><td class="name"><span><i class="icon-circle" style="color: ' + formatColor(e) + '"></i> </span>' + e.name + '</td><td class="value">' + formatValue(options.axis_y_tick_format, e.value) + '</td></tr>');
+		});
+		lines.push('</tbody></table></div>')
+		return lines.join('');
+	};
 
 
 	function generateLegend(options) {
-		console.log('infographics.generateLegend');
+		console.log('infographics.generateLegend()');
 		console.log(options);
 		var d = options.d;
 		$('.infographic-legend.' + options.chartId + '-legend').html('');
@@ -128,24 +147,6 @@
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var chart = c3.generate({
-				size: {
-					height: 440
-				},
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				data: {
-					url: options.data_url,
-					hide: [headings[0]],
-					order: [d3.keys(d[0])],
-					type: 'area',
-					x: headings[0],
-					groups: [d3.keys(d[0])],
-					keys: {
-						x: headings[0]
-					},
-				},
-				color: {
-					pattern: ["rbga(255, 255, 255, 0)", "#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
-				},
 				axis: {
 					x: {
 						type: 'category',
@@ -163,7 +164,6 @@
 						}
 					},
 					y: {
-						inner: true,
 						label: {
 							text: options.axis_y_label_text,
 							position: labelPosition
@@ -182,24 +182,34 @@
 						}
 					},
 				},
-				point: {
-					show: false,
+				bindto: d3.select($('#' + options.chartId).get(0)),
+				color: {
+					pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
+				},
+				data: {
+					url: options.data_url,
+					hide: [headings[0]],
+					order: [d3.keys(d[0])],
+					type: 'area',
+					x: headings[0],
+					groups: [d3.keys(d[0])],
+					keys: {
+						x: headings[0]
+					},
+				},
+				legend: {
+					show: false
 				},
 				grid: {
 					y: {
 						show: true,
 					}
 				},
-				tooltip: {
-					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-						return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
-							+ color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + d3.format(",")(d[0].value) + "<br/>"
-							+ defaultTitleFormat(d[0].x) + "</p></div>";
-					},
-					grouped: false
+				point: {
+					show: false,
 				},
-				legend: {
-					show: false
+				tooltip: {
+					grouped: false
 				},
 				onrendered: function () {
 					generateLegend({
@@ -494,24 +504,7 @@
 				},
 				tooltip: {
 					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-
-						var formatColor = function (e) {
-							if (options.altDataType && e.name.toLowerCase() === options.altDataType.toLowerCase()) {
-								return altDataColor;
-							} else {
-								return color(e);
-							}
-						}
-
-						var lines = [];
-						lines.push('<div><table class="c3-tooltip"><thead><tr>');
-						lines.push('<th colspan="2">' + defaultTitleFormat(d[0].x) + '</th>');
-						lines.push('</tr></thead><tbody>')
-						$.each(d, function (i, e) {
-							lines.push('<tr><td class="name"><span><i class="icon-circle" style="color: ' + formatColor(e) + '"></i> </span>' + e.name + '</td><td class="value">' + formatValue(e) + '</td></tr>');
-						});
-						lines.push('</tbody></table></div>')
-						return lines.join('');
+						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
 					}
 				},
 				onrendered: function () {
@@ -520,7 +513,7 @@
 						d3.selectAll('#' + options.chartId + ' .c3-area-' + options.altDataType).attr('style', 'fill: ' + altDataColor);
 						d3.selectAll('#' + options.chartId + ' .c3-line-' + options.altDataType).attr('style', 'stroke: ' + altDataColor);
 					} else if (options.chartType === 'multi_line_bar') {
-						d3.selectAll('#' + options.chartId + ' .c3-bar').attr('style', 'stroke: ' + altDataColor + '; fill: ' + altDataColor); // set bar color
+						d3.selectAll('#' + options.chartId + ' .c3-bar').attr('style', 'stroke: ' + altDataColor + '; fill: ' + altDataColor);
 					}
 
 					generateLegend({
@@ -589,119 +582,136 @@
 
 			console.log('infographics.bindEvents()');
 
-
-			// $(this).closest('parent').find('child') since we're looking in
-			// the section local to the button that was clicked.
-			$(".icon-info-white").click(function () {
-				$(this).closest(".info-icon-container").find('.icon-info-white').toggleClass('on');
-				$(this).closest('.chart-top-container').find('.left-info').toggleClass('hide');
-				$(this).closest('.chart-top-container').find('p.info-data').toggle();
+			$(".icon-info-white").on('click', function () {
+				var $this = $(this);
+				$this.toggleClass('on');
+				$this.parents('.infographic-info').find('.infographic-aside, .infographic-source').toggle();
+				$this.parents('.infographic-info').find('.infographic-title, .infographic-description').toggle();
 			});
 
-			$(".infographic-button").click(function () {
-				$(this).addClass('clicked');
+			$('.icon-close-white').on('click', function() {
+				$('.side-narrative').remove();
+			});
+			
+			$('.icon-paragraphh-white').on('click', function() {
+				var $this = $(this);
 			});
 
+			$('.infographic-button').on('click mouseenter', function() {
+				var $this = $(this);
+				var id = $this.attr('id').replace('infographic-button','side-narrative');
+				$('.side-narrative').remove();
+				$('.infographic-chart').append('<div class="side-narrative">' + $('#'+id).html() + '</p>');
+			});
+			
+			$('.infographic-button').on('mouseleave', function() {
+				var $this = $(this);
+				$('.side-narrative').remove();
+			});
+
+			/*
+			
 			$(".infographic-button").on('click mouseenter', function () {
-				var thisID = $(this).attr('id');
-				var closestParent = $(this).closest('.infographic-section');
-				var chartClass = closestParent.find('#chart').attr('class');
-				// this only works for up to 5 categories... not sure of the
-				// intended behavior otherwise.
-				// could be remedied maybe by window.load function and normal
-				// jq. will try soon.
-				var firstChild = closestParent.find('g.c3-chart-lines').children(':nth-child(1)')[0];
-				var secondChild = closestParent.find('g.c3-chart-lines').children(':nth-child(2)')[0];
-				var thirdChild = closestParent.find('g.c3-chart-lines').children(':nth-child(3)')[0];
-				var fourthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(4)')[0];
-				var fifthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(5)')[0];
-				// we need to be more specific in our selection, to make sure we
-				// select the chart closest to the buttons,
-				// and apply the fade to probably nth-children depending on
-				// chart type.
-				if ($(window).width() < 420) {
-					closestParent.find('.side-narrative.desktop-narrative').hide();
+				// var $this = $(this);
+				// var thisID = $(this).attr('id');
+				// var closestParent = $(this).closest('.infographic-section');
+				// var chartClass = closestParent.find('#chart').attr('class');
+				// // this only works for up to 5 categories... not sure of the
+				// // intended behavior otherwise.
+				// // could be remedied maybe by window.load function and normal
+				// // jq. will try soon.
+				// var firstChild = closestParent.find('g.c3-chart-lines').children(':nth-child(1)')[0];
+				// var secondChild = closestParent.find('g.c3-chart-lines').children(':nth-child(2)')[0];
+				// var thirdChild = closestParent.find('g.c3-chart-lines').children(':nth-child(3)')[0];
+				// var fourthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(4)')[0];
+				// var fifthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(5)')[0];
+				// // we need to be more specific in our selection, to make sure we
+				// // select the chart closest to the buttons,
+				// // and apply the fade to probably nth-children depending on
+				// // chart type.
+				// if ($(window).width() < 420) {
+				// 	closestParent.find('.side-narrative.desktop-narrative').hide();
 
-					if (closestParent.find('.icon-key-light').hasClass('inactive')) {
-						closestParent.find('.side-narrative.m-side-narrative').show().find('#' + thisID).addClass('display');
-					}
-				}
-				else {
-					closestParent.find('.side-narrative.m-side-narrative').hide();
-					if (!$(this).closest('infographic-button').find('.icon-paragraphh-white').hasClass('off')) {
-						closestParent.find('.side-narrative.desktop-narrative').show().find('#' + thisID).addClass('display');
-					}
-				}
-				if ($('.button-container').children().hasClass('on') != $(this)) {
-					$('.button-container').children().removeClass('on');
-					$(this).addClass('on');
-					updateInfo();
-				}
-				else {
-					$(this).addClass('on');
-				}
-				if ($(this).hasClass('on')) {
-					if ($(this).is(":first-child")) {
-						removeAllFade();
-						// [0] to make sure we get the pure dom element for js
-						// .classList.
-						// jq wont select svg elements to add/remove classes.
-						// this is our workaround to preserve the classes
-						// existing there
-						thirdChild.classList.add('c3-defocused');
-						fourthChild.classList.add('c3-defocused');
-						fifthChild.classList.add('c3-defocused');
-						// put the addFade function here.
-						// will likely want an array of the children at some
-						// point, and pass those values to the function as
-						// before.
-					}
-					else if ($(this).is(":nth-child(2)")) {
-						removeAllFade();
-						firstChild.classList.add('c3-defocused');
-						secondChild.classList.add('c3-defocused');
-						fifthChild.classList.add('c3-defocused');
-					}
-					else if ($(this).is(":nth-child(3)")) {
-						removeAllFade();
-						firstChild.classList.add('c3-defocused');
-						secondChild.classList.add('c3-defocused');
-						thirdChild.classList.add('c3-defocused');
-						fourthChild.classList.add('c3-defocused');
-					}
-					else {
-						removeAllFade();
-					}
-				}
+				// 	if (closestParent.find('.icon-key-light').hasClass('inactive')) {
+				// 		closestParent.find('.side-narrative.m-side-narrative').show().find('#' + thisID).addClass('display');
+				// 	}
+				// }
+				// else {
+				// 	closestParent.find('.side-narrative.m-side-narrative').hide();
+				// 	if (!$(this).closest('infographic-button').find('.icon-paragraphh-white').hasClass('off')) {
+				// 		closestParent.find('.side-narrative.desktop-narrative').show().find('#' + thisID).addClass('display');
+				// 	}
+				// }
+				// if ($('.button-container').children().hasClass('on') != $(this)) {
+				// 	$('.button-container').children().removeClass('on');
+				// 	$(this).addClass('on');
+				// 	updateInfo();
+				// }
+				// else {
+				// 	$(this).addClass('on');
+				// }
+				// if ($(this).hasClass('on')) {
+				// 	if ($(this).is(":first-child")) {
+				// 		removeAllFade();
+				// 		// [0] to make sure we get the pure dom element for js
+				// 		// .classList.
+				// 		// jq wont select svg elements to add/remove classes.
+				// 		// this is our workaround to preserve the classes
+				// 		// existing there
+				// 		thirdChild.classList.add('c3-defocused');
+				// 		fourthChild.classList.add('c3-defocused');
+				// 		fifthChild.classList.add('c3-defocused');
+				// 		// put the addFade function here.
+				// 		// will likely want an array of the children at some
+				// 		// point, and pass those values to the function as
+				// 		// before.
+				// 	}
+				// 	else if ($(this).is(":nth-child(2)")) {
+				// 		removeAllFade();
+				// 		firstChild.classList.add('c3-defocused');
+				// 		secondChild.classList.add('c3-defocused');
+				// 		fifthChild.classList.add('c3-defocused');
+				// 	}
+				// 	else if ($(this).is(":nth-child(3)")) {
+				// 		removeAllFade();
+				// 		firstChild.classList.add('c3-defocused');
+				// 		secondChild.classList.add('c3-defocused');
+				// 		thirdChild.classList.add('c3-defocused');
+				// 		fourthChild.classList.add('c3-defocused');
+				// 	}
+				// 	else {
+				// 		removeAllFade();
+				// 	}
+				// }
 			});
 
 			$(".infographic-button").on('mouseleave', function () {
-				var closestButton = $(this).closest('.infographic-button');
-				if (!$(this).hasClass('clicked')) {
-					$(this).removeClass('on');
-					removeAllFade();
-					$('.side-narrative.desktop-narrative').hide();
-					// remember to remove the 'off' class from the paragraph
-					// button.
-					closestButton.find('.icon-paragraphh-white').removeClass('off');
-				}
+				// var closestButton = $(this).closest('.infographic-button');
+				// if (!$(this).hasClass('clicked')) {
+				// 	$(this).removeClass('on');
+				// 	removeAllFade();
+				// 	$('.side-narrative.desktop-narrative').hide();
+				// 	// remember to remove the 'off' class from the paragraph
+				// 	// button.
+				// 	closestButton.find('.icon-paragraphh-white').removeClass('off');
+				// }
 			});
 
 			// need to know where we're clicking in terms of multiples... will
 			// need (this).closest(parent).find(child)
 			$('.icon-paragraphh-white').click(function () {
-				var container = $(this).closest('.btn-toggle');
-				if (container.hasClass('on')) {
-					if ($(window).width() > 420) {
-						$('.side-narrative.desktop-narrative').toggle();
-						$(this).toggleClass('off');
+				// var container = $(this).closest('.btn-toggle');
+				// if (container.hasClass('on')) {
+				// 	if ($(window).width() > 420) {
+				// 		$('.side-narrative.desktop-narrative').toggle();
+				// 		$(this).toggleClass('off');
 
-					}
-					else {
-						$('.side-narrative.m-side-narrative').toggle();
-					}
-				}
-				return false;
+				// 	}
+				// 	else {
+				// 		$('.side-narrative.m-side-narrative').toggle();
+				// 	}
+				// }
+				// return false;
 			});
 
 			// will need to have some way of finding which place we're in, so we
@@ -731,6 +741,7 @@
 					updateInfo();
 				}
 			});
+			*/
 		}
 	};
 }));
