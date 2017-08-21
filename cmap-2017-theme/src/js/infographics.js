@@ -8,19 +8,29 @@
 	}
 }(this, function () {
 
-	function getDataValue() {
-		console.log('getDataValue');
-	};
+	function getDonutDataValue(d, id) {
+        var dataset;
+        for (var i = 0; i < d.length; i++) {
+            dataset = d[i];
 
+            for (key in dataset) {
+
+                if (key === id) {
+                    return dataset[key];
+                }
+            }
+        }
+	};
+	
 	function removeAllFade() {
-		var activeClass = "c3-defocused";
-		d3.selectAll('g').classed(activeClass, false);
+//		var activeClass = "c3-defocused";
+//		d3.selectAll('g').classed(activeClass, false);
 	};
 
 	function updateInfo() {
-		var thisID = $('.button-container').find('.on').attr('id');
-		$('.side-narrative').find('#' + thisID).addClass('display');
-		$('.mini-info:not(#' + thisID + ')').removeClass('display');
+//		var thisID = $('.button-container').find('.on').attr('id');
+//		$('.side-narrative').find('#' + thisID).addClass('display');
+//		$('.mini-info:not(#' + thisID + ')').removeClass('display');
 	};
 
 	function formatValue(format, value) {
@@ -52,7 +62,6 @@
 		return lines.join('');
 	};
 
-
 	function generateLegend(options) {
 		console.log('infographics.generateLegend()');
 		console.log(options);
@@ -74,36 +83,14 @@
 						return '<span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id;
 					}
 				} else {
-					return '<span></span>' + '<div class="item-value" data-value="' + getDataValue(d, id) + '"></div>' + id;
+					return '<div class="item-value" data-value="' + getDonutDataValue(d, id) + '"><span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id + '</div>';
 				}
 			})
 			.on('mouseover', function (id) {
-				//                if (options.chartType === "donut_chart") {
-				//                	
-				//                 // We get our title from id and then our number from
-				//					// 'data-value'
-				//
-				//                 if (options.axis_y_tick_format === 'dollars') {
-				//                     var valueFormatted = '$' + getDataValue(d, id);
-				//                 } else if (options.axis_y_tick_format === 'percent')
-				//                     var valueFormatted = getDataValue(d, id) + '%';
-				//                 } else {
-				//                     var valueFormatted = getDataValue(d, id);
-				//                 }
-				//                 
-				//                 d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node().innerHTML = "<tspan>" + valueFormatted + "</tspan><tspan class='upper' x='-1' y='25'>" + id + "</tspan>";
-				//	}
-				//                 if ($(window).width() > 420) {
-				//                     chart.focus(id);
-				//                     var childButtons = $('.button-container').children();
-				//                     if (childButtons.hasClass('on')) {
-				//                         childButtons.removeClass('on');
-				//                         $('.side-narrative').children().removeClass('display');
-				//                     }
-				//                 }
-				//                     
-				//                }
-
+				if (options.chartType === 'donut_chart') {
+		            var dataValue = $(this).children('div').attr('data-value');
+					d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node().innerHTML = "<tspan>" + formatValue(options.axis_y_tick_format, dataValue) + '</tspan><tspan class="upper" x="-1" y="25">' + id + '</tspan>';
+				}
 				if ($(window).width() > 420) {
 					options.chart.api.focus(id);
 					var childButtons = $('.button-container').children();
@@ -132,15 +119,10 @@
 			});
 	};
 
-	var labelPosition = 'inner-middle';
-	var axisPosition = false;
 	var donutWidth = 45;
 	var siFormat = d3.format(",");
 
 	if ($(window).width() > 420) {
-		labelPosition = 'outer-top';
-		axisPosition = true;
-		// xPadding = 15;
 		donutWidth = 60;
 	}
 
@@ -170,7 +152,7 @@
 					y: {
 						label: {
 							text: options.axis_y_label_text,
-							position: labelPosition
+							position: 'inner-middle'
 						},
 						tick: {
 							format: // custom formatting to make sure we dont
@@ -268,7 +250,7 @@
 					y: {
 						label: {
 							text: options.axis_y_label_text,
-							position: labelPosition,
+							position: 'inner-middle',
 						},
 						tick: {
 							format: axis_y_tick_format
@@ -410,8 +392,6 @@
 							"</tspan><tspan class='upper' x='-1' y='25'>" +
 							d.id +
 							"</tspan>";
-						// append node to its parent so that is rendered on top
-						// of arcs
 						node.parentNode.append(node);
 					}
 				},
@@ -544,27 +524,26 @@
 			});
 		},
 		resizeAxisLabels: function (options) {
-			if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
-				var yChildren = $('#' + options.chartId).find('g.c3-axis-y').children('.tick').children("text").not('[style*="display: none"]');
-				var yCount = yChildren.length;
-
-				var xChildren = $('#' + options.chartId).find('g.c3-axis.c3-axis-x').children('.tick').children("text").not('[style*="display: none"]');
-				var xCount = xChildren.length;
-
-				if (xCount < 10 && !options.disableXAxisLabelResizing) {
-					xChildren.attr("font-size", "14px");
-				}
-
-				if (yCount < 10 && !options.disableYAxisLabelResizing) {
-					yChildren.attr("font-size", "14px");
-				}
-			}
+//			if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
+//				var yChildren = $('#' + options.chartId).find('g.c3-axis-y').children('.tick').children("text").not('[style*="display: none"]');
+//				var yCount = yChildren.length;
+//
+//				var xChildren = $('#' + options.chartId).find('g.c3-axis.c3-axis-x').children('.tick').children("text").not('[style*="display: none"]');
+//				var xCount = xChildren.length;
+//
+//				if (xCount < 10 && !options.disableXAxisLabelResizing) {
+//					xChildren.attr("font-size", "14px");
+//				}
+//
+//				if (yCount < 10 && !options.disableYAxisLabelResizing) {
+//					yChildren.attr("font-size", "14px");
+//				}
+//			}
 		},
 		bindDonutLegendEvents: function (options) {
 			console.log('infographics.bindDonutLegendEvents()');
 			console.log(options);
 			if ($(window).width() > 420) {
-				// the legend-hover class is given to everything in mobile....
 				$('.legend-info.donut_chart .legend p').mouseover(function () {
 					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
 				});
@@ -574,17 +553,8 @@
 			}
 			else {
 				$('.legend-info.donut_chart .legend p').click(function () {
-					// so this isn't being processed after the event and classes
-					// are all added... its as though its processing before the
-					// classes change. It works the first time with just this
-					// statement, but not repeatedly.
 					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-					// well we just remove it from the focused one 'cause D3
-					// doesn't get it.
 					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target.c3-focused').classed('legend-hover', false);
-					// now check the legend for a clicked class... if we don't
-					// have it then we should remove all instances of
-					// legend-hover
 					if (!$(this).hasClass('legend-clicked')) {
 						d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
 					}
@@ -593,9 +563,7 @@
 			}
 		},
 		bindEvents: function () {
-
 			console.log('infographics.bindEvents()');
-
 			$(".icon-info-white").on('click', function () {
 				var $this = $(this);
 				$this.toggleClass('on');
@@ -622,140 +590,6 @@
 				var $this = $(this);
 				$('.side-narrative').remove();
 			});
-
-			/*
-			
-			$(".infographic-button").on('click mouseenter', function () {
-				// var $this = $(this);
-				// var thisID = $(this).attr('id');
-				// var closestParent = $(this).closest('.infographic-section');
-				// var chartClass = closestParent.find('#chart').attr('class');
-				// // this only works for up to 5 categories... not sure of the
-				// // intended behavior otherwise.
-				// // could be remedied maybe by window.load function and normal
-				// // jq. will try soon.
-				// var firstChild = closestParent.find('g.c3-chart-lines').children(':nth-child(1)')[0];
-				// var secondChild = closestParent.find('g.c3-chart-lines').children(':nth-child(2)')[0];
-				// var thirdChild = closestParent.find('g.c3-chart-lines').children(':nth-child(3)')[0];
-				// var fourthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(4)')[0];
-				// var fifthChild = closestParent.find('g.c3-chart-lines').children(':nth-child(5)')[0];
-				// // we need to be more specific in our selection, to make sure we
-				// // select the chart closest to the buttons,
-				// // and apply the fade to probably nth-children depending on
-				// // chart type.
-				// if ($(window).width() < 420) {
-				// 	closestParent.find('.side-narrative.desktop-narrative').hide();
-
-				// 	if (closestParent.find('.icon-key-light').hasClass('inactive')) {
-				// 		closestParent.find('.side-narrative.m-side-narrative').show().find('#' + thisID).addClass('display');
-				// 	}
-				// }
-				// else {
-				// 	closestParent.find('.side-narrative.m-side-narrative').hide();
-				// 	if (!$(this).closest('infographic-button').find('.icon-paragraphh-white').hasClass('off')) {
-				// 		closestParent.find('.side-narrative.desktop-narrative').show().find('#' + thisID).addClass('display');
-				// 	}
-				// }
-				// if ($('.button-container').children().hasClass('on') != $(this)) {
-				// 	$('.button-container').children().removeClass('on');
-				// 	$(this).addClass('on');
-				// 	updateInfo();
-				// }
-				// else {
-				// 	$(this).addClass('on');
-				// }
-				// if ($(this).hasClass('on')) {
-				// 	if ($(this).is(":first-child")) {
-				// 		removeAllFade();
-				// 		// [0] to make sure we get the pure dom element for js
-				// 		// .classList.
-				// 		// jq wont select svg elements to add/remove classes.
-				// 		// this is our workaround to preserve the classes
-				// 		// existing there
-				// 		thirdChild.classList.add('c3-defocused');
-				// 		fourthChild.classList.add('c3-defocused');
-				// 		fifthChild.classList.add('c3-defocused');
-				// 		// put the addFade function here.
-				// 		// will likely want an array of the children at some
-				// 		// point, and pass those values to the function as
-				// 		// before.
-				// 	}
-				// 	else if ($(this).is(":nth-child(2)")) {
-				// 		removeAllFade();
-				// 		firstChild.classList.add('c3-defocused');
-				// 		secondChild.classList.add('c3-defocused');
-				// 		fifthChild.classList.add('c3-defocused');
-				// 	}
-				// 	else if ($(this).is(":nth-child(3)")) {
-				// 		removeAllFade();
-				// 		firstChild.classList.add('c3-defocused');
-				// 		secondChild.classList.add('c3-defocused');
-				// 		thirdChild.classList.add('c3-defocused');
-				// 		fourthChild.classList.add('c3-defocused');
-				// 	}
-				// 	else {
-				// 		removeAllFade();
-				// 	}
-				// }
-			});
-
-			$(".infographic-button").on('mouseleave', function () {
-				// var closestButton = $(this).closest('.infographic-button');
-				// if (!$(this).hasClass('clicked')) {
-				// 	$(this).removeClass('on');
-				// 	removeAllFade();
-				// 	$('.side-narrative.desktop-narrative').hide();
-				// 	// remember to remove the 'off' class from the paragraph
-				// 	// button.
-				// 	closestButton.find('.icon-paragraphh-white').removeClass('off');
-				// }
-			});
-
-			// need to know where we're clicking in terms of multiples... will
-			// need (this).closest(parent).find(child)
-			$('.icon-paragraphh-white').click(function () {
-				// var container = $(this).closest('.btn-toggle');
-				// if (container.hasClass('on')) {
-				// 	if ($(window).width() > 420) {
-				// 		$('.side-narrative.desktop-narrative').toggle();
-				// 		$(this).toggleClass('off');
-
-				// 	}
-				// 	else {
-				// 		$('.side-narrative.m-side-narrative').toggle();
-				// 	}
-				// }
-				// return false;
-			});
-
-			// will need to have some way of finding which place we're in, so we
-			// dont close all of them.
-			$('.icon-close-white').click(function () {
-				if ($('.side-narrative').is(":visible")) {
-					$('.side-narrative').hide();
-				}
-				var container = $(this).closest('.btn-toggle');
-				container.removeClass('on');
-				container.removeClass('clicked');
-				removeAllFade();
-				return false;
-			});
-
-			$('.icon-paragraph-light, .icon-key-light').click(function () {
-				var legendParent = $(this).closest('.chart-legend');
-				$(this).closest('.m-legend-btns').find('.icon-paragraph-light, .icon-key-light').toggleClass('inactive');
-				legendParent.find('.legend-info').toggle();
-				if ($(this).closest('.m-legend-btns').find('.icon-paragraph-light').hasClass('inactive')) {
-					legendParent.find('.side-narrative').hide();
-				}
-				else {
-					legendParent.find('.side-narrative').show();
-				}
-				if ($('.button-container').children().hasClass('on')) {
-					updateInfo();
-				}
-			});
-			*/
 		}
 	};
 }));

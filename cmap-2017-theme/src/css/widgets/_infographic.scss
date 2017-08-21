@@ -115,7 +115,7 @@
 		
 		&.donut_chart {
 		    height: 520px;
-		    display: flex;
+		    margin-left: -25%;
 		    .c3-chart-arc path {
 			    stroke: none
 			}
@@ -132,30 +132,22 @@
      }
 
 	 .infographic-buttons {
-		display: -webkit-box;
-   		display: -ms-flexbox;
-   		display: flex;
-		-webkit-box-pack: space-evenly;
-		-ms-flex-pack: space-evenly;
-		justify-content: space-evenly;
+		@include flex;
+		@include flex_space_evenly;
 		padding: 1em 0;
 
 		button {
+			@include flex;
+			@include flex_space_between;
 			background: $blue-med;
 			border: 2px solid $blue-dark;
 			border-radius: 21px;
 			color: $blue-dark;
 			cursor: pointer;
-			display: -webkit-box;
-    		display: -ms-flexbox;
-    		display: flex;
 			font-size: 12;
 			font-family: $font-sans;
 			font-weight: 600;
 			height: 45px;
-		    -webkit-box-pack: justify;
-		    -ms-flex-pack: justify;
-		    justify-content: space-between;
 			letter-spacing: 0.05em;
 			line-height: 1.5em;
 			padding: 0 10px 0 10px;
@@ -173,16 +165,21 @@
 		}
 	}
 
+	.icon-info-white {
+		color: $blue-dark;
+		cursor: pointer;
+		opacity: 0.5;
+	}
+
 	.donut-flex {
-		display: -webkit-box;
-   		display: -ms-flexbox;
-   		display: flex;
+		@include flex;
+		@include flex_space_between;
 	    max-width: 1200px;
 	    margin: 0 auto;
-	    display: flex;
-	    -webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	    justify-content: space-between;
+	    
+	     .infographic-legend {
+	     	margin-left: -25%;
+	     }
 	}
 
 	.side-narratives {
@@ -237,16 +234,40 @@
 	
 			&.bar_chart_grouped {
 			}
+
+			&.donut_chart {
+			    height: 360px;
+			    margin: 0 auto;
+			}
 		}
 		
 	     .infographic-legend {
 	     	ul {
 	     		li {
+	     			border-top: 1px solid $white;
 	     			display: block;
 	     			text-align: left;
+	     			&:last-of-type {
+						border-bottom: 1px solid $white;
+					}
 	     		}
 	     	}
 	     }
+
+		.donut-flex {
+			@include flex_space_normal;
+			flex-direction: column;
+		    max-width: 1200px;
+		    margin: 0 auto;
+
+		     .infographic-legend {
+		     	margin-left: 0;
+		     	li {
+		     		color: $blue-dark;
+		     		padding: .25em 0;
+		     	}
+		     }
+		}
 	}		
 }
 
