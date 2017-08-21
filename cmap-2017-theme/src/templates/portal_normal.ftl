@@ -35,17 +35,17 @@
 				</#if>
 			</h1>
 			<div class="col-sm-4">
-                <div class="input-group pull-right">
-                    <span class="input-group-btn">
-                        <button id="site-search-button" class="btn btn-default" type="button"><i class=" icon-search"></i><span class="sr-only">Search</span></button>
-                    </span>
-                    <input id="site-search-input" type="text" class="form-control" placeholder="Search" aria-describedby="site-search-addon">
-                </div>
+        <div class="input-group pull-right">
+          <span class="input-group-btn">
+            <button id="site-search-button" class="btn btn-default" type="button"><i class=" icon-search"></i><span class="sr-only">Search</span></button>
+          </span>
+          <input id="site-search-input" type="text" class="form-control" placeholder="Search" aria-describedby="site-search-addon">
+        </div>
 			</div>
 
 		</div>
 
-        <#-- 
+  <#--
 		<#if !is_signed_in>
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 		</#if>
@@ -54,7 +54,7 @@
 		<#if has_navigation && is_setup_complete>
 			<#include "${full_templates_path}/navigation.ftl" />
 		</#if>
-        
+
 	</header>
 
 	<section id="content">
@@ -77,7 +77,7 @@
 		</#if>
 	</section>
 
-    <#include "${full_templates_path}/footer.ftl" />
+  <#include "${full_templates_path}/footer.ftl" />
 </div>
 
 <@liferay_util["include"] page=body_bottom_include />

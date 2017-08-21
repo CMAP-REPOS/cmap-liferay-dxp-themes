@@ -1,9 +1,10 @@
+#Wed Aug 16 16:40:53 CDT 2017
 connection.arguments=
-connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
-connection.gradle.user.home=null
-connection.java.home=null
 connection.jvm.arguments=
 connection.project.dir=../..
-derived.resources=.gradle,build_gradle
+connection.gradle.user.home=null
 eclipse.preferences.version=1
+connection.java.home=null
+derived.resources=.gradle,build_gradle
 project.path=\:themes\:cmap-visualizations-theme
+connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
