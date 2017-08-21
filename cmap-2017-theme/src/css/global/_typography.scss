@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-html,
+/* html,
 body {
   margin: 0;
   padding: 0;
@@ -205,7 +205,7 @@ ol.inline > li {
   display: inline-block;
   *display: inline;
 
-  /* IE7 inline-block hack */
+  IE7 inline-block hack
 
   *zoom: 1;
   padding-left: 5px;
@@ -333,7 +333,7 @@ address {
   line-height: 1.25;
 }
 
-//icons
+//icons */
 
 @font-face {
   font-family: "cmap_icons";
@@ -345,7 +345,6 @@ address {
 
 .infographiclayout, .storymaplayout {
   .icon {
-    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: "cmap_icons" !important;
     speak: none;
     font-style: normal;

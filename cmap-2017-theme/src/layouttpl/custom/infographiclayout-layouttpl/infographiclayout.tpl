@@ -23,26 +23,22 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 
 <link rel="stylesheet"
 	href="$themeDisplay.getPathThemeCss()/vendor/c3.min.css" />
-	
+
 <div class="infographiclayout" id="main-content" role="main">
-	<div class="infographic-nav">
-		<div class="vertical-centered grid-align">
-			<div class="middle">
-				<div class="infospacer"></div>
-				<div class="pageTitle">$layout.getName($locale)</div>
-			</div>
-			<div id="shareModule" class="right-button">
-				<div class="share-this-block">
-					<label for="share-this-toggle" id="share-this-label" class="share">
-						<span class="icon icon-share-light"></span>Share
-					</label>
-					<div class="share-wrapper drilldown"></div>
-				</div>
-			</div>
+	<div class="portlet-layout row">
+		<div class="col-md-16 portlet-column portlet-column-only">
+			<nav class="infographic-nav clearfix">
+			    <div class="col-sm-12 col-sm-offset-2">
+				    <ul class="list-unstyled">
+				        <li class="pull-left">$layout.getName($locale)</li>
+				        <li class="pull-right"><i class="icon-share"></i> Share</li>
+				    </ul>
+			    </div>
+			</nav>
 		</div>
 	</div>
 	<div class="portlet-layout row">
-		<div class="col-md-12 portlet-column portlet-column-only"
+		<div class="col-md-16 portlet-column portlet-column-only"
 			id="column-1">$processor.processColumn("column-1",
 			"portlet-column-content portlet-column-content-only")</div>
 	</div>

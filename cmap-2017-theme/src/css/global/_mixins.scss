@@ -119,3 +119,28 @@
   padding: 0;
   list-style: none;
 }
+
+/* FLEXBOX */
+@mixin flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flex_space_between {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+@mixin flex_space_evenly {
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
+	justify-content: space-evenly;
+}
+
+@mixin flex_space_normal {
+	-webkit-box-pack: normal;
+	-ms-flex-pack: normal;
+	justify-content: normal;
+}

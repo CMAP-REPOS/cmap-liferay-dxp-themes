@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+.infographiclayout {
+	
+	.infographic-nav {
+	    background-color: $blue-dark;
+	    color: $blue-med;
+	    padding: 1em 0;
+	    ul {
+		    padding: 0;
+		    margin: 0;
+	    }
+	}
+	
+	.infographic-content {
+		background-color: $blue-med;
+	    margin: 0;
+		padding: 1em 0;
+	}
+
+	.infographic-info {
+		padding: 1em 0;
+        .infographic-aside {
+        	color: $blue-light;
+        	font-size: 12px;
+        }
+		.infographic-description {
+			a {
+				color: $white;		
+			}
+		}
+		.infographic-source {
+        	color: $blue-light;
+			font-size: 9px;
+		}
+		.infographic-title {
+			color: $white;		
+		}
+	}
+		     
+	.infographic-chart {
+
+		line {
+			stroke: $blue-light;
+		}
+		path {
+			fill: none;
+		}
+		svg {
+	      font: 13px $font-sans; 
+		}
+		text {
+			fill: $blue-light;
+		}
+		.c3-axis-x, .c3-axis-y {
+			path {
+				display: none;
+			}
+			.tick {
+				line {
+					display: none;
+				}
+			}
+		}
+	     .c3-line {
+	        stroke-width: 3px
+	     }
+		.c3-xgrid, .c3-ygrid {
+			opacity: .3 !important;
+			stroke-dasharray: 0
+		}
+		.c3-xgrid-focus, .c3-ygrid-focus {
+			line {
+				opacity: .3 !important;
+			} 
+		}
+		
+	    .c3-tooltip-container {
+	    	.c3-tooltip {
+				table, td {
+			        border-color: 1px solid #c9d5dd;
+			    }
+			    td {
+			        border-left: none;
+				}
+				th {
+					background-color: #3c5976;
+				}
+	    	}
+	    }
+
+		.side-narrative {
+		    position: absolute;
+		    top: 10%;
+		    right: 5%;
+		    color: #fff;
+		    width: 30%;
+		}
+
+		&.area_stacked {
+			.c3-area {
+				opacity: 1 !important;
+			}
+		}
+
+		&.bar_chart_grouped {
+			.c3-axis-x {
+				.tick {
+					&:first-of-type, &:last-of-type {
+						display: none;
+					}
+				}
+			}
+		}
+		
+		&.donut_chart {
+		    height: 520px;
+		    margin-left: -25%;
+		    .c3-chart-arc path {
+			    stroke: none
+			}
+			.c3-chart-arcs-title {
+				color: $blue-dark;
+				font-size: 22px;
+			}
+		}
+	}
+
+	.infographic-legend {
+		padding: 1em 0;
+		li {
+	        color: $white;
+	        cursor: pointer;
+	        text-transform: uppercase;
+	     }
+     }
+
+	 .infographic-buttons {
+		@include flex;
+		@include flex_space_evenly;
+		padding: 1em 0;
+
+		button {
+			@include flex;
+			@include flex_space_between;
+			background: $blue-med;
+			border: 2px solid $blue-dark;
+			border-radius: 21px;
+			color: $blue-dark;
+			cursor: pointer;
+			font-size: 12;
+			font-family: $font-sans;
+			font-weight: 600;
+			height: 45px;
+			letter-spacing: 0.05em;
+			line-height: 1.5em;
+			padding: 0 10px 0 10px;
+			text-transform: uppercase;
+			width: 190px;
+			
+			&:hover, &.on {
+				background: $blue-dark;
+				color: $white;
+			}
+
+			.icon {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.icon-info-white {
+		color: $blue-dark;
+		cursor: pointer;
+		opacity: 0.5;
+	}
+
+	.donut-flex {
+		@include flex;
+		@include flex_space_between;
+	    max-width: 1200px;
+	    margin: 0 auto;
+	    
+	     .infographic-legend {
+	     	margin-left: -15%;
+	     	z-index: 100;
+			ul {
+	     		li {
+	     			border-top: 1px solid $white;
+	     			display: block;
+	     			text-align: left;
+	     			&:last-of-type {
+						border-bottom: 1px solid $white;
+					}
+	     		}
+	     	}
+	     }
+	     
+	}
+
+	.side-narratives {
+		display: none;
+	}
+}
+
+@media only screen and (max-width : 1200px) {
+}
+
+@media only screen and (max-width : 992px) {
+}
+
+@media only screen and (max-width : 768px) {
+
+	.infographiclayout {
+	
+		.infographic-nav {
+		}
+		
+		.infographic-content {
+			.infographic-aside {
+				display: none;
+			}
+			.infographic-source {
+				display: none;
+			}
+			.infographic-title {
+				
+			}
+		}
+	
+		.infographic-info {
+		}
+			     
+		.infographic-chart {
+
+			.c3-axis-x-label, .c3-axis-y-label {
+				display: none;
+			}
+			
+			.c3-axis-x {
+				.tick {
+					&:nth-of-type(even) {
+						display: none;
+					}
+				}
+			}	
+			
+			&.area_stacked {
+			}
+	
+			&.bar_chart_grouped {
+			}
+
+			&.donut_chart {
+			    height: 360px;
+			    margin: 0 auto;
+			}
+		}
+		
+	     .infographic-legend {
+	     	ul {
+	     		li {
+	     			border-top: 1px solid $white;
+	     			display: block;
+	     			text-align: left;
+	     			&:last-of-type {
+						border-bottom: 1px solid $white;
+					}
+	     		}
+	     	}
+	     }
+
+		.donut-flex {
+			@include flex_space_normal;
+			flex-direction: column;
+		    max-width: 1200px;
+		    margin: 0 auto;
+
+		     .infographic-legend {
+		     	margin-left: 0;
+		     	li {
+		     		color: $blue-dark;
+		     		padding: .25em 0;
+		     	}
+		     }
+		}
+	}		
+}
+
+@media only screen and (max-width : 480px) {
+}
+
+@media only screen and (max-width : 320px) {
+}
+
+
