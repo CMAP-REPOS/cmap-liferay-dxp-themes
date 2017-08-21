@@ -32,7 +32,7 @@
 //		$('.side-narrative').find('#' + thisID).addClass('display');
 //		$('.mini-info:not(#' + thisID + ')').removeClass('display');
 	};
-
+	
 	function formatValue(format, value) {
 		if (format === 'dollars') {
 			return '$' + d3.format(",")(value)
@@ -61,22 +61,50 @@
 		lines.push('</tbody></table></div>')
 		return lines.join('');
 	};
+	
+	
+	function generateDonutArcTitle(options) {
+		var id = options.id;
+        var formattedValue = formatValue(options.format, options.value);
+		var node = d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node();
+        if (id.length > 32) {
+        	var words = id.split(/\s+/);
+			node.innerHTML = "<tspan>" + 
+			formattedValue + 
+			'</tspan><tspan class="upper" x="-1" y="25">' + 
+			words.slice(0,Math.floor(words.length/2)).join(' ') + 
+			'</tspan><tspan class="upper" x="-1" y="50">' + 
+			words.slice(Math.floor(words.length/2)).join(' ') + 
+			'</tspan>';
+        } else {
+			node.innerHTML = "<tspan>" + 
+			formattedValue + 
+			'</tspan><tspan class="upper" x="-1" y="25">' + 
+			id + 
+			'</tspan>';
+        }
+		node.parentNode.append(node);
+	}
 
 	function generateLegend(options) {
 		console.log('infographics.generateLegend()');
 		console.log(options);
 		var d = options.d;
+		var legendData = d3.keys(d[0]).splice(1);
+		if (options.chartType === 'donut_chart') {
+			legendData = d3.keys(d[0]);
+		}
 		$('.infographic-legend.' + options.chartId + '-legend').html('');
 		d3.select('.infographic-legend.' + options.chartId + '-legend').insert('ul')
 			.attr('class', 'text-center list-unstyled list-inline')
 			.selectAll('div')
-			.data(d3.keys(d[0]).splice(1))
+			.data(legendData)
 			.enter().append('li')
 			.attr('class', function (id) {
 				return id;
 			})
 			.html(function (id) {
-				if (options.chartType != 'donut_chart') {
+				if (options.chartType !== 'donut_chart') {
 					if (options.altDataType && (options.altDataType.toLowerCase() === id.toLowerCase())) {
 						return '<span><i class="icon-circle" style="color: ' + options.altDataColor + '"></i> </span>' + id;
 					} else {
@@ -89,7 +117,12 @@
 			.on('mouseover', function (id) {
 				if (options.chartType === 'donut_chart') {
 		            var dataValue = $(this).children('div').attr('data-value');
-					d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node().innerHTML = "<tspan>" + formatValue(options.axis_y_tick_format, dataValue) + '</tspan><tspan class="upper" x="-1" y="25">' + id + '</tspan>';
+		            generateDonutArcTitle({
+		            	chartId: options.chartId,
+		            	format: options.axis_x_tick_format,
+		            	id: id,
+		            	value: dataValue
+		            });
 				}
 				if ($(window).width() > 420) {
 					options.chart.api.focus(id);
@@ -107,10 +140,10 @@
 				if ($(window).width() < 420) {
 					$(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
 					$(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
-					chart.focus(id);
+					options.chart.api.focus(id);
 
 					if (!$(this).hasClass('legend-clicked')) {
-						chart.revert();
+						options.chart.api.revert();
 						$(this).removeClass('m-legend-fade').siblings().removeClass('m-legend-fade');
 					}
 
@@ -370,13 +403,6 @@
 			console.log(options);
 			var d = options.d;
 
-			var axis_x_tick_format = d3.format(",");
-			if (options.axis_x_tick_format === 'dollars') {
-				axis_x_tick_format = function (d) { return '$' + d; }
-			} else if (options.axis_x_tick_format === 'percent') {
-				axis_x_tick_format = function (d) { return d + '%'; }
-			}
-
 			var chart = c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
@@ -385,14 +411,12 @@
 					type: 'donut',
 					columns: [d3.keys(d[0])],
 					onmouseover: function (d) {
-						var valueFormatted = axis_x_tick_format(d.value);
-						var node = d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node();
-						node.innerHTML = "<tspan>" +
-							valueFormatted +
-							"</tspan><tspan class='upper' x='-1' y='25'>" +
-							d.id +
-							"</tspan>";
-						node.parentNode.append(node);
+						generateDonutArcTitle({
+			            	chartId: options.chartId,
+			            	format: options.axis_x_tick_format,
+			            	id: d.id,
+			            	value: d.value
+			            });
 					}
 				},
 				donut: {
@@ -524,26 +548,29 @@
 			});
 		},
 		resizeAxisLabels: function (options) {
-//			if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
-//				var yChildren = $('#' + options.chartId).find('g.c3-axis-y').children('.tick').children("text").not('[style*="display: none"]');
-//				var yCount = yChildren.length;
-//
-//				var xChildren = $('#' + options.chartId).find('g.c3-axis.c3-axis-x').children('.tick').children("text").not('[style*="display: none"]');
-//				var xCount = xChildren.length;
-//
-//				if (xCount < 10 && !options.disableXAxisLabelResizing) {
-//					xChildren.attr("font-size", "14px");
-//				}
-//
-//				if (yCount < 10 && !options.disableYAxisLabelResizing) {
-//					yChildren.attr("font-size", "14px");
-//				}
-//			}
+			/*
+			if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
+				var yChildren = $('#' + options.chartId).find('g.c3-axis-y').children('.tick').children("text").not('[style*="display: none"]');
+				var yCount = yChildren.length;
+
+				var xChildren = $('#' + options.chartId).find('g.c3-axis.c3-axis-x').children('.tick').children("text").not('[style*="display: none"]');
+				var xCount = xChildren.length;
+
+				if (xCount < 10 && !options.disableXAxisLabelResizing) {
+					xChildren.attr("font-size", "14px");
+				}
+
+				if (yCount < 10 && !options.disableYAxisLabelResizing) {
+					yChildren.attr("font-size", "14px");
+				}
+			}
+			*/
 		},
 		bindDonutLegendEvents: function (options) {
 			console.log('infographics.bindDonutLegendEvents()');
 			console.log(options);
-			if ($(window).width() > 420) {
+
+			/* if ($(window).width() > 420) {
 				$('.legend-info.donut_chart .legend p').mouseover(function () {
 					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
 				});
@@ -560,7 +587,7 @@
 					}
 					return false;
 				});
-			}
+			} */
 		},
 		bindEvents: function () {
 			console.log('infographics.bindEvents()');
