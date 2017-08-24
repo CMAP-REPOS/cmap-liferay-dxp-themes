@@ -53,7 +53,7 @@ This repository contains theme projects for the CMAP Liferay DXP instance.
 
     1. Run `gulp deploy` in the theme's root directory.
     2. Copy the theme's WAR file from the theme's "dist" directory to the "deploy" directory on the server. For the DXP sandbox, the path is /webapps/liferay-2p/liferay-dxp-digital-enterprise-7.0-sp2/deploy.
-    3. Update permissions on the remospte WAR file to make it writable -- 646 should work.
+    3. Update permissions on the remote WAR file to make it writable -- 646 should work.
     4. Watch the logs to make sure the theme has been successfully deployed. You should see a line similar to this in the logs:
 
         > 17:36:29,050 INFO  [Refresh Thread: Equinox Container: a0e0c2f0-0a73-0017-15d1-964ebca560be][BundleStartStopLogger:35] STARTED cmap-2017-theme_1.0.0 [533]
