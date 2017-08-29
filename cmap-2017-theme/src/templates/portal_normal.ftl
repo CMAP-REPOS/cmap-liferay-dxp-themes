@@ -9,6 +9,8 @@
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7363556/6800792/css/fonts.css" />
+	
 	<@liferay_util["include"] page=top_head_include />
 </head>
 
@@ -20,43 +22,17 @@
 
 <@liferay.control_menu />
 
-<div class="container-fluid" id="wrapper">
-	<header id="banner" role="banner">
-		<div id="heading" class="row clearfix">
-			<h1 class="site-title pull-left col-sm-8">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
+<div id="wrapper" class="viewport">
 
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
-			<div class="col-sm-4">
-        <div class="input-group pull-right">
-          <span class="input-group-btn">
-            <button id="site-search-button" class="btn btn-default" type="button"><i class=" icon-search"></i><span class="sr-only">Search</span></button>
-          </span>
-          <input id="site-search-input" type="text" class="form-control" placeholder="Search" aria-describedby="site-search-addon">
-        </div>
-			</div>
+	<#if has_navigation && is_setup_complete>
+		<#include "${full_templates_path}/navigation.ftl" />
+	</#if>
 
-		</div>
-
-  <#--
-		<#if !is_signed_in>
-			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
-        -->
-
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-
-	</header>
-
+	<style>
+	#content{
+		margin-top: 150px;
+	}
+	</style>
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
