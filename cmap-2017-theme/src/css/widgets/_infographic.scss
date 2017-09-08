@@ -6,9 +6,9 @@
 	    background-color: $blue-dark;
 	    color: $blue-med;
 	    padding: 1em 0;
-	    ul {
-		    padding: 0;
-		    margin: 0;
+	    
+	    a {
+	    	color: $blue-med;
 	    }
 	}
 	
@@ -20,19 +20,23 @@
 
 	.infographic-info {
 		padding: 1em 0;
+		
         .infographic-aside {
         	color: $blue-light;
         	font-size: 12px;
         }
+        
 		.infographic-description {
 			a {
 				color: $white;		
 			}
 		}
+		
 		.infographic-source {
         	color: $blue-light;
 			font-size: 9px;
 		}
+		
 		.infographic-title {
 			color: $white;		
 		}
@@ -43,32 +47,41 @@
 		line {
 			stroke: $blue-light;
 		}
+		
 		path {
 			fill: none;
 		}
+		
 		svg {
 	      font: 13px $font-sans; 
 		}
+		
 		text {
 			fill: $blue-light;
 		}
+		
 		.c3-axis-x, .c3-axis-y {
+		
 			path {
 				display: none;
 			}
+			
 			.tick {
 				line {
 					display: none;
 				}
 			}
 		}
-	     .c3-line {
+		
+	    .c3-line {
 	        stroke-width: 3px
-	     }
+	    }
+	    
 		.c3-xgrid, .c3-ygrid {
 			opacity: .3 !important;
 			stroke-dasharray: 0
 		}
+		
 		.c3-xgrid-focus, .c3-ygrid-focus {
 			line {
 				opacity: .3 !important;
@@ -76,13 +89,16 @@
 		}
 		
 	    .c3-tooltip-container {
+	    
 	    	.c3-tooltip {
 				table, td {
 			        border-color: 1px solid #c9d5dd;
 			    }
+			    
 			    td {
 			        border-left: none;
 				}
+				
 				th {
 					background-color: #3c5976;
 				}
@@ -98,13 +114,16 @@
 		}
 
 		&.area_stacked {
+		
 			.c3-area {
 				opacity: 1 !important;
 			}
 		}
 
 		&.bar_chart_grouped {
+		
 			.c3-axis-x {
+			
 				.tick {
 					&:first-of-type, &:last-of-type {
 						display: none;
@@ -116,9 +135,11 @@
 		&.donut_chart {
 		    height: 520px;
 		    margin-left: -25%;
+		    
 		    .c3-chart-arc path {
 			    stroke: none
 			}
+			
 			.c3-chart-arcs-title {
 				color: $blue-dark;
 				font-size: 22px;
@@ -128,6 +149,7 @@
 
 	.infographic-legend {
 		padding: 1em 0;
+		
 		li {
 	        color: $white;
 	        cursor: pointer;
@@ -184,18 +206,20 @@
 	     .infographic-legend {
 	     	margin-left: -15%;
 	     	z-index: 100;
+	     	
 			ul {
+			
 	     		li {
 	     			border-top: 1px solid $white;
 	     			display: block;
 	     			text-align: left;
+	     			
 	     			&:last-of-type {
 						border-bottom: 1px solid $white;
 					}
 	     		}
 	     	}
-	     }
-	     
+		}	
 	}
 
 	.side-narratives {
@@ -220,9 +244,11 @@
 			.infographic-aside {
 				display: none;
 			}
+			
 			.infographic-source {
 				display: none;
 			}
+			
 			.infographic-title {
 				
 			}
@@ -258,7 +284,9 @@
 		}
 		
 	     .infographic-legend {
+	     
 	     	ul {
+	     	
 	     		li {
 	     			border-top: 1px solid $white;
 	     			display: block;
@@ -278,6 +306,7 @@
 
 		     .infographic-legend {
 		     	margin-left: 0;
+		     	
 		     	li {
 		     		color: $blue-dark;
 		     		padding: .25em 0;
