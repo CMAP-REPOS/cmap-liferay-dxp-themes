@@ -63,8 +63,7 @@
 <!-- inject:js -->
 
 <script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5494611e5b33a7e7" async="async"></script>
-
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>
 <!-- endinject -->
 
 </body>
