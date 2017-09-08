@@ -30,11 +30,15 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 	<div class="portlet-layout row">
 		<div class="col-md-16 portlet-column portlet-column-only">
 			<nav class="storymap-nav clearfix">
-			    <div class="col-sm-14 col-sm-offset-1">
-				    <ul class="list-unstyled">
-				        <li class="pull-left">$layout.getName($locale)</li>
-				        <li class="pull-right"><i class="icon-share"></i> Share</li>
-				    </ul>
+			    <div class="col-sm-2 col-sm-offset-1">
+			    $layout.getName($locale)
+			    </div>
+			    <div class="col-sm-11">
+			    </div>
+			    <div class="col-sm-2 share">
+		        	<a data-toggle="popover" data-content="<div id='social-bookmarks-container'></div>" data-placement="bottom" title="Share">
+		        		<span class="icon-share"></span> Share</a>
+					<div class="share-wrapper"></div>
 			    </div>
 			</nav>
 		</div>
