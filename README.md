@@ -18,38 +18,35 @@ This repository contains theme projects for the CMAP Liferay DXP instance.
 
 * Check out [Liferay Themes and Layout Templates](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) in the Liferay documentation.
 
-* Install [Node.js](https://nodejs.org/en/), [Yeoman](http://yeoman.io/), and [gulp](https://gulpjs.com/). See [Install the Liferay Theme Generator](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) for more info.
+### How do I manually publish themes? ###
 
-* Run `npm install` in each theme's root directory. The node_modules directory is in .gitignore.
+* Update the "deployPath" value in the theme's liferay-theme.json file, if the it is not already your local liferay-dxp-digital-enterprise-7.0-sp4/deploy directory. For example:
 
-* Add a "liferay-theme.json" file to each theme's root directory:
-
-        {
-            "LiferayTheme": {
-                "appServerPath": "[bundle path]/tomcat-8.0.32",
-                "deployPath": "[bundle path]/deploy",
-                "url": "http://localhost:8080",
-                "appServerPathPlugin": "[bundle path]/webapps/[theme project name]",
-                "deployed": false,
-                "pluginName": "[theme project name]"
-            }
-        }
-
-    This file is part of Liferay's default .gitignore for theme projects and should be different for each local environment.
-
-    The "[bundle path]" value is the path to Tomcat's parent directory.
-
-    The "[theme project name]" value is the same as the theme's root folder (e.g., "cmap-2017-theme").
-
-### How do I build and deploy themes? ###
+        > {
+        >   "LiferayTheme": {
+        >     "deployPath": "/Workstate/Projects/CMAP/LiferayDeveloperStudio/liferay-dxp-digital-enterprise-7.0-sp4/deploy",
+        >     "themeName": "cmap-2017-theme",
+        >     "appServerPathTheme": "/Workstate/Projects/CMAP/LiferayDeveloperStudio/liferay-workspace/bundles/tomcat-8.0.32/webapps/cmap-2017-theme",
+        >     "deployed": true,
+        >     "appServerPath": "/Workstate/Projects/CMAP/LiferayDeveloperStudio/liferay-workspace/bundles/tomcat-8.0.32"
+        >   }
+        > }
 
 * To build a theme, run `gulp build` in the theme's root directory.
 
-* To deploy a theme locally, run `gulp deploy` in the theme's root directory.
+* To deploy a theme, run `gulp deploy` in the theme's root directory.
 
-    The theme's WAR file will be generated in the theme's "dist" directory, then deployed to the deployPath specified in the theme's "liferay-theme.json" file.
+    The theme's WAR file will be generated in the theme's "dist" directory, then deployed to the deployPath specified in the theme's "liferay-theme.json" file. Liferay will automatically publish the theme.
 
-* To deploy a theme to the server:
+### How do I auto-publish themes? ###
+
+* Add the theme project to your server's published resources.
+
+    You can drag the project from the Project Explorer to the server in the Servers pane, or right-click the server in the Servers pane and select "Add and Remove..." from the context menu.
+
+* Once the theme is a published resource, Liferay Developer Studio will automatically rebuild and republish it any time files in the "src" directory are updated.
+
+### How do I deploy a theme to the server? ###
 
     1. Run `gulp deploy` in the theme's root directory.
     2. Copy the theme's WAR file from the theme's "dist" directory to the "deploy" directory on the server. For the DXP sandbox, the path is /webapps/liferay-2p/liferay-dxp-digital-enterprise-7.0-sp2/deploy.
