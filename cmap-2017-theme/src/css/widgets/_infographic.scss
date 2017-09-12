@@ -5,12 +5,21 @@
 	.infographic-nav {
 	    background-color: $blue-dark;
 	    color: $blue-med;
+	    font-size: 12px;
 	    padding: 1em 0;
-	    ul {
-		    padding: 0;
-		    margin: 0;
+	    
+	    a {
+	    	color: $blue-med;
 	    }
 	}
+
+    .infographic-info-toggle {
+    	color: $blue-dark;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        z-index: 200;
+    }
 	
 	.infographic-content {
 		background-color: $blue-med;
@@ -20,21 +29,36 @@
 
 	.infographic-info {
 		padding: 1em 0;
+		
         .infographic-aside {
         	color: $blue-light;
-        	font-size: 12px;
+	        font-size: 12px;
+	        line-height: 1.5em;
+        	margin-bottom: 2em;
         }
+        
 		.infographic-description {
+			font-family: $font-serif;
+	    	font-size: 15px;
+	    	line-height: 1.5em;
+        	margin-bottom: 2em;
+
 			a {
 				color: $white;		
 			}
 		}
+		
 		.infographic-source {
         	color: $blue-light;
-			font-size: 9px;
+	        font-size: 9px;
+	        line-height: 1.3em;
+        	margin-bottom: 2em;
 		}
+		
 		.infographic-title {
-			color: $white;		
+			color: $white;
+			font-size: 26px;
+			font-family: $font-serif;
 		}
 	}
 		     
@@ -43,32 +67,41 @@
 		line {
 			stroke: $blue-light;
 		}
+		
 		path {
 			fill: none;
 		}
+		
 		svg {
 	      font: 13px $font-sans; 
 		}
+		
 		text {
 			fill: $blue-light;
 		}
+		
 		.c3-axis-x, .c3-axis-y {
+		
 			path {
 				display: none;
 			}
+			
 			.tick {
 				line {
 					display: none;
 				}
 			}
 		}
-	     .c3-line {
+		
+	    .c3-line {
 	        stroke-width: 3px
-	     }
+	    }
+	    
 		.c3-xgrid, .c3-ygrid {
 			opacity: .3 !important;
 			stroke-dasharray: 0
 		}
+		
 		.c3-xgrid-focus, .c3-ygrid-focus {
 			line {
 				opacity: .3 !important;
@@ -76,17 +109,45 @@
 		}
 		
 	    .c3-tooltip-container {
+	    
 	    	.c3-tooltip {
 				table, td {
 			        border-color: 1px solid #c9d5dd;
 			    }
+			    
 			    td {
 			        border-left: none;
 				}
+				
 				th {
 					background-color: #3c5976;
 				}
 	    	}
+	    	
+	    	#Tooltip {
+	    		background: $white;
+	    		font-size: 13px;
+	    		padding: 0.5em 0.5em 0.5em 1em;
+	    		position: relative;
+	    		width: 150px;
+	    		
+	    		.tooltip-circle {
+	    			position: absolute;
+					height: 18px;
+					width: 18px;
+					border-radius: 13px;
+					border: 3px solid white;
+					margin-left: -23px;
+					margin-top: 9.5%;
+					top: 57px;
+					left: 15px;
+	    		}
+	    		
+	    		b {
+	    			
+	    		}
+	    	}
+	    	
 	    }
 
 		.side-narrative {
@@ -98,13 +159,16 @@
 		}
 
 		&.area_stacked {
+		
 			.c3-area {
 				opacity: 1 !important;
 			}
 		}
 
 		&.bar_chart_grouped {
+		
 			.c3-axis-x {
+			
 				.tick {
 					&:first-of-type, &:last-of-type {
 						display: none;
@@ -116,9 +180,11 @@
 		&.donut_chart {
 		    height: 520px;
 		    margin-left: -25%;
+		    
 		    .c3-chart-arc path {
 			    stroke: none
 			}
+			
 			.c3-chart-arcs-title {
 				color: $blue-dark;
 				font-size: 22px;
@@ -128,21 +194,20 @@
 
 	.infographic-legend {
 		padding: 1em 0;
+		
 		li {
 	        color: $white;
 	        cursor: pointer;
+	        font-size: 13px;
+	        margin-right: 1em;
 	        text-transform: uppercase;
 	     }
      }
 
 	 .infographic-buttons {
-		@include flex;
-		@include flex_space_evenly;
 		padding: 1em 0;
 
 		button {
-			@include flex;
-			@include flex_space_between;
 			background: $blue-med;
 			border: 2px solid $blue-dark;
 			border-radius: 21px;
@@ -184,18 +249,21 @@
 	     .infographic-legend {
 	     	margin-left: -15%;
 	     	z-index: 100;
+	     	
 			ul {
+			
 	     		li {
 	     			border-top: 1px solid $white;
 	     			display: block;
+	     			padding: 1em 0;
 	     			text-align: left;
+	     			
 	     			&:last-of-type {
 						border-bottom: 1px solid $white;
 					}
 	     		}
 	     	}
-	     }
-	     
+		}	
 	}
 
 	.side-narratives {
@@ -217,12 +285,13 @@
 		}
 		
 		.infographic-content {
+			
 			.infographic-aside {
-				display: none;
 			}
+			
 			.infographic-source {
-				display: none;
 			}
+			
 			.infographic-title {
 				
 			}
@@ -258,13 +327,16 @@
 		}
 		
 	     .infographic-legend {
+	     
 	     	ul {
+	     	
 	     		li {
-	     			border-top: 1px solid $white;
+	     			border-top: none;
 	     			display: block;
+	     			padding: .5em 0;
 	     			text-align: left;
 	     			&:last-of-type {
-						border-bottom: 1px solid $white;
+						border-bottom: none;
 					}
 	     		}
 	     	}
@@ -278,10 +350,18 @@
 
 		     .infographic-legend {
 		     	margin-left: 0;
-		     	li {
-		     		color: $blue-dark;
-		     		padding: .25em 0;
-		     	}
+		     	
+		     	ul {
+
+			     	li {
+		     			border-top: none;
+			     		color: $blue-dark;
+		     			padding: .5em 0;
+		     			&:last-of-type {
+							border-bottom: none;
+						}
+			     	}
+				}
 		     }
 		}
 	}		

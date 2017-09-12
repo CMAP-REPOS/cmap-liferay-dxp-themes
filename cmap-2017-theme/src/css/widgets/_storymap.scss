@@ -1,0 +1,140 @@
+ .storymaplayout {
+    #map-container {
+        height: 800px;
+        position: relative;
+    }
+
+    .story-map  {
+        height: 100%;
+        width: 100%;
+    }
+
+    .storymap-nav {
+		background: $blue-dark;
+        color: $blue-med;
+	    font-size: 12px;
+        margin: 0;
+        padding: 1em 0;
+        
+        a {
+	        color: $blue-med;
+        }
+    }
+
+    .storymap-section {
+    	font-family: $font-sans;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+
+	    .storymap-info-toggle {
+	    	color: $blue-dark;
+	        position: absolute;
+	        right: 1em;
+	        top: 1em;
+	        z-index: 200;
+	    }
+
+	    .storymap-intro-container {
+	        background: rgba(136, 160, 178, 0.9);
+	        margin: 0;
+	        padding: 1em 0;
+
+		    .storymap-title {
+		        color: $white;
+		    	font-family: $font-serif;
+		    }
+				
+		    .storymap-info {
+		    	color: $color;
+		    	font-family: $font-serif;
+		    	font-size: 15px;
+		    	line-height: 1.5em;
+		    	margin-bottom: 2em;
+			}
+		
+		    .storymap-aside {
+		        color: $blue-light;
+		        font-size: 12px;
+		        line-height: 1.5em;
+		    	margin-bottom: 2em;
+		    }
+		
+		    .storymap-source {
+		        color: $blue-light;
+		        font-size: 9px;
+		        line-height: 1.3em;
+		    	margin-bottom: 2em;
+		    }
+	    }
+	
+	    .storymap-nav-container {
+	        background: rgb(136, 160, 178);
+	        margin: 0;
+	        padding: 1em 0;
+
+		    .story-step-title {
+				color: $blue-dark;
+				font-size: 15px;
+				font-weight: bold;
+				letter-spacing: 0.05em;
+		    	margin-right: 1em;
+		        text-transform: uppercase;
+		        
+		        &.story-active {
+			        color: $white;
+			        font-weight: 600;
+			    }
+		    }
+		    
+		    .view-map {
+				color: $blue-dark;
+				font-size: 12px;
+				
+				.icon {
+					font-size: 18px;
+				}
+		    	
+		    	&:hover {
+		    		color: $white;
+		    	}
+		    }
+		    
+		    .previous-story-step {
+		    	margin-right: 1em;
+			}
+
+		    .previous-story-step, .next-story-step {
+				color: $blue-dark;
+		        font-weight: 600;
+			}
+	    }
+	    	
+	    .storymap-overlays-container {
+	        background: transparent;
+	        margin: 0;
+	        padding: 1em 0;
+
+		    button {
+		        background: transparent;
+		        border: 2px solid $blue-dark;
+		        border-radius: 21px;
+		        color: $blue-dark;
+		        font-size: 12px;
+		        font-weight: 600;
+		        text-transform: uppercase;
+		        
+			    &.active {
+			        color: $white;
+			        font-weight: 500;
+			        background: $blue-dark;
+			    }
+		    }
+	    }
+    }
+
+    .story-step-content {
+        display: none;
+    }
+}
