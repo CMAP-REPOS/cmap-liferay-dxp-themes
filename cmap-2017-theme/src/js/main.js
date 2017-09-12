@@ -9,7 +9,7 @@ cmap.initSocialShare = function(container) {
         '<li><a class="email addthis_button_email">Email</a></ul></div>';
     if (container.find('.share-wrapper').length) {
     	container.find('.share-wrapper').html(shareLinks);
-        $('.addthis_toolbox').hide();
+    	container.find('.addthis_toolbox').hide();
     }
 
     container.find('.share a')
@@ -19,7 +19,7 @@ cmap.initSocialShare = function(container) {
         })
         .on('shown.bs.popover', function(){
             $('#social-bookmarks-container')
-                .html(container.find('.share-wrapper .addthis_toolbox')
+                .html(container.find('.addthis_toolbox')
                 .clone()
                 .show());
             var addthis_config = addthis_config||{};
@@ -28,7 +28,6 @@ cmap.initSocialShare = function(container) {
             addthis.toolbox('.addthis_toolbox');
         });
 };
-
 
 AUI().ready(function() {
 

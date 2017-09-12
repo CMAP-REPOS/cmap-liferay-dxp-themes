@@ -26,14 +26,14 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <link rel="stylesheet"
 	href="$themeDisplay.getPathThemeCss()/vendor/mapbox.min.css" />
 
-<div class="storymaplayout container-fluid" id="main-content" role="main">
+<div class="storymaplayout" id="main-content" role="main">
 	<div class="portlet-layout row">
 		<div class="col-md-16 portlet-column portlet-column-only">
 			<nav class="storymap-nav clearfix">
-			    <div class="col-sm-13 col-sm-offset-1">
+			    <div class="col-xs-13 col-sm-offset-1">
 			    $layout.getName($locale)
 			    </div>
-			    <div class="col-sm-2 share">
+			    <div class="col-sm-2 share hidden-xs">
 		        	<a data-toggle="popover" data-content="<div id='social-bookmarks-container'></div>" data-placement="bottom" title="Share">
 		        		<span class="icon-share"></span> Share</a>
 					<div class="share-wrapper"></div>

@@ -5,12 +5,21 @@
 	.infographic-nav {
 	    background-color: $blue-dark;
 	    color: $blue-med;
+	    font-size: 12px;
 	    padding: 1em 0;
 	    
 	    a {
 	    	color: $blue-med;
 	    }
 	}
+
+    .infographic-info-toggle {
+    	color: $blue-dark;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        z-index: 200;
+    }
 	
 	.infographic-content {
 		background-color: $blue-med;
@@ -23,10 +32,17 @@
 		
         .infographic-aside {
         	color: $blue-light;
-        	font-size: 12px;
+	        font-size: 12px;
+	        line-height: 1.5em;
+        	margin-bottom: 2em;
         }
         
 		.infographic-description {
+			font-family: $font-serif;
+	    	font-size: 15px;
+	    	line-height: 1.5em;
+        	margin-bottom: 2em;
+
 			a {
 				color: $white;		
 			}
@@ -34,11 +50,15 @@
 		
 		.infographic-source {
         	color: $blue-light;
-			font-size: 9px;
+	        font-size: 9px;
+	        line-height: 1.3em;
+        	margin-bottom: 2em;
 		}
 		
 		.infographic-title {
-			color: $white;		
+			color: $white;
+			font-size: 26px;
+			font-family: $font-serif;
 		}
 	}
 		     
@@ -103,6 +123,31 @@
 					background-color: #3c5976;
 				}
 	    	}
+	    	
+	    	#Tooltip {
+	    		background: $white;
+	    		font-size: 13px;
+	    		padding: 0.5em 0.5em 0.5em 1em;
+	    		position: relative;
+	    		width: 150px;
+	    		
+	    		.tooltip-circle {
+	    			position: absolute;
+					height: 18px;
+					width: 18px;
+					border-radius: 13px;
+					border: 3px solid white;
+					margin-left: -23px;
+					margin-top: 9.5%;
+					top: 57px;
+					left: 15px;
+	    		}
+	    		
+	    		b {
+	    			
+	    		}
+	    	}
+	    	
 	    }
 
 		.side-narrative {
@@ -153,18 +198,16 @@
 		li {
 	        color: $white;
 	        cursor: pointer;
+	        font-size: 13px;
+	        margin-right: 1em;
 	        text-transform: uppercase;
 	     }
      }
 
 	 .infographic-buttons {
-		@include flex;
-		@include flex_space_evenly;
 		padding: 1em 0;
 
 		button {
-			@include flex;
-			@include flex_space_between;
 			background: $blue-med;
 			border: 2px solid $blue-dark;
 			border-radius: 21px;
@@ -212,6 +255,7 @@
 	     		li {
 	     			border-top: 1px solid $white;
 	     			display: block;
+	     			padding: 1em 0;
 	     			text-align: left;
 	     			
 	     			&:last-of-type {
@@ -241,12 +285,11 @@
 		}
 		
 		.infographic-content {
+			
 			.infographic-aside {
-				display: none;
 			}
 			
 			.infographic-source {
-				display: none;
 			}
 			
 			.infographic-title {
@@ -288,11 +331,12 @@
 	     	ul {
 	     	
 	     		li {
-	     			border-top: 1px solid $white;
+	     			border-top: none;
 	     			display: block;
+	     			padding: .5em 0;
 	     			text-align: left;
 	     			&:last-of-type {
-						border-bottom: 1px solid $white;
+						border-bottom: none;
 					}
 	     		}
 	     	}
@@ -307,10 +351,17 @@
 		     .infographic-legend {
 		     	margin-left: 0;
 		     	
-		     	li {
-		     		color: $blue-dark;
-		     		padding: .25em 0;
-		     	}
+		     	ul {
+
+			     	li {
+		     			border-top: none;
+			     		color: $blue-dark;
+		     			padding: .5em 0;
+		     			&:last-of-type {
+							border-bottom: none;
+						}
+			     	}
+				}
 		     }
 		}
 	}		

@@ -12,6 +12,7 @@
     .storymap-nav {
 		background: $blue-dark;
         color: $blue-med;
+	    font-size: 12px;
         margin: 0;
         padding: 1em 0;
         
@@ -50,18 +51,21 @@
 		    	font-family: $font-serif;
 		    	font-size: 15px;
 		    	line-height: 1.5em;
+		    	margin-bottom: 2em;
 			}
 		
 		    .storymap-aside {
 		        color: $blue-light;
 		        font-size: 12px;
 		        line-height: 1.5em;
+		    	margin-bottom: 2em;
 		    }
 		
 		    .storymap-source {
 		        color: $blue-light;
 		        font-size: 9px;
 		        line-height: 1.3em;
+		    	margin-bottom: 2em;
 		    }
 	    }
 	
