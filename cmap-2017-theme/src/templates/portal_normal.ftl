@@ -10,7 +10,7 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7363556/6800792/css/fonts.css" />
-	
+
 	<@liferay_util["include"] page=top_head_include />
 </head>
 
@@ -28,11 +28,6 @@
 		<#include "${full_templates_path}/navigation.ftl" />
 	</#if>
 
-	<style>
-	#content{
-		margin-top: 150px;
-	}
-	</style>
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
