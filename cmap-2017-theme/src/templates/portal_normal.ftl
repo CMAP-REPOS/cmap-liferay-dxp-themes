@@ -38,6 +38,7 @@
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>
+
 			${portletDisplay.recycle()}
 
 			${portletDisplay.setTitle(the_title)}
@@ -56,11 +57,9 @@
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
-
 <script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
 <script src="https://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>
 <!-- endinject -->
 
 </body>
-
 </html>

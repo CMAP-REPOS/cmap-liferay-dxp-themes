@@ -6,7 +6,7 @@
 		"liferay-theme"
 	],
 	"liferayTheme": {
-		"baseTheme": "unstyled",
+		"baseTheme": "styled",
 		"screenshot": "",
 		"rubySass": false,
 		"templateLanguage": "ftl",

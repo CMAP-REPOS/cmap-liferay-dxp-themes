@@ -30,7 +30,6 @@
 
 			<input class="search-widget-field" id="header-search-field" type="text" aria-describedby="site-search-addon">
 		</div>
-
 	</nav>
 
 	<nav class="nav-row-two">

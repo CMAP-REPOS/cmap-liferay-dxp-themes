@@ -3,7 +3,6 @@
 	width: 100%;
 	height: 150px;
 	background: #fff;
-	z-index: 100;
 
   .nav-row-one{
   	display: flex;
@@ -93,11 +92,8 @@
 
   	ul{
   		width: 100%;
-  		height: 50px;
   		padding: 0;
   		margin: 0;
-  		list-style: none;
-  		overflow: scroll;
   	}
 
   	li{
