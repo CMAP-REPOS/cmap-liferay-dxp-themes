@@ -6,6 +6,22 @@
   list-style: none;
 }
 
+@mixin desktop(){
+  @media screen and (max-width: $desktop-breakpoint){
+    @content;
+  }
+}
+@mixin tablet(){
+  @media screen and (max-width: $tablet-breakpoint){
+    @content;
+  }
+}
+@mixin phone(){
+  @media screen and (max-width: $phone-breakpoint){
+    @content;
+  }
+}
+
 /* FLEXBOX */
 @mixin flex {
 	display: -webkit-box;

@@ -24,58 +24,26 @@ $blue-light: #e4eaee;
 $white: #ffffff;
 $accent: #3897c6;
 
-// Units
-// $spacing: 8px;
-// $bs-width: 5.98291%;
-// $bs-margin: 2.5641%;
-// $space-lrg: 50px;
-// $space-sm: 25px;
+$desktop-breakpoint: 1200px;
+$tablet-breakpoint: 800px;
+$phone-breakpoint: 400px;
 
-//mobile
-// $m-space-lrg: 30px;
-// $m-space-sm: 25px;
 
-// Mega menu height
-// $main-megamenu-height: 540px;
-
-//font icons
-
-$icomoon-font-path: "../fonts";
-
-$icon-back-light: "";
-$icon-back-white: "";
-$icon-close-light: "";
-$icon-close-white: "";
-$icon-info-dark: "";
-$icon-info-white: "";
-$icon-key-light: "";
-$icon-key-white: "";
-$icon-layers-dark: "";
-$icon-layers-white: "";
-$icon-map-large-accent: "";
-$icon-map-large-accent_1: "";
-$icon-map-large-dark: "";
-$icon-map-large-dark_1: "";
-$icon-map-med-dark: "";
-$icon-map-med-dark_1: "";
-$icon-map-med-white: "";
-$icon-map-med-white_1: "";
-$icon-map-small-light: "";
-$icon-map-small-light_1: "";
-$icon-map-small-white: "";
-$icon-map-small-white_1: "";
-$icon-marp-large-white: "";
-$icon-nav-left-dark: "";
-$icon-nav-left-dark_1: "";
-$icon-nav-left-white: "";
-$icon-nav-left-white_1: "";
-$icon-nav-right-dark: "";
-$icon-nav-right-dark_1: "";
-$icon-nav-right-white: "";
-$icon-nav-right-white_1: "";
-$icon-paragraphh-white: "";
-$icon-paragraph-light: "";
-$icon-paragraph-light_1: "";
-$icon-paragraph-white: "";
-$icon-share-light: "";
-$icon-share-white: "";
+// Sizes
+$variation: 1.414;
+$size0: 1rem;
+$size1: $size0 * $variation;
+$size2: $size1 * $variation;
+$size3: $size2 * $variation;
+$size4: $size3 * $variation;
+$size5: $size4 * $variation;
+$size6: $size5 * $variation;
+$size7: $size6 * $variation;
+$size8: $size7 * $variation;
+$size9: $size8 * $variation;
+$size10: $size9 * $variation;
+$size-1: $size0 / $variation;
+$size-2: $size-1 / $variation;
+$size-3: $size-2 / $variation;
+$size-4: $size-3 / $variation;
+$size-5: $size-4 / $variation;
