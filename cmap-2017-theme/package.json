@@ -1,7 +1,10 @@
 {
 	"name": "cmap-2017-theme",
 	"version": "1.0.0",
+	"description": "A Liferay 7.0 theme for the Chicago Metropolitan Agency of Planning or CMAP",
 	"main": "package.json",
+	"repository": "https://bitbucket.org/workstate-code/cmap-liferay-dxp-themes",
+	"license": "UNLICENSED",
 	"keywords": [
 		"liferay-theme"
 	],

@@ -7,6 +7,14 @@
 	</compatibility>
 	<theme id="cmap-2017" name="CMAP 2017">
 		<template-extension>ftl</template-extension>
+		<layout-templates>
+			<custom>
+				<layout-template id="cmap-four-eight-four" name="CMAP Four Eight Four">
+					<template-path>/layouttpl/custom/cmap-four-eight-four-layouttpl/cmap-four-eight-four.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/cmap-four-eight-four-layouttpl/cmap-four-eight-four.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
 		<portlet-decorator id="barebone" name="Barebone">
 			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
@@ -17,5 +25,8 @@
 		<portlet-decorator id="decorate" name="Decorate">
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
 		</portlet-decorator>
+		<layout-templates>
+
+		</layout-templates>
 	</theme>
 </look-and-feel>
