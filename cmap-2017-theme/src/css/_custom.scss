@@ -1,14 +1,26 @@
 @charset "UTF-8";
 
-@import "global/vars";
-@import "global/mixins";
-@import "global/typography";
-@import "global/grid16";
+// these are loaded in a specific order
+// the rest are listed alphabetically
+@import "custom/global/fonts/presna";
+@import "custom/global/variables";
+@import "custom/global/mixins";
+@import "custom/global/overrides";
+@import "custom/global/print";
 
-@import "pages/staffdirectory";
+// CUSTOM CMAP SCSS
+@import "custom/global/elements";
+@import "custom/global/grid";
+@import "custom/global/layout";
+@import "custom/global/typography";
+@import "custom/global/utilities";
 
-@import "widgets/breadcrumb";
-@import "widgets/calendar";
-@import "widgets/header";
-@import "widgets/infographic";
-@import "widgets/storymap";
+@import "custom/pages/fy18";
+@import "custom/pages/staffdirectory";
+
+@import "custom/widgets/breadcrumbs";
+@import "custom/widgets/calendar";
+@import "custom/widgets/footer";
+@import "custom/widgets/header";
+@import "custom/widgets/infographic";
+@import "custom/widgets/storymap";

@@ -1,0 +1,95 @@
+#footer{
+  position: relative;
+  bottom: 0; left: 0;
+  width: 100%;
+  background: $light-blue;
+
+  .container{
+    width: 100%;
+    padding: 0 #{$unit * 3};
+  }
+
+  .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding-top: 0.3em;
+    height: $unit * 2;
+  }
+
+  // all are columns in the footer grid
+  .footer-jump-to-top,
+  .footer-page-links,
+  .footer-social-links{
+    transform: translateY(-0.18em);
+
+  }
+
+  .footer-jump-to-top,
+  .footer-page-links{
+  }
+
+  .footer-jump-to-top{
+    svg{
+      position: relative;
+      transform: translateY(0.2em);
+
+    }
+    span{
+      margin-left: $size-3;
+    }
+  }
+  .footer-page-links{
+    a{
+      margin-right: $size-2;
+    }
+  }
+
+  .footer-social-links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  $icon-size: $size0;
+  .footer-social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .svg-icon{
+    width: $icon-size;
+    height: $icon-size;
+    margin-left: $size-3;
+
+    &.twitter{
+      height: #{$icon-size - 0.1em};
+    }
+    &.facebook{
+      height: #{$icon-size - 0.1em};
+      // width: #{$icon-size - 0.22em};
+    }
+    path{
+      fill: $primary;
+    }
+  }
+
+  .footer-social-link:hover{
+    .svg-icon{
+      path{
+        fill: $dark-blue;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  span{
+    font-size: $size-1;
+    font-weight: 800;
+  }
+
+  span,a{
+    color: $primary;
+  }
+
+}

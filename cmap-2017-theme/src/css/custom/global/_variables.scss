@@ -24,14 +24,17 @@ $blue-light: #e4eaee;
 $white: #ffffff;
 $accent: #3897c6;
 
-$desktop-breakpoint: 1200px;
-$tablet-breakpoint: 800px;
-$phone-breakpoint: 400px;
 
 
-// Sizes
+// colors
+$blue: #3C5976;
+$dark-blue: darken($blue, 25%);
+$light-blue: #E4EBEE;
+$primary: $blue;
+
+// sizes
 $variation: 1.414;
-$size0: 1rem;
+$size0: 1em;
 $size1: $size0 * $variation;
 $size2: $size1 * $variation;
 $size3: $size2 * $variation;
@@ -47,3 +50,10 @@ $size-2: $size-1 / $variation;
 $size-3: $size-2 / $variation;
 $size-4: $size-3 / $variation;
 $size-5: $size-4 / $variation;
+
+$unit: $size1;
+
+$breakpoint-phone: 400px;
+$breakpoint-tablet: 800px;
+$breakpoint-desktop: 1200px;
+$breakpoint-tv: 1600px;

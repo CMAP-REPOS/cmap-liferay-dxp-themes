@@ -5,6 +5,7 @@
 	<compatibility>
 		<version>7.0.0+</version>
 	</compatibility>
+
 	<theme id="cmap-2017" name="CMAP 2017">
 		<template-extension>ftl</template-extension>
 		<layout-templates>
@@ -13,10 +14,13 @@
 					<template-path>/layouttpl/custom/cmap-four-eight-four-layouttpl/cmap-four-eight-four.tpl</template-path>
 					<thumbnail-path>/layouttpl/custom/cmap-four-eight-four-layouttpl/cmap-four-eight-four.png</thumbnail-path>
 				</layout-template>
+				<layout-template id="cmap" name="CMAP Layout">
+					<template-path>/layouttpl/custom/cmap-layouttpl/cmap.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/cmap-layouttpl/cmap.png</thumbnail-path>
+				</layout-template>
 			</custom>
 		</layout-templates>
 		<portlet-decorator id="barebone" name="Barebone">
-			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
 		<portlet-decorator id="borderless" name="Borderless">
@@ -25,8 +29,12 @@
 		<portlet-decorator id="decorate" name="Decorate">
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
 		</portlet-decorator>
-		<layout-templates>
-
-		</layout-templates>
+		<portlet-decorator id="centered-content" name="Centered Content">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-centered</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="full-width-content" name="Full Width Content">
+			<portlet-decorator-css-class>portlet-full-width</portlet-decorator-css-class>
+		</portlet-decorator>
 	</theme>
 </look-and-feel>

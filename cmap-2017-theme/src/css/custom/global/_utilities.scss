@@ -43,14 +43,6 @@
   }
 }
 
-.no-list {
-  @include no_list;
-
-  ul {
-    @include no_list;
-  }
-}
-
 .alignleft {
   float: left;
 }
