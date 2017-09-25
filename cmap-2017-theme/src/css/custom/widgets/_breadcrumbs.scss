@@ -1,5 +1,5 @@
 #breadcrumbs{
-  // padding: $size0;
+  border-top: 1px solid $light-blue;
 
   .breadcrumb{
     margin-bottom: $unit * 2;
@@ -10,11 +10,24 @@
     align-items: center;
     flex-wrap: nowrap;
 
-    .share-col{
+
+    @include tablet(){
+      padding: 0 $unit * 2;
+    }
+    @include phone(){
+      padding: 0 $unit;
+    }
+
+    .share-button{
+      position: absolute;
+      height: $unit * 2;
+      display: flex;
+      align-items: center;
 
       a{
         display: inline-flex;
-        align-items: baseline;
+        align-items: center;
+        height: $size0;
         font-size: $size-1;
         font-weight: 800;
         cursor: pointer;
@@ -29,8 +42,8 @@
       }
 
       span{
-        padding-left: $size0;
-        transform: translateY(-0.2em);
+        padding-left: $size-1;
+        transform: translateY(0.175em);
       }
 
       svg{
@@ -39,16 +52,21 @@
       }
     }
 
+
     .trail-col{
       height: $size0;
       line-height: $size0;
-      // overflow-y: scroll;
+
+      $indent: 0.5em;
+      text-indent: - $indent;
+      margin-left: $indent;
 
       .home{
         cursor: pointer;
         position: relative;
         border-left: none;
         padding: 0;
+
         &:after{
           content: '';
           position: absolute;
@@ -80,6 +98,40 @@
       }
     }
 
+    @include tablet(){
+      flex-wrap: wrap;
+      height: auto !important;
+
+      .share-button{
+        position: relative;
+        height: $unit * 2;
+      }
+      .trail-col{
+        height: auto;
+        text-indent: 0;
+        margin: 0;
+        padding-left: 0 !important;
+      }
+
+      .sr-only{
+        display: inline-block;
+        position: relative;
+        width: auto;
+        height: auto;
+        overflow: auto;
+        clip: auto;
+        margin: auto;
+      }
+      .home{
+        &:after{
+          display: none;
+        }
+      }
+    }
+
+    span,a{
+      line-height: 1em;
+    }
     a{
       color: $primary;
       &:hover{
@@ -88,4 +140,5 @@
       }
     }
   }
+
 }

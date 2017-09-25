@@ -3,9 +3,9 @@
 // these are loaded in a specific order
 // the rest are listed alphabetically
 @import "custom/global/fonts/presna";
+@import "custom/vendor/hamburger";
 @import "custom/global/variables";
 @import "custom/global/mixins";
-@import "custom/global/overrides";
 @import "custom/global/print";
 
 // CUSTOM CMAP SCSS
@@ -18,9 +18,17 @@
 @import "custom/pages/fy18";
 @import "custom/pages/staffdirectory";
 
+@import "custom/widgets/nav/header";
+@import "custom/widgets/nav/links";
+@import "custom/widgets/nav/logo";
+@import "custom/widgets/nav/scrollNav";
+@import "custom/widgets/nav/search";
+@import "custom/widgets/nav/sideNav";
+
 @import "custom/widgets/breadcrumbs";
 @import "custom/widgets/calendar";
 @import "custom/widgets/footer";
-@import "custom/widgets/header";
 @import "custom/widgets/infographic";
 @import "custom/widgets/storymap";
+
+@import "custom/global/overrides";
