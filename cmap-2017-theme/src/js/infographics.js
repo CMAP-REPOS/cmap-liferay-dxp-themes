@@ -21,18 +21,18 @@
             }
         }
 	};
-	
+
 	function removeAllFade() {
 //		var activeClass = "c3-defocused";
 //		d3.selectAll('g').classed(activeClass, false);
 	};
 
 	function updateInfo() {
-//		var thisID = $('.button-container').find('.on').attr('id');
+//		var thisID = $('.infographic-buttons').is(':hover').attr('id');
 //		$('.side-narrative').find('#' + thisID).addClass('display');
 //		$('.mini-info:not(#' + thisID + ')').removeClass('display');
 	};
-	
+
 	function formatValue(format, value) {
 		if (format === 'dollars') {
 			return '$' + d3.format(",")(value)
@@ -42,7 +42,7 @@
 			return d3.format(",")(value);
 		}
 	};
-	
+
 	function getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options) {
 		var formatColor = function (e) {
 			if (options.altDataType && e.name.toLowerCase() === options.altDataType.toLowerCase()) {
@@ -61,40 +61,76 @@
 		lines.push('</tbody></table></div>')
 		return lines.join('');
 	};
-	
-	
+
+
 	function generateDonutArcTitle(options) {
 		var id = options.id;
         var formattedValue = formatValue(options.format, options.value);
 		var node = d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node();
         if (id.length > 32) {
         	var words = id.split(/\s+/);
-			node.innerHTML = "<tspan>" + 
-			formattedValue + 
-			'</tspan><tspan class="upper" x="-1" y="25">' + 
-			words.slice(0,Math.floor(words.length/2)).join(' ') + 
-			'</tspan><tspan class="upper" x="-1" y="50">' + 
-			words.slice(Math.floor(words.length/2)).join(' ') + 
+			node.innerHTML = "<tspan>" +
+			formattedValue +
+			'</tspan><tspan class="upper" x="-1" y="25">' +
+			words.slice(0,Math.floor(words.length/2)).join(' ') +
+			'</tspan><tspan class="upper" x="-1" y="50">' +
+			words.slice(Math.floor(words.length/2)).join(' ') +
 			'</tspan>';
         } else {
-			node.innerHTML = "<tspan>" + 
-			formattedValue + 
-			'</tspan><tspan class="upper" x="-1" y="25">' + 
-			id + 
+			node.innerHTML = "<tspan>" +
+			formattedValue +
+			'</tspan><tspan class="upper" x="-1" y="25">' +
+			id +
 			'</tspan>';
         }
 		node.parentNode.append(node);
 	}
 
+    function getDataClasses(){
+        //get the array of svg objects and all their info with d3
+        var chartLines = d3.select('.c3-chart-lines').selectAll('g.c3-chart-line');
+        var dataClasses = [];
+        //get the class names
+        for (i=0; i < chartLines[0].length; i++){
+                $.each(chartLines[0][i]["classList"], function( key, value ) {
+                    //we only need the second value - unique to that data set
+                if (key == 2){
+                dataClasses.push(value);
+            }
+            });
+        }
+        return dataClasses;
+    }
+    function applyFade(dataClasses,index){
+        var toFade;
+        // d3 always returns an array with a length of 1.
+        // looking one level deeper tells us whether we actually got a result.
+        if(d3.selectAll('.c3-defocused')[0].length !=0){
+            d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+        }
+        else if(index.length > 1){
+            var num;
+            for (i=0; i < index.length; i++){
+                num = index[i];
+                toFade = ".c3-chart-line."+dataClasses[num];
+                d3.select(toFade).classed('c3-defocused', true);
+            }
+        }
+        else{
+            // single index functionality in case its needed in future
+            toFade = '.c3-chart-line.'+dataClasses[index];
+            d3.select(toFade).classed('c3-defocused', true);
+        }
+    }
+
 	function generateLegend(options) {
-		console.log('infographics.generateLegend()');
-		console.log(options);
+		// console.log('infographics.generateLegend()');
+		// console.log(options);
 		var d = options.d;
 		var legendData = d3.keys(d[0]).splice(1);
 		if (options.chartType === 'donut_chart') {
 			legendData = d3.keys(d[0]);
 		}
-		$('.infographic-legend.' + options.chartId + '-legend').html('');
 		d3.select('.infographic-legend.' + options.chartId + '-legend').insert('ul')
 			.attr('class', 'text-center list-unstyled list-inline')
 			.selectAll('div')
@@ -158,11 +194,10 @@
 	if ($(window).width() > 420) {
 		donutWidth = 60;
 	}
-
 	return {
 		generateAreaStacked: function (options) {
-			console.log('infographics.generateAreaStacked()');
-			console.log(options);
+			// console.log('infographics.generateAreaStacked()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var chart = c3.generate({
@@ -228,9 +263,10 @@
 					show: false,
 				},
 				tooltip: {
-					grouped: false
+					grouped: true,
 				},
 				onrendered: function () {
+                    getDataClasses();
 					generateLegend({
 						d: d,
 						chart: this,
@@ -238,13 +274,13 @@
 						chartType: 'area_stacked',
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
-					})
+					});
 				}
 			});
 		},
 		generateBarGrouped: function (options) {
-			console.log('infographics.generateBarGrouped()');
-			console.log(options);
+			// console.log('infographics.generateBarGrouped()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -311,8 +347,8 @@
 			});
 		},
 		generateBarStacked: function (options) {
-			console.log('infographics.generateBarStacked()');
-			console.log(options);
+			// console.log('infographics.generateBarStacked()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -399,8 +435,8 @@
 			});
 		},
 		generateDonut: function (options) {
-			console.log('infographics.generateDonut()');
-			console.log(options);
+			// console.log('infographics.generateDonut()');
+			// console.log(options);
 			var d = options.d;
 
 			var chart = c3.generate({
@@ -450,8 +486,8 @@
 			});
 		},
 		generateMultiLine: function (options) {
-			console.log('infographics.generateMultiLineBar()');
-			console.log(options);
+			// console.log('infographics.generateMultiLineBar()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -567,8 +603,8 @@
 			*/
 		},
 		bindDonutLegendEvents: function (options) {
-			console.log('infographics.bindDonutLegendEvents()');
-			console.log(options);
+			// console.log('infographics.bindDonutLegendEvents()');
+			// console.log(options);
 
 			/* if ($(window).width() > 420) {
 				$('.legend-info.donut_chart .legend p').mouseover(function () {
@@ -590,7 +626,8 @@
 			} */
 		},
 		bindEvents: function () {
-			console.log('infographics.bindEvents()');
+			// console.log('infographics.bindEvents()');
+
 			$(".icon-info-white").on('click', function () {
 				var $this = $(this);
 				$this.toggleClass('on');
@@ -601,23 +638,112 @@
 			$('.icon-close-white').on('click', function() {
 				$('.side-narrative').remove();
 			});
-			
-			$('.icon-paragraphh-white').on('click', function() {
+
+			$('.mobile-legend-icons .icon-paragraphh-white, .mobile-legend-icons .icon-key-white').on('click', function() {
+                var activeButton;
+                if($('.infographic-button').hasClass('on')){
+                    activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+
+                // note: not currently intended for multiple charts on a single page.
+                // fires once for each element on the page, if theres more than one
 				var $this = $(this);
+                if ($this.hasClass('icon-paragraphh-white')){
+                    // stuff for paragraph icon here.
+                    if(!$this.hasClass('activated')){
+                        $this.addClass('activated');
+                        $('.side-narratives').addClass('open').children().hide();
+                        $('.icon-key-white').removeClass('activated');
+                        $('.infographic-legend ul').hide();
+                        $('.side-narratives #side-narrative'+activeButton).show();
+                    }
+                }
+                else {
+                    // we clicked the key. do stuff with the key.
+                    if(!$this.hasClass('activated')){
+                        $this.addClass('activated');
+                        $('.side-narratives').removeClass('open').children().hide();
+                        $('.icon-paragraphh-white').removeClass('activated');
+                        $('.infographic-legend ul').show();
+                    }
+                }
+                }
+
 			});
 
-			$('.infographic-button').on('click mouseenter', function() {
+
+			$('.infographic-button').on('mouseenter', function() {
 				var $this = $(this);
 				var id = $this.attr('id').replace('infographic-button','side-narrative');
+                var buttonID = $this.attr('id');
+                if(!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')){
 				$('.side-narrative').remove();
 				$('.infographic-chart').append('<div class="side-narrative">' + $('#'+id).html() + '</p>');
+                var dataClasses = getDataClasses();
+                if ($(this).is(":first-of-type")){
+                    applyFade(dataClasses,[2,3,4]);
+                }
+                else if ($(this).is(":nth-of-type(2)")){
+                    applyFade(dataClasses,[0,1,4]);
+                }
+                else {
+                    applyFade(dataClasses,[0,1,2,3]);
+                }
+            }
 			});
-			
+
 			$('.infographic-button').on('mouseleave', function() {
 				var $this = $(this);
+                if(!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')){
 				$('.side-narrative').remove();
+                applyFade();
+            }
 			});
+            $('.infographic-button').on('click', function(){
+                var $this = $(this);
+                var id = $this.attr('id').replace('infographic-button','side-narrative');
+                var buttonID = $this.attr('id');
+                var dataClasses = getDataClasses();
+                // var activeButton;
+                if(!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')){
+                    $(this).closest('.infographic-buttons').children().removeClass('on');
+                    $('.side-narrative').remove();
+                }
+                    applyFade();
+                    $this.addClass('on');
+                    if(!$('.side-narrative')){
+                    $('.infographic-chart').append('<div class="side-narrative">' + $('#'+id).html() + '</p>');
+                }
+                if($( window ).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
+                activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+                    $('.side-narratives').children().hide();
+                    $('.side-narratives #side-narrative'+activeButton).show();
+                }
+                    if ($(this).is(":first-of-type")){
+                        applyFade(dataClasses,[2,3,4]);
+                    }
+                    else if ($(this).is(":nth-of-type(2)")){
+                        applyFade(dataClasses,[0,1,4]);
+                    }
+                    else {
+                        applyFade(dataClasses,[0,1,2,3]);
+                    }
+
+            });
+            $('.pair-icons .icon-paragraphh-white').on('click', function(){
+                $('.side-narrative').toggle();
+                return false;
+            });
+            $('.icon-close-white').on('click', function(){
+                $(this).closest('.infographic-button').removeClass('on');
+                $('.side-narrative').remove();
+                if($( window ).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
+                $('.side-narratives').removeClass('open').children().hide();
+                $('.icon-paragraphh-white').removeClass('activated');
+                $('.icon-key-white').addClass('activated');
+                $('.infographic-legend ul').show();
+                }
+                return false;
+            });
 		}
 	};
 }));
-
