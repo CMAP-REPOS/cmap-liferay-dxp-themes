@@ -15,7 +15,7 @@
 	    font-size: 12px;
         margin: 0;
         padding: 1em 0;
-        
+
         a {
 	        color: $blue-med;
         }
@@ -45,7 +45,7 @@
 		        color: $white;
 		    	font-family: $font-serif;
 		    }
-				
+
 		    .storymap-info {
 		    	color: $color;
 		    	font-family: $font-serif;
@@ -53,14 +53,14 @@
 		    	line-height: 1.5em;
 		    	margin-bottom: 2em;
 			}
-		
+
 		    .storymap-aside {
 		        color: $blue-light;
 		        font-size: 12px;
 		        line-height: 1.5em;
 		    	margin-bottom: 2em;
 		    }
-		
+
 		    .storymap-source {
 		        color: $blue-light;
 		        font-size: 9px;
@@ -68,7 +68,7 @@
 		    	margin-bottom: 2em;
 		    }
 	    }
-	
+
 	    .storymap-nav-container {
 	        background: rgb(136, 160, 178);
 	        margin: 0;
@@ -81,26 +81,26 @@
 				letter-spacing: 0.05em;
 		    	margin-right: 1em;
 		        text-transform: uppercase;
-		        
+
 		        &.story-active {
 			        color: $white;
 			        font-weight: 600;
 			    }
 		    }
-		    
+
 		    .view-map {
 				color: $blue-dark;
 				font-size: 12px;
-				
+
 				.icon {
 					font-size: 18px;
 				}
-		    	
+
 		    	&:hover {
 		    		color: $white;
 		    	}
 		    }
-		    
+
 		    .previous-story-step {
 		    	margin-right: 1em;
 			}
@@ -110,7 +110,11 @@
 		        font-weight: 600;
 			}
 	    }
-	    	
+        .storymap-nav-container.mobile-storymap-nav {
+            display: none;
+        }
+
+
 	    .storymap-overlays-container {
 	        background: transparent;
 	        margin: 0;
@@ -124,7 +128,7 @@
 		        font-size: 12px;
 		        font-weight: 600;
 		        text-transform: uppercase;
-		        
+
 			    &.active {
 			        color: $white;
 			        font-weight: 500;
@@ -136,5 +140,13 @@
 
     .story-step-content {
         display: none;
+    }
+    @media only screen and (max-width : 420px){
+        .storymap-section {
+            .storymap-nav-container.mobile-storymap-nav {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
 }

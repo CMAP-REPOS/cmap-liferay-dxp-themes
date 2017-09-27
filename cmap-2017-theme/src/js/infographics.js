@@ -105,6 +105,10 @@
         var toFade;
         // d3 always returns an array with a length of 1.
         // looking one level deeper tells us whether we actually got a result.
+        if(!index){
+            d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+            return;
+        }
         if(d3.selectAll('.c3-defocused')[0].length !=0){
             d3.selectAll('.c3-defocused').classed('c3-defocused', false);
         }
@@ -736,11 +740,14 @@
             $('.icon-close-white').on('click', function(){
                 $(this).closest('.infographic-button').removeClass('on');
                 $('.side-narrative').remove();
-                if($( window ).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
-                $('.side-narratives').removeClass('open').children().hide();
-                $('.icon-paragraphh-white').removeClass('activated');
-                $('.icon-key-white').addClass('activated');
-                $('.infographic-legend ul').show();
+                if($( window ).width() <= 768){
+                    d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+                }
+                if($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
+                    $('.side-narratives').removeClass('open').children().hide();
+                    $('.icon-paragraphh-white').removeClass('activated');
+                    $('.icon-key-white').addClass('activated');
+                    $('.infographic-legend ul').show();
                 }
                 return false;
             });
