@@ -2,6 +2,7 @@
   position: relative;
   background: $light-blue;
   margin-right: 0 !important;
+
   .search-widget-field,
   .search-placeholder-text{
     font-size: $size-1;
@@ -22,6 +23,7 @@
       position: relative;
       transform: translateY(-0.05em);
       margin-left: $size-1;
+      margin-right: $size-2;
       width: $size0 !important;
       height: $size0 !important;
     }
@@ -34,6 +36,8 @@
     border: none;
     width: 100%;
     height: 100%;
-    padding-left: #{($size-1 * 2) + $size0} !important;
+    padding-left: #{($size0 * 2) + $size0} !important;
+    padding-top: $unit;
+    padding-bottom: $unit;
   }
 }

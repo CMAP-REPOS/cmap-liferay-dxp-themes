@@ -10,16 +10,16 @@
     align-items: center;
     flex-wrap: nowrap;
 
-
     @include tablet(){
-      padding: 0 $unit * 2;
+      padding: 0 #{$unit * 2};
+      margin-top: $unit;
     }
     @include phone(){
       padding: 0 $unit;
     }
 
     .share-button{
-      position: absolute;
+      position: relative;
       height: $unit * 2;
       display: flex;
       align-items: center;
@@ -66,6 +66,7 @@
         position: relative;
         border-left: none;
         padding: 0;
+        font-size: $size-1;
 
         &:after{
           content: '';
@@ -111,6 +112,10 @@
         text-indent: 0;
         margin: 0;
         padding-left: 0 !important;
+
+        .home{
+          font-size: $size0;
+        }
       }
 
       .sr-only{
@@ -121,6 +126,7 @@
         overflow: auto;
         clip: auto;
         margin: auto;
+
       }
       .home{
         &:after{

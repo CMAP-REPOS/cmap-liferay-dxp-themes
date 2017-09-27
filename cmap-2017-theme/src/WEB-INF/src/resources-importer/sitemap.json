@@ -1,0 +1,61 @@
+{
+  "layoutTemplateId": "cmap",
+  "publicPages": [{
+      "columns": [
+        [{
+          "portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+        }],
+        [{
+          "portletId": "com_liferay_hello_world_web_internal_portlet_HelloWorldPortlet"
+        }]
+      ],
+      "friendlyURL": "/layout-prototypes-parent-page",
+      "layouts": [{
+          "friendlyURL": "/layout-prototypes-page-1",
+          "layoutPrototypeLinkEnabled": "true",
+          "layoutPrototypeUuid": "371647ba-3649-4039-bfe6-ae32cf404737",
+          "name": "Layout Prototypes Page 1",
+          "title": "Layout Prototypes Page 1"
+        },
+        {
+          "friendlyURL": "/layout-prototypes-page-2",
+          "layoutPrototypeUuid": "c98067d0-fc10-9556-7364-238d39693bc4",
+          "name": "Layout Prototypes Page 2",
+          "title": "Layout Prototypes Page 2"
+        }
+      ],
+      "name": "Layout Prototypes",
+      "title": "Layout Prototypes"
+    },
+    {
+      "columns": [
+        [{
+          "portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+        }],
+        [{
+          "portletId": "com_liferay_hello_world_web_internal_portlet_HelloWorldPortlet"
+        }]
+      ],
+      "friendlyURL": "/parent-page",
+      "layouts": [{
+          "friendlyURL": "/child-page-1",
+          "name": "Child Page 1",
+          "title": "Child Page 1"
+        },
+        {
+          "friendlyURL": "/child-page-2",
+          "name": "Child Page 2",
+          "title": "Child Page 2"
+        }
+      ],
+      "name": "Parent Page",
+      "title": "Parent Page"
+    },
+    {
+      "friendlyURL": "/url-page",
+      "name": "URL Page",
+      "title": "URL Page",
+      "type": "url"
+    }
+  ]
+}

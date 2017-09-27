@@ -25,7 +25,7 @@
 #main-content{
   padding-bottom: $unit * 4;
 
-  .portlet-layout{
+  .portlet-content{
     padding: 0 #{$unit * 3};
 
     @include tablet(){
