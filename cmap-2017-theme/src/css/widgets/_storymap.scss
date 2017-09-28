@@ -177,6 +177,19 @@ $icon-layers-white: "\e909";
 	    }
     }
 
+    .scroll-fixed{
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .storymap-overlays-container.fixed-menu {
+        position: fixed;
+        top: 70px;
+        right: 60px;
+        width: 50%;
+    }
+
     .story-step-content {
         display: none;
     }
