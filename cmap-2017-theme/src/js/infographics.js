@@ -22,16 +22,6 @@
         }
 	};
 
-	function removeAllFade() {
-//		var activeClass = "c3-defocused";
-//		d3.selectAll('g').classed(activeClass, false);
-	};
-
-	function updateInfo() {
-//		var thisID = $('.infographic-buttons').is(':hover').attr('id');
-//		$('.side-narrative').find('#' + thisID).addClass('display');
-//		$('.mini-info:not(#' + thisID + ')').removeClass('display');
-	};
 
 	function formatValue(format, value) {
 		if (format === 'dollars') {
