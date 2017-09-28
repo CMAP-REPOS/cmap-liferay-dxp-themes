@@ -9,10 +9,10 @@
 	<theme id="cmap-2017" name="CMAP 2017">
 		<template-extension>ftl</template-extension>
 		<portlet-decorator id="centered-content" name="Centered Content">
-			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-centered</portlet-decorator-css-class>
 		</portlet-decorator>
 		<portlet-decorator id="full-width-content" name="Full Width Content">
+			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-full-width</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>

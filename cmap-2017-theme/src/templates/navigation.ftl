@@ -17,7 +17,6 @@
 
 <header id="main-header" role="banner">
   <nav class="nav-row-one row">
-
     <div class="left col-xl-12 col-sm-10 col-xs-8">
       <div class="side-nav-trigger">
         <button class="hamburger hamburger--elastic" type="button">

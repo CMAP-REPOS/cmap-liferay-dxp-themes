@@ -1,16 +1,32 @@
-@charset "UTF-8";
-
 body{
 	font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-	font-size: 18px;
+  font-size: 20px;
+  @if($debug){
+    border-top: 2px solid red;
+  }
 
-	@include desktop(){
-		font-size: 16px;
-	}
-	@include tablet(){
-		font-size: 14px;
-	}
-	@include phone(){
-		font-size: 12px;
-	}
+  @include tv(){
+    font-size: 18px;
+    @if($debug){
+      border-top: 2px solid orange;
+    }
+  }
+  @include desktop(){
+    font-size: 16px;
+    @if($debug){
+      border-top: 2px solid yellow;
+    }
+  }
+  @include tablet(){
+    font-size: 14px;
+    @if($debug){
+      border-top: 2px solid green;
+    }
+  }
+  @include phone(){
+    font-size: 12px;
+    @if($debug){
+      border-top: 2px solid blue;
+    }
+  }
 }

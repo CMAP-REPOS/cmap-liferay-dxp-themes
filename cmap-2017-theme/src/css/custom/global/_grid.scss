@@ -2,6 +2,9 @@
 $grid-unit: 6.25%;
 $gutter: 1%;
 
+#wrapper{
+
+
 .row{
   position: relative;
   display: flex;
@@ -10,7 +13,8 @@ $gutter: 1%;
   margin: 0;
 }
 
-.container {
+.container,
+.container-fluid {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -433,4 +437,5 @@ $gutter: 1%;
   .col-xs-offset-2 { margin-left: #{$grid-unit * 2} }
   .col-xs-offset-1 { margin-left: #{$grid-unit * 1}; }
   .col-xs-offset-0 { margin-left: auto; }
+}
 }

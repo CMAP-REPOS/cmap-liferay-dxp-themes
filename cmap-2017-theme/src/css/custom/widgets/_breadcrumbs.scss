@@ -20,7 +20,7 @@
 
     .share-button{
       position: relative;
-      height: $unit * 2;
+      height: auto;
       display: flex;
       align-items: center;
 
@@ -28,7 +28,6 @@
         display: inline-flex;
         align-items: center;
         height: $size0;
-        font-size: $size-1;
         font-weight: 800;
         cursor: pointer;
 
@@ -44,11 +43,12 @@
       span{
         padding-left: $size-1;
         transform: translateY(0.175em);
+        font-size: $size-1;
       }
 
       svg{
-        width: $size1 !important;
-        height: $size2 !important;
+        width: $size0 !important;
+        height: $size1 !important;
       }
     }
 
@@ -114,7 +114,7 @@
         padding-left: 0 !important;
 
         .home{
-          font-size: $size0;
+          // font-size: $size0;
         }
       }
 
