@@ -125,8 +125,9 @@
 		if (options.chartType === 'donut_chart') {
 			legendData = d3.keys(d[0]);
 		}
+        $('.infographic-legend.' + options.chartId + '-legend ul.'+options.chartId).html('');
 		d3.select('.infographic-legend.' + options.chartId + '-legend').insert('ul')
-			.attr('class', 'text-center list-unstyled list-inline')
+			.attr('class', 'text-center list-unstyled list-inline '+options.chartId)
 			.selectAll('div')
 			.data(legendData)
 			.enter().append('li')

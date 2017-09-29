@@ -178,6 +178,15 @@ $icon-share-white: "\e924";
 }
 
 
+    //trying to stay with columns, not succeeding with grid content classes overriding these
+    .infographic-content{
+       .centered-main{
+           display: flex;
+           justify-content: space-between;
+       }
+
+    }
+
 .infographiclayout {
     // ui fix for aui imported css
     //.row {
@@ -226,7 +235,6 @@ $icon-share-white: "\e924";
             font-size: 15px;
             line-height: 1.5em;
             margin-bottom: 2em;
-
             a {
                 color: $white;
             }
