@@ -10,6 +10,8 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7363556/6800792/css/fonts.css" />
+    <link href="https://cloud.webtype.com/css/2f300d46-99ee-4656-bf09-870688012aaf.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
 
 	<@liferay_util["include"] page=top_head_include />
 </head>

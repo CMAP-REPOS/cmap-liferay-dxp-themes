@@ -184,6 +184,9 @@ $icon-share-white: "\e924";
            display: flex;
            justify-content: space-between;
        }
+       .main-info{
+           width: 50%;
+       }
 
     }
 
@@ -250,11 +253,20 @@ $icon-share-white: "\e924";
         .infographic-title {
             color: $white;
             font-size: 26px;
-            font-family: $font-serif;
+            font-family: $font-sans;
         }
     }
 
     .infographic-chart {
+
+        .c3-defocused{
+            .c3-line{
+                stroke: $blue-light !important;
+            }
+            .c3-area{
+                fill: $blue-light !important;
+            }
+        }
 
         line {
             stroke: $blue-light;
@@ -392,7 +404,7 @@ $icon-share-white: "\e924";
             cursor: pointer;
             font-size: 13px;
             margin-right: 1em;
-            text-transform: uppercase;
+            text-transform: capitalize;
          }
          .mobile-legend-icons {
              display: none;
@@ -412,11 +424,11 @@ $icon-share-white: "\e924";
             font-size: 12;
             font-family: $font-sans;
             font-weight: 600;
+            text-transform: capitalize;
             height: 45px;
             letter-spacing: 0.05em;
             line-height: 1.5em;
             padding: 0 10px 0 10px;
-            text-transform: uppercase;
             width: 190px;
 
             &:hover, &.on {

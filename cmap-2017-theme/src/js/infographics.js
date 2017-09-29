@@ -127,7 +127,7 @@
 		}
         $('.infographic-legend.' + options.chartId + '-legend ul.'+options.chartId).html('');
 		d3.select('.infographic-legend.' + options.chartId + '-legend').insert('ul')
-			.attr('class', 'text-center list-unstyled list-inline '+options.chartId)
+			.attr('class', 'col-sm-12 col-sm-push-4 list-unstyled list-inline '+options.chartId)
 			.selectAll('div')
 			.data(legendData)
 			.enter().append('li')
@@ -412,6 +412,13 @@
 							+ color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + toolTipFormat + "<br/>"
 							+ defaultTitleFormat(d[0].x) + "</p></div>";
 					},
+                    position: function (data, width, height, element) {
+                        //tracking mouse position within unique div - get offset on page.
+                        var offset = $('#' + options.chartId).offset();
+                        var xPos = event.pageX - offset.left;
+                        var yPos = event.pageY - offset.top;
+                        return { top: yPos - 85, left: xPos };
+                    },
 					grouped: false
 				},
 				legend: {
