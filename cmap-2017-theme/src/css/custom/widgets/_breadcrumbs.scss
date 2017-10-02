@@ -2,14 +2,16 @@
   border-top: 1px solid $light-blue;
 
   .breadcrumb{
-    margin-bottom: $unit * 2;
+    margin-bottom: $unit;
     height: $unit * 2;
     padding: 0 #{$unit * 3};
 
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
 
+    @include desktop(){
+      margin-bottom: 0;
+    }
     @include tablet(){
       padding: 0 #{$unit * 2};
       margin-top: $unit;
@@ -90,11 +92,11 @@
       span{
         font-size: $size-1;
         padding: 0 $size-2;
-        border-left: 1px solid rgba($primary, 0.5);
+        border-left: 1px solid $light-blue;
 
         &.active{
           cursor: default;
-          color: rgba($primary, 0.5);
+          color: $light-blue-text;
         }
       }
     }

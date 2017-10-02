@@ -1,0 +1,39 @@
+.home-page{
+  .breadcrumb{
+    position: absolute !important;
+    .trail-col{
+      display: none;
+    }
+  }
+
+  .homepage-hero{
+    position: relative;
+
+
+    .row{
+      @include section-padding();
+    }
+
+    .homepage-hero-text{
+      position: absolute;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: $unit * 2 0;
+
+
+      .homepage-hero-title{
+        @extend .whitney-huge__white;
+      }
+      .homepage-hero-description{
+        @extend .presna-large;
+      }
+    }
+
+    .homepage-hero-background{
+      @include section-padding();
+    }
+  }
+}

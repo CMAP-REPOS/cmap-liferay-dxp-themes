@@ -1,6 +1,7 @@
 body{
 	font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-  font-size: 20px;
+  font-size: 21px;
+	line-height: $variation;
   @if($debug){
     border-top: 2px solid red;
   }
@@ -18,15 +19,103 @@ body{
     }
   }
   @include tablet(){
-    font-size: 14px;
+    font-size: 15px;
     @if($debug){
       border-top: 2px solid green;
     }
   }
   @include phone(){
-    font-size: 12px;
+    font-size: 13px;
     @if($debug){
       border-top: 2px solid blue;
     }
   }
+}
+
+p{
+	font-family: $font-serif;
+}
+
+.whitney-normal{
+	font-family: $font-sans;
+	font-weight: 400;
+	font-size: $size0;
+	line-height: $variation;
+	color: $dark-blue;
+}
+.whitney-normal__light-blue{
+	@extend .whitney-normal;
+	color: $light-blue-text;
+}
+.whitney-bold{
+	@extend .whitney-normal;
+	font-weight: 600;
+}
+.whitney-bold__white{
+	@extend .whitney-bold;
+	color: $white;
+}
+.whitney-large{
+	font-family: $font-sans;
+	font-weight: 600;
+	font-size: $size2;
+	line-height: 1.1em;
+	color: $dark-blue;
+}
+.whitney-large__white{
+	@extend .whitney-large;
+	color: $white;
+}
+.whitney-huge{
+	font-family: $font-sans;
+	font-weight: 600;
+	font-size: $size3;
+	line-height: 1.1em;
+	color: $dark-blue;
+}
+.whitney-huge__white{
+	@extend .whitney-huge;
+	color: $white;
+}
+
+
+
+.presna-normal{
+	font-family: $font-serif;
+	font-size: #{$size0 - 0.1em};
+	letter-spacing: 0.01em;
+	line-height: $variation;
+	margin: 0;
+	a{
+		line-height: $variation;
+		@extend .underline-link;
+	}
+	margin-bottom: $size1;
+	&:last-of-type{
+		margin-bottom: 0;
+	}
+}
+.presna-normal__white{
+	@extend .presna-normal;
+	color: $white;
+}
+.presna-bold{
+	@extend .presna-normal;
+	font-weight: 700;
+}
+.presna-bold__white{
+	@extend .presna-bold;
+	color: $white;
+}
+.presna-large{
+	font-family: $font-serif;
+	font-size: #{$size1 - 0.1em};
+	letter-spacing: 0.01em;
+	line-height: $variation;
+	margin: 0;
+
+	a{
+		line-height: $variation;
+		@extend .underline-link;
+	}
 }

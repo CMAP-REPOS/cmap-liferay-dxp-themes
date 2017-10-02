@@ -1,6 +1,6 @@
 
 $grid-unit: 6.25%;
-$gutter: 1%;
+$gutter: $unit;
 
 #wrapper{
 
@@ -8,7 +8,6 @@ $gutter: 1%;
 .row{
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   margin: 0;
 }
@@ -40,8 +39,8 @@ $gutter: 1%;
 .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16 {
   position: relative;
   min-height: 1px;
-  padding-left: #{$gutter / 2} !important;
-  padding-right: #{$gutter / 2} !important;
+  padding-left: #{$gutter / 2};
+  padding-right: #{$gutter / 2};
 }
 
 
@@ -286,7 +285,7 @@ $gutter: 1%;
     float: left;
   }
 
-  .col-sm-16 { width: #{$grid-unit * 16}; padding-left: 0 !important; }
+  .col-sm-16 { width: #{$grid-unit * 16}; }
   .col-sm-15 { width: #{$grid-unit * 15}; }
   .col-sm-14 { width: #{$grid-unit * 14}; }
   .col-sm-13 { width: #{$grid-unit * 13}; }
@@ -366,7 +365,7 @@ $gutter: 1%;
     float: left;
   }
 
-  .col-xs-16 { width: #{$grid-unit * 16}; padding-left: 0 !important; }
+  .col-xs-16 { width: #{$grid-unit * 16}; }
   .col-xs-15 { width: #{$grid-unit * 15}; }
   .col-xs-14 { width: #{$grid-unit * 14}; }
   .col-xs-13 { width: #{$grid-unit * 13}; }

@@ -67,7 +67,8 @@
 				 </div>
 			</#if>
 			<#if portlet_display.getPortletDecoratorId() == "full-width-content">
-				 <div class="col-xl-16">
+				<!-- no padding because it probably has a sub grid -->
+				 <div class="col-xl-16" style="padding: 0 !important;">
 					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
 					 ${portlet_display.writeContent(writer)}
 				 </div>

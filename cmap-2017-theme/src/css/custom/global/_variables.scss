@@ -5,7 +5,7 @@ $debug: true;
 
 // Font
 $font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
-$font-serif: "Prensa", serif;
+$font-serif: "Prensa LF", serif;
 
 // colors
 $color: #000;
@@ -29,7 +29,10 @@ $accent: #3897c6;
 
 $blue: #3C5976;
 $dark-blue: darken($blue, 25%);
+$link-blue: #00508C;
 $light-blue: #E4EBEE;
+$light-blue-text: #587387;
+$navy-blue: #3C5976;
 $primary: $blue;
 
 // sizes

@@ -17,6 +17,16 @@
 
 <body class="${css_class}">
 
+	<script>
+		var pageClassName = window.location.pathname.replace(/\//g,'-').substring(1);
+		if(pageClassName === ''){
+			pageClassName = 'home-page'
+		} else {
+			pageClassName=pageClassName+'-page';
+		}
+		document.body.className += ' '+pageClassName;
+	</script>
+
 	<div id="viewport">
 		<@liferay_ui["quick-access"] contentId="#main-content" />
 
@@ -82,22 +92,6 @@
 		</div>
 
 		<div id="wrapper">
-			<div id="scroll-nav">
-				<button class="hamburger hamburger--elastic" type="button">
-	        <span class="hamburger-box">
-	          <span class="hamburger-inner"></span>
-	        </span>
-	      </button>
-
-				<div class="logo custom-logo">
-					<h1 class="site-title">
-	          <a href="http://74.82.140.34/web/guest" title="Go to CMAP">
-	            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"> <title>CMAP Logo Icon</title> <g fill="none" fill-rule="evenodd"> <path fill="#008FD5" d="M8.702,0.269 L17.404,0.269 L17.404,11.871 C12.018,11.736 8.702,6.363 8.702,0.269"/> <path fill="#6DAE4E" d="M0,0.269 L0,0.269 L0,17.673 L17.404,17.673 L17.404,14.508 C12.018,14.341 7.459,7.789 7.459,0.269 L0,0.269 Z"/> </g> </svg>
-	            <span class="site-name" title="Go to CMAP"> CMAP </span>
-	          </a>
-	        </h1>
-				</div>
-			</div>
 
 			<#if has_navigation && is_setup_complete>
 				<#include "${full_templates_path}/navigation.ftl" />
@@ -136,6 +130,20 @@
 	<script src="https://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>
 	<!-- endinject -->
 
+	<script type="text/javascript">
+	  var _gauges = _gauges || [];
+	  (function() {
+	    var t   = document.createElement('script');
+	    t.type  = 'text/javascript';
+	    t.async = true;
+	    t.id    = 'gauges-tracker';
+	    t.setAttribute('data-site-id', '59d253f87218b5093901d989');
+	    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+	    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(t, s);
+	  })();
+	</script>
 </body>
 
 </html>

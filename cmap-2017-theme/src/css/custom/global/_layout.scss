@@ -23,53 +23,15 @@
 
 // what the user is on the page to see
 #main-content{
-  padding-bottom: $unit * 4;
+  // padding-bottom: $unit * 4;
 
-  .portlet-content{
-    padding: 0 #{$unit * 3};
-
+  .row{
     @include tablet(){
-      padding: 0 $unit * 2;
-    }
-    @include phone(){
-      padding: 0 $unit;
+      flex-wrap: wrap;
     }
   }
+}
 
-  .h1{
-    font-size: $size2;
-    font-weight: 500;
-    line-height: 1.1em;
-    margin-bottom: $unit;
-  }
-
-  .h2{
-    margin-bottom: $unit;
-  }
-
-  h3{
-    font-size: #{$size0 + 0.125em};
-    margin-bottom: $size-2;
-  }
-
-  p{
-    font-family: 'Presna';
-    letter-spacing: 0.01em;
-    line-height: 1.333;
-    margin: 0;
-    margin-bottom: $size1;
-    &:last-of-type{
-      margin-bottom: 0;
-    }
-  }
-
-  a{
-    $factor: 25%;
-    color: saturate(lighten($primary, $factor/2), $factor);
-
-    &:hover{
-      text-decoration: none;
-      color: saturate($primary, $factor);
-    }
-  }
+.portlet{
+  margin-bottom: 0;
 }

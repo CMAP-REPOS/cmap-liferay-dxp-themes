@@ -1,0 +1,40 @@
+.half-slider{
+  background: $navy-blue;
+  .slide{
+    padding: $unit 0;
+    .row{
+      @include section-padding();
+    }
+
+    .col-xl-8{
+      &:nth-of-type(odd){
+        padding-left: 0 !important;
+        padding-right: $unit / 2 !important;
+      }
+      &:nth-of-type(even){
+        padding-right: 0 !important;
+        padding-left: $unit / 2 !important;
+      }
+
+    }
+
+    .slide-image{
+      width: 100%;
+    }
+    .slide-title{
+      @extend .whitney-bold__white;
+    }
+    .slide-text{
+      padding-top: $unit;
+      width: 50%;
+    }
+    p{
+      @extend .presna-normal__white;
+      margin: 0;
+      a{
+        @extend .presna-bold__white;
+        @extend .underline-link;
+      }
+    }
+  }
+}

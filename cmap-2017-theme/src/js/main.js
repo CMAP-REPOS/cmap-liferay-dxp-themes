@@ -115,4 +115,14 @@ Liferay.on('allPortletsReady', function() {
   checkForScrollNav();
   $(window).scroll(_.throttle(checkForScrollNav, 50));
 
+
+  // Title with Sections - Jump to section
+
+  $('.page-nav-item a').click(function(e){
+    e.preventDefault();
+    var push = $('#scroll-nav').innerHeight();
+    console.log(this.href, this, push);
+  });
+
+
 });

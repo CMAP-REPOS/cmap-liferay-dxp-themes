@@ -12,9 +12,11 @@
 @import "custom/global/grid";
 @import "custom/global/layout";
 @import "custom/global/typography";
+@import "custom/global/links";
 @import "custom/global/utilities";
 
 @import "custom/pages/fy18";
+@import "custom/pages/homepage";
 @import "custom/pages/staffdirectory";
 
 @import "custom/widgets/nav/header";
@@ -27,7 +29,10 @@
 @import "custom/widgets/breadcrumbs";
 @import "custom/widgets/calendar";
 @import "custom/widgets/footer";
+@import "custom/widgets/halfSlider";
 @import "custom/widgets/infographic";
 @import "custom/widgets/storymap";
+@import "custom/widgets/titleWithSections";
+@import "custom/widgets/updateSlider";
 
 @import "custom/global/overrides";

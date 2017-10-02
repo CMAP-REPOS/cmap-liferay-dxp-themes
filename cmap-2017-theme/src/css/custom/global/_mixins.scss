@@ -6,6 +6,17 @@
   list-style: none;
 }
 
+@mixin section-padding(){
+  padding: 0 #{$unit * 3};
+
+  @include tablet(){
+    padding: 0 $unit * 2;
+  }
+  @include phone(){
+    padding: 0 $unit;
+  }
+}
+
 @mixin phone(){
   @media screen and (max-width: $breakpoint-phone){
     @content;
