@@ -1,0 +1,20 @@
+section.partner-slider{
+
+  .partner{
+    padding: $unit * 2 0 0;
+  }
+  .partner-logo{
+    margin-bottom: $unit;
+  }
+
+  .col-md-0{
+    padding: 0 !important;
+  }
+  
+  p{
+    @extend .whitney-normal__light-blue;
+  }
+  a{
+    @extend .underline-link;
+  }
+}

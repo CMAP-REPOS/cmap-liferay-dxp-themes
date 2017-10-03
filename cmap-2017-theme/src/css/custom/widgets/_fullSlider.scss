@@ -1,0 +1,26 @@
+section.full-slider{
+  .slide-text{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .row{
+    @include section-padding();
+  }
+  .slide-top.row{
+    padding-top: #{$unit * 2};
+    p{
+      @extend .presna-large__white;
+    }
+  }
+  .slide-bottom.row{
+    p{
+      @extend .whitney-normal__white;
+    }
+  }
+}

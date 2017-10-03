@@ -1,6 +1,8 @@
-#main-content{
+.title-with-sections{
 
-
+  .row{
+    @include section-padding();
+  }
 
   .page-title,
   .page-date,

@@ -47,6 +47,11 @@ p{
 	@extend .whitney-normal;
 	color: $light-blue-text;
 }
+.whitney-normal__white{
+	@extend .whitney-normal;
+	color: $white;
+	a{ color: $white; }
+}
 .whitney-bold{
 	@extend .whitney-normal;
 	font-weight: 600;
@@ -54,6 +59,7 @@ p{
 .whitney-bold__white{
 	@extend .whitney-bold;
 	color: $white;
+	a{ color: $white; }
 }
 .whitney-large{
 	font-family: $font-sans;
@@ -65,6 +71,7 @@ p{
 .whitney-large__white{
 	@extend .whitney-large;
 	color: $white;
+	a{ color: $white; }
 }
 .whitney-huge{
 	font-family: $font-sans;
@@ -76,6 +83,7 @@ p{
 .whitney-huge__white{
 	@extend .whitney-huge;
 	color: $white;
+	a{ color: $white; }
 }
 
 
@@ -98,6 +106,7 @@ p{
 .presna-normal__white{
 	@extend .presna-normal;
 	color: $white;
+	a{ color: $white; }
 }
 .presna-bold{
 	@extend .presna-normal;
@@ -106,6 +115,7 @@ p{
 .presna-bold__white{
 	@extend .presna-bold;
 	color: $white;
+	a{ color: $white; }
 }
 .presna-large{
 	font-family: $font-serif;
@@ -118,4 +128,9 @@ p{
 		line-height: $variation;
 		@extend .underline-link;
 	}
+}
+.presna-large__white{
+	@extend .presna-large;
+	color: $white;
+	a{ color: $white; }
 }

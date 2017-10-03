@@ -18,55 +18,57 @@
 <#-- Set the page locale back to the original page locale -->
 <#assign locale = originalLocale>
 
-<div class="row">
+<section class="title-with-sections">
+  <div class="row">
 
-  <div class="col-xl-3 col-sm-16">
-    <div class="page-date">
-      <h4 class="h4">${modifieddate?date}</h4>
+    <div class="col-xl-3 col-sm-16">
+      <div class="page-date">
+        <h4 class="h4">${modifieddate?date}</h4>
+      </div>
     </div>
-  </div>
 
-  <div class="col-xl-10 col-sm-10">
-    <#if Title.getData() != "">
-    <div class="page-title">
-      <h1 class="h1">${Title.getData()}</h1>
-    </div>
-    </#if>
+    <div class="col-xl-10 col-sm-12 col-xs-16">
+      <#if Title.getData() != "">
+      <div class="page-title">
+        <h1 class="h1">${Title.getData()}</h1>
+      </div>
+      </#if>
 
-    <#list Subtitle.getSiblings() as section>
-      <section>
-        <#if section.getData() != "">
-        <div class="section-title">
-          <h2 id="${section.getData()?replace(" ", "_")}">${section.getData()}</h2>
-        </div>
-        </#if>
-        <div class="section-content">
-          ${section.Body.getData()}
-        </div>
-      </section>
-
-    </#list>
-
-  </div>
-
-
-  <div class="col-xl-3 col-sm-6 page-nav">
-    <div class="page-nav-title">
-      <h3>Sections</h3>
-    </div>
-    <nav class="page-nav-list">
       <#list Subtitle.getSiblings() as section>
-        <#if section.getData() != "">
-          <div class="page-nav-item">
-            <a href="#${section.getData()?replace(" ", "_")}">
-              ${section.getData()}
-            </a>
+        <section>
+          <#if section.getData() != "">
+          <div class="section-title">
+            <h2 id="${section.getData()?replace(" ", "_")}">${section.getData()}</h2>
           </div>
-        </#if>
+          </#if>
+          <div class="section-content">
+            ${section.Body.getData()}
+          </div>
+        </section>
+
       </#list>
-    </nav>
+
+    </div>
+
+
+    <div class="col-xl-3 col-sm-4 page-nav">
+      <div class="page-nav-title">
+        <h3>Sections</h3>
+      </div>
+      <nav class="page-nav-list">
+        <#list Subtitle.getSiblings() as section>
+          <#if section.getData() != "">
+            <div class="page-nav-item">
+              <a href="#${section.getData()?replace(" ", "_")}">
+                ${section.getData()}
+              </a>
+            </div>
+          </#if>
+        </#list>
+      </nav>
+    </div>
   </div>
-</div>
+</section>
 
 <script type="text/javascript">
 (function($) {

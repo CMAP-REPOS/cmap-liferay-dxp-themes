@@ -1,31 +1,7 @@
 .update-slider{
 
-  header{
-    $border: 1px solid $light-blue;
-    border-top: $border;
-    border-bottom: $border;
-
-    .buttons{
-      display: flex;
-      align-items: center;
-      height: $unit * 2;
-    }
-
-    h3{
-      @extend .whitney-bold;
-      margin-right: $size-2;
-    }
-    .view-all a{
-      @extend .underline-link;
-    }
-  }
-
-  .row{
-    @include section-padding();
-  }
-
   .item{
-    padding: $unit * 2 0;
+    padding: $unit * 2 0 0;
 
     .item-date{
       @extend .whitney-normal__light-blue;

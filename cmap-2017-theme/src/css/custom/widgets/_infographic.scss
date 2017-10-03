@@ -2,18 +2,18 @@
 
 .infographiclayout {
 	.infographic-nav {
-		background-color: $blue-dark;
-		color: $blue-med;
+		background-color: $primary;
+		color: $primary;
 		font-size: 12px;
 		padding: 1em 0;
 
 		a {
-			color: $blue-med;
+			color: $primary;
 		}
 	}
 
 	.infographic-info-toggle {
-		color: $blue-dark;
+		color: $primary;
 		position: absolute;
 		right: 1em;
 		top: 1em;
@@ -21,7 +21,7 @@
 	}
 
 	.infographic-content {
-		background-color: $blue-med;
+		background-color: $primary;
 		margin: 0;
 		padding: 1em 0;
 	}
@@ -30,7 +30,7 @@
 		padding: 1em 0;
 
 		.infographic-aside {
-			color: $blue-light;
+			color: $light-blue;
 			font-size: 12px;
 			line-height: 1.5em;
 			margin-bottom: 2em;
@@ -48,7 +48,7 @@
 		}
 
 		.infographic-source {
-			color: $blue-light;
+			color: $light-blue;
 			font-size: 9px;
 			line-height: 1.3em;
 			margin-bottom: 2em;
@@ -63,7 +63,7 @@
 
 	.infographic-chart {
 		line {
-			stroke: $blue-light;
+			stroke: $light-blue;
 		}
 
 		path {
@@ -75,7 +75,7 @@
 		}
 
 		text {
-			fill: $blue-light;
+			fill: $light-blue;
 		}
 
 		.c3-axis-x,
@@ -142,8 +142,6 @@
 					top: 57px;
 					left: 15px;
 				}
-
-				b {}
 			}
 		}
 
@@ -181,7 +179,7 @@
 			}
 
 			.c3-chart-arcs-title {
-				color: $blue-dark;
+				color: $primary;
 				font-size: 22px;
 			}
 		}
@@ -203,10 +201,10 @@
 		padding: 1em 0;
 
 		button {
-			background: $blue-med;
-			border: 2px solid $blue-dark;
+			background: $primary;
+			border: 2px solid $primary;
 			border-radius: 21px;
-			color: $blue-dark;
+			color: $primary;
 			cursor: pointer;
 			font-size: 12;
 			font-family: $font-sans;
@@ -220,7 +218,7 @@
 
 			&.on,
 			&:hover {
-				background: $blue-dark;
+				background: $primary;
 				color: $white;
 			}
 
@@ -231,7 +229,7 @@
 	}
 
 	.icon-info-white {
-		color: $blue-dark;
+		color: $primary;
 		cursor: pointer;
 		opacity: 0.5;
 	}
@@ -329,7 +327,7 @@
 				ul {
 					li {
 						border-top: none;
-						color: $blue-dark;
+						color: $primary;
 						padding: 0.5em 0;
 
 						&:last-of-type {
@@ -341,6 +339,3 @@
 		}
 	}
 }
-
-@media only screen and (max-width : 480px) {}
-@media only screen and (max-width : 320px) {}

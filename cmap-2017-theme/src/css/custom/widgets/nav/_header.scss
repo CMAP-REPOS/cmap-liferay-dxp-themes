@@ -10,15 +10,8 @@
   	justify-content: space-between;
   	height: $unit * 4;
 
-    padding-left: $unit * 3;
+    @include section-padding();
     padding-right: $unit;
-
-    @include tablet(){
-      padding-left: $unit * 2;
-    }
-    @include phone(){
-      padding-left: $unit;
-    }
 
     .left{
       display: flex;
@@ -93,7 +86,6 @@
   }
 
   .main-nav-links{
-  	padding-left: 0;
 
   	li{
   		display: inline-flex;

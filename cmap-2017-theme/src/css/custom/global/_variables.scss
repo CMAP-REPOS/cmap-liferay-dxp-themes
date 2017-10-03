@@ -8,31 +8,16 @@ $font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
 $font-serif: "Prensa LF", serif;
 
 // colors
-$color: #000;
-$color-charcoal: rgb(35, 39, 45);
-
-// $color-charcoal: rgb(70, 80, 90)
-$color-grey: rgb(121, 150, 171);
-$color-grey-90: tint($color-grey, 90%);
-$color-grey-80: tint($color-grey, 80%);
-$color-grey-60: tint($color-grey, 60%);
-$color-grey-40: tint($color-grey, 40%);
-$color-grey-20: tint($color-grey, 20%);
-$color-grey-10: tint($color-grey, 10%);
-$color-blue: rgb(50, 150, 200);
-$color-metropulse: #00508B;
-$blue-dark: #3c5976;
 $blue-med: #88a0b2;
-$blue-light: #e4eaee;
-$white: #ffffff;
-$accent: #3897c6;
+
+$white: #FFFFFF;
+$black: #000000;
 
 $blue: #3C5976;
 $dark-blue: darken($blue, 25%);
 $link-blue: #00508C;
 $light-blue: #E4EBEE;
 $light-blue-text: #587387;
-$navy-blue: #3C5976;
 $primary: $blue;
 
 // sizes
