@@ -1,6 +1,9 @@
-
+//These icons exist in infographic.scss as well, in case of needed edits.
 $icon-layers-dark: "\e908";
 $icon-layers-white: "\e909";
+$icon-map-med-dark: "\e90e";
+$icon-nav-left-white: "\e919";
+$icon-nav-right-white: "\e91d";
 
 @font-face {
   font-family: 'cmap_icons';
@@ -24,7 +27,38 @@ $icon-layers-white: "\e909";
   }
 
 .icon-layers-dark:before {
-  content: $icon-layers-dark;
+    content: $icon-layers-dark;
+  }
+.icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+}
+.icon-map-med-dark{
+    font-size: $size2;
+    color: $blue;
+}
+.icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+  }
+.icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+}
+
+  #main-content.storymaplayout {
+      .portlet-content {
+          padding: 0; }
+          @media screen and (max-width: 750px) {
+            #main-content .portlet-content {
+              padding: 0; } }
+          @media screen and (max-width: 400px) {
+            #main-content .portlet-content {
+              padding: 0; } }
+      .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16{
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+      }
+      .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column{
+          padding: 0 !important;
+      }
   }
 
  .storymaplayout {
@@ -41,7 +75,8 @@ $icon-layers-white: "\e909";
     .storymap-nav {
 		background: $blue-dark;
         color: $blue-med;
-	    font-size: 12px;
+	    // font-size: 12px;
+        font-size: #{ $size-1 - 0.1em };
         margin: 0;
         padding: 1em 0;
 
@@ -58,7 +93,7 @@ $icon-layers-white: "\e909";
         z-index: 1000;
 
 	    .storymap-info-toggle {
-	    	color: $blue-dark;
+	    	color: $light-blue;
 	        position: absolute;
 	        right: 1em;
 	        top: 1em;
@@ -66,60 +101,61 @@ $icon-layers-white: "\e909";
 	    }
 
 	    .storymap-intro-container {
-	        background: rgba(136, 160, 178, 0.9);
+	        background: #a8bcc8;
 	        margin: 0;
 	        padding: 1em 0;
 
 		    .storymap-title {
-		        color: $white;
-		    	font-family: $font-serif;
+		        color: $color;
+		    	font-family: $font-sans;
+                font-size: $size1;
 		    }
 
 		    .storymap-info {
 		    	color: $color;
 		    	font-family: $font-serif;
-		    	font-size: 15px;
+		    	// font-size: 15px;
+                font-size: #{ $size0 - 0.2em };
 		    	line-height: 1.5em;
 		    	margin-bottom: 2em;
 			}
 
-		    .storymap-aside {
-		        color: $blue-light;
-		        font-size: 12px;
+		    .storymap-aside, .storymap-source {
+		        color: $blue;
+		        // font-size: 12px;
+                font-size: #{ $size-1 - 0.1em };
 		        line-height: 1.5em;
 		    	margin-bottom: 2em;
 		    }
 
 		    .storymap-source {
-		        color: $blue-light;
-		        font-size: 9px;
 		        line-height: 1.3em;
-		    	margin-bottom: 2em;
 		    }
 	    }
 
 	    .storymap-nav-container {
-	        background: rgb(136, 160, 178);
+	        background: $blue;
 	        margin: 0;
 	        padding: 1em 0;
+            display: flex;
 
 		    .story-step-title {
-				color: $blue-dark;
-				font-size: 15px;
-				font-weight: bold;
+				color: $blue-med;
+				// font-size: 15px;
+                font-size: #{ $size0 - 0.2em };
 				letter-spacing: 0.05em;
 		    	margin-right: 1em;
-		        text-transform: uppercase;
+		        text-transform: capitalize;
 
 		        &.story-active {
 			        color: $white;
-			        font-weight: 600;
 			    }
 		    }
 
 		    .view-map {
-				color: $blue-dark;
-				font-size: 12px;
+				color: $blue-light;
+				// font-size: 12px;
+                font-size: #{ $size-1 - 0.1em };
 
 				.icon {
 					font-size: 18px;
@@ -130,13 +166,17 @@ $icon-layers-white: "\e909";
 		    	}
 		    }
 
+            .story-arrows{
+                margin: 0;
+            }
+
 		    .previous-story-step {
 		    	margin-right: 1em;
 			}
 
 		    .previous-story-step, .next-story-step {
-				color: $blue-dark;
-		        font-weight: 600;
+				color: $white;
+		        font-weight: normal;
 			}
 	    }
         .storymap-nav-container.mobile-storymap-nav {
@@ -164,9 +204,10 @@ $icon-layers-white: "\e909";
 		        border: 2px solid $blue-dark;
 		        border-radius: 21px;
 		        color: $blue-dark;
-		        font-size: 12px;
+		        // font-size: 12px;
+                font-size: #{ $size-1 - 0.1em };
 		        font-weight: 600;
-		        text-transform: uppercase;
+		        text-transform: capitalize;
 
 			    &.active {
 			        color: $white;
@@ -174,31 +215,55 @@ $icon-layers-white: "\e909";
 			        background: $blue-dark;
 			    }
 		    }
+            .text-right{
+                margin: 20px 0 0 0;
+            }
 	    }
     }
 
     .scroll-fixed{
-        position: fixed;
+        position: fixed!important;
         top: 0;
         width: 100%;
     }
 
-    .storymap-overlays-container.fixed-menu {
-        position: fixed;
-        top: 70px;
-        right: 60px;
+    .storymap-overlays-container.scroll-fixed {
+        top: 40px;
+        right: 65px;
         width: 50%;
     }
 
     .story-step-content {
         display: none;
     }
-    @media only screen and (max-width : 420px){
+    @include phone(){
         .storymap-section {
+            .storymap-intro-container{
+                .storymap-title, .storymap-info{
+                    padding-left: 1em;
+                }
+                .storymap-aside, .storymap-source{
+                    font-size: $size0;
+                }
+                .storymap-title{
+                    font-size: $size2;
+                }
+                .storymap-info{
+                    font-size: $size0;
+                    margin-top: 10px;
+                }
+            }
             .storymap-nav-container.mobile-storymap-nav {
                 display: flex;
                 justify-content: space-between;
+                .story-step-title{
+                    color: $white;
+                    font-size: $size1;
+                }
             }
+        }
+        .story-interact.scroll-fixed .view-layers-button{
+            margin-right: 15px;
         }
     }
 }

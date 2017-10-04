@@ -42,6 +42,29 @@ $icon-paragraph-white: "\e922";
 $icon-share-light: "\e923";
 $icon-share-white: "\e924";
 
+
+//resetting padding to 0. not sure if this is a temp fix or not
+//grid is more than slightly borked because of padding
+
+#main-content.infographiclayout {
+    .portlet-content {
+        padding: 0; }
+        @media screen and (max-width: 750px) {
+          #main-content .portlet-content {
+            padding: 0; } }
+        @media screen and (max-width: 400px) {
+          #main-content .portlet-content {
+            padding: 0; } }
+    .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column{
+        padding: 0 !important;
+    }
+}
+
+
 @font-face {
   font-family: 'cmap_icons';
   src:  url('../fonts/cmap_icons.eot');
@@ -51,6 +74,7 @@ $icon-share-white: "\e924";
   }
 
 .infographiclayout {
+
   .icon {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'cmap_icons' !important;
@@ -185,33 +209,17 @@ $icon-share-white: "\e924";
            justify-content: space-between;
        }
        .main-info{
-           width: 50%;
+           width: 60%;
        }
 
     }
 
+
 .infographiclayout {
-    // ui fix for aui imported css
-    //.row {
-        //this is broken sitewide... fixing it here is a temp measure.
-    //    margin-left:auto;
-    //    margin-right: auto;
-   // }
 
-    .infographic-nav {
-        background-color: $blue-dark;
-        color: $blue-med;
-        font-size: 12px;
-        padding: 1em 0;
-        display: flex;
-
-        a {
-            color: $blue-med;
-        }
-    }
 
     .infographic-info-toggle {
-        color: $blue-dark;
+        color: $blue;
         position: absolute;
         right: 1em;
         top: 1em;
@@ -219,7 +227,7 @@ $icon-share-white: "\e924";
     }
 
     .infographic-content {
-        background-color: $blue-med;
+        background-color: #a8bcc8;
         margin: 0;
         padding: 1em 0;
     }
@@ -227,32 +235,37 @@ $icon-share-white: "\e924";
     .infographic-info {
 
         .infographic-aside {
-            color: $blue-light;
-            font-size: 12px;
+            color: $blue;
+            // font-size: 12px;
+            font-size: #{ $size-1 - 0.1em };
             line-height: 1.5em;
             margin-bottom: 2em;
         }
 
         .infographic-description {
             font-family: $font-serif;
-            font-size: 15px;
+            // font-size: 15px;
+            font-size: #{ $size0 - 0.2em };
             line-height: 1.5em;
             margin-bottom: 2em;
             a {
-                color: $white;
+                color: $blue;
             }
         }
 
         .infographic-source {
-            color: $blue-light;
-            font-size: 9px;
+            color: $blue;
+            // font-size: 9px;
+            //same as aside now
+            font-size: #{ $size-1 - 0.1em };
             line-height: 1.3em;
             margin-bottom: 2em;
         }
 
         .infographic-title {
-            color: $white;
-            font-size: 26px;
+            color: $color;
+            // font-size: 26px;
+            font-size: $size1;
             font-family: $font-sans;
         }
     }
@@ -402,7 +415,8 @@ $icon-share-white: "\e924";
         li {
             color: $white;
             cursor: pointer;
-            font-size: 13px;
+            // font-size: 13px;
+            font-size: $size-1;
             margin-right: 1em;
             text-transform: capitalize;
          }
@@ -416,12 +430,13 @@ $icon-share-white: "\e924";
         padding: 1em 0;
 
         button {
-            background: $blue-med;
+            background: transparent;
             border: 2px solid $blue-dark;
             border-radius: 21px;
             color: $blue-dark;
             cursor: pointer;
-            font-size: 12;
+            // font-size: 12;
+            font-size: $size0;
             font-family: $font-sans;
             font-weight: 600;
             text-transform: capitalize;
@@ -487,13 +502,8 @@ $icon-share-white: "\e924";
     }
 }
 
-@media only screen and (max-width : 1200px) {
-}
 
-@media only screen and (max-width : 992px) {
-}
-
-@media only screen and (max-width : 768px) {
+@include phone() {
 
     .infographiclayout {
 
@@ -502,18 +512,10 @@ $icon-share-white: "\e924";
 
         .infographic-content {
 
-            .infographic-aside {
-            }
-
-            .infographic-source {
-            }
-
-            .infographic-title {
-
-            }
         }
 
         .infographic-info {
+            padding-left: 10px;
         }
         .infographic-buttons {
             .pair-icons {
@@ -556,7 +558,6 @@ $icon-share-white: "\e924";
          .infographic-legend {
              display: flex;
              justify-content: space-between;
-             flex-direction: row-reverse;
              ul {
                  display: block;
                  li {
@@ -617,10 +618,4 @@ $icon-share-white: "\e924";
              }
         }
     }
-}
-
-@media only screen and (max-width : 480px) {
-}
-
-@media only screen and (max-width : 320px) {
 }

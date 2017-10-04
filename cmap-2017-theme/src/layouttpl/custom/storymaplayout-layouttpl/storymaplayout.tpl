@@ -30,21 +30,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 
 <div class="storymaplayout" id="main-content" role="main">
 	<div class="portlet-layout row">
-		<div class="col-md-16 portlet-column portlet-column-only">
-			<nav class="storymap-nav clearfix">
-			    <div class="col-xs-13 col-sm-offset-1">
-			    $layout.getName($locale)
-			    </div>
-			    <div class="col-sm-2 share hidden-xs">
-		        	<a data-toggle="popover" data-content="<div id='social-bookmarks-container'></div>" data-placement="bottom" title="Share">
-		        		<span class="icon-share"></span> Share</a>
-					<div class="share-wrapper"></div>
-			    </div>
-			</nav>
-		</div>
-	</div>
-	<div class="portlet-layout row">
-		<div class="col-md-16 portlet-column portlet-column-only"
+		<div class="col-xl-16 portlet-column portlet-column-only"
 			id="column-1">$processor.processColumn("column-1",
 			"portlet-column-content portlet-column-content-only")</div>
 	</div>

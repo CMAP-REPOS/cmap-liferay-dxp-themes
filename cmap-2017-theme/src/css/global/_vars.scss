@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
+// shows and hides the colored bars to identify viewports
+$debug: true;
+
 // Font
 $font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
-$font-serif: "Prensa LF", serif;
+$font-serif: "Prensa", serif;
 
-// Colors
+// colors
 $color: #000;
 $color-charcoal: rgb(35, 39, 45);
 
@@ -24,14 +27,14 @@ $blue-light: #e4eaee;
 $white: #ffffff;
 $accent: #3897c6;
 
-$desktop-breakpoint: 1200px;
-$tablet-breakpoint: 800px;
-$phone-breakpoint: 400px;
+$blue: #3C5976;
+$dark-blue: darken($blue, 25%);
+$light-blue: #E4EBEE;
+$primary: $blue;
 
-
-// Sizes
+// sizes
 $variation: 1.414;
-$size0: 1rem;
+$size0: 1em;
 $size1: $size0 * $variation;
 $size2: $size1 * $variation;
 $size3: $size2 * $variation;
@@ -47,3 +50,12 @@ $size-2: $size-1 / $variation;
 $size-3: $size-2 / $variation;
 $size-4: $size-3 / $variation;
 $size-5: $size-4 / $variation;
+
+$unit: $size1;
+
+$breakpoint-phone: 400px;
+$breakpoint-tablet: 750px;
+$breakpoint-desktop: 1150px;
+$breakpoint-tv: 1500px;
+
+$side-nav-animation: all 0.4s ease;

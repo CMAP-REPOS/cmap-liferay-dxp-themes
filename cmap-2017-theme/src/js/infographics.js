@@ -125,9 +125,9 @@
 		if (options.chartType === 'donut_chart') {
 			legendData = d3.keys(d[0]);
 		}
-        $('.infographic-legend.' + options.chartId + '-legend ul.'+options.chartId).html('');
-		d3.select('.infographic-legend.' + options.chartId + '-legend').insert('ul')
-			.attr('class', 'col-sm-12 col-sm-push-4 list-unstyled list-inline '+options.chartId)
+        $('.infographic-legend.' + options.chartId + '-legend .legend-data').html('');
+		d3.select('.infographic-legend.' + options.chartId + '-legend .legend-data').insert('ul')
+			.attr('class', 'list-unstyled list-inline '+options.chartId)
 			.selectAll('div')
 			.data(legendData)
 			.enter().append('li')

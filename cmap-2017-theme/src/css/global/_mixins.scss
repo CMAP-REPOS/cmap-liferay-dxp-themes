@@ -6,21 +6,38 @@
   list-style: none;
 }
 
-@mixin desktop(){
-  @media screen and (max-width: $desktop-breakpoint){
+@mixin section-padding(){
+  padding: 0 #{$unit * 3};
+
+  @include tablet(){
+    padding: 0 $unit * 2;
+  }
+  @include phone(){
+    padding: 0 $unit;
+  }
+}
+
+@mixin phone(){
+  @media screen and (max-width: $breakpoint-phone){
     @content;
   }
 }
 @mixin tablet(){
-  @media screen and (max-width: $tablet-breakpoint){
+  @media screen and (max-width: $breakpoint-tablet){
     @content;
   }
 }
-@mixin phone(){
-  @media screen and (max-width: $phone-breakpoint){
+@mixin desktop(){
+  @media screen and (max-width: $breakpoint-desktop){
     @content;
   }
 }
+@mixin tv(){
+  @media screen and (max-width: $breakpoint-tv){
+    @content;
+  }
+}
+
 
 /* FLEXBOX */
 @mixin flex {
