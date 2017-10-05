@@ -4,147 +4,251 @@
 #portlet_com_liferay_calendar_web_portlet_CalendarPortlet {
 	
 	.scheduler-base-content {
+
 		> .yui3-widget-bd {
 			border: none;
 		}
-	}
-	
-	.scheduler-base-views {
-		display: none;
-	}
-	
-	.scheduler-base-icon-next {
-		border: none;
-		padding: 0;
-	}
 
-	.scheduler-base-icon-prev {
-		border: none;
-		padding: 0;
-	}
+		.scheduler-base-controls {
 	
-	.scheduler-base-today {
-		display: none; 
-	}
-	
-	.scheduler-base-view-date {
-		display: none;
-	}
-	
-	.scheduler-event {
-		overflow: visible;
-	}
-	
-	.scheduler-event-title {
-		display: block;
-	}
+			.scheduler-base-icon-next {
+				border: none;
+				padding: 0;
+			}
+		
+			.scheduler-base-icon-prev {
+				border: none;
+				padding: 0;
+			}
+			
+			.scheduler-base-today {
+				display: none; 
+			}
+		}
 
-	.scheduler-today-hd {
-	    border-bottom: 0;
-	    color: inherit
+		.scheduler-view-table-content  {
+			.yui3-widget-hd {
+			    background: $white;
+			    border-bottom: 0;
+			    color: inherit;
+			}
+		}
+		
+		.scheduler-base-views {
+			display: none;
+		}
 	}
 	
-	.scheduler-today {
-	    background: transparent
-	}
+	.scheduler-view-table-container {
 	
-	.scheduler-view-colgrid {
-	    background: transparent;
-	}
-	
-	.scheduler-view-grid {
-	    background: transparent;
-	}
-	
-	.scheduler-view-marker-division {
-	    border-bottom: 0;
-	    border-top: 0;
-	}
+		.scheduler-event {
+			overflow: visible;
+			
+			.scheduler-event-title {
+				display: block;
+			}
+		}
 
-	.scheduler-view-table-colgrid {
-		border-left: none;
-		border-right: none;
-	}
-	
-	.scheduler-view-table-colgrid-today {
-	    background-color: inherit;
-	    border: 0;
-	}
-	
-	.scheduler-view-table-content  {
-		.yui3-widget-hd {
+		.scheduler-view-table-colgrid {
+			border-left: none;
+			border-right: none;
+		}
+
+		.scheduler-view-table-colgrid-today {
 		    background-color: inherit;
-		    border-bottom: 0;
-		    color: inherit;
+		    border: 0;
 		}
-	}
+
+		.scheduler-view-table-data-col {
+			vertical-align: top;
+			
+			.scheduler-event-content {
+				display: block;
+			}
+		}		
 	
-	.scheduler-view-table-data-col {
-		vertical-align: top;
-		.scheduler-event-content {
-			display: block;
-		}
-	}
-	
-	.scheduler-view-table-data-col-title {
-	    border-top: 1px solid #000!important;
-	    color: inherit;
-		text-align: left;
-	}
-	
-	.scheduler-view-table-data-col-title-down {
-	    border-top: none;
-	}
-	
-	.scheduler-view-table-data-col-title-today {
-	    color: inherit;
-		border: none;
-	}
-	
-	.scheduler-view-table-data-event {
-	    color: inherit;
-		white-space: normal;
-	}
-	
-	.scheduler-view-table-data-first {
 		.scheduler-view-table-data-col-title {
-		    border-top: 0;
+		    border-top: 1px solid $light-blue!important;
+		    color: $blue-med;
+		    font-size: $size0;
+		    overflow: visivble;
+		    padding-top: 15px;
+			text-align: left;
 		}
-		.scheduler-view-table-grid {
-		    border-top: 0;
+		
+		.scheduler-view-table-data-col-title-down {
+		    border-top: none;
 		}
+		
+		.scheduler-view-table-data-col-title-today {
+		    color: inherit;
+			border: none;
+			
+			&:after {
+				content: " Today";
+			}
+		}
+		
+		.scheduler-view-month-table-data-col-nomonth {
+			font-size: $size-1;
+			opacity: 0.5;
+		}
+		
+		.scheduler-view-table-data-event {
+		    color: inherit;
+		    margin: 0;
+		    padding: 0;
+			white-space: normal;
+		}
+		
+		.scheduler-view-table-data-first {
+			.scheduler-view-table-data-col-title {
+			    border-top: 0;
+			}
+			.scheduler-view-table-grid {
+			    border-top: 0;
+			}
+		}
+		
+		.scheduler-view-table-events-overlay-node {
+		    background-color: inherit;
+		    border: none;
+		}
+		
+		.scheduler-view-table-header-day {
+		    color: inherit
+		}
+		
+		.scheduler-view-table-lasso {
+		    background: transparent
+		}	
+	
 	}
-	
-	.scheduler-view-table-events-overlay-node {
-	    background-color: inherit;
-	    border: none;
-	}
-	
-	.scheduler-view-table-header-day {
-	    color: inherit
-	}
-	
-	.scheduler-view-table-lasso {
-	    background: transparent
-	}	
-	
 }
 
-.scheduler-event-recorder-form {
-	.scheduler-event-recorder-content {
-		background: transparent;
-		border: none;
-		box-shadow: none;
+.scheduler-event-recorder-popover {
+	background: $light-blue;
+	
+	&.popover {
+		&.top {
+			> .arrow {
+				&:after {
+				    border-top-color:  $light-blue;
+				}
+			}
+		}
+	}
+
+	.scheduler-event-recorder-form {
+		padding: 15px;
 	}
 	
 	.popover-title {
+		background: transparent;
 		border: none;
+		margin: 0;
+		padding: 0 0 18px 0;
+		
+		.scheduler-event-recorder-header {
+		
+			.scheduler-event-recorder-content {
+				background: transparent;
+				border: none;
+				box-shadow: none;
+				color: inherit;
+				margin: 0;
+				padding: 0;
+				
+				&:hover {
+					background: transparent;
+					border: none;
+					box-shadow: none;
+					color: inherit;
+				}
+				
+			}
+		}
 	}
 	
 	.popover-content {
+		border: none;
+		margin: 0;
+		padding: 0;
+		
+		.scheduler-event-recorder-body {
+			table {
+				tbody {
+					tr {
+						td {
+							margin: 0;
+							padding: 0;
+							
+							&:first-child {
+								display: none;
+							}
+							
+							label {
+								color: inherit;
+								font-size: $size0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.btn-toolbar-button {
+		
+			&.close {
+				background: transparent;
+				border: none;
+				color: $black;
+				font-size: $size3;
+				opacity: 1;
+				top: 10px;
+				
+				&:hover {
+					background: transparent;
+					border: none;
+					color: $black;
+					opacity: 1;
+				}	
+			}
+		}
 	}
 	
 	.popover-footer {
+		border: none;
+		margin: 0;
+		padding: 0;
+	
+		.btn-toolbar {
+		
+			.btn-toolbar-button {
+				background: transparent;
+				color: $link-blue;
+				border: none;
+				font-size: $size0;
+				padding: 0;
+				
+				&:focus {
+					color: $link-blue;
+				}
+				
+				&.focus {
+					color: $link-blue;
+				}
+				
+				span {
+					display: none;
+				}
+			}
+		}
 	}
-}
+	
+	#_com_liferay_calendar_web_portlet_CalendarPortlet_eventRecorderUsers, 
+	#_com_liferay_calendar_web_portlet_CalendarPortlet_eventRecorderResources {
+		display: none;
+	}
+}	
 
