@@ -35,3 +35,13 @@
 .portlet{
   margin-bottom: 0;
 }
+.portlet-centered{
+  .portlet-content > .row{
+    @include section-padding();
+  }
+}
+.cmap-nested-layout{
+  .portlet-layout.row{
+    @include section-padding();
+  }
+}

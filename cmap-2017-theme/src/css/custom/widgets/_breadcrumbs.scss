@@ -1,6 +1,5 @@
 #breadcrumbs{
   position: relative;
-  z-index: 500;
   border-top: 1px solid $light-blue;
 
   .breadcrumb{
@@ -38,12 +37,13 @@
       span{
         padding-left: $size-1;
         transform: translateY(0.175em);
+        padding-bottom: 0.1em;
         font-size: $size-1;
       }
 
       svg{
-        width: $size0 !important;
-        height: $size1 !important;
+        // width: $size0 !important;
+        // height: $size1 !important;
       }
     }
 
@@ -51,35 +51,6 @@
     .trail-col{
       height: $size0;
       line-height: $size0;
-
-      $indent: 0.5em;
-      text-indent: - $indent;
-
-      .home{
-        cursor: pointer;
-        position: relative;
-        border-left: none;
-        padding: 0;
-        font-size: $size-1;
-
-        &:after{
-          content: '';
-          position: absolute;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          right: 0;
-          width: $size0;
-          height: $size0;
-          border: 1px solid $primary;
-        }
-
-        &:hover{
-          &:after{
-            background: $light-blue;
-          }
-        }
-      }
-
 
       span{
         font-size: $size-1;
@@ -89,6 +60,31 @@
         &.active{
           cursor: default;
           color: $light-blue-text;
+        }
+      }
+      .home{
+        position: relative;
+        border-left: none;
+
+        &:after{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-100%, -50%);
+          width: $size0;
+          height: $size0;
+          border: 1px solid $light-blue-text;
+          background: $white;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        &:hover{
+          &:after{
+            border: 1px solid $light-blue-text;
+            background: $light-blue;
+          }
         }
       }
     }
@@ -106,21 +102,6 @@
         text-indent: 0;
         margin: 0;
         padding-left: 0 !important;
-
-        .home{
-          // font-size: $size0;
-        }
-      }
-
-      .sr-only{
-        display: inline-block;
-        position: relative;
-        width: auto;
-        height: auto;
-        overflow: auto;
-        clip: auto;
-        margin: auto;
-
       }
       .home{
         &:after{
