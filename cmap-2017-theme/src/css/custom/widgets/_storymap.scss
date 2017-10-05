@@ -73,7 +73,7 @@ $icon-nav-right-white: "\e91d";
     }
 
     .storymap-nav {
-		background: $blue-dark;
+		background: $blue;
         color: $blue-med;
 	    // font-size: 12px;
         font-size: #{ $size-1 - 0.1em };
@@ -106,13 +106,13 @@ $icon-nav-right-white: "\e91d";
 	        padding: 1em 0;
 
 		    .storymap-title {
-		        color: $color;
+		        color: #000;
 		    	font-family: $font-sans;
                 font-size: $size1;
 		    }
 
 		    .storymap-info {
-		    	color: $color;
+		    	color: #000;
 		    	font-family: $font-serif;
 		    	// font-size: 15px;
                 font-size: #{ $size0 - 0.2em };
@@ -142,7 +142,7 @@ $icon-nav-right-white: "\e91d";
 		    .story-step-title {
 				color: $blue-med;
 				// font-size: 15px;
-                font-size: #{ $size0 - 0.2em };
+                font-size: $size-1;
 				letter-spacing: 0.05em;
 		    	margin-right: 1em;
 		        text-transform: capitalize;
@@ -153,16 +153,18 @@ $icon-nav-right-white: "\e91d";
 		    }
 
 		    .view-map {
-				color: $blue-light;
+				color: $light-blue;
 				// font-size: 12px;
-                font-size: #{ $size-1 - 0.1em };
+                font-size: $size-1;
 
 				.icon {
 					font-size: 18px;
+                    padding-right: 10px;
 				}
 
 		    	&:hover {
 		    		color: $white;
+                    text-decoration: none;
 		    	}
 		    }
 
@@ -201,9 +203,9 @@ $icon-nav-right-white: "\e91d";
 
 		    button {
 		        background: transparent;
-		        border: 2px solid $blue-dark;
+		        border: 2px solid $blue;
 		        border-radius: 21px;
-		        color: $blue-dark;
+		        color: $blue;
 		        // font-size: 12px;
                 font-size: #{ $size-1 - 0.1em };
 		        font-weight: 600;
@@ -212,7 +214,7 @@ $icon-nav-right-white: "\e91d";
 			    &.active {
 			        color: $white;
 			        font-weight: 500;
-			        background: $blue-dark;
+			        background: $blue;
 			    }
 		    }
             .text-right{

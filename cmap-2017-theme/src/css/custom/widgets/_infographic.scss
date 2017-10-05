@@ -263,7 +263,7 @@ $icon-share-white: "\e924";
         }
 
         .infographic-title {
-            color: $color;
+            color: #000;
             // font-size: 26px;
             font-size: $size1;
             font-family: $font-sans;
@@ -274,15 +274,15 @@ $icon-share-white: "\e924";
 
         .c3-defocused{
             .c3-line{
-                stroke: $blue-light !important;
+                stroke: $light-blue !important;
             }
             .c3-area{
-                fill: $blue-light !important;
+                fill: $light-blue !important;
             }
         }
 
         line {
-            stroke: $blue-light;
+            stroke: $light-blue;
         }
 
         path {
@@ -294,7 +294,7 @@ $icon-share-white: "\e924";
         }
 
         text {
-            fill: $blue-light;
+            fill: $light-blue;
         }
 
         .c3-axis-x, .c3-axis-y {
@@ -403,7 +403,7 @@ $icon-share-white: "\e924";
             }
 
             .c3-chart-arcs-title {
-                color: $blue-dark;
+                color: $blue;
                 font-size: 22px;
             }
         }
@@ -431,9 +431,9 @@ $icon-share-white: "\e924";
 
         button {
             background: transparent;
-            border: 2px solid $blue-dark;
+            border: 2px solid $blue;
             border-radius: 21px;
-            color: $blue-dark;
+            color: $blue;
             cursor: pointer;
             // font-size: 12;
             font-size: $size0;
@@ -447,7 +447,7 @@ $icon-share-white: "\e924";
             width: 190px;
 
             &:hover, &.on {
-                background: $blue-dark;
+                background: $blue;
                 color: $white;
                 .pair-icons {
                     visibility: visible;
@@ -466,7 +466,7 @@ $icon-share-white: "\e924";
     }
 
     .icon-info-white {
-        color: $blue-dark;
+        color: $blue;
         cursor: pointer;
         opacity: 0.5;
     }
@@ -608,7 +608,7 @@ $icon-share-white: "\e924";
 
                      li {
                          border-top: none;
-                         color: $blue-dark;
+                         color: $blue;
                          padding: .5em 0;
                          &:last-of-type {
                             border-bottom: none;
