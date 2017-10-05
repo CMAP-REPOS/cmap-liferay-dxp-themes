@@ -34,7 +34,7 @@
     img{
       position: relative;
       height: 48vw;
-      max-width: none;
+      max-width: none !important;
       left: 50%;
       transform: translateX(-50%);
 

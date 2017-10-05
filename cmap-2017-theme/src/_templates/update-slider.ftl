@@ -17,7 +17,8 @@
 			<div class="item col-xl-4 col-sm-8 col-xs-16">
 
 				<#assign dateFormat="MMMM dd, yyyy" />
-		    <h4 class="item-date">${dateUtil.getDate(update.getPublishDate(), dateFormat, locale)}</h4>
+
+        <h4 class="item-date">${dateUtil.getDate(update.getPublishDate(), dateFormat, locale)}</h4>
 
 				<#assign assetRenderer=update.getAssetRenderer()>
 				<#assign viewURL="/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>

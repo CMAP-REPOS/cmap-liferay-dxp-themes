@@ -12,9 +12,8 @@
     <#assign cssClass="" />
 
     <div class="trail-col col-xl-13 col-sm-16">
-      <a href="/" class="home">
-        <div class="sr-only">Home</div>
-      </a>
+      <div class="sr-only"> <a href="/"> Home </a> </div>
+      <span class="entry home"> <a href="/"> Home </a> </span>
       <#list entries as entry>
 
         <#if entry?is_last>

@@ -1,4 +1,7 @@
-.home-page{
+.home-page, .web-guest-home-page{
+  #breadcrumbs{
+    z-index: 100;
+  }
   .breadcrumb{
     position: absolute !important;
     .trail-col{

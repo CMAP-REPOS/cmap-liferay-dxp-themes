@@ -7,5 +7,13 @@
 			<template-path>/layouttpl/custom/cmap-layouttpl/cmap.tpl</template-path>
 			<thumbnail-path>/layouttpl/custom/cmap-layouttpl/cmap.png</thumbnail-path>
 		</layout-template>
+		<layout-template id="cmap-finished" name="CMAP Finished Layout">
+			<template-path>/layouttpl/custom/cmap-finished-layouttpl/cmap-finished.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/cmap-finished-layouttpl/cmap-finished.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="cmap-nested" name="CMAP Nested Layout">
+			<template-path>/layouttpl/custom/cmap-nested-layouttpl/cmap-nested.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/cmap-nested-layouttpl/cmap-nested.png</thumbnail-path>
+		</layout-template>
 	</custom>
 </layout-templates>
