@@ -1,0 +1,30 @@
+.update-slider{
+
+  .item{
+    padding: $unit * 2 0 0;
+
+    .item-date{
+      @extend .whitney-normal__light-blue;
+    }
+    .item-title{
+      @extend .whitney-bold;
+
+      a{
+        @extend .underline-link;
+      }
+    }
+
+    p{
+      @extend .whitney-normal__light-blue;
+      margin: $unit 0;
+    }
+
+    .read-more-link{
+      @extend .underline-link;
+    }
+
+    p, .read-more-link{
+      font-size: $size-1;
+    }
+  }
+}

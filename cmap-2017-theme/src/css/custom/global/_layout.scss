@@ -1,0 +1,37 @@
+// this div is to prevent overflow when the side nav is open
+#viewport{
+  position: relative;
+  overflow-x: hidden;
+  // sometimes this div catches scrolling
+  // this code will prevent that from happening
+  pointer-events: none;
+  *{ pointer-events: all; }
+}
+
+// 90% of things are in this div
+#wrapper{
+  position: relative;
+  transition: $side-nav-animation;
+  width: 100%;
+  height: 100%;
+
+    // default code, try to remove this
+  padding-bottom: 0;
+	padding-top: 0;
+	position: relative;
+}
+
+// what the user is on the page to see
+#main-content{
+  // padding-bottom: $unit * 4;
+
+  .row{
+    @include tablet(){
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.portlet{
+  margin-bottom: 0;
+}

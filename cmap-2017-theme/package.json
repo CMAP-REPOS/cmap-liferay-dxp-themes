@@ -22,5 +22,8 @@
 	},
 	"publishConfig": {
 		"tag": "7_0_x"
+	},
+	"dependencies": {
+		"clipboard": "^1.7.1"
 	}
 }

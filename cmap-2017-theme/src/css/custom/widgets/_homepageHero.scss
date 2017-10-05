@@ -1,0 +1,52 @@
+.homepage-hero{
+  position: relative;
+
+
+  .row{
+    @include section-padding();
+  }
+
+  .homepage-hero-text{
+    position: absolute;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $unit * 2 0;
+
+
+    .homepage-hero-title{
+      @extend .whitney-huge__white;
+    }
+    .homepage-hero-description{
+      @extend .presna-large;
+
+      $size: 0.2em;
+      $blur: 0.2em;
+      $color: $white;
+      $notsize: -0.2em;
+      // text-shadow: $size $size $blur $color, $notsize $size $blur $color, $size $notsize $blur $color, $notsize $notsize $blur $color;
+    }
+  }
+
+  .homepage-hero-background{
+    img{
+      position: relative;
+      height: 48vw;
+      max-width: none;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include desktop(){
+        height: 57vw;
+      }
+      @include tablet(){
+        height: 90vw;
+      }
+      @include phone(){
+        height: 130vw;
+      }
+    }
+  }
+}

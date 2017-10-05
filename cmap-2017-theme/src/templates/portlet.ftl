@@ -22,7 +22,14 @@
 		<#if (portlet_configuration_icons?has_content || portlet_title_menus?has_content)>
 			<header class="portlet-topper">
 				<div class="portlet-title-default">
-					<span class="portlet-name-text">${portlet_display_name}</span>
+					<span class="portlet-name-text">
+						<#if portlet_display.getPortletDecoratorId() == "full-width-content">
+							<span>Full Width: </span> ${portlet_display_name}
+						</#if>
+						<#if portlet_display.getPortletDecoratorId() == "centered-content">
+							<span>Centered: </span> ${portlet_display_name}
+						</#if>
+					</span>
 				</div>
 
 				<#foreach portletTitleMenu in portlet_title_menus>
@@ -52,8 +59,22 @@
 			</a>
 		</#if>
 
-		<#-- h2 class="portlet-title-text">${portlet_title}</h2 -->
+		<div class="row">
+			<#if portlet_display.getPortletDecoratorId() == "centered-content">
+				 <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
+					 ${portlet_display.writeContent(writer)}
+				 </div>
+			</#if>
+			<#if portlet_display.getPortletDecoratorId() == "full-width-content">
+				<!-- no padding because it probably has a sub grid -->
+				 <div class="col-xl-16" style="padding: 0 !important;">
+					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
+					 ${portlet_display.writeContent(writer)}
+				 </div>
+			</#if>
+		</div>
 
-		${portlet_display.writeContent(writer)}
+
 	</div>
 </section>

@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+/* CALENDAR PORTLET */
+#portlet_com_liferay_calendar_web_portlet_CalendarPortlet {
+	
+	.scheduler-base-content {
+		> .yui3-widget-bd {
+			border: none;
+		}
+	}
+	
+	.scheduler-base-views {
+		display: none;
+	}
+	
+	.scheduler-base-icon-next {
+		border: none;
+		padding: 0;
+	}
+
+	.scheduler-base-icon-prev {
+		border: none;
+		padding: 0;
+	}
+	
+	.scheduler-base-today {
+		display: none; 
+	}
+	
+	.scheduler-base-view-date {
+		display: none;
+	}
+	
+	.scheduler-event {
+		overflow: visible;
+	}
+	
+	.scheduler-event-title {
+		display: block;
+	}
+
+	.scheduler-today-hd {
+	    border-bottom: 0;
+	    color: inherit
+	}
+	
+	.scheduler-today {
+	    background: transparent
+	}
+	
+	.scheduler-view-colgrid {
+	    background: transparent;
+	}
+	
+	.scheduler-view-grid {
+	    background: transparent;
+	}
+	
+	.scheduler-view-marker-division {
+	    border-bottom: 0;
+	    border-top: 0;
+	}
+
+	.scheduler-view-table-colgrid {
+		border-left: none;
+		border-right: none;
+	}
+	
+	.scheduler-view-table-colgrid-today {
+	    background-color: inherit;
+	    border: 0;
+	}
+	
+	.scheduler-view-table-content  {
+		.yui3-widget-hd {
+		    background-color: inherit;
+		    border-bottom: 0;
+		    color: inherit;
+		}
+	}
+	
+	.scheduler-view-table-data-col {
+		vertical-align: top;
+		.scheduler-event-content {
+			display: block;
+		}
+	}
+	
+	.scheduler-view-table-data-col-title {
+	    border-top: 1px solid #000!important;
+	    color: inherit;
+		text-align: left;
+	}
+	
+	.scheduler-view-table-data-col-title-down {
+	    border-top: none;
+	}
+	
+	.scheduler-view-table-data-col-title-today {
+	    color: inherit;
+		border: none;
+	}
+	
+	.scheduler-view-table-data-event {
+	    color: inherit;
+		white-space: normal;
+	}
+	
+	.scheduler-view-table-data-first {
+		.scheduler-view-table-data-col-title {
+		    border-top: 0;
+		}
+		.scheduler-view-table-grid {
+		    border-top: 0;
+		}
+	}
+	
+	.scheduler-view-table-events-overlay-node {
+	    background-color: inherit;
+	    border: none;
+	}
+	
+	.scheduler-view-table-header-day {
+	    color: inherit
+	}
+	
+	.scheduler-view-table-lasso {
+	    background: transparent
+	}	
+	
+}
+
+.scheduler-event-recorder-form {
+	.scheduler-event-recorder-content {
+		background: transparent;
+		border: none;
+		box-shadow: none;
+	}
+	
+	.popover-title {
+		border: none;
+	}
+	
+	.popover-content {
+	}
+	
+	.popover-footer {
+	}
+}
+

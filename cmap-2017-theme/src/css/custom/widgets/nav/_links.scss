@@ -1,0 +1,26 @@
+.main-nav-links,
+.side-nav-links{
+
+  ul{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li{
+    transition: all 0.15s ease;
+
+    a{
+      display: block;
+      color: lighten($primary, 25%);
+      font-weight: 800;
+
+      &:hover{
+        color: darken($primary, 10%);
+        text-decoration: none;
+      }
+    }
+  }
+}

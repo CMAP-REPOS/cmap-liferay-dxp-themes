@@ -1,14 +1,42 @@
 @charset "UTF-8";
 
-@import "global/vars";
-@import "global/mixins";
-@import "global/typography";
-@import "global/grid16";
+// these are loaded in a specific order
+// the rest are listed alphabetically
+@import "custom/vendor/hamburger";
+@import "custom/global/variables";
+@import "custom/global/mixins";
+@import "custom/global/print";
 
-@import "pages/staffdirectory";
+// CUSTOM CMAP SCSS
+@import "custom/global/elements";
+@import "custom/global/grid";
+@import "custom/global/layout";
+@import "custom/global/typography";
+@import "custom/global/links";
+@import "custom/global/utilities";
 
-@import "widgets/breadcrumb";
-@import "widgets/calendar";
-@import "widgets/header";
-@import "widgets/infographic";
-@import "widgets/storymap";
+@import "custom/pages/fy18";
+@import "custom/pages/homepage";
+@import "custom/pages/staffdirectory";
+
+@import "custom/widgets/nav/header";
+@import "custom/widgets/nav/links";
+@import "custom/widgets/nav/logo";
+@import "custom/widgets/nav/scrollNav";
+@import "custom/widgets/nav/search";
+@import "custom/widgets/nav/sideNav";
+
+@import "custom/widgets/breadcrumbs";
+@import "custom/widgets/calendar";
+@import "custom/widgets/footer";
+@import "custom/widgets/fullSlider";
+@import "custom/widgets/halfSlider";
+@import "custom/widgets/homepageHero";
+@import "custom/widgets/infographic";
+@import "custom/widgets/partnerSlider";
+@import "custom/widgets/slider";
+@import "custom/widgets/storymap";
+@import "custom/widgets/titleWithSections";
+@import "custom/widgets/updateSlider";
+
+@import "custom/global/overrides";

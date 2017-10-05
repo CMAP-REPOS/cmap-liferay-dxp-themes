@@ -1,0 +1,55 @@
+.title-with-sections{
+
+  .row{
+    @include section-padding();
+  }
+
+  .page-title,
+  .page-date,
+  .page-nav-title,
+  .section-title{
+    height: $unit * 2;
+  }
+
+  .page-title,
+  .section-title{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: $unit;
+    h1{
+      @extend .whitney-large;
+    }
+    h2,h3{
+      @extend .whitney-bold;
+    }
+  }
+
+  .page-date,
+  .page-nav-title{
+    display: flex;
+    align-items: center;
+    h3,h4{
+      @extend .whitney-normal__light-blue;
+      padding-top: 0.25em;
+    }
+  }
+
+  .page-nav-title{
+    border-bottom: 1px solid $light-blue;
+  }
+  .page-nav-item{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $light-blue;
+
+    &:last-of-type{
+      border-bottom: 0;
+    }
+
+    a{
+      font-size: $size-1;
+      font-weight: bold;
+      padding: $unit 0;
+    }
+  }
+}

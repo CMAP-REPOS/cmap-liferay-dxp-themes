@@ -1,0 +1,66 @@
+.slider{
+
+  .row{
+    @include section-padding();
+  }
+  
+  header{
+    $border: 1px solid $light-blue;
+    border-top: $border;
+    border-bottom: $border;
+
+    .buttons{
+      display: flex;
+      align-items: center;
+      height: $unit * 2;
+    }
+
+    h3{
+      @extend .whitney-bold;
+      margin-right: $size-2;
+    }
+    .view-all a{
+      @extend .underline-link;
+    }
+  }
+
+  // similar to a "track" for the slides
+  // moves back and forth with vw
+  .slider-container{
+    position: relative;
+    display: flex;
+    transition: all 0.4s ease-in-out;
+
+    .slider-slide{
+      flex: 0 0 100vw;
+    }
+  }
+
+  .slider-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $unit * 2;
+
+    .nav-item{
+      $size: $size-1;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background: $light-blue;
+      margin-right: $size-2;
+      transition: all 0.2s ease-in;
+      cursor: pointer;
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+      &.active{
+        background: $primary;
+      }
+      &:hover{
+        background: saturate($light-blue, 20%);
+      }
+    }
+  }
+}

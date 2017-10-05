@@ -1,7 +1,7 @@
 <div class="infographicbase" id="main-content" role="main">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 
-<!-- 	<link rel="stylesheet"
+	<!-- 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css" />
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
@@ -139,7 +139,7 @@
 															":first-child")) {
 														removeAllFade();
 
-														//[0] to make sure we get the pure dom element for js .classList. 
+														//[0] to make sure we get the pure dom element for js .classList.
 														//jq wont select svg elements to add/remove classes. this is our workaround to preserve the classes existing there
 														thirdChild.classList
 																.add('c3-defocused');
@@ -147,7 +147,7 @@
 																.add('c3-defocused');
 														fifthChild.classList
 																.add('c3-defocused');
-														//put the addFade function here. 
+														//put the addFade function here.
 														//will likely want an array of the children at some point, and pass those values to the function as before.
 
 													} else if ($(this).is(
@@ -383,12 +383,12 @@
 	</div>
 	<div class="portlet-layout">
 		<div class="portlet-column portlet-column-only" id="column-1">
-			$processor.processColumn("column-1", "portlet-column-content
-			portlet-column-content-only")</div>
+			$processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
+		</div>
 	</div>
 	<div class="portlet-layout">
 		<div class="portlet-column portlet-column-only" id="column-2">
-			$processor.processColumn("column-2", "portlet-column-content
-			portlet-column-content-only")</div>
+			$processor.processColumn("column-2", "portlet-column-content portlet-column-content-only")
+		</div>
 	</div>
 </div>

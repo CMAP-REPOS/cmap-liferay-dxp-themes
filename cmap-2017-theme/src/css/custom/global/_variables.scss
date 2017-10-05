@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// shows and hides the colored bars to identify viewports
+$debug: true;
+
+// Font
+$font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$font-serif: "Prensa LF", serif;
+
+// colors
+$blue-med: #88a0b2;
+
+$white: #FFFFFF;
+$black: #000000;
+
+$blue: #3C5976;
+$dark-blue: darken($blue, 25%);
+$link-blue: #00508C;
+$light-blue: #E4EBEE;
+$light-blue-text: #587387;
+$primary: $blue;
+
+// sizes
+$variation: 1.414;
+$size0: 1em;
+$size1: $size0 * $variation;
+$size2: $size1 * $variation;
+$size3: $size2 * $variation;
+$size4: $size3 * $variation;
+$size5: $size4 * $variation;
+$size6: $size5 * $variation;
+$size7: $size6 * $variation;
+$size8: $size7 * $variation;
+$size9: $size8 * $variation;
+$size10: $size9 * $variation;
+$size-1: $size0 / $variation;
+$size-2: $size-1 / $variation;
+$size-3: $size-2 / $variation;
+$size-4: $size-3 / $variation;
+$size-5: $size-4 / $variation;
+
+$unit: $size1;
+
+$breakpoint-phone: 400px;
+$breakpoint-tablet: 750px;
+$breakpoint-desktop: 1150px;
+$breakpoint-tv: 1500px;
+
+$side-nav-animation: all 0.4s ease;

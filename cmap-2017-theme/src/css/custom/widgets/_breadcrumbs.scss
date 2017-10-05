@@ -1,0 +1,144 @@
+#breadcrumbs{
+  position: relative;
+  z-index: 500;
+  border-top: 1px solid $light-blue;
+
+  .breadcrumb{
+    margin-bottom: $unit;
+    height: $unit * 2;
+    padding: 0 #{$unit * 3};
+
+    display: flex;
+    align-items: center;
+
+    @include section-padding();
+
+    .share-button{
+      position: relative;
+      height: auto;
+      display: flex;
+      align-items: center;
+
+      a{
+        display: inline-flex;
+        align-items: center;
+        height: $size0;
+        font-weight: 800;
+        cursor: pointer;
+
+        &:hover{
+          svg{
+            g{
+              fill: $dark-blue !important;
+            }
+          }
+        }
+      }
+
+      span{
+        padding-left: $size-1;
+        transform: translateY(0.175em);
+        font-size: $size-1;
+      }
+
+      svg{
+        width: $size0 !important;
+        height: $size1 !important;
+      }
+    }
+
+
+    .trail-col{
+      height: $size0;
+      line-height: $size0;
+
+      $indent: 0.5em;
+      text-indent: - $indent;
+
+      .home{
+        cursor: pointer;
+        position: relative;
+        border-left: none;
+        padding: 0;
+        font-size: $size-1;
+
+        &:after{
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          right: 0;
+          width: $size0;
+          height: $size0;
+          border: 1px solid $primary;
+        }
+
+        &:hover{
+          &:after{
+            background: $light-blue;
+          }
+        }
+      }
+
+
+      span{
+        font-size: $size-1;
+        padding: 0 $size-2;
+        border-left: 1px solid $light-blue;
+
+        &.active{
+          cursor: default;
+          color: $light-blue-text;
+        }
+      }
+    }
+
+    @include tablet(){
+      flex-wrap: wrap;
+      height: auto !important;
+
+      .share-button{
+        position: relative;
+        height: $unit * 2;
+      }
+      .trail-col{
+        height: auto;
+        text-indent: 0;
+        margin: 0;
+        padding-left: 0 !important;
+
+        .home{
+          // font-size: $size0;
+        }
+      }
+
+      .sr-only{
+        display: inline-block;
+        position: relative;
+        width: auto;
+        height: auto;
+        overflow: auto;
+        clip: auto;
+        margin: auto;
+
+      }
+      .home{
+        &:after{
+          display: none;
+        }
+      }
+    }
+
+    span,a{
+      line-height: 1em;
+    }
+    a{
+      color: $primary;
+      &:hover{
+        text-decoration: none;
+        color: $dark-blue;
+      }
+    }
+  }
+
+}

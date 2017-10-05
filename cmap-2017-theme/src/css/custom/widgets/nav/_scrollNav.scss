@@ -1,0 +1,48 @@
+#scroll-nav{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $unit * 2;
+  padding: 0 $unit * 3;
+
+  background: $light-blue;
+  transition: all 0.2s ease;
+
+  @if($debug){
+    top: -1px;
+  }
+
+  @include tablet(){
+    padding: 0 $unit * 2;
+  }
+  @include phone(){
+    padding: 0 $unit;
+  }
+
+  transform: translateY(-100%);
+  &.active{
+    transform: translateY(0);
+  }
+
+  .side-nav-trigger{
+    display: inline-block;
+  }
+
+  .hamburger{
+    position: relative;
+    display: inline-flex;
+    padding: 0 $unit;
+    margin-left: - $unit / 2;
+    transform: scale(0.5) translateX(-50%);
+    outline: none;
+  }
+
+  .logo{
+    position: relative;
+    transform: translateX(-25%);
+  }
+}
