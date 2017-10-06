@@ -42,10 +42,17 @@
 	.scheduler-view-table-container {
 	
 		.scheduler-event {
-			overflow: visible;
+    		margin-bottom: 15px;
+    		overflow: visible;
 			
 			.scheduler-event-title {
 				display: block;
+			    font-size: $size-1;
+			    
+			    span {
+			    	display: inline-block !important
+			    	margin-left 0.5em;
+			    }
 			}
 		}
 
@@ -64,6 +71,7 @@
 			
 			.scheduler-event-content {
 				display: block;
+			    font-size: $size-1;
 			}
 		}		
 	
@@ -72,7 +80,7 @@
 		    color: $blue-med;
 		    font-size: $size0;
 		    overflow: visivble;
-		    padding-top: 15px;
+		    padding: 15px 0;
 			text-align: left;
 		}
 		
@@ -122,6 +130,11 @@
 		.scheduler-view-table-lasso {
 		    background: transparent
 		}	
+		
+		.scheduler-view-table-more {
+			font-size: $size-1;
+    		margin-bottom: 15px;
+		}
 	
 	}
 }
