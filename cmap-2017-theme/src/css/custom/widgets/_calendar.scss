@@ -11,13 +11,14 @@
 
 		.scheduler-base-controls {
 	
-			.scheduler-base-icon-next {
+			text-align: center;
+			width: 100%;
+	
+			.scheduler-base-icon-next, 
+			.scheduler-base-icon-prev  {
 				border: none;
-				padding: 0;
-			}
-		
-			.scheduler-base-icon-prev {
-				border: none;
+				display: inline-block;
+				float: none;
 				padding: 0;
 			}
 			
@@ -39,21 +40,35 @@
 		}
 	}
 	
-	.scheduler-view-table-container {
+	.scheduler-view-table-container, 
+	.scheduler-view-table-events-overlay-node {
 	
 		.scheduler-event {
+			display: none;
     		margin-bottom: 15px;
     		overflow: visible;
 			
 			.scheduler-event-title {
+				color: $link-blue;
 				display: block;
 			    font-size: $size-1;
 			    
 			    span {
-			    	display: inline-block !important
-			    	margin-left 0.5em;
+			    	display: inline-block !important;
+			    	margin-left: 0.25em;
 			    }
 			}
+			
+			.scheduler-event-content {
+				color: $link-blue;
+				display: block;
+			    font-size: $size-1;
+			    font-weight: normal;
+			}
+		}
+
+		.scheduler-view-table-events-overlay-node-close {
+		    font-size: $size-1;
 		}
 
 		.scheduler-view-table-colgrid {
@@ -68,11 +83,6 @@
 
 		.scheduler-view-table-data-col {
 			vertical-align: top;
-			
-			.scheduler-event-content {
-				display: block;
-			    font-size: $size-1;
-			}
 		}		
 	
 		.scheduler-view-table-data-col-title {
@@ -189,6 +199,11 @@
 		padding: 0;
 		
 		.scheduler-event-recorder-body {
+
+			.calendar-portlet-event-recorder-calendar-row {
+				display: none;
+			}
+
 			table {
 				tbody {
 					tr {

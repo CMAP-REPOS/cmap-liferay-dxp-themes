@@ -23,5 +23,9 @@
 			<template-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.tpl</template-path>
 			<thumbnail-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.png</thumbnail-path>
 		</layout-template>
+		<layout-template id="cmap-calendar" name="CMAP Calendar Layout">
+			<template-path>/layouttpl/custom/cmap-calendar-layouttpl/cmap-calendar.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/cmap-calendar-layouttpl/cmap-calendar.png</thumbnail-path>
+		</layout-template>
 	</custom>
 </layout-templates>
