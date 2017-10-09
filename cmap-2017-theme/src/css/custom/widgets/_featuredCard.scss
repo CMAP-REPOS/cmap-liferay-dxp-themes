@@ -1,5 +1,5 @@
 
-$top: $size3;
+$top: 42%;
 
 @keyframes normalize-feature-card{
   0%{
@@ -28,6 +28,7 @@ section.featured-card{
   padding: $unit 0;
   background: $light-blue;
   overflow: hidden;
+  transition: all 0.2s ease;
 
   .row{
     // @include section-padding();
@@ -41,19 +42,25 @@ section.featured-card{
     position: relative;
     left: 50%;
     width: 42%;
-    animation: tweak-feature-card .4s 1;
+    transition: all 0.4s ease-in-out;
     transform: translateX(-50%) translateY($top) rotate(-25deg);
+  }
+  .featured-card-title{
+    @extend .whitney-bold;
+    margin: $size0 0;
   }
   .featured-card-cta{
     display: flex;
   }
 
+  .file-icon{
+    display: inline-block;
+  }
+
   &:hover{
-    $factor: 10%;
-    background: saturate($light-blue, $factor);
+    background: saturate($light-blue, 15%);
 
     .featured-card-img{
-      animation: normalize-feature-card .4s 1;
       transform: translateX(-50%) translateY(0) rotate(0deg);
     }
   }

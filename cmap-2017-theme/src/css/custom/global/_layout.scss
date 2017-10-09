@@ -1,13 +1,3 @@
-// this div is to prevent overflow when the side nav is open
-#viewport{
-  position: relative;
-  overflow-x: hidden;
-  // sometimes this div catches scrolling
-  // this code will prevent that from happening
-  pointer-events: none;
-  *{ pointer-events: all; }
-}
-
 // 90% of things are in this div
 #wrapper{
   position: relative;

@@ -18,11 +18,16 @@
 
 				<#assign dateFormat="MMMM dd, yyyy" />
 
-        <h4 class="item-date">${dateUtil.getDate(update.getPublishDate(), dateFormat, locale)}</h4>
+        <#if update.getPublishDate()??>
+          <h4 class="item-date">${dateUtil.getDate(update.getPublishDate()?date, dateFormat, locale)}</h4>
+        </#if>
 
-				<#assign assetRenderer=update.getAssetRenderer()>
-				<#assign viewURL="/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
-		    <h3 class="item-title"><a href="${viewURL}">${update.getTitle(locale)}</a></h3>
+        <#if update.getTitle(locale)??>
+  				<#assign assetRenderer=update.getAssetRenderer()>
+  				<#assign viewURL="/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
+  		    <h3 class="item-title"><a href="${viewURL}">${update.getTitle(locale)}</a></h3>
+        </#if>
+
 
 				<#assign assetSummary=assetRenderer.getSummary(renderRequest, renderResponse)>
 				<#assign assetSummaryLength=assetSummary?length>

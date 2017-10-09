@@ -3,7 +3,7 @@
   .row{
     @include section-padding();
   }
-  
+
   header{
     $border: 1px solid $light-blue;
     border-top: $border;
@@ -30,7 +30,7 @@
     position: relative;
     display: flex;
     transition: all 0.4s ease-in-out;
-
+    overflow: hidden;
     .slider-slide{
       flex: 0 0 100vw;
     }
