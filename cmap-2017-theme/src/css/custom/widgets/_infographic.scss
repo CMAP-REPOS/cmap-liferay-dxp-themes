@@ -261,8 +261,11 @@ $icon-share-white: "\e924";
             line-height: 1.3em;
             margin-bottom: 2em;
         }
+        .infographic-source p, .infographic-aside p {
+            font-family: $font-sans;
+        }
 
-        .infographic-title {
+        .infographic-title p {
             color: #000;
             // font-size: 26px;
             font-size: $size1;

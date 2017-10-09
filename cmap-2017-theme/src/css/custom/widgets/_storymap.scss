@@ -105,7 +105,7 @@ $icon-nav-right-white: "\e91d";
 	        margin: 0;
 	        padding: 1em 0;
 
-		    .storymap-title {
+		    .storymap-title p {
 		        color: #000;
 		    	font-family: $font-sans;
                 font-size: $size1;
@@ -142,7 +142,7 @@ $icon-nav-right-white: "\e91d";
 		    .story-step-title {
 				color: $blue-med;
 				// font-size: 15px;
-                font-size: $size-1;
+                font-size: #{ $size0 - 0.1em };
 				letter-spacing: 0.05em;
 		    	margin-right: 1em;
 		        text-transform: capitalize;
@@ -156,6 +156,7 @@ $icon-nav-right-white: "\e91d";
 				color: $light-blue;
 				// font-size: 12px;
                 font-size: $size-1;
+                cursor: pointer;
 
 				.icon {
 					font-size: 18px;
@@ -164,7 +165,6 @@ $icon-nav-right-white: "\e91d";
 
 		    	&:hover {
 		    		color: $white;
-                    text-decoration: none;
 		    	}
 		    }
 
@@ -179,6 +179,9 @@ $icon-nav-right-white: "\e91d";
 		    .previous-story-step, .next-story-step {
 				color: $white;
 		        font-weight: normal;
+                a {
+                    text-decoration: none;
+                }
 			}
 	    }
         .storymap-nav-container.mobile-storymap-nav {
@@ -202,12 +205,13 @@ $icon-nav-right-white: "\e91d";
 	        padding: 1em 0;
 
 		    button {
-		        background: transparent;
+		        background: rgba(168, 188, 200, .5);
 		        border: 2px solid $blue;
 		        border-radius: 21px;
 		        color: $blue;
 		        // font-size: 12px;
-                font-size: #{ $size-1 - 0.1em };
+                font-family: $font-sans;
+                font-size: $size-1;
 		        font-weight: 600;
 		        text-transform: capitalize;
 
