@@ -10,8 +10,7 @@
 		}
 
 		.scheduler-base-controls {
-	
-			text-align: center;
+            margin-bottom: 36px;
 			width: 100%;
 	
 			.scheduler-base-icon-next, 
@@ -20,6 +19,12 @@
 				display: inline-block;
 				float: none;
 				padding: 0;
+				
+				span {
+                    font-weight: normal;
+                    color: black;
+                    margin-right: 1em;
+				}
 			}
 			
 			.scheduler-base-today {
@@ -38,14 +43,27 @@
 		.scheduler-base-views {
 			display: none;
 		}
+
+        .scheduler-view-table-header-col {
+
+            .scheduler-view-table-header-day {
+                color: $blue;
+                text-align: left;
+            }
+        }
 	}
 	
+	.scheduler-view-table-events-overlay-node {
+    	border-color: $light-blue;
+	    border-radius: 0;
+	    padding: 15px
+	}
+		
 	.scheduler-view-table-container, 
 	.scheduler-view-table-events-overlay-node {
-	
 		.scheduler-event {
 			display: none;
-    		margin-bottom: 15px;
+    		margin: 0 0 15px 0;
     		overflow: visible;
 			
 			.scheduler-event-title {
@@ -64,6 +82,8 @@
 				display: block;
 			    font-size: $size-1;
 			    font-weight: normal;
+			    margin: 0;
+			    padding: 0;
 			}
 		}
 
@@ -87,8 +107,8 @@
 	
 		.scheduler-view-table-data-col-title {
 		    border-top: 1px solid $light-blue!important;
-		    color: $blue-med;
-		    font-size: $size0;
+		    color: $blue;
+		    font-size: $size-1;
 		    overflow: visivble;
 		    padding: 15px 0;
 			text-align: left;
@@ -133,28 +153,28 @@
 		    border: none;
 		}
 		
-		.scheduler-view-table-header-day {
-		    color: inherit
-		}
-		
 		.scheduler-view-table-lasso {
 		    background: transparent
 		}	
 		
 		.scheduler-view-table-more {
+		    color: $link-blue;
 			font-size: $size-1;
     		margin-bottom: 15px;
 		}
-	
 	}
 }
 
 .scheduler-event-recorder-popover {
 	background: $light-blue;
+	border-radius: 0;
+	border-color: $blue-med;
 	
 	&.popover {
 		&.top {
 			> .arrow {
+				border-top-color:  $blue-med;
+				
 				&:after {
 				    border-top-color:  $light-blue;
 				}
@@ -232,6 +252,7 @@
 				border: none;
 				color: $black;
 				font-size: $size3;
+				font-weight: normal;
 				opacity: 1;
 				top: 10px;
 				
