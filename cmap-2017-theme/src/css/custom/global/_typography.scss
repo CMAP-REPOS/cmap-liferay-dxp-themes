@@ -85,6 +85,11 @@ p{
 	color: $white;
 	a{ color: $white; }
 }
+.whitney-huge__green{
+	@extend .whitney-huge;
+	color: $green;
+	a{ color: $green; }
+}
 
 
 

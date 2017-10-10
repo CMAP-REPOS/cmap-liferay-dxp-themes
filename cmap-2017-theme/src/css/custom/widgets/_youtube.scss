@@ -1,0 +1,32 @@
+
+// we are just going to assume that this is a youtube container ...
+.iframe-container{
+
+  .video-tagline{
+    position: relative;
+    height: $unit * 2;
+    display: flex;
+    align-items: center;
+
+    .icon{
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateX(-100%) translateY(-50%);
+      padding-right: $size-3;
+
+      svg{
+        $size: $size1;
+        width: $size;
+        height: $size;
+      }
+    }
+  }
+}
+
+.portlet-full-width{
+  .iframe-container{
+    @include section-padding();
+  }
+}

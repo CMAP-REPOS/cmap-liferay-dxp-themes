@@ -52,6 +52,8 @@
       </a>
       </#if>
     </div>
+
+
     <div class="col-xl-8">
     <#if Caption?? && Caption.getData()?? && Caption.getData() != "">
       <div class="featured-card-description">
@@ -93,3 +95,17 @@
     </div>
   </div>
 </section>
+
+<script>
+$(document).ready(function(){
+  var $this = $('.portlet-full-width section.featured-card');
+
+  if($this){
+    var $row = $this.find('.row').remove();
+    var $container = $('<div class="row"></div>');
+    var $center = $('<div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0"></div>');
+    $this.append($container.append($center.append($row)));
+    console.log($this, $row);
+  }
+});
+</script>
