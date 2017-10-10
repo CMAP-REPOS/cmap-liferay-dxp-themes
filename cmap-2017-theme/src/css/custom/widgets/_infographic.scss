@@ -1,341 +1,624 @@
 @charset "UTF-8";
 
-.infographiclayout {
-	.infographic-nav {
-		background-color: $primary;
-		color: $primary;
-		font-size: 12px;
-		padding: 1em 0;
+//icons
 
-		a {
-			color: $primary;
-		}
-	}
+//font icons
 
-	.infographic-info-toggle {
-		color: $primary;
-		position: absolute;
-		right: 1em;
-		top: 1em;
-		z-index: 200;
-	}
+$icon-back-light: "\e900";
+$icon-back-white: "\e901";
+$icon-close-light: "\e902";
+$icon-close-white: "\e903";
+$icon-info-dark: "\e904";
+$icon-info-white: "\e905";
+$icon-key-light: "\e906";
+$icon-key-white: "\e907";
+$icon-layers-dark: "\e908";
+$icon-layers-white: "\e909";
+$icon-map-large-accent: "\e90a";
+$icon-map-large-accent_1: "\e90b";
+$icon-map-large-dark: "\e90c";
+$icon-map-large-dark_1: "\e90d";
+$icon-map-med-dark: "\e90e";
+$icon-map-med-dark_1: "\e90f";
+$icon-map-med-white: "\e910";
+$icon-map-med-white_1: "\e911";
+$icon-map-small-light: "\e912";
+$icon-map-small-light_1: "\e913";
+$icon-map-small-white: "\e914";
+$icon-map-small-white_1: "\e915";
+$icon-marp-large-white: "\e916";
+$icon-nav-left-dark: "\e917";
+$icon-nav-left-dark_1: "\e918";
+$icon-nav-left-white: "\e919";
+$icon-nav-left-white_1: "\e91a";
+$icon-nav-right-dark: "\e91b";
+$icon-nav-right-dark_1: "\e91c";
+$icon-nav-right-white: "\e91d";
+$icon-nav-right-white_1: "\e91e";
+$icon-paragraphh-white: "\e91f";
+$icon-paragraph-light: "\e920";
+$icon-paragraph-light_1: "\e921";
+$icon-paragraph-white: "\e922";
+$icon-share-light: "\e923";
+$icon-share-white: "\e924";
 
-	.infographic-content {
-		background-color: $primary;
-		margin: 0;
-		padding: 1em 0;
-	}
 
-	.infographic-info {
-		padding: 1em 0;
+//resetting padding to 0. not sure if this is a temp fix or not
+//grid is more than slightly borked because of padding
 
-		.infographic-aside {
-			color: $light-blue;
-			font-size: 12px;
-			line-height: 1.5em;
-			margin-bottom: 2em;
-		}
-
-		.infographic-description {
-			font-family: $font-serif;
-			font-size: 15px;
-			line-height: 1.5em;
-			margin-bottom: 2em;
-
-			a {
-				color: $white;
-			}
-		}
-
-		.infographic-source {
-			color: $light-blue;
-			font-size: 9px;
-			line-height: 1.3em;
-			margin-bottom: 2em;
-		}
-
-		.infographic-title {
-			color: $white;
-			font-size: 26px;
-			font-family: $font-serif;
-		}
-	}
-
-	.infographic-chart {
-		line {
-			stroke: $light-blue;
-		}
-
-		path {
-			fill: none;
-		}
-
-		svg {
-			font: 13px $font-sans;
-		}
-
-		text {
-			fill: $light-blue;
-		}
-
-		.c3-axis-x,
-		.c3-axis-y {
-			path {
-				display: none;
-			}
-
-			.tick {
-				line {
-					display: none;
-				}
-			}
-		}
-
-		.c3-line {
-			stroke-width: 3px;
-		}
-
-		.c3-xgrid,
-		.c3-ygrid {
-			opacity: 0.3 !important;
-			stroke-dasharray: 0;
-		}
-
-		.c3-xgrid-focus,
-		.c3-ygrid-focus {
-			line {
-				opacity: 0.3 !important;
-			}
-		}
-
-		.c3-tooltip-container {
-			.c3-tooltip {
-				table,
-				td {
-					border-color: 1px solid #c9d5dd;
-				}
-
-				td {
-					border-left: none;
-				}
-
-				th {
-					background-color: #3c5976;
-				}
-			}
-
-			#Tooltip {
-				background: $white;
-				font-size: 13px;
-				padding: 0.5em 0.5em 0.5em 1em;
-				position: relative;
-				width: 150px;
-
-				.tooltip-circle {
-					position: absolute;
-					height: 18px;
-					width: 18px;
-					border-radius: 13px;
-					border: 3px solid white;
-					margin-left: -23px;
-					margin-top: 9.5%;
-					top: 57px;
-					left: 15px;
-				}
-			}
-		}
-
-		.side-narrative {
-			position: absolute;
-			top: 10%;
-			right: 5%;
-			color: #fff;
-			width: 30%;
-		}
-
-		&.area_stacked {
-			.c3-area {
-				opacity: 1 !important;
-			}
-		}
-
-		&.bar_chart_grouped {
-			.c3-axis-x {
-				.tick {
-					&:first-of-type,
-					&:last-of-type {
-						display: none;
-					}
-				}
-			}
-		}
-
-		&.donut_chart {
-			height: 520px;
-			margin-left: -25%;
-
-			.c3-chart-arc path {
-				stroke: none;
-			}
-
-			.c3-chart-arcs-title {
-				color: $primary;
-				font-size: 22px;
-			}
-		}
-	}
-
-	.infographic-legend {
-		padding: 1em 0;
-
-		li {
-			color: $white;
-			cursor: pointer;
-			font-size: 13px;
-			margin-right: 1em;
-			text-transform: uppercase;
-		}
-	}
-
-	.infographic-buttons {
-		padding: 1em 0;
-
-		button {
-			background: $primary;
-			border: 2px solid $primary;
-			border-radius: 21px;
-			color: $primary;
-			cursor: pointer;
-			font-size: 12;
-			font-family: $font-sans;
-			font-weight: 600;
-			height: 45px;
-			letter-spacing: 0.05em;
-			line-height: 1.5em;
-			padding: 0 10px;
-			text-transform: uppercase;
-			width: 190px;
-
-			&.on,
-			&:hover {
-				background: $primary;
-				color: $white;
-			}
-
-			.icon {
-				font-size: 18px;
-			}
-		}
-	}
-
-	.icon-info-white {
-		color: $primary;
-		cursor: pointer;
-		opacity: 0.5;
-	}
-
-	.donut-flex {
-		max-width: 1200px;
-		margin: 0 auto;
-
-		.infographic-legend {
-			margin-left: -15%;
-			z-index: 100;
-
-			ul {
-				li {
-					border-top: 1px solid $white;
-					display: block;
-					padding: 1em 0;
-					text-align: left;
-
-					&:last-of-type {
-						border-bottom: 1px solid $white;
-					}
-				}
-			}
-		}
-	}
-
-	.side-narratives {
-		display: none;
-	}
+#main-content.infographiclayout {
+    .portlet-content {
+        padding: 0; }
+        @media screen and (max-width: 750px) {
+          #main-content .portlet-content {
+            padding: 0; } }
+        @media screen and (max-width: 400px) {
+          #main-content .portlet-content {
+            padding: 0; } }
+    .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column{
+        padding: 0 !important;
+    }
 }
-@media only screen and (max-width : 1200px) {}
-@media only screen and (max-width : 992px) {}
-@media only screen and (max-width : 768px) {
-	.infographiclayout {
-		.infographic-nav {}
 
-		.infographic-content {
-			.infographic-aside {}
 
-			.infographic-source {}
+@font-face {
+  font-family: 'cmap_icons';
+  src:  url('../fonts/cmap_icons.eot');
+  src:  url('../fonts/cmap_icons.eot') format('embedded-opentype'), url('../fonts/cmap_icons.ttf') format('truetype'), url('../fonts/cmap_icons.woff') format('woff'), url('../fonts/cmap_icons.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }
 
-			.infographic-title {}
-		}
+.infographiclayout {
 
-		.infographic-info {}
+  .icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cmap_icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+  .icon-back-light:before {
+    content: $icon-back-light;
+    }
+  .icon-back-white:before {
+    content: $icon-back-white;
+    }
+  .icon-close-light:before {
+    content: $icon-close-light;
+    }
+  .icon-close-white:before {
+    // content: $icon-close-white;
+    content: '\e903';
+    }
+  .icon-info-dark:before {
+    content: $icon-info-dark;
+  }
+  .icon-info-white:before {
+    content: $icon-info-white;
+    }
+  .icon-key-light:before {
+    content: $icon-key-light;
+    }
+  .icon-key-white:before {
+    content: $icon-key-white;
+    }
+  .icon-layers-dark:before {
+    content: $icon-layers-dark;
+    }
+  .icon-layers-white:before {
+    content: $icon-layers-white;
+    }
+  .icon-map-large-accent:before {
+    content: $icon-map-large-accent;
+    }
+  .icon-map-large-accent_1:before {
+    content: $icon-map-large-accent_1;
+    }
+  .icon-map-large-dark:before {
+    content: $icon-map-large-dark;
+    }
+  .icon-map-large-dark_1:before {
+    content: $icon-map-large-dark_1;
+    }
+  .icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+    }
+  .icon-map-med-dark_1:before {
+    content: $icon-map-med-dark_1;
+    }
+  .icon-map-med-white:before {
+    content: $icon-map-med-white;
+    }
+  .icon-map-med-white_1:before {
+    content: $icon-map-med-white_1;
+    }
+  .icon-map-small-light:before {
+    content: $icon-map-small-light;
+    }
+  .icon-map-small-light_1:before {
+    content: $icon-map-small-light_1;
+    }
+  .icon-map-small-white:before {
+    content: $icon-map-small-white;
+    }
+  .icon-map-small-white_1:before {
+    content: $icon-map-small-white_1;
+    }
+  .icon-marp-large-white:before {
+    content: $icon-marp-large-white;
+    }
+  .icon-nav-left-dark:before {
+    content: $icon-nav-left-dark;
+    }
+  .icon-nav-left-dark_1:before {
+    content: $icon-nav-left-dark_1;
+    }
+  .icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+    }
+  .icon-nav-left-white_1:before {
+    content: $icon-nav-left-white_1;
+    }
+  .icon-nav-right-dark:before {
+    content: $icon-nav-right-dark;
+    }
+  .icon-nav-right-dark_1:before {
+    content: $icon-nav-right-dark_1;
+    }
+  .icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+    }
+  .icon-nav-right-white_1:before {
+    content: $icon-nav-right-white_1;
+    }
+  .icon-paragraphh-white:before {
+    content: $icon-paragraphh-white;
+    }
+  .icon-paragraph-light:before{
+    content: $icon-paragraph-light;
+    }
+  .icon-paragraph-light_1:before {
+    content: $icon-paragraph-light_1;
+    }
+  .icon-paragraph-white:before {
+    content: $icon-paragraph-white;
+    }
+  .icon-share-light:before {
+    content: $icon-share-light;
+    }
+  .icon-share-white:before {
+    content: $icon-share-white;
+    }
+}
 
-		.infographic-chart {
-			.c3-axis-x-label,
-			.c3-axis-y-label {
-				display: none;
-			}
 
-			.c3-axis-x {
-				.tick {
-					&:nth-of-type(even) {
-						display: none;
-					}
-				}
-			}
+    //trying to stay with columns, not succeeding with grid content classes overriding these
+    .infographic-content{
+       .centered-main{
+           display: flex;
+           justify-content: space-between;
+       }
+       .main-info{
+           width: 60%;
+       }
 
-			&.area_stacked {}
+    }
 
-			&.bar_chart_grouped {}
 
-			&.donut_chart {
-				height: 360px;
-				margin: 0 auto;
-			}
-		}
+.infographiclayout {
 
-		.infographic-legend {
-			ul {
-				li {
-					border-top: none;
-					display: block;
-					padding: 0.5em 0;
-					text-align: left;
 
-					&:last-of-type {
-						border-bottom: none;
-					}
-				}
-			}
-		}
+    .infographic-info-toggle {
+        color: $blue;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        z-index: 200;
+    }
 
-		.donut-flex {
-			flex-direction: column;
-			max-width: 1200px;
-			margin: 0 auto;
+    .infographic-content {
+        background-color: #a8bcc8;
+        margin: 0;
+        padding: 1em 0;
+    }
 
-			.infographic-legend {
-				margin-left: 0;
+    .infographic-info {
 
-				ul {
-					li {
-						border-top: none;
-						color: $primary;
-						padding: 0.5em 0;
+        .infographic-aside {
+            color: $blue;
+            // font-size: 12px;
+            font-size: #{ $size-1 - 0.1em };
+            line-height: 1.5em;
+            margin-bottom: 2em;
+        }
 
-						&:last-of-type {
-							border-bottom: none;
-						}
-					}
-				}
-			}
-		}
-	}
+        .infographic-description {
+            font-family: $font-serif;
+            // font-size: 15px;
+            font-size: #{ $size0 - 0.2em };
+            line-height: 1.5em;
+            margin-bottom: 2em;
+            a {
+                color: $blue;
+            }
+        }
+
+        .infographic-source {
+            color: $blue;
+            // font-size: 9px;
+            //same as aside now
+            font-size: #{ $size-1 - 0.1em };
+            line-height: 1.3em;
+            margin-bottom: 2em;
+        }
+        .infographic-source p, .infographic-aside p {
+            font-family: $font-sans;
+        }
+
+        .infographic-title p {
+            color: #000;
+            // font-size: 26px;
+            font-size: $size1;
+            font-family: $font-sans;
+        }
+    }
+
+    .infographic-chart {
+
+        .c3-defocused{
+            .c3-line{
+                stroke: $light-blue !important;
+            }
+            .c3-area{
+                fill: $light-blue !important;
+            }
+        }
+
+        line {
+            stroke: $light-blue;
+        }
+
+        path {
+            fill: none;
+        }
+
+        svg {
+          font: 13px $font-sans;
+        }
+
+        text {
+            fill: $light-blue;
+        }
+
+        .c3-axis-x, .c3-axis-y {
+
+            path {
+                display: none;
+            }
+
+            .tick {
+                line {
+                    display: none;
+                }
+            }
+        }
+
+        .c3-line {
+            stroke-width: 3px
+        }
+
+        .c3-xgrid, .c3-ygrid {
+            opacity: .3 !important;
+            stroke-dasharray: 0
+        }
+
+        .c3-xgrid-focus, .c3-ygrid-focus {
+            line {
+                opacity: .3 !important;
+            }
+        }
+
+        .c3-tooltip-container {
+
+            .c3-tooltip {
+                table, td {
+                    border-color: 1px solid #c9d5dd;
+                }
+
+                td {
+                    border-left: none;
+                }
+
+                th {
+                    background-color: #3c5976;
+                }
+            }
+
+            #Tooltip {
+                background: $white;
+                font-size: 13px;
+                padding: 0.5em 0.5em 0.5em 1em;
+                position: relative;
+                width: 150px;
+
+                .tooltip-circle {
+                    position: absolute;
+                    height: 18px;
+                    width: 18px;
+                    border-radius: 13px;
+                    border: 3px solid white;
+                    margin-left: -23px;
+                    margin-top: 9.5%;
+                    top: 57px;
+                    left: 15px;
+                }
+
+                b {
+
+                }
+            }
+
+        }
+
+        .side-narrative {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            color: #fff;
+            width: 30%;
+        }
+
+        &.area_stacked {
+
+            .c3-area {
+                opacity: 1 !important;
+            }
+        }
+
+        &.bar_chart_grouped {
+
+            .c3-axis-x {
+
+                .tick {
+                    &:first-of-type, &:last-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.donut_chart {
+            height: 520px;
+            margin-left: -25%;
+
+            .c3-chart-arc path {
+                stroke: none
+            }
+
+            .c3-chart-arcs-title {
+                color: $blue;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .infographic-legend {
+        padding: 1em 0;
+
+        li {
+            color: $white;
+            cursor: pointer;
+            // font-size: 13px;
+            font-size: $size-1;
+            margin-right: 1em;
+            text-transform: capitalize;
+         }
+         .mobile-legend-icons {
+             display: none;
+         }
+
+     }
+
+     .infographic-buttons {
+        padding: 1em 0;
+
+        button {
+            background: transparent;
+            border: 2px solid $blue;
+            border-radius: 21px;
+            color: $blue;
+            cursor: pointer;
+            // font-size: 12;
+            font-size: $size0;
+            font-family: $font-sans;
+            font-weight: 600;
+            text-transform: capitalize;
+            height: 45px;
+            letter-spacing: 0.05em;
+            line-height: 1.5em;
+            padding: 0 10px 0 10px;
+            width: 190px;
+
+            &:hover, &.on {
+                background: $blue;
+                color: $white;
+                .pair-icons {
+                    visibility: visible;
+                }
+            }
+            &:not(.on){
+                .pair-icons {
+                    visibility: hidden;
+                }
+            }
+
+            .icon {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .icon-info-white {
+        color: $blue;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .donut-flex {
+        @include flex;
+        @include flex_space_between;
+        max-width: 1200px;
+        margin: 0 auto;
+
+         .infographic-legend {
+             margin-left: -15%;
+             z-index: 100;
+
+            ul {
+
+                 li {
+                     border-top: 1px solid $white;
+                     display: block;
+                     padding: 1em 0;
+                     text-align: left;
+
+                     &:last-of-type {
+                        border-bottom: 1px solid $white;
+                    }
+                 }
+             }
+        }
+    }
+
+    .side-narratives {
+        display: none;
+    }
+}
+
+
+@include phone() {
+
+    .infographiclayout {
+
+        .infographic-nav {
+        }
+
+        .infographic-content {
+
+        }
+
+        .infographic-info {
+            padding-left: 10px;
+        }
+        .infographic-buttons {
+            .pair-icons {
+                margin-left: 10px;
+                .icon-paragraphh-white{
+                    display: none;
+                }
+            }
+        }
+
+        .infographic-chart {
+
+            .c3-axis-x-label, .c3-axis-y-label {
+                display: none;
+            }
+
+            .c3-axis-x {
+                .tick {
+                    &:nth-of-type(even) {
+                        display: none;
+                    }
+                }
+            }
+
+            &.area_stacked {
+            }
+
+            &.bar_chart_grouped {
+            }
+
+            &.donut_chart {
+                height: 360px;
+                margin: 0 auto;
+            }
+            .side-narrative {
+                display: none;
+            }
+        }
+
+         .infographic-legend {
+             display: flex;
+             justify-content: space-between;
+             ul {
+                 display: block;
+                 li {
+                     border-top: none;
+                     display: block;
+                     padding: .5em 0;
+                     text-align: left;
+                     &:last-of-type {
+                        border-bottom: none;
+                    }
+                 }
+             }
+             .mobile-legend-icons {
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: space-between;
+                 color: #FFF;
+                 font-size: 18px;
+                 .icon{
+                     opacity: .5;
+                 }
+                 .activated{
+                     opacity: 1;
+                 }
+             }
+         }
+         .side-narratives {
+             display: block;
+             &.open{
+                  margin-top: -50px;
+             }
+             div {
+                 display: none;
+                 color: #FFF;
+             }
+         }
+
+        .donut-flex {
+            @include flex_space_normal;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+
+             .infographic-legend {
+                 margin-left: 0;
+
+                 ul {
+
+                     li {
+                         border-top: none;
+                         color: $blue;
+                         padding: .5em 0;
+                         &:last-of-type {
+                            border-bottom: none;
+                        }
+                     }
+                }
+             }
+        }
+    }
 }

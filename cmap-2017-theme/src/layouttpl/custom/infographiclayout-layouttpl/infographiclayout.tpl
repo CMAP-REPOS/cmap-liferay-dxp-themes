@@ -1,4 +1,4 @@
-<!-- 
+<!--
 https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisplay
 <p>getPathThemeRoot: $themeDisplay.getPathThemeRoot()</p>
 <p>getPathThemeTemplates: $themeDisplay.getPathThemeTemplates()</p>
@@ -6,7 +6,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <p>getPathThemeCss: $themeDisplay.getPathThemeCss()</p>
 <p>getPathThemeImages: $themeDisplay.getPathThemeImages()</p>
  -->
- 
+
 <script>
     define._amd = define.amd;
     define.amd = false;
@@ -16,7 +16,7 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/d3.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/c3.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/infographics.js"></script>
-    
+
 <script>
     define.amd = define._amd;
 </script>
@@ -27,16 +27,6 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <div class="infographiclayout" id="main-content" role="main">
 	<div class="portlet-layout row">
 		<div class="col-md-16 portlet-column portlet-column-only">
-			<nav class="infographic-nav clearfix">
-			    <div class="col-xs-13 col-sm-offset-1">
-			    $layout.getName($locale)
-			    </div>
-			    <div class="col-sm-2 share hidden-xs">
-		        	<a data-toggle="popover" data-content="<div id='social-bookmarks-container'></div>" data-placement="bottom" title="Share">
-		        		<span class="icon-share"></span> Share</a>
-					<div class="share-wrapper"></div>
-			    </div>
-			</nav>
 		</div>
 	</div>
 	<div class="portlet-layout row">

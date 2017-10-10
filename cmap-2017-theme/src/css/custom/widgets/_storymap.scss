@@ -1,140 +1,275 @@
-.storymaplayout {
-  #map-container {
-    height: 800px;
-    position: relative;
+//These icons exist in infographic.scss as well, in case of needed edits.
+$icon-layers-dark: "\e908";
+$icon-layers-white: "\e909";
+$icon-map-med-dark: "\e90e";
+$icon-nav-left-white: "\e919";
+$icon-nav-right-white: "\e91d";
+
+@font-face {
+  font-family: 'cmap_icons';
+  src:  url('../fonts/cmap_icons.eot');
+  src:  url('../fonts/cmap_icons.eot') format('embedded-opentype'), url('../fonts/cmap_icons.ttf') format('truetype'), url('../fonts/cmap_icons.woff') format('woff'), url('../fonts/cmap_icons.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
   }
 
-  .story-map {
-    height: 100%;
-    width: 100%;
+.icon-cmap {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cmap_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   }
 
-  .storymap-nav {
-    background: $primary;
-    color: $blue-med;
-    font-size: 12px;
-    margin: 0;
-    padding: 1em 0;
+.icon-layers-dark:before {
+    content: $icon-layers-dark;
+  }
+.icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+}
+.icon-map-med-dark{
+    font-size: $size2;
+    color: $blue;
+}
+.icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+  }
+.icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+}
 
-    a {
-      color: $blue-med;
-    }
+  #main-content.storymaplayout {
+      .portlet-content {
+          padding: 0; }
+          @media screen and (max-width: 750px) {
+            #main-content .portlet-content {
+              padding: 0; } }
+          @media screen and (max-width: 400px) {
+            #main-content .portlet-content {
+              padding: 0; } }
+      .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16{
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+      }
+      .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column{
+          padding: 0 !important;
+      }
   }
 
-  .storymap-section {
-    font-family: $font-sans;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-
-    .storymap-info-toggle {
-      color: $primary;
-      position: absolute;
-      right: 1em;
-      top: 1em;
-      z-index: 200;
+ .storymaplayout {
+    #map-container {
+        height: 800px;
+        position: relative;
     }
 
-    .storymap-intro-container {
-      background: rgba(136, 160, 178, 0.9);
-      margin: 0;
-      padding: 1em 0;
-
-      .storymap-title {
-        color: $white;
-        font-family: $font-serif;
-      }
-
-      .storymap-info {
-        font-family: $font-serif;
-        font-size: 15px;
-        line-height: 1.5em;
-        margin-bottom: 2em;
-      }
-
-      .storymap-aside {
-        color: $light-blue;
-        font-size: 12px;
-        line-height: 1.5em;
-        margin-bottom: 2em;
-      }
-
-      .storymap-source {
-        color: $light-blue;
-        font-size: 9px;
-        line-height: 1.3em;
-        margin-bottom: 2em;
-      }
+    .story-map  {
+        height: 100%;
+        width: 100%;
     }
 
-    .storymap-nav-container {
-      background: rgb(136, 160, 178);
-      margin: 0;
-      padding: 1em 0;
-
-      .story-step-title {
-        color: $primary;
-        font-size: 15px;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        margin-right: 1em;
-        text-transform: uppercase;
-
-        &.story-active {
-          color: $white;
-          font-weight: 600;
-        }
-      }
-
-      .view-map {
-        color: $primary;
-        font-size: 12px;
-
-        .icon {
-          font-size: 18px;
-        }
-
-        &:hover {
-          color: $white;
-        }
-      }
-
-      .previous-story-step {
-        margin-right: 1em;
-      }
-
-      .next-story-step,
-      .previous-story-step {
-        color: $primary;
-        font-weight: 600;
-      }
-    }
-
-    .storymap-overlays-container {
-      background: transparent;
-      margin: 0;
-      padding: 1em 0;
-
-      button {
-        background: transparent;
-        border: 2px solid $primary;
-        border-radius: 21px;
+    .storymap-nav {
+		background: $blue;
         color: $blue-med;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
+	    // font-size: 12px;
+        font-size: #{ $size-1 - 0.1em };
+        margin: 0;
+        padding: 1em 0;
 
-        &.active {
-          color: $white;
-          font-weight: 500;
-          background: $primary;
+        a {
+	        color: $blue-med;
         }
-      }
     }
-  }
 
-  .story-step-content {
-    display: none;
-  }
+    .storymap-section {
+    	font-family: $font-sans;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+
+	    .storymap-info-toggle {
+	    	color: $light-blue;
+	        position: absolute;
+	        right: 1em;
+	        top: 1em;
+	        z-index: 200;
+	    }
+
+	    .storymap-intro-container {
+	        background: #a8bcc8;
+	        margin: 0;
+	        padding: 1em 0;
+
+		    .storymap-title p {
+		        color: #000;
+		    	font-family: $font-sans;
+                font-size: $size1;
+		    }
+
+		    .storymap-info {
+		    	color: #000;
+		    	font-family: $font-serif;
+		    	// font-size: 15px;
+                font-size: #{ $size0 - 0.2em };
+		    	line-height: 1.5em;
+		    	margin-bottom: 2em;
+			}
+
+		    .storymap-aside, .storymap-source {
+		        color: $blue;
+		        // font-size: 12px;
+                font-size: #{ $size-1 - 0.1em };
+		        line-height: 1.5em;
+		    	margin-bottom: 2em;
+		    }
+
+		    .storymap-source {
+		        line-height: 1.3em;
+		    }
+	    }
+
+	    .storymap-nav-container {
+	        background: $blue;
+	        margin: 0;
+	        padding: 1em 0;
+            display: flex;
+
+		    .story-step-title {
+				color: $blue-med;
+				// font-size: 15px;
+                font-size: #{ $size0 - 0.1em };
+				letter-spacing: 0.05em;
+		    	margin-right: 1em;
+		        text-transform: capitalize;
+
+		        &.story-active {
+			        color: $white;
+			    }
+		    }
+
+		    .view-map {
+				color: $light-blue;
+				// font-size: 12px;
+                font-size: $size-1;
+                cursor: pointer;
+
+				.icon {
+					font-size: 18px;
+                    padding-right: 10px;
+				}
+
+		    	&:hover {
+		    		color: $white;
+		    	}
+		    }
+
+            .story-arrows{
+                margin: 0;
+            }
+
+		    .previous-story-step {
+		    	margin-right: 1em;
+			}
+
+		    .previous-story-step, .next-story-step {
+				color: $white;
+		        font-weight: normal;
+                a {
+                    text-decoration: none;
+                }
+			}
+	    }
+        .storymap-nav-container.mobile-storymap-nav {
+            display: none;
+        }
+
+        .layers-menu {
+            display: none;
+            float: right;
+            flex-direction: column;
+            max-width: 180px;
+            text-align: right;
+            .btn{
+                margin-bottom: 10px;
+            }
+        }
+
+	    .storymap-overlays-container {
+	        background: transparent;
+	        margin: 0;
+	        padding: 1em 0;
+
+		    button {
+		        background: rgba(168, 188, 200, .5);
+		        border: 2px solid $blue;
+		        border-radius: 21px;
+		        color: $blue;
+		        // font-size: 12px;
+                font-family: $font-sans;
+                font-size: $size-1;
+		        font-weight: 600;
+		        text-transform: capitalize;
+
+			    &.active {
+			        color: $white;
+			        font-weight: 500;
+			        background: $blue;
+			    }
+		    }
+            .text-right{
+                margin: 20px 0 0 0;
+            }
+	    }
+    }
+
+    .scroll-fixed{
+        position: fixed!important;
+        top: 0;
+        width: 100%;
+    }
+
+    .storymap-overlays-container.scroll-fixed {
+        top: 40px;
+        right: 65px;
+        width: 50%;
+    }
+
+    .story-step-content {
+        display: none;
+    }
+    @include phone(){
+        .storymap-section {
+            .storymap-intro-container{
+                .storymap-title, .storymap-info{
+                    padding-left: 1em;
+                }
+                .storymap-aside, .storymap-source{
+                    font-size: $size0;
+                }
+                .storymap-title{
+                    font-size: $size2;
+                }
+                .storymap-info{
+                    font-size: $size0;
+                    margin-top: 10px;
+                }
+            }
+            .storymap-nav-container.mobile-storymap-nav {
+                display: flex;
+                justify-content: space-between;
+                .story-step-title{
+                    color: $white;
+                    font-size: $size1;
+                }
+            }
+        }
+        .story-interact.scroll-fixed .view-layers-button{
+            margin-right: 15px;
+        }
+    }
 }
