@@ -67,9 +67,11 @@
     		overflow: visible;
 			
 			.scheduler-event-title {
-				color: $link-blue;
+			    color: $link-blue;
 				display: block;
 			    font-size: $size-1;
+			    margin: 0;
+			    padding: 0;
 			    
 			    span {
 			    	display: inline-block !important;
@@ -160,7 +162,7 @@
 		.scheduler-view-table-more {
 		    color: $link-blue;
 			font-size: $size-1;
-    		margin-bottom: 15px;
+    		margin: 0 0 15px 0;
 		}
 	}
 }
@@ -251,7 +253,7 @@
 				background: transparent;
 				border: none;
 				color: $black;
-				font-size: $size3;
+				font-size: $size2;
 				font-weight: normal;
 				opacity: 1;
 				top: 10px;
@@ -300,4 +302,31 @@
 		display: none;
 	}
 }	
+
+#p_p_id_com_liferay_calendar_web_portlet_CalendarPortlet_ {
+
+	.portlet-body {
+		background: $white;
+		
+		.panel {
+			border: none;
+			box-shadow: none;
+			
+			&.panel-default {
+				background: $white;
+				border: none;
+				
+				.panel-heading {
+					background: $white;
+					border: none;
+					color: inherit;
+				}
+				
+				.property-list {
+					font-size: $size0;
+				}
+			}
+		}
+	}
+}
 
