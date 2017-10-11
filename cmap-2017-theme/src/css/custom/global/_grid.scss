@@ -50,6 +50,7 @@ $gutter: $size0;
 }
 
 
+
 .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-13, .col-xl-14, .col-xl-15, .col-xl-16 {
   float: left;
 }
@@ -443,4 +444,40 @@ $gutter: $size0;
   .col-xs-offset-1 { margin-left: #{$grid-unit * 1}; }
   .col-xs-offset-0 { margin-left: auto; }
 }
+}
+
+.xs-hidden{
+  @include phone(){
+    display: none !important;
+  }
+}
+.sm-hidden{
+  @include tablet(){
+    display: none !important;
+  }
+  @include phone(){
+    display: block !important;
+  }
+}
+.md-hidden{
+  @include desktop(){
+    display: none !important;
+  }
+  @include tablet(){
+    display: block !important;
+  }
+}
+.lg-hidden{
+  @include tv(){
+    display: none !important;
+  }
+  @include desktop(){
+    display: block !important;
+  }
+}
+.xl-hidden{
+  display: none !important;
+  @include tv(){
+    display: block !important;
+  }
 }
