@@ -197,6 +197,9 @@ $icon-nav-right-white: "\e91d";
             .btn{
                 margin-bottom: 10px;
             }
+            &.menu-show{
+                display: none;
+            }
         }
 
 	    .storymap-overlays-container {
@@ -242,6 +245,29 @@ $icon-nav-right-white: "\e91d";
     .story-step-content {
         display: none;
     }
+@include tablet(){
+    .storymap-section{
+    .storymap-nav-container.mobile-storymap-nav {
+        display: flex;
+        justify-content: space-between;
+        .story-step-title{
+            color: $white;
+            font-size: $size1;
+        }
+    }
+        .view-layers-button{
+            cursor: pointer;
+        }
+        .layers-menu.menu-show{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .story-interact.scroll-fixed .view-layers-button{
+        margin-right: 15px;
+    }
+}
+
     @include phone(){
         .storymap-section {
             .storymap-intro-container{
@@ -259,17 +285,19 @@ $icon-nav-right-white: "\e91d";
                     margin-top: 10px;
                 }
             }
-            .storymap-nav-container.mobile-storymap-nav {
-                display: flex;
-                justify-content: space-between;
-                .story-step-title{
-                    color: $white;
-                    font-size: $size1;
-                }
+            // .storymap-nav-container.mobile-storymap-nav {
+            //     display: flex;
+            //     justify-content: space-between;
+            //     .story-step-title{
+            //         color: $white;
+            //         font-size: $size1;
+            //     }
             }
-        }
-        .story-interact.scroll-fixed .view-layers-button{
-            margin-right: 15px;
-        }
+            // .layers-menu.menu-show{
+            //     display: flex;
+            //     flex-direction: column;
+            // }
+        // }
+
     }
 }
