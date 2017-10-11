@@ -22,7 +22,6 @@
         display: inline-flex;
         align-items: center;
         height: $size0;
-        font-weight: 800;
         cursor: pointer;
 
         &:hover{
@@ -113,6 +112,7 @@
     span,a{
       line-height: 1em;
     }
+
     a{
       color: $primary;
       &:hover{

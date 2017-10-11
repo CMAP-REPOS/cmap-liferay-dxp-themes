@@ -1,0 +1,29 @@
+section.split-summary{
+
+  h3{
+    @extend .whitney-bold;
+  }
+  a{
+    @extend .underline-link;
+  }
+  .read-more-link{
+    @extend .whitney-bold;
+    color: inherit;
+    &:hover{
+      color: inherit;
+    }
+  }
+}
+
+.portlet-centered{
+  section.split-summary{
+    .item{
+      &:first-of-type{
+        padding-left: 0 !important;
+      }
+      &:last-of-type{
+        padding-right: 0 !important;
+      }
+    }
+  }
+}

@@ -14,13 +14,8 @@
 
     a{
       display: block;
-      color: lighten($primary, 25%);
-      font-weight: 600;
-
-      &:hover{
-        color: darken($primary, 10%);
-        text-decoration: none;
-      }
+      @extend .whitney-bold;
+      color: $primary;
     }
   }
 }

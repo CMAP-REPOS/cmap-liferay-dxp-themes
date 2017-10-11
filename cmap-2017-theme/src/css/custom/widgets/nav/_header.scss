@@ -101,18 +101,6 @@
       &:last-of-type{
         margin-right: 0;
       }
-
-  		a{
-  			display: block;
-  			color: $primary;
-        font-weight: 800;
-
-  			&:hover{
-  				color: darken($primary, 10%);
-  				text-decoration: none;
-  			}
-  		}
-
   	}
   }
 
