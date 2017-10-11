@@ -15,13 +15,13 @@
 			<template-path>/layouttpl/custom/cmap-nested-layouttpl/cmap-nested.tpl</template-path>
 			<thumbnail-path>/layouttpl/custom/cmap-nested-layouttpl/cmap-nested.png</thumbnail-path>
 			</layout-template>
-		<layout-template id="infographiclayout" name="Infographic Layout">
+		<layout-template id="infographiclayout" name="CMAP Infographic Layout">
 			<template-path>/layouttpl/custom/infographiclayout-layouttpl/infographiclayout.tpl</template-path>
-			<thumbnail-path>/layouttpl/custom/infographiclayout-layouttpl/infographiclayout.png</thumbnail-path>
+			<thumbnail-path>/layouttpl/custom/infographiclayout-layouttpl/cmap-infographic.png</thumbnail-path>
 		</layout-template>
-		<layout-template id="storymaplayout" name="Story Map Layout">
+		<layout-template id="storymaplayout" name="CMAP Story Map Layout">
 			<template-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.tpl</template-path>
-			<thumbnail-path>/layouttpl/custom/storymaplayout-layouttpl/storymaplayout.png</thumbnail-path>
+			<thumbnail-path>/layouttpl/custom/storymaplayout-layouttpl/cmap-storymap.png</thumbnail-path>
 		</layout-template>
 		<layout-template id="cmap-calendar" name="CMAP Calendar Layout">
 			<template-path>/layouttpl/custom/cmap-calendar-layouttpl/cmap-calendar.tpl</template-path>
