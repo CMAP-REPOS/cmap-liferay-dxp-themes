@@ -16,7 +16,7 @@
     align-items: flex-end;
     margin-bottom: $unit;
     h1{
-      @extend .whitney-large;
+      @extend .whitney-large__bold;
     }
     h2,h3{
       @extend .whitney-bold;
@@ -50,5 +50,11 @@
       font-weight: bold;
       padding: $unit 0;
     }
+  }
+
+  .scrolling-page-nav{
+    position: fixed !important;
+    top: $unit * 4;
+    display: none;
   }
 }

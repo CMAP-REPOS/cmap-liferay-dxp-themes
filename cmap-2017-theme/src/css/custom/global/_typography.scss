@@ -61,18 +61,24 @@ p{
 	color: $white;
 	a{ color: $white; }
 }
+
 .whitney-large{
 	font-family: $font-sans;
-	font-weight: 600;
+	font-weight: 400;
 	font-size: $size2;
 	line-height: 1.1em;
 	color: $dark-blue;
+}
+.whitney-large__bold{
+	@extend .whitney-large;
+	font-weight: 600;
 }
 .whitney-large__white{
 	@extend .whitney-large;
 	color: $white;
 	a{ color: $white; }
 }
+
 .whitney-huge{
 	font-family: $font-sans;
 	font-weight: 600;

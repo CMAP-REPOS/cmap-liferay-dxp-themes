@@ -13,7 +13,7 @@
       </#if>
     </div>
     <div class="col-xl-5 col-md-6 col-sm-16">
-      <h3 class="whitney-bold__white">${Profession.getData()}</h3>
+      <h3 class="board-member-position">${Profession.getData()}</h3>
     </div>
   </div>
 

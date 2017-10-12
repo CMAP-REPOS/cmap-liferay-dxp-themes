@@ -1,0 +1,29 @@
+section.board-member{
+
+  .row{
+    @include section-padding();
+  }
+
+  .middle.row{
+    background: $primary;
+    margin: $unit 0 !important;
+
+    img{
+      width: 100%;
+    }
+
+    .board-member-position{
+      margin: $unit 0;
+      @extend .whitney-bold__white;
+    }
+
+    @include tablet(){
+      background: none;
+
+      .board-member-position{
+        color: $primary;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

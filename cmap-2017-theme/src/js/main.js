@@ -124,9 +124,17 @@ Liferay.on('allPortletsReady', function() {
     console.log(this.href, this, push);
   });
 
+  $('#jump-to-top').click(function(){
+    $('html,body').animate({
+      scrollTop: 0
+    }, 800);
+  });
+
   setUpYoutube();
 
 });
+
+
 
 function setUpYoutube(){
   $('.iframe-container iframe').each(function(){

@@ -68,6 +68,30 @@
       </nav>
     </div>
   </div>
+
+
+  <div class="row scrolling-page-nav">
+
+    <div class="col-xl-3 col-sm-16"> </div>
+    <div class="col-xl-10 col-sm-12 col-xs-16"></div>
+
+    <div class="col-xl-3 col-xl-offset-13 col-sm-4 col-sm-offset-12 page-nav">
+      <div class="page-nav-title">
+        <h3>Sections</h3>
+      </div>
+      <nav class="page-nav-list">
+        <#list Subtitle.getSiblings() as section>
+          <#if section.getData() != "">
+            <div class="page-nav-item">
+              <a href="#${section.getData()?replace(" ", "_")}">
+                ${section.getData()}
+              </a>
+            </div>
+          </#if>
+        </#list>
+      </nav>
+    </div>
+  </div>
 </section>
 
 <script type="text/javascript">
@@ -82,6 +106,24 @@
     var target = $(href).offset().top;
     $('html,body').animate({
       scrollTop: target - push
+    }, 800);
+  });
+
+
+  var top = $('.page-nav-list').offset().top;
+  var height = $('.page-nav-list').innerHeight();
+
+  $(window).scroll(_.throttle(function(){
+    if(window.scrollY > (top + height)){
+      $('.scrolling-page-nav').fadeIn();
+    } else {
+      $('.scrolling-page-nav').fadeOut();
+    }
+  },100));
+
+  $('#jump-to-top').click(function(){
+    $('html,body').animate({
+      scrollTop: 0
     }, 800);
   });
 })(jQuery);

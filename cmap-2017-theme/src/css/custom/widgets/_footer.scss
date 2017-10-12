@@ -21,11 +21,10 @@
   .footer-page-links,
   .footer-social-links{
     transform: translateY(-0.18em);
-
   }
 
-  .footer-jump-to-top,
-  .footer-page-links{
+  #jump-to-top{
+    cursor: pointer;
   }
 
   .footer-jump-to-top{
