@@ -47,43 +47,41 @@
     var container = $('<div class="partner-slide slider-slide"></div>');
     var row = $('<div class="row"></div>');
 
-    function buildSlider(){
-      function addItem(dom){
-        if(dom){
-          row.append(dom);
-        } else {
-          row.append($largeSpacer.clone());
-        }
+    function addItem(dom){
+      if(dom){
+        row.append(dom);
+      } else {
+        row.append($largeSpacer.clone());
       }
-
-      // one iteration for each row of two items
-      for(let i=0; i<Math.ceil(items.length / 2); i++){
-
-        // reset the row element
-        container = $('<div class="partner-slide slider-slide"></div>');
-        row = $('<div class="row"></div>');
-
-        var $navItem = $('<div class="nav-item"></div>');
-        if(i===0){ $navItem.addClass('active'); }
-        $navItem.click(function(){
-          $container.css('transform', 'translateX(-'+(i*100)+'vw)');
-    			$nav.find('.nav-item.active').removeClass('active');
-    			$(this).addClass('active');
-        });
-        $nav.append($navItem);
-
-        // builds a row
-        row.append($spacer.clone());
-        addItem(items[(i*2)]);
-        addItem(items[(i*2)+1]);
-        row.append($spacer.clone());
-
-        container.append(row); // wrapping the bootstrap row
-        $container.append(container);
-      }
-
-      $this.append($nav);
     }
 
+    // one iteration for each row of two items
+    for(let i=0; i<Math.ceil(items.length / 2); i++){
+
+      // reset the row element
+      container = $('<div class="partner-slide slider-slide"></div>');
+      row = $('<div class="row"></div>');
+
+      var $navItem = $('<div class="nav-item"></div>');
+      if(i===0){ $navItem.addClass('active'); }
+      $navItem.click(function(){
+        $container.css('transform', 'translateX(-'+(i*100)+'%)');
+        $nav.find('.nav-item.active').removeClass('active');
+        $(this).addClass('active');
+      });
+      $nav.append($navItem);
+
+      // builds a row
+      row.append($spacer.clone());
+      addItem(items[(i*2)]);
+      addItem(items[(i*2)+1]);
+      row.append($spacer.clone());
+
+      console.log(container, row, $container);
+      container.append(row); // wrapping the bootstrap row
+      $container.append(container);
+    }
+
+    $this.append($nav);
   });
 </script>

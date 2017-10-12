@@ -1,5 +1,6 @@
 .slider{
-
+  overflow: hidden;
+  
   .row{
     @include section-padding();
   }
@@ -30,9 +31,9 @@
     position: relative;
     display: flex;
     transition: all 0.4s ease-in-out;
-    overflow: hidden;
+
     .slider-slide{
-      flex: 0 0 100vw;
+      flex: 0 0 100%;
     }
   }
 

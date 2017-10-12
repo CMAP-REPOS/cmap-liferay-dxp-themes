@@ -24,8 +24,11 @@
 
         <#if update.getTitle(locale)??>
   				<#assign assetRenderer=update.getAssetRenderer()>
-  				<#assign viewURL="/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
-  		    <h3 class="item-title"><a href="${viewURL}">${update.getTitle(locale)}</a></h3>
+
+          <#if assetRenderer.getUrlTitle()??>
+  				    <#assign viewURL="/about/updates/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
+  		          <h3 class="item-title"><a href="${viewURL}">${update.getTitle(locale)}</a></h3>
+          </#if>
         </#if>
 
 
