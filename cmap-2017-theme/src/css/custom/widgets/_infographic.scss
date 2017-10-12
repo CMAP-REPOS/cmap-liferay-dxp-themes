@@ -293,7 +293,8 @@ $icon-share-white: "\e924";
         }
 
         svg {
-          font: 13px $font-sans;
+            //13
+          font: $size-1 $font-sans;
         }
 
         text {
@@ -310,6 +311,7 @@ $icon-share-white: "\e924";
                 line {
                     display: none;
                 }
+                text { display: flex!important; }
             }
         }
 
@@ -386,6 +388,9 @@ $icon-share-white: "\e924";
         }
 
         &.bar_chart_grouped {
+            .c3-axis-y text:not(.c3-axis-y-label){
+                transform: translate(5px,0);
+            }
 
             .c3-axis-x {
 

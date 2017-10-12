@@ -300,7 +300,7 @@
 					},
 				},
 				color: {
-					pattern: ["#DA2128", "#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38"]
+					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
 				},
 				axis: {
 					x: {
@@ -346,11 +346,14 @@
 			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
-
+            var rangeMin = undefined;
+            var rangeMax = undefined;
 			var axis_y_tick_format = d3.format(",");
 			if (options.axis_y_tick_format === 'dollars') {
 				axis_y_tick_format = function (d) { return '$' + d; }
 			} else if (options.axis_y_tick_format === 'percent') {
+                var rangeMin = 10;
+                var rangeMax = 90;
 				axis_y_tick_format = function (d) { return d + '%'; }
 			}
 
@@ -373,7 +376,7 @@
 					},
 				},
 				color: {
-					pattern: ["#DA2128", "#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38"]
+					pattern: [ "#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
 				},
 				axis: {
 					rotated: true,
@@ -387,6 +390,8 @@
 					},
 					y: {
 						inner: false,
+                        max: rangeMax,
+                        min: rangeMin,
 						label: {
 							text: options.axis_y_label_text,
 							position: 'outer-middle'
