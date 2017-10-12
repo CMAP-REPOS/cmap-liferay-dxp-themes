@@ -49,6 +49,12 @@
             .scheduler-view-table-header-day {
                 color: $blue;
                 text-align: left;
+                
+                div {
+                	color: $light-blue-text;
+                	font-weight: 600;
+                	opacity: .75;
+                }
             }
         }
 	}
@@ -100,7 +106,8 @@
 
 		.scheduler-view-table-colgrid-today {
 		    background-color: inherit;
-		    border: 0;
+		    border: none;
+			border-top: 6px solid $black;
 		}
 
 		.scheduler-view-table-data-col {
@@ -201,6 +208,7 @@
 				border: none;
 				box-shadow: none;
 				color: inherit;
+				font-weight: 600;
 				margin: 0;
 				padding: 0;
 				
