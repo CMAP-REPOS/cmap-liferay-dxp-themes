@@ -313,6 +313,9 @@ $icon-share-white: "\e924";
                 }
                 text { display: flex!important; }
             }
+            .c3-axis-x-label{
+                transform: translate(0,-8px);
+            }
         }
 
         .c3-line {
@@ -453,7 +456,9 @@ $icon-share-white: "\e924";
             line-height: 1.5em;
             padding: 0 10px 0 10px;
             width: 190px;
-
+            &:not(:last-of-type){
+                margin-bottom: 10px;
+            }
             &:hover, &.on {
                 background: $blue;
                 color: $white;
@@ -466,9 +471,14 @@ $icon-share-white: "\e924";
                     visibility: hidden;
                 }
             }
-
+            span {
+                vertical-align: middle;
+            }
+            span:first-of-type{
+                vertical-align: sub;
+            }
             .icon {
-                font-size: 18px;
+                font-size: $size1;
             }
         }
     }
@@ -515,15 +525,29 @@ $icon-share-white: "\e924";
 
     .infographiclayout {
 
-        .infographic-nav {
-        }
-
         .infographic-content {
-
+            .main-info{
+                width: 87%;
+                &.hide-desc{
+                    display: none;
+                }
+            }
         }
 
         .infographic-info {
             padding-left: 10px;
+            .infographic-description{
+                font-size: $size0;
+            }
+            .aside-container{
+                display: none;
+                &.show{
+                    display: block;
+                }
+            }
+            .infographic-aside, .infographic-source{
+                font-size: $size0;
+            }
         }
         .infographic-buttons {
             .pair-icons {
@@ -573,6 +597,7 @@ $icon-share-white: "\e924";
                      display: block;
                      padding: .5em 0;
                      text-align: left;
+                     font-size: $size0;
                      &:last-of-type {
                         border-bottom: none;
                     }
@@ -583,7 +608,8 @@ $icon-share-white: "\e924";
                  flex-direction: column;
                  justify-content: space-between;
                  color: #FFF;
-                 font-size: 18px;
+                 font-size: $size1;
+                 margin-right: 10px;
                  .icon{
                      opacity: .5;
                  }
