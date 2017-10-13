@@ -113,13 +113,15 @@
   var top = $('.page-nav-list').offset().top;
   var height = $('.page-nav-list').innerHeight();
 
-  $(window).scroll(_.throttle(function(){
+  function computeScrollNav(){
     if(window.scrollY > (top + height)){
       $('.scrolling-page-nav').fadeIn();
     } else {
       $('.scrolling-page-nav').fadeOut();
     }
-  },100));
+  }
+  $(window).scroll(_.throttle(computeScrollNav,100));
+  computeScrollNav();
 
   $('#jump-to-top').click(function(){
     $('html,body').animate({

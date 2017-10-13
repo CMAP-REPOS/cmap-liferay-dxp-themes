@@ -55,6 +55,13 @@
   .scrolling-page-nav{
     position: fixed !important;
     top: $unit * 4;
-    display: none;
+    pointer-events: none;
+
+    .page-nav{
+      background: $white;
+    }
+    .page-nav-list{
+      pointer-events: all;
+    }
   }
 }
