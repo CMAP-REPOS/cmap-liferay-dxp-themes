@@ -14,7 +14,9 @@ AUI().ready(function() {
 		        	     cmap.calendar.updateLayout();
 	        	 }
 	         }
-	         callback.apply(this, arguments);
+	         if (callback) {
+		         callback.apply(this, arguments);
+	         }
 	    };
 	    sendOriginal.apply(this, arguments);
 	};
@@ -62,6 +64,11 @@ AUI().ready(function() {
 			.find('.scheduler-view-table-header-day').each(function() {
 				$('> div', $(this)).text($('> div', $(this)).text().slice(0,1)); 
 			});
+		
+		// hide visible event popover
+		if ($('.scheduler-event-recorder-popover:visible').length) {
+			$('.scheduler-event-recorder-popover').css('display', 'none');
+		}
 		
 		setTimeout(function(){ 
 			$('.scheduler-event').removeAttr('style').fadeIn('fast'); 
