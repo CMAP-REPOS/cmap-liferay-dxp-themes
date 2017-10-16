@@ -7,6 +7,7 @@ cmap.initSocialShare = function(container) {
         '<li><a class="google addthis_button_google_plusone_share">Google+</a>' +
         '<li><a class="pinterest addthis_button_pinterest_share">Pinterest</a>' +
         '<li><a class="email addthis_button_email">Email</a></ul></div>';
+
     if (container.find('.share-wrapper').length) {
     	container.find('.share-wrapper').html(shareLinks);
     	container.find('.addthis_toolbox').hide();
@@ -50,16 +51,11 @@ AUI().ready(function() {
 	});
 });
 
-Liferay.Portlet.ready(function(portletId, node) {
-});
-
 
 
 // I don't know what i'm doing...
 // Lets put all the JS here!
 Liferay.on('allPortletsReady', function() {
-
-
 
 
   // SIDE NAV WIDGET
@@ -116,14 +112,8 @@ Liferay.on('allPortletsReady', function() {
   $(window).scroll(_.throttle(checkForScrollNav, 50));
 
 
-  // Title with Sections - Jump to section
 
-  $('.page-nav-item a').click(function(e){
-    e.preventDefault();
-    var push = $('#scroll-nav').innerHeight();
-    console.log(this.href, this, push);
-  });
-
+  // FOOTER
   $('#jump-to-top').click(function(){
     $('html,body').animate({
       scrollTop: 0
@@ -139,14 +129,6 @@ Liferay.on('allPortletsReady', function() {
 function setUpYoutube(){
   $('.iframe-container iframe').each(function(){
     var $this = $(this);
-
-    function addLodash(){
-      var head = document.getElementsByTagName('head')[0];
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://raw.githubusercontent.com/lodash/lodash/4.17.4/dist/lodash.core.min.js';
-      head.appendChild(script);
-    }
 
     function setHeight(){
       var ratio = parseFloat($this.attr('longdesc'), 10);
@@ -172,6 +154,7 @@ function setUpYoutube(){
       }
     }
 
+    // Builds the tagline in the DOM based on the API response
     function addVideoTagline(data){
       var title = data.items[0].snippet.title;
       var link = `https://youtu.be/${data.items[0].id}`;
@@ -183,6 +166,7 @@ function setUpYoutube(){
       $this.parent().append($container);
     }
 
+    // Searches for information about the video like title and url
     function addVideoCaption(){
       var vid = findID($this.attr('src'));
       $.getJSON("https://www.googleapis.com/youtube/v3/videos", {
@@ -200,7 +184,6 @@ function setUpYoutube(){
       });
     }
 
-    addLodash();
     setHeight();
     $(window).resize(_.debounce(function(){
       setHeight();
@@ -209,5 +192,4 @@ function setUpYoutube(){
     addVideoCaption();
 
   });
-
-}
+} // End youtube code

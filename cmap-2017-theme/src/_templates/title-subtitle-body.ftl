@@ -96,9 +96,9 @@
 
 <script type="text/javascript">
 (function($) {
-  $('body').addClass('structured-template');
+  // $('body').addClass('structured-template');
 
-  // Title with Sections - Jump to section
+  // Jump to section on page
   $('.page-nav-item a').click(function(e){
     e.preventDefault();
     var push = $('#scroll-nav').innerHeight();
@@ -110,6 +110,7 @@
   });
 
 
+  // Sticky page nav
   var top = $('.page-nav-list').offset().top;
   var height = $('.page-nav-list').innerHeight();
 
@@ -123,10 +124,67 @@
   $(window).scroll(_.throttle(computeScrollNav,100));
   computeScrollNav();
 
-  $('#jump-to-top').click(function(){
-    $('html,body').animate({
-      scrollTop: 0
-    }, 800);
+  // remove inline styles from content items
+  $('.section-content *').removeAttr('style');
+
+  // Tables
+  $('.portlet-body table').each(function(){
+    var $table = $(this);
+    var $container = $('<div class="table-container"> </div>');
+    var number_of_col = $table.find('tr:first-of-type td').length;
+
+    // we don't want any inline styles floating around
+    $table.removeAttr('style');
+    // start with fresh classes, makes it easier to manipulate later
+    $table.find('td').removeAttr('class');
+
+    // init the grid
+    $table.find('tr').addClass('row');
+    $table.find('td').addClass('col-xl-1');
+    $table.find('th').addClass('col-xl-1');
+
+    // find the tallest row (problem)
+    var max_height = 0, $max_row = null;
+    $table.find('tr').each(function(i){
+      // console.log('ROW', i, $(this), $(this).text().length);
+      var $row = $(this), row_height = $row.innerHeight();
+      if(row_height > max_height){
+        max_height = row_height;
+        $max_row = $row;
+      }
+    });
+
+
+    function normalizeColumn(){
+      var $cell = $(this);
+
+      $cell.find('p').each(function(){
+        var $p = $(this);
+        $p.parent().append($p.html());
+        $p.remove();
+      });
+
+      while($cell[0].clientWidth < $cell[0].scrollWidth){
+        var old_width = parseInt($cell.attr('class').charAt(7));
+        var new_width = old_width + 1;
+        $cell.removeAttr('class');
+        $cell.addClass('col-xl-' + new_width);
+        if(new_width > largest_col){
+          largest_col = new_width;
+        }
+      }
+    }
+
+    for(var i=1; i<=number_of_col; i++){
+      var selector = 'tr td:nth-of-type('+i+'), th:nth-of-type('+i+')';
+      var largest_col = 0;
+
+      console.log($table.find(selector));
+      $table.find(selector).each(normalizeColumn);
+      $table.find(selector).removeAttr('class');
+      $table.find(selector).addClass('col-xl-'+largest_col);
+    }
+
   });
 })(jQuery);
 </script>
