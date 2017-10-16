@@ -14,7 +14,9 @@ AUI().ready(function() {
 		        	     cmap.calendar.updateLayout();
 	        	 }
 	         }
-	         callback.apply(this, arguments);
+	         if (callback) {
+		         callback.apply(this, arguments);
+	         }
 	    };
 	    sendOriginal.apply(this, arguments);
 	};
@@ -63,18 +65,61 @@ AUI().ready(function() {
 				$('> div', $(this)).text($('> div', $(this)).text().slice(0,1)); 
 			});
 		
+		// hide visible event popover
+		if ($('.scheduler-event-recorder-popover:visible').length) {
+			$('.scheduler-event-recorder-popover').css('display', 'none');
+		}
+				
 		setTimeout(function(){ 
 			$('.scheduler-event').removeAttr('style').fadeIn('fast'); 
 		}, 200);
 	};
 	
+	cmap.calendar.formatEventTimes = function() {
+		
+		$('.scheduler-event-title').each(function() { 
+			var $this = $(this);
+			var $event = $this.closest('.scheduler-event');
+			var startTime = cmap.calendar.formatTime($event.data('starttime'));
+			var endTime = cmap.calendar.formatTime($event.data('endtime'));
+
+			$this.html(startTime + ' to ' + endTime);
+		});
+		
+		var re = /(\d{1,2}:\d{2})([APap][mM]) \- (\d{1,2}:\d{2})([APap][mM])/;
+		var popUpWhen = $('.scheduler-event-recorder-body .scheduler-event-recorder-date').text();
+		
+		popUpWhen = popUpWhen.replace(re, '$1 $2 to $3 $4')
+			.replace(' am', ' a.m.')
+			.replace(' pm', ' p.m.');
+		
+		$('.scheduler-event-recorder-body .scheduler-event-recorder-date').text(popUpWhen);
+	}
+
+	cmap.calendar.formatTime = function(time) {
+		if (time.startsWith('0')) {
+			time = time.substring(1);
+		}
+		time = time.replace('AM', 'a.m.').replace('PM', 'p.m.');
+		return time;
+	}
+	
 	// https://github.com/RickStrahl/jquery-watch
 	cmap.calendar.bindEvents = function() {
+
 		$('.scheduler-view-month > .yui3-overlay').watch({
 			properties: 'attr_style',
 			callback: function(data, i) {
 				$(this).find('.scheduler-event').attr('style','display: block; height: auto; left: 0px; position: relative; top: 0px; width: auto');
 			}
+		});
+
+		$('.calendar-portlet-wrapper').watch({
+		    properties: "prop_innerHTML",
+		    watchChildren: true,
+		    callback: function (data, i) {
+				cmap.calendar.formatEventTimes();
+		    }
 		});
 	}
 
