@@ -4,6 +4,7 @@
 </script>
 
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/jquery.watch.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/moment.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/calendar.js"></script>
 
 <script>
