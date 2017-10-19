@@ -43,6 +43,10 @@ p{
 	line-height: $variation;
 	color: $dark-blue;
 }
+.whitney-normal__primary{
+	@extend .whitney-normal;
+	color: $primary;
+}
 .whitney-normal__light-blue{
 	@extend .whitney-normal;
 	color: $light-blue-text;
@@ -55,6 +59,14 @@ p{
 .whitney-bold{
 	@extend .whitney-normal;
 	font-weight: 600;
+}
+.whitney-bold__primary{
+	@extend .whitney-bold;
+	color: $primary;
+}
+.whitney-bold__light-blue{
+	@extend .whitney-bold;
+	color: $light-blue-text;
 }
 .whitney-bold__white{
 	@extend .whitney-bold;

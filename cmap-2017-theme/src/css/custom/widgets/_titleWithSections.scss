@@ -1,8 +1,6 @@
 .title-with-sections{
 
-  > .row{
-    @include section-padding();
-  }
+  @include section-padding();
 
   .page-date,
   .page-nav-title,
@@ -23,6 +21,20 @@
     }
   }
 
+  .section-content{
+    h3,h4,h5,h6{
+      @extend .whitney-bold__light-blue;
+      margin-bottom: $size-2;
+    }
+    p{
+      max-width: 37em;
+      margin-bottom: $unit;
+    }
+    .table-container{
+      padding: 0;
+    }
+  }
+
   .page-date,
   .page-nav-title{
     display: flex;
@@ -33,6 +45,15 @@
     }
   }
 
+  .page-nav{
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.2s ease;
+    &.hidden{
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
   .page-nav-title{
     border-bottom: 1px solid $light-blue;
   }
@@ -55,33 +76,15 @@
   .scrolling-page-nav{
     position: fixed !important;
     top: $unit * 4;
+    left: 0;
     pointer-events: none;
+    @include section-padding();
 
     .page-nav{
       background: $white;
     }
     .page-nav-list{
       pointer-events: all;
-    }
-  }
-
-
-  .section-content table{
-    width: 100%;
-
-    tbody{
-      border-top: 1px solid $dark-blue;
-    }
-    tr,th{
-      padding: $size-3 0;
-    }
-    tr{
-      &:nth-of-type(even){
-        background: $almost-white;
-      }
-    }
-    th{
-      height: auto;
     }
   }
 }

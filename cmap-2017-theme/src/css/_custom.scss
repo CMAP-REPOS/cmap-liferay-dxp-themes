@@ -20,6 +20,7 @@
 @import "custom/pages/sitemap";
 @import "custom/pages/staffdirectory";
 
+
 @import "custom/widgets/nav/header";
 @import "custom/widgets/nav/links";
 @import "custom/widgets/nav/logo";
@@ -27,22 +28,25 @@
 @import "custom/widgets/nav/search";
 @import "custom/widgets/nav/sideNav";
 
+@import "custom/widgets/sliders/fullSlider";
+@import "custom/widgets/sliders/halfSlider";
+@import "custom/widgets/sliders/updateSlider";
+@import "custom/widgets/sliders/partnerSlider";
+
 @import "custom/widgets/boardMemberPage";
 @import "custom/widgets/breadcrumbs";
 @import "custom/widgets/calendar";
 @import "custom/widgets/featuredCard";
 @import "custom/widgets/footer";
-@import "custom/widgets/fullSlider";
-@import "custom/widgets/halfSlider";
 @import "custom/widgets/homepageHero";
 @import "custom/widgets/infographic";
-@import "custom/widgets/partnerSlider";
 @import "custom/widgets/sectionHero";
 @import "custom/widgets/slider";
 @import "custom/widgets/splitSummary";
 @import "custom/widgets/storymap";
+@import "custom/widgets/table";
 @import "custom/widgets/titleWithSections";
-@import "custom/widgets/updateSlider";
+
 @import "custom/widgets/youtube";
 
 @import "custom/global/overrides";

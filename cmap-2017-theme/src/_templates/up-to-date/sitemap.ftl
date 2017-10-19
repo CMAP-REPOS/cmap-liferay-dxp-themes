@@ -52,13 +52,13 @@
 </#macro>
 
 <#macro displayPages depth pages>
-	<#if pages?has_content && ((depth < displayDepth?number) || (displayDepth?number == 0))>
-		<ul class="child-pages">
-			<#list pages as page>
-        <@buildRow depth page />
-			</#list>
-		</ul>
-	</#if>
+	<#if pages?has_content && ((depth < displayDepth?number) || (displayDepth?number == 0))></#if>
+
+	<ul class="child-pages">
+		<#list pages as page>
+      <@buildRow depth page />
+		</#list>
+	</ul>
 </#macro>
 
 <script>

@@ -19,7 +19,7 @@
 <#assign locale = originalLocale>
 
 <section class="title-with-sections">
-  <div class="row">
+  <div class="row page-layout">
 
     <div class="col-xl-3 col-sm-16">
       <div class="page-date">
@@ -117,74 +117,100 @@
   function computeScrollNav(){
     if(window.scrollY > (top + height)){
       $('.scrolling-page-nav').fadeIn();
+      $('.page-layout .page-nav').addClass('hidden');
     } else {
       $('.scrolling-page-nav').fadeOut();
+      $('.page-layout .page-nav').removeClass('hidden');
     }
   }
-  $(window).scroll(_.throttle(computeScrollNav,100));
+  $(window).off('scroll.page-nav');
+  $(window).on('scroll.page-nav', _.throttle(computeScrollNav,100));
   computeScrollNav();
 
   // remove inline styles from content items
-  $('.section-content *').removeAttr('style');
+  // $('.section-content *').removeAttr('style');
+  $('.section-content p').removeAttr('style');
+
+
 
   // Tables
   $('.portlet-body table').each(function(){
     var $table = $(this);
-    var $container = $('<div class="table-container"> </div>');
+    
     var number_of_col = $table.find('tr:first-of-type td').length;
 
-    // we don't want any inline styles floating around
-    $table.removeAttr('style');
+    $table.wrap('<div class="table-container"></div>');
+
+    // we don't want any inline styles floating around, telling the table how wide to be
+    // $table.removeAttr('style');
+
+    var $last_row = $table.find('tr:last-of-type');
+    console.log($last_row);
+    $last_row.find('td').each(function(i,el){
+      console.log(i, el);
+    });
     // start with fresh classes, makes it easier to manipulate later
-    $table.find('td').removeAttr('class');
+    // $table.find('td, th').removeAttr('class');
 
     // init the grid
-    $table.find('tr').addClass('row');
-    $table.find('td').addClass('col-xl-1');
-    $table.find('th').addClass('col-xl-1');
+    // $table.find('tr').addClass('row');
 
-    // find the tallest row (problem)
-    var max_height = 0, $max_row = null;
-    $table.find('tr').each(function(i){
-      // console.log('ROW', i, $(this), $(this).text().length);
-      var $row = $(this), row_height = $row.innerHeight();
-      if(row_height > max_height){
-        max_height = row_height;
-        $max_row = $row;
-      }
-    });
+    // we might want to disallow some tags in the table
+    // function removeTag(el, tag){
+    //   $(el).find(tag).each(function(){
+    //     var $tag = $(this);
+    //     $tag.after($tag.html());
+    //     $tag.remove();
+    //   });
+    // }
+    // $table.find('td, th').each(function(){
+    //   removeTag(this, 'p');
+    // });
+
+    // find the width of all columns, based on the amount of text in the cells
+    // var col_widths = [], row_width = 0;
+    // for(var i=1; i<=number_of_col; i++){
+    //   var $cells = $table.find('tr td:nth-of-type('+i+'), th:nth-of-type('+i+')');
+    //   var width = $cells.text().trim().length;
+    //   col_widths[i-1] = width;
+    //   row_width += width;
+    // }
+
+    // compute a 16 grid equivelent based on amount of text in each col
+    // col_widths.forEach(function(width, i){
+    //   var $cells = $table.find('tr td:nth-of-type('+(i+1)+'), th:nth-of-type('+(i+1)+')');
+    //   var this_width = Math.round((width / row_width) * 16);
+    //   $cells.removeAttr('class');
+    //   $cells.addClass('col-xl-'+this_width);
+    // });
 
 
-    function normalizeColumn(){
-      var $cell = $(this);
+    // add an index to each cell, makes easier to reference later
+    // var y = 0;
+    // $table.find('tr').each(function(){
+    
+    //   var x = 0;
+    //   $(this).find('td, th').each(function(){
+    //     var $cell = $(this);
+    //     $cell.attr('data-x', x);
+    //     $cell.attr('data-y', y);
 
-      $cell.find('p').each(function(){
-        var $p = $(this);
-        $p.parent().append($p.html());
-        $p.remove();
-      });
+    //     var ratio = this.offsetWidth / this.scrollWidth;
 
-      while($cell[0].clientWidth < $cell[0].scrollWidth){
-        var old_width = parseInt($cell.attr('class').charAt(7));
-        var new_width = old_width + 1;
-        $cell.removeAttr('class');
-        $cell.addClass('col-xl-' + new_width);
-        if(new_width > largest_col){
-          largest_col = new_width;
-        }
-      }
-    }
-
-    for(var i=1; i<=number_of_col; i++){
-      var selector = 'tr td:nth-of-type('+i+'), th:nth-of-type('+i+')';
-      var largest_col = 0;
-
-      console.log($table.find(selector));
-      $table.find(selector).each(normalizeColumn);
-      $table.find(selector).removeAttr('class');
-      $table.find(selector).addClass('col-xl-'+largest_col);
-    }
-
+    //     if(ratio < 0.9){ // we have overflow!
+    //       console.log("overflow", this, this.offsetWidth, this.scrollWidth, ratio);
+    //     } else {
+    //       console.log(this, this.offsetWidth, this.scrollWidth, ratio);
+    //     }
+    //     x += 1;
+    //   });
+    //   y += 1;
+    // });
+    
+    // $container.append($table);
+    // console.log($container, $table.after());
+    // $table.after($container);
+    // $table.remove();
   });
 })(jQuery);
 </script>

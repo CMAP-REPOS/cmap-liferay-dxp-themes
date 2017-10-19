@@ -35,3 +35,21 @@
     @include section-padding();
   }
 }
+
+.journal-content-article{
+  h1{
+    @extend .whitney-huge;
+  }
+
+  h2{
+    @extend .whitney-bold;
+  }
+
+  h3,h4,h5,h6{
+    @extend .whitney-bold__light-blue;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    margin-bottom: $size-2;
+  }
+}
