@@ -3,9 +3,7 @@
     define.amd = false;
 </script>
 
-<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/jquery.watch.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/moment.min.js"></script>
-<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/calendar.js"></script>
 
 <script>
     define.amd = define._amd;
