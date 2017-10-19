@@ -7,6 +7,10 @@
 
 		> .yui3-widget-bd {
 			border: none;
+			
+			.scheduler-base-view-date {
+				display: none;
+			}
 		}
 
 		.scheduler-base-controls {
@@ -27,7 +31,7 @@
 				}
 			}
 			
-			.scheduler-base-today {
+ 			.scheduler-base-today {
 				display: none; 
 			}
 		}
@@ -40,7 +44,7 @@
 			}
 		}
 		
-		.scheduler-base-views {
+ 		.scheduler-base-views {
 			display: none;
 		}
 
@@ -68,7 +72,6 @@
 	.scheduler-view-table-container, 
 	.scheduler-view-table-events-overlay-node {
 		.scheduler-event {
-			display: none;
     		margin: 0 0 15px 0;
     		overflow: visible;
 			
@@ -196,6 +199,16 @@
 		padding: 15px;
 	}
 	
+	.scheduler-event-recorder-actions {
+		border-top: 1px solid $blue-med;
+		padding: 1em 0 0 0;
+		
+		.scheduler-event-recorder-action {
+			display: inline-block;
+			margin-right: 1em;
+		}
+	}
+	
 	.popover-title {
 		background: transparent;
 		border: none;
@@ -231,21 +244,13 @@
 		
 		.scheduler-event-recorder-body {
 
-			.calendar-portlet-event-recorder-calendar-row {
-				display: none;
-			}
-
 			table {
 				tbody {
 					tr {
 						td {
 							margin: 0;
 							padding: 0;
-							
-							&:first-child {
-								display: none;
-							}
-							
+
 							label {
 								color: inherit;
 								font-size: $size0;
@@ -276,41 +281,7 @@
 			}
 		}
 	}
-	
-	.popover-footer {
-		border: none;
-		margin: 0;
-		padding: 0;
-	
-		.btn-toolbar {
-		
-			.btn-toolbar-button {
-				background: transparent;
-				color: $link-blue;
-				border: none;
-				font-size: $size0;
-				padding: 0;
-				
-				&:focus {
-					color: $link-blue;
-				}
-				
-				&.focus {
-					color: $link-blue;
-				}
-				
-				span {
-					display: none;
-				}
-			}
-		}
-	}
-	
-	#_com_liferay_calendar_web_portlet_CalendarPortlet_eventRecorderUsers, 
-	#_com_liferay_calendar_web_portlet_CalendarPortlet_eventRecorderResources {
-		display: none;
-	}
-}	
+ }	
 
 #p_p_id_com_liferay_calendar_web_portlet_CalendarPortlet_ {
 

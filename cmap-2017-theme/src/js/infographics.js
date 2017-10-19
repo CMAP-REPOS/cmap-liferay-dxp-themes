@@ -116,7 +116,27 @@
             d3.select(toFade).classed('c3-defocused', true);
         }
     }
+    function resizeAxisLabels(options) {
+        if (!disableXAxisLabelResizing || !disableYAxisLabelResizing) {
+            var yChildren = d3.select('#' + options.chartId+ ' g.c3-axis-y').selectAll('.tick text');
+            //d3 arrays always have a single index, then arrays under that.
+            var yArr = yChildren[0];
+            var yCount = yArr.length;
 
+            var xChildren = d3.select('#' + options.chartId+ ' g.c3-axis-x').selectAll('.tick text');
+            var xArr = xChildren[0];
+            var xCount = xArr.length;
+            console.log(xChildren);
+            console.log(xCount);
+            if (xCount < 10 && !options.disableXAxisLabelResizing) {
+                xChildren.attr("font-size", "14px");
+            }
+
+            if (yCount < 10 && !options.disableYAxisLabelResizing) {
+                yChildren.attr("font-size", "14px");
+            }
+        }
+    }
 	function generateLegend(options) {
 		// console.log('infographics.generateLegend()');
 		// console.log(options);
@@ -270,6 +290,12 @@
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
 					});
+                    resizeAxisLabels({
+                        chartId: options.chartId,
+                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+
+                    });
 				}
 			});
 		},
@@ -337,7 +363,13 @@
 						chartType: 'bar_chart_grouped',
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
-					})
+					});
+                    resizeAxisLabels({
+                        chartId: options.chartId,
+                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+
+                    });
 				}
 			});
 		},
@@ -437,7 +469,13 @@
 						chartType: 'bar_chart_stacked',
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
-					})
+					});
+                    resizeAxisLabels({
+                        chartId: options.chartId,
+                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+
+                    });
 				}
 			});
 		},
@@ -586,28 +624,16 @@
 						chartType: 'bar_chart_stacked',
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
-					})
+					});
+                    resizeAxisLabels({
+                        chartId: options.chartId,
+                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+
+                    });
 				}
+
 			});
-		},
-		resizeAxisLabels: function (options) {
-			/*
-			if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
-				var yChildren = $('#' + options.chartId).find('g.c3-axis-y').children('.tick').children("text").not('[style*="display: none"]');
-				var yCount = yChildren.length;
-
-				var xChildren = $('#' + options.chartId).find('g.c3-axis.c3-axis-x').children('.tick').children("text").not('[style*="display: none"]');
-				var xCount = xChildren.length;
-
-				if (xCount < 10 && !options.disableXAxisLabelResizing) {
-					xChildren.attr("font-size", "14px");
-				}
-
-				if (yCount < 10 && !options.disableYAxisLabelResizing) {
-					yChildren.attr("font-size", "14px");
-				}
-			}
-			*/
 		},
 		bindDonutLegendEvents: function (options) {
 			// console.log('infographics.bindDonutLegendEvents()');

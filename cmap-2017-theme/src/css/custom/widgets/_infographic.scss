@@ -294,7 +294,7 @@ $icon-share-white: "\e924";
 
         svg {
             //13
-          font: $size-1 $font-sans;
+          font: $size-2 $font-sans;
         }
 
         text {
@@ -416,6 +416,11 @@ $icon-share-white: "\e924";
             .c3-chart-arcs-title {
                 color: $blue;
                 font-size: 22px;
+            }
+        }
+        &.bar_chart_stacked{
+            .c3-axis-y-label{
+                transform: translate(-55em,-8px);
             }
         }
     }
@@ -559,6 +564,9 @@ $icon-share-white: "\e924";
         }
 
         .infographic-chart {
+            svg {
+              font: $size-1 $font-sans;
+            }
 
             .c3-axis-x-label, .c3-axis-y-label {
                 display: none;
@@ -582,6 +590,24 @@ $icon-share-white: "\e924";
                 height: 360px;
                 margin: 0 auto;
             }
+            &.bar_chart_stacked{
+                .c3-axis-x {
+                    .tick {
+                        // X axis is rotated
+                        &:nth-of-type(even) {
+                            display: block;
+                        }
+                    }
+                }
+                .c3-axis-y {
+                    .tick {
+                        // Y axis is rotated
+                        &:nth-of-type(even) {
+                            display: none;
+                        }
+                    }
+                }
+            }
             .side-narrative {
                 display: none;
             }
@@ -591,7 +617,8 @@ $icon-share-white: "\e924";
              display: flex;
              justify-content: space-between;
              ul {
-                 display: block;
+                 display: flex;
+                 flex-wrap: wrap;
                  li {
                      border-top: none;
                      display: block;
@@ -607,14 +634,11 @@ $icon-share-white: "\e924";
                  display: flex;
                  flex-direction: column;
                  justify-content: space-between;
-                 color: #FFF;
+                 color: $blue;
                  font-size: $size1;
                  margin-right: 10px;
-                 .icon{
-                     opacity: .5;
-                 }
                  .activated{
-                     opacity: 1;
+                     color: #FFF;
                  }
              }
          }
