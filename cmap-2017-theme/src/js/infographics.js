@@ -126,8 +126,6 @@
             var xChildren = d3.select('#' + options.chartId+ ' g.c3-axis-x').selectAll('.tick text');
             var xArr = xChildren[0];
             var xCount = xArr.length;
-            console.log(xChildren);
-            console.log(xCount);
             if (xCount < 10 && !options.disableXAxisLabelResizing) {
                 xChildren.attr("font-size", "14px");
             }

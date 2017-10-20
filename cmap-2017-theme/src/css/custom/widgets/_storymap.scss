@@ -138,6 +138,13 @@ $icon-nav-right-white: "\e91d";
 	        margin: 0;
 	        padding: 1em 0;
             display: flex;
+            ul{
+                display: flex;
+            }
+            li {
+                list-style: none;
+                cursor: pointer;
+            }
 
 		    .story-step-title {
 				color: $blue-med;
@@ -157,6 +164,8 @@ $icon-nav-right-white: "\e91d";
 				// font-size: 12px;
                 font-size: $size-1;
                 cursor: pointer;
+                background: none;
+                border: none;
 
 				.icon {
 					font-size: 18px;
