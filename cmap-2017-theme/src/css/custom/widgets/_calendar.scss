@@ -15,6 +15,7 @@
 
 		.scheduler-base-controls {
             margin-bottom: 36px;
+            text-align: left;
 			width: 100%;
 	
 			.scheduler-base-icon-next, 
@@ -33,6 +34,49 @@
 			
  			.scheduler-base-today {
 				display: none; 
+			}
+			
+			.btn-group {
+				text-align: left;
+				width: auto;
+			}
+			
+			.jump-to-container {
+			
+				.input-select-wrapper {
+				
+					label {
+						display: inline-block;
+					}
+					
+					select {
+						display: inline-block;
+						width: auto;
+					}
+				}
+			}
+
+			@include tablet() {
+			
+				.btn-group {
+					text-align: center;
+					width: auto;
+				}
+
+				.jump-to-container {
+				
+					.input-select-wrapper {
+					
+						label {
+							display: none;
+						}
+						
+						select {
+							display: block;
+							width: 100%;
+						}
+					}
+				}
 			}
 		}
 
