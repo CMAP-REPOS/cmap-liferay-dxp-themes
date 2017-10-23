@@ -131,8 +131,6 @@
   // $('.section-content *').removeAttr('style');
   $('.section-content p').removeAttr('style');
 
-
-
   // Tables
   $('.portlet-body table').each(function(){
     var $table = $(this);
@@ -149,6 +147,7 @@
     $last_row.find('td').each(function(i,el){
       console.log(i, el);
     });
+
     // start with fresh classes, makes it easier to manipulate later
     // $table.find('td, th').removeAttr('class');
 
