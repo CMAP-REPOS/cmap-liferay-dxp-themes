@@ -121,7 +121,6 @@ p{
 		line-height: $variation;
 		@extend .underline-link;
 	}
-	margin-bottom: $size1;
 	&:last-of-type{
 		margin-bottom: 0;
 	}
@@ -157,3 +156,21 @@ p{
 	color: $white;
 	a{ color: $white; }
 }
+
+a{
+  color: $link-blue;
+  transition: all 0.25s ease;
+  &:hover{
+    text-decoration: none;
+    color: lighten($link-blue, 25%);
+  }
+}
+
+.underline-link{
+  border-bottom: 1px solid $light-blue;
+
+  &:hover{
+    border-bottom: 1px solid lighten($light-blue, 25%);
+  }
+}
+

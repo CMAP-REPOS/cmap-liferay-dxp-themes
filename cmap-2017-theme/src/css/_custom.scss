@@ -11,15 +11,15 @@
 @import "custom/global/elements";
 @import "custom/global/grid";
 @import "custom/global/layout";
+@import "custom/global/content";
 @import "custom/global/typography";
-@import "custom/global/links";
 @import "custom/global/utilities";
 
 @import "custom/pages/fy18";
 @import "custom/pages/homepage";
+@import "custom/pages/login";
 @import "custom/pages/sitemap";
 @import "custom/pages/staffdirectory";
-
 
 @import "custom/widgets/nav/header";
 @import "custom/widgets/nav/links";
@@ -46,7 +46,10 @@
 @import "custom/widgets/storymap";
 @import "custom/widgets/table";
 @import "custom/widgets/titleWithSections";
-
 @import "custom/widgets/youtube";
 
-@import "custom/global/overrides";
+.portlet-content-editable,
+.portlet-content{
+  padding: 0;
+}
+

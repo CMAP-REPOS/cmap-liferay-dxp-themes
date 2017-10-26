@@ -21,20 +21,6 @@
     }
   }
 
-  .section-content{
-    h3,h4,h5,h6{
-      @extend .whitney-bold__light-blue;
-      margin-bottom: $size-2;
-    }
-    p{
-      max-width: 37em;
-      margin-bottom: $unit;
-    }
-    .table-container{
-      padding: 0;
-    }
-  }
-
   .page-date,
   .page-nav-title{
     display: flex;
