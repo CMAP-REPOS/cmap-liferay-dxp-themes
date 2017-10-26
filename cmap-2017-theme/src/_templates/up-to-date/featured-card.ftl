@@ -20,7 +20,6 @@
 
   <#assign FileCounter = 0 >
 
-
   <#list Document.getData()?split("/") as x>
     <#if FileCounter == 5>
       <#assign uuId = x >
@@ -37,11 +36,11 @@
   </#attempt>
 </#if>
 
-<section class="featured-card" id="${randomNamespace}">
+<section class="featured-card" id="${randomNamespace}-featured-card">
   <div class="row">
     <div class="col-xl-8">
       <#if file?? && file != "">
-      <a class="featured-card-img-link" href="${link}">
+      <a class="featured-card-img-link" href="${link}" target="_blank" title="Download file for ${CardTitle.getData()} in a new window."> 
       </#if>
 
       <#if ImageToDisplay?? && ImageToDisplay.getData()?? && ImageToDisplay.getData() != "">
@@ -68,7 +67,7 @@
 
     <#if file?? && file != "">
       <div class="featured-card-cta">
-        <a href="${link}" target="_blank">
+        <a href="${link}" target="_blank" title="Download file for ${CardTitle.getData()} in a new window."> 
           <div class="file-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18">
               <path fill="#3C5976" d="M14,4.82159223 L14,17.99 L0,17.99 L0,0 L9.46872143,0 L9.47572959,4.79258408 L14,4.82159223 Z M1.75,16.24 L12.25,16.24 L12.25,6.56040777 L7.72827041,6.53141592 L7.72127857,1.75 L1.75,1.75 L1.75,16.24 Z"/>
@@ -80,14 +79,14 @@
     </#if>
     <#if Page?? && Page.getData()?? && Page.getData() != "">
       <div class="featured-card-cta">
-        <a href="${Page.getData()}" target="_blank">
+        <a href="${Page.getData()}" target="_blank" title="View page for for ${CardTitle.getData()} in a new window.">
           View Page
         </a>
       </div>
     </#if>
     <#if Url?? && Url.getData()?? && Url.getData() != "">
       <div class="featured-card-cta">
-        <a href="${Url.getData()}" target="_blank">
+        <a href="${Url.getData()}" target="_blank" title="View link for for ${CardTitle.getData()} in a new window.">
           View URL
         </a>
       </div>
@@ -97,15 +96,13 @@
 </section>
 
 <script>
-$(document).ready(function(){
-  var $this = $('.portlet-full-width section.featured-card');
-
-  if($this){
+$(function() {
+  var $this = $('#${randomNamespace}-featured-card');
+  if ($this.length) {
     var $row = $this.find('.row').remove();
     var $container = $('<div class="row"></div>');
     var $center = $('<div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0"></div>');
     $this.append($container.append($center.append($row)));
-    console.log($this, $row);
   }
 });
 </script>
