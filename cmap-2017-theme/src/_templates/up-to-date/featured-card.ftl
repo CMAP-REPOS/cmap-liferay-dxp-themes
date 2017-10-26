@@ -20,7 +20,6 @@
 
   <#assign FileCounter = 0 >
 
-
   <#list Document.getData()?split("/") as x>
     <#if FileCounter == 5>
       <#assign uuId = x >
@@ -37,7 +36,7 @@
   </#attempt>
 </#if>
 
-<section class="featured-card" id="${randomNamespace}">
+<section class="featured-card" id="${randomNamespace}-featured-card">
   <div class="row">
     <div class="col-xl-8">
       <#if file?? && file != "">
@@ -97,15 +96,13 @@
 </section>
 
 <script>
-$(document).ready(function(){
-  var $this = $('.portlet-full-width section.featured-card');
-
-  if($this){
+$(function() {
+  var $this = $('#${randomNamespace}-featured-card');
+  if ($this.length) {
     var $row = $this.find('.row').remove();
     var $container = $('<div class="row"></div>');
     var $center = $('<div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0"></div>');
     $this.append($container.append($center.append($row)));
-    console.log($this, $row);
   }
 });
 </script>
