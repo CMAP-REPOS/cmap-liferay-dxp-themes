@@ -40,4 +40,9 @@
     padding-top: $unit;
     padding-bottom: $unit;
   }
+
+  label{
+    display: block;
+    font-size: inherit;
+  }
 }
