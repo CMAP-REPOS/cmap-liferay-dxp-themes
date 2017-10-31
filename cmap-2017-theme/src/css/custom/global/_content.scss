@@ -10,7 +10,8 @@
     @extend .whitney-bold;
   }
   h3, h4, h5, h6 {
-    @extend .whitney-bold__light-blue;
+    @extend .whitney-bold;
+    color: $off-white-text;
   }
   h2, h3, h4, h5, h6 {
     margin-top: $size-2;

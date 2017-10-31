@@ -12,7 +12,8 @@ section.partner-slider{
   }
   
   p{
-    @extend .whitney-normal__light-blue;
+    @extend .whitney-normal;
+    color: $off-white-text;
   }
   a{
     @extend .underline-link;

@@ -1,356 +1,356 @@
 @charset "UTF-8";
 
+
 /* CALENDAR PORTLET */
+
 #portlet_com_liferay_calendar_web_portlet_CalendarPortlet {
-	
-	.scheduler-base-content {
 
-		> .yui3-widget-bd {
-			border: none;
-			
-			.scheduler-base-view-date {
-				display: none;
-			}
-		}
+    .scheduler-base-content {
 
-		.scheduler-base-controls {
+        >.yui3-widget-bd {
+            border: none;
+
+            .scheduler-base-view-date {
+                display: none;
+            }
+        }
+
+        .scheduler-base-controls {
             margin-bottom: 36px;
             text-align: left;
-			width: 100%;
-	
-			.scheduler-base-icon-next, 
-			.scheduler-base-icon-prev  {
-				border: none;
-				display: inline-block;
-				float: none;
-				padding: 0;
-				
-				span {
+            width: 100%;
+
+            .scheduler-base-icon-next,
+            .scheduler-base-icon-prev {
+                border: none;
+                display: inline-block;
+                float: none;
+                padding: 0;
+
+                span {
                     font-weight: normal;
                     color: black;
                     margin-right: 1em;
-				}
-			}
-			
- 			.scheduler-base-today {
-				display: none; 
-			}
-			
-			.btn-group {
-				text-align: left;
-				width: auto;
-			}
-			
-			.jump-to-container {
-			
-				.input-select-wrapper {
-				
-					label {
-						display: inline-block;
-					}
-					
-					select {
-						display: inline-block;
-						width: auto;
-					}
-				}
-			}
+                }
+            }
 
-			@include tablet() {
-			
-				.btn-group {
-					text-align: center;
-					width: auto;
-				}
+            .scheduler-base-today {
+                display: none;
+            }
 
-				.jump-to-container {
-				
-					.input-select-wrapper {
-					
-						label {
-							display: none;
-						}
-						
-						select {
-							display: block;
-							width: 100%;
-						}
-					}
-				}
-			}
-		}
+            .btn-group {
+                text-align: left;
+                width: auto;
+            }
 
-		.scheduler-view-table-content  {
-			.yui3-widget-hd {
-			    background: $white;
-			    border-bottom: 0;
-			    color: inherit;
-			}
-		}
-		
- 		.scheduler-base-views {
-			display: none;
-		}
+            .jump-to-container {
+
+                .input-select-wrapper {
+
+                    label {
+                        display: inline-block;
+                    }
+
+                    select {
+                        display: inline-block;
+                        width: auto;
+                    }
+                }
+            }
+
+            @include tablet() {
+
+                .btn-group {
+                    text-align: center;
+                    width: auto;
+                }
+
+                .jump-to-container {
+
+                    .input-select-wrapper {
+
+                        label {
+                            display: none;
+                        }
+
+                        select {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .scheduler-view-table-content {
+            .yui3-widget-hd {
+                background: $white;
+                border-bottom: 0;
+                color: inherit;
+            }
+        }
+
+        .scheduler-base-views {
+            display: none;
+        }
 
         .scheduler-view-table-header-col {
 
             .scheduler-view-table-header-day {
                 color: $blue;
                 text-align: left;
-                
+
                 div {
-                	color: $light-blue-text;
-                	font-weight: 600;
-                	opacity: .75;
+                    color: $off-white-text;
+                    font-weight: 600;
+                    opacity: .75;
                 }
             }
         }
-	}
-	
-	.scheduler-view-table-events-overlay-node {
-    	border-color: $light-blue;
-	    border-radius: 0;
-	    padding: 15px
-	}
-		
-	.scheduler-view-table-container, 
-	.scheduler-view-table-events-overlay-node {
-		.scheduler-event {
-    		margin: 0 0 15px 0;
-    		overflow: visible;
-			
-			.scheduler-event-title {
-			    color: $link-blue;
-				display: block;
-			    font-size: $size-1;
-			    margin: 0;
-			    padding: 0;
-			    white-space: normal;
-			    
-			    span {
-			    	display: inline-block !important;
-			    	margin-left: 0.25em;
-			    }
-			}
-			
-			.scheduler-event-content {
-				color: $link-blue;
-				display: block;
-			    font-size: $size-1;
-			    font-weight: normal;
-			    margin: 0;
-			    padding: 0;
-			}
-		}
+    }
 
-		.scheduler-view-table-events-overlay-node-close {
-		    font-size: $size-1;
-		}
+    .scheduler-view-table-events-overlay-node {
+        border-color: $off-white;
+        border-radius: 0;
+        padding: 15px
+    }
 
-		.scheduler-view-table-colgrid {
-			border-left: none;
-			border-right: none;
-		}
+    .scheduler-view-table-container,
+    .scheduler-view-table-events-overlay-node {
+        .scheduler-event {
+            margin: 0 0 15px 0;
+            overflow: visible;
 
-		.scheduler-view-table-colgrid-today {
-		    background-color: inherit;
-		    border: none;
-			border-top: 6px solid $black;
-		}
+            .scheduler-event-title {
+                color: $primary;
+                display: block;
+                font-size: $size-1;
+                margin: 0;
+                padding: 0;
+                white-space: normal;
 
-		.scheduler-view-table-data-col {
-			vertical-align: top;
-		}		
-	
-		.scheduler-view-table-data-col-title {
-		    border-top: 1px solid $light-blue!important;
-		    color: $blue;
-		    font-size: $size-1;
-		    overflow: visivble;
-		    padding: 15px 0;
-			text-align: left;
-		}
-		
-		.scheduler-view-table-data-col-title-down {
-		    border-top: none;
-		}
-		
-		.scheduler-view-table-data-col-title-today {
-		    color: inherit;
-			border: none;
-			
-			&:after {
-				content: " Today";
-			}
-		}
-		
-		.scheduler-view-month-table-data-col-nomonth {
-			font-size: $size-1;
-			opacity: 0.5;
-		}
-		
-		.scheduler-view-table-data-event {
-		    color: inherit;
-		    margin: 0;
-		    padding: 0;
-			white-space: normal;
-		}
-		
-		.scheduler-view-table-data-first {
-			.scheduler-view-table-data-col-title {
-			    border-top: 0;
-			}
-			.scheduler-view-table-grid {
-			    border-top: 0;
-			}
-		}
-		
-		.scheduler-view-table-events-overlay-node {
-		    background-color: inherit;
-		    border: none;
-		}
-		
-		.scheduler-view-table-lasso {
-		    background: transparent
-		}	
-		
-		.scheduler-view-table-more {
-		    color: $link-blue;
-			font-size: $size-1;
-    		margin: 0 0 15px 0;
-		}
-	}
+                span {
+                    display: inline-block !important;
+                    margin-left: 0.25em;
+                }
+            }
+
+            .scheduler-event-content {
+                color: $primary;
+                display: block;
+                font-size: $size-1;
+                font-weight: normal;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .scheduler-view-table-events-overlay-node-close {
+            font-size: $size-1;
+        }
+
+        .scheduler-view-table-colgrid {
+            border-left: none;
+            border-right: none;
+        }
+
+        .scheduler-view-table-colgrid-today {
+            background-color: inherit;
+            border: none;
+            border-top: 6px solid $black;
+        }
+
+        .scheduler-view-table-data-col {
+            vertical-align: top;
+        }
+
+        .scheduler-view-table-data-col-title {
+            border-top: 1px solid $off-white !important;
+            color: $blue;
+            font-size: $size-1;
+            overflow: visivble;
+            padding: 15px 0;
+            text-align: left;
+        }
+
+        .scheduler-view-table-data-col-title-down {
+            border-top: none;
+        }
+
+        .scheduler-view-table-data-col-title-today {
+            color: inherit;
+            border: none;
+
+            &:after {
+                content: " Today";
+            }
+        }
+
+        .scheduler-view-month-table-data-col-nomonth {
+            font-size: $size-1;
+            opacity: 0.5;
+        }
+
+        .scheduler-view-table-data-event {
+            color: inherit;
+            margin: 0;
+            padding: 0;
+            white-space: normal;
+        }
+
+        .scheduler-view-table-data-first {
+            .scheduler-view-table-data-col-title {
+                border-top: 0;
+            }
+            .scheduler-view-table-grid {
+                border-top: 0;
+            }
+        }
+
+        .scheduler-view-table-events-overlay-node {
+            background-color: inherit;
+            border: none;
+        }
+
+        .scheduler-view-table-lasso {
+            background: transparent
+        }
+
+        .scheduler-view-table-more {
+            color: $primary;
+            font-size: $size-1;
+            margin: 0 0 15px 0;
+        }
+    }
 }
 
 .scheduler-event-recorder-popover {
-	background: $light-blue;
-	border-radius: 0;
-	border-color: $blue-med;
-	
-	&.popover {
-		&.top {
-			> .arrow {
-				border-top-color:  $blue-med;
-				
-				&:after {
-				    border-top-color:  $light-blue;
-				}
-			}
-		}
-	}
+    background: $off-white;
+    border-radius: 0;
+    border-color: $dark-grey;
 
-	.scheduler-event-recorder-form {
-		padding: 15px;
-	}
-	
-	.scheduler-event-recorder-actions {
-		border-top: 1px solid $blue-med;
-		padding: 1em 0 0 0;
-		
-		.scheduler-event-recorder-action {
-			display: inline-block;
-			margin-right: 1em;
-		}
-	}
-	
-	.popover-title {
-		background: transparent;
-		border: none;
-		margin: 0;
-		padding: 0 0 18px 0;
-		
-		.scheduler-event-recorder-header {
-		
-			.scheduler-event-recorder-content {
-				background: transparent;
-				border: none;
-				box-shadow: none;
-				color: inherit;
-				font-weight: 600;
-				margin: 0;
-				padding: 0;
-				
-				&:hover {
-					background: transparent;
-					border: none;
-					box-shadow: none;
-					color: inherit;
-				}
-				
-			}
-		}
-	}
-	
-	.popover-content {
-		border: none;
-		margin: 0;
-		padding: 0;
-		
-		.scheduler-event-recorder-body {
+    &.popover {
+        &.top {
+            >.arrow {
+                border-top-color: $dark-grey;
 
-			table {
-				tbody {
-					tr {
-						td {
-							margin: 0;
-							padding: 0;
+                &:after {
+                    border-top-color: $off-white;
+                }
+            }
+        }
+    }
 
-							label {
-								color: inherit;
-								font-size: $size0;
-							}
-						}
-					}
-				}
-			}
-		}
+    .scheduler-event-recorder-form {
+        padding: 15px;
+    }
 
-		.btn-toolbar-button {
-		
-			&.close {
-				background: transparent;
-				border: none;
-				color: $black;
-				font-size: $size2;
-				font-weight: normal;
-				opacity: 1;
-				top: 10px;
-				
-				&:hover {
-					background: transparent;
-					border: none;
-					color: $black;
-					opacity: 1;
-				}	
-			}
-		}
-	}
- }	
+    .scheduler-event-recorder-actions {
+        border-top: 1px solid $dark-grey;
+        padding: 1em 0 0 0;
+
+        .scheduler-event-recorder-action {
+            display: inline-block;
+            margin-right: 1em;
+        }
+    }
+
+    .popover-title {
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0 0 18px 0;
+
+        .scheduler-event-recorder-header {
+
+            .scheduler-event-recorder-content {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                color: inherit;
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+
+                &:hover {
+                    background: transparent;
+                    border: none;
+                    box-shadow: none;
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    .popover-content {
+        border: none;
+        margin: 0;
+        padding: 0;
+
+        .scheduler-event-recorder-body {
+
+            table {
+                tbody {
+                    tr {
+                        td {
+                            margin: 0;
+                            padding: 0;
+
+                            label {
+                                color: inherit;
+                                font-size: $size0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn-toolbar-button {
+
+            &.close {
+                background: transparent;
+                border: none;
+                color: $black;
+                font-size: $size2;
+                font-weight: normal;
+                opacity: 1;
+                top: 10px;
+
+                &:hover {
+                    background: transparent;
+                    border: none;
+                    color: $black;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
 
 #p_p_id_com_liferay_calendar_web_portlet_CalendarPortlet_ {
 
-	.portlet-body {
-		background: $white;
-		
-		.panel {
-			border: none;
-			box-shadow: none;
-			
-			&.panel-default {
-				background: $white;
-				border: none;
-				
-				.panel-heading {
-					background: $white;
-					border: none;
-					color: inherit;
-				}
-				
-				.property-list {
-					font-size: $size0;
-				}
-			}
-		}
-	}
-}
+    .portlet-body {
+        background: $white;
 
+        .panel {
+            border: none;
+            box-shadow: none;
+
+            &.panel-default {
+                background: $white;
+                border: none;
+
+                .panel-heading {
+                    background: $white;
+                    border: none;
+                    color: inherit;
+                }
+
+                .property-list {
+                    font-size: $size0;
+                }
+            }
+        }
+    }
+}

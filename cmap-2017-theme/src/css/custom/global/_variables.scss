@@ -7,21 +7,33 @@ $debug: true;
 $font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
 $font-serif: "Prensa LF", serif;
 
-// colors
-$blue-med: #88a0b2;
+// Colors
+$dark-red: #750709;
+$red: #DB2028;
+$light-red: #F47932;
 
-$green: #6EAE4F;
-$blue: #3C5976;
+$light-gold: #5E5011;
+$gold: #9E7A38;
+$dark-gold: #E7BB20;
+
+$dark-green: #346139;
+$green: #6CAD4E;
+$light-green: #A2D06D;
+
+$dark-blue: #004F93;
+$blue: #008FD4;
+$light-blue: #4DBEEE;
 
 $black: #000000;
-$dark-blue: darken($blue, 25%);
-$link-blue: #00508C;
-$light-blue: #E4EBEE;
-$light-blue-text: #587387;
+$dark-grey: #5E7A87;
+$light-grey: #E2E7EA;
+$off-white: #E4EBEE;
+$off-white-text: #587387;
 $almost-white: #F7F9FA;
 $white: #FFFFFF;
 
-$primary: $blue;
+$link-blue: $dark-blue;
+$primary: $dark-blue;
 
 // sizes
 $variation: 1.414;

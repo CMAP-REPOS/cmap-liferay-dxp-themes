@@ -1,0 +1,115 @@
+// These are all set in the default build, we don't "need" them here
+// They are included so you can see what is going on
+// Actual styles should be applied in the "custom" document
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  line-height: inherit;
+  border: 0;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  font-weight: bold;
+}
+input[type="search"] {
+  box-sizing: border-box;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0;
+  line-height: normal;
+}
+input[type="file"] {
+  display: block;
+}
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+select[multiple],
+select[size] {
+  height: auto;
+}
+// Focus for file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  @include tab-focus;
+}
+output {
+  display: block;
+  padding-top: 0;
+}
+textarea.form-control {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"] {
+    &.form-control {
+      line-height: $input-height-base;
+    }
+
+    &.input-sm,
+    .input-group-sm & {
+      line-height: $input-height-small;
+    }
+
+    &.input-lg,
+    .input-group-lg & {
+      line-height: $input-height-large;
+    }
+  }
+}
+
+.radio,
+.checkbox {
+  position: relative;
+  display: block;
+
+  label {
+    min-height: $line-height-computed; // Ensure the input doesn't jump when there is no text
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+.radio-inline,
+.checkbox-inline {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+.radio,
+.checkbox {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: $cursor-disabled;
+    }
+  }
+}

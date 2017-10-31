@@ -1,0 +1,111 @@
+
+.portlet-forms {
+  .ddl-form-name {
+    @extend .whitney-huge;
+    font-size: $size2;
+  }
+
+  .ddl-form-description {
+    font-size: inherit;
+    line-height: inherit;
+    margin-top: $unit;
+  }
+
+  .lfr-ddm-form-field-container {
+    padding: 0;
+  }
+
+  .liferay-ddm-form-field-tip {
+    font-size: $size-1;
+    @extend .whitney-normal;
+    color: $off-white-text;
+  }
+}
+
+.contact-us-page {
+  .lfr-ddm-form-page {
+    .row {
+      .col-xl-8 {
+        &:first-of-type {
+          padding-left: 0;
+        }
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  header{
+    margin-bottom: $size0;
+    hr{
+      margin: $size0 0 $size-2;
+      border-top: 1px solid $off-white;
+    }
+  }
+}
+
+.text-warning {
+  color: $red;
+}
+
+// Base form element styles
+.form-control {
+  @extend .whitney-bold;
+  color: $dark-grey;
+  background-color: $almost-white;
+  border: 1px solid $almost-white;
+  padding: $size-1 $size0;
+  @include form-control-focus($off-white);
+
+  &:focus{
+    color: $dark-blue;
+  }
+
+  &.has-value{
+    background-color: $white;
+    border-color: $off-white;
+  }
+}
+
+select.form-control {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: lx-icon(caret-double-l, $dark-blue);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: $size0 auto;
+  padding: $size-2 $size0;
+  border-radius: #{$size0 + $size-2};
+
+  &:focus {
+    background-image: lx-icon(caret-double-l, $input-border-focus);
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.has-success {
+  @include form-control-validation($dark-green, $dark-green, $white);
+}
+.has-warning {
+  @include form-control-validation($dark-gold, $dark-gold, $white);
+}
+.has-error {
+  @include form-control-validation($red, $red, $white);
+}
+
+label,
+.control-label {
+  font-size: $size-1;
+  font-weight: 600;
+  color: $off-white-text;
+  margin-bottom: $size-1;
+
+  @media (min-width: 768px) {
+    font-size: $size-1;
+    color: $off-white-text;
+  }
+}

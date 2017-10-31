@@ -1,6 +1,6 @@
 .search-widget{
   position: relative;
-  background: $light-blue;
+  background: $off-white;
   margin-right: 0 !important;
 
   .search-widget-field,
@@ -44,5 +44,6 @@
   label{
     display: block;
     font-size: inherit;
+    margin-bottom: 0;
   }
 }

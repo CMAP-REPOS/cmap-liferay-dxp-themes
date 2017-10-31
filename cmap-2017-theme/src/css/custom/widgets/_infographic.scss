@@ -277,15 +277,15 @@ $icon-share-white: "\e924";
 
         .c3-defocused{
             .c3-line{
-                stroke: $light-blue !important;
+                stroke: $off-white !important;
             }
             .c3-area{
-                fill: $light-blue !important;
+                fill: $off-white !important;
             }
         }
 
         line {
-            stroke: $light-blue;
+            stroke: $off-white;
         }
 
         path {
@@ -298,7 +298,7 @@ $icon-share-white: "\e924";
         }
 
         text {
-            fill: $light-blue;
+            fill: $off-white;
         }
 
         .c3-axis-x, .c3-axis-y {

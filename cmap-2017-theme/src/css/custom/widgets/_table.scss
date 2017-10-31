@@ -13,7 +13,7 @@
   }
   
   tr{
-    border-bottom: 1px solid $light-blue;
+    border-bottom: 1px solid $off-white;
 
     td:hover{
       background: $white;
@@ -32,7 +32,8 @@
 
   th{
     height: auto;
-    @extend .whitney-normal__light-blue;
+    @extend .whitney-normal;
+    color: $off-white-text;
 
     &:hover{
       text-shadow: 0 0 5px white;

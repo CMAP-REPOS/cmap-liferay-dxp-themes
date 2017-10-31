@@ -6,7 +6,7 @@
   }
 
   header{
-    $border: 1px solid $light-blue;
+    $border: 1px solid $off-white;
     border-top: $border;
     border-bottom: $border;
 
@@ -48,7 +48,7 @@
       width: $size;
       height: $size;
       border-radius: 50%;
-      background: $light-blue;
+      background: $off-white;
       margin-right: $size-2;
       transition: all 0.2s ease-in;
       cursor: pointer;
@@ -60,7 +60,7 @@
         background: $primary;
       }
       &:hover{
-        background: saturate($light-blue, 20%);
+        background: saturate($off-white, 20%);
       }
     }
   }

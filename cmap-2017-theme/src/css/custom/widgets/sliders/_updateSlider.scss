@@ -4,7 +4,8 @@
     padding: $unit * 2 0 0;
 
     .item-date{
-      @extend .whitney-normal__light-blue;
+      @extend .whitney-normal;
+      color: $off-white-text;
     }
     .item-title{
       @extend .whitney-bold;
@@ -15,7 +16,8 @@
     }
 
     p{
-      @extend .whitney-normal__light-blue;
+      @extend .whitney-normal;
+      color: $off-white-text;
       margin: $unit 0;
     }
 

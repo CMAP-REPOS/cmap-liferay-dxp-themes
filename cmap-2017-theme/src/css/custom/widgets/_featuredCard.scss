@@ -26,7 +26,7 @@ $top: 42%;
 
 section.featured-card{
   padding: $unit 0;
-  background: $light-blue;
+  background: $off-white;
   overflow: hidden;
   transition: all 0.2s ease;
 
@@ -58,7 +58,7 @@ section.featured-card{
   }
 
   &:hover{
-    background: saturate($light-blue, 15%);
+    background: saturate($off-white, 15%);
 
     .featured-card-img{
       transform: translateX(-50%) translateY(0) rotate(0deg);

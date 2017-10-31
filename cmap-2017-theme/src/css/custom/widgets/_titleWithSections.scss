@@ -26,7 +26,8 @@
     display: flex;
     align-items: center;
     h3,h4{
-      @extend .whitney-normal__light-blue;
+      @extend .whitney-normal;
+      color: $off-white-text;
       padding-top: 0.25em;
     }
   }
@@ -41,12 +42,12 @@
     }
   }
   .page-nav-title{
-    border-bottom: 1px solid $light-blue;
+    border-bottom: 1px solid $off-white;
   }
   .page-nav-item{
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $light-blue;
+    border-bottom: 1px solid $off-white;
 
     &:last-of-type{
       border-bottom: 0;

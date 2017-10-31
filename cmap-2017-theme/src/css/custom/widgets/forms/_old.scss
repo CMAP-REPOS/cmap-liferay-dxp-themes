@@ -1,0 +1,1280 @@
+// Large dump of compiled CSS from the front-end of the site
+// no idea where these files are to get the scss code
+
+.form-builder-field-toolbar,
+.form-builder-field-toolbar-toggle {
+  z-index: 20;
+}
+
+.form-builder-field-toolbar {
+  margin-top: 16px;
+  min-width: 200px;
+  z-index: 750;
+}
+
+.form-builder-field-toolbar .lexicon-icon {
+  margin-top: -3px;
+}
+
+.form-builder-field-toolbar .btn,
+.form-builder-field-toolbar .btn:hover {
+  border-width: 0;
+}
+
+.form-builder-field-toolbar .btn {
+  color: #65B3F0;
+}
+
+.form-builder-field-toolbar .lexicon-icon {
+  opacity: 0.5;
+}
+
+.form-builder-field-toolbar .btn:hover .lexicon-icon {
+  opacity: 1;
+}
+
+.form-builder-field-toolbar-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.form-builder-field-toolbar-items {
+  float: right;
+  z-index: 500;
+}
+
+.form-builder-field-toolbar-item {
+  width: 48px;
+}
+
+.form-builder-field-move-target:last-child {
+  margin-top: -22px;
+}
+
+.form-builder-field-move-target.between-fields {
+  margin-top: -12px;
+}
+
+.form-builder-moving-message {
+  background-color: rgba(234, 238, 240, 0.8);
+  border-radius: 3px;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.form-builder-moving-message-dismiss-button {
+  margin-top: 33px;
+}
+
+.layout-builder-move-cut-button.layout-builder-move-cut-row-button {
+  background: #FFF;
+  border: 1px solid #65B6F0;
+  height: auto;
+  padding: 0;
+  right: 30px;
+  top: -22px;
+  width: auto;
+  z-index: 10;
+}
+
+.layout-builder-move-cut-button.layout-builder-move-cut-row-button .lexicon-icon {
+  color: #65B6F0;
+  margin: 10px;
+}
+
+.layout-builder-move-cut-button.layout-builder-move-cut-row-button:hover {
+  background: #65B6F0;
+}
+
+.layout-builder-move-cut-button.layout-builder-move-cut-row-button:hover .lexicon-icon {
+  color: #FFF;
+}
+
+.layout-builder-moving:hover .layout-builder-move-cut-row-button.layout-builder-move-cancel {
+  display: none;
+}
+
+.tool-tip-cut-row.tool-tip-white .tooltip-content {
+  background-color: #FFF;
+  color: #869CAD;
+}
+
+.tool-tip-cut-row.tool-tip-white.top .tooltip-arrow {
+  border-top-color: #FFF;
+}
+
+.lfr-ddl-form-builder-field-types-modal {
+  height: 100%;
+  margin: 0;
+  outline: none;
+  width: 100%;
+}
+
+.lfr-ddl-form-builder-field-types-modal.lfr-ddl-form-builder-field-types-modal-hidden {
+  display: none;
+}
+
+.lfr-ddl-form-builder-field-types-modal .form-builder-field-types-list {
+  margin-top: 10px;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body {
+  background-color: #FFF;
+  padding: 15px 25px 18px 25px;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type {
+  border-radius: 5px;
+  padding: 20px 0;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type:hover {
+  background-color: #E8F1F7;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type .field-type-icon,
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type .field-type-label {
+  color: #879CAC;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type .field-type-icon {
+  font-size: 0;
+  margin: 0 0 10px;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type .field-type-icon .lexicon-icon {
+  height: 18px;
+  width: 18px;
+}
+
+.lfr-ddl-form-builder-field-types-modal .modal-body .field-type .field-type-label {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: initial;
+  margin: 8px 0 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .lfr-ddl-form-builder-field-types-modal {
+    max-height: 550px;
+    width: 392px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .lfr-ddl-form-builder-field-types-modal {
+    width: 500px;
+  }
+  .lfr-ddl-form-builder-field-types-modal .field-type {
+    float: none;
+    width: auto;
+  }
+}
+
+.dynamic-content-height .modal-body {
+  overflow: auto;
+}
+
+.liferay-ddl-form-builder-modal-hidden {
+  display: none;
+}
+
+.ddl-form-builder-buttons .icon-spinner,
+.lfr-ddm-form-pagination-controls .icon-spinner,
+.ddl-form-settings-modal .btn-toolbar-button .icon-spinner,
+.lfr-ddl-field-settings-modal .btn-toolbar-button .icon-spinner {
+  line-height: 21px;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.ddl-form-settings-modal .btn,
+.ddl-publish-modal .btn,
+.dynamic-data-mapping-data-providers-modal .btn,
+.lfr-ddl-field-settings-modal .btn {
+  transition: opacity 0.5s;
+}
+
+.ddl-form-settings-modal .modal-body,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-body,
+.publish-modal-container .modal-body {
+  background-color: #FFF;
+}
+
+.ddl-publish-modal .alert-info {
+  text-align: center;
+}
+
+.ddl-publish-modal .ddl-publish-checkbox {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.ddl-publish-modal .ddl-publish-checkbox small {
+  display: block;
+}
+
+.ddl-publish-modal .ddl-publish-checkbox>span {
+  margin-bottom: 0.4em;
+  margin-top: 0.4em;
+}
+
+.ddl-publish-modal .input-checkbox-wrapper {
+  float: right;
+  margin-bottom: 0;
+}
+
+.ddl-publish-modal .lfr-ddm-repeatable-delete-button {
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.ddl-publish-modal select.form-control[multiple] {
+  height: auto;
+}
+
+.ddl-publish-modal .text-to-copy {
+  background-color: transparent;
+}
+
+.ddl-publish-modal .toggle-switch {
+  display: none;
+}
+
+.dynamic-data-mapping-data-providers-modal {
+  max-width: 720px;
+}
+
+.dynamic-data-mapping-data-providers-modal .modal-content {
+  z-index: 1;
+}
+
+.form-builder-page-manager-popover-header .popover-content {
+  padding: 7px 21px;
+}
+
+.form-builder-page-manager-popover-header li {
+  color: #869CAD;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 16px;
+  list-style-type: none;
+  padding: 11px 0;
+}
+
+.form-builder-page-manager-popover-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+.form-builder-page-manager-popover-header.popover.left>.arrow {
+  margin-left: 19px;
+}
+
+.lfr-ddl-field-settings-confirmation-message {
+  margin: 0;
+  padding: 35px;
+  text-align: center;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    top: -50px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings:focus {
+  outline: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .alloy-editor {
+  padding-right: 4px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .form-group {
+  margin-bottom: 40px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .has-error .key-value-editor {
+  display: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor.active .key-value-cancel,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor.active .key-value-done,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor.active .key-value-input {
+  display: inline-block;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor.active .key-value-output {
+  display: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-cancel,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-done,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-input {
+  display: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-cancel,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-done {
+  font-weight: bold;
+  margin-left: 25px;
+  text-transform: uppercase;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-label {
+  color: #C4CFD6;
+  margin-right: 5px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-cancel,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-done,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-input,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-label,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-output {
+  font-size: inherit;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-input {
+  border-width: 0;
+  margin: 0;
+  outline: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-input,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .key-value-editor .key-value-output {
+  color: #869CAD;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-checkbox,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-field-validation {
+  margin-bottom: 20px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-checkbox .form-group,
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-field-validation .form-group {
+  line-height: 0;
+  margin-bottom: 0;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-key-value {
+  margin-bottom: 20px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-key-value .help-block {
+  height: 22px;
+  position: relative;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .close {
+  font-size: inherit;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .drag-handle {
+  color: #C3CFD8;
+  cursor: pointer;
+  font-size: inherit;
+  position: absolute;
+  top: 12px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .drag-handle:hover {
+  font-weight: bold;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .drag-placeholder {
+  opacity: 0.5;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .last-option:not(:first-of-type) {
+  -webkit-animation: fade-down 0.7s ease;
+  -moz-animation: fade-down 0.7s ease;
+  animation: fade-down 0.7s ease;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .last-option .close {
+  display: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .liferay-ddm-form-field-key-value {
+  margin-left: 30px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-options .lfr-ddm-form-field-repeatable-toolbar {
+  display: none;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .liferay-ddm-form-field-text textarea+.input-group-addon {
+  vertical-align: bottom;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container {
+  position: relative;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container .lfr-form-row {
+  border-width: 0;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container .lfr-form-row:hover {
+  padding-top: 5px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container .lfr-form-row .lfr-autorow-controls {
+  bottom: 0;
+  right: 0;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container .lfr-form-row .lfr-autorow-controls .add-row {
+  margin-right: 3px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-field-container .toggle-switch-bar .toggle-switch-handle {
+  text-transform: none;
+  word-break: break-word;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-page.active, .lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-page.basic {
+  padding: 25px 35px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-page.active.advanced {
+  display: block;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .lfr-ddm-form-container .lfr-ddm-form-page.advanced {
+  background-color: #F5F8FA;
+  display: none;
+  padding: 20px 35px;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .settings-toggler {
+  background-color: #F5F8FA;
+  color: #879CB5;
+  font-weight: 500;
+  padding: 18px 35px;
+  position: static;
+  text-align: left;
+  width: 100%;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .settings-toggler .settings-toggle-label {
+  float: left;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-builder-field-settings-content .settings-toggler .settings-toggle-icon {
+  float: right;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .form-inline .checkbox label {
+  padding-left: 0;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-title {
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 1200px) {
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-body {
+    max-height: 451px;
+  }
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-content.form-builder-field-settings-content {
+    padding-bottom: inherit;
+    padding-top: 0;
+  }
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-header {
+    position: static;
+  }
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-content.form-builder-field-settings-content {
+  border-radius: 0;
+  border-width: 0;
+  height: 100%;
+  padding-bottom: 85px;
+  padding-top: 62px;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-content.form-builder-field-settings-content {
+    border-radius: 4px;
+    padding-bottom: 80px;
+  }
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-footer .btn {
+  width: auto;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .modal-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.lfr-ddl-field-settings-modal.form-builder-field-settings .radio-inline {
+  margin-right: 125px;
+}
+
+.lfr-ddl-field-settings-modal .form-control,
+.portlet-forms .form-control {
+  font-size: $size0;
+}
+
+@media only screen and (min-width: 768px) {
+  .lfr-ddl-field-settings-modal .form-control,
+  .portlet-forms .form-control {
+    font-size: $size0;
+  }
+}
+
+.lfr-ddl-field-settings-modal .help-block,
+.portlet-forms .help-block {
+  font-size: inherit;
+}
+
+.lfr-ddl-field-settings-modal .icon-asterisk,
+.portlet-forms .icon-asterisk {
+  margin-left: 4px;
+}
+
+.lfr-ddl-field-settings-modal .liferay-ddm-form-field-editor .form-control-feedback,
+.portlet-forms .liferay-ddm-form-field-editor .form-control-feedback {
+  margin-top: -25px;
+  position: absolute;
+  z-index: 2;
+}
+
+.lfr-ddl-field-settings-modal .radio-inline,
+.portlet-forms .radio-inline {
+  padding-top: 11px;
+}
+
+.lfr-ddl-field-settings-modal .radio-inline+.radio-inline,
+.portlet-forms .radio-inline+.radio-inline {
+  margin-left: 0;
+}
+
+.lfr-ddl-field-settings-yes {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.portal-popup .alert,
+.portlet-forms-admin .alert {
+  margin: 0;
+}
+
+.portal-popup .asset-icon .lexicon-icon,
+.portlet-forms-admin .asset-icon .lexicon-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.portal-popup .checkbox,
+.portal-popup .radio,
+.portlet-forms-admin .checkbox,
+.portlet-forms-admin .radio {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.portal-popup .ddl-form-basic-info,
+.portlet-forms-admin .ddl-form-basic-info {
+  background-color: #869CAD;
+  min-height: 300px;
+  padding-bottom: 187px;
+}
+
+.portal-popup .ddl-form-basic-info h1,
+.portal-popup .ddl-form-basic-info h2,
+.portal-popup .ddl-form-basic-info h3,
+.portal-popup .ddl-form-basic-info h4,
+.portal-popup .ddl-form-basic-info h5,
+.portal-popup .ddl-form-basic-info h6,
+.portlet-forms-admin .ddl-form-basic-info h1,
+.portlet-forms-admin .ddl-form-basic-info h2,
+.portlet-forms-admin .ddl-form-basic-info h3,
+.portlet-forms-admin .ddl-form-basic-info h4,
+.portlet-forms-admin .ddl-form-basic-info h5,
+.portlet-forms-admin .ddl-form-basic-info h6 {
+  margin: 0;
+}
+
+.portal-popup .ddl-form-basic-info .ae-placeholder:empty:before,
+.portlet-forms-admin .ddl-form-basic-info .ae-placeholder:empty:before {
+  content: attr(data-placeholder);
+}
+
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder,
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus),
+.portal-popup .ddl-form-basic-info .ddl-form-name,
+.portal-popup .ddl-form-basic-info .ddl-form-description,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus),
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-name,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-description {
+  border-width: 0;
+  color: #FFF;
+  margin: 0;
+  padding-left: 0;
+}
+
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder .help-block,
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus) .help-block,
+.portal-popup .ddl-form-basic-info .ddl-form-name .help-block,
+.portal-popup .ddl-form-basic-info .ddl-form-description .help-block,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder .help-block,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus) .help-block,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-name .help-block,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-description .help-block {
+  top: -15px;
+}
+
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder p,
+.portal-popup .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus) p,
+.portal-popup .ddl-form-basic-info .ddl-form-name p,
+.portal-popup .ddl-form-basic-info .ddl-form-description p,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder p,
+.portlet-forms-admin .ddl-form-basic-info .alloy-editor.alloy-editor-placeholder:empty:not(:focus) p,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-name p,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-description p {
+  margin: 0;
+}
+
+.portal-popup .ddl-form-basic-info .ddl-form-name,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-name {
+  font-weight: 300;
+  padding: 52px 0 0 0;
+}
+
+.portal-popup .ddl-form-basic-info .ddl-form-name p,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-name p {
+  margin: 0;
+}
+
+.portal-popup .ddl-form-basic-info .ddl-form-description,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-description {
+  font-weight: normal;
+  padding: 17px 0 0 0;
+}
+
+.portal-popup .ddl-form-basic-info .ddl-form-description p,
+.portlet-forms-admin .ddl-form-basic-info .ddl-form-description p {
+  margin: 0;
+}
+
+.portal-popup .ddl-form-builder-app,
+.portlet-forms-admin .ddl-form-builder-app {
+  margin-top: -120px;
+}
+
+.portal-popup .ddl-form-builder-app .form-builder-content,
+.portal-popup .ddl-form-builder-app .lfr-ddm-form-content,
+.portlet-forms-admin .ddl-form-builder-app .form-builder-content,
+.portlet-forms-admin .ddl-form-builder-app .lfr-ddm-form-content {
+  background: #FFF;
+  border: 1px solid #DCE0E3;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px rgba(188, 197, 204, 0.3);
+  margin: 0 auto;
+  width: auto;
+}
+
+.portal-popup .ddl-form-builder-app .form-builder-field-list-empty .form-builder-field-list-add-button,
+.portlet-forms-admin .ddl-form-builder-app .form-builder-field-list-empty .form-builder-field-list-add-button {
+  padding: 16px 0;
+  position: relative;
+}
+
+.portal-popup .ddl-form-builder-app .liferay-ddm-form-field-text textarea,
+.portlet-forms-admin .ddl-form-builder-app .liferay-ddm-form-field-text textarea {
+  resize: none;
+}
+
+.portal-popup .ddl-form-builder-app .toggle-switch-text,
+.portlet-forms-admin .ddl-form-builder-app .toggle-switch-text {
+  word-break: break-word;
+}
+
+.portal-popup .form-builder-tabview,
+.portal-popup .lfr-ddm-form-wizard,
+.portlet-forms-admin .form-builder-tabview,
+.portlet-forms-admin .lfr-ddm-form-wizard {
+  border-bottom: 1px solid #DEE4E9;
+  padding: 20px 34px 11px 34px;
+  position: relative;
+}
+
+.portal-popup .record-set-id, .portal-popup .record-set-modified-date,
+.portlet-forms-admin .record-set-id,
+.portlet-forms-admin .record-set-modified-date {
+  margin-right: 20px;
+}
+
+.portal-popup .portlet-column {
+  padding: 0;
+}
+
+.portal-popup .required-warning {
+  margin-left: 34px;
+  margin-right: 34px;
+}
+
+.portal-popup .lfr-ddm-form-page .required-warning {
+  margin-top: -16px;
+}
+
+.portlet-forms label {
+  float: initial;
+}
+
+.portlet-forms .aspect-ratio img {
+  top: 0;
+}
+
+.portlet-forms .btn {
+  transition: opacity 0.5s;
+}
+
+.portlet-forms .control-label {
+  float: none;
+  margin-bottom: 0;
+  word-wrap: break-word;
+}
+
+.portlet-forms .ddl-form-builder-buttons {
+  margin-bottom: 0;
+}
+
+.portlet-forms .ddl-form-description {
+  font-size: inherit;
+  line-height: 24px;
+  word-break: break-all;
+}
+
+.portlet-forms .ddl-form-name {
+  word-break: break-all;
+}
+
+.portlet-forms .form-builder-field-list-container {
+  hyphens: auto;
+  padding: 0;
+  word-break: break-all;
+}
+
+.portlet-forms .form-builder-page-header {
+  padding-top: 25px;
+}
+
+.portlet-forms .form-builder-page-header-description,
+.portlet-forms .form-builder-page-header-title,
+.portlet-forms .lfr-ddm-form-page-description,
+.portlet-forms .lfr-ddm-form-page-title {
+  color: #728694;
+  font-weight: normal;
+  resize: none;
+  word-break: break-all;
+}
+
+.portlet-forms .form-builder-page-header-description,
+.portlet-forms .lfr-ddm-form-page-description {
+  font-size: inherit;
+}
+
+.portlet-forms .form-group {
+  margin: 0;
+}
+
+.portlet-forms .lfr-ddm-form-page-description {
+  margin-top: 9px;
+}
+
+.portlet-forms .lfr-ddm-form-field-container {
+  border-radius: 0;
+  border-width: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 23px 0 31px 0;
+}
+
+.portlet-forms .liferay-ddm-form-field-paragraph p {
+  margin-top: 14px;
+}
+
+.portlet-forms .liferay-ddm-form-field-tip {
+  margin: 0;
+}
+
+.portlet-forms .lfr-ddm-form-page-title {
+  font-size: inherit;
+  margin-bottom: 9px;
+  margin-top: 0;
+}
+
+.portlet-forms .checkbox-multiple-options .checkbox-multiple-switcher-inline {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  margin: 5px 15px 0 0;
+  padding-left: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+.portlet-forms .multi-step-progress-bar .progress-bar-title {
+  word-break: break-all;
+}
+
+.portlet-forms .radio-inline {
+  margin-right: 10%;
+}
+
+.portlet-forms .required-warning {
+  display: block;
+  font-weight: inherit;
+  margin-top: -17px;
+  text-align: left;
+}
+
+.portlet-forms .help-block,
+.lfr-ddl-field-settings-modal .help-block {
+  font-size: inherit;
+}
+
+.portlet-forms .lfr-ddm-form-field-validation .row,
+.lfr-ddl-field-settings-modal .lfr-ddm-form-field-validation .row {
+  margin: 0;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar,
+.portlet-forms-admin .form-builder-field-toolbar-toggle {
+  z-index: 20;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar {
+  margin-top: 16px;
+  min-width: 200px;
+  z-index: 750;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar .lexicon-icon {
+  margin-top: -3px;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar .btn,
+.portlet-forms-admin .form-builder-field-toolbar .btn:hover {
+  border-width: 0;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar .btn {
+  color: #65B3F0;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar .lexicon-icon {
+  opacity: 0.5;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar .btn:hover .lexicon-icon {
+  opacity: 1;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar-items {
+  float: right;
+  z-index: 500;
+}
+
+.portlet-forms-admin .form-builder-field-toolbar-item {
+  width: 48px;
+}
+
+.portlet-forms-admin .aspect-ratio img {
+  top: 0;
+}
+
+.portlet-forms-admin .form-builder-content .layout-builder-layout-container {
+  margin-bottom: 0;
+}
+
+.portlet-forms-admin .form-builder-controls-trigger,
+.portlet-forms-admin .form-builder-controls-trigger.disabled:hover {
+  color: #B0BEC9;
+}
+
+.portlet-forms-admin .form-builder-controls-trigger {
+  display: block;
+  font-size: inherit;
+  line-height: 0;
+  padding: 32px;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  top: 0;
+}
+
+.portlet-forms-admin .form-builder-controls-trigger.disabled {
+  cursor: not-allowed;
+}
+
+.portlet-forms-admin .form-builder-controls-trigger:hover {
+  color: #4A90E2;
+}
+
+.portlet-forms-admin .form-builder-field {
+  border-radius: 0;
+  border-width: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button {
+  border-width: 0;
+  width: 100%;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button.disabled .form-builder-field-list-add-button-label,
+.portlet-forms-admin .form-builder-field-list-add-button.disabled .form-builder-field-list-add-button-icon,
+.portlet-forms-admin .form-builder-field-list-add-button[disabled] .form-builder-field-list-add-button-label,
+.portlet-forms-admin .form-builder-field-list-add-button[disabled] .form-builder-field-list-add-button-icon {
+  opacity: 1;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button-icon,
+.portlet-forms-admin .form-builder-field-list-add-button-label {
+  cursor: inherit;
+  transition: opacity 0.5s;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button-icon {
+  position: relative;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button-icon .lexicon-icon {
+  height: 10px;
+  width: 10px;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button-label {
+  color: #4A90E2;
+}
+
+.portlet-forms-admin .form-builder-field+.form-builder-field-list-add-container {
+  margin-top: -22px;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-container.between-fields {
+  margin-top: -12px;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-list-add-button-icon {
+  margin-top: 5px;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-list-add-button-icon .lexicon-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-list-add-button-label {
+  padding-top: 0;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-list-add-container,
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-move-target {
+  margin: 10px 0;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-list-container {
+  padding: 0;
+}
+
+.portlet-forms-admin .form-builder-field-list-empty .form-builder-field-move-target {
+  padding: 37px 0 37px 0;
+}
+
+.portlet-forms-admin .form-builder-header {
+  display: none;
+}
+
+.portlet-forms-admin .form-builder-header-title {
+  display: none;
+}
+
+.portlet-forms-admin .form-builder-layout {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  width: auto;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-builder-add-row-area {
+  margin: 0;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-row-container-row {
+  margin-bottom: 0;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row {
+  border-width: 0;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col {
+  border-radius: 0;
+  border-width: 0;
+  min-height: 50px;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col .layout-col-content {
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col .form-group {
+  min-height: 40px;
+}
+
+@media only screen and (min-width: 992px) {
+  .portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col .layout-col-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col:first-of-type .layout-col-content {
+    padding-left: 34px;
+  }
+  .portlet-forms-admin .form-builder-layout .layout-row-container-row .layout-row .col.last-col .layout-col-content {
+    padding-right: 34px;
+  }
+}
+
+.portlet-forms-admin .form-builder-pages {
+  padding-bottom: 0;
+}
+
+.portlet-forms-admin .form-builder-pages li.active a {
+  z-index: 0;
+}
+
+.portlet-forms-admin .form-builder-page-header {
+  padding-right: 62px;
+  position: relative;
+}
+
+.portlet-forms-admin .form-builder-pages-header {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 34px;
+  padding-right: 0;
+  width: auto;
+}
+
+.portlet-forms-admin .form-builder-pages-header .form-builder-page-header-description,
+.portlet-forms-admin .form-builder-pages-header .form-builder-page-header-title {
+  display: block;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+}
+
+.portlet-forms-admin .form-builder-pages-header .form-builder-page-header-description {
+  margin-top: -19px;
+  padding-top: 0;
+}
+
+.portlet-forms-admin .form-builder-pages-header .form-builder-page-header-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.portlet-forms-admin .form-builder-pages-header textarea {
+  border-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.portlet-forms-admin .form-builder-pages-header textarea:focus {
+  box-shadow: none;
+}
+
+.portlet-forms-admin .form-builder-page-manager-content {
+  border-top: 1px solid #DCE0E3;
+}
+
+.portlet-forms-admin .form-builder-page-manager-content .form-builder-controls-trigger {
+  margin: 0;
+  padding: 29px;
+}
+
+.portlet-forms-admin .form-builder-pages-lexicon {
+  position: relative;
+  text-align: center;
+}
+
+.portlet-forms-admin .form-builder-pages-lexicon .form-builder-pagination {
+  margin: 0;
+}
+
+.portlet-forms-admin .form-builder-tabview {
+  padding-right: 70px;
+}
+
+.portlet-forms-admin .form-builder-tabview .form-builder-controls-trigger {
+  margin: 0;
+  top: 18px;
+}
+
+.portlet-forms-admin .form-control[readonly],
+.portlet-forms-admin .form-control[disabled],
+.portlet-forms-admin input[type='checkbox'],
+.portlet-forms-admin input[type='radio'] {
+  background-color: transparent;
+  border-color: #869CAD;
+  color: initial;
+  cursor: default;
+  opacity: 1;
+}
+
+.portlet-forms-admin .form-builder-field-list-add-button-label,
+.portlet-forms-admin .form-builder-field-move-target-label,
+.portlet-forms-admin .layout-builder-move-target-label {
+  font-size: inherit;
+}
+
+.portlet-forms-admin input.toggle-switch {
+  display: none;
+}
+
+.portlet-forms-admin input.toggle-switch:disabled~.toggle-switch-bar {
+  opacity: 1;
+}
+
+.portlet-forms-admin .layout-builder-remove-row-button {
+  background: #FFF;
+  border: 1px solid #65B6F0;
+  height: auto;
+  padding: 0;
+  top: -22px;
+  width: auto;
+  z-index: 10;
+}
+
+.portlet-forms-admin .layout-builder-remove-row-button .lexicon-icon {
+  color: #65B6F0;
+  margin: 10px;
+}
+
+.portlet-forms-admin .layout-builder-remove-row-button:hover {
+  background: #65B6F0;
+}
+
+.portlet-forms-admin .layout-builder-remove-row-button:hover .lexicon-icon {
+  color: #FFF;
+}
+
+.portlet-forms-admin .layout-builder-move-row-target {
+  margin-left: 34px;
+  margin-right: 34px;
+}
+
+.portlet-forms-admin .layout-builder-remove-row-button {
+  right: -20px;
+}
+
+.portlet-forms-admin .layout-builder-resize-col-draggable-handle .glyphicon-chevron-left {
+  left: 6px;
+}
+
+.portlet-forms-admin .lfr-ddm-repeatable-add-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.portlet-forms-admin .lfr-ddm-repeatable-delete-button {
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.portlet-forms-admin .liferay-ddm-form-renderer-wizard-disabled .liferay-ddm-form-renderer-wizard-navigation-allowed>li {
+  cursor: not-allowed;
+}
+
+.portlet-forms-admin .liferay-ddm-form-renderer-wizard-navigation-allowed>li {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .lfr-ddl-field-settings-modal.form-builder-field-settings {
+    height: auto;
+    margin-bottom: 85px;
+    margin-top: 85px;
+    width: 390px;
+  }
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-body {
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .lfr-ddl-field-settings-modal.form-builder-field-settings {
+    height: auto;
+    margin-bottom: 85px;
+    margin-top: 85px;
+    padding: 0;
+    width: 720px;
+  }
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-content.form-builder-field-settings-content {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-footer,
+  .lfr-ddl-field-settings-modal.form-builder-field-settings .modal-header {
+    position: relative;
+  }
+}
