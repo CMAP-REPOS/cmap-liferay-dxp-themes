@@ -49,10 +49,12 @@
 			</#list>
 		</ul>
 
-		<input type="text" id="staffdirectory-search-text" placeholder="Search by name" />
-		<a id="staffdirectory-search-button" href="#"><i class="fa fa-search"></i></a>
-		<select id="staffdirectory-department-filter" class="staffdirectory-department-filter">
-			<option value="All">Show Department...</option>
+		<label class="sr-only" for="staffdirectory-search-text">Search by name</label>
+		<input type="text" id="staffdirectory-search-text" class="form-control" placeholder="Search by name" />
+
+		<label class="sr-only" for="staffdirectory-department-filter">Filter by departmentt</label>
+		<select id="staffdirectory-department-filter" class="staffdirectory-department-filter form-control">
+			<option value="All" selected="selected">Show all departments</option>
 			<#list departmentArray as i>
 			<option value="${i}">${i}</option>
 			</#list>
@@ -85,7 +87,6 @@
 				<#assign emailList = i.Email?trim?split("(?!^)","r")>
 			</#if>
 
-
 			<div class="staff-member-row row" 
 				data-searchtext="${i.LastName?lower_case}, ${i.FirstName?lower_case}" 
 				data-department="${i.Department}"
@@ -101,7 +102,7 @@
 					</#if>
 					<div class="staff-member-detail">
 						<#if i.Photo != "">
-						<img class="staff-member-photo" src="http://www.cmap.illinois.gov/${i.Photo}" />
+						<img class="staff-member-photo" src="http://www.cmap.illinois.gov/${i.Photo}" alt="Photo of ${StaffName}" />
 						</#if>
 					</div>	
 				</div>	
@@ -249,12 +250,6 @@ cmap.staffDirectory.bindEvents = function () {
     
     $('#staffdirectory-department-filter').on('change', function () {
         cmap.staffDirectory.filterState.department = $(this).val();
-        cmap.staffDirectory.executeFilter();
-    });
-    
-    $('#staffdirectory-search-button').on('click', function(e) {
-        e.preventDefault();
-        cmap.staffDirectory.filterState.name = $('#staffdirectory-search-text').val();
         cmap.staffDirectory.executeFilter();
     });
     
