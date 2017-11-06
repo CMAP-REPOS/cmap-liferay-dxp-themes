@@ -36,6 +36,10 @@
   </#attempt>
 </#if>
 
+<#if OptionalBeforeContent?? && OptionalBeforeContent.getData()?? && OptionalBeforeContent.getData() != "">
+${OptionalBeforeContent.getData()}
+</#if>
+
 <section class="featured-card" id="${randomNamespace}-featured-card">
   <div class="row">
     <div class="col-xl-8">
@@ -94,6 +98,10 @@
     </div>
   </div>
 </section>
+
+<#if OptionalAfterContent?? && OptionalAfterContent.getData()?? && OptionalAfterContent.getData() != "">
+${OptionalAfterContent.getData()}
+</#if>
 
 <script>
 $(function() {
