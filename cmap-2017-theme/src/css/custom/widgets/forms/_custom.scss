@@ -19,34 +19,74 @@
     font-size: $size-1;
     @extend .whitney-normal;
     color: $off-white-text;
+    margin-bottom: $size-2;
+  }
+
+  .required-warning{
+    margin-top: $size0;
+    margin-bottom: 0;
+  }
+
+  .lfr-ddm-form-submit{
+    @extend .whitney-bold;
+    background: $dark-blue;
+    padding: $size-1 $size1;
+    padding-right: $size3;
+    border-radius: $size1;
+    border: none;
   }
 }
 
 .contact-us-page {
-  .lfr-ddm-form-page {
+  .lfr-ddm-form-container{
     .row {
       .col-xl-8 {
         &:first-of-type {
-          padding-left: 0;
+          padding-left: 0 !important;
         }
         &:last-of-type {
-          padding-right: 0;
+          padding-right: 0 !important;
         }
       }
     }
   }
 
   header{
-    margin-bottom: $size0;
     hr{
       margin: $size0 0 $size-2;
       border-top: 1px solid $off-white;
     }
   }
+
+  .lfr-ddm-form-container{
+    .lfr-ddm-form-page{
+      padding: 0;
+    }
+
+    .lfr-ddm-form-pagination-controls{
+      padding-top: $size0;
+    }
+  }
 }
+
+
 
 .text-warning {
   color: $red;
+}
+
+label,
+.control-label {
+  font-size: $size-1;
+  font-weight: 600;
+  color: $off-white-text;
+  margin-top: $size0;
+  margin-bottom: $size-2 !important;
+
+  @media (min-width: 768px) {
+    font-size: $size-1;
+    color: $off-white-text;
+  }
 }
 
 // Base form element styles
@@ -95,17 +135,4 @@ select.form-control {
 }
 .has-error {
   @include form-control-validation($red, $red, $white);
-}
-
-label,
-.control-label {
-  font-size: $size-1;
-  font-weight: 600;
-  color: $off-white-text;
-  margin-bottom: $size-1;
-
-  @media (min-width: 768px) {
-    font-size: $size-1;
-    color: $off-white-text;
-  }
 }

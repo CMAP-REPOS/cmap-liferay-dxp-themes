@@ -178,7 +178,7 @@ legend {
 .help-block {
   display: block;
   margin-top: $size-2;
-  margin-bottom: $size0;
+  margin-bottom: 0;
   color: lighten($text-color, 25%); // lighten the text some for contrast
 }
 
