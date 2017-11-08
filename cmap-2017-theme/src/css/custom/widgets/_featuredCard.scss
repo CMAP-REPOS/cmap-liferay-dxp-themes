@@ -1,38 +1,11 @@
 
 $top: 42%;
 
-@keyframes normalize-feature-card{
-  0%{
-    transform: translateX(-50%) translateY($top) rotate(-25deg);
-  }
-  50%{
-    transform: translateX(-50%) translateY($top) rotate(0);
-  }
-  100%{
-    transform: translateX(-50%) translateY(0) rotate(0);
-  }
-}
-@keyframes normalize-feature-card{
-  0%{
-    transform: translateX(-50%) translateY(0) rotate(0);
-  }
-  50%{
-    transform: translateX(-50%) translateY($top) rotate(0);
-  }
-  100%{
-    transform: translateX(-50%) translateY($top) rotate(-25deg);
-  }
-}
-
 section.featured-card{
   padding: $unit 0;
   background: $off-white;
   overflow: hidden;
   transition: all 0.2s ease;
-
-  .row{
-    // @include section-padding();
-  }
 
   .featured-card-img-link{
     display: block;
@@ -41,27 +14,40 @@ section.featured-card{
   .featured-card-img{
     position: relative;
     left: 50%;
-    width: 42%;
-    transition: all 0.4s ease-in-out;
-    transform: translateX(-50%) translateY($top) rotate(-25deg);
+    width: 40%;
+    transition: all 0.4s cubic-bezier(0.22, 0.52, 0.58, 1);
+    transform: translateX(-50%) translateY(120%) rotate(-90deg);
   }
+
   .featured-card-title{
     @extend .whitney-bold;
-    margin: $size0 0;
   }
+
   .featured-card-cta{
     display: flex;
+    margin-top: $size-3;
+    @extend .whitney-normal;
+    line-height: 1;
+  }
+
+  .underline-link{
+    border-bottom: $light-blue;
+  }
+
+  .file-extension{
+    text-transform: uppercase;
   }
 
   .file-icon{
     display: inline-block;
+    margin-right: $size-3;
   }
 
   &:hover{
     background: saturate($off-white, 15%);
 
     .featured-card-img{
-      transform: translateX(-50%) translateY(0) rotate(0deg);
+      transform: translateX(-50%) translateY($top) rotate(-25deg);
     }
   }
 }

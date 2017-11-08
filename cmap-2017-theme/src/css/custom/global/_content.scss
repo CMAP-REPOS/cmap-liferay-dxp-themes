@@ -7,8 +7,12 @@
     @extend .whitney-huge;
   }
   h2 {
+    @extend .whitney-large__bold;
+  }
+  h3{
     @extend .whitney-bold;
   }
+
   h3, h4, h5, h6 {
     @extend .whitney-bold;
     color: $off-white-text;
@@ -20,7 +24,14 @@
   p {
     margin-bottom: $size0;
   }
+  h1,h2,h3{
+    margin-top: $size-4;
+    margin-bottom: $size-2;
+  }
   p, ul {
     max-width: 37em;
+  }
+  a{
+    @extend .underline-link;
   }
 }
