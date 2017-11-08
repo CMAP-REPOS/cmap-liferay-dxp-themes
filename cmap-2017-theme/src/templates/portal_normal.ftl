@@ -11,8 +11,6 @@
 
 	<link rel="canonical" href="${theme_display.getURLPortal() + theme_display.getURLCurrent()}" />
 
-	<#-- <#assign url = portalUtil.getCurrentURL(portletRequest)> -->
-	<#-- <link rel="canonical" href="${url}" /> -->
   <link href="https://cloud.webtype.com/css/2f300d46-99ee-4656-bf09-870688012aaf.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
 

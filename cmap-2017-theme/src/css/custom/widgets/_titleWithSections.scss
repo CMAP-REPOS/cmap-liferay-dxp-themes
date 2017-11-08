@@ -14,10 +14,10 @@
     align-items: flex-end;
     margin-bottom: $unit;
     h1{
-      @extend .whitney-large__bold;
+      @extend .whitney-huge;
     }
     h2,h3{
-      @extend .whitney-bold;
+      @extend .whitney-large__bold;
     }
   }
 
@@ -61,6 +61,7 @@
   }
 
   .scrolling-page-nav{
+    display: none !important;
     position: fixed !important;
     top: $unit * 4;
     left: 0;

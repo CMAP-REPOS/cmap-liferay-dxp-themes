@@ -1,0 +1,49 @@
+section.search-results{
+
+	.search-bar{
+		position: relative;
+
+		$leftright: $size0;
+		svg{
+			position: absolute;
+			left: $leftright;
+			top: 50%;
+			transform: translateY(-50%);
+			width: $size1;
+			height: $size1;
+		}
+
+		svg path{
+			fill: none; 
+			stroke: $primary; 
+			stroke-width: 2px;
+		}
+
+		input#gsc-i-id1{
+			padding: $size-2 $size2;
+			background-color: $almost-white;
+			border: none;
+			@extend .whitney-huge;
+			color: $primary;
+		}
+
+		input.gsc-search-button{
+			position: absolute;
+			right: $leftright;
+			top: 50%;
+			transform: translateY(-50%);
+
+			padding: $size-1 $size1;
+			border: 2px solid $primary;
+			border-radius: $size1;
+
+			height: auto;
+			min-width: none;
+			background-color: $almost-white;
+
+			@extend .whitney-small;
+			line-height: 1;
+			color: $primary;
+		}
+	}
+}

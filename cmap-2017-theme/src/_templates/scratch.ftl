@@ -67,7 +67,7 @@ Liferay.on('allPortletsReady', function() {
     $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8');
 
     var $captcha = $('.contact-us-page').find('.lfr-ddm-form-page .row:last-of-type .form-group');
-    $contact_form.find('.row:nth-of-type(4) .col-xl-8:last-of-type').before($captcha);
+    $contact_form.find('.row:nth-of-type(4) .col-xl-8:last-of-type').append($captcha);
 
     $('.lfr-ddm-form-submit').removeClass('pull-right');
     $('.lfr-ddm-form-submit').text('Send');
