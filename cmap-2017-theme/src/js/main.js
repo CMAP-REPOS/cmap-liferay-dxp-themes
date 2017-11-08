@@ -102,6 +102,8 @@ Liferay.on('allPortletsReady', function() {
   // Recognize youtube videos and set aspect ratio
   setUpYoutube();
 
+
+  $('table *').removeAttr('valign');
 });
 
 

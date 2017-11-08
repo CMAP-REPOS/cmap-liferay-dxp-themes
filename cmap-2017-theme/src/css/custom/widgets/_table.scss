@@ -1,6 +1,7 @@
 .journal-content-article table{
   width: 100%;
   margin-bottom: $unit;
+  border: none;
 
   thead{
     tr{
@@ -34,27 +35,27 @@
     height: auto;
     @extend .whitney-normal;
     color: $off-white-text;
+    padding: $size-3;
 
     &:hover{
       text-shadow: 0 0 5px white;
     }
   }
+
   td{
     @extend .whitney-normal;
+    padding: $size-3;
   }
+  
   a{
     @extend .underline-link;
   }
 
-  tr,th{
-    padding: $size-3 0;
-  }
   th,td{
     position: relative;
-    // overflow: hidden;
+    border: none;
 
     &:hover{
-      // overflow: visible;
       z-index: 100;
     }
   }

@@ -1,195 +1,202 @@
 body {
-    font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-    font-size: 21px;
-    line-height: $variation;
-    @if($debug) {
-        border-top: 2px solid red;
-    }
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-size: 21px;
+  line-height: $variation;
+  @if($debug) {
+    border-top: 2px solid red;
+  }
 
-    @include tv() {
-        font-size: 18px;
-        @if($debug) {
-            border-top: 2px solid orange;
-        }
+  @include tv() {
+    font-size: 18px;
+    @if($debug) {
+      border-top: 2px solid orange;
     }
-    @include desktop() {
-        font-size: 16px;
-        @if($debug) {
-            border-top: 2px solid yellow;
-        }
+  }
+  @include desktop() {
+    font-size: 16px;
+    @if($debug) {
+      border-top: 2px solid yellow;
     }
-    @include tablet() {
-        font-size: 15px;
-        @if($debug) {
-            border-top: 2px solid green;
-        }
+  }
+  @include tablet() {
+    font-size: 15px;
+    @if($debug) {
+      border-top: 2px solid green;
     }
-    @include phone() {
-        font-size: 13px;
-        @if($debug) {
-            border-top: 2px solid blue;
-        }
+  }
+  @include phone() {
+    font-size: 13px;
+    @if($debug) {
+      border-top: 2px solid blue;
     }
+  }
 }
 
 p {
-    font-family: $font-serif;
+  font-family: $font-serif;
+}
+
+.whitney-small {
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: $size-1;
+  line-height: $variation;
 }
 
 .whitney-normal {
-    font-family: $font-sans;
-    font-weight: 400;
-    font-size: $size0;
-    line-height: $variation;
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: $size0;
+  line-height: $variation;
 }
 
 .whitney-normal__primary {
-    @extend .whitney-normal;
-    color: $primary;
+  @extend .whitney-normal;
+  color: $primary;
 }
 
 .whitney-normal__white {
-    @extend .whitney-normal;
+  @extend .whitney-normal;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .whitney-bold {
-    @extend .whitney-normal;
-    font-weight: 600;
+  @extend .whitney-normal;
+  font-weight: 600;
 }
 
 .whitney-bold__primary {
-    @extend .whitney-bold;
-    color: $primary;
+  @extend .whitney-bold;
+  color: $primary;
 }
 
 .whitney-bold__white {
-    @extend .whitney-bold;
+  @extend .whitney-bold;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .whitney-large {
-    font-family: $font-sans;
-    font-weight: 400;
-    font-size: $size1;
-    line-height: 1.1em;
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: $size1;
+  line-height: 1.1em;
 }
 
 .whitney-large__bold {
-    @extend .whitney-large;
-    font-weight: 600;
+  @extend .whitney-large;
+  font-weight: 600;
 }
 
 .whitney-large__white {
-    @extend .whitney-large;
+  @extend .whitney-large;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .whitney-huge {
-    font-family: $font-sans;
-    font-weight: 600;
-    font-size: $size2;
-    line-height: 1.1em;
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: $size2;
+  line-height: 1.1em;
 }
 
 .whitney-huge__white {
-    @extend .whitney-huge;
+  @extend .whitney-huge;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .whitney-huge__green {
-    @extend .whitney-huge;
+  @extend .whitney-huge;
+  color: $green;
+  a {
     color: $green;
-    a {
-        color: $green;
-    }
+  }
 }
 
 
 
 .presna-normal {
-    font-family: $font-serif;
-    font-size: #{$size0 - 0.1em};
-    letter-spacing: 0.01em;
-    line-height: $variation;
-    margin: 0;
+  font-family: $font-serif;
+  font-size: #{$size0 - 0.1em};
+  letter-spacing: 0.01em;
+  line-height: $variation;
+  margin: 0;
 
-    a {
-        line-height: $variation;
-        @extend .underline-link;
-    }
-    &:last-of-type {
-        margin-bottom: 0;
-    }
+  a {
+    line-height: $variation;
+    @extend .underline-link;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .presna-normal__white {
-    @extend .presna-normal;
+  @extend .presna-normal;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .presna-bold {
-    @extend .presna-normal;
-    font-weight: 700;
+  @extend .presna-normal;
+  font-weight: 700;
 }
 
 .presna-bold__white {
-    @extend .presna-bold;
+  @extend .presna-bold;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 .presna-large {
-    font-family: $font-serif;
-    font-size: #{$size1 - 0.1em};
-    letter-spacing: 0.01em;
-    line-height: $variation;
-    margin: 0;
+  font-family: $font-serif;
+  font-size: #{$size1 - 0.1em};
+  letter-spacing: 0.01em;
+  line-height: $variation;
+  margin: 0;
 
-    a {
-        line-height: $variation;
-        @extend .underline-link;
-    }
+  a {
+    line-height: $variation;
+    @extend .underline-link;
+  }
 }
 
 .presna-large__white {
-    @extend .presna-large;
+  @extend .presna-large;
+  color: $white;
+  a {
     color: $white;
-    a {
-        color: $white;
-    }
+  }
 }
 
 a {
-    color: $primary;
-    transition: all 0.25s ease;
-    &:hover {
-        text-decoration: none;
-        color: lighten($primary, 25%);
-    }
+  color: $primary;
+  transition: all 0.25s ease;
+  &:hover {
+    text-decoration: none;
+    color: lighten($primary, 25%);
+  }
 }
 
 .underline-link {
-    border-bottom: 1px solid $off-white;
+  border-bottom: 1px solid $off-white;
 
-    &:hover {
-        border-bottom: 1px solid lighten($off-white, 10%);
-    }
+  &:hover {
+    border-bottom: 1px solid lighten($off-white, 10%);
+  }
 }

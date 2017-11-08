@@ -45,7 +45,6 @@
             ${section.Body.getData()}
           </div>
         </section>
-
       </#list>
 
     </div>
@@ -116,7 +115,7 @@
 
   function computeScrollNav(){
     if(window.scrollY > (top + height)){
-      $('.scrolling-page-nav').fadeIn();
+      $('.scrolling-page-nav').css("display", "flex").hide().fadeIn();
       $('.page-layout .page-nav').addClass('hidden');
     } else {
       $('.scrolling-page-nav').fadeOut();
@@ -128,88 +127,17 @@
   computeScrollNav();
 
   // remove inline styles from content items
-  // $('.section-content *').removeAttr('style');
   $('.section-content p').removeAttr('style');
+  $('.section-content table').removeAttr('style');
+  $('.section-content').find('h1,h2,h3,h4,h5,h6').removeAttr('style');
 
-  // Tables
-  $('.portlet-body table').each(function(){
-    var $table = $(this);
-    
-    var number_of_col = $table.find('tr:first-of-type td').length;
-
-    $table.wrap('<div class="table-container"></div>');
-
-    // we don't want any inline styles floating around, telling the table how wide to be
-    // $table.removeAttr('style');
-
-    var $last_row = $table.find('tr:last-of-type');
-    console.log($last_row);
-    $last_row.find('td').each(function(i,el){
-      console.log(i, el);
-    });
-
-    // start with fresh classes, makes it easier to manipulate later
-    // $table.find('td, th').removeAttr('class');
-
-    // init the grid
-    // $table.find('tr').addClass('row');
-
-    // we might want to disallow some tags in the table
-    // function removeTag(el, tag){
-    //   $(el).find(tag).each(function(){
-    //     var $tag = $(this);
-    //     $tag.after($tag.html());
-    //     $tag.remove();
-    //   });
-    // }
-    // $table.find('td, th').each(function(){
-    //   removeTag(this, 'p');
-    // });
-
-    // find the width of all columns, based on the amount of text in the cells
-    // var col_widths = [], row_width = 0;
-    // for(var i=1; i<=number_of_col; i++){
-    //   var $cells = $table.find('tr td:nth-of-type('+i+'), th:nth-of-type('+i+')');
-    //   var width = $cells.text().trim().length;
-    //   col_widths[i-1] = width;
-    //   row_width += width;
-    // }
-
-    // compute a 16 grid equivelent based on amount of text in each col
-    // col_widths.forEach(function(width, i){
-    //   var $cells = $table.find('tr td:nth-of-type('+(i+1)+'), th:nth-of-type('+(i+1)+')');
-    //   var this_width = Math.round((width / row_width) * 16);
-    //   $cells.removeAttr('class');
-    //   $cells.addClass('col-xl-'+this_width);
-    // });
-
-
-    // add an index to each cell, makes easier to reference later
-    // var y = 0;
-    // $table.find('tr').each(function(){
-    
-    //   var x = 0;
-    //   $(this).find('td, th').each(function(){
-    //     var $cell = $(this);
-    //     $cell.attr('data-x', x);
-    //     $cell.attr('data-y', y);
-
-    //     var ratio = this.offsetWidth / this.scrollWidth;
-
-    //     if(ratio < 0.9){ // we have overflow!
-    //       console.log("overflow", this, this.offsetWidth, this.scrollWidth, ratio);
-    //     } else {
-    //       console.log(this, this.offsetWidth, this.scrollWidth, ratio);
-    //     }
-    //     x += 1;
-    //   });
-    //   y += 1;
-    // });
-    
-    // $container.append($table);
-    // console.log($container, $table.after());
-    // $table.after($container);
-    // $table.remove();
+  $('p').each(function(){
+    var $p = $(this);
+    if($p.text().trim() === ''){
+      $p.remove();
+    }
   });
+
+  $('.portlet-body table *').removeAttr('valign');
 })(jQuery);
 </script>
