@@ -1,114 +1,17 @@
 #breadcrumbs{
   position: relative;
   border-top: 1px solid $off-white;
+  border-bottom: 1px solid $off-white;
+  margin-bottom: $unit * 2;
+  height: $unit * 2;
 
-  .breadcrumb{
-    margin-bottom: $unit;
+  .breadcrumb.row{
+    @include section-padding();
     height: $unit * 2;
-    padding: 0 #{$unit * 3};
-
-    display: flex;
-    align-items: center;
-
-    .share-button{
-      position: relative;
-      height: auto;
-      display: flex;
-      align-items: center;
-
-      a{
-        display: inline-flex;
-        align-items: center;
-        height: $size0;
-        cursor: pointer;
-
-        &:hover{
-          svg{
-            g{
-              fill: $dark-blue !important;
-            }
-          }
-        }
-      }
-
-      span{
-        padding-left: $size-1;
-        transform: translateY(0.175em);
-        padding-bottom: 0.1em;
-        font-size: $size-1;
-      }
-
-      svg{
-        // width: $size0 !important;
-        // height: $size1 !important;
-      }
-    }
-
-
-    .trail-col{
-      height: $size0;
-      line-height: $size0;
-
-      span{
-        font-size: $size-1;
-        padding: 0 $size-2;
-        border-left: 1px solid $off-white;
-
-        &.active{
-          cursor: default;
-          color: $off-white-text;
-        }
-      }
-      .home{
-        position: relative;
-        border-left: none;
-
-        &:after{
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translate(-100%, -50%);
-          width: $size0;
-          height: $size0;
-          border: 1px solid $off-white-text;
-          background: $white;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        &:hover{
-          &:after{
-            border: 1px solid $off-white-text;
-            background: $off-white;
-          }
-        }
-      }
-    }
 
     @include tablet(){
       flex-wrap: wrap;
       height: auto !important;
-
-      .share-button{
-        position: relative;
-        height: $unit * 2;
-      }
-      .trail-col{
-        height: auto;
-        text-indent: 0;
-        margin: 0;
-        padding-left: 0 !important;
-      }
-      .home{
-        &:after{
-          display: none;
-        }
-      }
-    }
-
-    span,a{
-      line-height: 1em;
     }
 
     a{
@@ -116,6 +19,121 @@
       &:hover{
         text-decoration: none;
         color: $dark-blue;
+      }
+    }
+  }
+
+  .share-col{
+    display: flex;
+  }
+  
+  .share-button{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: inline-flex;
+    align-items: center;
+    height: $size0;
+    cursor: pointer;
+
+    @include tablet(){
+      height: $unit * 2;
+    }
+
+    &:hover{
+      span{
+        color: $blue;
+      }
+      svg{
+        g{
+          fill: $blue !important;
+        }
+      }
+    }
+
+    // important to override in-line styles
+    // in-line styles are kept to display something before the CSS is loaded
+    svg{
+      height: $size0 !important;
+      transform: translateY(-0.1em);
+      g{
+        fill: $dark-blue !important;
+        transition: all 0.2s;
+      }
+    }
+
+    span{
+      color: $dark-blue;
+      padding-left: $size-1;
+      transition: all 0.2s;
+    }
+  }
+
+  .trail-col{
+    display: flex;
+    align-items: center;
+
+    .breadcrumb-trail{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .home.entry{
+      position: relative;
+      display: inline-flex;
+      height: $unit;
+      align-items: center;
+      border-left: none;
+
+      .square{
+        position: relative;
+        left: 0;
+
+        display: inline-block;
+        width: $size-2;
+        height: $size-2;
+        padding: 0;
+        margin-right: $size-2;
+
+        border: 1px solid $dark-blue;
+        background: $white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      &:hover{
+        .square{
+          border: 1px solid $dark-blue;
+          background: $off-white;
+        }
+      }
+    }
+
+    span{
+      padding: 0 $size-2 0 #{$size-1 - 0.1em};
+      border-left: 1px solid $off-white;
+
+      &.active{
+        cursor: default;
+        color: $off-white-text;
+      }
+      &:first-of-type{
+        padding-left: 0;
+      }
+    }
+
+    @include tablet(){
+      height: auto;
+      text-indent: 0;
+      margin: 0;
+      padding-left: 0 !important;
+
+      .home{
+        .square{
+          display: none;
+        }
       }
     }
   }
