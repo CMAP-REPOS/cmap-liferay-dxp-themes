@@ -53,91 +53,98 @@
     </div>
 
     <div class="col-xl-3 col-sm-4 page-nav">
-      <div class="page-nav-title">
-        <h3>Sections</h3>
+      <div class="page-nav-container">
+        <div class="page-nav-title">
+          <h3>Sections</h3>
+        </div>
+        <nav class="page-nav-list">
+          <#list Subtitle.getSiblings() as section>
+            <#if section.getData() != "">
+              <div class="page-nav-item">
+                <a href="#${section.getData()?replace(" ", "_")}">
+                  ${section.getData()}
+                </a>
+              </div>
+            </#if>
+          </#list>
+        </nav>
       </div>
-      <nav class="page-nav-list">
-        <#list Subtitle.getSiblings() as section>
-          <#if section.getData() != "">
-            <div class="page-nav-item">
-              <a href="#${section.getData()?replace(" ", "_")}">
-                ${section.getData()}
-              </a>
-            </div>
-          </#if>
-        </#list>
-      </nav>
     </div>
   </div>
 </section>
 
 <script type="text/javascript">
 
-  var cmap = cmap || {};
-  cmap.titleWithSections = cmap.titleWithSections || {};
+var cmap = cmap || {};
+cmap.titleWithSections = cmap.titleWithSections || {};
 
-  cmap.titleWithSections.init = function() {
+cmap.titleWithSections.init = function() {
 
-    $('.standalone-section').each(function() {
-      var $this = $(this);
-      var $sectionTitle = $this.find('.section-title > h2');
-      $('.title-with-sections').find('.col-xl-10.col-sm-12.col-xs-16').append($(this));
-      $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
-      $this.closest('div.portlet-journal-content').remove();
-    });  
+  $('.standalone-section').each(function() {
+    var $this = $(this);
+    var $sectionTitle = $this.find('.section-title > h2');
+    $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
+  });  
 
-    $('.page-nav-title').data('original-offet-top', $('.page-nav-list').offset().top);
+  $('.page-nav-container').data('original-offet-top', $('.page-nav-list').offset().top);
 
-    // remove inline styles from content items
-    $('.section-content p').removeAttr('style');
-    $('.section-content table').removeAttr('style');
-    $('.section-content').find('h1,h2,h3,h4,h5,h6').removeAttr('style');
+  // remove inline styles from content items
+  $('.section-content p').removeAttr('style');
+  $('.section-content table').removeAttr('style');
+  $('.section-content').find('h1,h2,h3,h4,h5,h6').removeAttr('style');
 
-    $('p').each(function(){
-      var $p = $(this);
-      if($p.text().trim() === ''){
-        $p.remove();
-      }
-    });
-
-    $('.portlet-body table *').removeAttr('valign');
-  };
-
-  cmap.titleWithSections.bindEvents = function() {
-    
-    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
-
-    $('.page-nav-item a').click(function(e){
-      e.preventDefault();
-      var push = $('#scroll-nav').innerHeight();
-      var href = $(this).attr('href');
-      var target = $(href).offset().top;
-      $('html,body').animate({
-        scrollTop: target - push
-      }, 800);
-    });
-  };
-
-  cmap.titleWithSections.computeScrollNav = function() {
-    var marginTop = 0;
-
-    var scrollTop = $(window).scrollTop();
-    var navHeight = $('#scroll-nav').height();
-    var currentOffset = scrollTop + navHeight;
-    var originalOffset = $('.page-nav-title').data('original-offet-top');
-      
-    if (currentOffset > originalOffset) {
-      marginTop = currentOffset - originalOffset + navHeight;
+  $('p').each(function(){
+    var $p = $(this);
+    if($p.text().trim() === ''){
+      $p.remove();
     }
-
-    $('.page-nav-title').animate({
-      marginTop: marginTop
-    }, 100);
-  };
-
-  $(function() {
-    cmap.titleWithSections.init();
-    cmap.titleWithSections.bindEvents();
   });
+
+  $('.portlet-body table *').removeAttr('valign');
+};
+
+cmap.titleWithSections.bindEvents = function() {
+
+  // disable sticky nav in control panel
+  if (!Liferay.ThemeDisplay.isSignedIn()) {
+    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
+  }
+
+  $('.page-nav-item a').click(function(e){
+    e.preventDefault();
+    var push = $('#scroll-nav').innerHeight();
+    var href = $(this).attr('href');
+    var target = $(href).offset().top;
+    $('html,body').animate({
+      scrollTop: target - push
+    }, 800);
+  });
+};
+
+cmap.titleWithSections.computeScrollNav = function() {
+
+  var marginTop = 0;
+
+  var scrollTop = $(window).scrollTop();
+  var navHeight = $('#scroll-nav').height();
+  var currentOffset = scrollTop + navHeight;
+  var originalOffset = $('.page-nav-container').data('original-offet-top');
+    
+  if (currentOffset > originalOffset) {
+    marginTop = currentOffset - originalOffset + navHeight;
+  }
+
+  $('.page-nav-container')
+    .css('position', 'absolute')
+    .animate({
+      marginTop: marginTop,
+      position: 'absolute'
+    }, 200);
+};
+
+$(function() {
+  cmap.titleWithSections.init();
+  cmap.titleWithSections.bindEvents();
+});
 
 </script>
