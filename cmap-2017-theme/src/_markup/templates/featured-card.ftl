@@ -37,6 +37,10 @@
   </#attempt>
 </#if>
 
+<#if OptionalContentBefore?? && OptionalContentBefore.getData()?? && OptionalContentBefore.getData() != "">
+${OptionalContentBefore.getData()}
+</#if>
+
 <section class="featured-card" id="${randomNamespace}">
   <div class="row">
     <div class="col-xl-8">
@@ -97,11 +101,14 @@
   </div>
 </section>
 
+<#if OptionalContentAfter?? && OptionalContentAfter.getData()?? && OptionalContentAfter.getData() != "">
+${OptionalContentAfter.getData()}
+</#if>
+
 <script>
 $(document).ready(function(){
   var $this = $('#${randomNamespace}');
 
-  console.log($this);
   if($this){
     var $row = $this.find('.row').remove();
     var $container = $('<div class="row"></div>');
