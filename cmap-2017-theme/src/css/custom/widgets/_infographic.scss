@@ -219,7 +219,7 @@ $icon-share-white: "\e924";
 
 
     .infographic-info-toggle {
-        color: $blue;
+        color: $grey-blue;
         position: absolute;
         right: 1em;
         top: 1em;
@@ -235,7 +235,7 @@ $icon-share-white: "\e924";
     .infographic-info {
 
         .infographic-aside {
-            color: $blue;
+            color: $grey-blue;
             // font-size: 12px;
             font-size: #{ $size-1 - 0.1em };
             line-height: 1.5em;
@@ -249,12 +249,12 @@ $icon-share-white: "\e924";
             line-height: 1.5em;
             margin-bottom: 2em;
             a {
-                color: $blue;
+                color: $grey-blue;
             }
         }
 
         .infographic-source {
-            color: $blue;
+            color: $grey-blue;
             // font-size: 9px;
             //same as aside now
             font-size: #{ $size-1 - 0.1em };
@@ -336,6 +336,7 @@ $icon-share-white: "\e924";
         .c3-tooltip-container {
 
             .c3-tooltip {
+                font-size: $size-1;
                 table, td {
                     border-color: 1px solid #c9d5dd;
                 }
@@ -346,6 +347,8 @@ $icon-share-white: "\e924";
 
                 th {
                     background-color: #3c5976;
+                    color: #FFF;
+                    padding-left: 5px;
                 }
             }
 
@@ -414,7 +417,7 @@ $icon-share-white: "\e924";
             }
 
             .c3-chart-arcs-title {
-                color: $blue;
+                color: $grey-blue;
                 font-size: 22px;
             }
         }
@@ -447,9 +450,9 @@ $icon-share-white: "\e924";
 
         button {
             background: transparent;
-            border: 2px solid $blue;
+            border: 2px solid $grey-blue;
             border-radius: 21px;
-            color: $blue;
+            color: $grey-blue;
             cursor: pointer;
             // font-size: 12;
             font-size: $size0;
@@ -465,7 +468,7 @@ $icon-share-white: "\e924";
                 margin-bottom: 10px;
             }
             &:hover, &.on {
-                background: $blue;
+                background: $grey-blue;
                 color: $white;
                 .pair-icons {
                     visibility: visible;
@@ -489,7 +492,7 @@ $icon-share-white: "\e924";
     }
 
     .icon-info-white {
-        color: $blue;
+        color: $grey-blue;
         cursor: pointer;
         opacity: 0.5;
     }
@@ -634,7 +637,7 @@ $icon-share-white: "\e924";
                  display: flex;
                  flex-direction: column;
                  justify-content: space-between;
-                 color: $blue;
+                 color: $grey-blue;
                  font-size: $size1;
                  margin-right: 10px;
                  .activated{
@@ -666,7 +669,7 @@ $icon-share-white: "\e924";
 
                      li {
                          border-top: none;
-                         color: $blue;
+                         color: $grey-blue;
                          padding: .5em 0;
                          &:last-of-type {
                             border-bottom: none;

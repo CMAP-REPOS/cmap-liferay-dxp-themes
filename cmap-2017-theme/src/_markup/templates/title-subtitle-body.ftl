@@ -23,7 +23,11 @@
 
     <div class="col-xl-3 col-sm-16">
       <div class="page-date">
+      <#-- Logic is inverted because HideDateInSidebar is undefined by default -->
+      <#if HideDateInSidebar?? && getterUtil.getBoolean(HideDateInSidebar.getData())>
+      <#else>
         <h4 class="h4">${modifieddate?date}</h4>
+      </#if>
       </div>
     </div>
 
@@ -46,85 +50,43 @@
           </div>
         </section>
       </#list>
-
     </div>
-
 
     <div class="col-xl-3 col-sm-4 page-nav">
-      <div class="page-nav-title">
-        <h3>Sections</h3>
+      <div class="page-nav-container">
+        <div class="page-nav-title">
+          <h3>Sections</h3>
+        </div>
+        <nav class="page-nav-list">
+          <#list Subtitle.getSiblings() as section>
+            <#if section.getData() != "">
+              <div class="page-nav-item">
+                <a href="#${section.getData()?replace(" ", "_")}">
+                  ${section.getData()}
+                </a>
+              </div>
+            </#if>
+          </#list>
+        </nav>
       </div>
-      <nav class="page-nav-list">
-        <#list Subtitle.getSiblings() as section>
-          <#if section.getData() != "">
-            <div class="page-nav-item">
-              <a href="#${section.getData()?replace(" ", "_")}">
-                ${section.getData()}
-              </a>
-            </div>
-          </#if>
-        </#list>
-      </nav>
-    </div>
-  </div>
-
-
-  <div class="row scrolling-page-nav">
-
-    <div class="col-xl-3 col-sm-16"> </div>
-    <div class="col-xl-10 col-sm-12 col-xs-16"></div>
-
-    <div class="col-xl-3 col-xl-offset-13 col-sm-4 col-sm-offset-12 page-nav">
-      <div class="page-nav-title">
-        <h3>Sections</h3>
-      </div>
-      <nav class="page-nav-list">
-        <#list Subtitle.getSiblings() as section>
-          <#if section.getData() != "">
-            <div class="page-nav-item">
-              <a href="#${section.getData()?replace(" ", "_")}">
-                ${section.getData()}
-              </a>
-            </div>
-          </#if>
-        </#list>
-      </nav>
     </div>
   </div>
 </section>
 
 <script type="text/javascript">
-(function($) {
-  // $('body').addClass('structured-template');
 
-  // Jump to section on page
-  $('.page-nav-item a').click(function(e){
-    e.preventDefault();
-    var push = $('#scroll-nav').innerHeight();
-    var href = $(this).attr('href');
-    var target = $(href).offset().top;
-    $('html,body').animate({
-      scrollTop: target - push
-    }, 800);
-  });
+var cmap = cmap || {};
+cmap.titleWithSections = cmap.titleWithSections || {};
 
+cmap.titleWithSections.init = function() {
 
-  // Sticky page nav
-  var top = $('.page-nav-list').offset().top;
-  var height = $('.page-nav-list').innerHeight();
+  $('.standalone-section').each(function() {
+    var $this = $(this);
+    var $sectionTitle = $this.find('.section-title > h2');
+    $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
+  });  
 
-  function computeScrollNav(){
-    if(window.scrollY > (top + height)){
-      $('.scrolling-page-nav').css("display", "flex").hide().fadeIn();
-      $('.page-layout .page-nav').addClass('hidden');
-    } else {
-      $('.scrolling-page-nav').fadeOut();
-      $('.page-layout .page-nav').removeClass('hidden');
-    }
-  }
-  $(window).off('scroll.page-nav');
-  $(window).on('scroll.page-nav', _.throttle(computeScrollNav,100));
-  computeScrollNav();
+  $('.page-nav-container').data('original-offet-top', $('.page-nav-list').offset().top);
 
   // remove inline styles from content items
   $('.section-content p').removeAttr('style');
@@ -139,5 +101,49 @@
   });
 
   $('.portlet-body table *').removeAttr('valign');
-})(jQuery);
+};
+
+cmap.titleWithSections.bindEvents = function() {
+
+  // disable sticky nav in control panel
+  if (!Liferay.ThemeDisplay.isSignedIn()) {
+    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
+  }
+
+  $('.page-nav-item a').click(function(e){
+    e.preventDefault();
+    var push = $('#scroll-nav').innerHeight();
+    var href = $(this).attr('href');
+    var target = $(href).offset().top;
+    $('html,body').animate({
+      scrollTop: target - push
+    }, 800);
+  });
+};
+
+cmap.titleWithSections.computeScrollNav = function() {
+
+  var marginTop = 0;
+
+  var scrollTop = $(window).scrollTop();
+  var navHeight = $('#scroll-nav').height();
+  var currentOffset = scrollTop + navHeight;
+  var originalOffset = $('.page-nav-container').data('original-offet-top');
+    
+  if (currentOffset > originalOffset) {
+    marginTop = currentOffset - originalOffset + navHeight;
+  }
+
+  $('.page-nav-container')
+    .css('position', 'absolute')
+    .animate({
+      marginTop: marginTop,
+    }, 200);
+};
+
+$(function() {
+  cmap.titleWithSections.init();
+  cmap.titleWithSections.bindEvents();
+});
+
 </script>
