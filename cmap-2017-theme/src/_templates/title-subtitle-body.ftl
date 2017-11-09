@@ -138,7 +138,6 @@ cmap.titleWithSections.computeScrollNav = function() {
     .css('position', 'absolute')
     .animate({
       marginTop: marginTop,
-      position: 'absolute'
     }, 200);
 };
 
