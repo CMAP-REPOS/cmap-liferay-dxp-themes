@@ -1,13 +1,13 @@
 .search-widget{
   position: relative;
-  background: $off-white;
   margin-right: 0 !important;
+
+  @include search-widget-color($primary, $off-white);
 
   .search-widget-field,
   .search-placeholder-text{
     font-size: $size-1;
     font-weight: 600;
-    color: $primary;
   }
 
   .search-widget-decorators{

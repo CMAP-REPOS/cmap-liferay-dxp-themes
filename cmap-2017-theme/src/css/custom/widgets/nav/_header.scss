@@ -11,7 +11,6 @@
   	height: $unit * 4;
 
     @include section-padding();
-    padding-right: $unit;
 
     .left{
       display: flex;
@@ -47,13 +46,16 @@
 
       .hamburger-box{
         height: $unit;
+        transform: translateY(0.2em);
       }
+      
       .hamburger-inner,
       .hamburger-inner::before,
       .hamburger-inner::after{
-        background: $dark-blue;
+        background: $grey-blue;
         width: $size2;
         height: 3px;
+        border-radius: 0;
       }
     }
 

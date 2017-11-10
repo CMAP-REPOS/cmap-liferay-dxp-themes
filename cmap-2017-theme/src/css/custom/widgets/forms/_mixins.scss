@@ -39,9 +39,9 @@
 @mixin form-control-focus($color: $input-border-focus) {
   $color-rgba: rgba(red($color), green($color), blue($color), .6);
   @include box-shadow(none);
-  border-color: $color;
+  border-color: darken($color, 10%);
   &:focus {
-    border-color: darken($color, 10%);
+    border-color: darken($color, 20%);
     background-color: $white;
     outline: 0;
     @include box-shadow(0 0 8px $color-rgba);

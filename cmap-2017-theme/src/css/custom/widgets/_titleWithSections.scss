@@ -8,6 +8,12 @@
     height: $unit * 2;
   }
 
+  .page-title{
+    h1,h2,h3{
+      margin-top: 0;
+    }
+  }
+
   .page-title,
   .section-title{
     display: flex;
@@ -28,7 +34,8 @@
     h3,h4{
       @extend .whitney-normal;
       color: $off-white-text;
-      padding-top: 0.25em;
+      margin-top: 0;
+      margin-bottom: $size2;
     }
   }
 
@@ -41,13 +48,11 @@
       pointer-events: none;
     }
   }
-  .page-nav-title{
-    border-bottom: 1px solid $off-white;
-  }
+
   .page-nav-item{
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $off-white;
+    border-top: 1px solid $off-white;
 
     &:last-of-type{
       border-bottom: 0;
@@ -57,22 +62,32 @@
       font-size: $size-1;
       font-weight: bold;
       padding: $unit 0;
+      border-bottom: none;
+      &:hover{
+        border-bottom: none;
+      }
     }
   }
 
-  .scrolling-page-nav{
-    display: none !important;
-    position: fixed !important;
-    top: $unit * 4;
-    left: 0;
-    pointer-events: none;
-    @include section-padding();
+  .page-nav-container{
+    position: relative;
+    top: 0;    
+    
+    &.fixed{
+      position: fixed;
+      top: $unit * 4;
+      width: inherit;
 
-    .page-nav{
-      background: $white;
+      .page-nav-list{
+        width: 78%;
+      }
     }
-    .page-nav-list{
-      pointer-events: all;
-    }
+  }
+
+  // used to get the computed value of $unit*4
+  .page-nav-top{
+    height: $unit * 4;
+    width: 1px;
+    opacity: 0;
   }
 }

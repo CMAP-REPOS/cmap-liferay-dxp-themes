@@ -1,21 +1,7 @@
-@mixin logo-size($size){
-  // override the fallback width and height attr
-  svg{
-    width: $size !important;
-    height: $size !important;
-  }
-  span{
-    font-size: #{$size * 1.2};
-    letter-spacing: -0.05em;
-    margin-left: $size / 4;
-    color: #000;
-  }
-}
-
 .logo{
   display: flex;
   align-items: center;
-  font-size: $size0;
+  @include logo-size($size1);
 
   &:hover{
     text-decoration: none;
@@ -30,7 +16,7 @@
     }
   }
 
-  @include logo-size($size0);
+  
 }
 
 #side-nav .logo{

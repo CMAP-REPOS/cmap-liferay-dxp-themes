@@ -2,12 +2,13 @@
   position: fixed;
   top: 0;
   z-index: 1000;
+  transform: translateY(-100%);
 
   display: flex;
   align-items: center;
   width: 100%;
   height: $unit * 2;
-  padding: 0 $unit * 3;
+  @include section-padding();
 
   background: $off-white;
   transition: all 0.2s ease;
@@ -16,33 +17,44 @@
     top: -1px;
   }
 
-  @include tablet(){
-    padding: 0 $unit * 2;
-  }
-  @include phone(){
-    padding: 0 $unit;
-  }
-
-  transform: translateY(-100%);
   &.active{
     transform: translateY(0);
   }
 
+  .col-xl-3,
+  .col-xl-13{
+    display: flex;
+    align-items: center;
+  }
+
+  .col-xl-13{
+    h4{
+      @extend .whitney-bold;
+      transform: translateY(0.075em);
+    }
+  }
+
   .side-nav-trigger{
-    display: inline-block;
+    display: inline-flex;
   }
 
   .hamburger{
     position: relative;
     display: inline-flex;
-    padding: 0 $unit;
-    margin-left: - $unit / 2;
+    padding-left: 0;
     transform: scale(0.5) translateX(-50%);
-    outline: none;
+
+    .hamburger-inner, 
+    .hamburger-inner::before, 
+    .hamburger-inner::after{
+      background-color: $grey-blue;
+      border-radius: none;
+    }
   }
 
   .logo{
     position: relative;
-    transform: translateX(-25%);
+    display: inline-flex;
+    @include logo-size($size0);
   }
 }

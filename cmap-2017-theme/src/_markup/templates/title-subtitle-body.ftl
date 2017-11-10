@@ -68,6 +68,7 @@
             </#if>
           </#list>
         </nav>
+        <div class="page-nav-top"></div>
       </div>
     </div>
   </div>
@@ -84,31 +85,47 @@ cmap.titleWithSections.init = function() {
     var $this = $(this);
     var $sectionTitle = $this.find('.section-title > h2');
     $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
-  });  
+  });
 
   $('.page-nav-container').data('original-offet-top', $('.page-nav-list').offset().top);
 
   // remove inline styles from content items
-  $('.section-content p').removeAttr('style');
-  $('.section-content table').removeAttr('style');
-  $('.section-content').find('h1,h2,h3,h4,h5,h6').removeAttr('style');
+  $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,span,table').removeAttr('style');
 
+  // remove empty paragraphs
   $('p').each(function(){
     var $p = $(this);
-    if($p.text().trim() === ''){
-      $p.remove();
-    }
+    console.log($p.html());
+    // if($p.text().trim() === ''){
+    //   $p.remove();
+    // }
   });
 
+
+  // adds the title of the page to the scrolling nav
+  var $titleA = $('.journal-content-article h1:first-of-type');
+  var $titleB = $('.page-title h1:first-of-type');
+  if($titleA.length || $titleB.length){
+    if($titleA.length){
+      $('#scroll-nav .col-xl-13').append('<h4>'+$titleA.text()+'</h4>');
+    } else if ($titleB.length) {
+      $('#scroll-nav .col-xl-13').append('<h4>'+$titleB.text()+'</h4>');
+    }
+  }
+  
+  
   $('.portlet-body table *').removeAttr('valign');
 };
+
+
 
 cmap.titleWithSections.bindEvents = function() {
 
   // disable sticky nav in control panel
   if (!Liferay.ThemeDisplay.isSignedIn()) {
-    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
+    //
   }
+  $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
 
   $('.page-nav-item a').click(function(e){
     e.preventDefault();
@@ -121,27 +138,35 @@ cmap.titleWithSections.bindEvents = function() {
   });
 };
 
-cmap.titleWithSections.computeScrollNav = function() {
 
-  var marginTop = 0;
+
+cmap.titleWithSections.computeScrollNav = function() {
 
   var scrollTop = $(window).scrollTop();
   var navHeight = $('#scroll-nav').height();
+
   var currentOffset = scrollTop + navHeight;
-  var originalOffset = $('.page-nav-container').data('original-offet-top');
-    
+  var fourUnits = $('.page-nav-top').innerHeight();
+  var originalOffset = $('.page-nav-container').data('original-offet-top') - fourUnits;
+
   if (currentOffset > originalOffset) {
-    marginTop = currentOffset - originalOffset + navHeight;
+    $('.page-nav-container').addClass('fixed');
+  } else {
+    $('.page-nav-container').removeClass('fixed');
   }
 
-  $('.page-nav-container')
-    .css('position', 'absolute')
-    .animate({
-      marginTop: marginTop,
-    }, 200);
+  console.log(currentOffset > originalOffset, currentOffset, originalOffset, fourUnits);
+
+  // $('.page-nav-container')
+  //   .css('position', 'absolute')
+  //   .animate({ marginTop, marginTop }, 100);
+
+  // $('.page-nav-container').css('position', 'fixed');
 };
 
-$(function() {
+
+
+$(function(){
   cmap.titleWithSections.init();
   cmap.titleWithSections.bindEvents();
 });

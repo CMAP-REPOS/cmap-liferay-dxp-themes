@@ -19,3 +19,18 @@
     }
   }
 }
+
+.main-nav-links{
+  li{
+    a{
+      color: $primary;
+    }
+  }
+}
+.side-nav-links{
+  li{
+    a{
+      color: $grey-blue;
+    }
+  }
+}

@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+@mixin logo-size($size){
+  // override the fallback width and height attr
+  svg{
+    width: $size !important;
+    height: $size !important;
+  }
+  span{
+    font-size: #{$size * 1.2};
+    letter-spacing: -0.05em;
+    margin-left: $size / 2.5;
+    color: #000;
+  }
+}
+
+@mixin search-widget-color($primary, $background){
+  background: $background;
+
+  .search-widget-field{
+    color: $primary;
+  }
+  .search-widget-decorators{
+    .search-placeholder-text{
+      color: $primary;
+    }
+    .search-icon{
+      path{
+        stroke: $primary;
+      }
+    }
+  }
+}
+
 @mixin no_list {
   margin: 0;
   padding: 0;
@@ -10,7 +42,7 @@
   padding: 0 #{$unit * 3};
 
   @include tablet(){
-    padding: 0 $unit * 2;
+    padding: 0 #{$unit * 2};
   }
   @include phone(){
     padding: 0 $unit;
