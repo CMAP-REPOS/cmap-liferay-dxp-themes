@@ -116,14 +116,14 @@ AUI().ready(
 
 	function() {
 
-   
+
         L.Map.prototype.panToOffset = function (latlng, offset, options) {
             var x = this.latLngToContainerPoint(latlng).x - offset[0]
             var y = this.latLngToContainerPoint(latlng).y - offset[1]
             var point = this.containerPointToLatLng([x, y])
             return this.setView(point, this._zoom, { pan: options })
         }
-        
+
         var storymaps = storymaps || {};
         storymaps.storyStep = 0;
         storymaps.markerLayer = null;
@@ -131,7 +131,7 @@ AUI().ready(
         storymaps.storySteps = [];
         storymaps.storyOverlays = [];
         storymaps.storyVariance = ($(window).width() > 420) ? 100 : 70;
-        
+
 
         <#list StorySteps.getSiblings() as cur_StoryStep>
             <#assign storyStepsIndex = cur_StoryStep?index>
@@ -156,7 +156,7 @@ AUI().ready(
             var $button = $('.button_overlay[data-layer-id="' + options.overlayId + '"]');
 
             $button.toggleClass('active');
-            
+
             if (!storymaps.layers[options.overlayId]) {
                 $button.html('loading...');
                 $.ajax({
@@ -224,7 +224,7 @@ AUI().ready(
             if (storymaps.markerLayer !== null) {
                 storymaps.map.removeLayer(storymaps.markerLayer);
             }
-            storymaps.markerLayer = new L.marker(storymaps.storySteps[step].stepCoords, { icon: cmapIcon }).addTo(storymaps.map);
+            storymaps.markerLayer = new L.marker(storymaps.storySteps[step].stepCoords, { icon: cmapIcon, interactive: false }).addTo(storymaps.map);
             if (jQuery.trim(storymaps.storySteps[step].stepMarkerLabel).length) {
                 storymaps.markerLayer.bindTooltip(storymaps.storySteps[step].stepMarkerLabel).openTooltip();
             }
@@ -259,7 +259,7 @@ AUI().ready(
 
                 // end...set new lastScrollTop val
                 scrollHandler.lastScrollTop = scrollPos;
-                //divide by 1.45 since that seems to be about where the bar sits on the page... 
+                //divide by 1.45 since that seems to be about where the bar sits on the page...
                 if(scrollPos/1.60 > navBarPos){
                     $('.story-interact').addClass('scroll-fixed');
                 }
@@ -267,7 +267,7 @@ AUI().ready(
                      $('.story-interact').removeClass('scroll-fixed');
                 }
                 if (scrollPos > mapScroll - scrollPos/.7){
-                    
+
                     //$('.storymap-overlays-container').addClass('scroll-fixed');
                     if(scrollPos > mapScroll - 140){
                     $('.storymap-overlays-container').hide();
@@ -307,8 +307,8 @@ AUI().ready(
                        storymaps.next();
                    });
                    $('.story-step-title, .next-story-step, .previous-story-step').on("click swipeleft swiperight", function(){
-    
-                    
+
+
                         var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - storymaps.storyVariance;
                         var y = $(window).scrollTop();  //your current y position on the page
 
@@ -316,7 +316,7 @@ AUI().ready(
                         $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
                     }
                    });
-                   
+
                    $('.view-map').on("click", function(){
                         var variance = 40;
                         if($(window).width() < 420){
@@ -325,14 +325,14 @@ AUI().ready(
                         var navOffset = $('.storymap-nav-container').offset().top;
                         var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - variance;
                         var y = $(window).scrollTop();  //your current y position on the page
-                        
+
                         if (y == 0){
                             $("html, body").animate({ scrollTop: y + navOffset }, 600);
                         }
                         else{
                             $("html, body").animate({ scrollTop: containerOffset }, 600);
                         }
-                        
+
                         $('.story-step-title').removeClass('story-active');
                         $('.button_overlay').removeClass('active');
                         storymaps.removeLayer(storymaps.markerLayer);
@@ -371,7 +371,7 @@ AUI().ready(
                        $('.title-block').toggle();
                        $('.storymap-aside, .storymap-source').toggleClass('hidden-xs');
                    });
-                   
+
                    $('.view-layers-button').on("click", function(e){
                        $(this).children('.icon-text')
                        .text(function(i, text){
@@ -390,7 +390,7 @@ AUI().ready(
             //var url = 'mapbox://styles/nmpeterson/cj8w0opw1fomf2ss2mu8iz3me';
             //L.mapbox.accessToken = 'pk.eyJ1Ijoibm1wZXRlcnNvbiIsImEiOiJGdDBLWXJvIn0.ZXxlwjkZH2vEyr3U0aKC4A';
             L.mapbox.accessToken = 'pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ';
-            
+
             storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
                 maxBounds: [[40.82130, -90.47900], [43.28040, -85.72192]],
                 maxZoom: 11,
@@ -398,7 +398,7 @@ AUI().ready(
                 attributionControl: false,
                 infoControl: true,
             }).setView([41.8781, -87.6298], 9);
-            
+
             var styleLayer = L.mapbox.styleLayer(url).addTo(storymaps.map);
         };
 
