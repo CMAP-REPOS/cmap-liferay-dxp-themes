@@ -31,7 +31,7 @@ cmap.initSocialShare = function(container) {
 };
 
 
-cmap.global.sidenav = function(){
+cmap.global.sidenav = function() {
   // SIDE NAV WIDGET
   var sideNavOpen = false;
 
@@ -56,32 +56,9 @@ cmap.global.sidenav = function(){
   });
 }
 
-
-Liferay.Portlet.ready(function(portletId, node){
-  console.log(portletId, node);
-});
-
-alert('outside of callbacks');
-
-Liferay.on('allPortletsReady', function() {
-  alert('changes pushed');
-
-  
-  cmap.global.sidenav();
-
-
-  // TEXT SIZE WIDGET
-  var $textSizeOptions = $('#side-nav .change-text-size .option');
-  $textSizeOptions.click(function() {
-    $textSizeOptions.removeClass('active');
-    $(this).addClass('active')
-  });
-
-
-
+cmap.global.scrollnav = function() {
   // SCROLL NAV
   var headerHeight = $('#main-header .nav-row-one').innerHeight();
-  console.log(headerHeight);
   var $scrollNav = $('#scroll-nav');
 
   function checkForScrollNav() {
@@ -93,27 +70,17 @@ Liferay.on('allPortletsReady', function() {
   }
   checkForScrollNav();
   $(window).scroll(_.throttle(checkForScrollNav, 50));
+}
 
-
-
-  // FOOTER
+cmap.global.footer.jumptotop = function() {
   $('#jump-to-top').click(function() {
     $('html,body').animate({
       scrollTop: 0
     }, 800);
   });
+}
 
-
-  // Recognize youtube videos and set aspect ratio
-  setUpYoutube();
-
-
-  $('table *').removeAttr('valign');
-});
-
-
-
-function setUpYoutube() {
+cmap.global.youtube = function() {
   $('.iframe-container iframe').each(function() {
     var $this = $(this);
 
@@ -179,4 +146,22 @@ function setUpYoutube() {
     addVideoCaption();
 
   });
-} // End youtube code
+}
+
+
+Liferay.Portlet.ready(function(portletId, node) {
+  console.log(portletId, node);
+});
+
+alert('outside of callbacks');
+
+Liferay.on('allPortletsReady', function() {
+  alert('changes pushed');
+
+  cmap.global.sidenav();
+  cmap.global.scrollnav();
+  cmap.global.footer.jumptotop();
+  cmap.global.youtube();
+
+  $('table *').removeAttr('valign');
+});
