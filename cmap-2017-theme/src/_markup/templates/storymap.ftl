@@ -32,7 +32,7 @@
             <#assign storyStepsIndex = cur_StoryStep?index>
                 <#if cur_StoryStep.StepTitle.getData() != "">
                 <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
-                    data-coordinates="${cur_StoryStep.StepLatitude.getData()}, ${cur_StoryStep.StepLongitude.getData()}"
+                    data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
                     data-step="${cur_StoryStep?index}">
                     ${cur_StoryStep.StepTitle.getData()}
                 </li>
@@ -125,7 +125,7 @@ AUI().ready(
         }
 
         var storymaps = storymaps || {};
-        storymaps.storyStep = 0;
+        storymaps.storyStep = -1;
         storymaps.markerLayer = null;
         storymaps.layers = {};
         storymaps.storySteps = [];
@@ -136,11 +136,18 @@ AUI().ready(
         <#list StorySteps.getSiblings() as cur_StoryStep>
             <#assign storyStepsIndex = cur_StoryStep?index>
             <#if cur_StoryStep.StepTitle.getData() != "">
+            var coords = [];
+            //coords
+            <#list cur_StoryStep.coords.getSiblings() as cur_Coords>
+            coords.push(['${cur_Coords.StepLatitude.getData()}','${cur_Coords.StepLongitude.getData()}']);
+            </#list>
+
         storymaps.storySteps.push({
             stepTitle: '${cur_StoryStep.StepTitle.getData()}',
-            stepCoords: ['${cur_StoryStep.StepLatitude.getData()}', '${cur_StoryStep.StepLongitude.getData()}'],
+            stepCoords: coords,
             stepMarkerLabel: '${cur_StoryStep.StepMarkerLabel.getData()}'
         });
+        console.log(storymaps.storySteps.stepCoords);
             </#if>
         </#list>
 
@@ -149,6 +156,8 @@ AUI().ready(
             $('.story-step-content').hide();
             $('#${randomNamespace}_content' +step).show();
         };
+
+
 
         storymaps.loadOverlay = function(options) {
             console.log('storymaps.loadOverlay()');
@@ -199,6 +208,7 @@ AUI().ready(
         };
 
         storymaps.showStoryStep = function(step) {
+        console.log(storymaps.storySteps[step].stepCoords[0]);
             console.log('storymaps.showStoryStep(): ' + step);
             $('.story-step-title').removeClass('story-active');
             $('#${randomNamespace}_step'+step).addClass('story-active');
@@ -215,7 +225,8 @@ AUI().ready(
             if ($(window).width() < 420) {
                 yOffset = 100;
             }
-            storymaps.map.panToOffset(storymaps.storySteps[step].stepCoords, [0, yOffset], { animate: true });
+            console.log(storymaps.storySteps[step].stepCoords[0]);
+            storymaps.map.panToOffset(storymaps.storySteps[step].stepCoords[0], [0, yOffset], { animate: true });
         };
 
         storymaps.setMarkerState = function (step) {
@@ -224,9 +235,17 @@ AUI().ready(
             if (storymaps.markerLayer !== null) {
                 storymaps.map.removeLayer(storymaps.markerLayer);
             }
-            storymaps.markerLayer = new L.marker(storymaps.storySteps[step].stepCoords, { icon: cmapIcon, interactive: false }).addTo(storymaps.map);
+            storymaps.markerLayer = new L.marker(storymaps.storySteps[step].stepCoords[0], { icon: cmapIcon, interactive: false }).addTo(storymaps.map);
             if (jQuery.trim(storymaps.storySteps[step].stepMarkerLabel).length) {
                 storymaps.markerLayer.bindTooltip(storymaps.storySteps[step].stepMarkerLabel).openTooltip();
+            }
+            //change colors based on if set.
+            pinColor = '${markerColor.getData()}';
+            if( pinColor != ''){
+                $('.icon-map-med-dark').css('color', pinColor);
+            }
+            else {
+                $('.icon-map-med-dark').css('color', 'red');
             }
         };
 
@@ -314,6 +333,8 @@ AUI().ready(
 
                         if (y < containerOffset){
                         $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
+                    } else if (y > containerOffset){
+                         $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
                     }
                    });
 
@@ -333,15 +354,15 @@ AUI().ready(
                             $("html, body").animate({ scrollTop: containerOffset }, 600);
                         }
 
-                        $('.story-step-title').removeClass('story-active');
+                        //$('.story-step-title').removeClass('story-active');
                         $('.button_overlay').removeClass('active');
-                        storymaps.removeLayer(storymaps.markerLayer);
-                        //cmap.map.removeLayer(cmap.markerLayer);
+                        //storymaps.removeLayer(storymaps.markerLayer);
                         var someLayers = storymaps.layers;
 
                         for (var mapLayer in someLayers){
                             storymaps.removeLayer(storymaps.layers[mapLayer]);
                         }
+                        storymaps.map.setView([41.8781, -87.6298], 9);
                         });
 
                    $('.story-step-title').on('click', function (e) {
@@ -404,7 +425,7 @@ AUI().ready(
 
         storymaps.initMap();
         storymaps.bindEvents();
-        storymaps.showStoryStep(storymaps.storyStep);
+        //storymaps.showStoryStep(storymaps.storyStep);
         cmap.initSocialShare($('.storymap-nav'));
     }
 );
