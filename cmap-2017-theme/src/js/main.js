@@ -31,38 +31,43 @@ cmap.initSocialShare = function(container) {
 };
 
 
-// I don't know what i'm doing...
-// Lets put all the JS here!
-Liferay.on('allPortletsReady', function() {
-
-
+cmap.global.sidenav = function(){
   // SIDE NAV WIDGET
   var sideNavOpen = false;
 
   var $sideNav = $('#side-nav');
   var $wrapper = $('#wrapper');
+  var $hamburgers = $('#main-header .hamburger, #scroll-nav .hamburger');
 
-  function listenForSideNav($hamburger) {
-    $hamburger.on('click', () => {
-      $hamburger.toggleClass('is-active');
-      var sideNavWidth = $sideNav.outerWidth();
+  $hamburgers.on('click', () => {
+    var sideNavWidth = $sideNav.outerWidth();
 
-      $wrapper.toggleClass('side-nav-active');
-      $sideNav.toggleClass('side-nav-active');
+    $hamburgers.toggleClass('is-active');
+    $wrapper.toggleClass('side-nav-active');
+    $sideNav.toggleClass('side-nav-active');
 
-      if (sideNavOpen) {
-        $wrapper.css('left', '0');
-        sideNavOpen = false;
-      } else {
-        $wrapper.css('left', `${sideNavWidth}px`);
-        sideNavOpen = true;
-      }
-    });
-  }
+    if (sideNavOpen) {
+      $wrapper.css('left', '0');
+      sideNavOpen = false;
+    } else {
+      $wrapper.css('left', `${sideNavWidth}px`);
+      sideNavOpen = true;
+    }
+  });
+}
 
-  listenForSideNav($('#main-header .hamburger'));
-  listenForSideNav($('#scroll-nav .hamburger'));
 
+Liferay.Portlet.ready(function(portletId, node){
+  console.log(portletId, node);
+});
+
+alert('outside of callbacks');
+
+Liferay.on('allPortletsReady', function() {
+  alert('changes pushed');
+
+  
+  cmap.global.sidenav();
 
 
   // TEXT SIZE WIDGET

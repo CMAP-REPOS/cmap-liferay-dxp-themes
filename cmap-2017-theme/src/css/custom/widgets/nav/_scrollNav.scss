@@ -11,6 +11,7 @@
   @include section-padding();
 
   background: $off-white;
+  border-bottom: 1px solid darken($off-white, 10%);
   transition: all 0.2s ease;
 
   @if($debug){
@@ -42,7 +43,7 @@
     position: relative;
     display: inline-flex;
     padding-left: 0;
-    transform: scale(0.5) translateX(-50%);
+    transform: scale(0.5) translateX(-50%) translateY(1px);
 
     .hamburger-inner, 
     .hamburger-inner::before, 
@@ -55,6 +56,7 @@
   .logo{
     position: relative;
     display: inline-flex;
-    @include logo-size($size0);
+    @include logo-size(0.95em);
+    transform: translateY(1px);
   }
 }

@@ -84,6 +84,18 @@
     }
   }
 
+  .section-title{
+    position: relative;
+  }
+  .section-hyperlink{
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    position: absolute;
+    transform: translateX(-100%) translateY(-50%);
+    top: 50%;
+  }
+
   // used to get the computed value of $unit*4
   .page-nav-top{
     height: $unit * 4;
