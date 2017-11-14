@@ -44,10 +44,3 @@
     </div>
   </nav>
 </#if>
-
-
-<script>
-  $(function() {
-    cmap.initSocialShare($('.breadcrumb-cmap'));
-  });
-</script>

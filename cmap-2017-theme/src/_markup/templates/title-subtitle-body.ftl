@@ -145,17 +145,6 @@ cmap.titleWithSections.init = function() {
 
   // var clip = new Clipboard();
   // console.log(clip, Clipboard);
-
-  // adds the title of the page to the scrolling nav
-  var $titleA = $('.journal-content-article h1:first-of-type');
-  var $titleB = $('.page-title h1:first-of-type');
-  if($titleA.length || $titleB.length){
-    if($titleA.length){
-      $('#scroll-nav .col-xl-13').append('<h4>'+$titleA.text()+'</h4>');
-    } else if ($titleB.length) {
-      $('#scroll-nav .col-xl-13').append('<h4>'+$titleB.text()+'</h4>');
-    }
-  }
   
   
   $('.portlet-body table *').removeAttr('valign');

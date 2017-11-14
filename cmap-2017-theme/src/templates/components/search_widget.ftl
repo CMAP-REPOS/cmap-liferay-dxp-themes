@@ -7,3 +7,33 @@
     <input class="search-widget-field" type="text" aria-describedby="site-search-addon">
   </label>
 </div>
+
+<script>
+
+Liferay.on('allPortletsReady', function(){
+	$('.search-widget-field').focus(function() {
+	  $(this).parent().find('.search-placeholder-text').fadeOut();
+	});
+
+	$('.search-widget-field').blur(function() {
+	  if ($(this).val().trim() === '') {
+	    $(this).parent().find('.search-placeholder-text').fadeIn();
+	  }
+	});
+
+	$('.search-widget-decorators .search-icon').on('click', function(e) {
+	  e.preventDefault();
+	  var value = $(this).parent().parent().find('.search-widget-field').val();
+	  document.location = "/search?q=" + escape(value);
+	});
+
+	$('.search-widget-field').on('keypress', function(e) {
+	  var enterKey = 13;
+	  if (e.which == enterKey) {
+	    document.location = "/search?q=" + escape($(this).val());
+	    $(this).blur();
+	  }
+	});
+});
+
+</script>

@@ -19,19 +19,6 @@
 
 <body class="${css_class}">
 
-	<script>
-		var pageClassName = window.location.pathname.replace(/\//g,'-').substring(1);
-		if(pageClassName === ''){
-			pageClassName = 'home-page'
-		} else {
-			pageClassName=pageClassName+'-page';
-			pageClassName=pageClassName.replace(/(web-guest-)/g, '');
-		}
-
-		document.body.className += ' '+pageClassName;
-	</script>
-
-
 	<@liferay_ui["quick-access"] contentId="#main-content" />
 
 	<@liferay_util["include"] page=body_top_include />
@@ -76,9 +63,10 @@
 	<!-- inject:js -->
 	<script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
 	<script src="${javascript_folder}/custom.js" type="text/javascript"></script>
+	<#-- <script src="${javascript_folder}/main.js" type="text/javascript"></script> -->
 	<script src="https://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>
-	<!-- endinject -->
 
+	<!-- Analytics -->
 	<script type="text/javascript">
 	  var _gauges = _gauges || [];
 	  (function() {
@@ -93,6 +81,8 @@
 	    s.parentNode.insertBefore(t, s);
 	  })();
 	</script>
+	<!-- endinject -->
+	
 </body>
 
 </html>

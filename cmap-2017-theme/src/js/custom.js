@@ -1,14 +1,226 @@
-$(document).ready(function(){
+var cmap = cmap || {};
 
-	// LOGIN PAGE
-  if($('.portlet-login').length){
+cmap.initSocialShare = function(container) {
+  var shareLinks = '<div class="addthis_toolbox"><ul class="list-unstyled">' +
+    '<li><a class="facebook addthis_button_facebook">Facebook</a>' +
+    '<li><a class="twitter addthis_button_twitter" tw:via="GOTO2040">Twitter</a>' +
+    '<li><a class="google addthis_button_google_plusone_share">Google+</a>' +
+    '<li><a class="pinterest addthis_button_pinterest_share">Pinterest</a>' +
+    '<li><a class="email addthis_button_email">Email</a></ul></div>';
+
+  if (container.find('.share-wrapper').length) {
+    container.find('.share-wrapper').html(shareLinks);
+    container.find('.addthis_toolbox').hide();
+  }
+
+  container.find('.share a')
+    .popover({
+      html: true,
+      placement: 'bottom'
+    })
+    .on('shown.bs.popover', function() {
+      $('#social-bookmarks-container')
+        .html(container.find('.addthis_toolbox')
+          .clone()
+          .show());
+      var addthis_config = addthis_config || {};
+      addthis_config.pubid = '5494611e5b33a7e7';
+      addthis.init();
+      addthis.toolbox('.addthis_toolbox');
+    });
+};
+
+
+cmap.global = {};
+
+cmap.global.sidenav = function() {
+  // SIDE NAV WIDGET
+  var sideNavOpen = false;
+
+  var $sideNav = $('#side-nav');
+  var $wrapper = $('#wrapper');
+  var $hamburgers = $('#main-header .hamburger, #scroll-nav .hamburger');
+
+  $hamburgers.on('click', () => {
+    var sideNavWidth = $sideNav.outerWidth();
+
+    $hamburgers.toggleClass('is-active');
+    $wrapper.toggleClass('side-nav-active');
+    $sideNav.toggleClass('side-nav-active');
+
+    if (sideNavOpen) {
+      $wrapper.css('left', '0');
+      sideNavOpen = false;
+    } else {
+      $wrapper.css('left', `${sideNavWidth}px`);
+      sideNavOpen = true;
+    }
+  });
+}
+
+cmap.global.scrollnav = function() {
+  // SCROLL NAV
+  var headerHeight = $('#main-header .nav-row-one').innerHeight();
+  var $scrollNav = $('#scroll-nav');
+
+  function checkForScrollNav() {
+    if (window.scrollY > headerHeight) {
+      $scrollNav.addClass('active');
+    } else {
+      $scrollNav.removeClass('active');
+    }
+  }
+  checkForScrollNav();
+  $(window).scroll(_.throttle(checkForScrollNav, 50));
+}
+
+cmap.global.footerjumptotop = function() {
+  $('#jump-to-top').click(function() {
+    $('html,body').animate({
+      scrollTop: 0
+    }, 800);
+  });
+}
+
+cmap.global.youtube = function() {
+  $('.iframe-container iframe').each(function() {
+    var $this = $(this);
+
+    function setHeight() {
+      var ratio = parseFloat($this.attr('longdesc'), 10);
+      var width = $this.innerWidth();
+      var height = Math.floor(width / ratio);
+      $this.css('height', height);
+    }
+
+    function findID(src) {
+      var code_offset = src.indexOf('/embed/');
+      if (code_offset >= 0) {
+        // remove the beginning of the URL
+        var final = src.substring(code_offset + 7);
+
+        // finds params if they are included
+        var or = final.indexOf('?');
+        var and = final.indexOf('&');
+        var end = or > and ? and : or;
+
+        // remove the end of the URL
+        if (end) { final = final.substring(0, end); }
+        return final;
+      }
+    }
+
+    // Builds the tagline in the DOM based on the API response
+    function addVideoTagline(data) {
+      var title = data.items[0].snippet.title;
+      var link = `https://youtu.be/${data.items[0].id}`;
+      var $container = $('<div class="video-tagline"></div>');
+      var $icon = $('<div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"> <g fill="#3C5976" fill-rule="evenodd"> <path fill-rule="nonzero" d="M9,17.5 C4.30585763,17.5 0.5,13.6941424 0.5,9 C0.5,4.30585763 4.30585763,0.5 9,0.5 C13.6941424,0.5 17.5,4.30585763 17.5,9 C17.5,13.6941424 13.6941424,17.5 9,17.5 Z M9,16.5 C13.1418576,16.5 16.5,13.1418576 16.5,9 C16.5,4.85814237 13.1418576,1.5 9,1.5 C4.85814237,1.5 1.5,4.85814237 1.5,9 C1.5,13.1418576 4.85814237,16.5 9,16.5 Z"/> <polygon points="6.8 5.75 6.8 12.25 12.8 8.75"/> </g> </svg> </div>');
+      var $data = $('<div class="video-data"> <span class="whitney-normal"> Watch <a class="underline-link" href="' + link + '" target="_blank">' + title + '</a> on YouTube </span> </div>');
+      $container.append($icon);
+      $container.append($data);
+      $this.parent().append($container);
+    }
+
+    // Searches for information about the video like title and url
+    function addVideoCaption() {
+      var vid = findID($this.attr('src'));
+      $.getJSON("https://www.googleapis.com/youtube/v3/videos", {
+        key: "AIzaSyC7Ab6y-6mvks4oPwdc4vMkXoKFQXBsc5E",
+        part: "snippet,statistics",
+        id: vid
+      }, function(data) {
+        if (data.items.length === 0) {
+          console.error('YOUTUBE: ', 'Problem finding the video you want.');
+          return;
+        }
+        addVideoTagline(data);
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error('YOUTUBE: ', 'Problem making a request to get video metadata.');
+      });
+    }
+
+    setHeight();
+    $(window).resize(_.debounce(function() {
+      setHeight();
+    }, 100));
+
+    addVideoCaption();
+
+  });
+};
+
+cmap.global.loginpage = function() {
+  // LOGIN PAGE
+  if ($('.portlet-login').length) {
     $('body').addClass('login-page');
 
     var $container = $('.login-page #main-content > .row > .col-md-12');
     $container.removeClass('col-md-12');
     $container.addClass('col-xl-10 col-xl-push-3 col-sm-12 col-sm-push-2 col-xs-16 col-xs-push-0');
   }
+};
+
+cmap.global.checkforh1 = function(){
+
+  // there should only be one h1 tag per page for SEO reasons
+  // we are going to take some liferay h1s and convert them to <div>
+  function convertToDiv(element){
+    var $this = $(element);
+    var classes = $this.attr('class');
+    var content = $this.text();
+    $this.replaceWith(`<div class="${classes}">${content}</div>`);
+  }
+
+  $('h1').each(function(){
+    if($(this).hasClass('hide-accessible')){
+      convertToDiv(this);
+    } else {
+      cmap.global.scrollnavTitle($(this.text()));
+    }
+  });
+}
+
+cmap.global.scrollnavTitle = function(text){
+  $('#scroll-nav .col-xl-13').append(`<h4>${text}</h4>`);
+}
+
+cmap.global.addpageclass = function() {
+  var rawPath = Liferay.currentURL.substring(1);
+  var noWebGuest = rawPath.replace(/web\/guest\//g, '');
+  var noSlash = noWebGuest.replace(/\//g, '-');
+  var final = '';
+
+  if (noSlash === '') {
+    final = 'home-page'
+  } else {
+    final = noSlash;
+  }
+
+  console.log(rawPath, noWebGuest, noSlash, final);
+  $('body').addClass(final);
+};
 
 
-  $('.journal-content-article *').removeAttr('style');
+// Runs when.. all the portlets are loaded and ready
+Liferay.on('allPortletsReady', function() {
+
+  cmap.global.addpageclass();
+  cmap.global.sidenav();
+  cmap.global.scrollnav();
+  cmap.global.footerjumptotop();
+  cmap.global.checkforh1();
+  cmap.global.youtube();
+  cmap.global.loginpage();
+  cmap.initSocialShare($('.breadcrumb-cmap'));
+
+  $('table *').removeAttr('valign');
 });
+
+// Runs once for each portlet on the page, with info about that portlet
+Liferay.Portlet.ready(function(portletId, node) {
+  console.log(portletId, node);
+});
+
+// Runs once the DOM is finished. Better to use "allPortletsReady"
+$(document).ready(function() {});

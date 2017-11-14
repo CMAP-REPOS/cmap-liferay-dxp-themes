@@ -1,8 +1,10 @@
-.home-page, .web-guest-home-page{
+.home-page{
   #breadcrumbs{
     z-index: 100;
+    margin-bottom: 0;
   }
-  .breadcrumb{
+
+  .breadcrumb.row{
     position: absolute !important;
     .trail-col{
       display: none;

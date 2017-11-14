@@ -15,7 +15,7 @@
     <a href="/data" role="menuitem"><span> Data &amp; Analysis </span></a>
   </li>
   <li role="presentation">
-    <a href="/about/updates" role="menuitem"><span> Updates &amp; News </span></a>
+    <a href="/updates-news" role="menuitem"><span> Updates &amp; News </span></a>
   </li>
   <li role="presentation">
     <a href="/contact-us" role="menuitem"><span> Contact Us </span></a>

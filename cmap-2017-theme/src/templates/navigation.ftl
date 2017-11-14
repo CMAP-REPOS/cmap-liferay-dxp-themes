@@ -33,33 +33,3 @@
   </nav>
 
 </header>
-
-<script>
-$(document).ready(function(){
-  $('.search-widget-field').focus(function(){
-    $(this).parent().find('.search-placeholder-text').fadeOut();
-  });
-
-  $('.search-widget-field').blur(function(){
-    if($(this).val().trim() === ''){
-      $(this).parent().find('.search-placeholder-text').fadeIn();
-    }
-  });
-
-  $('.search-widget-decorators .search-icon').on('click', function (e) {
-    console.log('site-search-button click');
-    e.preventDefault();
-    var value = $(this).parent().parent().find('.search-widget-field').val();
-    document.location = "/search?q=" + escape(value);
-  });
-
-  $('.search-widget-field').on('keypress', function (e) {
-    console.log('site-search-input keypress');
-    var p = e.which;
-    if (p == 13) {
-      document.location = "/search?q=" + escape($(this).val());
-      $(this).blur();
-    }
-  });
-});
-</script>
