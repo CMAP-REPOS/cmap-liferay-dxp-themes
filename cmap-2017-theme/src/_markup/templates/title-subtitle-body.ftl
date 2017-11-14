@@ -103,14 +103,9 @@ cmap.titleWithSections.init = function() {
   // remove empty paragraphs
   $('p').each(function(){
     var $p = $(this);
-    console.log($p.html().trim());
     if($p.html().trim() === '&nbsp;'){
-      console.log('removing paragraph: ', $p);
       $p.remove();
     }
-    // if($p.text().trim() === ''){
-    //   $p.remove();
-    // }
   });
 
   // Stolen from stack overflow
@@ -142,12 +137,6 @@ cmap.titleWithSections.init = function() {
     var status = copyToClipboard(toCopy);
     console.log(toCopy, Liferay.currentUrl, status);
   });
-
-  // var clip = new Clipboard();
-  // console.log(clip, Clipboard);
-  
-  
-  $('.portlet-body table *').removeAttr('valign');
 };
 
 
@@ -156,9 +145,8 @@ cmap.titleWithSections.bindEvents = function() {
 
   // disable sticky nav in control panel
   if (!Liferay.ThemeDisplay.isSignedIn()) {
-    //
+    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
   }
-  $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
 
   $('.page-nav-item a').click(function(e){
     e.preventDefault();

@@ -4,7 +4,7 @@
     @include section-padding();
   }
   .portlet-login {
-    padding: $size5 0;
+    padding: $size4 0 $size5;
   }
   .portlet-icon-back {
     display: none;

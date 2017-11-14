@@ -1,13 +1,9 @@
 .home-page{
   #breadcrumbs{
-    z-index: 100;
-    margin-bottom: 0;
+    display: none;
   }
 
-  .breadcrumb.row{
-    position: absolute !important;
-    .trail-col{
-      display: none;
-    }
+  #main-header{
+  	border-bottom: 1px solid $off-white;
   }
 }
