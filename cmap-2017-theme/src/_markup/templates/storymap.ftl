@@ -137,15 +137,18 @@ AUI().ready(
             <#assign storyStepsIndex = cur_StoryStep?index>
             <#if cur_StoryStep.StepTitle.getData() != "">
             var coords = [];
+            var markers = [];
             //coords
             <#list cur_StoryStep.coords.getSiblings() as cur_Coords>
             coords.push(['${cur_Coords.StepLatitude.getData()}','${cur_Coords.StepLongitude.getData()}']);
+            markers.push(['${cur_StoryStep.coords.StepMarkerLabel.getData()}']);
+            console.log(markers);
             </#list>
 
         storymaps.storySteps.push({
             stepTitle: '${cur_StoryStep.StepTitle.getData()}',
             stepCoords: coords,
-            stepMarkerLabel: '${cur_StoryStep.StepMarkerLabel.getData()}'
+            stepMarkerLabel: markers
         });
         console.log(storymaps.storySteps.stepCoords);
             </#if>
@@ -208,12 +211,11 @@ AUI().ready(
         };
 
         storymaps.showStoryStep = function(step) {
-        console.log(storymaps.storySteps[step].stepCoords[0]);
             console.log('storymaps.showStoryStep(): ' + step);
             $('.story-step-title').removeClass('story-active');
             $('#${randomNamespace}_step'+step).addClass('story-active');
             $('.xs-story-step-title').html(storymaps.storySteps[step].stepTitle);
-            console.log(storymaps.storySteps[step]);
+
             storymaps.setMarkerState(step);
             storymaps.setPanState(step);
             storymaps.loadContent(step);
@@ -232,13 +234,24 @@ AUI().ready(
         storymaps.setMarkerState = function (step) {
             console.log('storymaps.setMarkerState(): ' + step);
             var cmapIcon = L.divIcon({ className: 'icon-cmap icon-map-med-dark' });
+
             if (storymaps.markerLayer !== null) {
                 storymaps.map.removeLayer(storymaps.markerLayer);
+                console.log(storymaps.markerLayer);
             }
-            storymaps.markerLayer = new L.marker(storymaps.storySteps[step].stepCoords[0], { icon: cmapIcon, interactive: false }).addTo(storymaps.map);
+            storymaps.markerLayer = [];
+            for(i=0; i < storymaps.storySteps[step].stepCoords.length; i++){
+            //need to have these in a collection of an array most likely, so they get added and removed. marker layer needs all of them.
+
+            mapPin = new L.marker(storymaps.storySteps[step].stepCoords[i], { icon: cmapIcon, interactive: false });
+            storymaps.markerLayer.push(mapPin);
+            storymaps.markerLayer[i].addTo(storymaps.map);
+
+            }
             if (jQuery.trim(storymaps.storySteps[step].stepMarkerLabel).length) {
-                storymaps.markerLayer.bindTooltip(storymaps.storySteps[step].stepMarkerLabel).openTooltip();
+                storymaps.markerLayer.bindTooltip(storymaps.storySteps[step].stepMarkerLabel[i]).openTooltip();
             }
+
             //change colors based on if set.
             pinColor = '${markerColor.getData()}';
             if( pinColor != ''){
