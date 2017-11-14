@@ -244,8 +244,8 @@ AUI().ready(
                 }
             }
 
-            <#if pinColor?? && pinColor.getData()?? && pinColor.getData() != "">
-            $('.icon-map-med-dark').css('color', pinColor);
+            <#if markerColor?? && markerColor.getData()?? && markerColor.getData() != "">
+            $('.icon-map-med-dark').css('color', '${markerColor.getData()}');
             <#else>
             $('.icon-map-med-dark').css('color', 'red');
             </#if>
