@@ -114,8 +114,7 @@
 
 AUI().ready(
 
-	function() {
-
+    function () {
 
         L.Map.prototype.panToOffset = function (latlng, offset, options) {
             var x = this.latLngToContainerPoint(latlng).x - offset[0]
@@ -126,43 +125,37 @@ AUI().ready(
 
         var storymaps = storymaps || {};
         storymaps.storyStep = -1;
-        storymaps.markerLayer = null;
+        storymaps.markerLayers = [];
         storymaps.layers = {};
         storymaps.storySteps = [];
         storymaps.storyOverlays = [];
         storymaps.storyVariance = ($(window).width() > 420) ? 100 : 70;
 
-
-        <#list StorySteps.getSiblings() as cur_StoryStep>
-            <#assign storyStepsIndex = cur_StoryStep?index>
-            <#if cur_StoryStep.StepTitle.getData() != "">
-            var coords = [];
+        <#list StorySteps.getSiblings() as cur_StoryStep >
+            <#assign storyStepsIndex = cur_StoryStep ? index >
+            <#if cur_StoryStep.StepTitle.getData() != "" >
             var markers = [];
-            //coords
-            <#list cur_StoryStep.coords.getSiblings() as cur_Coords>
-            coords.push(['${cur_Coords.StepLatitude.getData()}','${cur_Coords.StepLongitude.getData()}']);
-            markers.push(['${cur_StoryStep.coords.StepMarkerLabel.getData()}']);
-            console.log(markers);
-            </#list>
+            <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
+            markers.push({
+                coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
+                label: '${cur_Coords.StepMarkerLabel.getData()}'
+            });
+            </#list >
 
-        storymaps.storySteps.push({
-            stepTitle: '${cur_StoryStep.StepTitle.getData()}',
-            stepCoords: coords,
-            stepMarkerLabel: markers
-        });
-        console.log(storymaps.storySteps.stepCoords);
+            storymaps.storySteps.push({
+                stepTitle: '${cur_StoryStep.StepTitle.getData()}',
+                stepMarkers: markers
+            });
             </#if>
-        </#list>
+        </#list >
 
         storymaps.loadContent = function(step) {
             console.log('storymaps.loadContent()' + step);
             $('.story-step-content').hide();
-            $('#${randomNamespace}_content' +step).show();
+            $('#${randomNamespace}_content' + step).show();
         };
 
-
-
-        storymaps.loadOverlay = function(options) {
+        storymaps.loadOverlay = function (options) {
             console.log('storymaps.loadOverlay()');
             console.log(options);
             var $button = $('.button_overlay[data-layer-id="' + options.overlayId + '"]');
@@ -174,15 +167,15 @@ AUI().ready(
                 $.ajax({
                     dataType: "json",
                     url: options.fileName,
-                    success: function(data) {
+                    success: function (data) {
                         storymaps.layers[options.overlayId] = L.geoJSON(data, { style: L.mapbox.simplestyle.style });
                         storymaps.layers[options.overlayId].addTo(storymaps.map);
                         $('.overlays').children().removeClass('disabled-loading');
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         console.log(errorThrown);
                     },
-                    complete: function() {
+                    complete: function () {
                         $button.html($button.data('title'));
                     }
                 });
@@ -210,10 +203,10 @@ AUI().ready(
             storymaps.showStoryStep(storymaps.storyStep);
         };
 
-        storymaps.showStoryStep = function(step) {
+        storymaps.showStoryStep = function (step) {
             console.log('storymaps.showStoryStep(): ' + step);
             $('.story-step-title').removeClass('story-active');
-            $('#${randomNamespace}_step'+step).addClass('story-active');
+            $('#${randomNamespace}_step' + step).addClass('story-active');
             $('.xs-story-step-title').html(storymaps.storySteps[step].stepTitle);
 
             storymaps.setMarkerState(step);
@@ -227,202 +220,199 @@ AUI().ready(
             if ($(window).width() < 420) {
                 yOffset = 100;
             }
-            console.log(storymaps.storySteps[step].stepCoords[0]);
-            storymaps.map.panToOffset(storymaps.storySteps[step].stepCoords[0], [0, yOffset], { animate: true });
+            storymaps.map.panToOffset(storymaps.storySteps[step].stepMarkers[0].coords, [0, yOffset], { animate: true });
         };
 
         storymaps.setMarkerState = function (step) {
             console.log('storymaps.setMarkerState(): ' + step);
             var cmapIcon = L.divIcon({ className: 'icon-cmap icon-map-med-dark' });
 
-            if (storymaps.markerLayer !== null) {
-                storymaps.map.removeLayer(storymaps.markerLayer);
-                console.log(storymaps.markerLayer);
-            }
-            storymaps.markerLayer = [];
-            for(i=0; i < storymaps.storySteps[step].stepCoords.length; i++){
-            //need to have these in a collection of an array most likely, so they get added and removed. marker layer needs all of them.
-
-            mapPin = new L.marker(storymaps.storySteps[step].stepCoords[i], { icon: cmapIcon, interactive: false });
-            storymaps.markerLayer.push(mapPin);
-            storymaps.markerLayer[i].addTo(storymaps.map);
-
-            }
-            if (jQuery.trim(storymaps.storySteps[step].stepMarkerLabel).length) {
-                storymaps.markerLayer.bindTooltip(storymaps.storySteps[step].stepMarkerLabel[i]).openTooltip();
+            for (i = 0; i < storymaps.markerLayers.length; i++) {
+                storymaps.removeLayer(storymaps.markerLayers[i]);
             }
 
-            //change colors based on if set.
-            pinColor = '${markerColor.getData()}';
-            if( pinColor != ''){
-                $('.icon-map-med-dark').css('color', pinColor);
+            storymaps.markerLayers = [];
+
+            for (i = 0; i < storymaps.storySteps[step].stepMarkers.length; i++) {
+                var marker = storymaps.storySteps[step].stepMarkers[i];
+                mapPin = new L.marker(marker.coords, { icon: cmapIcon, interactive: false });
+                storymaps.markerLayers.push(mapPin);
+                mapPin.addTo(storymaps.map);
+
+                if ($.trim(marker.label).length) {
+                    mapPin.bindTooltip(marker.label).openTooltip();
+                }
             }
-            else {
-                $('.icon-map-med-dark').css('color', 'red');
-            }
+
+            <#if pinColor?? && pinColor.getData()?? && pinColor.getData() != "">
+            $('.icon-map-med-dark').css('color', pinColor);
+            <#else>
+            $('.icon-map-med-dark').css('color', 'red');
+            </#if>
         };
 
-        storymaps.removeLayer = function(layer) {
+        storymaps.removeLayer = function (layer) {
             console.log('storymaps.removeLayer()');
             if (layer) {
                 storymaps.map.removeLayer(layer);
             }
         };
 
-       	$(function() {
-       	var scrollHandler = function() {
-        return {
-            // properties
-            lastScrollTop: $(this).scrollTop(),
-            lastAction: null,
+        $(function () {
+            var scrollHandler = function () {
+                return {
+                    // properties
+                    lastScrollTop: $(this).scrollTop(),
+                    lastAction: null,
 
-            // main scroll-handling function
-            handleScroll: function() {
-                var navBarPos = $('.storymap-intro-container').offset().top;
-                var mapPos = $('.story-map').offset().top;
-                var mapHeight = $('#map-container').height();
-                var mapScroll = mapPos+mapHeight;
+                    // main scroll-handling function
+                    handleScroll: function () {
+                        var navBarPos = $('.storymap-intro-container').offset().top;
+                        var mapPos = $('.story-map').offset().top;
+                        var mapHeight = $('#map-container').height();
+                        var mapScroll = mapPos + mapHeight;
 
-                // clear prev action
-                clearTimeout(scrollHandler.lastAction);
+                        // clear prev action
+                        clearTimeout(scrollHandler.lastAction);
 
-                // get new scroll position
-                var scrollPos = $(this).scrollTop();
+                        // get new scroll position
+                        var scrollPos = $(this).scrollTop();
 
-                // end...set new lastScrollTop val
-                scrollHandler.lastScrollTop = scrollPos;
-                //divide by 1.45 since that seems to be about where the bar sits on the page...
-                if(scrollPos/1.60 > navBarPos){
-                    $('.story-interact').addClass('scroll-fixed');
-                }
-                else{
-                     $('.story-interact').removeClass('scroll-fixed');
-                }
-                if (scrollPos > mapScroll - scrollPos/.7){
+                        // end...set new lastScrollTop val
+                        scrollHandler.lastScrollTop = scrollPos;
+                        //divide by 1.45 since that seems to be about where the bar sits on the page...
+                        if (scrollPos / 1.60 > navBarPos) {
+                            $('.story-interact').addClass('scroll-fixed');
+                        }
+                        else {
+                            $('.story-interact').removeClass('scroll-fixed');
+                        }
+                        if (scrollPos > mapScroll - scrollPos / .7) {
 
-                    //$('.storymap-overlays-container').addClass('scroll-fixed');
-                    if(scrollPos > mapScroll - 140){
-                    $('.storymap-overlays-container').hide();
+                            //$('.storymap-overlays-container').addClass('scroll-fixed');
+                            if (scrollPos > mapScroll - 140) {
+                                $('.storymap-overlays-container').hide();
+                            }
+                            else {
+                                $('.storymap-overlays-container').show();
+                            }
+                        }
+                        else {
+                            // $('.storymap-overlays-container').show();
+                            $('.storymap-overlays-container').removeClass('scroll-fixed');
+                        }
                     }
-                    else{
-                        $('.storymap-overlays-container').show();
-                    }
                 }
-                else{
-                    // $('.storymap-overlays-container').show();
-                    $('.storymap-overlays-container').removeClass('scroll-fixed');
+            }();
+            $(window).on('scroll', scrollHandler.handleScroll);
+        });
+
+        storymaps.bindEvents = function () {
+            console.log('storymaps.bindEvents()');
+
+            $('.previous-story-step').on('click', function (e) {
+                e.preventDefault();
+                storymaps.prev();
+            });
+
+            $('.next-story-step').on('click', function (e) {
+                e.preventDefault();
+                storymaps.next();
+            });
+
+            $('.storymap-nav-container.mobile-storymap-nav').on('swipeleft', function (e) {
+                storymaps.prev();
+            });
+
+            $('.storymap-nav-container.mobile-storymap-nav').on('swiperight', function (e) {
+                storymaps.next();
+            });
+            
+            $('.story-step-title, .next-story-step, .previous-story-step').on("click swipeleft swiperight", function () {
+
+            var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - storymaps.storyVariance;
+                var y = $(window).scrollTop();  //your current y position on the page
+
+                if (y < containerOffset) {
+                    $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
+                } else if (y > containerOffset) {
+                    $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
                 }
-            }
-        }
-    }();
-    $(window).on('scroll', scrollHandler.handleScroll);
-	});
+            });
 
-        storymaps.bindEvents = function() {
-                   //console.log('storymaps.bindEvents()');
+            $('.view-map').on("click", function () {
+                var variance = 40;
+                if ($(window).width() < 420) {
+                    variance = 80;
+                }
+                var navOffset = $('.storymap-nav-container').offset().top;
+                var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - variance;
+                var y = $(window).scrollTop();  //your current y position on the page
 
-                   $('.previous-story-step').on('click', function(e) {
-                       e.preventDefault();
-                       storymaps.prev();
-                   });
+                if (y == 0) {
+                    $("html, body").animate({ scrollTop: y + navOffset }, 600);
+                }
+                else {
+                    $("html, body").animate({ scrollTop: containerOffset }, 600);
+                }
 
-                   $('.next-story-step').on('click',function(e) {
-                       e.preventDefault();
-                       storymaps.next();
-                   });
+                //$('.story-step-title').removeClass('story-active');
+                $('.button_overlay').removeClass('active');
+                //storymaps.removeLayer(storymaps.markerLayer);
+                var someLayers = storymaps.layers;
 
-                   $('.storymap-nav-container.mobile-storymap-nav').on('swipeleft', function(e){
-                       storymaps.prev();
-                   });
+                for (var mapLayer in someLayers) {
+                    storymaps.removeLayer(storymaps.layers[mapLayer]);
+                }
+                storymaps.map.setView([41.8781, -87.6298], 9);
+            });
 
-                   $('.storymap-nav-container.mobile-storymap-nav').on('swiperight',function(e) {
-                       storymaps.next();
-                   });
-                   $('.story-step-title, .next-story-step, .previous-story-step').on("click swipeleft swiperight", function(){
+            $('.story-step-title').on('click', function (e) {
+                e.preventDefault();
+                storymaps.storyStep = $(this).data('step');
+                storymaps.showStoryStep(storymaps.storyStep);
+            });
 
+            $('.button_overlay').on('click', function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var layerUrl = $this.data('layer-url');
+                var fileName = $this.data('file');
+                var buttonId = $this.attr('id');
+                var overlayId = $this.data('layer-id');
+                //options
+                storymaps.loadOverlay({
+                    fileName: fileName,
+                    buttonId: buttonId,
+                    overlayId: overlayId,
+                    layerUrl: layerUrl
+                });
+            });
 
-                        var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - storymaps.storyVariance;
-                        var y = $(window).scrollTop();  //your current y position on the page
+            $('.storymap-info-toggle').on('click', function (e) {
+                e.preventDefault();
+                $('.title-block').toggle();
+                $('.storymap-aside, .storymap-source').toggleClass('hidden-xs');
+            });
 
-                        if (y < containerOffset){
-                        $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
-                    } else if (y > containerOffset){
-                         $("html, body").animate({ scrollTop: containerOffset - 50 }, 600);
-                    }
-                   });
+            $('.view-layers-button').on("click", function (e) {
+                $(this).children('.icon-text')
+                    .text(function (i, text) {
+                        return text === "View Layers" ? "Hide Layers" : "View Layers";
+                    });
+                $('.layers-menu').toggleClass('menu-show');
+            });
+        };
 
-                   $('.view-map').on("click", function(){
-                        var variance = 40;
-                        if($(window).width() < 420){
-                            variance = 80;
-                        }
-                        var navOffset = $('.storymap-nav-container').offset().top;
-                        var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - variance;
-                        var y = $(window).scrollTop();  //your current y position on the page
-
-                        if (y == 0){
-                            $("html, body").animate({ scrollTop: y + navOffset }, 600);
-                        }
-                        else{
-                            $("html, body").animate({ scrollTop: containerOffset }, 600);
-                        }
-
-                        //$('.story-step-title').removeClass('story-active');
-                        $('.button_overlay').removeClass('active');
-                        //storymaps.removeLayer(storymaps.markerLayer);
-                        var someLayers = storymaps.layers;
-
-                        for (var mapLayer in someLayers){
-                            storymaps.removeLayer(storymaps.layers[mapLayer]);
-                        }
-                        storymaps.map.setView([41.8781, -87.6298], 9);
-                        });
-
-                   $('.story-step-title').on('click', function (e) {
-                       e.preventDefault();
-                       storymaps.storyStep = $(this).data('step');
-                       storymaps.showStoryStep(storymaps.storyStep);
-                   });
-
-                   $('.button_overlay').on('click', function(e) {
-                       e.preventDefault();
-                       var $this = $(this);
-                       var layerUrl = $this.data('layer-url');
-                       var fileName = $this.data('file');
-                       var buttonId = $this.attr('id');
-                       var overlayId = $this.data('layer-id');
-                       //options
-                       storymaps.loadOverlay({
-                           fileName: fileName,
-                           buttonId: buttonId,
-                           overlayId: overlayId,
-                           layerUrl: layerUrl
-                       });
-                   });
-
-                   $('.storymap-info-toggle').on('click', function(e) {
-                       e.preventDefault();
-                       $('.title-block').toggle();
-                       $('.storymap-aside, .storymap-source').toggleClass('hidden-xs');
-                   });
-
-                   $('.view-layers-button').on("click", function(e){
-                       $(this).children('.icon-text')
-                       .text(function(i, text){
-                            return text === "View Layers" ? "Hide Layers" : "View Layers";
-                        });
-                        $('.layers-menu').toggleClass('menu-show');
-                   });
-               };
-
-
-
-        storymaps.initMap = function() {
+        storymaps.initMap = function () {
             console.log('storymaps.initMap()');
+            
+            <#if styleUrl?? && styleUrl.getData()?? && styleUrl.getData() != "">
             var url = "${styleUrl.getData()}";
-            //var url = "mapbox://styles/onto2050/cj0jnlcwj007k2sulorlf0zbk";
-            //var url = 'mapbox://styles/nmpeterson/cj8w0opw1fomf2ss2mu8iz3me';
-            //L.mapbox.accessToken = 'pk.eyJ1Ijoibm1wZXRlcnNvbiIsImEiOiJGdDBLWXJvIn0.ZXxlwjkZH2vEyr3U0aKC4A';
+            <#else>
+            var url = "mapbox://styles/onto2050/cj0jnlcwj007k2sulorlf0zbk";
+            </#if>
+
             L.mapbox.accessToken = 'pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ';
 
             storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
@@ -438,8 +428,8 @@ AUI().ready(
 
         storymaps.initMap();
         storymaps.bindEvents();
-        //storymaps.showStoryStep(storymaps.storyStep);
-        cmap.initSocialShare($('.storymap-nav'));
+        // storymaps.showStoryStep(storymaps.storyStep);
+        // cmap.initSocialShare($('.storymap-nav'));
     }
 );
 </script>
