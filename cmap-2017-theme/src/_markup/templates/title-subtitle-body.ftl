@@ -69,7 +69,7 @@
           <#list Subtitle.getSiblings() as section>
             <#if section.getData() != "">
               <div class="page-nav-item">
-                <a href="#${sectionID}">
+                <a href="#${section.getData()?replace(" ", "_")}">
                   ${section.getData()}
                 </a>
               </div>
@@ -150,7 +150,7 @@ cmap.titleWithSections.bindEvents = function() {
 
   $('.page-nav-item a').click(function(e){
     e.preventDefault();
-    var push = $('#scroll-nav').innerHeight();
+    var push = $('#scroll-nav').innerHeight() * 1.5;
     var href = $(this).attr('href');
     var target = $(href).offset().top;
     $('html,body').animate({
@@ -175,14 +175,6 @@ cmap.titleWithSections.computeScrollNav = function() {
   } else {
     $('.page-nav-container').removeClass('fixed');
   }
-
-  console.log(currentOffset > originalOffset, currentOffset, originalOffset, fourUnits);
-
-  // $('.page-nav-container')
-  //   .css('position', 'absolute')
-  //   .animate({ marginTop, marginTop }, 100);
-
-  // $('.page-nav-container').css('position', 'fixed');
 };
 
 

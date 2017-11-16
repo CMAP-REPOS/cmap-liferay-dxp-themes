@@ -15,8 +15,6 @@
   <#assign cx="004289794693594110260:midq7iuukta" />
 </#if>
 
-
-
 <section class="search-results-widget">
   <div class="row">
     <div class="col-xl-3 col-sm-2 col-xs-0"> </div>
@@ -51,7 +49,6 @@
       </div>
 
       <div class="search-results row">
-
       </div>
     </div>
 
@@ -60,115 +57,64 @@
 </section>
 
 
-
-<!-- TRACER -->
 <script>
 
+var cmap = cmap || {};
+cmap.search = cmap.search || {};
 
-// var renderGCSE = function(){
-//   google.search.cse.element.render({
-//     div: 'searchResultsNode',
-//     tag: 'search'
-//   });
-//   var $container = $('#search-col');
-//   var $input = $('#searchResultsNode input');
-//   $input.removeAttr('style');
-//   var $search_button = $('#searchResultsNode input.gsc-search-button');
-//   $search_button.attr('Value', 'Update Search');
-//   $container.find('header .search-bar').append($input);
-//   // lets the user pick between date and relevant sorting
-//   var $sortFilter = $('.gsc-option-menu-container').remove();
-//   $('.search-filters .sort-filter').append($sortFilter);
-//   // place the main guts of the search in the right place
-//   // var $searchResults = $('.gsc-wrapper').remove();
-//   // $('.search-results.row').append($searchResults.addClass('col-xl-16'));
-//   // console.log(google.search.cse.element.getAllElements());
-//   $('.gsc-webResult.gsc-result').each(function(){
-//   	// console.log(this);
-//   })
-//   // we don't need this anymore
-//  	$('.gsc-resultsHeader').remove();
-// };
-// next three functions do all the work
-// loading the script and starting the callback
-// https://developers.google.com/custom-search/docs/element
-// var myCallback = function() {
-//   if (document.readyState == 'complete') {
-//     renderGCSE();
-//   } else {
-//     google.setOnLoadCallback(function() {
-//       renderGCSE();
-//     }, true);
-//   }
-// };
-// window.__gcse = {
-//   parsetags: 'explicit',
-//   callback: myCallback
-// };
-// (function() {
-//   var cx = '${cx}';
-//   var gcse = document.createElement('script');
-//   gcse.type = 'text/javascript';
-//   gcse.async = true;
-//   gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-//   var s = document.getElementsByTagName('script')[0];
-//   s.parentNode.insertBefore(gcse, s);
-// })();
+cmap.search.buildResult = function(data){
+	var $item = $('<div class="search-result col-xl-8"></div>');
 
+	$item.append($('<hr class="search-result-divider" />'));
 
-
-
-$(document).ready(function(){
-
-
-	function buildResult(data){
-		var $item = $('<div class="search-result col-xl-8"></div>');
-
-		// this field is undefined for "web pages"
-		var type = 'Web page';
-		if(data.fileFormat){
-			type = 'Document'
-		}
-		var $type = $('<h4 class="search-result-type">'+type+'</h4>');
-		$item.append($type);
-
-		var $title = $('<a class="search-result-title" href="'+data.link+'"><h3>'+data.title+'</h3></a>');
-		$item.append($title);
-
-		var $preview = $('<p class="search-result-preview"></p>');
-		$preview.html(data.htmlSnippet);
-		$item.append($preview);
-
-		var $link = $('<a class="search-result-link" href="'+data.link+'">Read more</a>');
-		$item.append($link);
-
-		return $item;
+	// this field is undefined for "web pages"
+	var type = 'Web page';
+	if(data.fileFormat){
+		type = 'Document'
 	}
+	var $type = $('<h4 class="search-result-type">'+type+'</h4>');
+	$item.append($type);
 
-	function buildPage(data){
+	var $title = $('<a class="search-result-title" href="'+data.link+'"><h3>'+data.title+'</h3></a>');
+	$item.append($title);
 
-		var $container = $('.search-results.row');
-		
-		if(!data.items){
-			alert("I'm sorry but we could not find any results. </br>Please try another query");
-		} else {
-			data.items.forEach(function(d){
-				var $item = buildResult(d);			
-				$container.append($item);
-			});
-		}
+	var $preview = $('<p class="search-result-preview"></p>');
+	$preview.html(data.htmlSnippet);
+	$preview.find('br').remove();
+	$item.append($preview);
+
+	var $link = $('<a class="search-result-link" href="'+data.link+'">Read more</a>');
+	$item.append($link);
+
+	return $item;
+}
+
+cmap.search.buildPage = function(data){
+	if(!data.items){
+		alert("I'm sorry but we could not find any results. Please try a different query");
+		console.log(data);
+	} else {
+		data.items.forEach(function(d){
+			var $item = cmap.search.buildResult(d);			
+			$('.search-results.row').append($item);
+		});
 	}
-	
-	var startIndex = 0;
+}
+
+cmap.search.hitAPI = function(query, options){
 	var searchQuery = {
-    "q": "${query}",
+    "q": query,
     "key": "AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik",
     "cx": "004289794693594110260:midq7iuukta",
   }
-	if(startIndex > 0){
-		searchQuery.start = startIndex.toString();
-	}
+  if(typeof options === 'object'){
+  	searchQuery = Object.assign(searchQuery, options);
+  }
 
+  var $container = $('.search-results.row');
+	$container.empty();
+	$container.html('<div class="loading"> <div class="spinner"> <div class="dot1"></div> <div class="dot2"></div> </div> </div>');
+  
 	jQuery.ajax({
     url: "https://www.googleapis.com/customsearch/v1",
     type: "GET",
@@ -176,39 +122,46 @@ $(document).ready(function(){
 	})
 	.done(function(data, textStatus, jqXHR) {
 		console.log(data);
-    buildPage(data);
+    cmap.search.buildPage(data);
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
     alert('Search failed: ', textStatus);
 	})
 	.always(function() {
-	  // don't quite need this yet
+	  $('.loading').hide();
 	});
+}
+
+cmap.search.watchForInput = function(){
+	var $input = $('.search-bar .search-bar-input');
+	$input.keydown(function(e){
+		if(e.which === 13){
+			cmap.search.hitAPI(e.target.value);
+		}
+	});
+	var $searchButton = $('.search-bar-submit');
+	$searchButton.click(function(e){
+		cmap.search.hitAPI($input.val());
+	});
+
+	var $sortFilter = $('.sort-filter');
+	var $typeFilter = $('.type-filter');
+	console.log($sortFilter, $typeFilter);
+	$sortFilter.find('.search-filter-button').click(function(){
+		console.log(this);
+		cmap.search.hitAPI($input.val(), {
+			
+		});
+	});
+	$typeFilter.find('.search-filter-button').click(function(){
+		console.log(this);
+		cmap.search.hitAPI($input.val());
+	});
+
+}
+
+$(document).ready(function(){
+	cmap.search.hitAPI("${query}");
+	cmap.search.watchForInput();
 });
 </script>
-
-<style>
-.gsc-option-menu-invisible{
-	display: block;
-}
-.gsc-option-menu-item{
-	padding: 0;
-	display: inline-block;
-	margin-left: 0.2em;
-}
-.gsc-option-menu-item-highlighted{
-	background-color: blue;
-	border: none;
-}
-.gsc-selected-option-container.gsc-inline-block{
-	display: none;
-}
-
-
-table.gsc-search-box{
-	display: none;
-}
-.gsc-above-wrapper-area{
-	display: none;
-}
-</style>
