@@ -37,6 +37,7 @@ $icon-nav-right-white: "\e91d";
 .icon-map-med-dark {
     font-size: $size2;
     color: $grey-blue;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .icon-nav-left-white:before {

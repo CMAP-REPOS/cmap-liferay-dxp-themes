@@ -13,6 +13,8 @@
 </#if>
 
 <#macro buildRow depth page>
+  <#assign hidden = page.isHidden() />
+  <#if !hidden>
   <#assign pageType = page.getLayoutType() />
   <li class="list-item" data-depth="${depth}">
     <div class="icons">
@@ -49,6 +51,7 @@
       <@displayPages depth=depth+1 pages=page.getChildren() />
     </div>
   </li>
+  </#if>
 </#macro>
 
 <#macro displayPages depth pages>
