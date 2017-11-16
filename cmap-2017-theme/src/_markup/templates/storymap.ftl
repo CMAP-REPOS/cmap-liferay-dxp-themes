@@ -8,9 +8,9 @@
                 <div class="storymap-title">
                     ${StoryTitle.getData()}
                 </div>
-                <p class="storymap-info col-xl-16 col-xl-offset-0 col-xs-12 col-xs-offset-1">
+                <div class="storymap-info col-xl-16 col-xl-offset-0 col-xs-12 col-xs-offset-1">
                 ${StoryDescription.getData()}
-                <p>
+                </div>
             </div>
             <div class="col-xl-4 col-xl-offset-1 col-xs-12 col-xs-offet-1">
                 <div class="storymap-aside hidden-xs">
@@ -238,7 +238,7 @@ AUI().ready(
                 mapPin = new L.marker(marker.coords, { icon: cmapIcon, interactive: false });
                 storymaps.markerLayers.push(mapPin);
                 mapPin.addTo(storymaps.map);
-
+                L.DomEvent.disableClickPropagation(mapPin);
                 if ($.trim(marker.label).length) {
                     mapPin.bindTooltip(marker.label).openTooltip();
                 }
@@ -310,6 +310,7 @@ AUI().ready(
         storymaps.bindEvents = function () {
             console.log('storymaps.bindEvents()');
 
+
             $('.previous-story-step').on('click', function (e) {
                 e.preventDefault();
                 storymaps.prev();
@@ -327,7 +328,7 @@ AUI().ready(
             $('.storymap-nav-container.mobile-storymap-nav').on('swiperight', function (e) {
                 storymaps.next();
             });
-            
+
             $('.story-step-title, .next-story-step, .previous-story-step').on("click swipeleft swiperight", function () {
 
             var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-section').height() - storymaps.storyVariance;
@@ -406,7 +407,7 @@ AUI().ready(
 
         storymaps.initMap = function () {
             console.log('storymaps.initMap()');
-            
+
             <#if styleUrl?? && styleUrl.getData()?? && styleUrl.getData() != "">
             var url = "${styleUrl.getData()}";
             <#else>
