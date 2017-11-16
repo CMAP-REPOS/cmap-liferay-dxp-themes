@@ -13,17 +13,18 @@
 
 <header id="main-header" role="banner">
   <nav class="nav-row-one row">
-    <div class="left col-xl-13 col-sm-12 col-xs-8">
+
+    <div class="left col-xl-13 col-lg-12 col-md-11 col-sm-8">
       <div class="side-nav-trigger">
         <#include "${full_templates_path}/components/hamburgur.ftl" />
       </div>
-
       <#include "${full_templates_path}/components/logo.ftl" />
     </div>
     
-    <div class="right col-xl-3 col-sm-4 col-xs-8">
+    <div class="right col-xl-3 col-lg-4 col-md-5 col-sm-8">
       <#include "${full_templates_path}/components/search_widget.ftl" />
     </div>
+
   </nav>
 
   <nav class="nav-row-two row">

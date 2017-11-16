@@ -20,7 +20,8 @@ section.full-slider{
   }
   .slide-bottom.row{
     p{
-      @extend .whitney-normal__white;
+      @extend .whitney-normal;
+      color: $white;
     }
   }
 

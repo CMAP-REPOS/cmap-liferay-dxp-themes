@@ -8,7 +8,7 @@
       color: $off-white-text;
     }
     .item-title{
-      @extend .whitney-bold;
+      @extend .whitney-normal__bold;
 
       a{
         @extend .underline-link;

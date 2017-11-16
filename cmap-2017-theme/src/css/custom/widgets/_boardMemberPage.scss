@@ -14,7 +14,11 @@ section.board-member{
 
     .board-member-position{
       margin: $unit 0;
-      @extend .whitney-bold__white;
+      @extend .whitney-normal__bold;
+      color: $white;
+      a{
+        color: $white;
+      }
     }
 
 

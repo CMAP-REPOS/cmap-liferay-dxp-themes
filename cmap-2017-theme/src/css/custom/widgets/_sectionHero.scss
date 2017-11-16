@@ -1,7 +1,8 @@
 section.section-hero{
   .top{
     h1{
-      @extend .whitney-huge__green;
+      @extend .whitney-huge;
+      color: $green;
     }
   }
   .bottom{

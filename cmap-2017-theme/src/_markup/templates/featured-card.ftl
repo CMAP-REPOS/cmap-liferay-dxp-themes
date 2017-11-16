@@ -67,7 +67,7 @@ ${OptionalContentBefore.getData()}
     </#if>
     <#if CardTitle??>
       <div class="featured-card-title">
-        <span class="whitney-bold">${CardTitle.getData()}</span>
+        <span class="whitney-normal__bold">${CardTitle.getData()}</span>
       </div>
     </#if>
 

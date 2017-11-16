@@ -24,10 +24,10 @@ h1,h2,h3,h4,h5,h6,
     @extend .whitney-large__bold;
   }
   h3 {
-    @extend .whitney-bold;
+    @extend .whitney-normal__bold;
   }
   h4, h5, h6 {
-    @extend .whitney-bold;
+    @extend .whitney-normal__bold;
     color: $off-white-text;
   }
   h1 {

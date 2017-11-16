@@ -30,7 +30,7 @@
 
   .col-xl-13{
     h4{
-      @extend .whitney-bold;
+      @extend .whitney-normal__bold;
       transform: translateY(0.075em);
       color: $dark-blue;
     }

@@ -36,69 +36,42 @@ p {
   font-family: $font-serif;
 }
 
+$bold-weight: 600;
+$normal-weight: 400;
+
 .whitney-small {
   font-family: $font-sans;
-  font-weight: 400;
+  font-weight: $normal-weight;
   font-size: $size-1;
   line-height: $variation;
+}
+.whitney-small__bold{
+  @extend .whitney-small;
+  font-weight: $bold-weight;
 }
 
 .whitney-normal {
   font-family: $font-sans;
-  font-weight: 400;
+  font-weight: $normal-weight;
   font-size: $size0;
   line-height: $variation;
 }
 
-.whitney-normal__primary {
+.whitney-normal__bold {
   @extend .whitney-normal;
-  color: $primary;
-}
-
-.whitney-normal__white {
-  @extend .whitney-normal;
-  color: $white;
-  a {
-    color: $white;
-  }
-}
-
-.whitney-bold {
-  @extend .whitney-normal;
-  font-weight: 600;
-}
-
-.whitney-bold__primary {
-  @extend .whitney-bold;
-  color: $primary;
-}
-
-.whitney-bold__white {
-  @extend .whitney-bold;
-  color: $white;
-  a {
-    color: $white;
-  }
+  font-weight: $bold-weight;
 }
 
 .whitney-large {
   font-family: $font-sans;
-  font-weight: 400;
+  font-weight: $normal-weight;
   font-size: $size1;
   line-height: 1.1em;
 }
 
 .whitney-large__bold {
   @extend .whitney-large;
-  font-weight: 600;
-}
-
-.whitney-large__white {
-  @extend .whitney-large;
-  color: $white;
-  a {
-    color: $white;
-  }
+  font-weight: $bold-weight;
 }
 
 .whitney-huge {
@@ -108,12 +81,9 @@ p {
   line-height: 1.1em;
 }
 
-.whitney-huge__white {
+.whitney-huge__bold{
   @extend .whitney-huge;
-  color: $white;
-  a {
-    color: $white;
-  }
+  font-weight: $bold-weight;
 }
 
 .whitney-huge__green {

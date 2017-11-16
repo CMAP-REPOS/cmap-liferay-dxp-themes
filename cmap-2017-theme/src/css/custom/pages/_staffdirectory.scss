@@ -16,10 +16,12 @@ section.staff-directory{
   }
 
   .staff-member-name{
-    @extend .whitney-bold__primary;
+    @extend .whitney-normal__bold;
+    color: $primary;
   }
   .staff-member-department{
-    @extend .whitney-normal__primary;
+    @extend .whitney-normal;
+    color: $primary;
   }
   .staff-member-phone a{
     @extend .underline-link;

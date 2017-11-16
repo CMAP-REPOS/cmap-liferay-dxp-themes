@@ -1,6 +1,7 @@
 var cmap = cmap || {};
 
 cmap.initSocialShare = function(container) {
+
   var shareLinks = '<div class="addthis_toolbox"><ul class="list-unstyled">' +
     '<li><a class="facebook addthis_button_facebook">Facebook</a>' +
     '<li><a class="twitter addthis_button_twitter" tw:via="GOTO2040">Twitter</a>' +
@@ -30,8 +31,16 @@ cmap.initSocialShare = function(container) {
     });
 };
 
-
 cmap.global = {};
+
+cmap.global.share = function(){
+  $.getScript('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0c6f5e0a5ca918', function( data, textStatus, jqxhr ) {
+    // console.log( data ); // Data returned
+    // console.log( textStatus ); // Success
+    // console.log( jqxhr.status ); // 200
+    // console.log( "Load was performed." );
+  });
+}
 
 cmap.global.sidenav = function() {
   // SIDE NAV WIDGET
@@ -208,6 +217,7 @@ cmap.forms = {};
 cmap.forms.contactus = function(){
 
   var $contact_form = $('.contact-us-page');
+  console.log("CONTACT FORM: ", $contact_form);
   if($contact_form.length){
 
     // add section headers to form
@@ -242,6 +252,7 @@ cmap.forms.contactus = function(){
 cmap.forms.global = function(){
 
   var $form = $('.portlet-forms');
+  console.log("FORM: ", $form);
   if($form.length){ 
 
     $form.find('.ddl-form-builder-app').removeClass('container-fluid-1280');
@@ -291,6 +302,7 @@ Liferay.on('allPortletsReady', function() {
   cmap.global.checkforh1();
   cmap.global.youtube();
   cmap.global.loginpage();
+  cmap.global.share();
   cmap.initSocialShare($('.breadcrumb-cmap'));
 
   cmap.forms.contactus();

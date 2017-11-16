@@ -28,7 +28,7 @@
   }
 
   .lfr-ddm-form-submit{
-    @extend .whitney-bold;
+    @extend .whitney-normal__bold;
     background: $dark-blue;
     padding: $size-1 $size2;
     border-radius: $size1;
@@ -95,7 +95,7 @@ label,
 
 // Base form element styles
 .form-control {
-  @extend .whitney-bold;
+  @extend .whitney-normal__bold;
   color: $dark-grey;
   background-color: $off-white;
   border: 1px solid $off-white;
@@ -120,7 +120,7 @@ select.form-control {
   background-size: 5% auto;
   padding: $size-1 $size0;
   border-radius: #{$size0 + $size-2};
-  @extend .whitney-bold;
+  @extend .whitney-normal__bold;
   font-size: 0.9em !important;
 
   &:focus {

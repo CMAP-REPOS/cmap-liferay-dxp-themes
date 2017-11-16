@@ -1,13 +1,13 @@
 section.split-summary{
 
   h3{
-    @extend .whitney-bold;
+    @extend .whitney-normal__bold;
   }
   a{
     @extend .underline-link;
   }
   .read-more-link{
-    @extend .whitney-bold;
+    @extend .whitney-normal__bold;
     color: inherit;
     &:hover{
       color: inherit;

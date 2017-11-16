@@ -9,9 +9,7 @@
   	align-items: center;
   	justify-content: space-between;
 
-    @include section-padding();
-    padding-top: $unit;
-    padding-bottom: $unit;
+    @include section-padding($unit);
 
     .left{
       display: flex;

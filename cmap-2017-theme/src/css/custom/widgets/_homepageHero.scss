@@ -17,7 +17,9 @@
 
 
     .homepage-hero-title{
-      @extend .whitney-huge__white;
+      @extend .whitney-huge;
+      color: $white;
+      a{ color: $white; }
     }
     .homepage-hero-description{
       @extend .presna-large;

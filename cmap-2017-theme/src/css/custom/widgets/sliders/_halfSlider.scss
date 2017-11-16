@@ -9,7 +9,10 @@
     width: 100%;
   }
   .slide-title{
-    @extend .whitney-bold__white;
+    @extend .whitney-normal__bold;
+    color: $white;
+    a{ color: $white; }
+
   }
   .slide-text{
     padding-top: $unit;

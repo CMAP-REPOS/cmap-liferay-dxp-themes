@@ -6,18 +6,21 @@
     <a href="/about" role="menuitem"><span> About CMAP </span></a>
   </li>
   <li role="presentation">
-    <a href="/programs-and-resources" role="menuitem"><span> Programs &amp; Resources </span></a>
+    <a href="/programs" role="menuitem"><span> Programs </span></a>
   </li>
   <li role="presentation">
-    <a href="/about/involvement/committees" role="menuitem"><span> Committees </span></a>
+    <a href="/committees" role="menuitem"><span> Committees </span></a>
   </li>
   <li role="presentation">
-    <a href="/data" role="menuitem"><span> Data &amp; Analysis </span></a>
+    <a href="/data" role="menuitem"><span> Data </span></a>
   </li>
   <li role="presentation">
-    <a href="/updates-news" role="menuitem"><span> Updates &amp; News </span></a>
+    <a href="/updates" role="menuitem"><span> Updates </span></a>
   </li>
   <li role="presentation">
-    <a href="/contact-us" role="menuitem"><span> Contact Us </span></a>
+    <a href="/events" role="menuitem"><span> Events </span></a>
+  </li>  
+  <li role="presentation">
+    <a href="/contact" role="menuitem"><span> Contact </span></a>
   </li>
 </ul>
