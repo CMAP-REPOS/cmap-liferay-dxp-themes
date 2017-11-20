@@ -14,7 +14,7 @@
         <a href="/about/terms-and-conditions" role="menuitem"> <span role="presentation">Terms & Conditions</span> </a>
         <a href="/about/careers" role="menuitem"> <span role="presentation">Careers</span> </a>
         <a href="/sitemap" role="menuitem"> <span role="presentation">Sitemap</span> </a>
-        <a href="/contact-us" role="menuitem"> <span role="presentation">Contact Us</span> </a>
+        <a href="/contact" role="menuitem"> <span role="presentation">Contact Us</span> </a>
         <span role="presentation">
         <span>© <span class="hidden">2017 Chicago Metropolitan Agency for Planning</span></span>
         </span>

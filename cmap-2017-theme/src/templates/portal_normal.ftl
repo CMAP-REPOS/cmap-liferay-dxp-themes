@@ -64,7 +64,6 @@
 	<script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
 	<script src="${javascript_folder}/custom.js" type="text/javascript"></script>
 	<#-- <script src="${javascript_folder}/main.js" type="text/javascript"></script> -->
-	<script src="https://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>
 
 	<!-- Analytics -->
 	<script type="text/javascript">
@@ -82,6 +81,8 @@
 	  })();
 	</script>
 	<!-- endinject -->
+	
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0c6f5e0a5ca918"></script>
 	
 </body>
 

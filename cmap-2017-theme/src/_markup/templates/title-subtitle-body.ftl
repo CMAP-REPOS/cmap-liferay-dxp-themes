@@ -35,11 +35,12 @@
     </div>
 
     <div class="col-xl-10 col-sm-12 col-xs-16">
-      <#if Title.getData() != "">
+      
       <div class="page-title">
-        <h1 class="h1">${Title.getData()}</h1>
+        <h1 class="h1">
+          <#if Title.getData() != ""> ${Title.getData()} </#if>
+        </h1>
       </div>
-      </#if>
 
       <#list Subtitle.getSiblings() as section>
         <section>
@@ -106,6 +107,7 @@ cmap.titleWithSections.init = function() {
     if($p.html().trim() === '&nbsp;'){
       $p.remove();
     }
+    $p.removeClass('lead');
   });
 
   // Stolen from stack overflow
