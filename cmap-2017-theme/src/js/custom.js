@@ -302,7 +302,7 @@ Liferay.on('allPortletsReady', function () {
 
 // Runs once for each portlet on the page, with info about that portlet
 Liferay.Portlet.ready(function (portletId, node) {
-  console.log(portletId, node);
+  // console.log(portletId, node);
 });
 
 // Runs once the DOM is finished. Better to use "allPortletsReady"

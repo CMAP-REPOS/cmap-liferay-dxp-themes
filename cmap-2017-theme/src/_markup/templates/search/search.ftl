@@ -54,6 +54,14 @@
 
     <div class="col-xl-3 col-sm-2 col-xs-0"></div>  
   </div>
+
+  <div class="jump-to-top row">
+  	<div class="col-xl-3 col-sm-2 col-xs-0">
+  		Jump to Top
+  	</div>  
+  	<div class="col-xl-10 col-sm-12 col-xs-16"></div>
+  	<div class="col-xl-3 col-sm-2 col-xs-0"></div>  
+  </div>
 </section>
 
 
@@ -61,6 +69,13 @@
 
 var cmap = cmap || {};
 cmap.search = cmap.search || {};
+
+cmap.search.query = '${query}';
+cmap.search.totalResults = 0;
+cmap.search.fetchNum = 10;
+cmap.search.currentStart = 1;
+cmap.search.sort = '';
+cmap.search.type = 'all';
 
 cmap.search.buildResult = function(data){
 	var $item = $('<div class="search-result col-xl-8"></div>');
@@ -89,31 +104,69 @@ cmap.search.buildResult = function(data){
 	return $item;
 }
 
+cmap.search.clear = function(){
+	var $container = $('.search-results.row');
+	cmap.search.currentStart = 1;
+	cmap.search.fetchNum = 10;
+	$container.empty();
+	$container.html('<div class="loading"> <div class="spinner"> <div class="dot1"></div> <div class="dot2"></div> </div> </div>');
+}
+
+cmap.search.addResultsToDOM = function(elements){
+	elements.forEach(function(d){
+		var $item = cmap.search.buildResult(d);			
+		$('.search-results.row').append($item);
+	});
+}
+
 cmap.search.buildPage = function(data){
-	if(!data.items){
+	if(cmap.search.totalResults === 0){
 		alert("I'm sorry but we could not find any results. Please try a different query");
 		console.log(data);
 	} else {
-		data.items.forEach(function(d){
-			var $item = cmap.search.buildResult(d);			
-			$('.search-results.row').append($item);
-		});
+		cmap.search.addResultsToDOM(data.items);
+	}
+	
+
+	var $more = $('<button class="more-results">Load more results</button>');
+	$more.click(function(){
+		cmap.search.currentStart += 10;
+		$more.remove();
+		console.log(cmap.search.totalResults, cmap.search.currentStart);
+		if(cmap.search.totalResults > cmap.search.currentStart ){
+			cmap.search.hitAPI();
+		}
+	});
+	if(data.items && data.items.length === 10){
+		$('.search-results.row').append($more);
 	}
 }
 
-cmap.search.hitAPI = function(query, options){
+
+cmap.search.hitAPI = function(){
+
+	// crunch the parameters to build your request data
+	var q = cmap.search.query;
+	if(cmap.search.type !== 'all'){
+		if(cmap.search.type === 'web-pages'){
+			q += ' -filetype:pdf';
+		}
+		if(cmap.search.type === 'documents'){
+			q += ' filetype:pdf';
+		}
+	}
 	var searchQuery = {
-    "q": query,
+    "q": q,
     "key": "AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik",
     "cx": "004289794693594110260:midq7iuukta",
-  }
-  if(typeof options === 'object'){
-  	searchQuery = Object.assign(searchQuery, options);
-  }
-
-  var $container = $('.search-results.row');
-	$container.empty();
-	$container.html('<div class="loading"> <div class="spinner"> <div class="dot1"></div> <div class="dot2"></div> </div> </div>');
+    "start": cmap.search.currentStart,
+    "num": cmap.search.fetchNum
+  };
+  if(cmap.search.sort !== ''){
+		if(cmap.search.sort === 'date'){
+			searchQuery.sort = 'date';
+		}
+	}
   
 	jQuery.ajax({
     url: "https://www.googleapis.com/customsearch/v1",
@@ -122,7 +175,8 @@ cmap.search.hitAPI = function(query, options){
 	})
 	.done(function(data, textStatus, jqXHR) {
 		console.log(data);
-    cmap.search.buildPage(data);
+		cmap.search.totalResults = parseInt(data.searchInformation.totalResults);
+		cmap.search.buildPage(data);
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
     alert('Search failed: ', textStatus);
@@ -132,36 +186,51 @@ cmap.search.hitAPI = function(query, options){
 	});
 }
 
+
 cmap.search.watchForInput = function(){
 	var $input = $('.search-bar .search-bar-input');
 	$input.keydown(function(e){
 		if(e.which === 13){
-			cmap.search.hitAPI(e.target.value);
+			cmap.search.query = e.target.value;
+			cmap.search.clear();
+			cmap.search.hitAPI();
 		}
 	});
 	var $searchButton = $('.search-bar-submit');
 	$searchButton.click(function(e){
-		cmap.search.hitAPI($input.val());
+		cmap.search.query = $input.val();
+		cmap.search.clear();
+		cmap.search.hitAPI();
 	});
 
 	var $sortFilter = $('.sort-filter');
 	var $typeFilter = $('.type-filter');
-	console.log($sortFilter, $typeFilter);
+
 	$sortFilter.find('.search-filter-button').click(function(){
-		console.log(this);
-		cmap.search.hitAPI($input.val(), {
-			
-		});
+		var $this = $(this), action = $this.data('action');
+		cmap.search.sort = action;
+		cmap.search.query = $input.val();
+		cmap.search.clear();
+		cmap.search.hitAPI();
+		$sortFilter.find('*').removeClass('active');
+		$this.addClass('active');
 	});
+
 	$typeFilter.find('.search-filter-button').click(function(){
-		console.log(this);
-		cmap.search.hitAPI($input.val());
+		var $this = $(this), action = $this.data('action');
+		cmap.search.type = action;
+		cmap.search.query = $input.val();
+		cmap.search.clear();
+		cmap.search.hitAPI();
+		$typeFilter.find('*').removeClass('active');
+		$this.addClass('active');
 	});
 
 }
 
 $(document).ready(function(){
-	cmap.search.hitAPI("${query}");
+	cmap.search.clear();
+	cmap.search.hitAPI();
 	cmap.search.watchForInput();
 });
 </script>

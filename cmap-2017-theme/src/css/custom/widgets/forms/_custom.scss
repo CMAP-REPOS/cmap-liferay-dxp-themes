@@ -68,7 +68,7 @@
       margin-bottom: 0;
     }
     .lfr-ddm-form-submit {
-      @extend .whitney-bold;
+      @extend .whitney-normal__bold;
       background: $dark-blue;
       padding: $size-1 $size2;
       border-radius: $size1;
@@ -94,7 +94,7 @@
       margin-top: $size0;
     } // Base form element styles
     .form-control {
-      @extend .whitney-bold;
+      @extend .whitney-normal__bold;
       color: $dark-grey;
       background-color: $off-white;
       border: 1px solid $off-white;
@@ -117,7 +117,7 @@
       background-size: 5% auto;
       padding: $size-1 $size0;
       border-radius: #{$size0 + $size-2};
-      @extend .whitney-bold;
+      @extend .whitney-normal__bold;
       font-size: 0.9em !important;
       &:focus {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
