@@ -5,6 +5,8 @@
   margin-bottom: $unit * 2;
   height: $unit * 2;
 
+  $animation: all 0.3s ease-out;
+
   .breadcrumb.row{
     @include section-padding();
     height: $unit * 2;
@@ -36,6 +38,10 @@
     align-items: center;
     height: $size0;
     cursor: pointer;
+
+    -webkit-appearance: none;
+    border: none;
+    background: none;
 
     @include tablet(){
       height: $unit * 2;
@@ -92,6 +98,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: $animation;
+
+    &.active{
+      opacity: 1;
+      pointer-events: all;
+    }
 
     .home.entry{
       position: relative;
@@ -138,4 +152,33 @@
     }
   }
 
+  .share-menu{
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    left: $size5;
+    transition: $animation;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active{
+      left: $size0;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .addthis_inline_share_toolbox{
+      transform: scale(0.8);
+    }
+
+    svg.at-icon.at-icon-facebook,
+    svg.at-icon.at-icon-twitter,
+    svg.at-icon.at-icon-pinterest_share,
+    svg.at-icon.at-icon-linkedin,
+    svg.at-icon.at-icon-google_plusone_share{
+      fill: $primary !important;
+    }
+
+  }
 }

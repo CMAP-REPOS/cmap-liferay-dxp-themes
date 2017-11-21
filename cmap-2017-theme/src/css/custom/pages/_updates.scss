@@ -7,12 +7,18 @@
 	.updates-header-title{
 		@extend .whitney-huge;
 	}
+
+	.updates-filter{
+		margin: $size0 0;
+	}
 }
 .updates-container{
 
-	hr.update-divider{
-
+	article{
+		margin-bottom: $size0;
 	}
+	
+	hr.update-divider{}
 
 	header{
 		display: flex;

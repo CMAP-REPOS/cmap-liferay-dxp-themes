@@ -25,7 +25,7 @@ section.search-results-widget{
 
 		svg{
 			position: absolute;
-			left: $size1;
+			left: $size0;
 			top: 50%;
 			transform: translateY(-50%);
 			width: $size1;
@@ -49,7 +49,7 @@ section.search-results-widget{
 
 		button.search-bar-submit{
 			position: absolute;
-			right: $size2;
+			right: $size1;
 			top: 50%;
 			transform: translateY(-50%);
 
@@ -62,6 +62,7 @@ section.search-results-widget{
 			background-color: $off-white;
 
 			@extend .whitney-small;
+			font-weight: $bold-weight;
 			line-height: 1.2;
 			color: $primary;
 
@@ -85,17 +86,18 @@ section.search-results-widget{
 	
 
 	#search-col{
-		.col-xl-16, .col-lg-16{
+		.col-xl-16{
 			padding: 0 !important;
 		}
 		.col-xl-8{
-			&:first-of-type{
+			&:nth-of-type(odd){
 				padding-left: 0 !important;
 			}
-			&:last-of-type{
+			&:nth-of-type(even){
 				padding-right: 0 !important;
 			}
 		}
+
 	}
 
 

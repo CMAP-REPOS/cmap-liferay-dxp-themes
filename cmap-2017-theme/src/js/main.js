@@ -1,1 +1,2 @@
-console.log('hello world');
+// see custom.js
+// liferay caches this file aggressively 
