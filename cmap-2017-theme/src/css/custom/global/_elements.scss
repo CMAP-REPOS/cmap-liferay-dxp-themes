@@ -43,4 +43,11 @@ h1,h2,h3,h4,h5,h6,
   a {
     @extend .underline-link;
   }
+  ul{
+    @extend .presna-normal;
+
+    p{
+      margin-bottom: 0;
+    }
+  }
 }

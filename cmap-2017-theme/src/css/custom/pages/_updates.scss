@@ -1,0 +1,48 @@
+.updates-header.row,
+.updates-container.row{
+	@include section-padding();
+}
+
+.updates-header{
+	.updates-header-title{
+		@extend .whitney-huge;
+	}
+}
+.updates-container{
+
+	hr.update-divider{
+
+	}
+
+	header{
+		display: flex;
+		align-items: center;
+
+		.update-date,
+		.update-categories{
+			display: inline-block;
+		}
+	}
+
+	.update-date{
+		@extend .whitney-small;
+		@extend .underline-link;
+		border-bottom: none;
+		&:hover{ border-bottom: none; }
+	}
+
+	.update-categories{
+		margin-bottom: 0;
+		list-style: none;
+		padding-left: $size-2;
+
+		li{
+			display: inline-block;
+
+			a{
+				@extend .whitney-small;
+				@extend .underline-link;
+			}
+		}
+	}
+}

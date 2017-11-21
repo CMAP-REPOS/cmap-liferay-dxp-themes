@@ -15,13 +15,6 @@
 @import "custom/global/typography";
 @import "custom/global/utilities";
 
-@import "custom/pages/fy18";
-@import "custom/pages/homepage";
-@import "custom/pages/login";
-@import "custom/pages/search";
-@import "custom/pages/sitemap";
-@import "custom/pages/staffdirectory";
-
 @import "custom/widgets/nav/header";
 @import "custom/widgets/nav/links";
 @import "custom/widgets/nav/logo";
@@ -42,6 +35,7 @@
 
 @import "custom/widgets/boardMemberPage";
 @import "custom/widgets/breadcrumbs";
+@import "custom/widgets/buttons";
 @import "custom/widgets/calendar";
 @import "custom/widgets/featuredCard";
 @import "custom/widgets/footer";
@@ -54,6 +48,14 @@
 @import "custom/widgets/table";
 @import "custom/widgets/titleWithSections";
 @import "custom/widgets/youtube";
+
+@import "custom/pages/fy18";
+@import "custom/pages/homepage";
+@import "custom/pages/login";
+@import "custom/pages/search";
+@import "custom/pages/sitemap";
+@import "custom/pages/staffdirectory";
+@import "custom/pages/updates";
 
 .portlet-content-editable,
 .portlet-content{

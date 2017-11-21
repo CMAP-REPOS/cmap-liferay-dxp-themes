@@ -1,0 +1,25 @@
+.filter-button{
+	$hover-darken: 10%;
+	-webkit-appearance: none;
+	background: $off-white;
+	border: none;
+
+	@extend .whitney-small__bold;
+	color: $grey-blue;
+	padding: $size-2 $size0;
+	border-radius: $size1;
+	line-height: 1;
+
+	&:hover{
+		background: darken($off-white, $hover-darken);
+	}
+
+	&.active{
+		color: $white;
+		background: $grey-blue;
+
+		&:hover{
+			background: darken($grey-blue, $hover-darken);
+		}
+	}
+}

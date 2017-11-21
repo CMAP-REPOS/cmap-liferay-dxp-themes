@@ -17,9 +17,9 @@
 
 <section class="search-results-widget">
   <div class="row">
-    <div class="col-xl-3 col-sm-2 col-xs-0"> </div>
+    <div class="col-xl-3 col-md-2 col-sm-0"> </div>
 
-    <div id="search-col" class="col-xl-10 col-sm-12 col-xs-16">
+    <div id="search-col" class="col-xl-10 col-md-12 col-sm-16">
       <header class="row">
         <div class="search-bar col-xl-16">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
@@ -31,19 +31,19 @@
       </header>
 
       <div class="row search-filters">
-      	<div class="col-xl-8">
+      	<div class="col-xl-8 col-lg-16">
       		<div class="search-filter type-filter">
 	      		<label class="search-filter-label">Show</label>
-	      		<button class="active search-filter-button" data-action="all">All</button>
-	      		<button class="search-filter-button" data-action="web-pages">Web pages</button>
-	      		<button class="search-filter-button" data-action="documents">Documents</button>
+	      		<button class="active filter-button" data-action="all">All</button>
+	      		<button class="filter-button" data-action="web-pages">Web pages</button>
+	      		<button class="filter-button" data-action="documents">Documents</button>
 	      	</div>
       	</div>
-      	<div class="col-xl-8">
+      	<div class="col-xl-8 col-lg-16">
       		<div class="search-filter sort-filter">
       			<label class="search-filter-label">Sort by</label>
-      			<button class="active search-filter-button" data-action="relevance">Relevance</button>
-	      		<button class="search-filter-button" data-action="date">Date</button>
+      			<button class="active filter-button" data-action="relevance">Relevance</button>
+	      		<button class="filter-button" data-action="date">Date</button>
       		</div>
       	</div>
       </div>
@@ -52,12 +52,16 @@
       </div>
     </div>
 
-    <div class="col-xl-3 col-sm-2 col-xs-0"></div>  
+    <div class="col-xl-3 col-md-2 col-sm-0"></div>  
   </div>
 
   <div class="jump-to-top row">
   	<div class="col-xl-3 col-sm-2 col-xs-0">
-  		Jump to Top
+  		<div class="return-back-to-top">
+	  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19">
+	        <path fill="#3C5976" d="M8.70320061,4.28823998 L8.70320061,17.4126841 C8.70320061,17.8959333 8.31144977,18.2876841 7.82820061,18.2876841 C7.34495145,18.2876841 6.95320061,17.8959333 6.95320061,17.4126841 L6.95320061,4.28785174 L2.48442136,8.62526255 C2.13765366,8.96183633 1.58369594,8.95357254 1.24712216,8.60680484 C0.910548372,8.26003715 0.918812169,7.70607943 1.26557986,7.36950564 L7.82800061,1 L14.3904214,7.36950564 C14.7371891,7.70607943 14.7454528,8.26003715 14.4088791,8.60680484 C14.0723053,8.95357254 13.5183476,8.96183633 13.1715799,8.62526255 L8.70320061,4.28823998 Z"/> </svg>
+	      <span>To Top</span>
+      </div>
   	</div>  
   	<div class="col-xl-10 col-sm-12 col-xs-16"></div>
   	<div class="col-xl-3 col-sm-2 col-xs-0"></div>  
@@ -78,7 +82,7 @@ cmap.search.sort = '';
 cmap.search.type = 'all';
 
 cmap.search.buildResult = function(data){
-	var $item = $('<div class="search-result col-xl-8"></div>');
+	var $item = $('<div class="search-result col-xl-8 col-lg-16"></div>');
 
 	$item.append($('<hr class="search-result-divider" />'));
 
@@ -126,7 +130,6 @@ cmap.search.buildPage = function(data){
 	} else {
 		cmap.search.addResultsToDOM(data.items);
 	}
-	
 
 	var $more = $('<button class="more-results">Load more results</button>');
 	$more.click(function(){
@@ -206,7 +209,7 @@ cmap.search.watchForInput = function(){
 	var $sortFilter = $('.sort-filter');
 	var $typeFilter = $('.type-filter');
 
-	$sortFilter.find('.search-filter-button').click(function(){
+	$sortFilter.find('.filter-button').click(function(){
 		var $this = $(this), action = $this.data('action');
 		cmap.search.sort = action;
 		cmap.search.query = $input.val();
@@ -216,7 +219,7 @@ cmap.search.watchForInput = function(){
 		$this.addClass('active');
 	});
 
-	$typeFilter.find('.search-filter-button').click(function(){
+	$typeFilter.find('.filter-button').click(function(){
 		var $this = $(this), action = $this.data('action');
 		cmap.search.type = action;
 		cmap.search.query = $input.val();
@@ -224,6 +227,12 @@ cmap.search.watchForInput = function(){
 		cmap.search.hitAPI();
 		$typeFilter.find('*').removeClass('active');
 		$this.addClass('active');
+	});
+
+	$('.return-back-to-top').click(function(){
+		$('body,html').animate({
+			scrollTop: 0
+		}, 800);
 	});
 
 }

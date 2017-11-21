@@ -1,6 +1,7 @@
 #footer{
   position: relative;
   bottom: 0; left: 0;
+  z-index: 1000;
   width: 100%;
   background: $off-white;
 
@@ -31,7 +32,6 @@
     svg{
       position: relative;
       transform: translateY(0.2em);
-
     }
     span{
       margin-left: $size-3;
@@ -69,6 +69,7 @@
     }
     path{
       fill: $primary;
+      transition: all 0.2s ease;
     }
   }
 
@@ -76,14 +77,12 @@
     .svg-icon{
       path{
         fill: $dark-blue;
-        transition: all 0.2s ease;
       }
     }
   }
 
   span{
-    font-size: $size-1;
-    font-weight: 800;
+    @extend .whitney-small__bold;
   }
 
   span,a{

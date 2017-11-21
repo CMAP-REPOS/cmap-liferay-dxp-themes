@@ -208,6 +208,7 @@ cmap.forms = {};
 cmap.forms.contactus = function () {
 
   var $contact_form = $('.contact-us-page');
+  console.log($contact_form);
   if ($contact_form.length) {
 
     // add section headers to form
@@ -242,6 +243,7 @@ cmap.forms.contactus = function () {
 cmap.forms.global = function () {
 
   var $form = $('.portlet-forms');
+  console.log($form);
   if ($form.length) {
 
     $form.find('.ddl-form-builder-app').removeClass('container-fluid-1280');

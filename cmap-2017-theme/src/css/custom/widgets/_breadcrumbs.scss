@@ -74,11 +74,24 @@
     display: flex;
     align-items: center;
 
-    .breadcrumb-trail{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+    @include tablet(){
+      height: auto;
+      text-indent: 0;
+      margin: 0;
+      padding-left: 0 !important;
+
+      .home{
+        .square{
+          display: none;
+        }
+      }
     }
+  }
+
+  .breadcrumb-trail{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
     .home.entry{
       position: relative;
@@ -121,19 +134,6 @@
       }
       &:first-of-type{
         padding-left: 0;
-      }
-    }
-
-    @include tablet(){
-      height: auto;
-      text-indent: 0;
-      margin: 0;
-      padding-left: 0 !important;
-
-      .home{
-        .square{
-          display: none;
-        }
       }
     }
   }

@@ -22,11 +22,10 @@ section.search-results-widget{
 	
 	.search-bar{
 		position: relative;
-		$leftright: $size3;
 
 		svg{
 			position: absolute;
-			left: $leftright;
+			left: $size1;
 			top: 50%;
 			transform: translateY(-50%);
 			width: $size1;
@@ -50,7 +49,7 @@ section.search-results-widget{
 
 		button.search-bar-submit{
 			position: absolute;
-			right: $leftright;
+			right: $size2;
 			top: 50%;
 			transform: translateY(-50%);
 
@@ -73,38 +72,28 @@ section.search-results-widget{
 		}
 	}
 
+	.search-filters{
+		margin: $size0 0 !important;
+	}
 	.search-filter{
-		margin: $size0 0;
-
 		.search-filter-label{
 			@extend .whitney-small__bold;
 			color: $grey-blue;
 		}
-		.search-filter-button{
+	}
 
-			$hover-darken: 10%;
+	
 
-			-webkit-appearance: none;
-			background: $off-white;
-			border: none;
-
-			@extend .whitney-small__bold;
-			color: $grey-blue;
-			padding: $size-2 $size0;
-			border-radius: $size1;
-			line-height: 1;
-
-			&:hover{
-				background: darken($off-white, $hover-darken);
+	#search-col{
+		.col-xl-16, .col-lg-16{
+			padding: 0 !important;
+		}
+		.col-xl-8{
+			&:first-of-type{
+				padding-left: 0 !important;
 			}
-
-			&.active{
-				color: $white;
-				background: $grey-blue;
-
-				&:hover{
-					background: darken($grey-blue, $hover-darken);
-				}
+			&:last-of-type{
+				padding-right: 0 !important;
 			}
 		}
 	}
@@ -126,11 +115,14 @@ section.search-results-widget{
 			@extend .whitney-normal__bold;
 		}
 
-		.search-result-title{
-			@extend .whitney-normal__bold;
+		.search-result-title{	
 			@extend .underline-link;
-			color: $primary;
-			margin: $size0 0;
+		
+			h3{
+				@extend .whitney-normal__bold;
+				color: $primary;
+				margin: $size-2 0;
+			}
 		}
 
 		p.search-result-preview{
@@ -180,10 +172,34 @@ section.search-results-widget{
 	
 
 	.jump-to-top.row{
-		position: fixed;
-		bottom: 0;
+		position: fixed !important;
+		left: 0; bottom: 0;
+		z-index: 100;
 		width: 100%;
+		height: $unit * 2;
 		@include section-padding();
+	}
 
+	.return-back-to-top{
+		cursor: pointer;
+		span{
+	  	@extend .whitney-small__bold;
+	  	color: $primary;
+	  }
+	  svg path{
+	  	fill: $primary;
+	  }
+	  span, svg path{
+	  	transition: all 0.2s;
+	  }
+
+	  &:hover{
+	  	span{
+	  		color: $dark-blue;
+	  	}
+	  	svg path{
+	  		fill: $dark-blue;
+	  	}
+	  }
 	}
 }
