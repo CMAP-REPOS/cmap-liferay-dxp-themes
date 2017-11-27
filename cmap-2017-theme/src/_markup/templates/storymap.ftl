@@ -4,15 +4,15 @@
     <div class="storymap-section">
         <a href="#" class="storymap-info-toggle visible-xs-block"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
         <div class="row storymap-intro-container">
-            <div class="col-xl-6 col-xl-offset-4 col-sm-14 col-sm-offset-1 title-block">
+            <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
                 <div class="storymap-title">
                     ${StoryTitle.getData()}
                 </div>
-                <div class="storymap-info col-xl-16 col-xl-offset-0 col-xs-12 col-xs-offset-1">
-                ${StoryDescription.getData()}
+                <div class="storymap-info">
+                    ${StoryDescription.getData()}
                 </div>
             </div>
-            <div class="col-xl-4 col-xl-offset-1 col-sm-14 col-sm-offset-1">
+            <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16">
                 <div class="storymap-aside hidden-xs">
                     ${Aside.getData()}
                 </div>
@@ -21,31 +21,35 @@
                 </div>
             </div>
         </div>
-        <div class="story-interact">
-            <div class="storymap-nav-container hidden-xs col-xl-16">
-                <ul class="col-xl-16">
-                    <li class="col-xl-3 col-xl-offset-1">
-                        <button class="view-map"><span class="icon icon-map-marker"></span> View Map</button>
+        <div class="row story-interact hidden-xs">
+            <div class="row storymap-nav-container hidden-xs">
+                <ul class="col-xl-3 list-inline">
+                    <li><button class="view-map"><span class="icon icon-map-marker"></span> View Map</button></li>
+                </ul>
+                <ul class="col-xl-8 story-steps list-inline">
+                <#list StorySteps.getSiblings() as cur_StoryStep>
+                <#assign storyStepsIndex = cur_StoryStep?index>
+                    <#if cur_StoryStep.StepTitle.getData() != "">
+                    <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
+                        data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
+                        data-step="${cur_StoryStep?index}">
+                        ${cur_StoryStep.StepTitle.getData()}
                     </li>
-                    <ul class="story-steps col-xl-7">
-                    <#list StorySteps.getSiblings() as cur_StoryStep>
-                    <#assign storyStepsIndex = cur_StoryStep?index>
-                        <#if cur_StoryStep.StepTitle.getData() != "">
-                        <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
-                            data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
-                            data-step="${cur_StoryStep?index}">
-                            ${cur_StoryStep.StepTitle.getData()}
-                        </li>
-                        </#if>
-                    </#list>
-                    </ul>
-                    <ul class="col-xl-3 story-arrows">
-                        <li href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></li>
-                        <li href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></li>
-                    </ul>
+                    </#if>
+                </#list>
+                </ul>
+                <ul class="col-xl-3 col-xl-offset-1 story-arrows list-inline">
+                    <li>
+                        <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> 
+                        <span class="sr-only">Previous</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> 
+                        <span class="sr-only">Next</span></a>
+                    </li>
                 </ul>
             </div>
-            <div class="storymap-nav-container mobile-storymap-nav">
+            <!-- div class="row storymap-nav-container mobile-storymap-nav">
                 <div class="col-xs-1">
                     <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></a>
                 </div>
@@ -55,9 +59,9 @@
                 <div class="col-xs-1">
                     <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
                 </div>
-            </div>
-            <div class="storymap-overlays-container">
-                <div class="col-xl-14 col-xl-offset-1">
+            </div -->
+            <div class="storymap-overlays-container col-xl-14 col-xl-offset-1">
+                <div class="">
                 <p class="text-right hidden-xs">
                 <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
                 <#assign storyOverlaysIndex = cur_StoryOverlay?index>
