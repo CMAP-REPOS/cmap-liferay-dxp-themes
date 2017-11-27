@@ -170,29 +170,6 @@
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "Step ID"
-                    },
-                    "predefinedValue": {
-                        "en_US": ""
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "string",
-                    "indexType": "",
-                    "localizable": true,
-                    "name": "StepId",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "text"
-                },
-                {
-                    "label": {
                         "en_US": "Step Title"
                     },
                     "predefinedValue": {
@@ -322,16 +299,65 @@
                     "tip": {
                         "en_US": ""
                     },
-                    "dataType": "html",
+                    "dataType": "",
                     "fieldNamespace": "ddm",
-                    "indexType": "",
+                    "indexType": "keyword",
                     "localizable": true,
-                    "name": "StepContent",
+                    "name": "StoryStepContent",
                     "readOnly": false,
                     "repeatable": true,
                     "required": false,
                     "showLabel": true,
-                    "type": "ddm-text-html"
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Display full-width"
+                            },
+                            "predefinedValue": {
+                                "en_US": false
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "boolean",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "FullWidthContent",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "checkbox"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Content"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "html",
+                            "fieldNamespace": "ddm",
+                            "indexType": "",
+                            "localizable": true,
+                            "name": "Content",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-text-html"
+                        }
+                    ]
                 }
             ]
         },
