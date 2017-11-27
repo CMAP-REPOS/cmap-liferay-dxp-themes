@@ -8,21 +8,32 @@
 		@extend .whitney-huge;
 	}
 
-	.updates-filter{
+	.updates-filter{}
+
+	.updates-filter-type,
+	.updates-filter-topic{
+		display: inline-block;
 		margin: $size0 0;
+		margin-right: $size-2;
 	}
 }
+
 .updates-container{
 
 	article{
 		margin-bottom: $size0;
 	}
 	
-	hr.update-divider{}
+	hr.update-divider{
+		margin: 0 0 $size0;
+		border-top: 2px solid $off-white;
+
+	}
 
 	header{
 		display: flex;
 		align-items: center;
+		margin-bottom: $size-2;
 
 		.update-date,
 		.update-categories{
@@ -35,6 +46,7 @@
 		@extend .underline-link;
 		border-bottom: none;
 		&:hover{ border-bottom: none; }
+		transform: translateY(0.16em)
 	}
 
 	.update-categories{
@@ -50,5 +62,10 @@
 				@extend .underline-link;
 			}
 		}
+	}
+
+	.update-title{
+		@extend .whitney-large__bold;
+		@extend .underline-link;
 	}
 }

@@ -3,45 +3,43 @@
 <#setting datetime_format = "MMMM dd, yyyy">
 
 <#if entries?has_content>
-<div class="updates-container row">
-    <div class="col-xl-10 col-xl-push-3">
-    	<#list entries as entry>
+<div class="updates-container">
+	<#list entries as entry>
 
-        <#assign assetRenderer = entry.getAssetRenderer() />
-        <#assign entryTitle = htmlUtil.escape(entry.getTitle(locale)) />
-        <#assign assetSummary = assetRenderer.getSummary(renderRequest, renderResponse) />
-        <#assign summary = htmlUtil.extractText(assetSummary) />
-        <#assign assetDate = entry.modifiedDate?datetime />
-        <#assign viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, entry, true) />
-        <article>
-            <hr class="update-divider">
-            <header>
-                <time class="update-date">${assetDate}</time>
-                <#if entry.getCategories()?has_content>
-                <ul class="update-categories">
-                <#list entry.getCategories() as category>
-                    <#assign categoryId = category.getCategoryId()?string /> 
-                    <li><a href="/updates/all/-/categories/${categoryId}">${category.getName()}</a></li>
-                </#list>
-                </ul>
+    <#assign assetRenderer = entry.getAssetRenderer() />
+    <#assign entryTitle = htmlUtil.escape(entry.getTitle(locale)) />
+    <#assign assetSummary = assetRenderer.getSummary(renderRequest, renderResponse) />
+    <#assign summary = htmlUtil.extractText(assetSummary) />
+    <#assign assetDate = entry.modifiedDate?datetime />
+    <#assign viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, entry, true) />
+    <article>
+        <hr class="update-divider">
+        <header>
+            <time class="update-date">${assetDate}</time>
+            <#if entry.getCategories()?has_content>
+            <ul class="update-categories">
+            <#list entry.getCategories() as category>
+                <#assign categoryId = category.getCategoryId()?string /> 
+                <li><a href="/updates/all/-/categories/${categoryId}">${category.getName()}</a></li>
+            </#list>
+            </ul>
+            </#if>
+        </header>
+        <div class="update-preview">
+            <h2 class="update-title"><a href="${viewURL}">${entryTitle}</a></h2>
+            <p class="update-summary">
+                <#assign summaryLength = summary?length />
+                <#assign abstractLength = abstractLength?number />
+                <#if (summaryLength > abstractLength)>
+                    ${assetSummary?substring(0,abstractLength-3)}...
+                <#else>
+                    ${assetSummary}
                 </#if>
-            </header>
-            <div class="update-preview">
-                <h2 class="update-title"><a href="${viewURL}">${entryTitle}</a></h2>
-                <p class="update-summary">
-                    <#assign summaryLength = summary?length />
-                    <#assign abstractLength = abstractLength?number />
-                    <#if (summaryLength > abstractLength)>
-                        ${assetSummary?substring(0,abstractLength-3)}...
-                    <#else>
-                        ${assetSummary}
-                    </#if>
-                </p>
-                <a class="update-read-more underline-link" href="${viewURL}">Read More</a>
-            </div>
-        </article>
-    	</#list>
-    </div>
+            </p>
+            <a class="update-read-more underline-link" href="${viewURL}">Read More</a>
+        </div>
+    </article>
+	</#list>
 </div>
 </#if>
 

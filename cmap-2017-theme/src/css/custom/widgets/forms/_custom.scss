@@ -1,3 +1,28 @@
+.dropdown-input{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  background-size: 5% auto;
+  padding: $size-1 $size0;
+  border-radius: #{$size0 + $size-2};
+  @extend .whitney-normal__bold;
+  font-size: 0.9em !important;
+  
+  &:focus {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
+  }
+}
+
+.pill-button{
+  @extend .whitney-normal__bold;
+  background: $dark-blue;
+  padding: $size-1 $size2;
+  border-radius: $size1;
+  border: none;
+}
+
 .portlet-forms {
   .ddl-form-name {
     @extend .whitney-huge;
@@ -15,8 +40,7 @@
   }
 
   .liferay-ddm-form-field-tip {
-    font-size: $size-1;
-    @extend .whitney-normal;
+    @extend .whitney-small;
     color: $off-white-text;
     margin-bottom: $size-2;
   }
@@ -25,90 +49,34 @@
     margin-top: $size0;
     margin-bottom: 0;
   }
-
-  .lfr-ddm-form-submit {
-    @extend .whitney-normal__bold;
-    background: $dark-blue;
-    padding: $size-1 $size2;
-    border-radius: $size1;
-    border: none;
-  }
 }
 
-.contact-us-page {
+
+
+.contact-page {
+
+  header {
+    hr {
+      margin: $size0 0 $size-2;
+      border-top: 1px solid $off-white;
+    }
+  }
+
   .lfr-ddm-form-container {
+
     .row {
       .col-xl-8 {
         &:first-of-type {
           padding-left: 0 !important;
         }
+        &:last-of-type {
+          padding-right: 0 !important;
+        }
       }
     }
 
-    .ddl-form-name {
-      @extend .whitney-huge;
-      font-size: $size2;
-    }
-    .ddl-form-description {
-      font-size: inherit;
-      line-height: inherit;
-      margin-top: $unit;
-    }
-    .lfr-ddm-form-field-container {
-      padding: 0;
-    }
-    .liferay-ddm-form-field-tip {
-      font-size: $size-1;
-      @extend .whitney-normal;
-      color: $off-white-text;
-      margin-bottom: $size-2;
-    }
-    .required-warning {
-      margin-top: $size0;
-      margin-bottom: 0;
-    }
-    .lfr-ddm-form-submit {
-      @extend .whitney-normal__bold;
-      background: $dark-blue;
-      padding: $size-1 $size2;
-      border-radius: $size1;
-      border: none;
-    }
-    .text-warning {
-      color: $red;
-      opacity: 0.65;
-    }
-    label,
-    .control-label {
-      font-size: $size-1;
-      font-weight: 600;
-      color: $off-white-text;
-      margin-top: $size0;
-      margin-bottom: $size-2;
-      @media (min-width: 768px) {
-        font-size: $size-1;
-        color: $off-white-text;
-      }
-    }
-    .portlet-forms .form-group {
-      margin-top: $size0;
-    } // Base form element styles
-    .form-control {
-      @extend .whitney-normal__bold;
-      color: $dark-grey;
-      background-color: $off-white;
-      border: 1px solid $off-white;
-      padding: $size-1 $size0;
-      @include form-control-focus($off-white);
-      &:focus {
-        color: $dark-blue;
-      }
-      &.has-value {
-        background-color: $white;
-        border-color: $off-white;
-      }
-    }
     select.form-control {
+      @extend .dropdown-input;
       -moz-appearance: none;
       -webkit-appearance: none;
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
@@ -119,6 +87,7 @@
       border-radius: #{$size0 + $size-2};
       @extend .whitney-normal__bold;
       font-size: 0.9em !important;
+
       &:focus {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
       }
@@ -138,96 +107,82 @@
   }
 }
 
+.portlet-body{
+
+  .required-warning {
+    margin-top: $size0;
+    margin-bottom: 0;
+  }
+
+  .text-warning {
+    color: $red;
+    opacity: 0.65;
+  }
+
+  .portlet-forms .form-group {
+    margin-top: $size0;
+  }
 
 
-.text-warning {
-  color: $red;
-  opacity: 0.65;
-}
-
-label,
-.control-label {
-  font-size: $size-1;
-  font-weight: 600;
-  color: $off-white-text;
-  margin-top: $size0;
-  margin-bottom: $size-2;
-
-  @media (min-width: 768px) {
+  label,
+  .control-label {
     font-size: $size-1;
+    font-weight: 600;
     color: $off-white-text;
-  }
-}
+    margin-top: $size0;
+    margin-bottom: $size-2;
 
-.portlet-forms .form-group {
-  margin-top: $size0;
-}
-
-// Base form element styles
-.form-control {
-  @extend .whitney-normal__bold;
-  color: $dark-grey;
-  background-color: $off-white;
-  border: 1px solid $off-white;
-  padding: $size-1 $size0;
-  @include form-control-focus($off-white);
-
-  &:focus {
-    color: $dark-blue;
-  }
-
-  &.has-value {
-    background-color: $white;
-    border-color: $off-white;
-  }
-}
-
-select.form-control {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
-  background-position: 95% center;
-  background-repeat: no-repeat;
-  background-size: 5% auto;
-  padding: $size-1 $size0;
-  border-radius: #{$size0 + $size-2};
-  @extend .whitney-normal__bold;
-  font-size: 0.9em !important;
-
-  &:focus {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
-  }
-
-  &::-ms-expand {
-    display: none;
-  }
-}
-
-.contact-us-page {
-  .lfr-ddm-form-container {
-    .row {
-      .col-xl-8 {
-        &:first-of-type {
-          padding-left: 0 !important;
-        }
-        &:last-of-type {
-          padding-right: 0 !important;
-        }
-      }
+    @media (min-width: 768px) {
+      font-size: $size-1;
+      color: $off-white-text;
     }
   }
-  header {
-    hr {
-      margin: $size0 0 $size-2;
-      border-top: 1px solid $off-white;
+
+
+  // Base form element styles
+  .form-control {
+    @extend .whitney-normal__bold;
+    color: $dark-grey;
+    background-color: $off-white;
+    border: 1px solid $off-white;
+    padding: $size-1 $size0;
+    @include form-control-focus($off-white);
+
+    &:focus {
+      color: $dark-blue;
+    }
+
+    &.has-value {
+      background-color: $white;
+      border-color: $off-white;
     }
   }
-  .lfr-ddm-form-container {
-    .lfr-ddm-form-page {
-      padding: 0;
-    }
-    .lfr-ddm-form-pagination-controls {
-      padding-top: $size0;
-    }
+
+  .lfr-ddm-form-submit {
+    @extend .pill-button;
+  }
+  .ddl-form-name {
+    @extend .whitney-huge;
+    font-size: $size2;
+  }
+  .ddl-form-description {
+    font-size: inherit;
+    line-height: inherit;
+    margin-top: $unit;
+  }
+  .lfr-ddm-form-field-container {
+    padding: 0;
+  }
+  .lfr-ddm-form-page {
+    padding: 0;
+  }
+  .lfr-ddm-form-pagination-controls {
+    padding-top: $size0;
+  }
+  .liferay-ddm-form-field-tip {
+    font-size: $size-1;
+    @extend .whitney-normal;
+    color: $off-white-text;
+    margin-bottom: $size-2;
   }
 }

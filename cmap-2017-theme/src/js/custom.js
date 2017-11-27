@@ -176,7 +176,7 @@ cmap.global.addpageclass = function () {
   if (noSlash === '') {
     final = 'home-page';
   } else {
-    final = noSlash;
+    final = noSlash + '-page';
   }
 
   console.log(rawPath, noWebGuest, noSlash, final);
@@ -187,7 +187,7 @@ cmap.forms = {};
 
 cmap.forms.contactus = function () {
 
-  var $contact_form = $('.contact-us-page');
+  var $contact_form = $('.contact-page');
   console.log($contact_form);
   if ($contact_form.length) {
 
@@ -195,7 +195,7 @@ cmap.forms.contactus = function () {
     var $info_header = $(`
       <header>
         <hr>
-        <h3 class="whitney-bold">Information</h3>
+        <h3 class="whitney-normal__bold">Information</h3>
       </header>
     `);
     $contact_form.find('.lfr-ddm-form-page').before($info_header);
@@ -204,14 +204,14 @@ cmap.forms.contactus = function () {
     var $message_header = $(`
       <header>
         <hr>
-        <h3 class="whitney-bold">Message</h3>
+        <h3 class="whitney-normal__bold">Message</h3>
       </header>
     `);
     $contact_form.find('.row:nth-of-type(3)').after($message_header);
 
     $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8');
 
-    var $captcha = $('.contact-us-page').find('.lfr-ddm-form-page .row:last-of-type .form-group');
+    var $captcha = $contact_form.find('.lfr-ddm-form-page .row:last-of-type .form-group');
     $contact_form.find('.row:nth-of-type(4) .col-xl-8:last-of-type').append($captcha);
 
     $('.lfr-ddm-form-submit').removeClass('pull-right');

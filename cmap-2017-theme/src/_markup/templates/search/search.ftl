@@ -159,11 +159,11 @@ cmap.search.hitAPI = function(){
 		}
 	}
 	var searchQuery = {
-    "q": q,
-    "key": "AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik",
-    "cx": "004289794693594110260:midq7iuukta",
-    "start": cmap.search.currentStart,
-    "num": cmap.search.fetchNum
+    'q': q,
+    'key': 'AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik',
+    'cx': '004289794693594110260:midq7iuukta',
+    'start': cmap.search.currentStart,
+    'num': cmap.search.fetchNum
   };
   if(cmap.search.sort !== ''){
 		if(cmap.search.sort === 'date'){

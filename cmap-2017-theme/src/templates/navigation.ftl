@@ -7,7 +7,6 @@
     <div class="col-xl-13 col-sm-12 col-xs-16">
     </div>
   </div>
-  
 </div>
 
 
