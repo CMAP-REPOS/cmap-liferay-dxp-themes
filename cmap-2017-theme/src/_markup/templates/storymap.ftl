@@ -1,4 +1,15 @@
 <div id="map-container">
+    <section class="story-map-legend"> 
+        <div class="row">
+            <div class="col-xl-16">
+                <ul class="list-unstyled list-inline">
+                <#list Legend.getSiblings() as cur_Legend>
+                    <li><span><i class="icon-circle" style="color: ${cur_Legend.KeyColor.getData()}"></i> </span>${cur_Legend.KeyLabel.getData()}</li>
+                </#list>
+                </ul>
+            </div>
+        </div>
+    </section>
     <div id="${randomNamespace}_map" class="story-map">
     </div>
     <div class="storymap-section">
@@ -55,20 +66,17 @@
                 </ul>
                 </div>
             </div>
-
-
             <div class="storymap-nav-container mobile-storymap-nav">
                 <div class="col-xs-1">
                     <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></a>
                 </div>
                 <div class="col-xs-14 text-center">
                     <span class="xs-story-step-title story-step-title story-active"></span>
-            </div>
+                </div>
                 <div class="col-xs-1">
                     <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
                 </div>
             </div>
-
             <div class="storymap-overlays-container col-xl-14 col-xl-offset-1">
                 <div class="">
                 <p class="text-right xs-hidden">
@@ -108,6 +116,7 @@
         </div>
     </div>
 </div>
+
 <#list StorySteps.getSiblings() as cur_StoryStep>
 <#assign storyStepsIndex = cur_StoryStep?index>
     <div id="${randomNamespace}_content${storyStepsIndex}" class="story-step-content">

@@ -291,6 +291,24 @@ $icon-nav-right-white: "\e91d";
     .story-step-content {
         display: none;
     }
+    
+    .story-map-legend {
+		@include section-padding();
+		background: rgba(168, 188, 200, 0.5);
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+
+		ul {
+			padding-bottom: 25px;
+			padding-top: 25px;
+			li {
+		        @extend .whitney-normal;
+			}
+		}
+    }
 
     @include tablet() {
         .storymap-section {
