@@ -254,7 +254,7 @@ cmap.search.checkQueryString = function() {
 		re.test(query) && 
 		query.match(re).length > 1) {
 			cmap.search.query = query.match(re)[1];
-			$('.search-bar .search-bar-input').val(cmap.search.query);
+			$('.search-bar .search-bar-input').val(unescape(cmap.search.query));
 	};
 };
 
