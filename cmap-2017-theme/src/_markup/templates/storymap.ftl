@@ -13,7 +13,6 @@
     <div id="${randomNamespace}_map" class="story-map">
     </div>
     <div class="storymap-section">
-        <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
         <div class="row storymap-intro-container">
             <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
                 <div class="storymap-title">
@@ -23,7 +22,7 @@
                     ${StoryDescription.getData()}
                 </div>
             </div>
-            <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16">
+            <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16 col-sm-offset-0">
                 <div class="storymap-aside sm-hidden  xs-hidden">
                     ${Aside.getData()}
                 </div>
@@ -78,25 +77,11 @@
                 </div>
             </div>
             <div class="storymap-overlays-container col-xl-14 col-xl-offset-1">
-                <div class="">
-                <p class="text-right xs-hidden">
-                <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
-                <#assign storyOverlaysIndex = cur_StoryOverlay?index>
-                    <#if cur_StoryOverlay.OverlayTitle.getData() != "">
-                    <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
-                        data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
-                        data-file="${cur_StoryOverlay.OverlayFile.getData()}"
-                        data-layer-id="overlay_${storyOverlaysIndex}">
-                        ${cur_StoryOverlay.OverlayTitle.getData()}
-                    </button>
-                    </#if>
-                </#list>
-                </p>
-                <p class="text-right md-hidden">
-                <span class="view-layers-button">
-                <span class="icon-text">View Layers</span>
-                <span class="icon-cmap icon-layers-dark"></span>
-                </span>
+                <div class="alignright">
+                    <span class="view-layers-button">
+                        <span class="icon-text">View Layers</span>
+                        <span class="icon-cmap icon-layers-dark"></span>
+                    </span>
                 <div class="layers-menu">
                 <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
                 <#assign storyOverlaysIndex = cur_StoryOverlay?index>
@@ -110,10 +95,10 @@
                     </#if>
                 </#list>
                 </div>
-                </p>
                 </div>
             </div>
         </div>
+        <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
     </div>
 </div>
 
@@ -244,7 +229,7 @@ AUI().ready(
         };
 
         cmap.storymaps.setPanState = function (step) {
-            var yOffset = $('.storymap-section').height()/2;
+            var yOffset = $('.storymap-section').height()/3;
             cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, yOffset], { animate: true });
         };
 
@@ -320,13 +305,13 @@ AUI().ready(
             $(window).on('scroll', _.throttle(cmap.storymaps.handleScroll, 200));
 
             $('.story-step-title, .next-story-step, .previous-story-step').on('click swipeleft swiperight', function () {
-                var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-intro-container').height();
+                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
                 $("html, body").animate({ scrollTop: containerOffset }, 600);
             });
 
             $('.view-map').on('click', function () {
                 
-                var containerOffset = $('.storymap-intro-container').offset().top + $('.storymap-intro-container').height();
+                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
                 $("html, body").animate({ scrollTop: containerOffset }, 600);
 
                 $('.button_overlay').removeClass('active');
@@ -372,7 +357,7 @@ AUI().ready(
                     .text(function (i, text) {
                         return text === "View Layers" ? "Hide Layers" : "View Layers";
                     });
-                $('.layers-menu').toggleClass('menu-show');
+                $('.layers-menu').toggle();
             });
         };
 

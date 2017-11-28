@@ -194,7 +194,7 @@ $icon-nav-right-white: "\e91d";
             }
 
             .view-map {
-		        @extend .whitney-small;
+		        @extend .whitney-normal;
 				color: $off-white;
                 cursor: pointer;
                 background: none;
@@ -229,12 +229,7 @@ $icon-nav-right-white: "\e91d";
         }
 
         .layers-menu {
-            display: none;
-            float: right;
-            flex-direction: column;
-            max-width: 180px;
-            text-align: right;
-            
+
             .btn {
                 margin-bottom: 10px;
             }
@@ -242,6 +237,10 @@ $icon-nav-right-white: "\e91d";
             &.menu-show {
                 display: none;
             }
+        }
+        
+        .view-layers-button {
+        	display: none;
         }
 
         .storymap-overlays-container {
@@ -280,6 +279,7 @@ $icon-nav-right-white: "\e91d";
         position: fixed!important;
         top: 0;
         width: 100%;
+        z-index: 1000;
     }
 
     .storymap-overlays-container.scroll-fixed {
@@ -346,8 +346,21 @@ $icon-nav-right-white: "\e91d";
                 }
             }
             
+            .layers-menu {
+
+	            display: none;
+
+				button {
+					clear: right;
+					display: block;
+					float: right;
+					margin: 10px 0 0 0;
+            	}
+            }
+            
             .view-layers-button {
                 cursor: pointer;
+                display: block;
             }
             
             .layers-menu.menu-show {
