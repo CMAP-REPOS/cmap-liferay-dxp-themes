@@ -15,7 +15,6 @@
 
   }
   .slide-text{
-    padding-top: $unit;
     width: 50%;
     @include desktop(){
       width: 100%;
@@ -24,12 +23,18 @@
 
   .slider-nav{
     .nav-item{
-      background: rgba($white, 0.5) !important;
-      &:hover{
-        background: rgba($white, 0.75) !important;
+      &:after{
+        background: rgba($white, 0.5) !important;
       }
-      &:active{
-        background: $white !important;
+      &:hover{
+        &:after{
+          background: rgba($white, 0.75) !important;
+        }
+      }
+      &.active{
+        &:after{
+          background: $white !important;
+        } 
       }
     }
   }

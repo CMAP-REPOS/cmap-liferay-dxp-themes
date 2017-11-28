@@ -2,33 +2,18 @@ body {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   font-size: 21px;
   line-height: $variation;
-  @if($debug) {
-    border-top: 2px solid red;
-  }
 
   @include tv() {
     font-size: 18px;
-    @if($debug) {
-      border-top: 2px solid orange;
-    }
   }
   @include desktop() {
     font-size: 16px;
-    @if($debug) {
-      border-top: 2px solid yellow;
-    }
   }
   @include tablet() {
     font-size: 15px;
-    @if($debug) {
-      border-top: 2px solid green;
-    }
   }
   @include phone() {
     font-size: 13px;
-    @if($debug) {
-      border-top: 2px solid blue;
-    }
   }
 }
 

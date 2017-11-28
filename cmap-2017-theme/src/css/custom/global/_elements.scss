@@ -1,9 +1,27 @@
 *{
   box-sizing: border-box;
 }
-body{
+
+body {
   overflow-x: hidden;
+
+  @if($debug) {
+    border-top: 2px solid red;
+    @include tv() {
+      border-top: 2px solid orange;
+    }
+    @include desktop() {
+      border-top: 2px solid yellow;
+    }
+    @include tablet() {
+      border-top: 2px solid green;
+    }
+    @include phone() {
+      border-top: 2px solid blue;
+    }
+  }
 }
+
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6{
 	font-weight: inherit;

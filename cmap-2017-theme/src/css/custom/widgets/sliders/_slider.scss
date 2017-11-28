@@ -44,23 +44,40 @@
     height: $unit * 2;
 
     .nav-item{
-      $size: $size-1;
+      $size: $size0;
+      position: relative;
       width: $size;
       height: $size;
-      border-radius: 50%;
-      background: $off-white;
-      margin-right: $size-2;
+      margin-right: $size-4;
       transition: all 0.2s ease-in;
       cursor: pointer;
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        $dot-size: $size-3;
+        width: $dot-size;
+        height: $dot-size;
+        background: $off-white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       &:last-of-type{
         margin-right: 0;
       }
+
       &.active{
-        background: $primary;
+        &:after{
+          background: $primary;
+        }
       }
+
       &:hover{
-        background: saturate($off-white, 20%);
+        &:after{
+          background: saturate($off-white, 20%); 
+        }
       }
     }
   }

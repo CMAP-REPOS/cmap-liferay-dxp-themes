@@ -1,4 +1,7 @@
 .update-slider{
+  position: relative;
+  z-index: 20;
+  background: white;
 
   .item{
     padding: $unit * 2 0 0;
@@ -7,6 +10,7 @@
       @extend .whitney-normal;
       color: $off-white-text;
     }
+    
     .item-title{
       @extend .whitney-normal__bold;
 

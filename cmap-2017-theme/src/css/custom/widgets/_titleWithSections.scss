@@ -50,7 +50,7 @@
   .page-nav-item{
     display: flex;
     align-items: center;
-    border-top: 1px solid $off-white;
+    border-top: 1px solid darken($off-white, 5%);
 
     &:last-of-type{
       border-bottom: 0;
@@ -70,6 +70,7 @@
   .page-nav-container{
     position: relative;
     top: 0;    
+    z-index: 10;
     
     &.fixed{
       position: fixed;

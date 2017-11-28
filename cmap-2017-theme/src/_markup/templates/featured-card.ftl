@@ -59,7 +59,6 @@ ${OptionalContentBefore.getData()}
 
 
     <div class="col-xl-8">
-      <p class="whitney-normal">Document</p>
     <#if Caption?? && Caption.getData()?? && Caption.getData() != "">
       <div class="featured-card-description">
         ${Caption.getData()}

@@ -11,6 +11,7 @@
 @import "custom/global/elements";
 @import "custom/global/grid";
 @import "custom/global/layout";
+@import "custom/global/liferay";
 @import "custom/global/links";
 @import "custom/global/typography";
 @import "custom/global/utilities";
@@ -22,6 +23,7 @@
 @import "custom/widgets/nav/search";
 @import "custom/widgets/nav/sideNav";
 
+@import "custom/widgets/sliders/slider";
 @import "custom/widgets/sliders/fullSlider";
 @import "custom/widgets/sliders/halfSlider";
 @import "custom/widgets/sliders/updateSlider";
@@ -42,7 +44,6 @@
 @import "custom/widgets/homepageHero";
 @import "custom/widgets/infographic";
 @import "custom/widgets/sectionHero";
-@import "custom/widgets/slider";
 @import "custom/widgets/splitSummary";
 @import "custom/widgets/storymap";
 @import "custom/widgets/table";
@@ -56,9 +57,3 @@
 @import "custom/pages/sitemap";
 @import "custom/pages/staffdirectory";
 @import "custom/pages/updates";
-
-.portlet-content-editable,
-.portlet-content{
-  padding: 0;
-}
-

@@ -1,0 +1,27 @@
+.portlet-content-editable,
+.portlet-content {
+  padding: 0;
+}
+
+.portlet {
+  margin-bottom: 0;
+
+  &>.portlet-topper {
+    opacity: 1 !important;
+    position: relative !important;
+  }
+
+  &:hover {
+
+    &>.portlet-topper {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.portlet-centered {
+  .portlet-content>.row {
+    @include section-padding();
+  }
+}

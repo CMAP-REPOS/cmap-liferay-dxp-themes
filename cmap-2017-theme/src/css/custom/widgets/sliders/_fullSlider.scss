@@ -12,15 +12,19 @@ section.full-slider{
   .row{
     @include section-padding();
   }
+
   .slide-top.row{
     padding-top: #{$unit * 2};
     p{
       @extend .presna-large__white;
     }
   }
+
   .slide-bottom.row{
     p{
       @extend .whitney-normal;
+    }
+    a{
       color: $white;
     }
   }

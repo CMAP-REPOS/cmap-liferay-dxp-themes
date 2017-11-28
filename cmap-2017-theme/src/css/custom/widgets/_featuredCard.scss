@@ -6,17 +6,19 @@ section.featured-card{
   background: $off-white;
   overflow: hidden;
   transition: all 0.2s ease;
+  margin-bottom: $size0;
 
   .featured-card-img-link{
     display: block;
     position: relative;
   }
+
   .featured-card-img{
     position: relative;
     left: 50%;
     width: 40%;
     transition: all 0.4s cubic-bezier(0.22, 0.52, 0.58, 1);
-    transform: translateX(-50%) translateY(120%) rotate(-90deg);
+    transform: translateX(-50%) translateY($top) rotate(-25deg) scale(1.5);
   }
 
   .featured-card-title{
@@ -47,7 +49,7 @@ section.featured-card{
     background: saturate($off-white, 15%);
 
     .featured-card-img{
-      transform: translateX(-50%) translateY($top) rotate(-25deg);
+      transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
     }
   }
 }

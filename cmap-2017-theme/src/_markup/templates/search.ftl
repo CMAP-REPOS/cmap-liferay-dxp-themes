@@ -26,7 +26,7 @@
             <path d="M11.5,11.5c1-1,1.6-2.4,1.6-3.9c0-3.1-2.5-5.6-5.6-5.6S2,4.5,2,7.6c0,3.1,2.5,5.6,5.6,5.6 C9.1,13.2,10.5,12.5,11.5,11.5L18,18L11.5,11.5z"/> 
           </svg>
           <input class="search-bar-input" value="${query}" placeholder="Search..." />
-          <button class="search-bar-submit">Update Search</button>
+          <button class="search-bar-submit search-button">Update Search</button>
         </div>
       </header>
 
@@ -54,7 +54,6 @@
 
     <div class="col-xl-3 col-md-2 col-sm-0"></div>  
   </div>
-
   <div class="jump-to-top row">
   	<div class="col-xl-3 col-sm-2 col-xs-0">
   		<div class="return-back-to-top">
@@ -124,14 +123,16 @@ cmap.search.addResultsToDOM = function(elements){
 }
 
 cmap.search.buildPage = function(data){
+
 	if(cmap.search.totalResults === 0){
-		alert("I'm sorry but we could not find any results. Please try a different query");
 		console.log(data);
+		var query = data.queries.request[0].searchTerms;
+		alert("I'm sorry but we could not find any results for: "+query+". Please try a different query");
 	} else {
 		cmap.search.addResultsToDOM(data.items);
 	}
 
-	var $more = $('<button class="more-results">Load more results</button>');
+	var $more = $('<button class="more-results search-button">Load more results</button>');
 	$more.click(function(){
 		cmap.search.currentStart += 10;
 		$more.remove();
@@ -183,6 +184,7 @@ cmap.search.hitAPI = function(){
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
     alert('Search failed: ', textStatus);
+    console.log(jqXHR, textStatus, errorThrown);
 	})
 	.always(function() {
 	  $('.loading').hide();
@@ -199,6 +201,7 @@ cmap.search.watchForInput = function(){
 			cmap.search.hitAPI();
 		}
 	});
+
 	var $searchButton = $('.search-bar-submit');
 	$searchButton.click(function(e){
 		cmap.search.query = $input.val();
@@ -236,6 +239,7 @@ cmap.search.watchForInput = function(){
 	});
 
 }
+
 cmap.search.infScroll = function(){
 	console.log(InfiniteScroll);
 	$('.search-results').infiniteScroll({
