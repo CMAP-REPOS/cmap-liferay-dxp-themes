@@ -2,7 +2,7 @@
     <div id="${randomNamespace}_map" class="story-map">
     </div>
     <div class="storymap-section">
-        <a href="#" class="storymap-info-toggle visible-xs-block"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
+        <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
         <div class="row storymap-intro-container">
             <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
                 <div class="storymap-title">
@@ -13,20 +13,23 @@
                 </div>
             </div>
             <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16">
-                <div class="storymap-aside hidden-xs">
+                <div class="storymap-aside sm-hidden  xs-hidden">
                     ${Aside.getData()}
                 </div>
-                <div class="storymap-source hidden-xs">
+                <div class="storymap-source sm-hidden xs-hidden">
                     ${Source.getData()}
                 </div>
             </div>
         </div>
-        <div class="row story-interact hidden-xs">
-            <div class="row storymap-nav-container hidden-xs">
-                <ul class="col-xl-3 list-inline">
-                    <li><button class="view-map"><span class="icon icon-map-marker"></span> View Map</button></li>
+        <div class="row story-interact">
+            <div class="storymap-nav-container sm-hidden xs-hidden">
+                <div class="col-xl-3">
+                <ul class="list-inline list-unstyled">
+                    <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
                 </ul>
-                <ul class="col-xl-8 story-steps list-inline">
+                </div>
+                <div class="col-xl-9 story-steps">
+                <ul class="list-inline list-unstyled">
                 <#list StorySteps.getSiblings() as cur_StoryStep>
                 <#assign storyStepsIndex = cur_StoryStep?index>
                     <#if cur_StoryStep.StepTitle.getData() != "">
@@ -38,7 +41,9 @@
                     </#if>
                 </#list>
                 </ul>
-                <ul class="col-xl-3 col-xl-offset-1 story-arrows list-inline">
+                </div>
+                <div class="col-xl-4 story-arrows">
+                <ul class="list-inline list-unstyled alignright">
                     <li>
                         <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> 
                         <span class="sr-only">Previous</span></a>
@@ -48,21 +53,25 @@
                         <span class="sr-only">Next</span></a>
                     </li>
                 </ul>
+                </div>
             </div>
-            <!-- div class="row storymap-nav-container mobile-storymap-nav">
+
+
+            <div class="storymap-nav-container mobile-storymap-nav">
                 <div class="col-xs-1">
                     <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></a>
                 </div>
                 <div class="col-xs-14 text-center">
                     <span class="xs-story-step-title story-step-title story-active"></span>
-                </div>
+            </div>
                 <div class="col-xs-1">
                     <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
                 </div>
-            </div -->
+            </div>
+
             <div class="storymap-overlays-container col-xl-14 col-xl-offset-1">
                 <div class="">
-                <p class="text-right hidden-xs">
+                <p class="text-right xs-hidden">
                 <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
                 <#assign storyOverlaysIndex = cur_StoryOverlay?index>
                     <#if cur_StoryOverlay.OverlayTitle.getData() != "">
@@ -75,7 +84,7 @@
                     </#if>
                 </#list>
                 </p>
-                <p class="text-right visible-xs-block">
+                <p class="text-right md-hidden">
                 <span class="view-layers-button">
                 <span class="icon-text">View Layers</span>
                 <span class="icon-cmap icon-layers-dark"></span>
@@ -99,20 +108,26 @@
         </div>
     </div>
 </div>
-    <div class="row">
-        <div class="col-xl-16 col-xl-offset-1">
-            <#list StorySteps.getSiblings() as cur_StoryStep>
-            <#assign storyStepsIndex = cur_StoryStep?index>
-                <#if cur_StoryStep.StepContent.getData() != "">
-                <div id="${randomNamespace}_content${storyStepsIndex}" class="story-step-content">
-                <#list cur_StoryStep.StepContent.getSiblings() as cur_StoryStepContent>
-                ${cur_StoryStepContent.getData()}
-                </#list>
-                </div>
-                </#if>
-            </#list>
+<#list StorySteps.getSiblings() as cur_StoryStep>
+<#assign storyStepsIndex = cur_StoryStep?index>
+    <div id="${randomNamespace}_content${storyStepsIndex}" class="story-step-content">
+    <#list cur_StoryStep.StoryStepContent.getSiblings() as cur_StoryStepContent>
+    <#if getterUtil.getBoolean(cur_StoryStepContent.FullWidthContent.getData())>
+        <div class="col-xl-16 story-step-content-full-width">
+        ${cur_StoryStepContent.Content.getData()}
         </div>
+    <#else>
+        <div class="story-step-content-centered">
+            <div class="row">
+                <div class="col-md-16 col-md-offset-0 col-lg-13 col-lg-offset-3 col-xl-offset-3">
+                    ${cur_StoryStepContent.Content.getData()}
+                </div>
+            </div>
+        </div>
+    </#if>
+    </#list>
     </div>
+</#list>
 
 <script type="text/javascript">
 
@@ -340,7 +355,7 @@ AUI().ready(
             $('.storymap-info-toggle').on('click', function (e) {
                 e.preventDefault();
                 $('.title-block').toggle();
-                $('.storymap-aside, .storymap-source').toggleClass('hidden-xs');
+                $('.storymap-aside, .storymap-source').toggleClass('xs-hidden sm-hidden');
             });
 
             $('.view-layers-button').on("click", function (e) {
