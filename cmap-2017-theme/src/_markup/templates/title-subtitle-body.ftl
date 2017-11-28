@@ -61,8 +61,16 @@
       </#list>
     </div>
 
+    <#assign sectionTitles = []>
+    <#list Subtitle.getSiblings() as cur_subTitle>
+      <#if cur_subTitle?? && cur_subTitle.getData()?? && cur_subTitle.getData() != "">
+    		<#assign sectionTitles = sectionTitles + [cur_subTitle]>
+      </#if>
+    </#list>
+
     <div class="col-xl-3 col-sm-4 page-nav">
       <div class="page-nav-container">
+        <#if sectionTitles?size != 0>
         <div class="page-nav-title">
           <h3>Sections</h3>
         </div>
@@ -77,6 +85,7 @@
             </#if>
           </#list>
         </nav>
+        </#if>
         <div class="page-nav-top"></div>
       </div>
     </div>
