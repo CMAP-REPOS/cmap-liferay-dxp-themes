@@ -81,194 +81,192 @@ cmap.search.currentStart = 1;
 cmap.search.sort = '';
 cmap.search.type = 'all';
 
-cmap.search.buildResult = function(data){
-	var $item = $('<div class="search-result col-xl-8 col-lg-16"></div>');
+cmap.search.buildResult = function (data) {
+  var $item = $('<div class="search-result col-xl-8 col-lg-16"></div>');
 
-	$item.append($('<hr class="search-result-divider" />'));
+  $item.append($('<hr class="search-result-divider" />'));
 
-	// this field is undefined for "web pages"
-	var type = 'Web page';
-	if(data.fileFormat){
-		type = 'Document'
-	}
-	var $type = $('<h4 class="search-result-type">'+type+'</h4>');
-	$item.append($type);
+  // this field is undefined for "web pages"
+  var type = 'Web page';
+  if (data.fileFormat) {
+    type = 'Document';
+  }
+  var $type = $('<h4 class="search-result-type">' + type + '</h4>');
+  $item.append($type);
 
-	var $title = $('<a class="search-result-title" href="'+data.link+'"><h3>'+data.title+'</h3></a>');
-	$item.append($title);
+  var $title = $('<a class="search-result-title" href="' + data.link + '"><h3>' + data.title + '</h3></a>');
+  $item.append($title);
 
-	var $preview = $('<p class="search-result-preview"></p>');
-	$preview.html(data.htmlSnippet);
-	$preview.find('br').remove();
-	$item.append($preview);
+  var $preview = $('<p class="search-result-preview"></p>');
+  $preview.html(data.htmlSnippet);
+  $preview.find('br').remove();
+  $item.append($preview);
 
-	var $link = $('<a class="search-result-link" href="'+data.link+'">Read more</a>');
-	$item.append($link);
+  var $link = $('<a class="search-result-link" href="' + data.link + '">Read more</a>');
+  $item.append($link);
 
-	return $item;
-}
-
-cmap.search.clear = function(){
-	var $container = $('.search-results.row');
-	cmap.search.currentStart = 1;
-	cmap.search.fetchNum = 10;
-	$container.empty();
-	$container.html('<div class="loading"> <div class="spinner"> <div class="dot1"></div> <div class="dot2"></div> </div> </div>');
-}
-
-cmap.search.addResultsToDOM = function(elements){
-	elements.forEach(function(d){
-		var $item = cmap.search.buildResult(d);			
-		$('.search-results.row').append($item);
-	});
-}
-
-cmap.search.buildPage = function(data){
-	if(cmap.search.totalResults === 0){
-		alert("I'm sorry but we could not find any results. Please try a different query");
-		console.log(data);
-	} else {
-		cmap.search.addResultsToDOM(data.items);
-	}
-
-	var $more = $('<button class="more-results">Load more results</button>');
-	$more.click(function(){
-		cmap.search.currentStart += 10;
-		$more.remove();
-		console.log(cmap.search.totalResults, cmap.search.currentStart);
-		if(cmap.search.totalResults > cmap.search.currentStart ){
-			cmap.search.hitAPI();
-		}
-	});
-	if(data.items && data.items.length === 10){
-		$('.search-results.row').append($more);
-	}
-}
-
-
-cmap.search.hitAPI = function(){
-
-	// crunch the parameters to build your request data
-	var q = cmap.search.query;
-	if(cmap.search.type !== 'all'){
-		if(cmap.search.type === 'web-pages'){
-			q += ' -filetype:pdf';
-		}
-		if(cmap.search.type === 'documents'){
-			q += ' filetype:pdf';
-		}
-	}
-	var searchQuery = {
-    'q': q,
-    'key': 'AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik',
-    'cx': '004289794693594110260:midq7iuukta',
-    'start': cmap.search.currentStart,
-    'num': cmap.search.fetchNum
-  };
-  if(cmap.search.sort !== ''){
-		if(cmap.search.sort === 'date'){
-			searchQuery.sort = 'date';
-		}
-	}
-  
-	jQuery.ajax({
-    url: "https://www.googleapis.com/customsearch/v1",
-    type: "GET",
-    data: searchQuery,
-	})
-	.done(function(data, textStatus, jqXHR) {
-		console.log(data);
-		cmap.search.totalResults = parseInt(data.searchInformation.totalResults);
-		cmap.search.buildPage(data);
-	})
-	.fail(function(jqXHR, textStatus, errorThrown) {
-    alert('Search failed: ', textStatus);
-	})
-	.always(function() {
-	  $('.loading').hide();
-	});
-}
-
-
-cmap.search.watchForInput = function(){
-	var $input = $('.search-bar .search-bar-input');
-	$input.keydown(function(e){
-		if(e.which === 13){
-			cmap.search.query = e.target.value;
-			cmap.search.clear();
-			cmap.search.hitAPI();
-		}
-	});
-	var $searchButton = $('.search-bar-submit');
-	$searchButton.click(function(e){
-		cmap.search.query = $input.val();
-		cmap.search.clear();
-		cmap.search.hitAPI();
-	});
-
-	var $sortFilter = $('.sort-filter');
-	var $typeFilter = $('.type-filter');
-
-	$sortFilter.find('.filter-button').click(function(){
-		var $this = $(this), action = $this.data('action');
-		cmap.search.sort = action;
-		cmap.search.query = $input.val();
-		cmap.search.clear();
-		cmap.search.hitAPI();
-		$sortFilter.find('*').removeClass('active');
-		$this.addClass('active');
-	});
-
-	$typeFilter.find('.filter-button').click(function(){
-		var $this = $(this), action = $this.data('action');
-		cmap.search.type = action;
-		cmap.search.query = $input.val();
-		cmap.search.clear();
-		cmap.search.hitAPI();
-		$typeFilter.find('*').removeClass('active');
-		$this.addClass('active');
-	});
-
-	$('.return-back-to-top').click(function(){
-		$('body,html').animate({
-			scrollTop: 0
-		}, 800);
-	});
-
-}
-cmap.search.infScroll = function(){
-	console.log(InfiniteScroll);
-	$('.search-results').infiniteScroll({
-	  // options
-	  path: '.more-results',
-	  append: '.search-result',
-	  history: false,
-	});
-}
-
-cmap.search.checkQueryString = function() {
-
-	var re = /q=(.*?)($|\&)/i;
-	var query = window.location.search;
-	if (query.length && 
-		re.test(query) && 
-		query.match(re).length > 1) {
-			cmap.search.query = query.match(re)[1];
-			$('.search-bar .search-bar-input').val(unescape(cmap.search.query));
-	};
+  return $item;
 };
 
-$(document).ready(function(){
-	cmap.search.clear();
-	cmap.search.checkQueryString();
-	cmap.search.hitAPI();
-	cmap.search.watchForInput();
-	// cmap.search.infScroll();
+cmap.search.clear = function () {
+  var $container = $('.search-results.row');
+  cmap.search.currentStart = 1;
+  cmap.search.fetchNum = 10;
+  $container.empty();
+  $container.html('<div class="loading"> <div class="spinner"> <div class="dot1"></div> <div class="dot2"></div> </div> </div>');
+};
+
+cmap.search.addResultsToDOM = function (elements) {
+  elements.forEach(function (d) {
+    var $item = cmap.search.buildResult(d);
+    $('.search-results.row').append($item);
+  });
+};
+
+cmap.search.buildPage = function (data) {
+  if (cmap.search.totalResults === 0) {
+    alert("I'm sorry but we could not find any results. Please try a different query");
+    console.log(data);
+  } else {
+    cmap.search.addResultsToDOM(data.items);
+  }
+
+  var $more = $('<button class="more-results">Load more results</button>');
+  $more.click(function () {
+    cmap.search.currentStart += 10;
+    $more.remove();
+    console.log(cmap.search.totalResults, cmap.search.currentStart);
+    if (cmap.search.totalResults > cmap.search.currentStart) {
+      cmap.search.hitAPI();
+    }
+  });
+  if (data.items && data.items.length === 10) {
+    $('.search-results.row').append($more);
+  }
+};
+
+cmap.search.hitAPI = function () {
+
+  // crunch the parameters to build your request data
+  var q = cmap.search.query;
+
+	if ($.trim(q).length) {
+		if (cmap.search.type !== 'all') {
+			if (cmap.search.type === 'web-pages') {
+				q += ' -filetype:pdf';
+			}
+			if (cmap.search.type === 'documents') {
+				q += ' filetype:pdf';
+			}
+		}
+		var searchQuery = {
+			'q': q,
+			'key': 'AIzaSyBUUcEmcgKPeyRCWRC_iubAJyfVqHaG0Ik',
+			'cx': '004289794693594110260:midq7iuukta',
+			'start': cmap.search.currentStart,
+			'num': cmap.search.fetchNum
+		};
+		if (cmap.search.sort !== '') {
+			if (cmap.search.sort === 'date') {
+				searchQuery.sort = 'date';
+			}
+		}
+
+		jQuery.ajax({
+			url: "https://www.googleapis.com/customsearch/v1",
+			type: "GET",
+			data: searchQuery,
+		})
+    .done(function (data, textStatus, jqXHR) {
+      console.log(data);
+      cmap.search.totalResults = parseInt(data.searchInformation.totalResults);
+      cmap.search.buildPage(data);
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      alert('Search failed: ', textStatus);
+    })
+    .always(function () {
+      $('.loading').hide();
+    });
+	}
+};
+
+cmap.search.watchForInput = function () {
+  var $input = $('.search-bar .search-bar-input');
+  $input.keydown(function (e) {
+    if (e.which === 13) {
+      cmap.search.query = e.target.value;
+      cmap.search.clear();
+      cmap.search.hitAPI();
+    }
+  });
+  var $searchButton = $('.search-bar-submit');
+  $searchButton.click(function (e) {
+    cmap.search.query = $input.val();
+    cmap.search.clear();
+    cmap.search.hitAPI();
+  });
+
+  var $sortFilter = $('.sort-filter');
+  var $typeFilter = $('.type-filter');
+
+  $sortFilter.find('.filter-button').click(function () {
+    var $this = $(this), action = $this.data('action');
+    cmap.search.sort = action;
+    cmap.search.query = $input.val();
+    cmap.search.clear();
+    cmap.search.hitAPI();
+    $sortFilter.find('*').removeClass('active');
+    $this.addClass('active');
+  });
+
+  $typeFilter.find('.filter-button').click(function () {
+    var $this = $(this), action = $this.data('action');
+    cmap.search.type = action;
+    cmap.search.query = $input.val();
+    cmap.search.clear();
+    cmap.search.hitAPI();
+    $typeFilter.find('*').removeClass('active');
+    $this.addClass('active');
+  });
+
+  $('.return-back-to-top').click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+  });
+};
+
+cmap.search.infScroll = function () {
+  console.log(InfiniteScroll);
+  $('.search-results').infiniteScroll({
+    // options
+    path: '.more-results',
+    append: '.search-result',
+    history: false,
+  });
+};
+
+cmap.search.checkQueryString = function () {
+
+  var re = /q=(.*?)($|\&)/i;
+  var query = window.location.search;
+  if (query.length &&
+    re.test(query) &&
+    query.match(re).length > 1) {
+    cmap.search.query = unescape(query.match(re)[1]);
+    $('.search-bar .search-bar-input').val(cmap.search.query);
+  }
+};
+
+$(document).ready(function () {
+  cmap.search.clear();
+  cmap.search.checkQueryString();
+  cmap.search.hitAPI();
+  cmap.search.watchForInput();
+  // cmap.search.infScroll();
 });
 </script>
-
-
-
 
 <script onload="cmap.search.infScroll">
 	
