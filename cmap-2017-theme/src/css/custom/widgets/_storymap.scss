@@ -49,33 +49,48 @@ $icon-nav-right-white: "\e91d";
 }
 
 #main-content.storymaplayout {
+	
     .portlet-content {
         padding: 0;
     }
+    
     @media screen and (max-width: 750px) {
         #main-content .portlet-content {
             padding: 0;
         }
     }
+    
     @media screen and (max-width: 400px) {
         #main-content .portlet-content {
             padding: 0;
         }
     }
-    .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column {
-        padding: 0 !important;
-    }
 }
 
 .storymaplayout {
+
+	/* make storymap flush with breadcrumbs */
+	margin-top: $unit * -2;
+	
     #map-container {
         height: 800px;
         position: relative;
     }
+    
+	/* make full-width content possible */
+    #column-1 {
+		&.portlet-column-only {
+			padding: 0;
+		}
+
+	    .story-step-content-full-width {
+	    	padding: 0;
+	    }
+	
+	    .story-step-content-centered {
+			@include section-padding();
+		}
+	}
 
     .story-map {
         height: 100%;
@@ -85,7 +100,6 @@ $icon-nav-right-white: "\e91d";
     .storymap-nav {
         background: $grey-blue;
         color: $dark-grey;
-        font-size: #{ $size-1 - 0.1em };
         margin: 0;
         padding: 1em 0;
 
@@ -103,36 +117,36 @@ $icon-nav-right-white: "\e91d";
 
         .storymap-info-toggle {
             color: $off-white;
+            display: none;
             position: absolute;
-            right: 1em;
-            top: 1em;
+            right: 25px;
+            top: 25px;
             z-index: 200;
         }
 
         .storymap-intro-container {
-            background: #a8bcc8;
+			@include section-padding();
+			background: #a8bcc8;
             margin: 0;
-            padding: 1em 0;
+            padding-bottom: 50px;
+            padding-top: 50px;
 
-            .storymap-title p {
-                color: #000;
-                font-family: $font-sans;
-                font-size: $size1;
+            .storymap-title {
+            	p {
+            		@extend .whitney-huge;
+                	color: #000;
+            	}
             }
 
             .storymap-info {
                 color: #000;
-                font-family: $font-serif;
-                font-size: #{ $size0 - 0.2em };
-                line-height: 1.5em;
-                margin-bottom: 2em;
+                padding-bottom: 25px;
             }
 
             .storymap-aside, .storymap-source {
-                color: $grey-blue;
-                font-size: #{ $size-1 - 0.1em };
-                line-height: 1.5em;
-                margin-bottom: 2em;
+                @extend .whitney-small;
+				color: $grey-blue;
+                padding-bottom: 25px;
             }
 
             .storymap-source {
@@ -141,24 +155,34 @@ $icon-nav-right-white: "\e91d";
         }
 
         .storymap-nav-container {
+        	@include section-padding();
             background: $grey-blue;
+            display: block;
             margin: 0;
-            padding: 1em 0;
-            display: flex;
-            ul {
-                display: flex;
+            padding-bottom: 25px;
+            padding-top: 25px;
+            width: 100%;
+            
+            &.mobile-storymap-nav {
+	            display: none;
+	            .story-step-title {
+	                opacity: 1;
+	            }
+	        }
+            
+            .story-steps {
                 margin-bottom: 0;
                 max-width: none;
-            }
-            li {
-                list-style: none;
-                cursor: pointer;
-            }
 
+	            li {
+	                list-style: none;
+	                cursor: pointer;
+	            }
+            }
+            
             .story-step-title {
-                color: $light-grey;
-                font-size: #{ $size0 - 0.1em };
-                letter-spacing: 0.05em;
+		        @extend .whitney-normal__bold;
+				color: $light-grey;
                 margin-right: 1em;
                 text-transform: capitalize;
                 opacity: 0.5;
@@ -170,11 +194,12 @@ $icon-nav-right-white: "\e91d";
             }
 
             .view-map {
-                color: $off-white;
-                font-size: $size-1;
+		        @extend .whitney-normal;
+				color: $off-white;
                 cursor: pointer;
                 background: none;
                 border: none;
+            	line-height: $variation;
 
                 .icon {
                     font-size: 18px;
@@ -202,25 +227,20 @@ $icon-nav-right-white: "\e91d";
                 }
             }
         }
-        .storymap-nav-container.mobile-storymap-nav {
-            display: none;
-            .story-step-title {
-                opacity: 1;
-            }
-        }
 
         .layers-menu {
-            display: none;
-            float: right;
-            flex-direction: column;
-            max-width: 180px;
-            text-align: right;
+
             .btn {
                 margin-bottom: 10px;
             }
+            
             &.menu-show {
                 display: none;
             }
+        }
+        
+        .view-layers-button {
+        	display: none;
         }
 
         .storymap-overlays-container {
@@ -232,7 +252,7 @@ $icon-nav-right-white: "\e91d";
                 background: rgba(168, 188, 200, .5);
                 border: 2px solid $grey-blue;
                 border-radius: 21px;
-                color: $grey-blue; // font-size: 12px;
+                color: $grey-blue;
                 font-family: $font-sans;
                 font-size: $size-1;
                 font-weight: 600;
@@ -244,9 +264,11 @@ $icon-nav-right-white: "\e91d";
                     background: $grey-blue;
                 }
             }
+            
             .text-right {
                 margin: 20px 0 0 0;
             }
+            
             p {
                 max-width: none;
             }
@@ -257,6 +279,7 @@ $icon-nav-right-white: "\e91d";
         position: fixed!important;
         top: 0;
         width: 100%;
+        z-index: 1000;
     }
 
     .storymap-overlays-container.scroll-fixed {
@@ -268,51 +291,120 @@ $icon-nav-right-white: "\e91d";
     .story-step-content {
         display: none;
     }
+    
+    .story-map-legend {
+		@include section-padding();
+		background: rgba(168, 188, 200, 0.5);
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+
+		ul {
+			padding-bottom: 25px;
+			padding-top: 25px;
+			li {
+		        @extend .whitney-normal;
+			}
+		}
+    }
+
     @include tablet() {
         .storymap-section {
-            .storymap-nav-container.mobile-storymap-nav {
-                display: flex;
-                justify-content: space-between;
-                .story-step-title {
-                    color: $white;
-                    font-size: $size1;
-                }
-            }
+        
+            .storymap-intro-container {
+            	padding-bottom: 25px;
+	            padding-top: 25px;
+    		}
+
+			.storymap-info-toggle {
+				display: block;
+			}
+    
+        	.storymap-nav-container {
+        		display: none;
+	            padding-bottom: 25px;
+	            padding-top: 25px;
+        		&.mobile-storymap-nav {
+	                display: flex;
+	                justify-content: space-between;
+	                
+	                .story-step-title {
+	                    color: $white;
+	                }
+	                
+	                .previous-story-step, .next-story-step {
+	                	display: inline-block;
+	                }
+	            }
+        	}
+        
             .storymap-overlays-container{
                 .text-right{
                     margin: 0;
                 }
             }
+            
+            .layers-menu {
+
+	            display: none;
+
+				button {
+					clear: right;
+					display: block;
+					float: right;
+					margin: 10px 0 0 0;
+            	}
+            }
+            
             .view-layers-button {
                 cursor: pointer;
+                display: block;
             }
+            
             .layers-menu.menu-show {
                 display: flex;
                 flex-direction: column;
             }
         }
+        
         .story-interact.scroll-fixed .view-layers-button {
             margin-right: 15px;
         }
     }
 
     @include phone() {
+    
         .storymap-section {
+        
             .storymap-intro-container {
+            
+                padding-bottom: 25px;
+	            padding-top: 25px;
+	            
                 .storymap-title, .storymap-info {
                     padding-left: 1em;
                 }
+                
+                /*
                 .storymap-aside, .storymap-source {
                     font-size: $size0;
                 }
+                
                 .storymap-title {
                     font-size: $size2;
                 }
+                
                 .storymap-info {
                     font-size: $size0;
                     margin-top: 10px;
                 }
+                */
             }
         }
     }
+
 }
+
+
