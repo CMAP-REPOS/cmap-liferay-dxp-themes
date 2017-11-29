@@ -27,7 +27,6 @@
 	hr.update-divider{
 		margin: 0 0 $size0;
 		border-top: 2px solid $off-white;
-
 	}
 
 	header{
@@ -42,7 +41,7 @@
 	}
 
 	.update-date{
-		@extend .whitney-small;
+		@extend .whitney-small__bold;
 		@extend .underline-link;
 		border-bottom: none;
 		&:hover{ border-bottom: none; }
@@ -66,6 +65,55 @@
 
 	.update-title{
 		@extend .whitney-large__bold;
-		@extend .underline-link;
+		margin-bottom: $size-3;
+	}
+
+	.pagnation-container{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.left{
+			display: flex;
+			align-items: center;
+		}
+
+		label{
+			margin: 0;
+			margin-right: $size-2;
+			transform: translateY(0.1em);
+		}
+
+		.pagnation-number {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+
+			$size: $size1;
+			width: $size;
+			height: $size;
+
+			span{
+				@extend .whitney-small;
+			}
+
+			&.active{
+				background: $primary;
+				border-radius: 50%;
+				span{
+					color: $white;
+				}
+			}
+		}
+
+		.pagnation-single{
+			@extend .whitney-small__bold;
+			margin-left: $size-2;
+
+			&.disabled{
+				color: $off-white;
+				pointer-events: none;
+			}
+		}
 	}
 }

@@ -2,19 +2,6 @@
 <#assign query = httpUtil.getParameter(url, "q", false)/>
 <#assign from = httpUtil.getParameter(url, "from", false)/>
 
-<#if from=="allUpdates">
-  <p>All Updates Search</p>
-  <#assign cx="002317912170329299193:96ahgvbuc6u" />
-<#elseif from=="policyUpdates">
-  <p>Policy Updates Search</p>
-  <#assign cx="004289794693594110260:cdffjnh2ieg" />
-<#elseif from=="weeklyUpdates">
-  <p>Weekly Updates Search</p>
-  <#assign cx="004289794693594110260:w59v4jvxbds" />
-<#else>
-  <#assign cx="004289794693594110260:midq7iuukta" />
-</#if>
-
 <section class="search-results-widget">
   <div class="row">
     <div class="col-xl-3 col-md-2 col-sm-0"> </div>

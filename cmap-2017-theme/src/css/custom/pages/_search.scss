@@ -156,6 +156,10 @@ section.search-results-widget{
 
 	button.more-results{
 		background: white;
+		&:hover{
+			background: $primary;
+			color: $off-white;
+		}
 	}
 
 	.loading{

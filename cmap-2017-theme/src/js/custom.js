@@ -2,13 +2,6 @@ var cmap = cmap || {};
 cmap.global = {};
 
 cmap.global.share = function(){
-  $.getScript('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0c6f5e0a5ca918', function( data, textStatus, jqxhr ) {
-    console.log( data ); // Data returned
-    // console.log( textStatus ); // Success
-    // console.log( jqxhr.status ); // 200
-    // console.log( "Load was performed." );
-  });
-
   $('nav.breadcrumb .share-button').click(function(){
     $('.share-menu').toggleClass('active');
     $('.breadcrumb-trail').toggleClass('active');

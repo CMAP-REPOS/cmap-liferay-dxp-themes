@@ -13,17 +13,9 @@
     <#assign assetDate = entry.modifiedDate?datetime />
     <#assign viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, entry, true) />
     <article>
-        <hr class="update-divider">
+        <hr class="update-divider" />
         <header>
             <time class="update-date">${assetDate}</time>
-            <#if entry.getCategories()?has_content>
-            <ul class="update-categories">
-            <#list entry.getCategories() as category>
-                <#assign categoryId = category.getCategoryId()?string /> 
-                <li><a href="/updates/all/-/categories/${categoryId}">${category.getName()}</a></li>
-            </#list>
-            </ul>
-            </#if>
         </header>
         <div class="update-preview">
             <h2 class="update-title"><a href="${viewURL}">${entryTitle}</a></h2>
@@ -40,8 +32,61 @@
         </div>
     </article>
 	</#list>
+
+    <hr class="update-divider" />
+    <div class="pagnation-container">
+        <div class="left">
+            <label>Page</label>
+            <div class="pagnation-numbers"></div>
+        </div>
+        <div class="right">
+        </div>
+    </div>
 </div>
 </#if>
+
+<script>
+$(document).ready(function(){
+    var currentPage = $('.lfr-icon-menu-text').text().replace(/Page (\d+) of \d*/, '$1');
+    var $container = $('.pagnation-container .pagnation-numbers');
+
+    // iterates through each page in the dropdown menu
+    $('.dropdown-menu.lfr-menu-list li a').each(function(index,element){
+        var href = $(element).attr('href');
+        var real_index = index + 1;
+        var item_class = real_index === parseInt(currentPage) ? 'active' : '';
+
+        var $item = $('<a href="'+href+'" class="pagnation-number '+item_class+'"><span>'+real_index+'</span></a>');
+        $container.append($item);
+    });
+
+    // adds the next and previous page buttons
+    var $button_container = $('.pagnation-container .right');
+    $('.lfr-pagination-buttons.pager li').each(function(index, element){
+        var $button = $(this).find('a');
+        $button.addClass('pagnation-single');
+        console.log($button);
+        if($(this).hasClass('disabled')){
+            $button.addClass('disabled');
+        }
+        if(index === 1){$button_container.append($button); }
+        if(index === 2){$button_container.append($button); }
+    });
+
+    $('.taglib-page-iterator').remove();
+});
+</script>
+
+
+<#-- Categories! -->
+<#-- <#if entry.getCategories()?has_content>
+<ul class="update-categories">
+<#list entry.getCategories() as category>
+    <#assign categoryId = category.getCategoryId()?string /> 
+    <li><a href="/updates/all/-/categories/${categoryId}">${category.getName()}</a></li>
+</#list>
+</ul>
+</#if> -->
 
 
 <#-- Old Code -->
