@@ -22,11 +22,7 @@
 
   <#if HeroBackground.getData()?? && HeroBackground.getData() != "">
     <div class="homepage-hero-background">
-      <div class="row">
-        <div class="col-xl-16">
-          <img data-fileentryid="${HeroBackground.getAttribute("fileEntryId")}" alt="${HeroBackground.getAttribute("alt")}" src="${HeroBackground.getData()}" />
-        </div>
-      </div>
+      <img data-fileentryid="${HeroBackground.getAttribute("fileEntryId")}" alt="${HeroBackground.getAttribute("alt")}" src="${HeroBackground.getData()}" />
     </div>
   </#if>
 

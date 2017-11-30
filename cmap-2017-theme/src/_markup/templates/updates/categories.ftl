@@ -67,10 +67,15 @@
 		}
 	}
 	
+	var $gross_layout = $('section.title-with-sections');
+	if($gross_layout.length){
+		$('#layout-column_column-1').append($gross_layout.remove());
+	}
 
-	$('header.updates-header')
-
-	$('section.title-with-sections')
+	var $asset_preview = $('.asset-content');
+	if($asset_preview.length){
+		$('header.updates-header').hide();
+	}
 
 </script>
 

@@ -14,8 +14,7 @@ boolean notConfigured = Validator.isNull(assetCategoryId) ||
 	<c:otherwise>
 	<section class="update-slider slider" id="<%=themeDisplay.getPortletDisplay().getId() %>">
 		<header class="row">
-			<div
-				class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+			<div class="col-xl-10 col-xl-offset-3 col-md-10 col-md-offset-2 col-sm-16 col-sm-offset-0">
 				<div class="buttons">
 					<h3>Updates</h3>
 					<div class="view-all">
@@ -26,7 +25,7 @@ boolean notConfigured = Validator.isNull(assetCategoryId) ||
 		</header>
 		<div class="slider-container">
 	 		<c:forEach var="assetModel" items="${assetModels}">
-			<div class="item col-xl-4 col-sm-8 col-xs-16">
+			<div class="item col-xl-4 col-md-8 col-xs-16">
 				<h4 class="item-date">${assetModel.getDate()}</h4>
 				<h3 class="item-title">
 					<a href="${assetModel.getLink()}">${assetModel.getTitle()}</a>

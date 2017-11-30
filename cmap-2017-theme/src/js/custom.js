@@ -2,16 +2,36 @@ var cmap = cmap || {};
 cmap.global = {};
 
 cmap.global.share = function(){
-  $('nav.breadcrumb .share-button').click(function(){
-    $('.share-menu').toggleClass('active');
-    $('.breadcrumb-trail').toggleClass('active');
-  });
-
-  $('#page-url').val(window.location.href);
-
-  $('.share-menu #page-url').on('focus', function(){
+  $('.close-button').hide();
+  $('.share-menu .page-url').val(window.location.href);
+  $('.share-menu .page-url').on('focus', function(){
     setTimeout(()=>{ this.select() }, 100);
   });
+
+  function toggleSocial(container, original){
+    var $container = $(container);
+    var $sharebtn = $container.find('.share-button');
+    var $closebtn = $container.find('.close-button');
+    var $sharemenu = $container.find('.share-menu');
+    var $original = $container.find(original);
+
+    $sharebtn.click(function(){
+      $sharemenu.addClass('active');
+      $original.removeClass('active');
+      $sharebtn.css('display', 'none');
+      $closebtn.css('display', 'inline-flex');
+    });
+    $closebtn.click(function(){
+      $original.addClass('active');
+      $sharemenu.removeClass('active');
+      $closebtn.css('display', 'none');
+      $sharebtn.css('display', 'inline-flex');
+    });
+  }
+  toggleSocial('nav.breadcrumb', '.breadcrumb-trail');
+  toggleSocial('#scroll-nav', '.page-title');
+  toggleSocial('#side-nav', '.dummy-div');
+ 
 }
 
 cmap.global.sidenav = function () {
@@ -28,7 +48,8 @@ cmap.global.sidenav = function () {
     $hamburgers.toggleClass('is-active');
     $wrapper.toggleClass('side-nav-active');
     $sideNav.toggleClass('side-nav-active');
-
+    $('#scroll-nav .logo').toggleClass('hidden');
+    
     if (sideNavOpen) {
       $wrapper.css('left', '0');
       sideNavOpen = false;
@@ -157,7 +178,11 @@ cmap.global.checkforh1 = function () {
 };
 
 cmap.global.scrollnavTitle = function (text) {
-  $('#scroll-nav .col-xl-13').append(`<h4>${text}</h4>`);
+  if( window.location.pathname === '/' || 
+      window.location.pathname === '/home' || 
+      window.location.pathname === '/home/' || 
+      window.location.pathname === '/web/guest/'){ return; } 
+  $('#scroll-nav .col-xl-10').append(`<h4 class="page-title active">${text}</h4>`);
 };
 
 cmap.global.addpageclass = function () {
@@ -272,6 +297,7 @@ Liferay.on('allPortletsReady', function () {
   cmap.forms.global();
 
   $('table *').removeAttr('valign');
+  $('table').removeAttr('align');
 });
 
 // Runs once for each portlet on the page, with info about that portlet

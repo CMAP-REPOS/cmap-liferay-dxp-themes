@@ -1,11 +1,11 @@
+$animation: all 0.3s ease-out;
+
 #breadcrumbs{
   position: relative;
   border-top: 1px solid $off-white;
   border-bottom: 1px solid $off-white;
   margin-bottom: $unit * 2;
   height: $unit * 2;
-
-  $animation: all 0.3s ease-out;
 
   .breadcrumb.row{
     @include section-padding();
@@ -27,52 +27,13 @@
 
   .share-col{
     display: flex;
-  }
-  
-  .share-button{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
-    display: inline-flex;
-    align-items: center;
-    height: $size0;
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    border: none;
-    background: none;
-
-    @include tablet(){
-      height: $unit * 2;
-    }
-
-    &:hover{
-      span{
-        color: $blue;
+    
+    .share-button,
+    .close-button{
+      @include desktop(){
+        opacity: 0;
+        pointer-events: none;
       }
-      svg{
-        g{
-          fill: $blue !important;
-        }
-      }
-    }
-
-    // important to override in-line styles
-    // in-line styles are kept to display something before the CSS is loaded
-    svg{
-      height: $size0 !important;
-      transform: translateY(-0.1em);
-      g{
-        fill: $dark-blue !important;
-        transition: all 0.2s;
-      }
-    }
-
-    span{
-      color: $dark-blue;
-      padding-left: $size-1;
-      transition: all 0.2s;
     }
   }
 
@@ -151,34 +112,5 @@
       }
     }
   }
-
-  .share-menu{
-    display: flex;
-    align-items: center;
-
-    position: absolute;
-    left: $size5;
-    transition: $animation;
-    opacity: 0;
-    pointer-events: none;
-
-    &.active{
-      left: $size0;
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .addthis_inline_share_toolbox{
-      transform: scale(0.8);
-    }
-
-    svg.at-icon.at-icon-facebook,
-    svg.at-icon.at-icon-twitter,
-    svg.at-icon.at-icon-pinterest_share,
-    svg.at-icon.at-icon-linkedin,
-    svg.at-icon.at-icon-google_plusone_share{
-      fill: $primary !important;
-    }
-
-  }
 }
+

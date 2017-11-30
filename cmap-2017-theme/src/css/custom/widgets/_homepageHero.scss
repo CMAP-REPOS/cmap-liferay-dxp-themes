@@ -33,21 +33,21 @@
   }
 
   .homepage-hero-background{
+    
+    height: 50vw;
     img{
       position: relative;
-      height: 48vw;
+      width: 100%;
       max-width: none !important;
-      left: 50%;
-      transform: translateX(-50%);
+    }
 
-      @include desktop(){
-        height: 57vw;
-      }
-      @include tablet(){
-        height: 90vw;
-      }
-      @include phone(){
-        height: 130vw;
+    @include tablet(){
+      height: 100vw;
+      img{
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }

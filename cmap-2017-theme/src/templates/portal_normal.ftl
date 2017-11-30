@@ -36,13 +36,6 @@
 		<section id="content">
 			<h1 class="hide-accessible">${the_title}</h1>
 
-			<nav id="breadcrumbs">
-				<#-- makes sure that the breadcrumbs are full-width by default -->
-				<#assign VOID=freeMarkerPortletPreferences.setValue( "portletSetupPortletDecoratorId", "full-width-content")>
-				<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}" />
-				<#assign VOID=freeMarkerPortletPreferences.reset() />
-			</nav>
-
 			<#if selectable>
 				<@liferay_util["include"] page=content_include />
 			<#else>

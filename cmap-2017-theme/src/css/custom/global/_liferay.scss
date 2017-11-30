@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+.portlet-dynamic-data-lists-display .lfr-ddm-field-group, 
+.portlet-dynamic-data-lists .lfr-ddm-field-group, 
+.portlet-journal .lfr-ddm-field-group {
+  padding: 0 !important;
+}
+
 .portlet {
   margin-bottom: 0;
 
@@ -12,7 +18,6 @@
   }
 
   &:hover {
-
     &>.portlet-topper {
       opacity: 1;
       transform: translateY(0);

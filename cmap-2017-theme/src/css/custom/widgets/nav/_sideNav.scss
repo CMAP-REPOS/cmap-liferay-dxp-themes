@@ -1,13 +1,14 @@
 #side-nav{
   position: fixed;
+  top: 0;
   z-index: 100;
   transform: translateX(-100%);
 
-  padding: $unit;
   height: 100%;
+  padding: $unit;
 
-  border-right: 1px solid $off-white;
-  background: $almost-white;
+  border-right: 1px solid darken($off-white, 10%);
+  background: $off-white;
   
   transition: $side-nav-animation;
 
@@ -23,5 +24,37 @@
 
   &.side-nav-active{
     transform: translateX(0);
+  }
+
+  .side-nav-share-toggle{
+    padding-top: 1em;
+  }
+  .share-button, 
+  .close-button{
+    top: 0;
+    transform: scale(1.1) translateX(-0.4em) translateY(0);
+  }
+  .page-url{
+    background: darken($off-white, 10%);
+  }
+  .addthis_inline_share_toolbox{
+    transform: scale(0.8) translateX(-17.5%);
+    padding-top: $size-3;
+  }
+
+  .share-menu{
+    position: relative;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: $size-1;
+  }
+
+  .share-menu,
+  .side-nav-share-toggle{
+    display: none;
+    @include desktop(){
+      display: block;
+    }
   }
 }
