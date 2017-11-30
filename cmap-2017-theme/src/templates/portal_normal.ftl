@@ -9,7 +9,9 @@
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
-	<link rel="canonical" href="${theme_display.getURLPortal() + theme_display.getURLCurrent()}" />
+	<#assign portalUrl = theme_display.getURLPortal()>
+	<#assign currentUrl = theme_display.getURLCurrent()>
+	<link rel="canonical" href="${portalUrl}${currentUrl}" />
 
   <link href="https://cloud.webtype.com/css/2f300d46-99ee-4656-bf09-870688012aaf.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
@@ -35,13 +37,20 @@
 
 		<section id="content">
 			<h1 class="hide-accessible">${the_title}</h1>
-
+			
+			<#if currentUrl == '/' || 
+				currentUrl == '/home' || 
+				currentUrl == '/home/' || 
+				currentUrl == '/web/guest' || 
+				currentUrl == '/web/guest/' >
+			<#else>
 			<nav id="breadcrumbs">
 				<#-- makes sure that the breadcrumbs are full-width by default -->
 				<#assign VOID=freeMarkerPortletPreferences.setValue( "portletSetupPortletDecoratorId", "full-width-content")>
 				<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}" />
 				<#assign VOID=freeMarkerPortletPreferences.reset() />
 			</nav>
+			</#if>
 
 			<#if selectable>
 				<@liferay_util["include"] page=content_include />
