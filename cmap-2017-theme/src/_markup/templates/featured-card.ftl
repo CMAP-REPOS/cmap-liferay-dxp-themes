@@ -108,7 +108,7 @@ ${OptionalContentAfter.getData()}
 $(document).ready(function(){
   var $this = $('#${randomNamespace}');
 
-  if($this){
+  if($this.parents('.portlet-full-width').length){
     var $row = $this.find('.row').remove();
     var $container = $('<div class="row"></div>');
     var $center = $('<div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0"></div>');

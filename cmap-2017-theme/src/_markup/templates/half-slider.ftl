@@ -65,7 +65,8 @@
       $container.append(container);
     }
 
-    $this.append($nav);
-
+    if($nav.find('.nav-item').length > 1){
+      $this.append($nav);
+    } 
   });
 </script>

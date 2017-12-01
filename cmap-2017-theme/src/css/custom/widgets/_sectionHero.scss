@@ -3,6 +3,16 @@ section.section-hero{
     h1{
       @extend .whitney-huge;
       color: $primary;
+
+      &.blue{
+        color: $primary;
+      }
+      &.green{
+        color: $green;
+      }
+      &.black{
+        color: $black;
+      }
     }
   }
   .bottom{

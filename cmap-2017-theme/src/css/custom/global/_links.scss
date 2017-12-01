@@ -1,9 +1,9 @@
 a {
-  color: $blue;
+  color: $primary;
   transition: all 0.25s ease;
   &:hover {
     text-decoration: none;
-    color: lighten($blue, 25%);
+    color: lighten($primary, 25%);
   }
 }
 
