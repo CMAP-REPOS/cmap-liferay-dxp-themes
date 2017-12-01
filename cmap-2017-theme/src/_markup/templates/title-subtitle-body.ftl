@@ -35,12 +35,11 @@
     </div>
 
     <div class="col-xl-10 col-sm-12 col-xs-16">
-      
+      <#if Title.getData() != "">
       <div class="page-title">
-        <h1 class="h1">
-          <#if Title.getData() != ""> ${Title.getData()} </#if>
-        </h1>
+        <h1 class="h1">${Title.getData()}</h1>
       </div>
+      </#if>
 
       <#list Subtitle.getSiblings() as section>
         <section>
@@ -61,16 +60,8 @@
       </#list>
     </div>
 
-    <#assign sectionTitles = []>
-    <#list Subtitle.getSiblings() as cur_subTitle>
-      <#if cur_subTitle?? && cur_subTitle.getData()?? && cur_subTitle.getData() != "">
-    		<#assign sectionTitles = sectionTitles + [cur_subTitle]>
-      </#if>
-    </#list>
-
     <div class="col-xl-3 col-sm-4 page-nav">
       <div class="page-nav-container">
-        <#if sectionTitles?size != 0>
         <div class="page-nav-title">
           <h3>Sections</h3>
         </div>
@@ -85,21 +76,9 @@
             </#if>
           </#list>
         </nav>
-        </#if>
         <div class="page-nav-top"></div>
       </div>
     </div>
-  </div>
-  <div class="jump-to-top row">
-    <div class="col-xl-3 col-sm-2 col-xs-0">
-      <div class="return-back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19">
-          <path fill="#3C5976" d="M8.70320061,4.28823998 L8.70320061,17.4126841 C8.70320061,17.8959333 8.31144977,18.2876841 7.82820061,18.2876841 C7.34495145,18.2876841 6.95320061,17.8959333 6.95320061,17.4126841 L6.95320061,4.28785174 L2.48442136,8.62526255 C2.13765366,8.96183633 1.58369594,8.95357254 1.24712216,8.60680484 C0.910548372,8.26003715 0.918812169,7.70607943 1.26557986,7.36950564 L7.82800061,1 L14.3904214,7.36950564 C14.7371891,7.70607943 14.7454528,8.26003715 14.4088791,8.60680484 C14.0723053,8.95357254 13.5183476,8.96183633 13.1715799,8.62526255 L8.70320061,4.28823998 Z"/> </svg>
-        <span>To Top</span>
-      </div>
-    </div>  
-    <div class="col-xl-10 col-sm-12 col-xs-16"></div>
-    <div class="col-xl-3 col-sm-2 col-xs-0"></div>  
   </div>
 </section>
 
@@ -113,7 +92,9 @@ cmap.titleWithSections.init = function() {
   $('.standalone-section').each(function() {
     var $this = $(this);
     var $sectionTitle = $this.find('.section-title > h2');
-    $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
+    if ($sectionTitle.text().length) {
+        $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
+    }
   });
 
   $('.page-nav-container').data('original-offet-top', $('.page-nav-list').offset().top);
@@ -127,7 +108,6 @@ cmap.titleWithSections.init = function() {
     if($p.html().trim() === '&nbsp;'){
       $p.remove();
     }
-    $p.removeClass('lead');
   });
 
   // Stolen from stack overflow
@@ -167,10 +147,8 @@ cmap.titleWithSections.bindEvents = function() {
 
   // disable sticky nav in control panel
   if (!Liferay.ThemeDisplay.isSignedIn()) {
+    $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
   }
-
-  $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
-
 
   $('.page-nav-item a').click(function(e){
     e.preventDefault();
