@@ -1,4 +1,3 @@
-
 <header class="updates-header">
 	<#if entries?has_content>
 	<h1 class="updates-header-title"></h1>
@@ -33,9 +32,8 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-
-
+Liferay.on('allPortletsReady', function() {
+    
 	function capitalize(string) {
 	  return string.charAt(0).toUpperCase() + string.slice(1);
 	}
@@ -93,6 +91,6 @@ $(document).ready(function(){
 			$('.header-title').remove();
 		}
 
-	}
+	}        
 });
 </script>

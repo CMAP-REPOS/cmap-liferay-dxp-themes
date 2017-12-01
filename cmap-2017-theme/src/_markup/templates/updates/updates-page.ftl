@@ -11,7 +11,8 @@
     <#assign assetSummary = assetRenderer.getSummary(renderRequest, renderResponse) />
     <#assign summary = htmlUtil.extractText(assetSummary) />
     <#assign assetDate = entry.modifiedDate?datetime />
-    <#assign viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, entry, true) />
+    <#-- the asset publisher instance ID (UIMfSLnFfMB6) just needs to match what is on the detail rendering page --> 
+    <#assign viewURL = "/updates/all/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
     <article>
         <hr class="update-divider" />
         <header>
@@ -20,6 +21,7 @@
         <div class="update-preview">
             <h2 class="update-title"><a href="${viewURL}">${entryTitle}</a></h2>
             <p class="update-summary">
+                <!-- -->
                 <#assign summaryLength = summary?length />
                 <#assign abstractLength = abstractLength?number />
                 <#if (summaryLength > abstractLength)>
@@ -46,7 +48,7 @@
 </#if>
 
 <script>
-$(document).ready(function(){
+Liferay.on('allPortletsReady', function() {
     var currentPage = $('.lfr-icon-menu-text').text().replace(/Page (\d+) of \d*/, '$1');
     var $container = $('.pagnation-container .pagnation-numbers');
 
@@ -75,6 +77,7 @@ $(document).ready(function(){
 
     $('.taglib-page-iterator').remove();
 });
+
 </script>
 
 
