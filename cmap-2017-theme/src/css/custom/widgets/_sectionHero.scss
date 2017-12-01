@@ -1,5 +1,20 @@
 section.section-hero{
   .top{
+  	&.black {
+  		h1 {
+  			color: $black;
+  		}
+  	}
+  	&.blue {
+  		h1 {
+  			color: $primary;
+  		}
+	}
+  	&.green {
+   		h1 {
+  			color: $green;
+  		}
+  	}
     h1{
       @extend .whitney-huge;
     }
@@ -9,6 +24,24 @@ section.section-hero{
     background-position: center !important;
     padding: $unit 0 #{$unit * 2};
     margin: $unit 0;
+  	&.black {
+  		a {
+  			color: $black;
+  			border-bottom: 1px solid $black;
+  		}
+  		p {
+  			color: $black;
+  		}
+  	}
+  	&.white {
+  		a {
+  			color: $white;
+  			border-bottom: 1px solid $white;
+  		}
+		p {
+  			color: $white;
+  		}
+	}
     p{
       @extend .presna-large;
     }

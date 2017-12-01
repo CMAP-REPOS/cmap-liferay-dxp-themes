@@ -33,19 +33,19 @@
                   },
                   "options": [
                       {
-                          "value": "#000",
+                          "value": "black",
                           "label": {
                               "en_US": "black"
                           }
                       },
                       {
-                          "value": "##004F93",
+                          "value": "blue",
                           "label": {
                               "en_US": "blue"
                           }
                       },
                       {
-                          "value": "#6CAD4E",
+                          "value": "green",
                           "label": {
                               "en_US": "green"
                           }
@@ -105,13 +105,13 @@
                   },
                   "options": [
                       {
-                          "value": "#000",
+                          "value": "black",
                           "label": {
                               "en_US": "black"
                           }
                       },
                       {
-                          "value": "#fff",
+                          "value": "white",
                           "label": {
                               "en_US": "white"
                           }
