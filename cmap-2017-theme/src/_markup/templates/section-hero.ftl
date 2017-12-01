@@ -1,5 +1,5 @@
-<#assign titleTextColor = "#000"/>
-<#assign descriptionTextColor = "#000"/>
+<#assign titleTextColor = "black"/>
+<#assign descriptionTextColor = "white"/>
 
 <#if Title.TitleTextColor?? && 
     Title.TitleTextColor.getData()?? && 
@@ -10,23 +10,23 @@
 <#if Description.DescriptionTextColor?? && 
     Description.DescriptionTextColor.getData()?? && 
     Description.DescriptionTextColor.getData() != "">
-    <#assign descriptionTextColor = Title.TitleTextColor.getData() />
+    <#assign descriptionTextColor = Description.DescriptionTextColor.getData() />
 </#if>
+
 
 <section class="section-hero">
 
-  <div class="top">
+  <div class="top ${titleTextColor}">
     <div class="row">
       <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
-        <h1 class="section-title" style="color: ${titleTextColor}">${Title.getData()}</h1>
+        <h1 class="section-title">${Title.getData()}</h1>
       </div>
     </div>
   </div>
 
-  <div class="bottom" style="background: url('${Background.getData()}')">
+  <div class="bottom ${descriptionTextColor}" style="background: url('${Background.getData()}')">
     <div class="row">
-      <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0" 
-      style="color: ${descriptionTextColor}">
+      <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
         ${Description.getData()}
       </div>
     </div>
