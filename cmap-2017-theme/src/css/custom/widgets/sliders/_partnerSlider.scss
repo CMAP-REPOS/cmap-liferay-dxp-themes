@@ -11,6 +11,9 @@ section.partner-slider{
     padding: 0 !important;
   }
   
+  h3{
+    margin: 0;
+  }
   p{
     @extend .whitney-normal;
     color: $off-white-text;

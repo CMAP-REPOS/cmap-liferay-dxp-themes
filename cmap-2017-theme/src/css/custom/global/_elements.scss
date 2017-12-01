@@ -61,11 +61,21 @@ h1,h2,h3,h4,h5,h6,
   a {
     @extend .underline-link;
   }
-  ul{
+  ul,ol{
     @extend .presna-normal;
+    font-size: 1em;
+    line-height: 1.5;
 
     p{
       margin-bottom: 0;
+    }
+  }
+
+  ul{
+    list-style: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4gIDxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjIuNSIgZmlsbD0iIzVGN0E4NyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+);
+
+    ul{
+      list-style: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4gIDxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjIuNSIgZmlsbD0iI0Q3REZFNCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+);
     }
   }
 }

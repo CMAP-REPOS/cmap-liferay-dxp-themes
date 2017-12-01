@@ -35,6 +35,8 @@
     opacity: 0;
     transition: all 0.2s;
 
+    @extend .single-line;
+
     &.active{
       opacity: 1;
     }
@@ -53,7 +55,8 @@
   .share-button{
     top: auto;
     height: auto;
-    transform: translateY(0.1em);
+    transform: scale(1.1) translateX(-0.4em) translateY(0.1em);
+    
     @include desktop(){
       opacity: 0;
       pointer-events: none;

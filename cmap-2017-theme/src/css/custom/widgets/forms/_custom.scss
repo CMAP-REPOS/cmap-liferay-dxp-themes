@@ -23,6 +23,7 @@
   border: none;
 }
 
+.portlet-forms .ddl-form-description
 .portlet-forms {
   .ddl-form-name {
     @extend .whitney-huge;
@@ -33,6 +34,7 @@
     font-size: inherit;
     line-height: inherit;
     margin-top: $unit;
+    word-break: normal;
   }
 
   .lfr-ddm-form-field-container {

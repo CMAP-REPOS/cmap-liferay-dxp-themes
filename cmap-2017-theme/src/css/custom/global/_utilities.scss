@@ -77,3 +77,10 @@
   //   max-width: 100%;
   // }
 }
+
+.single-line{
+  height: $variation + 0em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

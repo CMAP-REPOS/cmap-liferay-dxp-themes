@@ -42,7 +42,6 @@ $animation: all 0.3s ease-out;
     align-items: center;
 
     @include tablet(){
-      height: auto;
       text-indent: 0;
       margin: 0;
       padding-left: 0 !important;
@@ -57,11 +56,13 @@ $animation: all 0.3s ease-out;
 
   .breadcrumb-trail{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     opacity: 0;
     pointer-events: none;
     transition: $animation;
+
+    @extend .single-line;
 
     &.active{
       opacity: 1;

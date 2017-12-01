@@ -32,6 +32,10 @@
 </header>
 
 <script type="text/javascript">
+
+$(document).ready(function(){
+
+
 	function capitalize(string) {
 	  return string.charAt(0).toUpperCase() + string.slice(1);
 	}
@@ -70,14 +74,25 @@
 	var $gross_layout = $('section.title-with-sections');
 	if($gross_layout.length){
 		$('#layout-column_column-1').append($gross_layout.remove());
+		$gross_layout.find('.page-nav-container').remove();
+		$gross_layout.find('.page-date').remove();
 	}
 
 	var $asset_preview = $('.asset-content');
 	if($asset_preview.length){
 		$('header.updates-header').hide();
+		var $back =  $('.portlet-body .h2 .header-back-to a');
+		$back.find('span:first-of-type').addClass('icon').removeAttr('id');
+		$back.find('span:last-of-type').removeAttr('class').text('View all updates');
+		if($gross_layout.length){
+			$gross_layout.find('.col-xl-3:first-of-type').append($back.remove());
+			$('.portlet-body .h2').remove();
+		} else {
+			var update_title = $('.header-title').text();
+			$('.portlet-body .h2').append('<h1 class="whitney-huge">' + update_title + '</h1>');
+			$('.header-title').remove();
+		}
+
 	}
-
+});
 </script>
-
-<#-- https://docs.liferay.com/portal/7.0/javadocs/portal-kernel/com/liferay/asset/kernel/model/AssetCategory.html -->
-<#-- https://docs.liferay.com/portal/7.0/javadocs/portal-kernel/com/liferay/asset/kernel/model/AssetVocabulary.html -->

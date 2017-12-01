@@ -22,6 +22,10 @@
     @include search-widget-color($dark-blue, #A8BCC7);
   }
 
+  .side-nav-links{
+    font-size: $size1;
+  }
+
   &.side-nav-active{
     transform: translateX(0);
   }

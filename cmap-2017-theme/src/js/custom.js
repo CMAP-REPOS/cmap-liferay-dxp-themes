@@ -77,7 +77,7 @@ cmap.global.scrollnav = function () {
 };
 
 cmap.global.footerjumptotop = function () {
-  $('#jump-to-top').click(function () {
+  $('.jump-to-top-button').click(function () {
     $('html,body').animate({
       scrollTop: 0
     }, 800);
@@ -164,7 +164,7 @@ cmap.global.checkforh1 = function () {
     var $this = $(element);
     var classes = $this.attr('class');
     var content = $this.text();
-    $this.replaceWith(`<div class="${classes}">${content}</div>`);
+    $this.replaceWith('<div class="'+classes+'">'+content+'</div>');
   }
 
   $('h1').each(function () {
@@ -182,7 +182,10 @@ cmap.global.scrollnavTitle = function (text) {
       window.location.pathname === '/home' || 
       window.location.pathname === '/home/' || 
       window.location.pathname === '/web/guest/'){ return; } 
-  $('#scroll-nav .col-xl-10').append(`<h4 class="page-title active">${text}</h4>`);
+  if( text === 'All Updates' || 
+      text === 'Weekly Updates' ||
+      text === 'Policy Updates'){ return; }
+  $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">'+text+'</h4>');
 };
 
 cmap.global.addpageclass = function () {
@@ -281,6 +284,42 @@ cmap.forms.global = function () {
   });
 };
 
+cmap.footer = {};
+cmap.footer.checkForLayoutChange = function(){
+
+  var $footer = $('#footer'), $row = $footer.find('.row');
+  var $jump = $footer.find('.footer-jump-to-top');
+  var $pages = $footer.find('.footer-page-links');
+  var $social = $footer.find('.footer-social-links');
+
+  function clean(){
+    $jump.remove();
+    $pages.remove();
+    $social.remove();
+  }
+  function desktop(){
+    clean();  
+    $row.append($jump);
+    $row.append($pages);
+    $row.append($social);
+  }
+  function mobile(){
+    clean();  
+    $row.append($pages);
+    $row.append($jump);
+    $row.append($social);
+  }
+  function check(){
+    if(window.innerWidth < 1000){
+      mobile();
+    } else {
+      desktop();
+    }
+  }
+  check();
+  $(window).resize(_.throttle(check, 100));
+};
+
 // Runs when.. all the portlets are loaded and ready
 Liferay.on('allPortletsReady', function () {
 
@@ -295,6 +334,8 @@ Liferay.on('allPortletsReady', function () {
 
   cmap.forms.contactus();
   cmap.forms.global();
+
+  cmap.footer.checkForLayoutChange();
 
   $('table *').removeAttr('valign');
   $('table').removeAttr('align');

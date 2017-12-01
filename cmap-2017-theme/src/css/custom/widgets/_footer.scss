@@ -4,6 +4,7 @@
   z-index: 1000;
   width: 100%;
   background: $off-white;
+  border-top: 1px solid darken($off-white, 10%);
 
   .container{
     width: 100%;
@@ -15,6 +16,10 @@
     align-items: center;
     padding-top: 0.3em;
     height: $unit * 2;
+
+    @include desktop(){
+      height: $unit * 4;
+    }
   }
 
   // all are columns in the footer grid
@@ -37,6 +42,7 @@
       margin-left: $size-3;
     }
   }
+
   .footer-page-links{
     a{
       margin-right: $size-2;
@@ -46,7 +52,11 @@
   .footer-social-links{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
+
+    @include desktop(){
+      justify-content: flex-end;
+    }
   }
 
   $icon-size: $size0;
@@ -58,7 +68,7 @@
   .svg-icon{
     width: $icon-size;
     height: $icon-size;
-    margin-left: $size-3;
+    margin-right: $size-3;
 
     &.twitter{
       height: #{$icon-size - 0.1em};

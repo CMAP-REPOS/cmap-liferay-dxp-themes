@@ -13,7 +13,7 @@ body {
     font-size: 15px;
   }
   @include phone() {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
@@ -83,7 +83,7 @@ $normal-weight: 400;
 
 .presna-normal {
   font-family: $font-serif;
-  font-size: #{$size0 - 0.1em};
+  font-size: $size0;
   letter-spacing: 0.01em;
   line-height: $variation;
   margin: 0;
@@ -92,6 +92,7 @@ $normal-weight: 400;
     line-height: $variation;
     @extend .underline-link;
   }
+  
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -118,9 +119,10 @@ $normal-weight: 400;
   }
 }
 
+// not used much
 .presna-large {
   font-family: $font-serif;
-  font-size: #{$size1 - 0.1em};
+  font-size: $size1;
   letter-spacing: 0.01em;
   line-height: $variation;
   margin: 0;
@@ -130,7 +132,6 @@ $normal-weight: 400;
     @extend .underline-link;
   }
 }
-
 .presna-large__white {
   @extend .presna-large;
   color: $white;
