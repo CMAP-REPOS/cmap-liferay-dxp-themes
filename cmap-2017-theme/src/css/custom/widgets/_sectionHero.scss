@@ -2,17 +2,6 @@ section.section-hero{
   .top{
     h1{
       @extend .whitney-huge;
-      color: $primary;
-
-      &.blue{
-        color: $primary;
-      }
-      &.green{
-        color: $green;
-      }
-      &.black{
-        color: $black;
-      }
     }
   }
   .bottom{
@@ -21,7 +10,7 @@ section.section-hero{
     padding: $unit 0 #{$unit * 2};
     margin: $unit 0;
     p{
-      @extend .presna-large__white;
+      @extend .presna-large;
     }
   }
 }
