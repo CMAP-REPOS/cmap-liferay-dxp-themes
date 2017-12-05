@@ -10,6 +10,7 @@
   .page-title{
     h1,h2,h3{
       margin-top: 0;
+      margin-bottom: $size-1;
     }
   }
 
@@ -45,6 +46,9 @@
       opacity: 0;
       pointer-events: none;
     }
+    @include tablet(){
+      display: none;
+    }
   }
 
   .page-nav-item{
@@ -57,12 +61,14 @@
     }
 
     a{
-      font-size: $size-1;
-      font-weight: bold;
+      @extend .whitney-small__bold;
       padding: $unit 0;
       border-bottom: none;
+      color: $primary;
+
       &:hover{
         border-bottom: none;
+        color: lighten($primary, 15%);
       }
     }
   }
@@ -83,6 +89,20 @@
     }
   }
 
+  .mobile-page-nav{
+    margin-bottom: $size0;
+    display: none;
+    @include tablet(){
+      display: block;
+    }
+
+    select{
+      width: 94%;
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+  }
+
   .section-title{
     position: relative;
   }
@@ -93,6 +113,10 @@
     position: absolute;
     transform: translateX(-100%) translateY(-20%);
     top: 50%;
+
+    @include tablet(){
+      display: none;
+    }
   }
 
   // used to get the computed value of $unit*4

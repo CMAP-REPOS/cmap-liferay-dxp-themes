@@ -1,10 +1,10 @@
 <div id="scroll-nav">
   <div class="row">
-    <div class="col-xl-3 col-sm-4 col-xs-16">
+    <div class="col-xl-3 col-sm-2">
       <#include "${full_templates_path}/components/hamburgur.ftl" />
       <#include "${full_templates_path}/components/logo.ftl" />
     </div>
-    <div class="col-xl-10 col-sm-8 col-xs-16">
+    <div class="col-xl-10 col-sm-14">
       <div class="share-menu">
         <input class="page-url" type="text" value=""/>
         <div class="addthis_inline_share_toolbox"></div> 

@@ -34,12 +34,23 @@
       </div>
     </div>
 
-    <div class="col-xl-10 col-sm-12 col-xs-16">
+    <div class="col-xl-10 col-sm-16">
       <#if Title.getData() != "">
       <div class="page-title">
         <h1 class="h1">${Title.getData()}</h1>
       </div>
       </#if>
+
+      <div class="mobile-page-nav">
+        <select name="page-nav" class="form-control">
+          <option value="" selected="true" disabled="true">Jump to section</option>
+        <#list Subtitle.getSiblings() as section>
+          <#if section.getData() != "">
+            <option value="#${section.getData()?replace(" ", "_")}">${section.getData()}</option>
+          </#if>
+        </#list>
+        </select>
+      </div>
 
       <#list Subtitle.getSiblings() as section>
         <section>
@@ -60,7 +71,7 @@
       </#list>
     </div>
 
-    <div class="col-xl-3 col-sm-4 page-nav">
+    <div class="col-xl-3 col-sm-16 page-nav">
       <div class="page-nav-container">
         <div class="page-nav-title">
           <h3>Sections</h3>
@@ -93,7 +104,10 @@ cmap.titleWithSections.init = function() {
     var $this = $(this);
     var $sectionTitle = $this.find('.section-title > h2');
     if ($sectionTitle.text().length) {
-        $('.page-nav-list').append('<div class="page-nav-item"><a href="#' +  $sectionTitle.attr('id') + '">' +  $sectionTitle.data('text') + '</a></div>')
+      var title = $sectionTitle.data('text');
+      var id = $sectionTitle.attr('id');
+        $('.page-nav-list').append('<div class="page-nav-item"><a href="#' + id + '">' + title + '</a></div>')
+        $('.mobile-page-nav select').append('<option value="#'+id+'">' + title + '</option>');
     }
   });
 
@@ -150,14 +164,21 @@ cmap.titleWithSections.bindEvents = function() {
     $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
   }
 
-  $('.page-nav-item a').click(function(e){
-    e.preventDefault();
+  
+  function moveToID(id){
     var push = $('#scroll-nav').innerHeight() * 1.5;
-    var href = $(this).attr('href');
-    var target = $(href).offset().top;
+    var target = $(id).offset().top;
     $('html,body').animate({
       scrollTop: target - push
     }, 800);
+  }
+  $('.page-nav-item a').click(function(e){
+    e.preventDefault();
+    moveToID($(this).attr('href'));
+  });
+
+  $('.mobile-page-nav select').on('change', function(){
+    moveToID($(this).val());
   });
 };
 

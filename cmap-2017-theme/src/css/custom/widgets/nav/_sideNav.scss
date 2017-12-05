@@ -13,8 +13,13 @@
   transition: $side-nav-animation;
 
   .logo{
+    margin-top: $unit;
     margin-bottom: $unit;
     @include logo-size($size1);
+
+    .site-title{
+      transform: translateY(-0.75em);
+    }
   }
 
   .search-widget{

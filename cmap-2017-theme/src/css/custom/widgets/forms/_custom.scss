@@ -64,6 +64,10 @@
     }
   }
 
+  .ddl-form-name{
+    display: none;
+  }
+
   .lfr-ddm-form-container {
 
     .row {
@@ -77,26 +81,6 @@
       }
     }
 
-    select.form-control {
-      @extend .dropdown-input;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
-      background-position: 95% center;
-      background-repeat: no-repeat;
-      background-size: 5% auto;
-      padding: $size-1 $size0;
-      border-radius: #{$size0 + $size-2};
-      @extend .whitney-normal__bold;
-      font-size: 0.9em !important;
-
-      &:focus {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='10' viewBox='0 0 15 10'%3E%3Cpolygon fill='%233C5976' points='7.68 5.965 2.364 1 1 2.462 7.68 8.701 14.36 2.462 12.996 1'/%3E%3C/svg%3E");
-      }
-      &::-ms-expand {
-        display: none;
-      }
-    }
     .has-success {
       @include form-control-validation($dark-green, $dark-green, $white);
     }
@@ -108,12 +92,20 @@
     }
   }
 }
+.icon-asterisk{
+  &:before{
+    content: '●';
+  }
+}
 
 .portlet-body{
 
   .required-warning {
     margin-top: $size0;
     margin-bottom: 0;
+    .icon-asterisk{
+      margin-left: 0;
+    }
   }
 
   .text-warning {
@@ -157,6 +149,11 @@
     &.has-value {
       background-color: $white;
       border-color: $off-white;
+    }
+  }
+  .col-sm-16{
+    @include tablet(){
+      padding: 0 !important;
     }
   }
 

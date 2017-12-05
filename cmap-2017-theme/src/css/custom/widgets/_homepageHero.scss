@@ -1,6 +1,6 @@
 .homepage-hero{
   position: relative;
-
+  overflow: hidden;
 
   .row{
     @include section-padding();
@@ -33,12 +33,13 @@
   }
 
   .homepage-hero-background{
-    
     height: 50vw;
+
     img{
       position: relative;
       width: 100%;
       max-width: none !important;
+      min-height: 100%;
     }
 
     @include tablet(){

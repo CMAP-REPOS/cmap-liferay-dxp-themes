@@ -44,7 +44,6 @@ $animation: all 0.3s ease-out;
     @include tablet(){
       text-indent: 0;
       margin: 0;
-      padding-left: 0 !important;
 
       .home{
         .square{

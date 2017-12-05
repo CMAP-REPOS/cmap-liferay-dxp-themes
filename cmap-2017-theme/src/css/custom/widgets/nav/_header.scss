@@ -30,8 +30,7 @@
     }
 
     .hamburger{
-      padding-right: $size0;
-      padding-left: 0;
+      padding: 0;
       outline: none;
 
       @include tablet(){
@@ -45,7 +44,7 @@
 
       .hamburger-box{
         height: $unit;
-        transform: translateY(0.2em);
+        transform: scale(0.75) translateX(-25%) translateY(0.2em);
       }
       
       .hamburger-inner,

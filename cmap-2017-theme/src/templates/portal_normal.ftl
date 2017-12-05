@@ -8,7 +8,9 @@
 	<title>${the_title} - ${company_name}</title>
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
-
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	
 	<#assign portalUrl = theme_display.getURLPortal()>
 	<#assign currentUrl = theme_display.getURLCurrent()>
 	<link rel="canonical" href="${portalUrl}${currentUrl}" />

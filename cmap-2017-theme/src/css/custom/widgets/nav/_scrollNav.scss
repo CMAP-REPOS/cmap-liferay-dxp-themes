@@ -22,6 +22,12 @@
     transform: translateY(0);
   }
 
+  .row{
+    @include tablet(){
+      transform: translateY(0.35em);
+    }
+  }
+
   .col-xl-3,
   .col-xl-10{
     display: flex;
@@ -87,12 +93,16 @@
     position: relative;
     display: inline-flex;
     @include logo-size(0.95em);
-    transform: translateY(1px);
+    transform: translateY(1px) translateX(-20%);
     opacity: 1;
     transition: all 0.2s;
     
     &.hidden{
       opacity: 0;
+    }
+
+    @include tablet(){
+      display: none !important;
     }
   }
 }

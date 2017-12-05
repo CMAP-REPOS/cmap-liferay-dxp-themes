@@ -77,11 +77,13 @@ cmap.global.scrollnav = function () {
 };
 
 cmap.global.footerjumptotop = function () {
-  $('.jump-to-top-button').click(function () {
-    $('html,body').animate({
-      scrollTop: 0
-    }, 800);
-  });
+  setTimeout(function(){
+    $('.jump-to-top-button').on('click', function () {
+      $('html,body').animate({
+        scrollTop: 0
+      }, 800);
+    });
+  }, 1000);
 };
 
 cmap.global.youtube = function () {
@@ -181,10 +183,9 @@ cmap.global.scrollnavTitle = function (text) {
   if( window.location.pathname === '/' || 
       window.location.pathname === '/home' || 
       window.location.pathname === '/home/' || 
-      window.location.pathname === '/web/guest/'){ return; } 
-  if( text === 'All Updates' || 
-      text === 'Weekly Updates' ||
-      text === 'Policy Updates'){ return; }
+      window.location.pathname === '/web/guest/'){ return; }
+  // there is already a page title!
+  if($('#scroll-nav .col-xl-10 .page-title').length){ return; }
   $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">'+text+'</h4>');
 };
 
@@ -209,7 +210,6 @@ cmap.forms = {};
 cmap.forms.contactus = function () {
 
   var $contact_form = $('.contact-page');
-  console.log($contact_form);
   if ($contact_form.length) {
 
     // add section headers to form
@@ -221,7 +221,6 @@ cmap.forms.contactus = function () {
     `);
     $contact_form.find('.lfr-ddm-form-page').before($info_header);
 
-
     var $message_header = $(`
       <header>
         <hr>
@@ -230,10 +229,10 @@ cmap.forms.contactus = function () {
     `);
     $contact_form.find('.row:nth-of-type(3)').after($message_header);
 
-    $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8');
+    $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8 col-sm-16');
 
-    var $captcha = $contact_form.find('.lfr-ddm-form-page .row:last-of-type .form-group');
-    $contact_form.find('.row:nth-of-type(4) .col-xl-8:last-of-type').append($captcha);
+    // var $captcha = $contact_form.find('.lfr-ddm-form-page .row:last-of-type .form-group');
+    // $contact_form.find('.row:nth-of-type(4) .col-xl-8:last-of-type').append($captcha);
 
     $('.lfr-ddm-form-submit').removeClass('pull-right');
     $('.lfr-ddm-form-submit').text('Send');
@@ -283,6 +282,15 @@ cmap.forms.global = function () {
     }
   });
 };
+
+cmap.forms.replaceAst = function(){
+  var $foo = $('.lexicon-icon-asterisk');
+  if($foo.length){
+    var p = $foo.parent();
+    $foo.remove();
+    p.append('●');
+  }
+}
 
 cmap.footer = {};
 cmap.footer.checkForLayoutChange = function(){
@@ -334,6 +342,7 @@ Liferay.on('allPortletsReady', function () {
 
   cmap.forms.contactus();
   cmap.forms.global();
+  cmap.forms.replaceAst();
 
   cmap.footer.checkForLayoutChange();
 
@@ -347,4 +356,4 @@ Liferay.Portlet.ready(function (portletId, node) {
 });
 
 // Runs once the DOM is finished. Better to use "allPortletsReady"
-$(document).ready(function () { });
+$(document).ready(function () {});

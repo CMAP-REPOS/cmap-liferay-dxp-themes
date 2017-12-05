@@ -8,15 +8,14 @@
 
   .container{
     width: 100%;
-    padding: 0 #{$unit * 3};
+    @include section-padding();
   }
 
   .row{
     display: flex;
     align-items: center;
-    padding-top: 0.3em;
     height: $unit * 2;
-
+    padding-top: 0.3em;
     @include desktop(){
       height: $unit * 4;
     }
@@ -29,7 +28,7 @@
     transform: translateY(-0.18em);
   }
 
-  #jump-to-top{
+  .jump-to-top-button{
     cursor: pointer;
   }
 
