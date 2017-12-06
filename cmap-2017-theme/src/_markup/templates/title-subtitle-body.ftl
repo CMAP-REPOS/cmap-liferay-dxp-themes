@@ -21,6 +21,13 @@
 <#assign serviceContext = staticUtil["com.liferay.portal.kernel.service.ServiceContextThreadLocal"].getServiceContext()>
 <#assign themeDisplay = serviceContext.getThemeDisplay() />
 
+<#assign sectionTitles = []>
+<#list Subtitle.getSiblings() as cur_subTitle>
+  <#if cur_subTitle?? && cur_subTitle.getData()?? && cur_subTitle.getData() != "">
+    <#assign sectionTitles = sectionTitles + [cur_subTitle]>
+  </#if>
+</#list>
+
 <section class="title-with-sections">
   <div class="row page-layout">
 
@@ -41,6 +48,7 @@
       </div>
       </#if>
 
+      <#if sectionTitles?size != 0>
       <div class="mobile-page-nav">
         <select name="page-nav" class="form-control">
           <option value="" selected="true" disabled="true">Jump to section</option>
@@ -51,6 +59,7 @@
         </#list>
         </select>
       </div>
+      </#if>
 
       <#list Subtitle.getSiblings() as section>
         <section>
@@ -73,6 +82,7 @@
 
     <div class="col-xl-3 col-sm-16 page-nav">
       <div class="page-nav-container">
+        <#if sectionTitles?size != 0>
         <div class="page-nav-title">
           <h3>Sections</h3>
         </div>
@@ -87,6 +97,7 @@
             </#if>
           </#list>
         </nav>
+        </#if>
         <div class="page-nav-top"></div>
       </div>
     </div>

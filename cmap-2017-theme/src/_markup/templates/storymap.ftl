@@ -1,4 +1,12 @@
+<#assign legendLabels = []>
+<#list Legend.getSiblings() as cur_Legend>
+  <#if cur_Legend?? && cur_Legend.KeyLabel?? && cur_Legend.KeyLabel.getData()?? && cur_Legend.KeyLabel.getData() != "">
+    <#assign legendLabels = legendLabels + [cur_Legend.KeyLabel]>
+  </#if>
+</#list>
+
 <div id="map-container">
+    <#if legendLabels?size != 0>
     <section class="story-map-legend"> 
         <div class="row">
             <div class="col-xl-16">
@@ -10,6 +18,7 @@
             </div>
         </div>
     </section>
+    </#if>
     <div id="${randomNamespace}_map" class="story-map">
     </div>
     <div class="storymap-section">
@@ -362,6 +371,8 @@ AUI().ready(
         };
 
         cmap.storymaps.initMap = function () {
+
+            $('#map-container').height($('.storymap-section').height()+400);
 
             <#if styleUrl?? && styleUrl.getData()?? && styleUrl.getData() != "">
             var url = "${styleUrl.getData()}";
