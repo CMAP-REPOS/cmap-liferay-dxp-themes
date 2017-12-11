@@ -9,132 +9,132 @@
 }(this, function () {
 
 	function getDonutDataValue(d, id) {
-        var dataset;
-        for (var i = 0; i < d.length; i++) {
-            dataset = d[i];
+		var dataset;
+		for (var i = 0; i < d.length; i++) {
+			dataset = d[i];
 
-            for (key in dataset) {
+			for (var key in dataset) {
 
-                if (key === id) {
-                    return dataset[key];
-                }
-            }
-        }
-	};
-
+				if (key === id) {
+					return dataset[key];
+				}
+			}
+		}
+	}
 
 	function formatValue(format, value) {
 		if (format === 'dollars') {
-			return '$' + d3.format(",")(value)
+			return '$' + d3.format(",")(value);
 		} else if (format === 'percent') {
 			return d3.format(",")(value) + '%';
 		} else {
 			return d3.format(",")(value);
 		}
-	};
+	}
 
 	function getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options) {
+
 		var formatColor = function (e) {
 			if (options.altDataType && e.name.toLowerCase() === options.altDataType.toLowerCase()) {
 				return altDataColor;
 			} else {
 				return color(e);
 			}
-		}
+		};
+		
 		var lines = [];
 		lines.push('<div><table class="c3-tooltip"><thead><tr>');
 		lines.push('<th colspan="2">' + defaultTitleFormat(d[0].x) + '</th>');
-		lines.push('</tr></thead><tbody>')
+		lines.push('</tr></thead><tbody>');
 		$.each(d, function (i, e) {
 			lines.push('<tr><td class="name"><span><i class="icon-circle" style="color: ' + formatColor(e) + '"></i> </span>' + e.name + '</td><td class="value">' + formatValue(options.axis_y_tick_format, e.value) + '</td></tr>');
 		});
-		lines.push('</tbody></table></div>')
+		lines.push('</tbody></table></div>');
 		return lines.join('');
-	};
-
+	}
 
 	function generateDonutArcTitle(options) {
 		var id = options.id;
-        var formattedValue = formatValue(options.format, options.value);
+		var formattedValue = formatValue(options.format, options.value);
 		var node = d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node();
-        if (id.length > 32) {
-        	var words = id.split(/\s+/);
+		if (id.length > 32) {
+			var words = id.split(/\s+/);
 			node.innerHTML = "<tspan>" +
-			formattedValue +
-			'</tspan><tspan class="upper" x="-1" y="25">' +
-			words.slice(0,Math.floor(words.length/2)).join(' ') +
-			'</tspan><tspan class="upper" x="-1" y="50">' +
-			words.slice(Math.floor(words.length/2)).join(' ') +
-			'</tspan>';
-        } else {
+				formattedValue +
+				'</tspan><tspan class="upper" x="-1" y="25">' +
+				words.slice(0, Math.floor(words.length / 2)).join(' ') +
+				'</tspan><tspan class="upper" x="-1" y="50">' +
+				words.slice(Math.floor(words.length / 2)).join(' ') +
+				'</tspan>';
+		} else {
 			node.innerHTML = "<tspan>" +
-			formattedValue +
-			'</tspan><tspan class="upper" x="-1" y="25">' +
-			id +
-			'</tspan>';
-        }
+				formattedValue +
+				'</tspan><tspan class="upper" x="-1" y="25">' +
+				id +
+				'</tspan>';
+		}
 		node.parentNode.append(node);
 	}
 
-    function getDataClasses(){
-        //get the array of svg objects and all their info with d3
-        var chartLines = d3.select('.c3-chart-lines').selectAll('g.c3-chart-line');
-        var dataClasses = [];
-        //get the class names
-        for (i=0; i < chartLines[0].length; i++){
-                $.each(chartLines[0][i]["classList"], function( key, value ) {
-                    //we only need the second value - unique to that data set
-                if (key == 2){
-                dataClasses.push(value);
-            }
-            });
-        }
-        return dataClasses;
-    }
-    function applyFade(dataClasses,index){
-        var toFade;
-        // d3 always returns an array with a length of 1.
-        // looking one level deeper tells us whether we actually got a result.
-        if(!index){
-            d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-            return;
-        }
-        if(d3.selectAll('.c3-defocused')[0].length !=0){
-            d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-        }
-        else if(index.length > 1){
-            var num;
-            for (i=0; i < index.length; i++){
-                num = index[i];
-                toFade = ".c3-chart-line."+dataClasses[num];
-                d3.select(toFade).classed('c3-defocused', true);
-            }
-        }
-        else{
-            // single index functionality in case its needed in future
-            toFade = '.c3-chart-line.'+dataClasses[index];
-            d3.select(toFade).classed('c3-defocused', true);
-        }
-    }
-    function resizeAxisLabels(options) {
-        if (!disableXAxisLabelResizing || !disableYAxisLabelResizing) {
-            var yChildren = d3.select('#' + options.chartId+ ' g.c3-axis-y').selectAll('.tick text');
-            //d3 arrays always have a single index, then arrays under that.
-            var yArr = yChildren[0];
-            var yCount = yArr.length;
+	function getDataClasses() {
+		//get the array of svg objects and all their info with d3
+		var chartLines = d3.select('.c3-chart-lines').selectAll('g.c3-chart-line');
+		var dataClasses = [];
+		//get the class names
+		for (i = 0; i < chartLines[0].length; i++) {
+			$.each(chartLines[0][i].classList, function (key, value) {
+				//we only need the second value - unique to that data set
+				if (key == 2) {
+					dataClasses.push(value);
+				}
+			});
+		}
+		return dataClasses;
+	}
+	function applyFade(dataClasses, index) {
+		var toFade;
+		// d3 always returns an array with a length of 1.
+		// looking one level deeper tells us whether we actually got a result.
+		if (!index) {
+			d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+			return;
+		}
+		if (d3.selectAll('.c3-defocused')[0].length != 0) {
+			d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+		}
+		else if (index.length > 1) {
+			var num;
+			for (i = 0; i < index.length; i++) {
+				num = index[i];
+				toFade = ".c3-chart-line." + dataClasses[num];
+				d3.select(toFade).classed('c3-defocused', true);
+			}
+		}
+		else {
+			// single index functionality in case its needed in future
+			toFade = '.c3-chart-line.' + dataClasses[index];
+			d3.select(toFade).classed('c3-defocused', true);
+		}
+	}
+	function resizeAxisLabels(options) {
+		if (!disableXAxisLabelResizing || !disableYAxisLabelResizing) {
+			var yChildren = d3.select('#' + options.chartId + ' g.c3-axis-y').selectAll('.tick text');
+			//d3 arrays always have a single index, then arrays under that.
+			var yArr = yChildren[0];
+			var yCount = yArr.length;
 
-            var xChildren = d3.select('#' + options.chartId+ ' g.c3-axis-x').selectAll('.tick text');
-            var xArr = xChildren[0];
-            var xCount = xArr.length;
-            if (xCount < 10 && !options.disableXAxisLabelResizing) {
-                xChildren.attr("font-size", "14px");
-            }
+			var xChildren = d3.select('#' + options.chartId + ' g.c3-axis-x').selectAll('.tick text');
+			var xArr = xChildren[0];
+			var xCount = xArr.length;
+			if (xCount < 10 && !options.disableXAxisLabelResizing) {
+				xChildren.attr("font-size", "14px");
+			}
 
-            if (yCount < 10 && !options.disableYAxisLabelResizing) {
-                yChildren.attr("font-size", "14px");
-            }
-        }
-    }
+			if (yCount < 10 && !options.disableYAxisLabelResizing) {
+				yChildren.attr("font-size", "14px");
+			}
+		}
+	}
 	function generateLegend(options) {
 		// console.log('infographics.generateLegend()');
 		// console.log(options);
@@ -143,9 +143,9 @@
 		if (options.chartType === 'donut_chart') {
 			legendData = d3.keys(d[0]);
 		}
-        $('.infographic-legend.' + options.chartId + '-legend .legend-data').html('');
+		$('.infographic-legend.' + options.chartId + '-legend .legend-data').html('');
 		d3.select('.infographic-legend.' + options.chartId + '-legend .legend-data').insert('ul')
-			.attr('class', 'list-unstyled list-inline '+options.chartId)
+			.attr('class', 'list-unstyled list-inline ' + options.chartId)
 			.selectAll('div')
 			.data(legendData)
 			.enter().append('li')
@@ -165,13 +165,13 @@
 			})
 			.on('mouseover', function (id) {
 				if (options.chartType === 'donut_chart') {
-		            var dataValue = $(this).children('div').attr('data-value');
-		            generateDonutArcTitle({
-		            	chartId: options.chartId,
-		            	format: options.axis_x_tick_format,
-		            	id: id,
-		            	value: dataValue
-		            });
+					var dataValue = $(this).children('div').attr('data-value');
+					generateDonutArcTitle({
+						chartId: options.chartId,
+						format: options.axis_x_tick_format,
+						id: id,
+						value: dataValue
+					});
 				}
 				if ($(window).width() > 420) {
 					options.chart.api.focus(id);
@@ -199,7 +199,7 @@
 					return false;
 				}
 			});
-	};
+	}
 
 	var donutWidth = 45;
 	var siFormat = d3.format(",");
@@ -237,15 +237,15 @@
 						},
 						tick: {
 							format: // custom formatting to make sure we dont
-							// have a lot of 0's
-							function (d) {
-								if (d > 1000) {
-									return siFormat(d).replace(",000", "");
+								// have a lot of 0's
+								function (d) {
+									if (d > 1000) {
+										return siFormat(d).replace(",000", "");
+									}
+									else {
+										return d;
+									}
 								}
-								else {
-									return d;
-								}
-							}
 						}
 					},
 				},
@@ -279,7 +279,7 @@
 					grouped: true,
 				},
 				onrendered: function () {
-                    getDataClasses();
+					getDataClasses();
 					generateLegend({
 						d: d,
 						chart: this,
@@ -288,12 +288,12 @@
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
 					});
-                    resizeAxisLabels({
-                        chartId: options.chartId,
-                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+					resizeAxisLabels({
+						chartId: options.chartId,
+						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+						disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-                    });
+					});
 				}
 			});
 		},
@@ -305,9 +305,9 @@
 
 			var axis_y_tick_format = d3.format(",");
 			if (options.axis_y_tick_format === 'dollars') {
-				axis_y_tick_format = function (d) { return '$' + d; }
+				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
-				axis_y_tick_format = function (d) { return d + '%'; }
+				axis_y_tick_format = function (d) { return d + '%'; };
 			}
 
 			var chart = c3.generate({
@@ -362,12 +362,12 @@
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
 					});
-                    resizeAxisLabels({
-                        chartId: options.chartId,
-                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+					resizeAxisLabels({
+						chartId: options.chartId,
+						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+						disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-                    });
+					});
 				}
 			});
 		},
@@ -376,20 +376,20 @@
 			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
-            var rangeMin = undefined;
-            var rangeMax = undefined;
+			var rangeMin;
+			var rangeMax;
 			var axis_y_tick_format = d3.format(",");
 			if (options.axis_y_tick_format === 'dollars') {
-				axis_y_tick_format = function (d) { return '$' + d; }
+				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
-                var rangeMin = 10;
-                var rangeMax = 90;
-				axis_y_tick_format = function (d) { return d + '%'; }
+				rangeMin = 10;
+				rangeMax = 90;
+				axis_y_tick_format = function (d) { return d + '%'; };
 			}
 
 			var axis_y_padding = null;
 			if ($.isNumeric(options.axis_y_padding)) {
-				axis_y_padding = { top: options.axis_y_padding, bottom: options.axis_y_padding }
+				axis_y_padding = { top: options.axis_y_padding, bottom: options.axis_y_padding };
 			}
 
 			c3.generate({
@@ -406,7 +406,7 @@
 					},
 				},
 				color: {
-					pattern: [ "#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
+					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
 				},
 				axis: {
 					rotated: true,
@@ -420,8 +420,8 @@
 					},
 					y: {
 						inner: false,
-                        max: rangeMax,
-                        min: rangeMin,
+						max: rangeMax,
+						min: rangeMin,
 						label: {
 							text: options.axis_y_label_text,
 							position: 'outer-middle'
@@ -447,13 +447,13 @@
 							+ color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + toolTipFormat + "<br/>"
 							+ defaultTitleFormat(d[0].x) + "</p></div>";
 					},
-                    position: function (data, width, height, element) {
-                        //tracking mouse position within unique div - get offset on page.
-                        var offset = $('#' + options.chartId).offset();
-                        var xPos = event.pageX - offset.left;
-                        var yPos = event.pageY - offset.top;
-                        return { top: yPos - 85, left: xPos };
-                    },
+					position: function (data, width, height, element) {
+						//tracking mouse position within unique div - get offset on page.
+						var offset = $('#' + options.chartId).offset();
+						var xPos = event.pageX - offset.left;
+						var yPos = event.pageY - offset.top;
+						return { top: yPos - 85, left: xPos };
+					},
 					grouped: false
 				},
 				legend: {
@@ -468,12 +468,12 @@
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
 					});
-                    resizeAxisLabels({
-                        chartId: options.chartId,
-                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+					resizeAxisLabels({
+						chartId: options.chartId,
+						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+						disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-                    });
+					});
 				}
 			});
 		},
@@ -491,11 +491,11 @@
 					columns: [d3.keys(d[0])],
 					onmouseover: function (d) {
 						generateDonutArcTitle({
-			            	chartId: options.chartId,
-			            	format: options.axis_x_tick_format,
-			            	id: d.id,
-			            	value: d.value
-			            });
+							chartId: options.chartId,
+							format: options.axis_x_tick_format,
+							id: d.id,
+							value: d.value
+						});
 					}
 				},
 				donut: {
@@ -516,7 +516,7 @@
 				legend: {
 					show: false
 				},
-				onrendered: function() {
+				onrendered: function () {
 					generateLegend({
 						d: d,
 						chart: this,
@@ -524,7 +524,7 @@
 						chartType: 'donut_chart',
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
-					})
+					});
 				}
 			});
 		},
@@ -536,9 +536,9 @@
 
 			var axis_y_tick_format = d3.format(",");
 			if (options.axis_y_tick_format === 'dollars') {
-				axis_y_tick_format = function (d) { return '$' + d; }
+				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
-				axis_y_tick_format = function (d) { return d + '%'; }
+				axis_y_tick_format = function (d) { return d + '%'; };
 			}
 
 			var dataTypes = {};
@@ -623,12 +623,12 @@
 						axis_x_tick_format: options.axis_x_tick_format,
 						axis_y_tick_format: options.axis_y_tick_format
 					});
-                    resizeAxisLabels({
-                        chartId: options.chartId,
-                        disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-                        disableYAxisLabelResizing: options.disableYAxisLabelResizing
+					resizeAxisLabels({
+						chartId: options.chartId,
+						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+						disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-                    });
+					});
 				}
 
 			});
@@ -666,118 +666,118 @@
 				$this.parents('.infographic-info').find('.infographic-title, .infographic-description').toggle();
 			});
 
-			$('.icon-close-white').on('click', function() {
+			$('.icon-close-white').on('click', function () {
 				$('.side-narrative').remove();
 			});
 
-			$('.mobile-legend-icons .icon-paragraphh-white, .mobile-legend-icons .icon-key-white').on('click', function() {
-                var activeButton;
-                if($('.infographic-button').hasClass('on')){
-                    activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+			$('.mobile-legend-icons .icon-paragraphh-white, .mobile-legend-icons .icon-key-white').on('click', function () {
+				var activeButton;
+				if ($('.infographic-button').hasClass('on')) {
+					activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
 
-                // note: not currently intended for multiple charts on a single page.
-                // fires once for each element on the page, if theres more than one
-				var $this = $(this);
-                if ($this.hasClass('icon-paragraphh-white')){
-                    // stuff for paragraph icon here.
-                    if(!$this.hasClass('activated')){
-                        $this.addClass('activated');
-                        $('.side-narratives').addClass('open').children().hide();
-                        $('.icon-key-white').removeClass('activated');
-                        $('.infographic-legend ul').hide();
-                        $('.side-narratives #side-narrative'+activeButton).show();
-                    }
-                }
-                else {
-                    // we clicked the key. do stuff with the key.
-                    if(!$this.hasClass('activated')){
-                        $this.addClass('activated');
-                        $('.side-narratives').removeClass('open').children().hide();
-                        $('.icon-paragraphh-white').removeClass('activated');
-                        $('.infographic-legend ul').show();
-                    }
-                }
-                }
+					// note: not currently intended for multiple charts on a single page.
+					// fires once for each element on the page, if theres more than one
+					var $this = $(this);
+					if ($this.hasClass('icon-paragraphh-white')) {
+						// stuff for paragraph icon here.
+						if (!$this.hasClass('activated')) {
+							$this.addClass('activated');
+							$('.side-narratives').addClass('open').children().hide();
+							$('.icon-key-white').removeClass('activated');
+							$('.infographic-legend ul').hide();
+							$('.side-narratives #side-narrative' + activeButton).show();
+						}
+					}
+					else {
+						// we clicked the key. do stuff with the key.
+						if (!$this.hasClass('activated')) {
+							$this.addClass('activated');
+							$('.side-narratives').removeClass('open').children().hide();
+							$('.icon-paragraphh-white').removeClass('activated');
+							$('.infographic-legend ul').show();
+						}
+					}
+				}
 
 			});
 
 
-			$('.infographic-button').on('mouseenter', function() {
+			$('.infographic-button').on('mouseenter', function () {
 				var $this = $(this);
-				var id = $this.attr('id').replace('infographic-button','side-narrative');
-                var buttonID = $this.attr('id');
-                if(!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')){
+				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
+				var buttonID = $this.attr('id');
+				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
+					$('.side-narrative').remove();
+					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
+					var dataClasses = getDataClasses();
+					if ($(this).is(":first-of-type")) {
+						applyFade(dataClasses, [2, 3, 4]);
+					}
+					else if ($(this).is(":nth-of-type(2)")) {
+						applyFade(dataClasses, [0, 1, 4]);
+					}
+					else {
+						applyFade(dataClasses, [0, 1, 2, 3]);
+					}
+				}
+			});
+
+			$('.infographic-button').on('mouseleave', function () {
+				var $this = $(this);
+				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
+					$('.side-narrative').remove();
+					applyFade();
+				}
+			});
+			$('.infographic-button').on('click', function () {
+				var $this = $(this);
+				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
+				var buttonID = $this.attr('id');
+				var dataClasses = getDataClasses();
+				// var activeButton;
+				if (!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')) {
+					$(this).closest('.infographic-buttons').children().removeClass('on');
+					$('.side-narrative').remove();
+				}
+				applyFade();
+				$this.addClass('on');
+				if (!$('.side-narrative')) {
+					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
+				}
+				if ($(window).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
+					activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+					$('.side-narratives').children().hide();
+					$('.side-narratives #side-narrative' + activeButton).show();
+				}
+				if ($(this).is(":first-of-type")) {
+					applyFade(dataClasses, [2, 3, 4]);
+				}
+				else if ($(this).is(":nth-of-type(2)")) {
+					applyFade(dataClasses, [0, 1, 4]);
+				}
+				else {
+					applyFade(dataClasses, [0, 1, 2, 3]);
+				}
+
+			});
+			$('.pair-icons .icon-paragraphh-white').on('click', function () {
+				$('.side-narrative').toggle();
+				return false;
+			});
+			$('.icon-close-white').on('click', function () {
+				$(this).closest('.infographic-button').removeClass('on');
 				$('.side-narrative').remove();
-				$('.infographic-chart').append('<div class="side-narrative">' + $('#'+id).html() + '</p>');
-                var dataClasses = getDataClasses();
-                if ($(this).is(":first-of-type")){
-                    applyFade(dataClasses,[2,3,4]);
-                }
-                else if ($(this).is(":nth-of-type(2)")){
-                    applyFade(dataClasses,[0,1,4]);
-                }
-                else {
-                    applyFade(dataClasses,[0,1,2,3]);
-                }
-            }
+				if ($(window).width() <= 768) {
+					d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+				}
+				if ($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
+					$('.side-narratives').removeClass('open').children().hide();
+					$('.icon-paragraphh-white').removeClass('activated');
+					$('.icon-key-white').addClass('activated');
+					$('.infographic-legend ul').show();
+				}
+				return false;
 			});
-
-			$('.infographic-button').on('mouseleave', function() {
-				var $this = $(this);
-                if(!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')){
-				$('.side-narrative').remove();
-                applyFade();
-            }
-			});
-            $('.infographic-button').on('click', function(){
-                var $this = $(this);
-                var id = $this.attr('id').replace('infographic-button','side-narrative');
-                var buttonID = $this.attr('id');
-                var dataClasses = getDataClasses();
-                // var activeButton;
-                if(!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')){
-                    $(this).closest('.infographic-buttons').children().removeClass('on');
-                    $('.side-narrative').remove();
-                }
-                    applyFade();
-                    $this.addClass('on');
-                    if(!$('.side-narrative')){
-                    $('.infographic-chart').append('<div class="side-narrative">' + $('#'+id).html() + '</p>');
-                }
-                if($( window ).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
-                activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
-                    $('.side-narratives').children().hide();
-                    $('.side-narratives #side-narrative'+activeButton).show();
-                }
-                    if ($(this).is(":first-of-type")){
-                        applyFade(dataClasses,[2,3,4]);
-                    }
-                    else if ($(this).is(":nth-of-type(2)")){
-                        applyFade(dataClasses,[0,1,4]);
-                    }
-                    else {
-                        applyFade(dataClasses,[0,1,2,3]);
-                    }
-
-            });
-            $('.pair-icons .icon-paragraphh-white').on('click', function(){
-                $('.side-narrative').toggle();
-                return false;
-            });
-            $('.icon-close-white').on('click', function(){
-                $(this).closest('.infographic-button').removeClass('on');
-                $('.side-narrative').remove();
-                if($( window ).width() <= 768){
-                    d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-                }
-                if($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')){
-                    $('.side-narratives').removeClass('open').children().hide();
-                    $('.icon-paragraphh-white').removeClass('activated');
-                    $('.icon-key-white').addClass('activated');
-                    $('.infographic-legend ul').show();
-                }
-                return false;
-            });
 		}
 	};
 }));

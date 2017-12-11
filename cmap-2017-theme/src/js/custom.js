@@ -32,7 +32,7 @@ cmap.global.share = function () {
   toggleSocial('#scroll-nav', '.page-title');
   toggleSocial('#side-nav', '.dummy-div');
 
-}
+};
 
 cmap.global.sidenav = function () {
   // SIDE NAV WIDGET
