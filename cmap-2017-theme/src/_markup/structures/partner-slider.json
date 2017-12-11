@@ -1,0 +1,82 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Partners"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Partners",
+          "readOnly": false,
+          "repeatable": true,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-separator",
+          "nestedFields": [
+              {
+                  "label": {
+                      "en_US": "Logo"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "image",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "Logo",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-image"
+              },
+              {
+                  "label": {
+                      "en_US": "Description"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "html",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "Description",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-text-html"
+              }
+          ]
+      }
+  ]
+}
