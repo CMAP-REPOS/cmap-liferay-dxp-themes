@@ -1,27 +1,27 @@
 var cmap = cmap || {};
 cmap.global = {};
 
-cmap.global.share = function(){
+cmap.global.share = function () {
   $('.close-button').hide();
   $('.share-menu .page-url').val(window.location.href);
-  $('.share-menu .page-url').on('focus', function(){
-    setTimeout(()=>{ this.select() }, 100);
+  $('.share-menu .page-url').on('focus', function () {
+    setTimeout(function () { this.select(); }, 100);
   });
 
-  function toggleSocial(container, original){
+  function toggleSocial(container, original) {
     var $container = $(container);
     var $sharebtn = $container.find('.share-button');
     var $closebtn = $container.find('.close-button');
     var $sharemenu = $container.find('.share-menu');
     var $original = $container.find(original);
 
-    $sharebtn.click(function(){
+    $sharebtn.click(function () {
       $sharemenu.addClass('active');
       $original.removeClass('active');
       $sharebtn.css('display', 'none');
       $closebtn.css('display', 'inline-flex');
     });
-    $closebtn.click(function(){
+    $closebtn.click(function () {
       $original.addClass('active');
       $sharemenu.removeClass('active');
       $closebtn.css('display', 'none');
@@ -31,7 +31,7 @@ cmap.global.share = function(){
   toggleSocial('nav.breadcrumb', '.breadcrumb-trail');
   toggleSocial('#scroll-nav', '.page-title');
   toggleSocial('#side-nav', '.dummy-div');
- 
+
 }
 
 cmap.global.sidenav = function () {
@@ -49,12 +49,12 @@ cmap.global.sidenav = function () {
     $wrapper.toggleClass('side-nav-active');
     $sideNav.toggleClass('side-nav-active');
     $('#scroll-nav .logo').toggleClass('hidden');
-    
+
     if (sideNavOpen) {
       $wrapper.css('left', '0');
       sideNavOpen = false;
     } else {
-      $wrapper.css('left', `${sideNavWidth}px`);
+      $wrapper.css('left', sideNavWidth+'px');
       sideNavOpen = true;
     }
   });
@@ -77,7 +77,7 @@ cmap.global.scrollnav = function () {
 };
 
 cmap.global.footerjumptotop = function () {
-  setTimeout(function(){
+  setTimeout(function () {
     $('.jump-to-top-button').on('click', function () {
       $('html,body').animate({
         scrollTop: 0
@@ -166,7 +166,7 @@ cmap.global.checkforh1 = function () {
     var $this = $(element);
     var classes = $this.attr('class');
     var content = $this.text();
-    $this.replaceWith('<div class="'+classes+'">'+content+'</div>');
+    $this.replaceWith('<div class="' + classes + '">' + content + '</div>');
   }
 
   $('h1').each(function () {
@@ -180,13 +180,13 @@ cmap.global.checkforh1 = function () {
 };
 
 cmap.global.scrollnavTitle = function (text) {
-  if( window.location.pathname === '/' || 
-      window.location.pathname === '/home' || 
-      window.location.pathname === '/home/' || 
-      window.location.pathname === '/web/guest/'){ return; }
+  if (window.location.pathname === '/' ||
+    window.location.pathname === '/home' ||
+    window.location.pathname === '/home/' ||
+    window.location.pathname === '/web/guest/') { return; }
   // there is already a page title!
-  if($('#scroll-nav .col-xl-10 .page-title').length){ return; }
-  $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">'+text+'</h4>');
+  if ($('#scroll-nav .col-xl-10 .page-title').length) { return; }
+  $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">' + text + '</h4>');
 };
 
 cmap.global.addpageclass = function () {
@@ -213,20 +213,10 @@ cmap.forms.contactus = function () {
   if ($contact_form.length) {
 
     // add section headers to form
-    var $info_header = $(`
-      <header>
-        <hr>
-        <h3 class="whitney-normal__bold">Information</h3>
-      </header>
-    `);
+    var $info_header = $('<header><hr><h3 class="whitney-normal__bold">Information</h3></header>');
     $contact_form.find('.lfr-ddm-form-page').before($info_header);
 
-    var $message_header = $(`
-      <header>
-        <hr>
-        <h3 class="whitney-normal__bold">Message</h3>
-      </header>
-    `);
+    var $message_header = $('<header><hr><h3 class="whitney-normal__bold">Message</h3></header>');
     $contact_form.find('.row:nth-of-type(3)').after($message_header);
 
     $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8 col-sm-16');
@@ -283,42 +273,42 @@ cmap.forms.global = function () {
   });
 };
 
-cmap.forms.replaceAst = function(){
+cmap.forms.replaceAst = function () {
   var $foo = $('.lexicon-icon-asterisk');
-  if($foo.length){
+  if ($foo.length) {
     var p = $foo.parent();
     $foo.remove();
     p.append('●');
   }
-}
+};
 
 cmap.footer = {};
-cmap.footer.checkForLayoutChange = function(){
+cmap.footer.checkForLayoutChange = function () {
 
   var $footer = $('#footer'), $row = $footer.find('.row');
   var $jump = $footer.find('.footer-jump-to-top');
   var $pages = $footer.find('.footer-page-links');
   var $social = $footer.find('.footer-social-links');
 
-  function clean(){
+  function clean() {
     $jump.remove();
     $pages.remove();
     $social.remove();
   }
-  function desktop(){
-    clean();  
+  function desktop() {
+    clean();
     $row.append($jump);
     $row.append($pages);
     $row.append($social);
   }
-  function mobile(){
-    clean();  
+  function mobile() {
+    clean();
     $row.append($pages);
     $row.append($jump);
     $row.append($social);
   }
-  function check(){
-    if(window.innerWidth < 1000){
+  function check() {
+    if (window.innerWidth < 1000) {
       mobile();
     } else {
       desktop();
@@ -356,4 +346,4 @@ Liferay.Portlet.ready(function (portletId, node) {
 });
 
 // Runs once the DOM is finished. Better to use "allPortletsReady"
-$(document).ready(function () {});
+$(document).ready(function () { });
