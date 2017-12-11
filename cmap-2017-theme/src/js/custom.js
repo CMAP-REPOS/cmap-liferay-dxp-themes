@@ -42,7 +42,7 @@ cmap.global.sidenav = function () {
   var $wrapper = $('#wrapper');
   var $hamburgers = $('#main-header .hamburger, #scroll-nav .hamburger');
 
-  $hamburgers.on('click', () => {
+  $hamburgers.on('click', function() {
     var sideNavWidth = $sideNav.outerWidth();
 
     $hamburgers.toggleClass('is-active');
