@@ -10,7 +10,7 @@
     <#assign entryTitle = htmlUtil.escape(entry.getTitle(locale)) />
     <#assign assetSummary = assetRenderer.getSummary(renderRequest, renderResponse) />
     <#assign summary = htmlUtil.extractText(assetSummary) />
-    <#assign assetDate = entry.modifiedDate?datetime />
+    <#assign assetDate = entry.publishDate?datetime />
     <#-- the asset publisher instance ID (UIMfSLnFfMB6) just needs to match what is on the detail rendering page --> 
     <#assign viewURL = "/updates/all/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
     <article>
