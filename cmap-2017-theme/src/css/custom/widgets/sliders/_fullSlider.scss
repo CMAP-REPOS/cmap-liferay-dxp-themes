@@ -1,4 +1,16 @@
 section.full-slider{
+
+  .row{
+    @include section-padding();
+  }
+
+  .slide{
+    position: relative;
+    transition: all 0.4s ease;
+    width: 100%;
+    overflow: hidden;
+  }
+
   .slide-text{
     position: absolute;
     width: 100%;
@@ -9,29 +21,61 @@ section.full-slider{
     justify-content: space-between;
   }
 
-  .row{
-    @include section-padding();
-  }
-
   .slide-top.row{
     padding-top: #{$unit * 2};
     p{
       @extend .presna-large__white;
+    }
+    a{
+      color: $white;
+      border-bottom: 1px solid white;
+      opacity: 1;
+      transition: all 0.2s;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
 
   .slide-bottom.row{
     p{
       @extend .whitney-normal;
+      color: $white;
+      margin-bottom: $unit;
     }
     a{
       color: $white;
+      border-bottom: 1px solid white;
+      opacity: 1;
+      transition: all 0.2s;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
 
   .slide-background{
+    width: 100%;
     img{
       width: 100%;
+    }
+  }
+
+  .slider-nav{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .nav-item{
+      &:after{
+        background: $primary;
+      }
+      &.active{
+        &:after{
+          background: white;
+        }
+      }
     }
   }
 }
