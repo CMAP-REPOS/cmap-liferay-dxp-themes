@@ -79,7 +79,10 @@ function buildSlider(element){
   $(element).append($nav);
 }
 
-$('.full-slider').each(function(){
-  buildSlider(this);
+$(document).ready(function(){
+  $('.full-slider').each(function(){
+    buildSlider(this);
+  });
 });
+
 </script>

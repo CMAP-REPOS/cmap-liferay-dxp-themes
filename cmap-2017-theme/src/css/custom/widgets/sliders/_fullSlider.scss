@@ -39,7 +39,7 @@ section.full-slider{
 
   .slide-bottom.row{
     p{
-      @extend .whitney-normal;
+      @extend .whitney-small__bold;
       color: $white;
       margin-bottom: $unit;
     }

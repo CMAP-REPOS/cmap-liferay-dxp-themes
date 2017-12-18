@@ -4,6 +4,10 @@
 
   .row{
     @include section-padding();
+
+    .col-xl-10{
+      padding: 0 !important;
+    }
   }
 
   .homepage-hero-text{
@@ -25,17 +29,12 @@
     .homepage-hero-description{
       @extend .presna-large;
       color: $almost-white;
-      $size: 0.2em;
-      $blur: 0.2em;
-      $color: $white;
-      $notsize: -0.2em;
-      // text-shadow: $size $size $blur $color, $notsize $size $blur $color, $size $notsize $blur $color, $notsize $notsize $blur $color;
 
       a{
         color: $almost-white;
         opacity: 1;
         transition: all 0.2s;
-        
+
         &:hover{
           opacity: 0.5;
         }
@@ -49,7 +48,6 @@
       position: relative;
       width: 100%;
       max-width: none !important;
-      min-height: 100%;
     }
 
     @include tablet(){
