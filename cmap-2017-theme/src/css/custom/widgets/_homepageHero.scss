@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: $unit * 2 0;
+    padding: #{$unit * 2} 0;
 
 
     .homepage-hero-title{
@@ -21,9 +21,10 @@
       color: $white;
       a{ color: $white; }
     }
+
     .homepage-hero-description{
       @extend .presna-large;
-
+      color: $almost-white;
       $size: 0.2em;
       $blur: 0.2em;
       $color: $white;
@@ -33,7 +34,6 @@
   }
 
   .homepage-hero-background{
-    height: 50vw;
 
     img{
       position: relative;
@@ -43,7 +43,6 @@
     }
 
     @include tablet(){
-      height: 100vw;
       img{
         width: auto;
         height: 100%;
