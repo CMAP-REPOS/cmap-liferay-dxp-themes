@@ -1,5 +1,5 @@
 <div id="side-nav">
-  
+
   <#include "${full_templates_path}/components/logo.ftl" />
 
   <div class="side-nav-links">
@@ -26,7 +26,7 @@
 
   <div class="share-menu">
     <input class="page-url" type="text" value=""/>
-    <div class="addthis_inline_share_toolbox"></div> 
+    <div class="addthis_inline_share_toolbox"></div>
   </div>
 
   <div class="dummy-div"></div>
