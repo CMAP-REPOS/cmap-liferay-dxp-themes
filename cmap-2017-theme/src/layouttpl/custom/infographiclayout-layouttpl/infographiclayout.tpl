@@ -26,12 +26,8 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 
 <div class="infographiclayout" id="main-content" role="main">
 	<div class="portlet-layout row">
-		<div class="col-xl-16 portlet-column portlet-column-only">
+		<div class="portlet-column portlet-column-only" id="column-1">
+		$processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
 		</div>
-	</div>
-	<div class="portlet-layout row">
-		<div class="col-xl-16 portlet-column portlet-column-only"
-			id="column-1">$processor.processColumn("column-1",
-			"portlet-column-content portlet-column-content-only")</div>
 	</div>
 </div>

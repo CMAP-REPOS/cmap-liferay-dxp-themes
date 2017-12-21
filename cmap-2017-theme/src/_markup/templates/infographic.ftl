@@ -1,28 +1,26 @@
 <section class="infographic-content clearfix">
-    <div class="col-xl-14 col-xl-offset-1 col-xs-16 col-xs-offset-0">
+    <div class="">
         <section class="infographic-info ${randomNamespace}chart-info row">
-        <a href="#" class="infographic-info-toggle visible-xs-block"><span class="icon-info-sign"></span> <span class="sr-only">Toggle Chart Info</span></a>
-            <div class="col-xl-14 col-xl-offset-2 col-xs-16 col-xs-offset-0">
-            <div class="centered-main">
-            <div class="main-info">
-                <div class="infographic-title">
-                    ${Title.getData()}
+            <a href="#" class="infographic-info-toggle visible-xs-block"><span class="icon-info-sign"></span> <span class="sr-only">Toggle Chart Info</span></a>
+            <div class="">
+                <div class="main-info col-sm-16 col-sm-offset-0 col-md-10 col-lg-11 col-xl-12 col-xl-offset-1">
+                    <div class="infographic-title">
+                        ${Title.getData()}
+                    </div>
+                    <div class="infographic-description">
+                        ${Info.getData()}
+                    </div>
                 </div>
-                <div class="infographic-description">
-                    ${Info.getData()}
+                <div class="aside-container col-sm-16 col-sm-offset-0 col-md-5 col-lg-4 col-xl-3">
+                    <div class="infographic-aside">
+                        ${Aside.getData()}
+                    </div>
+                    <div class="infographic-source">
+                        ${Source.getData()}
+                    </div>
                 </div>
-            </div>
-                <div class="aside-container col-xl-3 col-xs-12">
-                <div class="infographic-aside">
-                    ${Aside.getData()}
-                </div>
-                <div class="infographic-source">
-                    ${Source.getData()}
-                </div>
-            </div>
-            </div>
                 <#if ChartType.getData() == "area_stacked">
-                <div class="infographic-buttons">
+                <div class="infographic-buttons col-sm-16 col-sm-offset-0 col-xl-15 col-xl-offset-1">
                     <#if ToggledItem.getSiblings()?has_content>
                     	<#list ToggledItem.getSiblings() as cur_ToggledItem>
                     		<button id="infographic-button${cur_ToggledItem?index}" class="infographic-button">
@@ -33,11 +31,9 @@
                     </#if>
                 </div>
                 </#if>
-
             </div>
         </section>
-        
-        
+                
         <#if ChartType.getData() == "donut_chart">
         <div class="donut-flex">
         </#if>
@@ -67,7 +63,8 @@
 </section>
 
 <script type="text/javascript">
-var chartID = '${randomNamespace}chart';
+    /*
+    var chartID = '${randomNamespace}chart';
 	<#if getterUtil.getBoolean(DisableXAxisLabelResizing.getData())>
             var disableXAxisLabelResizing = true;
         <#else>
@@ -79,7 +76,7 @@ var chartID = '${randomNamespace}chart';
         <#else>
             var disableYAxisLabelResizing = false;
         </#if>
-
+    */
 
 AUI().ready(
 
@@ -114,7 +111,6 @@ AUI().ready(
                 disableXAxisLabelResizing: disableXAxisLabelResizing,
             };
             
-
         <#if ChartType.getData() == "area_stacked">
             var chartOptions = {};
             $.extend(options, chartOptions);
@@ -172,7 +168,6 @@ AUI().ready(
         </#if>
 
             infographics.bindEvents();
-            
         });	
 
         $('.infographic-info-toggle').on('click', function(e) {
@@ -180,8 +175,6 @@ AUI().ready(
             $('.main-info').toggleClass('hide-desc');
             $('.aside-container').toggleClass('show');
         });
-        
-
 	}
 );
 
