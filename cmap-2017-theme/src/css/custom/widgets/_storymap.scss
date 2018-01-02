@@ -97,11 +97,11 @@ $icon-nav-right-white: "\e91d";
     }
     .storymap-section {
         font-family: $font-sans;
-        /* position: absolute; */
         top: 0;
         width: 100%;
         z-index: 1000;
         .storymap-info-toggle {
+        	border: none;
             color: $off-white;
             display: none;
             position: absolute;
@@ -151,7 +151,7 @@ $icon-nav-right-white: "\e91d";
             }
             .storymap-nav-list {
                 padding: 0;
-                > li {
+                >li {
                     padding: 0;
                 }
             }
@@ -205,54 +205,12 @@ $icon-nav-right-white: "\e91d";
                 }
             }
         }
-        .layers-menu {
-            .btn {
-                margin-bottom: 10px;
-            }
-            &.menu-show {
-                display: none;
-            }
-        }
-        .view-layers-button {
-            display: none;
-        }
-        .storymap-overlays-container {
-            background: transparent;
-            margin: 0;
-            padding: 1em 0;
-            button {
-                background: rgba(168, 188, 200, .5);
-                border: 2px solid $grey-blue;
-                border-radius: 21px;
-                color: $grey-blue;
-                font-family: $font-sans;
-                font-size: $size-1;
-                font-weight: 600;
-                text-transform: capitalize;
-                &.active {
-                    color: $white;
-                    font-weight: 500;
-                    background: $grey-blue;
-                }
-            }
-            .text-right {
-                margin: 20px 0 0 0;
-            }
-            p {
-                max-width: none;
-            }
-        }
     }
     .scroll-fixed {
         position: fixed!important;
         top: 0;
         width: 100%;
-        z-index: 1000;
-    }
-    .storymap-overlays-container.scroll-fixed {
-        top: 40px;
-        right: 65px;
-        width: 50%;
+        z-index: 2000;
     }
     .story-step-content {
         display: none;
@@ -261,13 +219,37 @@ $icon-nav-right-white: "\e91d";
         background: rgba(168, 188, 200, 0.5);
         display: none;
         padding: 1em;
+        &.leaflet-control {
+            display: block;
+        }
         ul {
             li {
                 @extend .whitney-normal;
             }
         }
+    }
+    .story-map-layer-switcher {
+        display: none;
         &.leaflet-control {
-        	display: block;
+            display: block;
+        }
+        .view-layers-button {
+            @extend .whitney-normal;
+            cursor: pointer;
+            display: none;
+        }
+        .layers-menu {
+            button {
+                @extend .whitney-normal;
+                background: rgba(168, 188, 200, 0.5);
+                border: 2px solid $grey-blue;
+                border-radius: 21px;
+                color: $grey-blue;
+                &.active {
+                    background: $grey-blue;
+                    color: $white;
+                }
+            }
         }
     }
     @include tablet() {
@@ -295,32 +277,13 @@ $icon-nav-right-white: "\e91d";
                     }
                 }
             }
-            .storymap-overlays-container {
-                .text-right {
-                    margin: 0;
-                }
-            }
-            .layers-menu {
-                display: none;
-                button {
-                    clear: right;
-                    display: block;
-                    float: right;
-                    margin: 10px 0 0 0;
-                }
-            }
-            .view-layers-button {
-                cursor: pointer;
-                display: block;
-            }
-            .layers-menu.menu-show {
-                display: flex;
-                flex-direction: column;
-            }
         }
-        .story-interact.scroll-fixed .view-layers-button {
-            margin-right: 15px;
-        }
+
+	    .story-map-layer-switcher {
+	        .view-layers-button {
+	            display: block;
+	        }
+	    }
     }
     @include phone() {
         .storymap-section {
@@ -333,5 +296,10 @@ $icon-nav-right-white: "\e91d";
                 }
             }
         }
+	    .story-map-layer-switcher {
+	        .view-layers-button {
+	            display: block;
+	        }
+	    }
     }
 }

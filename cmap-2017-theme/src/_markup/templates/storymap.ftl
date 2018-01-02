@@ -5,6 +5,13 @@
   </#if>
 </#list>
 
+<#assign overlayLabels = []>
+<#list StoryOverlays.getSiblings() as cur_StoryOverlay>
+  <#if cur_StoryOverlay?? && cur_StoryOverlay.OverlayTitle?? && cur_StoryOverlay.OverlayTitle.getData()?? && cur_StoryOverlay.OverlayTitle.getData() != "">
+    <#assign overlayLabels = overlayLabels + [cur_StoryOverlay.OverlayTitle]>
+  </#if>
+</#list>
+
 <#if legendLabels?size != 0>
 <section class="story-map-legend"> 
     <ul class="list-unstyled">
@@ -14,6 +21,29 @@
     </ul>
 </section>
 </#if>
+
+<#if overlayLabels?size != 0>
+<div class="story-map-layer-switcher text-right">
+    <span class="view-layers-button">
+        <span class="icon-text">View Layers</span>
+        <span class="icon-cmap icon-layers-dark"></span>
+    </span>
+    <div class="layers-menu  sm-hidden  xs-hidden">
+    <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
+    <#assign storyOverlaysIndex = cur_StoryOverlay?index>
+        <#if cur_StoryOverlay.OverlayTitle.getData() != "">
+        <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
+            data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
+            data-file="${cur_StoryOverlay.OverlayFile.getData()}"
+            data-layer-id="overlay_${storyOverlaysIndex}">
+            ${cur_StoryOverlay.OverlayTitle.getData()}
+        </button>
+        </#if>
+    </#list>
+    </div>
+</div> 
+</#if>
+
 <div class="storymap-section">
     <div class="row storymap-intro-container">
         <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
@@ -84,29 +114,6 @@
 </div>
 
 <div id="map-container">
-    <!-- 
-    <div class="storymap-overlays-container">
-        <div class="alignright">
-            <span class="view-layers-button">
-                <span class="icon-text">View Layers</span>
-                <span class="icon-cmap icon-layers-dark"></span>
-            </span>
-            <div class="layers-menu">
-            <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
-            <#assign storyOverlaysIndex = cur_StoryOverlay?index>
-                <#if cur_StoryOverlay.OverlayTitle.getData() != "">
-                <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
-                    data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
-                    data-file="${cur_StoryOverlay.OverlayFile.getData()}"
-                    data-layer-id="overlay_${storyOverlaysIndex}">
-                    ${cur_StoryOverlay.OverlayTitle.getData()}
-                </button>
-                </#if>
-            </#list>
-            </div>
-        </div>
-    </div> 
-    -->
     <div id="${randomNamespace}_map" class="story-map">
     </div>
 </div>
@@ -160,8 +167,24 @@ AUI().ready(
             }
         });
 
+        L.Control.LayerSwitcher = L.Control.extend({
+            onAdd: function(map) {
+                if ($('.story-map-layer-switcher').length) {
+                    return $('.story-map-layer-switcher').get(0);
+                }
+                return null;
+            },
+            onRemove: function(map) {
+                // noop
+            }
+        });
+
         L.control.legend = function(opts) {
             return new L.Control.Legend(opts);
+        }
+
+        L.control.layerSwitcher = function(opts) {
+            return new L.Control.LayerSwitcher(opts);
         }
 
         cmap.storymaps.storyStep = -1;
@@ -248,15 +271,18 @@ AUI().ready(
                 cmap.storymaps.setMarkerState(step);
                 cmap.storymaps.setPanState(step);
                 cmap.storymaps.loadContent(step);
-            } else {
+                cmap.storymaps.scrollToStep();
+           } else {
                 // TODO: default state
             }
         };
 
+        cmap.storymaps.scrollToStep = function () {
+            $('html, body').animate({scrollTop: $('#${randomNamespace}_map').offset().top - $('.story-interact').height()}, 600);
+        };
+
         cmap.storymaps.setPanState = function (step) {
-            // var yOffset = $('.storymap-section').height()/3;
-            var yOffset = 0;
-            cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, yOffset], { animate: true });
+            cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, 0], { animate: true });
         };
 
         cmap.storymaps.setMarkerState = function (step) {
@@ -294,17 +320,10 @@ AUI().ready(
         };
 
         cmap.storymaps.handleScroll = function() {
-
             if ($('#scroll-nav').hasClass('active')) {
                 $('.story-interact').addClass('scroll-fixed');
             } else {
                 $('.story-interact').removeClass('scroll-fixed');
-            }
-
-            if (window.scrollY > $('#${randomNamespace}_map').height()) {
-                $('.storymap-overlays-container').hide();
-            } else {
-                $('.storymap-overlays-container').show();
             }
         };
 
@@ -330,20 +349,12 @@ AUI().ready(
 
             $(window).on('scroll', _.throttle(cmap.storymaps.handleScroll, 200));
 
-            $('.story-step-title, .next-story-step, .previous-story-step').on('click swipeleft swiperight', function () {
-                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
-                $("html, body").animate({ scrollTop: containerOffset }, 600);
-            });
-
             $('.view-map').on('click', function () {
-                
-                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
-                $("html, body").animate({ scrollTop: containerOffset }, 600);
 
                 $('.button_overlay').removeClass('active');
                 var someLayers = cmap.storymaps.layers;
 
-                for (var mapLayer in someLayers) {
+                for (var mapLayer in cmap.storymaps.layers) {
                     cmap.storymaps.removeLayer(cmap.storymaps.layers[mapLayer]);
                 }
 
@@ -383,7 +394,7 @@ AUI().ready(
                     .text(function (i, text) {
                         return text === "View Layers" ? "Hide Layers" : "View Layers";
                     });
-                $('.layers-menu').toggle();
+                $('.layers-menu').toggleClass('sm-hidden xs-hidden');
             });
         };
 
@@ -408,6 +419,9 @@ AUI().ready(
 
             L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
             L.control.legend({ position: 'bottomleft'}).addTo(cmap.storymaps.map);
+            L.control.layerSwitcher({ position: 'topright'}).addTo(cmap.storymaps.map);
+
+            // L.control.layers().addTo(cmap.storymaps.map);
         };
 
         cmap.storymaps.initMap();
