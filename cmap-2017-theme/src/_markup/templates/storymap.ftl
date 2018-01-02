@@ -278,6 +278,7 @@ AUI().ready(
         };
 
         cmap.storymaps.scrollToStep = function () {
+            $('.story-interact').addClass('scroll-fixed');
             $('html, body').animate({scrollTop: $('#${randomNamespace}_map').offset().top - $('.story-interact').height()}, 600);
         };
 
@@ -420,8 +421,6 @@ AUI().ready(
             L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
             L.control.legend({ position: 'bottomleft'}).addTo(cmap.storymaps.map);
             L.control.layerSwitcher({ position: 'topright'}).addTo(cmap.storymaps.map);
-
-            // L.control.layers().addTo(cmap.storymaps.map);
         };
 
         cmap.storymaps.initMap();
