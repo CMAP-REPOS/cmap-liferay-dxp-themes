@@ -7,15 +7,11 @@
 
 <#if legendLabels?size != 0>
 <section class="story-map-legend"> 
-    <div class="row">
-        <div class="col-xl-16">
-            <ul class="list-unstyled list-inline">
-            <#list Legend.getSiblings() as cur_Legend>
-                <li><span><i class="icon-circle" style="color: ${cur_Legend.KeyColor.getData()}"></i> </span>${cur_Legend.KeyLabel.getData()}</li>
-            </#list>
-            </ul>
-        </div>
-    </div>
+    <ul class="list-unstyled">
+    <#list Legend.getSiblings() as cur_Legend>
+        <li><span><i class="icon-circle" style="color: ${cur_Legend.KeyColor.getData()}"></i> </span>${cur_Legend.KeyLabel.getData()}</li>
+    </#list>
+    </ul>
 </section>
 </#if>
 <div class="storymap-section">
@@ -40,12 +36,12 @@
     <div class="row story-interact">
         <div class="storymap-nav-container sm-hidden xs-hidden">
             <div class="col-xl-3">
-            <ul class="list-inline list-unstyled">
+            <ul class="list-inline list-unstyled storymap-nav-list">
                 <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
             </ul>
             </div>
             <div class="col-xl-9 story-steps">
-            <ul class="list-inline list-unstyled">
+            <ul class="list-inline list-unstyled storymap-nav-list">
             <#list StorySteps.getSiblings() as cur_StoryStep>
             <#assign storyStepsIndex = cur_StoryStep?index>
                 <#if cur_StoryStep.StepTitle.getData() != "">
@@ -150,6 +146,22 @@ AUI().ready(
             var y = this.latLngToContainerPoint(latlng).y - offset[1]
             var point = this.containerPointToLatLng([x, y])
             return this.setView(point, 9, { pan: options })
+        }
+
+        L.Control.Legend = L.Control.extend({
+            onAdd: function(map) {
+                if ($('.story-map-legend').length) {
+                    return $('.story-map-legend').get(0);
+                }
+                return null;
+            },
+            onRemove: function(map) {
+                // noop
+            }
+        });
+
+        L.control.legend = function(opts) {
+            return new L.Control.Legend(opts);
         }
 
         cmap.storymaps.storyStep = -1;
@@ -394,7 +406,8 @@ AUI().ready(
                 zoomControl: false
             }).setView([41.8781, -87.6298], 9);
 
-            var styleLayer = L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
+            L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
+            L.control.legend({ position: 'bottomleft'}).addTo(cmap.storymaps.map);
         };
 
         cmap.storymaps.initMap();

@@ -149,6 +149,12 @@ $icon-nav-right-white: "\e91d";
                     opacity: 1;
                 }
             }
+            .storymap-nav-list {
+                padding: 0;
+                > li {
+                    padding: 0;
+                }
+            }
             .story-steps {
                 margin-bottom: 0;
                 max-width: none;
@@ -191,6 +197,7 @@ $icon-nav-right-white: "\e91d";
             }
             .previous-story-step,
             .next-story-step {
+                border: none;
                 color: $white;
                 font-weight: normal;
                 a {
@@ -251,19 +258,16 @@ $icon-nav-right-white: "\e91d";
         display: none;
     }
     .story-map-legend {
-        @include section-padding();
         background: rgba(168, 188, 200, 0.5);
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        z-index: 1000;
-        width: 100%;
+        display: none;
+        padding: 1em;
         ul {
-            padding-bottom: 25px;
-            padding-top: 25px;
             li {
                 @extend .whitney-normal;
             }
+        }
+        &.leaflet-control {
+        	display: block;
         }
     }
     @include tablet() {
