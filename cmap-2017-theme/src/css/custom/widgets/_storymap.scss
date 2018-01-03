@@ -123,14 +123,15 @@ $icon-nav-right-white: "\e91d";
             }
             .storymap-info {
                 color: #000;
-                padding-bottom: 25px;
             }
             .storymap-aside,
             .storymap-source {
                 @extend .whitney-small;
                 color: $grey-blue;
-                padding-bottom: 25px;
             }
+            .storymap-aside {
+                padding-bottom: 25px;
+			}
             .storymap-source {
                 line-height: 1.3em;
             }
