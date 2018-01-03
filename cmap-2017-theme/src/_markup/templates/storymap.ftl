@@ -5,109 +5,116 @@
   </#if>
 </#list>
 
-<div id="map-container">
-    <#if legendLabels?size != 0>
-    <section class="story-map-legend"> 
-        <div class="row">
-            <div class="col-xl-16">
-                <ul class="list-unstyled list-inline">
-                <#list Legend.getSiblings() as cur_Legend>
-                    <li><span><i class="icon-circle" style="color: ${cur_Legend.KeyColor.getData()}"></i> </span>${cur_Legend.KeyLabel.getData()}</li>
-                </#list>
-                </ul>
-            </div>
-        </div>
-    </section>
-    </#if>
-    <div id="${randomNamespace}_map" class="story-map">
+<#assign overlayLabels = []>
+<#list StoryOverlays.getSiblings() as cur_StoryOverlay>
+  <#if cur_StoryOverlay?? && cur_StoryOverlay.OverlayTitle?? && cur_StoryOverlay.OverlayTitle.getData()?? && cur_StoryOverlay.OverlayTitle.getData() != "">
+    <#assign overlayLabels = overlayLabels + [cur_StoryOverlay.OverlayTitle]>
+  </#if>
+</#list>
+
+<#if legendLabels?size != 0>
+<section class="story-map-legend"> 
+    <ul class="list-unstyled">
+    <#list Legend.getSiblings() as cur_Legend>
+        <li><span><i class="icon-circle" style="color: ${cur_Legend.KeyColor.getData()}"></i> </span>${cur_Legend.KeyLabel.getData()}</li>
+    </#list>
+    </ul>
+</section>
+</#if>
+
+<#if overlayLabels?size != 0>
+<div class="story-map-layer-switcher text-right">
+    <span class="view-layers-button">
+        <span class="icon-text">View Layers</span>
+        <span class="icon-cmap icon-layers-dark"></span>
+    </span>
+    <div class="layers-menu  sm-hidden  xs-hidden">
+    <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
+    <#assign storyOverlaysIndex = cur_StoryOverlay?index>
+        <#if cur_StoryOverlay.OverlayTitle.getData() != "">
+        <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
+            data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
+            data-file="${cur_StoryOverlay.OverlayFile.getData()}"
+            data-layer-id="overlay_${storyOverlaysIndex}">
+            ${cur_StoryOverlay.OverlayTitle.getData()}
+        </button>
+        </#if>
+    </#list>
     </div>
-    <div class="storymap-section">
-        <div class="row storymap-intro-container">
-            <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
-                <div class="storymap-title">
-                    ${StoryTitle.getData()}
-                </div>
-                <div class="storymap-info">
-                    ${StoryDescription.getData()}
-                </div>
+</div> 
+</#if>
+
+<div class="storymap-section">
+    <div class="row storymap-intro-container">
+        <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
+            <div class="storymap-title">
+                ${StoryTitle.getData()}
             </div>
-            <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16 col-sm-offset-0">
-                <div class="storymap-aside sm-hidden  xs-hidden">
-                    ${Aside.getData()}
-                </div>
-                <div class="storymap-source sm-hidden xs-hidden">
-                    ${Source.getData()}
-                </div>
+            <div class="storymap-info">
+                ${StoryDescription.getData()}
             </div>
         </div>
-        <div class="row story-interact">
-            <div class="storymap-nav-container sm-hidden xs-hidden">
-                <div class="col-xl-3">
-                <ul class="list-inline list-unstyled">
-                    <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
-                </ul>
-                </div>
-                <div class="col-xl-9 story-steps">
-                <ul class="list-inline list-unstyled">
-                <#list StorySteps.getSiblings() as cur_StoryStep>
-                <#assign storyStepsIndex = cur_StoryStep?index>
-                    <#if cur_StoryStep.StepTitle.getData() != "">
-                    <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
-                        data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
-                        data-step="${cur_StoryStep?index}">
-                        ${cur_StoryStep.StepTitle.getData()}
-                    </li>
-                    </#if>
-                </#list>
-                </ul>
-                </div>
-                <div class="col-xl-4 story-arrows">
-                <ul class="list-inline list-unstyled alignright">
-                    <li>
-                        <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> 
-                        <span class="sr-only">Previous</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> 
-                        <span class="sr-only">Next</span></a>
-                    </li>
-                </ul>
-                </div>
+        <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16 col-sm-offset-0">
+            <div class="storymap-aside sm-hidden  xs-hidden">
+                ${Aside.getData()}
             </div>
-            <div class="storymap-nav-container mobile-storymap-nav">
-                <div class="col-xs-1">
-                    <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></a>
-                </div>
-                <div class="col-xs-14 text-center">
-                    <span class="xs-story-step-title story-step-title story-active"></span>
-                </div>
-                <div class="col-xs-1">
-                    <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
-                </div>
-            </div>
-            <div class="storymap-overlays-container col-xl-14 col-xl-offset-1">
-                <div class="alignright">
-                    <span class="view-layers-button">
-                        <span class="icon-text">View Layers</span>
-                        <span class="icon-cmap icon-layers-dark"></span>
-                    </span>
-                <div class="layers-menu">
-                <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
-                <#assign storyOverlaysIndex = cur_StoryOverlay?index>
-                    <#if cur_StoryOverlay.OverlayTitle.getData() != "">
-                    <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
-                        data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
-                        data-file="${cur_StoryOverlay.OverlayFile.getData()}"
-                        data-layer-id="overlay_${storyOverlaysIndex}">
-                        ${cur_StoryOverlay.OverlayTitle.getData()}
-                    </button>
-                    </#if>
-                </#list>
-                </div>
-                </div>
+            <div class="storymap-source sm-hidden xs-hidden">
+                ${Source.getData()}
             </div>
         </div>
-        <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
+    </div>
+    <div class="row story-interact">
+        <div class="storymap-nav-container sm-hidden xs-hidden">
+            <div class="col-xl-3">
+            <ul class="list-inline list-unstyled storymap-nav-list">
+                <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
+            </ul>
+            </div>
+            <div class="col-xl-9 story-steps">
+            <ul class="list-inline list-unstyled storymap-nav-list">
+            <#list StorySteps.getSiblings() as cur_StoryStep>
+            <#assign storyStepsIndex = cur_StoryStep?index>
+                <#if cur_StoryStep.StepTitle.getData() != "">
+                <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
+                    data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
+                    data-step="${cur_StoryStep?index}">
+                    ${cur_StoryStep.StepTitle.getData()}
+                </li>
+                </#if>
+            </#list>
+            </ul>
+            </div>
+            <div class="col-xl-4 story-arrows">
+            <ul class="list-inline list-unstyled alignright">
+                <li>
+                    <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> 
+                    <span class="sr-only">Previous</span></a>
+                </li>
+                <li>
+                    <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> 
+                    <span class="sr-only">Next</span></a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div class="storymap-nav-container mobile-storymap-nav">
+            <div class="col-xs-1">
+                <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> <span class="sr-only">Previous</span></a>
+            </div>
+            <div class="col-xs-14 text-center">
+                <span class="xs-story-step-title story-step-title story-active"></span>
+            </div>
+            <div class="col-xs-1">
+                <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
+            </div>
+        </div>
+
+    </div>
+    <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
+</div>
+
+<div id="map-container">
+    <div id="${randomNamespace}_map" class="story-map">
     </div>
 </div>
 
@@ -146,6 +153,38 @@ AUI().ready(
             var y = this.latLngToContainerPoint(latlng).y - offset[1]
             var point = this.containerPointToLatLng([x, y])
             return this.setView(point, 9, { pan: options })
+        }
+
+        L.Control.Legend = L.Control.extend({
+            onAdd: function(map) {
+                if ($('.story-map-legend').length) {
+                    return $('.story-map-legend').get(0);
+                }
+                return null;
+            },
+            onRemove: function(map) {
+                // noop
+            }
+        });
+
+        L.Control.LayerSwitcher = L.Control.extend({
+            onAdd: function(map) {
+                if ($('.story-map-layer-switcher').length) {
+                    return $('.story-map-layer-switcher').get(0);
+                }
+                return null;
+            },
+            onRemove: function(map) {
+                // noop
+            }
+        });
+
+        L.control.legend = function(opts) {
+            return new L.Control.Legend(opts);
+        }
+
+        L.control.layerSwitcher = function(opts) {
+            return new L.Control.LayerSwitcher(opts);
         }
 
         cmap.storymaps.storyStep = -1;
@@ -232,14 +271,19 @@ AUI().ready(
                 cmap.storymaps.setMarkerState(step);
                 cmap.storymaps.setPanState(step);
                 cmap.storymaps.loadContent(step);
-            } else {
+                cmap.storymaps.scrollToStep();
+           } else {
                 // TODO: default state
             }
         };
 
+        cmap.storymaps.scrollToStep = function () {
+            $('.story-interact').addClass('scroll-fixed');
+            $('html, body').animate({scrollTop: $('#${randomNamespace}_map').offset().top - $('.story-interact').height()}, 600);
+        };
+
         cmap.storymaps.setPanState = function (step) {
-            var yOffset = $('.storymap-section').height()/3;
-            cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, yOffset], { animate: true });
+            cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, 0], { animate: true });
         };
 
         cmap.storymaps.setMarkerState = function (step) {
@@ -277,17 +321,10 @@ AUI().ready(
         };
 
         cmap.storymaps.handleScroll = function() {
-
             if ($('#scroll-nav').hasClass('active')) {
                 $('.story-interact').addClass('scroll-fixed');
             } else {
                 $('.story-interact').removeClass('scroll-fixed');
-            }
-
-            if (window.scrollY > $('#${randomNamespace}_map').height()) {
-                $('.storymap-overlays-container').hide();
-            } else {
-                $('.storymap-overlays-container').show();
             }
         };
 
@@ -313,20 +350,12 @@ AUI().ready(
 
             $(window).on('scroll', _.throttle(cmap.storymaps.handleScroll, 200));
 
-            $('.story-step-title, .next-story-step, .previous-story-step').on('click swipeleft swiperight', function () {
-                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
-                $("html, body").animate({ scrollTop: containerOffset }, 600);
-            });
-
             $('.view-map').on('click', function () {
-                
-                var containerOffset = $('.storymap-intro-container').outerHeight() + $('#main-header').outerHeight();
-                $("html, body").animate({ scrollTop: containerOffset }, 600);
 
                 $('.button_overlay').removeClass('active');
                 var someLayers = cmap.storymaps.layers;
 
-                for (var mapLayer in someLayers) {
+                for (var mapLayer in cmap.storymaps.layers) {
                     cmap.storymaps.removeLayer(cmap.storymaps.layers[mapLayer]);
                 }
 
@@ -366,13 +395,11 @@ AUI().ready(
                     .text(function (i, text) {
                         return text === "View Layers" ? "Hide Layers" : "View Layers";
                     });
-                $('.layers-menu').toggle();
+                $('.layers-menu').toggleClass('sm-hidden xs-hidden');
             });
         };
 
         cmap.storymaps.initMap = function () {
-
-            $('#map-container').height($('.storymap-section').height()+400);
 
             <#if styleUrl?? && styleUrl.getData()?? && styleUrl.getData() != "">
             var url = "${styleUrl.getData()}";
@@ -388,9 +415,12 @@ AUI().ready(
                 minZoom: 8,
                 attributionControl: false,
                 infoControl: true,
+                zoomControl: false
             }).setView([41.8781, -87.6298], 9);
 
-            var styleLayer = L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
+            L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
+            L.control.legend({ position: 'bottomleft'}).addTo(cmap.storymaps.map);
+            L.control.layerSwitcher({ position: 'topright'}).addTo(cmap.storymaps.map);
         };
 
         cmap.storymaps.initMap();
