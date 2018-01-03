@@ -28,7 +28,7 @@
         <span class="icon-text">View Layers</span>
         <span class="icon-cmap icon-layers-dark"></span>
     </span>
-    <div class="layers-menu  sm-hidden  xs-hidden">
+    <div class="layers-menu">
     <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
     <#assign storyOverlaysIndex = cur_StoryOverlay?index>
         <#if cur_StoryOverlay.OverlayTitle.getData() != "">
@@ -46,7 +46,7 @@
 
 <div class="storymap-section">
     <div class="row storymap-intro-container">
-        <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 title-block">
+        <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 col-sm-offset-0 title-block">
             <div class="storymap-title">
                 ${StoryTitle.getData()}
             </div>
@@ -55,16 +55,16 @@
             </div>
         </div>
         <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16 col-sm-offset-0">
-            <div class="storymap-aside sm-hidden  xs-hidden">
+            <div class="storymap-aside">
                 ${Aside.getData()}
             </div>
-            <div class="storymap-source sm-hidden xs-hidden">
+            <div class="storymap-source">
                 ${Source.getData()}
             </div>
         </div>
     </div>
     <div class="row story-interact">
-        <div class="storymap-nav-container sm-hidden xs-hidden">
+        <div class="storymap-nav-container">
             <div class="col-xl-3">
             <ul class="list-inline list-unstyled storymap-nav-list">
                 <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
@@ -160,7 +160,7 @@ AUI().ready(
                 if ($('.story-map-legend').length) {
                     return $('.story-map-legend').get(0);
                 }
-                return null;
+                return L.DomUtil.create('span');
             },
             onRemove: function(map) {
                 // noop
@@ -172,7 +172,7 @@ AUI().ready(
                 if ($('.story-map-layer-switcher').length) {
                     return $('.story-map-layer-switcher').get(0);
                 }
-                return null;
+                return L.DomUtil.create('span');
             },
             onRemove: function(map) {
                 // noop
@@ -193,23 +193,23 @@ AUI().ready(
         cmap.storymaps.storySteps = [];
         cmap.storymaps.storyOverlays = [];
 
-        <#list StorySteps.getSiblings() as cur_StoryStep >
-            <#assign storyStepsIndex = cur_StoryStep ? index >
-            <#if cur_StoryStep.StepTitle.getData() != "" >
-            var markers = [];
-            <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
-            markers.push({
-                coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
-                label: '${cur_Coords.StepMarkerLabel.getData()}'
-            });
-            </#list >
-
-            cmap.storymaps.storySteps.push({
-                stepTitle: '${cur_StoryStep.StepTitle.getData()}',
-                stepMarkers: markers
-            });
-            </#if>
+    <#list StorySteps.getSiblings() as cur_StoryStep >
+        <#assign storyStepsIndex = cur_StoryStep ? index >
+        <#if cur_StoryStep.StepTitle.getData() != "" >
+        var markers = [];
+        <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
+        markers.push({
+            coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
+            label: '${cur_Coords.StepMarkerLabel.getData()}'
+        });
         </#list >
+
+        cmap.storymaps.storySteps.push({
+            stepTitle: '${cur_StoryStep.StepTitle.getData()}',
+            stepMarkers: markers
+        });
+        </#if>
+    </#list >
 
         cmap.storymaps.loadContent = function(step) {
 
@@ -328,6 +328,14 @@ AUI().ready(
             }
         };
 
+        cmap.storymaps.handleResize = function() {
+            // magic number from _variables.scss
+            // $breakpoint-tablet: 750px;
+            if ($(window).width() >= 750) {
+                $('.title-block, .storymap-aside, .storymap-source, .layers-menu').show();
+            }
+        };
+
         cmap.storymaps.bindEvents = function () {
 
             $('.previous-story-step').on('click', function (e) {
@@ -349,6 +357,8 @@ AUI().ready(
             });
 
             $(window).on('scroll', _.throttle(cmap.storymaps.handleScroll, 200));
+
+            $(window).on('resize', _.throttle(cmap.storymaps.handleResize, 200));
 
             $('.view-map').on('click', function () {
 
@@ -386,8 +396,7 @@ AUI().ready(
 
             $('.storymap-info-toggle').on('click', function (e) {
                 e.preventDefault();
-                $('.title-block').toggle();
-                $('.storymap-aside, .storymap-source').toggleClass('xs-hidden sm-hidden');
+                $('.title-block, .storymap-aside, .storymap-source').toggle();
             });
 
             $('.view-layers-button').on("click", function (e) {
@@ -395,7 +404,7 @@ AUI().ready(
                     .text(function (i, text) {
                         return text === "View Layers" ? "Hide Layers" : "View Layers";
                     });
-                $('.layers-menu').toggleClass('sm-hidden xs-hidden');
+                $('.layers-menu').toggle();
             });
         };
 

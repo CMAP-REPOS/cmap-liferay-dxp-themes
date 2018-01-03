@@ -258,6 +258,12 @@ $icon-nav-right-white: "\e91d";
                 padding-bottom: 25px;
                 padding-top: 25px;
             }
+            .storymap-aside {
+            	display: none;
+            }
+            .storymap-source {
+            	display: none;
+            }
             .storymap-info-toggle {
                 display: block;
             }
@@ -283,22 +289,30 @@ $icon-nav-right-white: "\e91d";
 	        .view-layers-button {
 	            display: block;
 	        }
+	        .layers-menu {
+	        	display: none;
+	        }
 	    }
     }
     @include phone() {
-        .storymap-section {
+		.storymap-section {
             .storymap-intro-container {
                 padding-bottom: 25px;
                 padding-top: 25px;
-                .storymap-title,
-                .storymap-info {
-                    padding-left: 1em;
-                }
+            }
+            .storymap-aside {
+            	display: none;
+            }
+            .storymap-source {
+            	display: none;
             }
         }
 	    .story-map-layer-switcher {
 	        .view-layers-button {
 	            display: block;
+	        }
+	        .layers-menu {
+	        	display: none;
 	        }
 	    }
     }
