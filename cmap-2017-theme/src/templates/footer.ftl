@@ -15,7 +15,7 @@
         <a href="/about/careers" role="menuitem"> <span role="presentation">Careers</span> </a>
         <a href="/sitemap" role="menuitem"> <span role="presentation">Sitemap</span> </a>
         <a href="/contact" role="menuitem"> <span role="presentation">Contact Us</span> </a>
-        <span class="copyright" role="presentation"> © CMAP 2017 </span>
+        <span class="copyright" role="presentation"> © CMAP ${.now?string('yyyy')} </span>
       </div>
 
       <div class="col-xl-3 col-md-8 footer-social-links" aria-label="Links to social media websites">
