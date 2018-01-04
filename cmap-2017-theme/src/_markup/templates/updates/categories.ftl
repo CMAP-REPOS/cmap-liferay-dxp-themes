@@ -33,7 +33,7 @@
 <script type="text/javascript">
 
 Liferay.on('allPortletsReady', function() {
-    
+        
 	function capitalize(string) {
 	  return string.charAt(0).toUpperCase() + string.slice(1);
 	}
@@ -73,7 +73,6 @@ Liferay.on('allPortletsReady', function() {
 	if($gross_layout.length){
 		$('#layout-column_column-1').append($gross_layout.remove());
 		$gross_layout.find('.page-nav-container').remove();
-		$gross_layout.find('.page-date').remove();
 	}
 
 	var $asset_preview = $('.asset-content');
