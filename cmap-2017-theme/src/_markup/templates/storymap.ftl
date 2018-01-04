@@ -46,15 +46,7 @@
 
 <div class="storymap-section">
     <div class="row storymap-intro-container">
-        <div class="col-xl-9 col-xl-offset-3 col-lg-8 col-md-10 col-md-offset-0 col-sm-16 col-sm-offset-0 title-block">
-            <div class="storymap-title">
-                ${StoryTitle.getData()}
-            </div>
-            <div class="storymap-info">
-                ${StoryDescription.getData()}
-            </div>
-        </div>
-        <div class="col-xl-3 col-xl-offset-1 col-lg-4 col-md-5 col-md-offset-1 col-sm-16 col-sm-offset-0">
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-16">
             <div class="storymap-aside">
                 ${Aside.getData()}
             </div>
@@ -62,16 +54,24 @@
                 ${Source.getData()}
             </div>
         </div>
+        <div class="col-xl-9 col-lg-12 col-md-12 col-sm-16 title-block">
+            <div class="storymap-title">
+                ${StoryTitle.getData()}
+            </div>
+            <div class="storymap-info">
+                ${StoryDescription.getData()}
+            </div>
+        </div>
     </div>
     <div class="row story-interact">
         <div class="storymap-nav-container">
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-lg-4 col-md-4">
             <ul class="list-inline list-unstyled storymap-nav-list">
-                <li><button class="view-map"><span class="icon icon-map-marker"></span> <span class="md-hidden">View</span> Map</button></li>
+                <li><button class="view-map"><span class="icon icon-map-marker"></span> View Map</button></li>
             </ul>
             </div>
-            <div class="col-xl-9 story-steps">
-            <ul class="list-inline list-unstyled storymap-nav-list">
+            <div class="col-xl-9 col-lg-12 col-md-12 story-steps">
+            <ul class="list-inline list-unstyled storymap-nav-list pull-left">
             <#list StorySteps.getSiblings() as cur_StoryStep>
             <#assign storyStepsIndex = cur_StoryStep?index>
                 <#if cur_StoryStep.StepTitle.getData() != "">
@@ -83,9 +83,7 @@
                 </#if>
             </#list>
             </ul>
-            </div>
-            <div class="col-xl-4 story-arrows">
-            <ul class="list-inline list-unstyled alignright">
+            <ul class="list-inline list-unstyled pull-right">
                 <li>
                     <a href="#" class="previous-story-step"><span class="icon-cmap icon-nav-left-white"></span> 
                     <span class="sr-only">Previous</span></a>
@@ -193,23 +191,23 @@ AUI().ready(
         cmap.storymaps.storySteps = [];
         cmap.storymaps.storyOverlays = [];
 
-    <#list StorySteps.getSiblings() as cur_StoryStep >
-        <#assign storyStepsIndex = cur_StoryStep ? index >
-        <#if cur_StoryStep.StepTitle.getData() != "" >
-        var markers = [];
-        <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
-        markers.push({
-            coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
-            label: '${cur_Coords.StepMarkerLabel.getData()}'
-        });
-        </#list >
+        <#list StorySteps.getSiblings() as cur_StoryStep >
+            <#assign storyStepsIndex = cur_StoryStep ? index >
+            <#if cur_StoryStep.StepTitle.getData() != "" >
+            var markers = [];
+            <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
+            markers.push({
+                coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
+                label: '${cur_Coords.StepMarkerLabel.getData()}'
+            });
+            </#list >
 
-        cmap.storymaps.storySteps.push({
-            stepTitle: '${cur_StoryStep.StepTitle.getData()}',
-            stepMarkers: markers
-        });
-        </#if>
-    </#list >
+            cmap.storymaps.storySteps.push({
+                stepTitle: '${cur_StoryStep.StepTitle.getData()}',
+                stepMarkers: markers
+            });
+            </#if>
+        </#list >
 
         cmap.storymaps.loadContent = function(step) {
 
