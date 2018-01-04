@@ -67,7 +67,7 @@ $icon-nav-right-white: "\e91d";
     /* make storymap flush with breadcrumbs */
     margin-top: $unit * -2;
     #map-container {
-        height: 800px;
+        height: 600px;
         position: relative;
     }
     /* make full-width content possible */
@@ -113,12 +113,12 @@ $icon-nav-right-white: "\e91d";
             @include section-padding();
             background: #a8bcc8;
             margin: 0;
-            padding-bottom: 50px;
-            padding-top: 50px;
+            padding-bottom: 25px;
+            padding-top: 25px;
             .storymap-title {
                 p {
                     @extend .whitney-huge;
-                    color: #000;
+                    color: $white;
                 }
             }
             .storymap-info {
@@ -153,6 +153,7 @@ $icon-nav-right-white: "\e91d";
             .storymap-nav-list {
                 padding: 0;
                 >li {
+	                list-style: none;
                     padding: 0;
                 }
             }
@@ -176,7 +177,7 @@ $icon-nav-right-white: "\e91d";
                 }
             }
             .view-map {
-                @extend .whitney-normal;
+                @extend .whitney-small;
                 color: $off-white;
                 cursor: pointer;
                 background: none;
@@ -226,6 +227,7 @@ $icon-nav-right-white: "\e91d";
         ul {
             li {
                 @extend .whitney-normal;
+                list-style: none;
             }
         }
     }
@@ -254,12 +256,12 @@ $icon-nav-right-white: "\e91d";
         }
     }
     @include tablet() {
-        .storymap-section {
-            .storymap-intro-container {
-                padding-bottom: 25px;
-                padding-top: 25px;
+		.storymap-section {
+	        .storymap-intro-container {
+	            padding-bottom: 25px;
+	            padding-top: 25px;
             }
-            .storymap-aside {
+			.storymap-aside {
             	display: none;
             }
             .storymap-source {
@@ -296,10 +298,13 @@ $icon-nav-right-white: "\e91d";
 	    }
     }
     @include phone() {
+	    #map-container {
+	        height: 400px;
+	    }
 		.storymap-section {
-            .storymap-intro-container {
-                padding-bottom: 25px;
-                padding-top: 25px;
+	        .storymap-intro-container {
+	            padding-bottom: 25px;
+	            padding-top: 25px;
             }
             .storymap-aside {
             	display: none;
