@@ -38,39 +38,6 @@ $icon-paragraph-light_1: "\e921";
 $icon-paragraph-white: "\e922";
 $icon-share-light: "\e923";
 $icon-share-white: "\e924";
-//resetting padding to 0. not sure if this is a temp fix or not
-//grid is more than slightly borked because of padding
-/* #main-content.infographiclayout {
-    .portlet-content {
-        padding: 0;
-    }
-    @media screen and (max-width: 750px) {
-        #main-content .portlet-content {
-            padding: 0;
-        }
-    }
-    @media screen and (max-width: 400px) {
-        #main-content .portlet-content {
-            padding: 0;
-        }
-    }
-    .col-xs-16,
-    .col-sm-16,
-    .col-md-16,
-    .col-lg-16,
-    .col-xl-16 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    .col-md-16.portlet-column,
-    .col-lg-16.portlet-column,
-    .col-xl-16.portlet-column,
-    .col-sm-16.portlet-column,
-    .col-xs-16.portlet-column {
-        padding: 0 !important;
-    }
-} */
-
 @font-face {
     font-family: 'cmap_icons';
     src: url('../fonts/cmap_icons.eot');
@@ -206,61 +173,41 @@ $icon-share-white: "\e924";
     }
 }
 
-/* trying to stay with columns, not succeeding with grid content classes overriding these
-.infographic-content {
-    .centered-main {
-        display: flex;
-        justify-content: space-between;
-    }
-    .main-info {
-        width: 60%;
-    }
-} */
-
 .infographiclayout {
-    .infographic-info-toggle {
-        color: $grey-blue;
-        position: absolute;
-        right: 1em;
-        top: 1em;
-        z-index: 200;
-    }
+    /* make storymap flush with breadcrumbs */
+    margin-top: $unit * -2;
     .infographic-content {
-      @include section-padding();
-      background-color: #a8bcc8;
-      margin: 0;
-    }
-    .infographic-info {
-        .infographic-aside {
-            color: $grey-blue; // font-size: 12px;
-            font-size: #{ $size-1 - 0.1em };
-            line-height: 1.5em;
-            margin-bottom: 2em;
-        }
-        .infographic-description {
-            font-family: $font-serif; // font-size: 15px;
-            font-size: #{ $size0 - 0.2em };
-            line-height: 1.5em;
-            margin-bottom: 2em;
-            a {
+        @include section-padding();
+        background-color: #a8bcc8;
+        margin: 0;
+        position: relative;
+        .infographic-info {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            .infographic-aside,
+            .infographic-source {
+                @extend .whitney-small;
                 color: $grey-blue;
+                p {
+                    font-family: $font-sans;
+                }
             }
-        }
-        .infographic-source {
-            color: $grey-blue; // font-size: 9px;
-            //same as aside now
-            font-size: #{ $size-1 - 0.1em };
-            line-height: 1.3em;
-            margin-bottom: 2em;
-        }
-        .infographic-source p,
-        .infographic-aside p {
-            font-family: $font-sans;
-        }
-        .infographic-title p {
-            color: #000; // font-size: 26px;
-            font-size: $size1;
-            font-family: $font-sans;
+            .infographic-title {
+                @extend .whitney-huge;
+                color: $white;
+                p {
+                    font-family: $font-sans;
+                }
+            }
+            .infographic-description {
+                a {
+                    color: $grey-blue;
+                }
+            }
+            .infographic-info-toggle {
+                border: none;
+                display: none;
+            }
         }
     }
     .infographic-chart {
@@ -277,10 +224,6 @@ $icon-share-white: "\e924";
         }
         path {
             fill: none;
-        }
-        svg {
-            //13
-            font: $size-2 $font-sans;
         }
         text {
             fill: $off-white;
@@ -317,8 +260,8 @@ $icon-share-white: "\e924";
             }
         }
         .c3-tooltip-container {
+            @extend .whitney-small;
             .c3-tooltip {
-                font-size: $size-1;
                 table,
                 td {
                     border-color: 1px solid #c9d5dd;
@@ -328,13 +271,12 @@ $icon-share-white: "\e924";
                 }
                 th {
                     background-color: #3c5976;
-                    color: #FFF;
+                    color: $white;
                     padding-left: 5px;
                 }
             }
             #Tooltip {
                 background: $white;
-                font-size: 13px;
                 padding: 0.5em 0.5em 0.5em 1em;
                 position: relative;
                 width: 150px;
@@ -384,7 +326,6 @@ $icon-share-white: "\e924";
             }
             .c3-chart-arcs-title {
                 color: $grey-blue;
-                font-size: 22px;
             }
         }
         &.bar_chart_stacked {
@@ -395,10 +336,11 @@ $icon-share-white: "\e924";
     }
     .infographic-legend {
         padding: 1em 0;
+        text-align: center;
         li {
+            @extend .whitney-small;
             color: $white;
-            cursor: pointer; // font-size: 13px;
-            font-size: $size-1;
+            cursor: pointer;
             margin-right: 1em;
             text-transform: capitalize;
         }
@@ -413,10 +355,7 @@ $icon-share-white: "\e924";
             border: 2px solid $grey-blue;
             border-radius: 21px;
             color: $grey-blue;
-            cursor: pointer; // font-size: 12;
-            font-size: $size0;
-            font-family: $font-sans;
-            font-weight: 600;
+            cursor: pointer;
             text-transform: capitalize;
             height: 45px;
             letter-spacing: 0.05em;
@@ -445,80 +384,63 @@ $icon-share-white: "\e924";
             span:first-of-type {
                 vertical-align: sub;
             }
-            .icon {
-                font-size: $size1;
-            }
         }
     }
-    .icon-info-white {
-        color: $grey-blue;
-        cursor: pointer;
-        opacity: 0.5;
-    }
-    .donut-flex {
-        @include flex;
-        @include flex_space_between;
-        max-width: 1200px;
-        margin: 0 auto;
-        .infographic-legend {
-            margin-left: -15%;
-            z-index: 100;
-            ul {
-                li {
-                    border-top: 1px solid $white;
-                    display: block;
-                    padding: 1em 0;
-                    text-align: left;
-                    &:last-of-type {
-                        border-bottom: 1px solid $white;
-                    }
-                }
-            }
-        }
-    }
-    .side-narratives {
-        display: none;
+}
+
+@include tablet() {
+    .infographiclayout {
+    	.infographic-content {
+	        .infographic-info {
+	            .aside-container {
+	                display: none;
+	            }
+	            .main-info {
+	                display: block;
+	            }
+	            .infographic-info-toggle {
+	                color: $grey-blue;
+	                display: block;
+	                position: absolute;
+	                right: 0;
+	                top: 25px;
+	                z-index: 200;
+	            }
+	        }
+    	}
     }
 }
 
 @include phone() {
     .infographiclayout {
         .infographic-content {
-            .main-info {
-                width: 87%;
-                &.hide-desc {
+            .infographic-info {
+                padding-top: 25px;
+                .aside-container {
                     display: none;
                 }
-            }
-        }
-        .infographic-info {
-            padding-left: 10px;
-            .infographic-description {
-                font-size: $size0;
-            }
-            .aside-container {
-                display: none;
-                &.show {
+                .main-info {
                     display: block;
                 }
+                .infographic-info-toggle {
+                    color: $grey-blue;
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 25px;
+                    z-index: 200;
+                }
             }
-            .infographic-aside,
-            .infographic-source {
-                font-size: $size0;
-            }
-        }
-        .infographic-buttons {
-            .pair-icons {
-                margin-left: 10px;
-                .icon-paragraphh-white {
-                    display: none;
+            .infographic-buttons {
+                .pair-icons {
+                    margin-left: 10px;
+                    .icon-paragraphh-white {
+                        display: none;
+                    }
                 }
             }
         }
         .infographic-chart {
-            svg {
-                font: $size-1 $font-sans;
-            }
             .c3-axis-x-label,
             .c3-axis-y-label {
                 display: none;
@@ -567,7 +489,6 @@ $icon-share-white: "\e924";
                     display: block;
                     padding: .5em 0;
                     text-align: left;
-                    font-size: $size0;
                     &:last-of-type {
                         border-bottom: none;
                     }
@@ -578,7 +499,6 @@ $icon-share-white: "\e924";
                 flex-direction: column;
                 justify-content: space-between;
                 color: $grey-blue;
-                font-size: $size1;
                 margin-right: 10px;
                 .activated {
                     color: #FFF;
@@ -593,25 +513,6 @@ $icon-share-white: "\e924";
             div {
                 display: none;
                 color: #FFF;
-            }
-        }
-        .donut-flex {
-            @include flex_space_normal;
-            flex-direction: column;
-            max-width: 1200px;
-            margin: 0 auto;
-            .infographic-legend {
-                margin-left: 0;
-                ul {
-                    li {
-                        border-top: none;
-                        color: $grey-blue;
-                        padding: .5em 0;
-                        &:last-of-type {
-                            border-bottom: none;
-                        }
-                    }
-                }
             }
         }
     }
