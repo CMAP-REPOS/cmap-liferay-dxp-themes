@@ -220,13 +220,14 @@ $icon-nav-right-white: "\e91d";
     .story-map-legend {
         background: rgba(168, 188, 200, 0.5);
         display: none;
-        padding: 1em;
+        padding: 1em 1em 1em 0;
         &.leaflet-control {
             display: block;
         }
         ul {
             li {
-                @extend .whitney-normal;
+                @extend .whitney-large;
+                line-height: 1.5;
                 list-style: none;
             }
         }
@@ -287,7 +288,13 @@ $icon-nav-right-white: "\e91d";
                 }
             }
         }
-
+		.story-map-legend {
+	        ul {
+	            li {
+	                font-size: $size0;
+	            }
+	        }
+	    }
 	    .story-map-layer-switcher {
 	        .view-layers-button {
 	            display: block;
@@ -313,6 +320,13 @@ $icon-nav-right-white: "\e91d";
             	display: none;
             }
         }
+		.story-map-legend {
+	        ul {
+	            li {
+	                font-size: $size0;
+	            }
+	        }
+	    }
 	    .story-map-layer-switcher {
 	        .view-layers-button {
 	            display: block;
