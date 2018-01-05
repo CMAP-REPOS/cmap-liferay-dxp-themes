@@ -349,22 +349,16 @@ $icon-share-white: "\e924";
         }
     }
     .infographic-buttons {
-        padding: 1em 0;
+        padding: 25px 0;
         button {
             background: transparent;
             border: 2px solid $grey-blue;
             border-radius: 21px;
             color: $grey-blue;
             cursor: pointer;
-            text-transform: capitalize;
             height: 45px;
             letter-spacing: 0.05em;
-            line-height: 1.5em;
-            padding: 0 10px 0 10px;
-            width: 190px;
-            &:not(:last-of-type) {
-                margin-bottom: 10px;
-            }
+            padding: 0 20px;
             &:hover,
             &.on {
                 background: $grey-blue;
@@ -378,13 +372,10 @@ $icon-share-white: "\e924";
                     visibility: hidden;
                 }
             }
-            span {
-                vertical-align: middle;
-            }
-            span:first-of-type {
-                vertical-align: sub;
-            }
         }
+    }
+    .side-narratives {
+    	display: none;
     }
 }
 
@@ -408,6 +399,10 @@ $icon-share-white: "\e924";
 	            }
 	        }
     	}
+	    .infographic-buttons {
+	        button {
+	        }
+	    }
     }
 }
 
@@ -432,12 +427,17 @@ $icon-share-white: "\e924";
                 }
             }
             .infographic-buttons {
-                .pair-icons {
-                    margin-left: 10px;
-                    .icon-paragraphh-white {
-                        display: none;
-                    }
-                }
+            	padding: 0;
+		        button {
+		        	display: block;
+		        	margin-top: 1em;
+	                .pair-icons {
+	                    margin-left: 10px;
+	                    .icon-paragraphh-white {
+	                        display: none;
+	                    }
+	                }
+		        }
             }
         }
         .infographic-chart {
@@ -503,16 +503,6 @@ $icon-share-white: "\e924";
                 .activated {
                     color: #FFF;
                 }
-            }
-        }
-        .side-narratives {
-            display: block;
-            &.open {
-                margin-top: -50px;
-            }
-            div {
-                display: none;
-                color: #FFF;
             }
         }
     }
