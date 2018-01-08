@@ -69,7 +69,6 @@ $icon-share-white: "\e924";
         content: $icon-close-light;
     }
     .icon-close-white:before {
-        // content: $icon-close-white;
         content: '\e903';
     }
     .icon-info-dark:before {
@@ -191,6 +190,12 @@ $icon-share-white: "\e924";
                 p {
                     font-family: $font-sans;
                 }
+            }
+            .main-info {
+	            .infographic-aside,
+	            .infographic-source {
+	            	display: none;
+	            }
             }
             .infographic-title {
                 @extend .whitney-huge;
@@ -363,14 +368,6 @@ $icon-share-white: "\e924";
             &.on {
                 background: $grey-blue;
                 color: $white;
-                .pair-icons {
-                    visibility: visible;
-                }
-            }
-            &:not(.on) {
-                .pair-icons {
-                    visibility: hidden;
-                }
             }
         }
     }
@@ -388,6 +385,10 @@ $icon-share-white: "\e924";
 	            }
 	            .main-info {
 	                display: block;
+                    .infographic-aside,
+                    .infographic-source {
+                    	display: none;
+                    }
 	            }
 	            .infographic-info-toggle {
 	                color: $grey-blue;
@@ -398,11 +399,19 @@ $icon-share-white: "\e924";
 	                z-index: 200;
 	            }
 	        }
-    	}
-	    .infographic-buttons {
-	        button {
+	        .infographic-chart {
+	        	.side-narrative {
+	        		font-size: $size-1;
+	        	}
 	        }
-	    }
+    	}
+		.infographic-buttons {
+        	padding: 0;
+			button {
+				display: block;
+				margin-top: 1em;
+			}
+		}
     }
 }
 
@@ -416,6 +425,10 @@ $icon-share-white: "\e924";
                 }
                 .main-info {
                     display: block;
+                    .infographic-aside,
+                    .infographic-source {
+                    	display: none;
+                    }
                 }
                 .infographic-info-toggle {
                     color: $grey-blue;
@@ -431,17 +444,14 @@ $icon-share-white: "\e924";
 		        button {
 		        	display: block;
 		        	margin-top: 1em;
-	                .pair-icons {
-	                    margin-left: 10px;
-	                    .icon-paragraphh-white {
-	                        display: none;
-	                    }
-	                }
 		        }
             }
         }
         .infographic-chart {
-            .c3-axis-x-label,
+        	.side-narrative {
+        		font-size: $size-1;
+        	}
+			.c3-axis-x-label,
             .c3-axis-y-label {
                 display: none;
             }

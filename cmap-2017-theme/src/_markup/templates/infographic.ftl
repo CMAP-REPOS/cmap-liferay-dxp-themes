@@ -16,13 +16,19 @@
             <div class="infographic-description">
                 ${Info.getData()}
             </div>
+            <div class="infographic-aside">
+                ${Aside.getData()}
+            </div>
+            <div class="infographic-source">
+                ${Source.getData()}
+            </div>
             <#if ChartType.getData() == "area_stacked">
             <div class="infographic-buttons">
                 <#if ToggledItem.getSiblings()?has_content>
                     <#list ToggledItem.getSiblings() as cur_ToggledItem>
                         <button id="infographic-button${cur_ToggledItem?index}" class="infographic-button">
                             <span>${cur_ToggledItem.ToggledItemLabel.getData()}</span>
-                            <span class="pair-icons"> <span class="icon icon-paragraphh-white"></span> <span class="icon icon-close-white"></span> </span>
+                            <span class="pair-icons"> <span class="icon icon-paragraph-white"></span> <span class="icon icon-close-white"></span> </span>
                         </button>
                     </#list>
                 </#if>
@@ -42,7 +48,7 @@
                 <div class="legend-data col-xl-16">
                 </div>
                 <#--  <div class="mobile-legend-icons">
-                    <span class="icon icon-paragraphh-white"></span><span class="icon icon-key-white activated"></span>
+                    <span class="icon icon-paragraph-white"></span><span class="icon icon-key-white activated"></span>
                 </div>  -->
             </section>
         </div>
@@ -54,7 +60,7 @@
         <div class="legend-data col-xl-16">
         </div>
         <#--  <div class="mobile-legend-icons">
-            <span class="icon icon-paragraphh-white"></span><span class="icon icon-key-white activated"></span>
+            <span class="icon icon-paragraph-white"></span><span class="icon icon-key-white activated"></span>
         </div>  -->
     </section>
     </#if>
@@ -164,8 +170,8 @@
 
             $('.infographic-info-toggle').on('click', function(e) {
                 e.preventDefault();
-                $('.main-info').toggle();
-                $('.aside-container').toggle();
+                $('.infographic-description').toggle();
+                $('.main-info .infographic-aside, .main-info .infographic-source').toggle();
             });
         }
     );

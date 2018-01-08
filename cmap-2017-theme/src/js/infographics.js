@@ -92,6 +92,7 @@
 		}
 		return dataClasses;
 	}
+
 	function applyFade(dataClasses, index) {
 		var toFade;
 		// d3 always returns an array with a length of 1.
@@ -117,6 +118,25 @@
 			d3.select(toFade).classed('c3-defocused', true);
 		}
 	}
+
+	function showSideNarrative(index) {
+		if (index) {
+			var html = $('#side-narrative' + index).html();
+			if (!$('.side-narrative').length) {
+				$('.infographic-chart').append('<div class="side-narrative"></div>');
+			}
+			$('.side-narrative').html(html);
+		}
+		hideSideNarrative();
+		$('.side-narrative').show();
+	}
+
+	function hideSideNarrative() {
+		if ($('.side-narrative').length) {
+			$('.side-narrative').hide();
+		}
+	}
+
 	function resizeAxisLabels(options) {
 		if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
 			var yChildren = d3.select('#' + options.chartId + ' g.c3-axis-y').selectAll('.tick text');
@@ -136,6 +156,7 @@
 			}
 		}
 	}
+
 	function generateLegend(options) {
 		var d = options.d;
 		var legendData = d3.keys(d[0]).splice(1);
@@ -173,7 +194,7 @@
 					});
 				}
 				// TODO media query
-				if ($(window).width() > 420) {
+				if (!isMobile()) {
 					options.chart.api.focus(id);
 					var childButtons = $('.button-container').children();
 					if (childButtons.hasClass('on')) {
@@ -187,7 +208,7 @@
 			})
 			.on('click', function (id) {
 				// TODO media query
-				if ($(window).width() < 420) {
+				if (isMobile()) {
 					$(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
 					$(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
 					options.chart.api.focus(id);
@@ -290,7 +311,7 @@
 					});
 				}
 			});
-			$(window).on('scroll', _.throttle(function(){
+			$(window).on('scroll', _.throttle(function () {
 				chart.flush();
 			}, 200));
 		},
@@ -365,7 +386,7 @@
 					});
 				}
 			});
-			$(window).on('scroll', _.throttle(function(){
+			$(window).on('scroll', _.throttle(function () {
 				chart.flush();
 			}, 200));
 		},
@@ -472,7 +493,7 @@
 					});
 				}
 			});
-			$(window).on('scroll', _.throttle(function(){
+			$(window).on('scroll', _.throttle(function () {
 				chart.flush();
 			}, 200));
 		},
@@ -525,7 +546,7 @@
 					});
 				}
 			});
-			$(window).on('scroll', _.throttle(function(){
+			$(window).on('scroll', _.throttle(function () {
 				chart.flush();
 			}, 200));
 		},
@@ -630,36 +651,14 @@
 					});
 				}
 			});
-			$(window).on('scroll', _.throttle(function(){
+			$(window).on('scroll', _.throttle(function () {
 				chart.flush();
 			}, 200));
 		},
-		bindDonutLegendEvents: function (options) {
-			// console.log('infographics.bindDonutLegendEvents()');
-			// console.log(options);
-
-			/* if ($(window).width() > 420) {
-				$('.legend-info.donut_chart .legend p').mouseover(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-				});
-				$('.legend-info.donut_chart .legend p').mouseout(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
-				});
-			}
-			else {
-				$('.legend-info.donut_chart .legend p').click(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target.c3-focused').classed('legend-hover', false);
-					if (!$(this).hasClass('legend-clicked')) {
-						d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
-					}
-					return false;
-				});
-			} */
-		},
 		bindEvents: function () {
 
-			$(".icon-info-white").on('click', function () {
+			/* 
+			 $(".icon-info-white").on('click', function () {
 				var $this = $(this);
 				$this.toggleClass('on');
 				$this.parents('.infographic-info').find('.infographic-aside, .infographic-source').toggle();
@@ -699,50 +698,97 @@
 					}
 				}
 			});
+			*/
 
-			$('.infographic-button').on('mouseenter', function () {
-				var $this = $(this);
-				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
-				var buttonID = $this.attr('id');
-				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
-					$('.side-narrative').remove();
-					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
-					var dataClasses = getDataClasses();
-					if ($(this).is(":first-of-type")) {
-						applyFade(dataClasses, [2, 3, 4]);
+			$('.infographic-button').hover(
+				function () {
+					var $this = $(this);
+					console.log($this);
+					if ($this.hasClass('on')) {
+						return;
 					}
-					else if ($(this).is(":nth-of-type(2)")) {
-						applyFade(dataClasses, [0, 1, 4]);
+					$('.infographic-button').removeClass('on');
+					showSideNarrative($this.attr('id').replace('infographic-button', ''));
+
+					if ($this.is(":first-of-type")) {
+						console.log('first-of-type');
+						applyFade(getDataClasses(), [2, 3, 4]);
+					}
+					else if ($this.is(":nth-of-type(2)")) {
+						console.log('nth-of-type(2)');
+						applyFade(getDataClasses(), [0, 1, 4]);
 					}
 					else {
-						applyFade(dataClasses, [0, 1, 2, 3]);
+						console.log('otherwise');
+						applyFade(getDataClasses(), [0, 1, 2, 3]);
 					}
-				}
-			});
-
-			$('.infographic-button').on('mouseleave', function () {
-				var $this = $(this);
-				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
-					$('.side-narrative').remove();
+				},
+				function () {
+					var $this = $(this);
+					if (!$this.hasClass('on')) {
+						hideSideNarrative();
+					}
 					applyFade();
 				}
+			);
+
+			$('.icon-paragraph-white').on('click', function (e) {
+				$('.side-narrative').toggle();
+				return false;
 			});
 
-			$('.infographic-button').on('click', function () {
+			$('.icon-close-white').on('click', function (e) {
+				$('.infographic-button').removeClass('on');
+				$('.side-narrative').remove();
+				// TODO media query
+				if (isMobile()) {
+					d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+				}
+				if ($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
+					$('.side-narratives').removeClass('open').children().hide();
+					$('.icon-paragraphh-white').removeClass('activated');
+					$('.icon-key-white').addClass('activated');
+					$('.infographic-legend ul').show();
+				}
+				return false;
+			});
+			
+			$('.infographic-button').on('click', function (e) {
+
 				var $this = $(this);
+				var index = $this.attr('id').replace('infographic-button', '');
+				
+				$('.infographic-button').removeClass('on');
+				$this.addClass('on');
+				
+				$('.icon-paragraph-white, .icon-close-white').hide();
+				$('.icon-paragraph-white, .icon-close-white', $this).show();
+
+				showSideNarrative(index);
+				
+				if ($this.is(":first-of-type")) {
+					console.log('first-of-type');
+					applyFade(getDataClasses(), [2, 3, 4]);
+				}
+				else if ($this.is(":nth-of-type(2)")) {
+					console.log('nth-of-type(2)');
+					applyFade(getDataClasses(), [0, 1, 4]);
+				}
+				else {
+					console.log('otherwise');
+					applyFade(getDataClasses(), [0, 1, 2, 3]);
+				}
+
+				/* 
 				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
-				var buttonID = $this.attr('id');
 				var dataClasses = getDataClasses();
 				// var activeButton;
 				if (!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')) {
 					$(this).closest('.infographic-buttons').children().removeClass('on');
-					$('.side-narrative').remove();
 				}
 				applyFade();
 				$this.addClass('on');
-				if (!$('.side-narrative')) {
-					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
-				}
+
 				// TODO media query
 				if ($(window).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
 					activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
@@ -758,27 +804,7 @@
 				else {
 					applyFade(dataClasses, [0, 1, 2, 3]);
 				}
-			});
-
-			$('.pair-icons .icon-paragraphh-white').on('click', function () {
-				$('.side-narrative').toggle();
-				return false;
-			});
-
-			$('.icon-close-white').on('click', function () {
-				$(this).closest('.infographic-button').removeClass('on');
-				$('.side-narrative').remove();
-				// TODO media query
-				if ($(window).width() <= 768) {
-					d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-				}
-				if ($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
-					$('.side-narratives').removeClass('open').children().hide();
-					$('.icon-paragraphh-white').removeClass('activated');
-					$('.icon-key-white').addClass('activated');
-					$('.infographic-legend ul').show();
-				}
-				return false;
+				*/
 			});
 		}
 	};
