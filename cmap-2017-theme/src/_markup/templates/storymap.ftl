@@ -45,32 +45,38 @@
 </#if>
 
 <div class="storymap-section">
-    <div class="row storymap-intro-container">
-        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-16">
-            <div class="storymap-aside">
-                ${Aside.getData()}
-            </div>
-            <div class="storymap-source">
-                ${Source.getData()}
+    <div class="storymap-intro-container">
+        <div class="row">
+            <div class="col-xl-10 col-xl-offset-3 col-sm-16 col-sm-offset-0 title-block">
+                <div class="storymap-title">
+                    ${StoryTitle.getData()}
+                </div>
             </div>
         </div>
-        <div class="col-xl-9 col-lg-12 col-md-12 col-sm-16 title-block">
-            <div class="storymap-title">
-                ${StoryTitle.getData()}
+        <div class="row">
+            <div class="col-xl-3 col-sm-16 col-sm-offset-0">
+                <div class="storymap-aside">
+                    ${Aside.getData()}
+                </div>
+                <div class="storymap-source">
+                    ${Source.getData()}
+                </div>
             </div>
-            <div class="storymap-info">
-                ${StoryDescription.getData()}
+            <div class="col-xl-10 col-sm-16 col-sm-offset-0 ">
+                <div class="storymap-info">
+                    ${StoryDescription.getData()}
+                </div>
             </div>
         </div>
     </div>
     <div class="row story-interact">
         <div class="storymap-nav-container">
-            <div class="col-xl-3 col-lg-4 col-md-4">
+            <div class="col-xl-3">
             <ul class="list-inline list-unstyled storymap-nav-list">
                 <li><button class="view-map"><span class="icon icon-map-marker"></span> View Map</button></li>
             </ul>
             </div>
-            <div class="col-xl-9 col-lg-12 col-md-12 story-steps">
+            <div class="col-xl-13 col-sm-16 col-sm-offset-0 story-steps">
             <ul class="list-inline list-unstyled storymap-nav-list pull-left">
             <#list StorySteps.getSiblings() as cur_StoryStep>
             <#assign storyStepsIndex = cur_StoryStep?index>
@@ -127,7 +133,7 @@
     <#else>
         <div class="story-step-content-centered">
             <div class="row">
-                <div class="col-md-16 col-md-offset-0 col-lg-13 col-lg-offset-3 col-xl-offset-3">
+                <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
                     ${cur_StoryStepContent.Content.getData()}
                 </div>
             </div>
@@ -330,7 +336,9 @@ AUI().ready(
             // magic number from _variables.scss
             // $breakpoint-tablet: 750px;
             if ($(window).width() >= 750) {
-                $('.title-block, .storymap-aside, .storymap-source, .layers-menu').show();
+                $('.storymap-info, .storymap-aside, .storymap-source, .layers-menu').show();
+            } else {
+                $('.storymap-aside, .storymap-source, .layers-menu').hide();
             }
         };
 
@@ -394,7 +402,7 @@ AUI().ready(
 
             $('.storymap-info-toggle').on('click', function (e) {
                 e.preventDefault();
-                $('.title-block, .storymap-aside, .storymap-source').toggle();
+                $('.storymap-info, .storymap-aside, .storymap-source').toggle();
             });
 
             $('.view-layers-button').on("click", function (e) {
