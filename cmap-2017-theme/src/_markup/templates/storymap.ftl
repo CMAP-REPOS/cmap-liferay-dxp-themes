@@ -46,6 +46,11 @@
 
 <div class="storymap-section">
     <div class="row storymap-intro-container">
+        <div class="col-xl-9 col-lg-12 col-md-12 col-sm-16 col-xl-offset-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-0 title-block">
+            <div class="storymap-title">
+                ${StoryTitle.getData()}
+            </div>
+        </div>
         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-16">
             <div class="storymap-aside">
                 ${Aside.getData()}
@@ -55,9 +60,6 @@
             </div>
         </div>
         <div class="col-xl-9 col-lg-12 col-md-12 col-sm-16 title-block">
-            <div class="storymap-title">
-                ${StoryTitle.getData()}
-            </div>
             <div class="storymap-info">
                 ${StoryDescription.getData()}
             </div>
@@ -331,6 +333,9 @@ AUI().ready(
             // $breakpoint-tablet: 750px;
             if ($(window).width() >= 750) {
                 $('.title-block, .storymap-aside, .storymap-source, .layers-menu').show();
+            } else {
+                $('.title-block').show();
+                $('.storymap-aside, .storymap-source, .layers-menu').hide();
             }
         };
 
