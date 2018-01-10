@@ -28,6 +28,11 @@ section.section-hero{
   		a {
   			color: $black;
   			border-bottom: 1px solid $black;
+        opacity: 1;
+        transition: all 0.2s;
+        &:hover{
+          opacity: 0.5;
+        }
   		}
   		p {
   			color: $black;
@@ -37,12 +42,17 @@ section.section-hero{
   		a {
   			color: $white;
   			border-bottom: 1px solid $white;
+        opacity: 1;
+        transition: all 0.2s;
+        &:hover{
+          opacity: 0.5;
+        }
   		}
 		  p {
   			color: $white;
   		}
     }
-    
+
     p{
       @extend .presna-large;
     }

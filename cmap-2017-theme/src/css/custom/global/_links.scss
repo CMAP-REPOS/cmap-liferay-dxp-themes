@@ -9,6 +9,7 @@ a {
 
 .underline-link {
   border-bottom: 1px solid $light-grey;
+  transition: all 0.25s ease;
 
   &:hover {
     border-bottom: 1px solid lighten($light-grey, 10%);
