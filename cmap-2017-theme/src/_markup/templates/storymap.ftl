@@ -1,18 +1,21 @@
 <#assign legendLabels = []>
-<#list Legend.getSiblings() as cur_Legend>
-  <#if cur_Legend?? && cur_Legend.KeyLabel?? && cur_Legend.KeyLabel.getData()?? && cur_Legend.KeyLabel.getData() != "">
-    <#assign legendLabels = legendLabels + [cur_Legend.KeyLabel]>
-  </#if>
-</#list>
-
 <#assign overlayLabels = []>
+
+<#if getterUtil.getBoolean(Options.ShowLegend.getData())>
+    <#list Legend.getSiblings() as cur_Legend>
+      <#if cur_Legend?? && cur_Legend.KeyLabel?? && cur_Legend.KeyLabel.getData()?? && cur_Legend.KeyLabel.getData() != "">
+        <#assign legendLabels = legendLabels + [cur_Legend.KeyLabel]>
+      </#if>
+    </#list>
+</#if>
+
 <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
   <#if cur_StoryOverlay?? && cur_StoryOverlay.OverlayTitle?? && cur_StoryOverlay.OverlayTitle.getData()?? && cur_StoryOverlay.OverlayTitle.getData() != "">
     <#assign overlayLabels = overlayLabels + [cur_StoryOverlay.OverlayTitle]>
   </#if>
 </#list>
 
-<#if legendLabels?size != 0>
+<#if getterUtil.getBoolean(Options.ShowLegend.getData()) &&  legendLabels?size != 0>
 <section class="story-map-legend"> 
     <ul class="list-unstyled">
     <#list Legend.getSiblings() as cur_Legend>
@@ -33,9 +36,7 @@
     <#assign storyOverlaysIndex = cur_StoryOverlay?index>
         <#if cur_StoryOverlay.OverlayTitle.getData() != "">
         <button id="button_overlay_${storyOverlaysIndex}" class="btn button-default button_overlay"
-            data-title="${cur_StoryOverlay.OverlayTitle.getData()}"
-            data-file="${cur_StoryOverlay.OverlayFile.getData()}"
-            data-layer-id="overlay_${storyOverlaysIndex}">
+            data-index="${storyOverlaysIndex}">
             ${cur_StoryOverlay.OverlayTitle.getData()}
         </button>
         </#if>
@@ -69,6 +70,7 @@
             </div>
         </div>
     </div>
+    <#if getterUtil.getBoolean(Options.ShowLocations.getData())>
     <div class="row story-interact">
         <div class="storymap-nav-container">
             <div class="col-xl-3">
@@ -82,7 +84,6 @@
             <#assign storyStepsIndex = cur_StoryStep?index>
                 <#if cur_StoryStep.StepTitle.getData() != "">
                 <li id="${randomNamespace}_step${storyStepsIndex}" class="story-step-title" href="#"
-                    data-coordinates="${cur_StoryStep.coords.StepLatitude.getData()}, ${cur_StoryStep.coords.StepLongitude.getData()}"
                     data-step="${cur_StoryStep?index}">
                     ${cur_StoryStep.StepTitle.getData()}
                 </li>
@@ -112,8 +113,8 @@
                 <a href="#" class="next-story-step"><span class="icon-cmap icon-nav-right-white"></span> <span class="sr-only">Next</span></a>
             </div>
         </div>
-
     </div>
+    </#if>
     <a href="#" class="storymap-info-toggle"><span class="icon-info-sign"></i> <span class="sr-only">Toggle Map Info</span></a>
 </div>
 
@@ -124,7 +125,7 @@
 
 <#list StorySteps.getSiblings() as cur_StoryStep>
 <#assign storyStepsIndex = cur_StoryStep?index>
-    <div id="${randomNamespace}_content${storyStepsIndex}" class="story-step-content">
+    <div id="${randomNamespace}location_content${storyStepsIndex}" class="story-step-content">
     <#list cur_StoryStep.StoryStepContent.getSiblings() as cur_StoryStepContent>
     <#if getterUtil.getBoolean(cur_StoryStepContent.FullWidthContent.getData())>
         <div class="col-xl-16 story-step-content-full-width">
@@ -143,6 +144,28 @@
     </div>
 </#list>
 
+<#list StoryOverlays.getSiblings() as cur_Layer>
+<#assign layerIndex = cur_Layer?index>
+    <div id="${randomNamespace}layer_content${layerIndex}" class="story-step-content">
+    <#list cur_Layer.LayerContentSeparator.getSiblings() as cur_LayerContent>
+    <#if getterUtil.getBoolean(cur_LayerContent.FullWidthLayerContent.getData())>
+        <div class="col-xl-16 story-step-content-full-width">
+        ${cur_LayerContent.LayerContent.getData()}
+        </div>
+    <#else>
+        <div class="story-step-content-centered">
+            <div class="row">
+                <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+                ${cur_LayerContent.LayerContent.getData()}
+                </div>
+            </div>
+        </div>
+    </#if>
+    </#list>
+    </div>
+</#list>
+
+
 <script type="text/javascript">
 
 var cmap = cmap || {};
@@ -152,11 +175,11 @@ AUI().ready(
 
     function () {
 
-        L.Map.prototype.panToOffset = function (latlng, offset, options) {
-            var x = this.latLngToContainerPoint(latlng).x - offset[0]
-            var y = this.latLngToContainerPoint(latlng).y - offset[1]
+        L.Map.prototype.panToOffset = function (latlng, zoom, options) {
+            var x = this.latLngToContainerPoint(latlng).x
+            var y = this.latLngToContainerPoint(latlng).y
             var point = this.containerPointToLatLng([x, y])
-            return this.setView(point, 9, { pan: options })
+            return this.setView(point, zoom, { pan: options })
         }
 
         L.Control.Legend = L.Control.extend({
@@ -194,17 +217,20 @@ AUI().ready(
         cmap.storymaps.storyStep = -1;
         cmap.storymaps.markerLayers = [];
         cmap.storymaps.layers = {};
+        cmap.storymaps.layerData = [];
         cmap.storymaps.storySteps = [];
         cmap.storymaps.storyOverlays = [];
 
+        cmap.storymaps.buildStorySteps = function() {
+            var markers = [];
         <#list StorySteps.getSiblings() as cur_StoryStep >
             <#assign storyStepsIndex = cur_StoryStep ? index >
             <#if cur_StoryStep.StepTitle.getData() != "" >
-            var markers = [];
             <#list cur_StoryStep.coords.getSiblings() as cur_Coords >
             markers.push({
                 coords: ['${cur_Coords.StepLatitude.getData()}', '${cur_Coords.StepLongitude.getData()}'],
-                label: '${cur_Coords.StepMarkerLabel.getData()}'
+                label: '${cur_Coords.StepMarkerLabel.getData()}',
+                zoom: '${cur_Coords.ZoomLevel.getData()}'
             });
             </#list >
 
@@ -212,45 +238,75 @@ AUI().ready(
                 stepTitle: '${cur_StoryStep.StepTitle.getData()}',
                 stepMarkers: markers
             });
+            markers = [];
             </#if>
         </#list >
-
-        cmap.storymaps.loadContent = function(step) {
-
-            $('.story-step-content').hide();
-            $('#${randomNamespace}_content' + step).show();
         };
 
-        cmap.storymaps.loadOverlay = function (options) {
+        cmap.storymaps.buildLayerData = function() {
+        <#list StoryOverlays.getSiblings() as cur_StoryOverlay>
+        <#assign storyOverlaysIndex = cur_StoryOverlay?index>
+            <#if cur_StoryOverlay.OverlayTitle.getData() != "">
+            cmap.storymaps.layerData.push({
+                title: '${cur_StoryOverlay.OverlayTitle.getData()}',
+                file: '${cur_StoryOverlay.OverlayFile.getData()}'
+            });
+            </#if>
+        </#list>
+        };
 
-            var $button = $('.button_overlay[data-layer-id="' + options.overlayId + '"]');
+        cmap.storymaps.loadContent = function(isLocation, index) {
 
-            $button.toggleClass('active');
+            $('.story-step-content').hide();
+            if (isLocation && index > -1) {
+                <#if getterUtil.getBoolean(Options.ShowLocationContent.getData())>
+                $('#${randomNamespace}location_content' + index).show();
+                </#if>
+            } else if (index > -1) {
+                <#if getterUtil.getBoolean(Options.ShowLayerContent.getData())>
+                var contentId = 'layer_content'+index;
+                $('#${randomNamespace}' + contentId).show();
+                </#if>
+            }
+        };
 
-            if (!cmap.storymaps.layers[options.overlayId]) {
-                $button.html('loading...');
+        cmap.storymaps.loadOverlay = function (button, index) {
+
+            button.toggleClass('active');
+            var layerData = cmap.storymaps.layerData[index];
+            var overlayId = 'overlay_'+index;
+
+            if (!cmap.storymaps.layers[overlayId]) {
+                button.html('loading...');
+                
                 $.ajax({
                     dataType: "json",
-                    url: options.fileName,
+                    url: layerData.file,
                     success: function (data) {
-                        cmap.storymaps.layers[options.overlayId] = L.geoJSON(data, { style: L.mapbox.simplestyle.style });
-                        cmap.storymaps.layers[options.overlayId].addTo(cmap.storymaps.map);
+                        cmap.storymaps.layers[overlayId] = L.geoJSON(data, { style: L.mapbox.simplestyle.style });
+                        cmap.storymaps.layers[overlayId].addTo(cmap.storymaps.map);
                         $('.overlays').children().removeClass('disabled-loading');
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(errorThrown);
                     },
                     complete: function () {
-                        $button.html($button.data('title'));
+                        button.html(layerData.title);
                     }
                 });
             } else {
                 $('.overlays').children().removeClass('disabled-loading');
-                if (cmap.storymaps.map.hasLayer(cmap.storymaps.layers[options.overlayId])) {
-                    cmap.storymaps.map.removeLayer(cmap.storymaps.layers[options.overlayId]);
+                if (cmap.storymaps.map.hasLayer(cmap.storymaps.layers[overlayId])) {
+                    cmap.storymaps.map.removeLayer(cmap.storymaps.layers[overlayId]);
                 } else {
-                    cmap.storymaps.layers[options.overlayId].addTo(cmap.storymaps.map);
+                    cmap.storymaps.layers[overlayId].addTo(cmap.storymaps.map);
                 }
+            }
+
+            if (button.hasClass('active')) {
+                cmap.storymaps.loadContent(false, index);
+            } else {
+                cmap.storymaps.loadContent(false, -1);
             }
         };
 
@@ -274,7 +330,7 @@ AUI().ready(
             if (step > -1) {
                 cmap.storymaps.setMarkerState(step);
                 cmap.storymaps.setPanState(step);
-                cmap.storymaps.loadContent(step);
+                cmap.storymaps.loadContent(true, step);
                 cmap.storymaps.scrollToStep();
            } else {
                 // TODO: default state
@@ -287,7 +343,9 @@ AUI().ready(
         };
 
         cmap.storymaps.setPanState = function (step) {
-            cmap.storymaps.map.panToOffset(cmap.storymaps.storySteps[step].stepMarkers[0].coords, [0, 0], { animate: true });
+            var marker = cmap.storymaps.storySteps[step].stepMarkers[0];
+            // cmap.storymaps.map.panToOffset(marker.coords, [0, 0], parseInt(marker.zoom,10), { animate: true });
+            cmap.storymaps.map.setView(marker.coords, marker.zoom, { animate: true });
         };
 
         cmap.storymaps.setMarkerState = function (step) {
@@ -333,8 +391,8 @@ AUI().ready(
         };
 
         cmap.storymaps.handleResize = function() {
-            // magic number from _variables.scss
-            // $breakpoint-tablet: 750px;
+            <#-- magic number from _variables.scss -->
+            <#-- $breakpoint-tablet: 750px; -->
             if ($(window).width() >= 750) {
                 $('.storymap-info, .storymap-aside, .storymap-source, .layers-menu').show();
             } else {
@@ -387,17 +445,13 @@ AUI().ready(
             $('.button_overlay').on('click', function (e) {
                 e.preventDefault();
                 var $this = $(this);
-                var layerUrl = $this.data('layer-url');
+                <#--  var layerUrl = $this.data('layer-url');
                 var fileName = $this.data('file');
                 var buttonId = $this.attr('id');
                 var overlayId = $this.data('layer-id');
+                var contentId = $this.data('content-id');  -->
                 //options
-                cmap.storymaps.loadOverlay({
-                    fileName: fileName,
-                    buttonId: buttonId,
-                    overlayId: overlayId,
-                    layerUrl: layerUrl
-                });
+                cmap.storymaps.loadOverlay($this, $this.data('index'));
             });
 
             $('.storymap-info-toggle').on('click', function (e) {
@@ -426,7 +480,7 @@ AUI().ready(
 
             cmap.storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
                 maxBounds: [[40.82130, -90.47900], [43.28040, -85.72192]],
-                maxZoom: 11,
+                maxZoom: 12,
                 minZoom: 8,
                 attributionControl: false,
                 infoControl: true,
@@ -439,6 +493,8 @@ AUI().ready(
         };
 
         cmap.storymaps.initMap();
+        cmap.storymaps.buildStorySteps();
+        cmap.storymaps.buildLayerData();
         cmap.storymaps.bindEvents();
     }
 );

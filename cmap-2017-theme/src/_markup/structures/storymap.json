@@ -100,7 +100,7 @@
         },
         {
             "label": {
-                "en_US": "Map Style Url"
+                "en_US": "Options"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -111,38 +111,156 @@
             "tip": {
                 "en_US": ""
             },
-            "dataType": "string",
+            "dataType": "",
+            "fieldNamespace": "ddm",
             "indexType": "keyword",
             "localizable": true,
-            "name": "styleUrl",
+            "name": "Options",
             "readOnly": false,
             "repeatable": false,
             "required": false,
             "showLabel": true,
-            "type": "text"
-        },
-        {
-            "label": {
-                "en_US": "Map Pin Color"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "string",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "markerColor",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "text"
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Map Style URL"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "If specified, this URL should begin with mapbox://styles/onto2050."
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "styleUrl",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "Map Pin Color"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "If specified, this should   be   a   valid   HTML   color   name,   hex   code,   or   RGB   value. "
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "markerColor",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "Show Legend"
+                    },
+                    "predefinedValue": {
+                        "en_US": true
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "ShowLegend",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Show Locations"
+                    },
+                    "predefinedValue": {
+                        "en_US": true
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "ShowLocations",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Show Location Content"
+                    },
+                    "predefinedValue": {
+                        "en_US": true
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "ShowLocationContent",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Show Layer Content"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "ShowLayerContent",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                }
+            ]
         },
         {
             "label": {
@@ -179,7 +297,7 @@
                         "en_US": ""
                     },
                     "tip": {
-                        "en_US": ""
+                        "en_US": "If specified, this should   be   a   valid   HTML   color   name,   hex   code,   or   RGB   value. "
                     },
                     "dataType": "string",
                     "indexType": "keyword",
@@ -218,7 +336,7 @@
         },
         {
             "label": {
-                "en_US": "Story Steps"
+                "en_US": "Location"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -242,7 +360,7 @@
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "Step Title"
+                        "en_US": "Label"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -298,7 +416,7 @@
                                 "en_US": ""
                             },
                             "tip": {
-                                "en_US": ""
+                                "en_US": "This should be a valid decimal value,  between   -90   and   90."
                             },
                             "dataType": "string",
                             "indexType": "",
@@ -321,7 +439,7 @@
                                 "en_US": ""
                             },
                             "tip": {
-                                "en_US": ""
+                                "en_US": "This should be a valid decimal value,  between   -180   and   180."
                             },
                             "dataType": "string",
                             "indexType": "",
@@ -355,12 +473,70 @@
                             "required": false,
                             "showLabel": true,
                             "type": "text"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Zoom Level"
+                            },
+                            "options": [
+                                {
+                                    "value": "8",
+                                    "label": {
+                                        "en_US": "8"
+                                    }
+                                },
+                                {
+                                    "value": "9",
+                                    "label": {
+                                        "en_US": "9"
+                                    }
+                                },
+                                {
+                                    "value": "10",
+                                    "label": {
+                                        "en_US": "10"
+                                    }
+                                },
+                                {
+                                    "value": "11",
+                                    "label": {
+                                        "en_US": "11"
+                                    }
+                                },
+                                {
+                                    "value": "12",
+                                    "label": {
+                                        "en_US": "12"
+                                    }
+                                }
+                            ],
+                            "predefinedValue": {
+                                "en_US": [
+                                    "10"
+                                ]
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "multiple": false,
+                            "name": "ZoomLevel",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "select"
                         }
                     ]
                 },
                 {
                     "label": {
-                        "en_US": "Story Step Content"
+                        "en_US": "Location Content"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -426,7 +602,7 @@
                             "readOnly": false,
                             "repeatable": false,
                             "required": false,
-                            "showLabel": true,
+                            "showLabel": false,
                             "type": "ddm-text-html"
                         }
                     ]
@@ -435,7 +611,7 @@
         },
         {
             "label": {
-                "en_US": "Overlays"
+                "en_US": "Layer"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -459,7 +635,7 @@
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "Overlay Title"
+                        "en_US": "Label"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -482,7 +658,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "Overlay File"
+                        "en_US": "File"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -503,6 +679,79 @@
                     "required": false,
                     "showLabel": true,
                     "type": "ddm-documentlibrary"
+                },
+                {
+                    "label": {
+                        "en_US": "Layer Content"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "LayerContentSeparator",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Display full-width"
+                            },
+                            "predefinedValue": {
+                                "en_US": false
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "boolean",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "FullWidthLayerContent",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "checkbox"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Layer Content"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "html",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "LayerContent",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": false,
+                            "type": "ddm-text-html"
+                        }
+                    ]
                 }
             ]
         }
