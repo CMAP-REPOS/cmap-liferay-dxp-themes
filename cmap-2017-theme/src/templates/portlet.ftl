@@ -65,10 +65,14 @@
 					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
 					 ${portlet_display.writeContent(writer)}
 				 </div>
-			</#if>
-			<#if portlet_display.getPortletDecoratorId() == "full-width-content">
-				<!-- no padding because it probably has a sub grid -->
+			<#elseif portlet_display.getPortletDecoratorId() == "full-width-content">
+				<#-- no padding because it probably has a sub grid -->
 				 <div class="col-xl-16" style="padding: 0 !important;">
+					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
+					 ${portlet_display.writeContent(writer)}
+				 </div>
+			<#else>
+				 <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
 					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
 					 ${portlet_display.writeContent(writer)}
 				 </div>
