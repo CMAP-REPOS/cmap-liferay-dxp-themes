@@ -17,7 +17,7 @@
 		<div class="updates-filter-topic">
 			<label class="updates-filter-label">Filter by</label>
 			<select class="dropdown-input">
-				<option selected disabled="true">Topic</option>
+				<option selected>Topic</option>
 				<#list curVocabulary.getCategories() as sub >
 					<option data-catid="${sub.categoryId}">${sub.name}</option>
 				</#list> 
@@ -55,7 +55,11 @@ Liferay.on('allPortletsReady', function() {
 	$('select.dropdown-input').on('change', function(){
 		var val = $(this).val();
 		// WARNING: the next line will redirect the page causing a refresh
-		window.location.pathname = '/updates/'+pageTopic+'/-/categories/' + options[val].id;
+		if ($.isNumeric(options[val].id) && options[val].id > 0) {
+    		window.location.pathname = '/updates/'+pageTopic+'/-/categories/' + options[val].id;
+		} else {
+    		window.location.pathname = '/updates/'+pageTopic;
+		}
 	});
 
 	$('select.dropdown-input option').removeAttr('selected');
