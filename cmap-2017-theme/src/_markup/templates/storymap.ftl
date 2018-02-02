@@ -470,8 +470,8 @@ AUI().ready(
 
         cmap.storymaps.initMap = function () {
 
-            <#if styleUrl?? && styleUrl.getData()?? && styleUrl.getData() != "">
-            var url = "${styleUrl.getData()}";
+            <#if Options.styleUrl?? && Options.styleUrl.getData()?? && Options.styleUrl.getData() != "">
+            var url = "${Options.styleUrl.getData()}";
             <#else>
             var url = "mapbox://styles/onto2050/cj0jnlcwj007k2sulorlf0zbk";
             </#if>
