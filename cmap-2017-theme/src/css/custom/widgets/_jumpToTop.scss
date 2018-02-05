@@ -1,0 +1,27 @@
+.jump-to-top-button{
+  cursor: pointer;
+
+  span{
+    position: relative;
+    transform: translateY(0.2em);
+    font-family: $font-sans;
+    font-weight: 600;
+    font-size: $size-1;
+    line-height: $variation;
+    color: $dark-blue;
+    margin-left: $size0;
+  }
+}
+
+.fixed-jump-to-top-button{
+  position: fixed;
+  left: 0; bottom: $size0;
+  width: 100%;
+  z-index: 10;
+  @include section-padding();
+
+  .col-xl-3.col-md-8{
+     display: flex;
+     align-items: center;
+  }
+}

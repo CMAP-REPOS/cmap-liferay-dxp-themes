@@ -28,17 +28,10 @@
     transform: translateY(-0.18em);
   }
 
-  .jump-to-top-button{
-    cursor: pointer;
-  }
-
   .footer-jump-to-top{
     svg{
       position: relative;
       transform: translateY(0.2em);
-    }
-    span{
-      margin-left: $size-3;
     }
   }
 
