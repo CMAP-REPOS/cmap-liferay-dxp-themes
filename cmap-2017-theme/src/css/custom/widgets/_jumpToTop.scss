@@ -2,12 +2,9 @@
   cursor: pointer;
 
   span{
+    @extend .whitney-small;
     position: relative;
     transform: translateY(0.2em);
-    font-family: $font-sans;
-    font-weight: 600;
-    font-size: $size-1;
-    line-height: $variation;
     color: $dark-blue;
     margin-left: $size0;
   }
