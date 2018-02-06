@@ -117,7 +117,7 @@ cmap.global.youtube = function () {
       var link = 'https://youtu.be/{id}'.replace('{id}', data.items[0].id);
       var $container = $('<div class="video-tagline"></div>');
       var $icon = $('<div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"> <g fill="#3C5976" fill-rule="evenodd"> <path fill-rule="nonzero" d="M9,17.5 C4.30585763,17.5 0.5,13.6941424 0.5,9 C0.5,4.30585763 4.30585763,0.5 9,0.5 C13.6941424,0.5 17.5,4.30585763 17.5,9 C17.5,13.6941424 13.6941424,17.5 9,17.5 Z M9,16.5 C13.1418576,16.5 16.5,13.1418576 16.5,9 C16.5,4.85814237 13.1418576,1.5 9,1.5 C4.85814237,1.5 1.5,4.85814237 1.5,9 C1.5,13.1418576 4.85814237,16.5 9,16.5 Z"/> <polygon points="6.8 5.75 6.8 12.25 12.8 8.75"/> </g> </svg> </div>');
-      var $data = $('<div class="video-data"> <span class="whitney-small"> Watch <a class="underline-link" href="' + link + '" target="_blank">' + title + '</a> on YouTube </span> </div>');
+      var $data = $('<div class="video-data"> <span class="whitney-bold"> Watch <a class="underline-link" href="' + link + '" target="_blank">' + title + '</a> on YouTube </span> </div>');
       $container.append($icon);
       $container.append($data);
 
