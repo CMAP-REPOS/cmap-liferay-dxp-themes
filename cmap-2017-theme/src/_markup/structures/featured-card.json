@@ -1,0 +1,197 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Card Title"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "CardTitle",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Caption"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Caption",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Image to Display"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "image",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ImageToDisplay",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-image"
+      },
+      {
+          "label": {
+              "en_US": "Document"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "document-library",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Document",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-documentlibrary"
+      },
+      {
+          "label": {
+              "en_US": "Page"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "link-to-page",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Page",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-link-to-page"
+      },
+      {
+          "label": {
+              "en_US": "URL"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Url",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Optional Content Before"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "html",
+          "fieldNamespace": "ddm",
+          "indexType": "text",
+          "localizable": true,
+          "name": "OptionalContentBefore",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-text-html"
+      },
+      {
+          "label": {
+              "en_US": "Optional Content After"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "html",
+          "fieldNamespace": "ddm",
+          "indexType": "text",
+          "localizable": true,
+          "name": "OptionalContentAfter",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-text-html"
+      }
+  ]
+}

@@ -29,6 +29,7 @@
 </#list>
 
 <section class="title-with-sections">
+
   <div class="row page-layout">
 
     <div class="col-xl-3 col-sm-16">
@@ -102,6 +103,14 @@
       </div>
     </div>
   </div>
+  <div class="fixed-jump-to-top-button jump-to-top-button">
+    <div class="row">
+      <div class="col-xl-3 col-md-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19"> <path fill="#3C5976" d="M8.70320061,4.28823998 L8.70320061,17.4126841 C8.70320061,17.8959333 8.31144977,18.2876841 7.82820061,18.2876841 C7.34495145,18.2876841 6.95320061,17.8959333 6.95320061,17.4126841 L6.95320061,4.28785174 L2.48442136,8.62526255 C2.13765366,8.96183633 1.58369594,8.95357254 1.24712216,8.60680484 C0.910548372,8.26003715 0.918812169,7.70607943 1.26557986,7.36950564 L7.82800061,1 L14.3904214,7.36950564 C14.7371891,7.70607943 14.7454528,8.26003715 14.4088791,8.60680484 C14.0723053,8.95357254 13.5183476,8.96183633 13.1715799,8.62526255 L8.70320061,4.28823998 Z"></path> </svg>
+        <span>To Top</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script type="text/javascript">
@@ -122,7 +131,7 @@ cmap.titleWithSections.init = function() {
     }
   });
 
-  $('.page-nav-container').data('original-offet-top', $('.page-nav-list').offset().top);
+  $('.page-nav-container').data('original-offet-top', $('.page-nav-container').offset().top);
 
   // remove inline styles from content items
   $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,span,table').removeAttr('style');
@@ -140,7 +149,7 @@ cmap.titleWithSections.init = function() {
   function copyToClipboard(text) {
     if (window.clipboardData && window.clipboardData.setData) {
       // IE specific code path to prevent textarea being shown while dialog is visible.
-      return clipboardData.setData("Text", text); 
+      return clipboardData.setData("Text", text);
     } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
       var textarea = document.createElement("textarea");
       textarea.textContent = text;
@@ -164,6 +173,12 @@ cmap.titleWithSections.init = function() {
     var status = copyToClipboard(toCopy);
     console.log(toCopy, Liferay.currentUrl, status);
   });
+
+  $('.jump-to-top-button').click(function(){
+    $('html,body').animate({
+      scrollTop: 0
+    }, 800);
+  });
 };
 
 
@@ -175,7 +190,6 @@ cmap.titleWithSections.bindEvents = function() {
     $(window).off('scroll').on('scroll', _.throttle(cmap.titleWithSections.computeScrollNav, 100));
   }
 
-  
   function moveToID(id){
     var push = $('#scroll-nav').innerHeight() * 1.5;
     var target = $(id).offset().top;

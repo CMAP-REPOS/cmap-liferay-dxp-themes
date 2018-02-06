@@ -1,0 +1,28 @@
+.jump-to-top-button{
+  cursor: pointer;
+
+  span{
+    @extend .whitney-small;
+    position: relative;
+    transform: translateY(0.2em);
+    color: $dark-blue;
+    margin-left: $size0;
+  }
+}
+
+.fixed-jump-to-top-button{
+  position: fixed;
+  left: 0; bottom: 0;
+  width: 100%;
+  z-index: 10;
+  @include section-padding();
+
+  .col-xl-3.col-md-8{
+     display: flex;
+     align-items: center;
+     padding: $size0 0;
+  }
+  @include tablet(){
+    background: white;
+  }
+}
