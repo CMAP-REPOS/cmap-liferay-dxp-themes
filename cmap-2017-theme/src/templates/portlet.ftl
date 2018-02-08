@@ -61,7 +61,7 @@
 
 		<div class="row">
 			<#if portlet_display.getPortletDecoratorId() == "centered-content">
-				 <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+				 <div class="col-xl-10 col-xl-offset-3 col-sm-16 col-sm-offset-0">
 					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
 					 ${portlet_display.writeContent(writer)}
 				 </div>
@@ -72,7 +72,7 @@
 					 ${portlet_display.writeContent(writer)}
 				 </div>
 			<#else>
-				 <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+				 <div class="col-xl-10 col-xl-offset-3 col-sm-16 col-sm-offset-0">
 					 <h2 class="portlet-title-text sr-only">${portlet_title}</h2>
 					 ${portlet_display.writeContent(writer)}
 				 </div>
