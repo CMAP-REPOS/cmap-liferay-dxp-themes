@@ -7,13 +7,6 @@
         root.storymaps = factory();
   }
 }(this, function () {
-
     return {
-
-
-
-
-
-    }
-
+    };
 }));

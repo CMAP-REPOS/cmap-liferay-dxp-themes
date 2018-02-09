@@ -1,27 +1,27 @@
 var cmap = cmap || {};
 cmap.global = {};
 
-cmap.global.share = function(){
+cmap.global.share = function () {
   $('.close-button').hide();
   $('.share-menu .page-url').val(window.location.href);
-  $('.share-menu .page-url').on('focus', function(){
-    setTimeout(()=>{ this.select() }, 100);
+  $('.share-menu .page-url').on('focus', function () {
+    setTimeout(function () { this.select(); }, 100);
   });
 
-  function toggleSocial(container, original){
+  function toggleSocial(container, original) {
     var $container = $(container);
     var $sharebtn = $container.find('.share-button');
     var $closebtn = $container.find('.close-button');
     var $sharemenu = $container.find('.share-menu');
     var $original = $container.find(original);
 
-    $sharebtn.click(function(){
+    $sharebtn.click(function () {
       $sharemenu.addClass('active');
       $original.removeClass('active');
       $sharebtn.css('display', 'none');
       $closebtn.css('display', 'inline-flex');
     });
-    $closebtn.click(function(){
+    $closebtn.click(function () {
       $original.addClass('active');
       $sharemenu.removeClass('active');
       $closebtn.css('display', 'none');
@@ -31,8 +31,8 @@ cmap.global.share = function(){
   toggleSocial('nav.breadcrumb', '.breadcrumb-trail');
   toggleSocial('#scroll-nav', '.page-title');
   toggleSocial('#side-nav', '.dummy-div');
- 
-}
+
+};
 
 cmap.global.sidenav = function () {
   // SIDE NAV WIDGET
@@ -42,19 +42,19 @@ cmap.global.sidenav = function () {
   var $wrapper = $('#wrapper');
   var $hamburgers = $('#main-header .hamburger, #scroll-nav .hamburger');
 
-  $hamburgers.on('click', () => {
+  $hamburgers.on('click', function() {
     var sideNavWidth = $sideNav.outerWidth();
 
     $hamburgers.toggleClass('is-active');
     $wrapper.toggleClass('side-nav-active');
     $sideNav.toggleClass('side-nav-active');
     $('#scroll-nav .logo').toggleClass('hidden');
-    
+
     if (sideNavOpen) {
       $wrapper.css('left', '0');
       sideNavOpen = false;
     } else {
-      $wrapper.css('left', `${sideNavWidth}px`);
+      $wrapper.css('left', sideNavWidth+'px');
       sideNavOpen = true;
     }
   });
@@ -77,7 +77,7 @@ cmap.global.scrollnav = function () {
 };
 
 cmap.global.footerjumptotop = function () {
-  setTimeout(function(){
+  setTimeout(function () {
     $('.jump-to-top-button').on('click', function () {
       $('html,body').animate({
         scrollTop: 0
@@ -91,10 +91,14 @@ cmap.global.youtube = function () {
     var $this = $(this);
 
     function setHeight() {
-      var ratio = parseFloat($this.attr('longdesc'), 10);
+      // var ratio = parseFloat($this.attr('longdesc'), 10);
       var width = $this.innerWidth();
-      var height = Math.floor(width / ratio);
-      $this.css('height', height);
+      var height = Math.floor((width / 16)*9);
+
+      setTimeout(function(){
+        $this.attr('height', height+'px');
+        $this.css('height', height);
+      }, 500);
     }
 
     function findID(src) {
@@ -113,10 +117,19 @@ cmap.global.youtube = function () {
       var link = 'https://youtu.be/{id}'.replace('{id}', data.items[0].id);
       var $container = $('<div class="video-tagline"></div>');
       var $icon = $('<div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"> <g fill="#3C5976" fill-rule="evenodd"> <path fill-rule="nonzero" d="M9,17.5 C4.30585763,17.5 0.5,13.6941424 0.5,9 C0.5,4.30585763 4.30585763,0.5 9,0.5 C13.6941424,0.5 17.5,4.30585763 17.5,9 C17.5,13.6941424 13.6941424,17.5 9,17.5 Z M9,16.5 C13.1418576,16.5 16.5,13.1418576 16.5,9 C16.5,4.85814237 13.1418576,1.5 9,1.5 C4.85814237,1.5 1.5,4.85814237 1.5,9 C1.5,13.1418576 4.85814237,16.5 9,16.5 Z"/> <polygon points="6.8 5.75 6.8 12.25 12.8 8.75"/> </g> </svg> </div>');
-      var $data = $('<div class="video-data"> <span class="whitney-normal"> Watch <a class="underline-link" href="' + link + '" target="_blank">' + title + '</a> on YouTube </span> </div>');
+      var $data = $('<div class="video-data"> <span class="whitney-small__bold"> Watch <a class="underline-link" href="' + link + '" target="_blank">' + title + '</a> on YouTube </span> </div>');
       $container.append($icon);
       $container.append($data);
-      $this.parent().append($container);
+
+      var $grid = $('<div class="row"> <div class="col-xl-3 col-sm-16"></div> <div class="col-xl-10 col-sm-12 col-xs-16"></div> <div class="col-xl-3 col-sm-16"></div> </div>');
+
+      if($this.parents('.portlet-full-width').length){
+        $grid.find('.col-xl-10').append($container);
+        $this.parent().append($grid);
+      } else {
+        $this.parent().append($container);
+      }
+      // $this.parent().append($container);
     }
 
     // Searches for information about the video like title and url
@@ -132,12 +145,19 @@ cmap.global.youtube = function () {
           return;
         }
         addVideoTagline(data);
+        setHeight();
       }).fail(function (jqXHR, textStatus, errorThrown) {
         console.error('YOUTUBE: ', 'Problem making a request to get video metadata.');
       });
     }
 
-    setHeight();
+    $this.on('load', function(){
+      setHeight();
+    });
+    $this.on('ready', function(){
+      setHeight();
+    });
+
     $(window).resize(_.debounce(function () {
       setHeight();
     }, 100));
@@ -166,7 +186,7 @@ cmap.global.checkforh1 = function () {
     var $this = $(element);
     var classes = $this.attr('class');
     var content = $this.text();
-    $this.replaceWith('<div class="'+classes+'">'+content+'</div>');
+    $this.replaceWith('<div class="' + classes + '">' + content + '</div>');
   }
 
   $('h1').each(function () {
@@ -180,13 +200,13 @@ cmap.global.checkforh1 = function () {
 };
 
 cmap.global.scrollnavTitle = function (text) {
-  if( window.location.pathname === '/' || 
-      window.location.pathname === '/home' || 
-      window.location.pathname === '/home/' || 
-      window.location.pathname === '/web/guest/'){ return; }
+  if (window.location.pathname === '/' ||
+    window.location.pathname === '/home' ||
+    window.location.pathname === '/home/' ||
+    window.location.pathname === '/web/guest/') { return; }
   // there is already a page title!
-  if($('#scroll-nav .col-xl-10 .page-title').length){ return; }
-  $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">'+text+'</h4>');
+  if ($('#scroll-nav .col-xl-10 .page-title').length) { return; }
+  $('#scroll-nav .col-xl-10').append('<h4 class="page-title active">' + text + '</h4>');
 };
 
 cmap.global.addpageclass = function () {
@@ -213,20 +233,10 @@ cmap.forms.contactus = function () {
   if ($contact_form.length) {
 
     // add section headers to form
-    var $info_header = $(`
-      <header>
-        <hr>
-        <h3 class="whitney-normal__bold">Information</h3>
-      </header>
-    `);
+    var $info_header = $('<header><hr><h3 class="whitney-normal__bold">Information</h3></header>');
     $contact_form.find('.lfr-ddm-form-page').before($info_header);
 
-    var $message_header = $(`
-      <header>
-        <hr>
-        <h3 class="whitney-normal__bold">Message</h3>
-      </header>
-    `);
+    var $message_header = $('<header><hr><h3 class="whitney-normal__bold">Message</h3></header>');
     $contact_form.find('.row:nth-of-type(3)').after($message_header);
 
     $contact_form.find('.col-md-6').removeClass('col-md-6').addClass('col-xl-8 col-sm-16');
@@ -283,42 +293,42 @@ cmap.forms.global = function () {
   });
 };
 
-cmap.forms.replaceAst = function(){
+cmap.forms.replaceAst = function () {
   var $foo = $('.lexicon-icon-asterisk');
-  if($foo.length){
+  if ($foo.length) {
     var p = $foo.parent();
     $foo.remove();
     p.append('●');
   }
-}
+};
 
 cmap.footer = {};
-cmap.footer.checkForLayoutChange = function(){
+cmap.footer.checkForLayoutChange = function () {
 
   var $footer = $('#footer'), $row = $footer.find('.row');
   var $jump = $footer.find('.footer-jump-to-top');
   var $pages = $footer.find('.footer-page-links');
   var $social = $footer.find('.footer-social-links');
 
-  function clean(){
+  function clean() {
     $jump.remove();
     $pages.remove();
     $social.remove();
   }
-  function desktop(){
-    clean();  
+  function desktop() {
+    clean();
     $row.append($jump);
     $row.append($pages);
     $row.append($social);
   }
-  function mobile(){
-    clean();  
+  function mobile() {
+    clean();
     $row.append($pages);
     $row.append($jump);
     $row.append($social);
   }
-  function check(){
-    if(window.innerWidth < 1000){
+  function check() {
+    if (window.innerWidth < 1000) {
       mobile();
     } else {
       desktop();
@@ -356,4 +366,4 @@ Liferay.Portlet.ready(function (portletId, node) {
 });
 
 // Runs once the DOM is finished. Better to use "allPortletsReady"
-$(document).ready(function () {});
+$(document).ready(function () { });

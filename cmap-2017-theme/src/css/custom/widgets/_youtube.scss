@@ -1,6 +1,8 @@
 
 // we are just going to assume that this is a youtube container ...
 .iframe-container{
+  position: relative;
+  z-index: 100;
 
   .video-tagline{
     position: relative;
@@ -23,8 +25,24 @@
       }
     }
   }
+
+  .video-data{
+    line-height: 1;
+    transform: translateY(-0.2em);
+    span{
+      line-height: 1.2;
+    }
+  }
 }
 
+.portlet-iframe.portlet-centered{
+  @include tablet(){
+    .col-xl-10.col-sm-16{
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+}
 .portlet-full-width{
   .iframe-container{
     @include section-padding();
