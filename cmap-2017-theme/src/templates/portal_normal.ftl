@@ -10,7 +10,7 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	
+
 	<#assign portalUrl = theme_display.getURLPortal()>
 	<#assign currentUrl = theme_display.getURLCurrent()>
 	<link rel="canonical" href="${portalUrl}${currentUrl}" />
@@ -39,11 +39,11 @@
 
 		<section id="content">
 			<h1 class="hide-accessible">${the_title}</h1>
-			
-			<#if currentUrl == '/' || 
-				currentUrl == '/home' || 
-				currentUrl == '/home/' || 
-				currentUrl == '/web/guest' || 
+
+			<#if currentUrl == '/' ||
+				currentUrl == '/home' ||
+				currentUrl == '/home/' ||
+				currentUrl == '/web/guest' ||
 				currentUrl == '/web/guest/' >
 			<#else>
 			<nav id="breadcrumbs">
@@ -72,7 +72,7 @@
 	<@liferay_util["include"] page=bottom_include />
 
 	<!-- inject:js -->
-	<script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script>
+	<!-- <script src="${javascript_folder}/vendor/modernizr.min.js" type="text/javascript"></script> -->
 	<script src="${javascript_folder}/custom.js" type="text/javascript"></script>
 	<#-- <script src="${javascript_folder}/main.js" type="text/javascript"></script> -->
 
@@ -92,10 +92,10 @@
 	  })();
 	</script>
 	<!-- endinject -->
-	
+
 	<!-- TRACER -->
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0c6f5e0a5ca918"></script>
-	
+
 </body>
 
 </html>

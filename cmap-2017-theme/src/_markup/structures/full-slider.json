@@ -1,0 +1,106 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Slide"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Slide",
+          "readOnly": false,
+          "repeatable": true,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-separator",
+          "nestedFields": [
+              {
+                  "label": {
+                      "en_US": "Top Content"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "html",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "TopContent1",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-text-html"
+              },
+              {
+                  "label": {
+                      "en_US": "Bottom Content"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "html",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "BottomContent",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-text-html"
+              },
+              {
+                  "label": {
+                      "en_US": "Background"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "image",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "Background",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-image"
+              }
+          ]
+      }
+  ]
+}

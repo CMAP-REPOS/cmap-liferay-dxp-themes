@@ -1,0 +1,105 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Slide"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "HalfSlides",
+          "readOnly": false,
+          "repeatable": true,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-separator",
+          "nestedFields": [
+              {
+                  "label": {
+                      "en_US": "Slide Title"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "keyword",
+                  "localizable": true,
+                  "name": "SlideText",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Slide Description"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "html",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "SlideDescription",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-text-html"
+              },
+              {
+                  "label": {
+                      "en_US": "Slide Image"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "image",
+                  "fieldNamespace": "ddm",
+                  "indexType": "text",
+                  "localizable": true,
+                  "name": "SlideImage",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-image"
+              }
+          ]
+      }
+  ]
+}

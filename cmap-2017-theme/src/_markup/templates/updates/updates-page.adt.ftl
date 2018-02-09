@@ -11,7 +11,6 @@
     <#assign assetSummary = assetRenderer.getSummary(renderRequest, renderResponse) />
     <#assign summary = htmlUtil.extractText(assetSummary) />
     <#assign assetDate = entry.publishDate?datetime />
-    <#-- the asset publisher instance ID (UIMfSLnFfMB6) just needs to match what is on the detail rendering page --> 
     <#assign viewURL = "/updates/all/-/asset_publisher/UIMfSLnFfMB6/content/" + assetRenderer.getUrlTitle()>
     <article>
         <hr class="update-divider" />
@@ -19,7 +18,7 @@
             <time class="update-date">${assetDate}</time>
         </header>
         <div class="update-preview">
-            <h2 class="update-title"><a href="${viewURL}">${entryTitle}</a></h2>
+            <h2 class="update-title"><@getEditIcon /> <a href="${viewURL}">${entryTitle}</a></h2>
             <p class="update-summary">
                 <!-- -->
                 <#assign summaryLength = summary?length />
@@ -47,8 +46,32 @@
 </div>
 </#if>
 
+<#macro getEditIcon>
+	<#if assetRenderer.hasEditPermission(themeDisplay.getPermissionChecker())>
+		<#assign redirectURL = renderResponse.createRenderURL() />
+
+		${redirectURL.setParameter("mvcPath", "/add_asset_redirect.jsp")}
+		${redirectURL.setWindowState("pop_up")}
+
+		<#assign editPortletURL = assetRenderer.getURLEdit(renderRequest, renderResponse, windowStateFactory.getWindowState("pop_up"), redirectURL)!"" />
+
+		<#if validator.isNotNull(editPortletURL)>
+			<#assign title = languageUtil.format(locale, "edit-x", entryTitle, false) />
+
+			<@liferay_ui["icon"]
+				cssClass="icon-monospaced visible-interaction"
+				icon="pencil"
+				markupView="lexicon"
+				message=title
+				url="javascript:Liferay.Util.openWindow({id:'" + renderResponse.getNamespace() + "editAsset', title: '" + title + "', uri:'" + htmlUtil.escapeURL(editPortletURL.toString()) + "'});"
+			/>
+		</#if>
+	</#if>
+</#macro>
+
 <script>
 Liferay.on('allPortletsReady', function() {
+    console.log('updates-page');
     var currentPage = $('.lfr-icon-menu-text').text().replace(/Page (\d+) of \d*/, '$1');
     var $container = $('.pagnation-container .pagnation-numbers');
 
