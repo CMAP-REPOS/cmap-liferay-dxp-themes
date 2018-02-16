@@ -69,7 +69,11 @@
     @content;
   }
 }
-
+@mixin mq($size){
+  @media screen and (max-width: $size){
+    @content;
+  }
+}
 
 /* FLEXBOX */
 @mixin flex {
