@@ -15,10 +15,6 @@
 
   }
   .slide-text{
-    width: 50%;
-    @include desktop(){
-      width: 100%;
-    }
   }
 
   .slider-nav{
@@ -34,7 +30,7 @@
       &.active{
         &:after{
           background: $white !important;
-        } 
+        }
       }
     }
   }
