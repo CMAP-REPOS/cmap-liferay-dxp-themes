@@ -369,8 +369,8 @@ AUI().ready(
                 }
             }
 
-            <#if markerColor?? && markerColor.getData()?? && markerColor.getData() != "">
-            $('.icon-map-med-dark').css('color', '${markerColor.getData()}');
+            <#if Options.markerColor?? && Options.markerColor.getData()?? && Options.markerColor.getData() != "">
+            $('.icon-map-med-dark').css('color', '${Options.markerColor.getData()}');
             <#else>
             $('.icon-map-med-dark').css('color', 'red');
             </#if>
