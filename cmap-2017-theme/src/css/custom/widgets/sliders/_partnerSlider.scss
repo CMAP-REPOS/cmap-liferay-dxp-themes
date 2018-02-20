@@ -4,10 +4,10 @@ section.partner-slider{
     padding: $unit * 2 0 0;
 
     @include tablet(){
-      &:nth-of-type(2){
+      &:nth-of-type(2n-1){
         padding-left: 0 !important;
       }
-      &:nth-of-type(3){
+      &:nth-of-type(2n){
         padding-right: 0 !important;
       }
     }
@@ -32,6 +32,7 @@ section.partner-slider{
   p{
     @extend .whitney-normal;
     color: $off-white-text;
+    font-size: $size-1;
   }
   a{
     @extend .underline-link;

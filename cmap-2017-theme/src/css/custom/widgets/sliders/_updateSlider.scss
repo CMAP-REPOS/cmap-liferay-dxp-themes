@@ -4,7 +4,7 @@
   background: white;
 
   .item{
-    padding: $unit * 2 0 0;
+    padding: $unit * 2 0 $unit;
 
     .item-date{
       @extend .whitney-normal;

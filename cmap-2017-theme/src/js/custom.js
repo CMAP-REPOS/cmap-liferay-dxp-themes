@@ -198,6 +198,9 @@ cmap.global.checkforh1 = function () {
     }
   });
 };
+cmap.global.updateSlider = function() {
+  // TODO: Insert the code from the JSP component
+}
 
 cmap.global.scrollnavTitle = function (text) {
   if (window.location.pathname === '/' ||
@@ -346,6 +349,7 @@ Liferay.on('allPortletsReady', function () {
   cmap.global.scrollnav();
   cmap.global.footerjumptotop();
   cmap.global.checkforh1();
+  cmap.global.updateSlider();
   cmap.global.youtube();
   cmap.global.loginpage();
   cmap.global.share();

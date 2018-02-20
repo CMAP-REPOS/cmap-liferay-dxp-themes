@@ -6,7 +6,9 @@
         <div class="slide-top row">
           <#if S.TopContent1.getSiblings()?has_content>
             <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
-              ${S.TopContent1.getData()}
+              <div class="top-content">
+                ${S.TopContent1.getData()}
+              </div>
             </div>
           </#if>
         </div>
@@ -14,7 +16,9 @@
         <div class="slide-bottom row">
           <#if S.BottomContent.getSiblings()?has_content>
             <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
-              ${S.BottomContent.getData()}
+              <div class="bottom-content">
+                ${S.BottomContent.getData()}
+              </div>
             </div>
           </#if>
         </div>
@@ -32,18 +36,31 @@
 
 <script>
 
+
+function updateHeight(){
+  $('.full-slider .slide').each(function(){
+    var $this = $(this), height = $this.find('.slide-background').innerHeight()
+    $this.css('height', height);
+    $('.full-slider').css('height', height);
+  });
+}
+
 function buildSlider(element){
 
   var slide_arr = [], smallest_val = 10000, smallest_index = -1;
+
   var $nav = $("<nav class='slider-nav'></nav>");
 
   $(element).find('.slide').each(function(index){
+    var $this = $(this);
+    var this_height = $this.innerHeight();
     slide_arr.push({
-      element: this,
-      height: this.clientHeight
+      element: $this,
+      height: this_height
     });
-    if(this.clientHeight < smallest_val){
-      smallest_val = this.clientHeight;
+
+    if(this_height < smallest_val){
+      smallest_val = this_height;
       smallest_index = index;
     }
   });
@@ -60,29 +77,35 @@ function buildSlider(element){
   }
 
   function jumpToSlide(index){
+    slide_arr[index].element.css('height', slide_arr[index].height);
+    $(element).css('height', slide_arr[index].height);
     slide_arr.forEach(function(item, i){
       var offset = i - index;
-      $(item.element).css('left', (100 * offset) + '%');
+      item.element.css('left', (100 * offset) + '%');
     });
   }
 
   slide_arr.forEach(function(item, i){
     addNavItem(i);
-    $(item.element).css({
-      position: 'absolute',
-      height: smallest_val
-    });
+    item.element.css('position', 'absolute');
     jumpToSlide(0);
   });
-  $(element).css('height', smallest_val);
 
-  $(element).append($nav);
+  console.log($nav.find('.nav-item').length);
+  if($nav.find('.nav-item').length > 1){
+    $(element).append($nav);
+  }
 }
 
 $(document).ready(function(){
-  $('.full-slider').each(function(){
-    buildSlider(this);
-  });
+  setTimeout(function(){
+    $('.full-slider').ready(function(){
+      $('.full-slider').each(function(){
+        buildSlider(this);
+      });
+      $(window).resize(_.throttle(updateHeight, 100));
+    });
+  }, 500);
 });
 
 </script>
