@@ -75,8 +75,11 @@ Liferay.on('allPortletsReady', function() {
 	
 	var $gross_layout = $('section.title-with-sections');
 	if($gross_layout.length){
+	    $('h3.publish-date').remove();
 		$('#layout-column_column-1').append($gross_layout.remove());
 		$gross_layout.find('.page-nav-container').remove();
+	} else {
+	    $('.header-back-to').append($('h3.publish-date'));
 	}
 
 	var $asset_preview = $('.asset-content');

@@ -19,19 +19,19 @@
 	<#if index == -1>
 		<#assign initialArray = initialArray + [initial]>
 	</#if>
-	
+
 	<#assign department = Staff.Department.getData()>
 	<#assign deptindex = departmentArray?seq_index_of(department)>
 	<#if deptindex == -1>
 		<#assign departmentArray = departmentArray + [department]>
 	</#if>
 
-	<#assign staffArray = staffArray + [{ 
-		"LastName" : Staff.LastName.getData(), 
-		"FirstName" : Staff.FirstName.getData(), 
-		"Department" : Staff.Department.getData(), 
-		"Phone" : Staff.Phone.getData(), 
-		"Email" : Staff.Email.getData(), 
+	<#assign staffArray = staffArray + [{
+		"LastName" : Staff.LastName.getData(),
+		"FirstName" : Staff.FirstName.getData(),
+		"Department" : Staff.Department.getData(),
+		"Phone" : Staff.Phone.getData(),
+		"Email" : Staff.Email.getData(),
 		"Initial" : initial,
 		"Department" : Staff.Department.getData(),
 		"Photo" : Staff.Photo.getData()
@@ -80,15 +80,15 @@
 			<#if i.FirstName != "">
 				<#assign StaffName = i.FirstName>
 			</#if>
-			<#if i.LastName != "" && i.FirstName != ""> 
+			<#if i.LastName != "" && i.FirstName != "">
 				<#assign StaffName = "${i.LastName}, ${i.FirstName}">
 			</#if>
 			<#if i.Email != "">
 				<#assign emailList = i.Email?trim?split("(?!^)","r")>
 			</#if>
 
-			<div class="staff-member-row row" 
-				data-searchtext="${i.LastName?lower_case}, ${i.FirstName?lower_case}" 
+			<div class="staff-member-row row"
+				data-searchtext="${i.LastName?lower_case}, ${i.FirstName?lower_case}"
 				data-department="${i.Department}"
 				data-email="${emailList?reverse?join("")}">
 				<div class="col-xl-5">
@@ -102,10 +102,10 @@
 					</#if>
 					<div class="staff-member-detail">
 						<#if i.Photo != "">
-						<img class="staff-member-photo" src="http://www.cmap.illinois.gov/${i.Photo}" alt="Photo of ${StaffName}" />
+						<img class="staff-member-photo" src="https://www.cmap.illinois.gov/${i.Photo}" alt="Photo of ${StaffName}" />
 						</#if>
-					</div>	
-				</div>	
+					</div>
+				</div>
 				<div class="col-xl-4">
 					<#if i.Phone != "">
 					<div class="staff-member-phone">
@@ -122,21 +122,21 @@
 									<polygon points="1.447 .526 .557 1.474 8.509 8.935 16.445 1.474 15.555 .526 8.508 7.151"/>
 								</g>
 								</svg>
-								<span>Email</span> 
+								<span>Email</span>
 							</a>
 							</#if>
-							<a class="staff-member-vcard" title="Download VCF for ${StaffName}"  href="#" > 
+							<a class="staff-member-vcard" title="Download VCF for ${StaffName}"  href="#" >
 								<svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13">
 								<g fill="#3C5976" fill-rule="evenodd">
 									<path d="M10.8039 5.522C10.8039 4.143 9.6849 3.022 8.3039 3.022 6.9229 3.022 5.8039 4.143 5.8039 5.522 5.8039 6.901 6.9229 8.022 8.3039 8.022 9.6849 8.022 10.8039 6.901 10.8039 5.522zM4.07565677 11.352C4.96180221 9.95161938 6.52443705 9.022 8.3039 9.022 10.083363 9.022 11.6459978 9.95161938 12.5321432 11.352L4.07565677 11.352z"/>
 									<path fill-rule="nonzero" d="M0.216,12.652 L0.216,0.395 L16.391,0.395 L16.391,12.652 L0.216,12.652 Z M15.091,11.352 L15.091,1.695 L1.516,1.695 L1.516,11.352 L15.091,11.352 Z"/>
 								</g>
 								</svg>
-								<span>VCard</span> 
+								<span>VCard</span>
 							</a>
 						</div>
 					</div>
-				</div>	
+				</div>
 				<div class="col-xl-1">
 					<div class="close-icon hidden">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
@@ -191,8 +191,8 @@ cmap.staffDirectory.populateCards = function() {
 };
 
 cmap.staffDirectory.getCard = function(email) {
-	var card = cmap.staffDirectory.cards.filter(function(card) { 
-		return card.email === email; 
+	var card = cmap.staffDirectory.cards.filter(function(card) {
+		return card.email === email;
 	});
 	console.log(card);
 	return card;
@@ -203,7 +203,7 @@ cmap.staffDirectory.executeFilter = function () {
     var filterAlpha = cmap.staffDirectory.filterState.alpha.toUpperCase();
     var filterDepartment = cmap.staffDirectory.filterState.department;
     var filterName = cmap.staffDirectory.filterState.name.toLowerCase();
-    
+
     $('.staffdirectory-showall').addClass('hidden');
 	$('.staffdirectory-alpha').show();
 
@@ -219,7 +219,7 @@ cmap.staffDirectory.executeFilter = function () {
         $('.staffdirectory-showall').removeClass('hidden');
         $('div.staff-member-row:not([data-searchtext*="' + filterName + '"])').hide();
     }
-    
+
     if ($.trim(filterAlpha) !== '') {
         $('.staffdirectory-showall').removeClass('hidden');
         $('.staffdirectory-alpha').hide();
@@ -247,12 +247,12 @@ cmap.staffDirectory.resetFilter = function() {
 }
 
 cmap.staffDirectory.bindEvents = function () {
-    
+
     $('#staffdirectory-department-filter').on('change', function () {
         cmap.staffDirectory.filterState.department = $(this).val();
         cmap.staffDirectory.executeFilter();
     });
-    
+
     $('#staffdirectory-search-text').on('keypress', function (e) {
         var p = e.which;
 		console.log(p);
@@ -261,12 +261,12 @@ cmap.staffDirectory.bindEvents = function () {
             cmap.staffDirectory.executeFilter();
         }
     });
-    
+
     $('#staffdirectory-showall').on('click', function(e) {
         e.preventDefault();
         cmap.staffDirectory.resetFilter();
     });
-        
+
     $('#staffdirectory-alpha-filter').on('click', 'a', function(e) {
         e.preventDefault();
         cmap.staffDirectory.filterState.alpha = $(this).data('alpha');

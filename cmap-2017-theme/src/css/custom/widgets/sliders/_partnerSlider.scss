@@ -2,6 +2,19 @@ section.partner-slider{
 
   .partner{
     padding: $unit * 2 0 0;
+
+    @include tablet(){
+      &:nth-of-type(2n-1){
+        padding-left: 0 !important;
+      }
+      &:nth-of-type(2n){
+        padding-right: 0 !important;
+      }
+    }
+    @include phone(){
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
   }
   .partner-logo{
     margin-bottom: $unit;
@@ -10,15 +23,16 @@ section.partner-slider{
   .col-md-0{
     padding: 0 !important;
   }
-  
+
   h3{
     margin: 0;
     margin-right: $size-2;
   }
-  
+
   p{
     @extend .whitney-normal;
     color: $off-white-text;
+    font-size: $size-1;
   }
   a{
     @extend .underline-link;

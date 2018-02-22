@@ -4,13 +4,13 @@
   background: white;
 
   .item{
-    padding: $unit * 2 0 0;
+    padding: $unit * 2 0 $unit;
 
     .item-date{
       @extend .whitney-normal;
       color: $off-white-text;
     }
-    
+
     .item-title{
       @extend .whitney-normal__bold;
 
@@ -31,6 +31,19 @@
 
     p, .read-more-link{
       font-size: $size-1;
+    }
+
+    @include tablet(){
+      &:nth-of-type(odd){
+        padding-left: 0 !important;
+      }
+      &:nth-of-type(even){
+        padding-right: 0 !important;
+      }
+    }
+    @include phone(){
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 }

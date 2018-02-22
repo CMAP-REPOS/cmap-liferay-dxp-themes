@@ -11,8 +11,10 @@
           </h1>
         </div>
       </#if>
-      <div class="homepage-hero-description col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
-        ${HeroDescription.getData()}
+      <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+        <div class="homepage-hero-description">
+          ${HeroDescription.getData()}
+        </div>
       </div>
     </div>
   </div>

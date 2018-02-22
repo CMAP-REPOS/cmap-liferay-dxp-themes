@@ -3,6 +3,14 @@
 <#assign displaydate = .vars['reserved-article-display-date'].data>
 <#assign createdate = .vars['reserved-article-create-date'].data>
 <#assign modifieddate = .vars['reserved-article-modified-date'].data>
+<#assign articleId = .vars['reserved-article-id'].data>
+
+<#assign JournalArticleLocalService = serviceLocator.findService("com.liferay.journal.service.JournalArticleLocalService")>
+<#assign AssetEntryLocalService = serviceLocator.findService("com.liferay.asset.kernel.service.AssetEntryLocalService")>
+
+<#assign journalArticle = JournalArticleLocalService.getArticle(groupId, articleId)>
+<#assign journalArticleResource = journalArticle.getArticleResource()>
+<#assign assetEntry = AssetEntryLocalService.fetchEntry(groupId, journalArticleResource.getUuid())>
 
 <#-- Save the original page locale for later -->
 <#assign originalLocale = .locale>
@@ -37,7 +45,7 @@
       <#-- Logic is inverted because HideDateInSidebar (Boolean7kfq) is undefined by default -->
       <#if Boolean7kfq?? && getterUtil.getBoolean(Boolean7kfq.getData())>
       <#else>
-        <h4 class="h4">${modifieddate?date}</h4>
+        <h4 class="h4">${assetEntry.getPublishDate()?date}</h4>
       </#if>
       </div>
     </div>
