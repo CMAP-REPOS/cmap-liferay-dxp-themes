@@ -179,12 +179,22 @@ $icon-nav-right-white: "\e91d";
             display: block;
         }
         .layers-menu {
-            li {
-                @extend .whitney-large__bold;
-	            a {
-	                color: $dark-blue;
+        	margin-right: 50px;
+        	ul {
+        		list-style: none;
+        		margin: 0;
+        		padding: 0;
+	            li {
+	                @extend .whitney-large__bold;
+		            a {
+		                color: $dark-blue;
+		                span {
+		                	&.overlay-label {
+		                	}
+		                }
+		            }
 	            }
-            }
+        	}
         }
     }
     .story-map-zoom-toggler {
