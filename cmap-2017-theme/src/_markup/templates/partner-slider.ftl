@@ -5,16 +5,13 @@
     <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
       <div class="buttons">
         <h3>Partner Spotlight</h3>
-        <div class="view-all">
-          <a href="/view-all">View all</a>
-        </div>
       </div>
     </div>
   </header>
 
   <div class="slider-container"></div>
   <#list Partners.getSiblings() as Partner>
-    <div class="partner col-xl-5 col-md-8">
+    <div class="partner col-xl-4 col-md-8 col-xs-16">
       <div class="partner-logo">
         <#if Partner.Logo.getData()?? && Partner.Logo.getData() != "">
           <div class="slide-background">
@@ -39,48 +36,61 @@
   $(document).ready(function(){
     var $this = $('#${randomNamespace}');
     var $container = $this.find('.slider-container');
-    var $spacer = $("<div class='col-xl-3 col-md-0'></div>");
-    var $largeSpacer = $("<div class='col-xl-5 col-md-8'></div>");
+    // var $spacer = $("<div class='col-xl-3 col-md-0'></div>");
+    // var $largeSpacer = $("<div class='col-xl-5 col-md-8'></div>");
     var $nav = $("<nav class='slider-nav'></nav>");
-
     var items = $this.find('.partner');
-    var container = $('<div class="partner-slide slider-slide"></div>');
-    var row = $('<div class="row"></div>');
+    var container, row, active_row;
+    var rows = [];
+    var active_index = 0;
 
     function addItem(dom){
       if(dom){
         row.append(dom);
-      } else {
-        row.append($largeSpacer.clone());
       }
     }
 
-    // one iteration for each row of two items
-    for(let i=0; i<Math.ceil(items.length / 2); i++){
+    function setHeight(index){
+      console.log(rows, active_index);
+      if(rows[active_index]){
 
-      // reset the row element
+        $container.css('height', rows[active_index].innerHeight());
+      } else {
+        $container.css('height', 'auto');
+      }
+    }
+
+    for(let i=0; i<Math.ceil(items.length / 4); i++){
+
       container = $('<div class="partner-slide slider-slide"></div>');
       row = $('<div class="row"></div>');
-
       var $navItem = $('<div class="nav-item"></div>');
-      if(i===0){ $navItem.addClass('active'); }
+
       $navItem.click(function(){
         $container.css('transform', 'translateX(-'+(i*100)+'%)');
         $nav.find('.nav-item.active').removeClass('active');
         $(this).addClass('active');
+        active_index = i;
+        setHeight();
       });
       $nav.append($navItem);
 
-      // builds a row
-      row.append($spacer.clone());
-      addItem(items[(i*2)]);
-      addItem(items[(i*2)+1]);
-      row.append($spacer.clone());
+      addItem(items[(i*4)])
+      addItem(items[(i*4)+1])
+      addItem(items[(i*4)+2])
+      addItem(items[(i*4)+3])
 
-      console.log(container, row, $container);
-      container.append(row); // wrapping the bootstrap row
+      rows.push(row);
+      container.append(row);
       $container.append(container);
+
+      if(i===0){
+        $navItem.addClass('active');
+        setHeight();
+      }
     }
+
+    $(window).resize(_.throttle(setHeight, 100));
 
     $this.append($nav);
   });
