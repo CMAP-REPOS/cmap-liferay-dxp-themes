@@ -2,7 +2,13 @@
 <#assign locations = []>
 
 <div class="story-map-zoom-toggler">
-  <a href="#"><i class="icon-plus"></i> Zoom</a>
+  <a href="#">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <g fill="#3C5976">
+      <path d="M15.069,28.14 C7.85085007,28.14 2,22.2884854 2,15.069 C2,7.8511823 7.8511823,2 15.069,2 C22.2871532,2 28.14,7.85151768 28.14,15.069 C28.14,22.28815 22.2874855,28.14 15.069,28.14 Z M15.069,26.33 C21.2878961,26.33 26.33,21.2884686 26.33,15.069 C26.33,8.85124512 21.2876098,3.81 15.069,3.81 C8.8508177,3.81 3.81,8.8508177 3.81,15.069 C3.81,21.2888961 8.85053149,26.33 15.069,26.33 Z"/>
+      <path d="M14,14 L14,9 L16,9 L16,14 L21,14 L21,16 L16,16 L16,21 L14,21 L14,16 L9,16 L9,14 L14,14 Z"/>
+    </g>
+  </svg> <span>Zoom</span></a>
 </div>
 
 <#if getterUtil.getBoolean(Options.ShowLayers.getData())>
@@ -10,7 +16,19 @@
     <div class="layers-menu">
     <ul class="list-unstyled">
       <li>
-        <a href="#" class="layers-menu-toggler"><i class="icon-play-circle" style="color: #3C5976"></i> <span class="overlay-label">Layers</span></a>
+        <a href="#" class="layers-menu-toggler">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="menu-toggler-left" style="display: none">
+          <g fill="#3C5976" transform="translate(1 1)">
+            <polygon points="16.942 17.894 15.164 19.671 9.55 14.054 15.012 8.592 16.79 10.369 13.105 14.055"/>
+            <path d="M14.164,25.425 C20.3828961,25.425 25.425,20.3834686 25.425,14.164 C25.425,7.94624512 20.3826098,2.905 14.164,2.905 C7.9458177,2.905 2.905,7.9458177 2.905,14.164 C2.905,20.3838961 7.94553149,25.425 14.164,25.425 Z M14.164,27.235 C6.94585007,27.235 1.095,21.3834854 1.095,14.164 C1.095,6.9461823 6.9461823,1.095 14.164,1.095 C21.3821532,1.095 27.235,6.94651768 27.235,14.164 C27.235,21.38315 21.3824855,27.235 14.164,27.235 Z"/>
+          </g>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="menu-toggler-right" style="display: block">
+          <g fill="#3C5976" transform="translate(1 1)">
+            <polygon points="11.54 10.37 13.318 8.592 18.78 14.055 13.166 19.671 11.388 17.894 15.226 14.055"/>
+            <path d="M14.166,27.235 C6.94751453,27.235 1.095,21.38315 1.095,14.164 C1.095,6.94651768 6.94784682,1.095 14.166,1.095 C21.3838177,1.095 27.235,6.9461823 27.235,14.164 C27.235,21.3834854 21.3841499,27.235 14.166,27.235 Z M14.166,25.425 C20.3844685,25.425 25.425,20.3838961 25.425,14.164 C25.425,7.9458177 20.3841823,2.905 14.166,2.905 C7.9473902,2.905 2.905,7.94624512 2.905,14.164 C2.905,20.3834686 7.94710392,25.425 14.166,25.425 Z"/>
+          </g>
+        </svg> <span class="overlay-label">Layers</span></a>
       </li>
     <#list Layer.getSiblings() as cur_Layer>
     <#assign layerIndex = cur_Layer?index>
@@ -27,7 +45,13 @@
           <#--  magic value $grey-blue from _variables.scss  -->
           <#assign layerColor = "#3C5976">
         </#if>
-        <i class="icon-circle-blank" style="color: ${layerColor}"></i> <span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span></a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+          <g fill="${layerColor}" fill-rule="evenodd" transform="translate(1 1)">
+            <path fill-rule="nonzero" d="M14.064,27.133 C6.85695383,27.133 0.995,21.2710462 0.995,14.064 C0.995,6.85695383 6.85695383,0.995 14.064,0.995 C21.2710462,0.995 27.133,6.85695383 27.133,14.064 C27.133,21.2710462 21.2710462,27.133 14.064,27.133 Z M14.064,25.123 C20.1609538,25.123 25.123,20.1609538 25.123,14.064 C25.123,7.96704617 20.1609538,3.005 14.064,3.005 C7.96704617,3.005 3.005,7.96704617 3.005,14.064 C3.005,20.1609538 7.96704617,25.123 14.064,25.123 Z"/>
+            <path d="M14.064,21.6038 C18.228,21.6038 21.604,18.2278 21.604,14.0638 C21.604,9.8998 18.228,6.5238 14.064,6.5238 C9.9,6.5238 6.524,9.8998 6.524,14.0638 C6.524,18.2278 9.9,21.6038 14.064,21.6038"/>
+          </g>
+        </svg>
+        <span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span></a>
         </a>
       </li>
       </#if>
@@ -61,7 +85,15 @@
       </div>
       <div class="col-xl-3 col-sm-16 col-sm-offset-0 ">
         <div class="storymap-data-link">
-        <a href="${LinkToDataHub.getData()}"><i class="icon-download-alt"></i> Download the Data </a>
+        <a href="${LinkToDataHub.getData()}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+          <g fill="#3C5976" transform="translate(7 6)">
+            <path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
+            <path d="M8.9124,10.82 C8.9124,11.3060106 8.51841058,11.7 8.0324,11.7 C7.54638942,11.7 7.1524,11.3060106 7.1524,10.82 L7.1524,2 C7.1524,1.51398942 7.54638942,1.12 8.0324,1.12 C8.51841058,1.12 8.9124,1.51398942 8.9124,2 L8.9124,10.82 Z"/>
+            <path d="M10.6068201,7.96600256 C10.9739776,7.64756628 11.5297612,7.68706263 11.8481974,8.05422012 C12.1666337,8.42137761 12.1271374,8.97716117 11.7599799,9.29559744 L8.03358295,12.5275074 L4.305029,9.29577855 C3.93777149,8.97745763 3.89810054,8.42168651 4.21642145,8.054429 C4.53474237,7.68717149 5.09051349,7.64750054 5.457771,7.96582145 L8.03321705,10.1980926 L10.6068201,7.96600256 Z"/>
+          </g>
+        </svg>
+        <span> Download the Data</span></a>
         </div>
       </div>
   </div>
@@ -193,13 +225,21 @@
 
       cmap.storymaps.toggleZoom = function (l) {
         if (l > -1 && cmap.storymaps.map.getZoom() !== parseInt(cmap.storymaps.locations[l].zoom, 10)) {
-          cmap.storymaps.map.setZoom(cmap.storymaps.locations[l].zoom);
-          cmap.storymaps.hideLayerMenu();
+          cmap.storymaps.zoomIn(l);
         } else {
-          cmap.storymaps.map.setZoom(cmap.storymaps.defaultZoom);
-          cmap.storymaps.showLayerMenu();
+          cmap.storymaps.zoomOut();
         }
       };
+
+      <#--  https://stackoverflow.com/questions/24578837/remove-or-hide-svg-element/24578882  -->
+      cmap.storymaps.toggleSVG = function(id) {
+        var svg = document.getElementById(id);
+        var style = svg.style.display;
+        if (style === "none")
+          svg.style.display = "block";
+        else
+          svg.style.display = "none";
+      }
 
       cmap.storymaps.toggleLayersMenu = function () {
         if (!$('.leaflet-bottom.leaflet-right').data('hidden')) {
@@ -207,6 +247,20 @@
         } else {
           cmap.storymaps.showLayerMenu();
         }
+        cmap.storymaps.toggleSVG('menu-toggler-left');
+        cmap.storymaps.toggleSVG('menu-toggler-right');
+      };
+
+      cmap.storymaps.zoomOut = function() {
+          cmap.storymaps.map.setZoom(cmap.storymaps.defaultZoom);
+          cmap.storymaps.showLayerMenu();
+          $('.story-map-zoom-toggler a span').html('Zoom');
+      };
+
+      cmap.storymaps.zoomIn  = function(l) {
+          cmap.storymaps.map.setZoom(cmap.storymaps.locations[l].zoom);
+          cmap.storymaps.hideLayerMenu();
+          $('.story-map-zoom-toggler a span').html('Zoom out');
       };
 
       cmap.storymaps.hideLayerMenu = function() {
@@ -254,7 +308,7 @@
 
         for (i = 0; i < cmap.storymaps.locations[l].markers.length; i++) {
           var marker = cmap.storymaps.locations[l].markers[i];
-          mapPin = new L.marker(marker.coords, { icon: cmapIcon, interactive: false });
+          var mapPin = new L.marker(marker.coords, { icon: cmapIcon, interactive: false });
           cmap.storymaps.markerLayers.push(mapPin);
           mapPin.addTo(cmap.storymaps.map);
           L.DomEvent.disableClickPropagation(mapPin);
@@ -279,7 +333,7 @@
           cmap.storymaps.loadContent(true, l);
           cmap.storymaps.scrollToContent();
         } else {
-          // TODO: default state
+          // noop
         }
       };
 

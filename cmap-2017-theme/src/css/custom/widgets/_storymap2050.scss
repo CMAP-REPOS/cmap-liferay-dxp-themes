@@ -127,6 +127,25 @@ $icon-nav-right-white: "\e91d";
         .storymap-source {
             line-height: 1.3em;
         }
+
+        .storymap-data-link {
+            a {
+                border: none;
+                color: $dark-blue;
+                display: inline-block;
+                line-height: 30px;
+                &:hover {
+                    color: $dark-blue;
+                }
+                span, svg {
+                    display: inline-block;
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+    .storymap-main-content {
+        margin: 25px 0;
     }
     .storymap-nav-container {
         @include section-padding();
@@ -173,7 +192,7 @@ $icon-nav-right-white: "\e91d";
         display: none;
     }
     .story-map-layer-switcher {
-        @extend .whitney-large__bold;
+        @extend .whitney-normal__bold;
 		display: none;
         &.leaflet-control {
             display: block;
@@ -185,30 +204,71 @@ $icon-nav-right-white: "\e91d";
         		margin: 0;
         		padding: 0;
 	            li {
-	                @extend .whitney-large__bold;
+                    @extend .whitney-normal__bold;
+                    margin: 0;
+                    padding: 0;
 		            a {
+                        border: none;
 		                color: $dark-blue;
-		                span {
-		                	&.overlay-label {
-		                	}
-		                }
-		            }
+                        display: inline-block;
+                        line-height: 30px;
+                        margin-top: 0.6628788vw;
+                        &:hover {
+                            color: $dark-blue;
+                        }
+                        span, svg {
+                            float: left;
+                            vertical-align: bottom;
+                        }
+                        span {
+                            padding-left: 0.9469697vw;
+                        }
+                    }
 	            }
         	}
         }
     }
     .story-map-zoom-toggler {
-        @extend .whitney-large__bold;
-		background: $white;
+        @extend .whitney-normal__bold;
 		display: none;
-    	padding: .25em;
         &.leaflet-control {
             display: block;
         }
         a {
             color: $dark-blue;
+            display: inline-block;
+            line-height: 30px;
+            &:hover {
+                color: $dark-blue;
+            }
+            span, svg {
+                float: left;
+                vertical-align: bottom;
+            }
+            span {
+                padding-left: 0.9469697vw;
+            }
         }
     }
+
+    .leaflet-top {
+        &.leaflet-left {
+            .leaflet-control {
+                margin-left: 4.8295455vw;
+                margin-top: 1.8939394vw;
+            }
+        }
+    }
+
+    .leaflet-bottom {
+        &.leaflet-right {
+            .leaflet-control {
+                margin-bottom: 1.8939394vw;
+                margin-right: 7.1969697vw;
+            }
+        }
+    }
+    
     @include tablet() {
         .storymap-intro-content {
             padding-bottom: 25px;
