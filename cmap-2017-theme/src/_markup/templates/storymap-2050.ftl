@@ -3,7 +3,13 @@
 
 <div class="story-map-zoom-toggler">
   <a href="#">
-  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="zoom-toggler-minus" style="display: none">
+    <g fill="#3C5976" fill-rule="evenodd">
+      <path fill-rule="nonzero" d="M15.069,28.14 C7.85085007,28.14 2,22.2884854 2,15.069 C2,7.8511823 7.8511823,2 15.069,2 C22.2871532,2 28.14,7.85151768 28.14,15.069 C28.14,22.28815 22.2874855,28.14 15.069,28.14 Z M15.069,26.33 C21.2878961,26.33 26.33,21.2884686 26.33,15.069 C26.33,8.85124512 21.2876098,3.81 15.069,3.81 C8.8508177,3.81 3.81,8.8508177 3.81,15.069 C3.81,21.2888961 8.85053149,26.33 15.069,26.33 Z"/>
+      <rect width="12" height="2" x="9" y="14"/>
+    </g>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="zoom-toggler-plus" style="display: block">
     <g fill="#3C5976">
       <path d="M15.069,28.14 C7.85085007,28.14 2,22.2884854 2,15.069 C2,7.8511823 7.8511823,2 15.069,2 C22.2871532,2 28.14,7.85151768 28.14,15.069 C28.14,22.28815 22.2874855,28.14 15.069,28.14 Z M15.069,26.33 C21.2878961,26.33 26.33,21.2884686 26.33,15.069 C26.33,8.85124512 21.2876098,3.81 15.069,3.81 C8.8508177,3.81 3.81,8.8508177 3.81,15.069 C3.81,21.2888961 8.85053149,26.33 15.069,26.33 Z"/>
       <path d="M14,14 L14,9 L16,9 L16,14 L21,14 L21,16 L16,16 L16,21 L14,21 L14,16 L9,16 L9,14 L14,14 Z"/>
@@ -78,24 +84,28 @@
       ${Source.getData()}
       </div>
     </div>
-      <div class="col-xl-10 col-sm-16 col-sm-offset-0 ">
-        <div class="storymap-info">
-        ${StoryDescription.getData()}
-        </div>
+    <div class="col-xl-10 col-sm-16 col-sm-offset-0 ">
+      <div class="storymap-info">
+      ${StoryDescription.getData()}
       </div>
-      <div class="col-xl-3 col-sm-16 col-sm-offset-0 ">
-        <div class="storymap-data-link">
-        <a href="${LinkToDataHub.getData()}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-          <g fill="#3C5976" transform="translate(7 6)">
-            <path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
-            <path d="M8.9124,10.82 C8.9124,11.3060106 8.51841058,11.7 8.0324,11.7 C7.54638942,11.7 7.1524,11.3060106 7.1524,10.82 L7.1524,2 C7.1524,1.51398942 7.54638942,1.12 8.0324,1.12 C8.51841058,1.12 8.9124,1.51398942 8.9124,2 L8.9124,10.82 Z"/>
-            <path d="M10.6068201,7.96600256 C10.9739776,7.64756628 11.5297612,7.68706263 11.8481974,8.05422012 C12.1666337,8.42137761 12.1271374,8.97716117 11.7599799,9.29559744 L8.03358295,12.5275074 L4.305029,9.29577855 C3.93777149,8.97745763 3.89810054,8.42168651 4.21642145,8.054429 C4.53474237,7.68717149 5.09051349,7.64750054 5.457771,7.96582145 L8.03321705,10.1980926 L10.6068201,7.96600256 Z"/>
-          </g>
-        </svg>
-        <span> Download the Data</span></a>
-        </div>
-      </div>
+    </div>
+    <div class="col-xl-3 col-sm-16 col-sm-offset-0 ">
+    <#if LinkToDataHub?? 
+      && LinkToDataHub.getData()?? 
+      && LinkToDataHub.getData() != "">
+      <div class="storymap-data-link">
+      <a href="${LinkToDataHub.getData()}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+        <g fill="#3C5976" transform="translate(7 6)">
+          <path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
+          <path d="M8.9124,10.82 C8.9124,11.3060106 8.51841058,11.7 8.0324,11.7 C7.54638942,11.7 7.1524,11.3060106 7.1524,10.82 L7.1524,2 C7.1524,1.51398942 7.54638942,1.12 8.0324,1.12 C8.51841058,1.12 8.9124,1.51398942 8.9124,2 L8.9124,10.82 Z"/>
+          <path d="M10.6068201,7.96600256 C10.9739776,7.64756628 11.5297612,7.68706263 11.8481974,8.05422012 C12.1666337,8.42137761 12.1271374,8.97716117 11.7599799,9.29559744 L8.03358295,12.5275074 L4.305029,9.29577855 C3.93777149,8.97745763 3.89810054,8.42168651 4.21642145,8.054429 C4.53474237,7.68717149 5.09051349,7.64750054 5.457771,7.96582145 L8.03321705,10.1980926 L10.6068201,7.96600256 Z"/>
+        </g>
+      </svg>
+      <span> Download the Data</span></a>
+    </div>
+    </#if>
+    </div>
   </div>
 </div>
 
@@ -224,14 +234,17 @@
       cmap.storymaps.defaultZoom = 9;
 
       cmap.storymaps.toggleZoom = function (l) {
-        if (l > -1 && cmap.storymaps.map.getZoom() !== parseInt(cmap.storymaps.locations[l].zoom, 10)) {
+        if (cmap.storymaps.map.getZoom() === cmap.storymaps.defaultZoom)  {
           cmap.storymaps.zoomIn(l);
         } else {
           cmap.storymaps.zoomOut();
         }
+        cmap.storymaps.toggleSVG('zoom-toggler-plus');
+        cmap.storymaps.toggleSVG('zoom-toggler-minus');
       };
 
-      <#--  https://stackoverflow.com/questions/24578837/remove-or-hide-svg-element/24578882  -->
+      <#-- https://stackoverflow.com/questions/24578837/remove-or-hide-svg-element/24578882  -->
+      <#-- because it depends on the element's style attribute, this seems to only work with SVGs with inline styles -->
       cmap.storymaps.toggleSVG = function(id) {
         var svg = document.getElementById(id);
         var style = svg.style.display;
@@ -247,8 +260,6 @@
         } else {
           cmap.storymaps.showLayerMenu();
         }
-        cmap.storymaps.toggleSVG('menu-toggler-left');
-        cmap.storymaps.toggleSVG('menu-toggler-right');
       };
 
       cmap.storymaps.zoomOut = function() {
@@ -258,7 +269,11 @@
       };
 
       cmap.storymaps.zoomIn  = function(l) {
-          cmap.storymaps.map.setZoom(cmap.storymaps.locations[l].zoom);
+          if (l > -1) {
+            cmap.storymaps.map.setZoom(cmap.storymaps.locations[l].zoom);
+          } else {
+            cmap.storymaps.map.setZoom(cmap.storymaps.defaultZoom + 1);
+          }
           cmap.storymaps.hideLayerMenu();
           $('.story-map-zoom-toggler a span').html('Zoom out');
       };
@@ -269,6 +284,8 @@
           right: right,
         }, 500, function() {
           $('.leaflet-bottom.leaflet-right').data('hidden', true);
+          cmap.storymaps.toggleSVG('menu-toggler-left');
+          cmap.storymaps.toggleSVG('menu-toggler-right');
         });
       };
 
@@ -277,6 +294,8 @@
           right: '10px',
         }, 500, function() {
           $('.leaflet-bottom.leaflet-right').data('hidden', false);
+          cmap.storymaps.toggleSVG('menu-toggler-left');
+          cmap.storymaps.toggleSVG('menu-toggler-right');
         });
       };
 
@@ -491,6 +510,7 @@
         }).setView([41.8781, -87.6298], cmap.storymaps.defaultZoom);
 
         cmap.storymaps.map.scrollWheelZoom.disable();
+        cmap.storymaps.map.doubleClickZoom.disable();
         L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
         L.control.zoomToggler({ position: 'topleft' }).addTo(cmap.storymaps.map);
         L.control.layerSwitcher({ position: 'bottomright' }).addTo(cmap.storymaps.map);
