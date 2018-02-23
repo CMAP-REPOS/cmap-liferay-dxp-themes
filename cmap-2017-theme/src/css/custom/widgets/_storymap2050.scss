@@ -192,29 +192,30 @@ $icon-nav-right-white: "\e91d";
         display: none;
     }
     .story-map-layer-switcher {
-        @extend .whitney-normal__bold;
 		display: none;
         &.leaflet-control {
             display: block;
         }
         .layers-menu {
-        	margin-right: 50px;
         	ul {
         		list-style: none;
         		margin: 0;
         		padding: 0;
 	            li {
-                    @extend .whitney-normal__bold;
+					font-family: $font-sans;
+					font-weight: $bold-weight;
+			        font-size: 1.2em;
                     margin: 0;
                     padding: 0;
 		            a {
                         border: none;
-		                color: $dark-blue;
+		                color: $grey-blue;
                         display: inline-block;
                         line-height: 30px;
                         margin-top: 0.6628788vw;
                         &:hover {
-                            color: $dark-blue;
+                        	border: none;
+                            color: $grey-blue;
                         }
                         span, svg {
                             float: left;
@@ -229,17 +230,20 @@ $icon-nav-right-white: "\e91d";
         }
     }
     .story-map-zoom-toggler {
-        @extend .whitney-normal__bold;
 		display: none;
+		font-family: $font-sans;
+		font-weight: $bold-weight;
+        font-size: 1.2em;
         &.leaflet-control {
             display: block;
         }
         a {
-            color: $dark-blue;
+            color: $grey-blue;
             display: inline-block;
             line-height: 30px;
             &:hover {
-                color: $dark-blue;
+                border: none;
+                color: $grey-blue;
             }
             span, svg {
                 float: left;
