@@ -239,6 +239,7 @@
       cmap.storymaps.defaultLocation = -1;
       cmap.storymaps.markerLayers = [];
       cmap.storymaps.defaultZoom = 9;
+      cmap.storymaps.hasDefaultContent = false;
 
       cmap.storymaps.toggleZoom = function (l) {
         if (cmap.storymaps.map.getZoom() === cmap.storymaps.defaultZoom)  {
@@ -357,7 +358,6 @@
           cmap.storymaps.setMarkerState(l);
           cmap.storymaps.setPanState(l);
           cmap.storymaps.loadContent(true, l);
-          cmap.storymaps.scrollToContent();
         } else {
           // noop
         }
@@ -368,13 +368,19 @@
         if (isLocation && index > -1) {
         <#if getterUtil.getBoolean(Options.ShowLocationContent.getData()) >
           $('#${randomNamespace}location_content' + index).show();
-          cmap.storymaps.scrollToContent();
+          if (!cmap.storymaps.hasDefaultContent) {
+            cmap.storymaps.scrollToContent();
+          }
+          cmap.storymaps.hasDefaultContent = false;
         </#if>
         } else if (index > -1) {
         <#if getterUtil.getBoolean(Options.ShowLayerContent.getData()) >
           var contentId = 'layer_content' + index;
           $('#${randomNamespace}' + contentId).show();
-          cmap.storymaps.scrollToContent();
+          if (!cmap.storymaps.hasDefaultContent) {
+            cmap.storymaps.scrollToContent();
+          }
+          cmap.storymaps.hasDefaultContent = false;
         </#if>
         }
       };
@@ -470,6 +476,7 @@
         </#list >
         for (var i = 0; i < cmap.storymaps.locations.length; i++) {
           if (cmap.storymaps.locations[i].default) {
+            cmap.storymaps.hasDefaultContent = true;
             cmap.storymaps.location = i;            
             cmap.storymaps.showLocation(i);
             break;
@@ -493,6 +500,7 @@
       </#list >
         for (var i = 0; i < cmap.storymaps.layerData.length; i++) {
           if (cmap.storymaps.layerData[i].default) {
+            cmap.storymaps.hasDefaultContent = true;
             cmap.storymaps.loadOverlay(i);
             break;
           }
