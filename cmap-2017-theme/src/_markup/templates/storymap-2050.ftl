@@ -42,8 +42,11 @@
         && cur_Layer.LayerLabel?? 
         && cur_Layer.LayerLabel.getData()?? 
         && cur_Layer.LayerLabel.getData() != "">
+        <#if getterUtil.getBoolean(cur_Layer.IncludeLayerInLegend.getData())>
       <li>
+          <#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
         <a href="#" id="button_overlay_${layerIndex}" data-index="${layerIndex}" class="button_overlay">
+          </#if>
         <#if cur_Layer.LayerColor.getData()?? 
           && cur_Layer.LayerColor.getData() != "">
           <#assign layerColor = cur_Layer.LayerColor.getData()>
@@ -65,8 +68,11 @@
         </svg>
 
         <span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span></a>
+          <#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
         </a>
+          </#if>
       </li>
+        </#if>
       </#if>
     </#list>
     </ul>
@@ -85,10 +91,7 @@
   <div class="row">
     <div class="col-xl-3 col-sm-16 col-sm-offset-0">
       <div class="storymap-aside">
-      ${Aside.getData()}
-      </div>
-      <div class="storymap-source">
-      ${Source.getData()}
+      ${AsideAndSource.getData()}
       </div>
     </div>
     <div class="col-xl-10 col-sm-16 col-sm-offset-0 ">
@@ -238,7 +241,7 @@
       cmap.storymaps.locations = [];
       cmap.storymaps.defaultLocation = -1;
       cmap.storymaps.markerLayers = [];
-      cmap.storymaps.defaultZoom = 9;
+      cmap.storymaps.defaultZoom = 8;
       cmap.storymaps.hasDefaultContent = false;
 
       cmap.storymaps.toggleZoom = function (l) {
@@ -308,8 +311,8 @@
       };
 
       cmap.storymaps.scrollToContent = function () {
-        <#--  magic value 50 is approximate height of scroll-nav  -->
-        $('html, body').animate({ scrollTop: $('.storymap-main-content').offset().top - 50 }, 600);
+        <#--  magic value 350 is approximate height of scroll-nav + 2/3 of map height  -->
+        $('html, body').animate({ scrollTop: $('.storymap-main-content').offset().top - 450 }, 600);
       };
 
       cmap.storymaps.removeLayer = function (layer) {
@@ -518,13 +521,13 @@
         L.mapbox.accessToken = 'pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ';
 
         cmap.storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
-          maxBounds: [[40.82130, -90.47900], [43.28040, -85.72192]],
+          maxBounds: [[39.82130, -91.47900], [43.78040, -85.22192]],
           maxZoom: 13,
           minZoom: cmap.storymaps.defaultZoom,
           attributionControl: false,
           infoControl: false,
           zoomControl: false
-        }).setView([41.8781, -87.6298], cmap.storymaps.defaultZoom);
+        }).setView([41.8781, -88.6298], cmap.storymaps.defaultZoom);
 
         cmap.storymaps.map.scrollWheelZoom.disable();
         cmap.storymaps.map.doubleClickZoom.disable();

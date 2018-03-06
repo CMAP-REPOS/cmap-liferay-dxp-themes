@@ -148,19 +148,12 @@ $icon-nav-right-white: "\e91d";
         margin: 25px 0;
     }
     .storymap-nav-container {
-        @include section-padding();
         background: $grey-blue;
         display: block;
         margin: 0;
         padding-bottom: 25px;
         padding-top: 25px;
         width: 100%;
-        &.mobile-storymap-nav {
-            display: none;
-            .story-step-title {
-                opacity: 1;
-            }
-        }
         .storymap-nav-list {
             padding: 0;
             >li {
@@ -238,7 +231,8 @@ $icon-nav-right-white: "\e91d";
             display: block;
         }
         a {
-            color: $grey-blue;
+            border: none;
+			color: $grey-blue;
             display: inline-block;
             line-height: 30px;
             &:hover {
@@ -251,24 +245,6 @@ $icon-nav-right-white: "\e91d";
             }
             span {
                 padding-left: 0.9469697vw;
-            }
-        }
-    }
-
-    .leaflet-top {
-        &.leaflet-left {
-            .leaflet-control {
-                margin-left: 4.8295455vw;
-                margin-top: 1.8939394vw;
-            }
-        }
-    }
-
-    .leaflet-bottom {
-        &.leaflet-right {
-            .leaflet-control {
-                margin-bottom: 1.8939394vw;
-                margin-right: 7.1969697vw;
             }
         }
     }
@@ -286,27 +262,6 @@ $icon-nav-right-white: "\e91d";
             .storymap-info-toggle {
                 display: block;
             }
-            .storymap-nav-container {
-                display: none;
-                padding-bottom: 25px;
-                padding-top: 25px;
-                &.mobile-storymap-nav {
-                    display: flex;
-                    justify-content: space-between;
-                    .story-step-title {
-                        color: $white;
-                    }
-                    .previous-story-step,
-                    .next-story-step {
-                        display: inline-block;
-                    }
-                }
-            }
-        }
-        .story-map-layer-switcher {
-            .layers-menu {
-                display: none;
-            }
         }
     }
     @include phone() {
@@ -320,11 +275,6 @@ $icon-nav-right-white: "\e91d";
                 display: none;
             }
             .storymap-source {
-                display: none;
-            }
-        }
-        .story-map-layer-switcher {
-            .layers-menu {
                 display: none;
             }
         }
