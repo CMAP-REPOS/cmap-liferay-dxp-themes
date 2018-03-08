@@ -120,6 +120,9 @@ $icon-nav-right-white: "\e91d";
             a {
                 color: $dark-blue;
             }
+            p {
+         	   @extend .whitney-small;
+			}
         }
         .storymap-aside {
             padding-bottom: 25px;
@@ -127,7 +130,6 @@ $icon-nav-right-white: "\e91d";
         .storymap-source {
             line-height: 1.3em;
         }
-
         .storymap-data-link {
             a {
                 border: none;
@@ -137,7 +139,8 @@ $icon-nav-right-white: "\e91d";
                 &:hover {
                     color: $dark-blue;
                 }
-                span, svg {
+                span,
+                svg {
                     display: inline-block;
                     vertical-align: bottom;
                 }
@@ -148,14 +151,13 @@ $icon-nav-right-white: "\e91d";
         margin: 25px 0;
     }
     .storymap-nav-container {
-        background: $grey-blue;
+     	@include section-padding();
+		background: $grey-blue;
         display: block;
         margin: 0;
-        padding-bottom: 25px;
-        padding-top: 25px;
         width: 100%;
         .storymap-nav-list {
-            padding: 0;
+            padding: 25px 0;
             >li {
                 list-style: none;
                 padding: 0;
@@ -185,61 +187,70 @@ $icon-nav-right-white: "\e91d";
         display: none;
     }
     .story-map-layer-switcher {
-		display: none;
+        display: none;
         &.leaflet-control {
             display: block;
+            float: none;
+	        margin: 0;
+	        padding: 0 0 25px 0;
         }
         .layers-menu {
-        	ul {
-        		list-style: none;
-        		margin: 0;
-        		padding: 0;
-	            li {
-					font-family: $font-sans;
-					font-weight: $bold-weight;
-			        font-size: 1.2em;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    font-family: $font-sans;
+                    font-size: 1.2em;
                     margin: 0;
                     padding: 0;
-		            a {
+                    a {
                         border: none;
-		                color: $grey-blue;
+                        color: $grey-blue;
                         display: inline-block;
                         line-height: 30px;
                         margin-top: 0.6628788vw;
                         &:hover {
-                        	border: none;
+                            border: none;
                             color: $grey-blue;
                         }
-                        span, svg {
-                            float: left;
-                            vertical-align: bottom;
-                        }
-                        span {
-                            padding-left: 0.9469697vw;
-                        }
                     }
-	            }
-        	}
+                    span,
+                    svg {
+                        float: left;
+                        vertical-align: bottom;
+                    }
+                    span {
+                        padding-left: 0.9469697vw;
+                        font-weight: $bold-weight;
+                        line-height: 30px;
+                    }
+                }
+            }
         }
     }
     .story-map-zoom-toggler {
-		display: none;
-		font-family: $font-sans;
-		font-weight: $bold-weight;
+        display: none;
+        font-family: $font-sans;
         font-size: 1.2em;
         &.leaflet-control {
             display: block;
+            float: none;
+	        margin: 0;
+	        padding: 25px 0 0 0;
         }
         a {
             border: none;
-			color: $grey-blue;
+            color: $grey-blue;
             display: inline-block;
+	        font-weight: $bold-weight;
             line-height: 30px;
             &:hover {
                 border: none;
                 color: $grey-blue;
             }
-            span, svg {
+            span,
+            svg {
                 float: left;
                 vertical-align: bottom;
             }
@@ -248,7 +259,6 @@ $icon-nav-right-white: "\e91d";
             }
         }
     }
-    
     @include tablet() {
         .storymap-intro-content {
             padding-bottom: 25px;

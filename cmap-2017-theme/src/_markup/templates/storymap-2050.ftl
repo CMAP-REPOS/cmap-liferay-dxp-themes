@@ -127,7 +127,7 @@
 <#if getterUtil.getBoolean(Options.ShowLocations.getData())>
 <div class="row">
   <div class="storymap-nav-container">
-    <div class="col-xl-10 col-xl-offset-3 col-sm-16 col-sm-offset-0 story-steps">
+    <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
     <ul class="list-inline list-unstyled storymap-nav-list pull-left">
     <#list Location.getSiblings() as cur_StoryStep>
     <#assign storyStepsIndex = cur_StoryStep?index>
@@ -290,19 +290,26 @@
       };
 
       cmap.storymaps.hideLayerMenu = function() {
-        var right = ($('.leaflet-bottom.leaflet-right').width() * -1) + 34;
-        $('.leaflet-bottom.leaflet-right').animate({
-          right: right,
-        }, 500, function() {
-          $('.leaflet-bottom.leaflet-right').data('hidden', true);
-          cmap.storymaps.toggleSVG('menu-toggler-left');
-          cmap.storymaps.toggleSVG('menu-toggler-right');
-        });
+          var offset = ($('.leaflet-bottom.leaflet-right').width() * -1) + 44;  
+          $('.leaflet-bottom.leaflet-right').animate({
+              right: offset,
+          }, 500, function() {
+              $('.leaflet-bottom.leaflet-right').data('hidden', true);
+              cmap.storymaps.toggleSVG('menu-toggler-left');
+              cmap.storymaps.toggleSVG('menu-toggler-right');
+          });
       };
 
       cmap.storymaps.showLayerMenu = function() {
+
+        var offset = $('.storymap-aside').offset().left;
+
+        if (!$('.storymap-aside:visible').length) {
+          offset = $('.storymap-intro-content > .row').offset().left;
+        }
+
         $('.leaflet-bottom.leaflet-right').animate({
-          right: '10px',
+          'right': offset, 
         }, 500, function() {
           $('.leaflet-bottom.leaflet-right').data('hidden', false);
           cmap.storymaps.toggleSVG('menu-toggler-left');
@@ -453,6 +460,31 @@
           e.preventDefault();
           cmap.storymaps.toggleLayersMenu();
         });
+
+        $(window).on('resize', _.throttle(cmap.storymaps.handleResize, 200));
+      };
+
+      cmap.storymaps.positionControls = function() {
+
+        <#-- map controls are abolutely positioned, so align them with existing grid elements -->
+        var offset = $('.storymap-aside').offset().left;
+        var width = $('.storymap-aside').width();
+
+        if (!$('.storymap-aside:visible').length) {
+          offset = $('.storymap-intro-content > .row').offset().left;
+          width = 'auto';
+        }
+
+        $('.leaflet-top.leaflet-left').css({ 'left': offset, 'width': width });
+        $('.leaflet-bottom.leaflet-right').css({ 'right': offset, 'width': width });
+
+        <#-- make sure slider toggle button is in "open" state   -->
+        document.getElementById('menu-toggler-left').style.display = "none";
+        document.getElementById('menu-toggler-right').style.display = "block";
+      }
+
+      cmap.storymaps.handleResize = function() {
+        cmap.storymaps.positionControls();
       };
 
       cmap.storymaps.buildLocations = function () {
@@ -505,7 +537,6 @@
           if (cmap.storymaps.layerData[i].default) {
             cmap.storymaps.hasDefaultContent = true;
             cmap.storymaps.loadOverlay(i);
-            break;
           }
         }
       };
@@ -534,6 +565,7 @@
         L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
         L.control.zoomToggler({ position: 'topleft' }).addTo(cmap.storymaps.map);
         L.control.layerSwitcher({ position: 'bottomright' }).addTo(cmap.storymaps.map);
+        cmap.storymaps.positionControls();
       };
 
       cmap.storymaps.initMap();
