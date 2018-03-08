@@ -112,23 +112,19 @@ $icon-nav-right-white: "\e91d";
         .storymap-info {
             color: #000;
         }
-        .storymap-aside,
-        .storymap-source,
         .storymap-data-link {
             @extend .whitney-small;
             color: $grey-blue;
             a {
                 color: $dark-blue;
             }
-            p {
-         	   @extend .whitney-small;
-			}
         }
         .storymap-aside {
+            color: $grey-blue;
             padding-bottom: 25px;
-        }
-        .storymap-source {
-            line-height: 1.3em;
+            p {
+                @extend .whitney-small;
+            }
         }
         .storymap-data-link {
             a {
@@ -151,8 +147,8 @@ $icon-nav-right-white: "\e91d";
         margin: 25px 0;
     }
     .storymap-nav-container {
-     	@include section-padding();
-		background: $grey-blue;
+        @include section-padding();
+        background: $grey-blue;
         display: block;
         margin: 0;
         width: 100%;
@@ -191,8 +187,8 @@ $icon-nav-right-white: "\e91d";
         &.leaflet-control {
             display: block;
             float: none;
-	        margin: 0;
-	        padding: 0 0 25px 0;
+            margin: 0;
+            padding: 0 0 25px 0;
         }
         .layers-menu {
             ul {
@@ -236,14 +232,14 @@ $icon-nav-right-white: "\e91d";
         &.leaflet-control {
             display: block;
             float: none;
-	        margin: 0;
-	        padding: 25px 0 0 0;
+            margin: 0;
+            padding: 25px 0 0 0;
         }
         a {
             border: none;
             color: $grey-blue;
             display: inline-block;
-	        font-weight: $bold-weight;
+            font-weight: $bold-weight;
             line-height: 30px;
             &:hover {
                 border: none;
