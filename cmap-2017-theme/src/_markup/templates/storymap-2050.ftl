@@ -42,8 +42,11 @@
         && cur_Layer.LayerLabel?? 
         && cur_Layer.LayerLabel.getData()?? 
         && cur_Layer.LayerLabel.getData() != "">
+        <#if getterUtil.getBoolean(cur_Layer.IncludeLayerInLegend.getData())>
       <li>
+          <#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
         <a href="#" id="button_overlay_${layerIndex}" data-index="${layerIndex}" class="button_overlay">
+          </#if>
         <#if cur_Layer.LayerColor.getData()?? 
           && cur_Layer.LayerColor.getData() != "">
           <#assign layerColor = cur_Layer.LayerColor.getData()>
@@ -65,8 +68,11 @@
         </svg>
 
         <span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span></a>
+          <#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
         </a>
+          </#if>
       </li>
+        </#if>
       </#if>
     </#list>
     </ul>
@@ -85,10 +91,7 @@
   <div class="row">
     <div class="col-xl-3 col-sm-16 col-sm-offset-0">
       <div class="storymap-aside">
-      ${Aside.getData()}
-      </div>
-      <div class="storymap-source">
-      ${Source.getData()}
+      ${AsideAndSource.getData()}
       </div>
     </div>
     <div class="col-xl-10 col-sm-16 col-sm-offset-0 ">
@@ -124,7 +127,7 @@
 <#if getterUtil.getBoolean(Options.ShowLocations.getData())>
 <div class="row">
   <div class="storymap-nav-container">
-    <div class="col-xl-10 col-xl-offset-3 col-sm-16 col-sm-offset-0 story-steps">
+    <div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
     <ul class="list-inline list-unstyled storymap-nav-list pull-left">
     <#list Location.getSiblings() as cur_StoryStep>
     <#assign storyStepsIndex = cur_StoryStep?index>
@@ -238,7 +241,7 @@
       cmap.storymaps.locations = [];
       cmap.storymaps.defaultLocation = -1;
       cmap.storymaps.markerLayers = [];
-      cmap.storymaps.defaultZoom = 9;
+      cmap.storymaps.defaultZoom = 8;
       cmap.storymaps.hasDefaultContent = false;
 
       cmap.storymaps.toggleZoom = function (l) {
@@ -287,19 +290,26 @@
       };
 
       cmap.storymaps.hideLayerMenu = function() {
-        var right = ($('.leaflet-bottom.leaflet-right').width() * -1) + 34;
-        $('.leaflet-bottom.leaflet-right').animate({
-          right: right,
-        }, 500, function() {
-          $('.leaflet-bottom.leaflet-right').data('hidden', true);
-          cmap.storymaps.toggleSVG('menu-toggler-left');
-          cmap.storymaps.toggleSVG('menu-toggler-right');
-        });
+          var offset = ($('.leaflet-bottom.leaflet-right').width() * -1) + 44;  
+          $('.leaflet-bottom.leaflet-right').animate({
+              right: offset,
+          }, 500, function() {
+              $('.leaflet-bottom.leaflet-right').data('hidden', true);
+              cmap.storymaps.toggleSVG('menu-toggler-left');
+              cmap.storymaps.toggleSVG('menu-toggler-right');
+          });
       };
 
       cmap.storymaps.showLayerMenu = function() {
+
+        var offset = $('.storymap-aside').offset().left;
+
+        if (!$('.storymap-aside:visible').length) {
+          offset = $('.storymap-intro-content > .row').offset().left;
+        }
+
         $('.leaflet-bottom.leaflet-right').animate({
-          right: '10px',
+          'right': offset, 
         }, 500, function() {
           $('.leaflet-bottom.leaflet-right').data('hidden', false);
           cmap.storymaps.toggleSVG('menu-toggler-left');
@@ -308,8 +318,8 @@
       };
 
       cmap.storymaps.scrollToContent = function () {
-        <#--  magic value 50 is approximate height of scroll-nav  -->
-        $('html, body').animate({ scrollTop: $('.storymap-main-content').offset().top - 50 }, 600);
+        <#--  magic value 350 is approximate height of scroll-nav + 2/3 of map height  -->
+        $('html, body').animate({ scrollTop: $('.storymap-main-content').offset().top - 450 }, 600);
       };
 
       cmap.storymaps.removeLayer = function (layer) {
@@ -450,6 +460,31 @@
           e.preventDefault();
           cmap.storymaps.toggleLayersMenu();
         });
+
+        $(window).on('resize', _.throttle(cmap.storymaps.handleResize, 200));
+      };
+
+      cmap.storymaps.positionControls = function() {
+
+        <#-- map controls are abolutely positioned, so align them with existing grid elements -->
+        var offset = $('.storymap-aside').offset().left;
+        var width = $('.storymap-aside').width();
+
+        if (!$('.storymap-aside:visible').length) {
+          offset = $('.storymap-intro-content > .row').offset().left;
+          width = 'auto';
+        }
+
+        $('.leaflet-top.leaflet-left').css({ 'left': offset, 'width': width });
+        $('.leaflet-bottom.leaflet-right').css({ 'right': offset, 'width': width });
+
+        <#-- make sure slider toggle button is in "open" state   -->
+        document.getElementById('menu-toggler-left').style.display = "none";
+        document.getElementById('menu-toggler-right').style.display = "block";
+      }
+
+      cmap.storymaps.handleResize = function() {
+        cmap.storymaps.positionControls();
       };
 
       cmap.storymaps.buildLocations = function () {
@@ -502,7 +537,6 @@
           if (cmap.storymaps.layerData[i].default) {
             cmap.storymaps.hasDefaultContent = true;
             cmap.storymaps.loadOverlay(i);
-            break;
           }
         }
       };
@@ -518,19 +552,20 @@
         L.mapbox.accessToken = 'pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ';
 
         cmap.storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
-          maxBounds: [[40.82130, -90.47900], [43.28040, -85.72192]],
+          maxBounds: [[39.82130, -91.47900], [43.78040, -85.22192]],
           maxZoom: 13,
           minZoom: cmap.storymaps.defaultZoom,
           attributionControl: false,
           infoControl: false,
           zoomControl: false
-        }).setView([41.8781, -87.6298], cmap.storymaps.defaultZoom);
+        }).setView([41.8781, -88.6298], cmap.storymaps.defaultZoom);
 
         cmap.storymaps.map.scrollWheelZoom.disable();
         cmap.storymaps.map.doubleClickZoom.disable();
         L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
         L.control.zoomToggler({ position: 'topleft' }).addTo(cmap.storymaps.map);
         L.control.layerSwitcher({ position: 'bottomright' }).addTo(cmap.storymaps.map);
+        cmap.storymaps.positionControls();
       };
 
       cmap.storymaps.initMap();
