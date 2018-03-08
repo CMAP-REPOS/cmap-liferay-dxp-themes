@@ -290,7 +290,7 @@
       };
 
       cmap.storymaps.hideLayerMenu = function() {
-          var offset = ($('.leaflet-bottom.leaflet-right').width() * -1) + 44;  
+          var offset = ($('.leaflet-bottom.leaflet-right').outerWidth(true) * -1) + 42;  
           $('.leaflet-bottom.leaflet-right').animate({
               right: offset,
           }, 500, function() {
@@ -301,15 +301,8 @@
       };
 
       cmap.storymaps.showLayerMenu = function() {
-
-        var offset = $('.storymap-aside').offset().left;
-
-        if (!$('.storymap-aside:visible').length) {
-          offset = $('.storymap-intro-content > .row').offset().left;
-        }
-
         $('.leaflet-bottom.leaflet-right').animate({
-          'right': offset, 
+          'right': 0, 
         }, 500, function() {
           $('.leaflet-bottom.leaflet-right').data('hidden', false);
           cmap.storymaps.toggleSVG('menu-toggler-left');
@@ -476,7 +469,7 @@
         }
 
         $('.leaflet-top.leaflet-left').css({ 'left': offset, 'width': width });
-        $('.leaflet-bottom.leaflet-right').css({ 'right': offset, 'width': width });
+        $('.leaflet-bottom.leaflet-right').css({ 'marginRight': offset });
 
         <#-- make sure slider toggle button is in "open" state   -->
         document.getElementById('menu-toggler-left').style.display = "none";
