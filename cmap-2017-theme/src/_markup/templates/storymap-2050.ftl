@@ -241,7 +241,7 @@
       cmap.storymaps.locations = [];
       cmap.storymaps.defaultLocation = -1;
       cmap.storymaps.markerLayers = [];
-      cmap.storymaps.defaultZoom = 8;
+      cmap.storymaps.defaultZoom = 9;
       cmap.storymaps.hasDefaultContent = false;
 
       cmap.storymaps.toggleZoom = function (l) {
@@ -545,14 +545,14 @@
         L.mapbox.accessToken = 'pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ';
 
         cmap.storymaps.map = L.mapbox.map('${randomNamespace}_map', 'mapbox.streets', {
-          maxBounds: [[39.82130, -91.47900], [43.78040, -85.22192]],
+          maxBounds: [[40.82130, -90.47900], [43.28040, -85.72192]],
           maxZoom: 13,
           minZoom: cmap.storymaps.defaultZoom,
           attributionControl: false,
           infoControl: false,
           zoomControl: false
-        }).setView([41.8781, -88.6298], cmap.storymaps.defaultZoom);
-
+        }).setView([41.8781, -88.2298], cmap.storymaps.defaultZoom);
+        
         cmap.storymaps.map.scrollWheelZoom.disable();
         cmap.storymaps.map.doubleClickZoom.disable();
         L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
