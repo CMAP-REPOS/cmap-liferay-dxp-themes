@@ -3,10 +3,16 @@
   padding: 0;
 }
 
-.portlet-dynamic-data-lists-display .lfr-ddm-field-group, 
-.portlet-dynamic-data-lists .lfr-ddm-field-group, 
+.portlet-dynamic-data-lists-display .lfr-ddm-field-group,
+.portlet-dynamic-data-lists .lfr-ddm-field-group,
 .portlet-journal .lfr-ddm-field-group {
   padding: 0 !important;
+}
+.product-menu .layout-set-tabs{
+  padding-bottom: 1em;
+}
+.list-group-heading{
+  padding: 1em 0.5em;
 }
 
 .portlet {

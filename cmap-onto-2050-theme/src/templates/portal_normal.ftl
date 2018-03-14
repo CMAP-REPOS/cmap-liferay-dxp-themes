@@ -23,12 +23,13 @@
 <div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
 		<div id="heading" class="row">
+
 			<div class="col-sm-2">
 				<h1 class="site-title">
 					<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 						<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
 					</a>
-	
+
 					<#if show_site_name>
 						<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 							${site_name}
@@ -36,10 +37,11 @@
 					</#if>
 				</h1>
 			</div>
+
 			<div class="col-sm-2">
 				<h2>
 					ON TO 2050
-				</h2>	
+				</h2>
 			</div>
 			<div class="col-sm-2 col-sm-offset-6">
 				<input type="text" disabled="disabled" placeholder="search">
@@ -61,8 +63,8 @@
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>
-			${portletDisplay.recycle()}
 
+			${portletDisplay.recycle()}
 			${portletDisplay.setTitle(the_title)}
 
 			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
