@@ -67,7 +67,7 @@ $icon-nav-right-white: "\e91d";
     /* make storymap flush with breadcrumbs */
     margin-top: $unit * -2;
     #map-container {
-        height: 600px;
+        height: 800px;
         position: relative;
     }
     /* make full-width content possible */
@@ -112,8 +112,6 @@ $icon-nav-right-white: "\e91d";
         .storymap-info {
             color: #000;
         }
-        .storymap-aside,
-        .storymap-source,
         .storymap-data-link {
             @extend .whitney-small;
             color: $grey-blue;
@@ -122,12 +120,12 @@ $icon-nav-right-white: "\e91d";
             }
         }
         .storymap-aside {
+            color: $grey-blue;
             padding-bottom: 25px;
+            p {
+                @extend .whitney-small;
+            }
         }
-        .storymap-source {
-            line-height: 1.3em;
-        }
-
         .storymap-data-link {
             a {
                 border: none;
@@ -137,7 +135,8 @@ $icon-nav-right-white: "\e91d";
                 &:hover {
                     color: $dark-blue;
                 }
-                span, svg {
+                span,
+                svg {
                     display: inline-block;
                     vertical-align: bottom;
                 }
@@ -152,17 +151,9 @@ $icon-nav-right-white: "\e91d";
         background: $grey-blue;
         display: block;
         margin: 0;
-        padding-bottom: 25px;
-        padding-top: 25px;
         width: 100%;
-        &.mobile-storymap-nav {
-            display: none;
-            .story-step-title {
-                opacity: 1;
-            }
-        }
         .storymap-nav-list {
-            padding: 0;
+            padding: 25px 0;
             >li {
                 list-style: none;
                 padding: 0;
@@ -192,60 +183,70 @@ $icon-nav-right-white: "\e91d";
         display: none;
     }
     .story-map-layer-switcher {
-		display: none;
+        display: none;
         &.leaflet-control {
             display: block;
+            float: none;
+            margin: 0;
+            padding: 0 0 25px 0;
         }
         .layers-menu {
-        	ul {
-        		list-style: none;
-        		margin: 0;
-        		padding: 0;
-	            li {
-					font-family: $font-sans;
-					font-weight: $bold-weight;
-			        font-size: 1.2em;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    font-family: $font-sans;
+                    font-size: 1.2em;
                     margin: 0;
                     padding: 0;
-		            a {
+                    a {
                         border: none;
-		                color: $grey-blue;
+                        color: $grey-blue;
                         display: inline-block;
                         line-height: 30px;
                         margin-top: 0.6628788vw;
                         &:hover {
-                        	border: none;
+                            border: none;
                             color: $grey-blue;
                         }
-                        span, svg {
-                            float: left;
-                            vertical-align: bottom;
-                        }
-                        span {
-                            padding-left: 0.9469697vw;
-                        }
                     }
-	            }
-        	}
+                    span,
+                    svg {
+                        float: left;
+                        vertical-align: bottom;
+                    }
+                    span {
+                        padding-left: 0.9469697vw;
+                        font-weight: $bold-weight;
+                        line-height: 30px;
+                    }
+                }
+            }
         }
     }
     .story-map-zoom-toggler {
-		display: none;
-		font-family: $font-sans;
-		font-weight: $bold-weight;
+        display: none;
+        font-family: $font-sans;
         font-size: 1.2em;
         &.leaflet-control {
             display: block;
+            float: none;
+            margin: 0;
+            padding: 25px 0 0 0;
         }
         a {
+            border: none;
             color: $grey-blue;
             display: inline-block;
+            font-weight: $bold-weight;
             line-height: 30px;
             &:hover {
                 border: none;
                 color: $grey-blue;
             }
-            span, svg {
+            span,
+            svg {
                 float: left;
                 vertical-align: bottom;
             }
@@ -254,25 +255,6 @@ $icon-nav-right-white: "\e91d";
             }
         }
     }
-
-    .leaflet-top {
-        &.leaflet-left {
-            .leaflet-control {
-                margin-left: 4.8295455vw;
-                margin-top: 1.8939394vw;
-            }
-        }
-    }
-
-    .leaflet-bottom {
-        &.leaflet-right {
-            .leaflet-control {
-                margin-bottom: 1.8939394vw;
-                margin-right: 7.1969697vw;
-            }
-        }
-    }
-    
     @include tablet() {
         .storymap-intro-content {
             padding-bottom: 25px;
@@ -285,27 +267,6 @@ $icon-nav-right-white: "\e91d";
             }
             .storymap-info-toggle {
                 display: block;
-            }
-            .storymap-nav-container {
-                display: none;
-                padding-bottom: 25px;
-                padding-top: 25px;
-                &.mobile-storymap-nav {
-                    display: flex;
-                    justify-content: space-between;
-                    .story-step-title {
-                        color: $white;
-                    }
-                    .previous-story-step,
-                    .next-story-step {
-                        display: inline-block;
-                    }
-                }
-            }
-        }
-        .story-map-layer-switcher {
-            .layers-menu {
-                display: none;
             }
         }
     }
@@ -320,11 +281,6 @@ $icon-nav-right-white: "\e91d";
                 display: none;
             }
             .storymap-source {
-                display: none;
-            }
-        }
-        .story-map-layer-switcher {
-            .layers-menu {
                 display: none;
             }
         }
