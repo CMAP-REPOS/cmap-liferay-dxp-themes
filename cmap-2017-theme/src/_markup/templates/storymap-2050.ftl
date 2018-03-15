@@ -311,8 +311,7 @@
       };
 
       cmap.storymaps.scrollToContent = function () {
-        <#--  magic value 350 is approximate height of scroll-nav + 2/3 of map height  -->
-        $('html, body').animate({ scrollTop: $('.storymap-main-content').offset().top - 450 }, 600);
+        $('html, body').animate({ scrollTop: $('#map-container').offset().top }, 600);
       };
 
       cmap.storymaps.removeLayer = function (layer) {
@@ -374,7 +373,6 @@
           if (!cmap.storymaps.hasDefaultContent) {
             cmap.storymaps.scrollToContent();
           }
-          cmap.storymaps.hasDefaultContent = false;
         </#if>
         } else if (index > -1) {
         <#if getterUtil.getBoolean(Options.ShowLayerContent.getData()) >
@@ -383,7 +381,6 @@
           if (!cmap.storymaps.hasDefaultContent) {
             cmap.storymaps.scrollToContent();
           }
-          cmap.storymaps.hasDefaultContent = false;
         </#if>
         }
       };
@@ -510,6 +507,7 @@
             break;
           }
         }
+        cmap.storymaps.hasDefaultContent = false;
       };
 
       cmap.storymaps.buildLayerData = function () {
@@ -532,6 +530,7 @@
             cmap.storymaps.loadOverlay(i);
           }
         }
+        cmap.storymaps.hasDefaultContent = false;
       };
 
       cmap.storymaps.initMap = function () {
