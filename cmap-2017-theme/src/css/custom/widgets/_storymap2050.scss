@@ -170,9 +170,10 @@ $icon-nav-right-white: "\e91d";
         .story-step-title {
             @extend .whitney-normal__bold;
             color: $light-grey;
+            cursor: pointer;
             margin-right: 1em;
-            text-transform: capitalize;
             opacity: 0.5;
+            text-transform: capitalize;
             &.story-active {
                 color: $white;
                 opacity: 1;
