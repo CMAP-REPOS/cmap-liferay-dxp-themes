@@ -1,7 +1,7 @@
 #scroll-nav{
   position: fixed;
   top: 0;
-  z-index: 1030;
+  z-index: 1001;
   transform: translateY(-100%);
 
   display: flex;
@@ -62,7 +62,7 @@
     top: auto;
     height: auto;
     transform: scale(1.1) translateX(-0.4em) translateY(0.1em);
-
+    
     @include desktop(){
       opacity: 0;
       pointer-events: none;
@@ -81,8 +81,8 @@
     padding-left: 0;
     transform: scale(0.5) translateX(-50%) translateY(1px);
 
-    .hamburger-inner,
-    .hamburger-inner::before,
+    .hamburger-inner, 
+    .hamburger-inner::before, 
     .hamburger-inner::after{
       background-color: $grey-blue;
       border-radius: none;
@@ -96,7 +96,7 @@
     transform: translateY(1px) translateX(-20%);
     opacity: 1;
     transition: all 0.2s;
-
+    
     &.hidden{
       opacity: 0;
     }
