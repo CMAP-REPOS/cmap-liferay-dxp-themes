@@ -311,7 +311,7 @@
       };
 
       cmap.storymaps.scrollToContent = function () {
-        $('html, body').animate({ scrollTop: $('#map-container').offset().top }, 600);
+        $('html, body').animate({ scrollTop: $('#map-container').offset().top + $('#map-container').height()/4 }, 600);
       };
 
       cmap.storymaps.removeLayer = function (layer) {
