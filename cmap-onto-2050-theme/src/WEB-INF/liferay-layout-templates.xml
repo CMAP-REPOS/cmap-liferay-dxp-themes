@@ -3,7 +3,7 @@
 
 <layout-templates>
 	<custom>
-		<layout-template id="cmap" name="ON TO 2050 Layout">
+		<layout-template id="cmap-2050" name="ON TO 2050 Layout">
 			<template-path>/layouttpl/custom/cmap-onto2050-layouttpl/cmap-onto2050.tpl</template-path>
 			<thumbnail-path>/layouttpl/custom/cmap-onto2050-layouttpl/cmap-onto2050.png</thumbnail-path>
 		</layout-template>
