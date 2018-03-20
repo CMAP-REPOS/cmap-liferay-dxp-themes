@@ -26,15 +26,8 @@
 <div id="wrapper">
 	<header id="banner" class="container-fluid" role="banner">
 		<div id="heading" class="row">
-<<<<<<< HEAD
-
-			<div class="col-sm-2">
-				<h1 class="site-title">
-=======
 			<div class="col-sm-4">
 
-
->>>>>>> master
 					<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 						<!-- <img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" /> -->
 						<svg xmlns="http://www.w3.org/2000/svg" width="102" height="20" viewBox="0 0 102 20">
@@ -48,22 +41,8 @@
 						</svg>
 						<h1 class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></h1>
 					</a>
-
-<<<<<<< HEAD
-					<#if show_site_name>
-						<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-							${site_name}
-						</span>
-					</#if>
-				</h1>
-			</div>
-
-			<div class="col-sm-2">
-=======
-
 			</div>
 			<div class="col-sm-8">
->>>>>>> master
 				<h2>
 					ON TO 2050
 				</h2>
