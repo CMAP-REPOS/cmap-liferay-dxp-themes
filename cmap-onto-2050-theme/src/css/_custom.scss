@@ -4,3 +4,15 @@
 /* endinject */
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+#wrapper{
+  // overflow-x: hidden;
+}
+
+#heading{
+  display: flex;
+  align-items: center;
+  h1{
+    margin: 0;
+  }
+}
