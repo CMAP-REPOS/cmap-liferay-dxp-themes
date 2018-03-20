@@ -53,13 +53,21 @@
 	}
 
 	> .portlet-topper {
+<<<<<<< HEAD
 		display: none;
+=======
+		// display: none;
+>>>>>>> master
 
 		@include media-query(sm) {
 			@include display(flex);
 
 			left: 0;
+<<<<<<< HEAD
 			opacity: 1;
+=======
+			opacity: 0.2;
+>>>>>>> master
 			position: relative;
 			right: 0;
 
@@ -82,7 +90,12 @@
 
 		> .portlet-topper {
 			@include media-query(sm) {
+<<<<<<< HEAD
 				// opacity: 1;
+=======
+				opacity: 1;
+
+>>>>>>> master
 				// @include transform(translateY(-97%));
 			}
 		}
