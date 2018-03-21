@@ -61,7 +61,14 @@
 		<h1 class="hide-accessible">${the_title}</h1>
 
 		<nav id="breadcrumbs">
-			<@liferay.breadcrumbs />
+			<#assign VOID = freeMarkerPortletPreferences.reset()>
+			<#assign VOID=freeMarkerPortletPreferences.setValue("portletSetupPortletDecoratorId", "borderless")>
+			<!-- <#assign VOID=freeMarkerPortletPreferences.setValue("displayStyle", "ddmTemplate_788120")> -->
+			<#assign VOID=freeMarkerPortletPreferences.setValue("displayStyle", "ddmTemplate_838502")>
+			<!-- <#assign VOID = freeMarkerPortletPreferences.setValue("displayStyleGroupId", "10154")> -->
+			<#assign VOID = freeMarkerPortletPreferences.setValue("displayStyleGroupId", themeDisplay.getCompanyGroupId()?string)>
+
+			<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}"/>
 		</nav>
 
 		<#if selectable>

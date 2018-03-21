@@ -29,7 +29,7 @@ $brand-danger: #d9534f !default;
 $body-bg: #fff !default;
 $text-color: $gray-dark !default;
 $link-color: #00508c !default;
-$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-color: lighten($link-color, 10%) !default;
 $link-hover-decoration: none !default;
 
 
@@ -42,22 +42,21 @@ $link-hover-decoration: none !default;
 // $serif-font:;
 // normal, italic, bold, bold italic
 
-$font-family-sans-serif:  "Whitney SSm A", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       "Prensa LF", Georgia, "Times New Roman", Times, serif !default;
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
-$font-family-base:        $font-family-sans-serif !default;
+$font-family-sans-serif: "Whitney SSm A", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Prensa LF", Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
 
-$font-size-base:          16px !default;
-$font-size-large:         ceil(($font-size-base * 1.2)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.8)) !default; // ~12px
+$font-size-base: 15px !default;
+$font-size-large: ceil(($font-size-base * 1.2)) !default;
+$font-size-small: ceil(($font-size-base * 0.8)) !default;
 
-$font-size-h1:            floor(($font-size-base * 2)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 1.75)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.5)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.2)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.8)) !default; // ~12px
+$font-size-h1: floor(($font-size-base * 2.4)) !default;
+$font-size-h2: floor(($font-size-base * 2)) !default;
+$font-size-h3: ceil(($font-size-base * 1.733333333)) !default;
+$font-size-h4: ceil(($font-size-base * 1.2)) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.8)) !default;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.333 !default;
@@ -66,7 +65,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
+$headings-font-weight:    600 !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -794,13 +793,13 @@ $badge-border-radius:         10px !default;
 $breadcrumb-padding-vertical:   0 !default;
 $breadcrumb-padding-horizontal: inherit !default;
 //** Breadcrumb background color
-$breadcrumb-bg:                 none !default;
+$breadcrumb-bg: none !default;
 //** Breadcrumb text color
-$breadcrumb-color:              #ccc !default;
+$breadcrumb-color: #ccc !default;
 //** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $gray-light !default;
+$breadcrumb-active-color: $gray-light !default;
 //** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          "/" !default;
+$breadcrumb-separator: "|" !default;
 
 
 //== Carousel

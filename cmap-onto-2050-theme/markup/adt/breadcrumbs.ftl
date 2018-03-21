@@ -5,6 +5,9 @@
     <div class="row">
 
       <div class="share-col col-sm-4">
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-share"></span> Star
+        </button>
         <button class="share-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <g fill="#3C5976" transform="translate(4 2)">
@@ -26,7 +29,6 @@
         <div class="breadcrumb-trail active">
           <span class="entry home">
             <span class="square"></span>
-            <a class="whitney-small" href="/"> Home </a>
           </span>
 
           <#list entries as entry>
