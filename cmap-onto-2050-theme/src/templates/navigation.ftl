@@ -3,7 +3,7 @@
 		<div class="col-sm-12">
 			<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 
-			<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="list-inline list-unstyled">
+			<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="site-nav list-inline list-unstyled">
 				<li role="presentation">
 		    	<a href="/on-to-2050/about-the-plan/" role="menuitem"><span> About the Plan </span></a>
 		  	</li>

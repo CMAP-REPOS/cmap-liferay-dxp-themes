@@ -1,0 +1,48 @@
+
+
+.whitney{
+  font-family: $font-family-sans-serif;
+  &.bold{
+    font-weight: 600;
+  }
+}
+.whitney-small{
+  @extend .whitney;
+  font-size: $font-size-h6;
+}
+.whitney-normal{
+  @extend .whitney;
+  font-size: $font-size-h5;
+}
+.whiteny-middle{
+  @extend .whitney;
+  font-size: $font-size-h4;
+}
+.whiteny-semi-large{
+  @extend .whitney;
+  font-size: $font-size-h3;
+  letter-spacing: 0.025em;
+}
+.whiteny-large{
+  @extend .whitney;
+  font-size: $font-size-h2;
+}
+.whiteny-huge{
+  @extend .whitney;
+  font-size: $font-size-h1;
+}
+
+.presna{
+  font-family: $font-family-serif;
+  &.bold{
+    font-weight: bold;
+  }
+}
+.presna-normal{
+  @extend .presna;
+  font-size: $font-size-base;
+}
+.presna-large{
+  @extend .presna;
+  font-size: $font-size-h2;
+}

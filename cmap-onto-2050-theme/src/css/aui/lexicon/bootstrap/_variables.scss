@@ -8,6 +8,32 @@ $bootstrap-sass-asset-helper: false !default;
 //
 //## Gray and brand colors for use across Bootstrap.
 
+// Colors
+$dark-red: #750709;
+$red: #DB2028;
+$light-red: #F47932;
+
+$light-gold: #5E5011;
+$gold: #9E7A38;
+$dark-gold: #E7BB20;
+
+$dark-green: #346139;
+$green: #6CAD4E;
+$light-green: #A2D06D;
+
+$grey-blue: #3C5976;
+$dark-blue: #004F93;
+$blue: #008FD4;
+$light-blue: #4DBEEE;
+
+$black: #000000;
+$dark-grey: #5E7A87;
+$light-grey: #E2E7EA;
+$off-white: #E4EBEE;
+$off-white-text: #587387;
+$almost-white: #F7F9FA;
+$white: #FFFFFF;
+
 $gray-base: #000 !default;
 $gray-darker: lighten($gray-base, 13.5%) !default;
 $gray-dark: lighten($gray-base, 20%) !default;
@@ -15,7 +41,9 @@ $gray: lighten($gray-base, 33.5%) !default;
 $gray-light: lighten($gray-base, 46.7%) !default;
 $gray-lighter: lighten($gray-base, 93.5%) !default;
 
-$brand-primary: darken(#428bca, 6.5%) !default;
+$cmap-dark-blue: #3c5976;
+
+$brand-primary: $cmap-dark-blue !default;
 $brand-success: #5cb85c !default;
 $brand-info: #5bc0de !default;
 $brand-warning: #f0ad4e !default;
@@ -28,7 +56,7 @@ $brand-danger: #d9534f !default;
 
 $body-bg: #fff !default;
 $text-color: $gray-dark !default;
-$link-color: #00508c !default;
+$link-color: $brand-primary !default;
 $link-hover-color: lighten($link-color, 10%) !default;
 $link-hover-decoration: none !default;
 
@@ -58,14 +86,14 @@ $font-size-h4: ceil(($font-size-base * 1.2)) !default;
 $font-size-h5: $font-size-base !default;
 $font-size-h6: ceil(($font-size-base * 0.8)) !default;
 
-//** Unit-less `line-height` for use in components like buttons.
+$font-weight-bold: 600;
+$font-weight-normal: 400;
+
 $line-height-base:        1.333 !default;
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
-//** By default, this inherits from the `<body>`.
-$headings-font-family:    inherit !default;
-$headings-font-weight:    600 !default;
+$headings-font-family:    $font-family-sans-serif, inherit !default;
+$headings-font-weight:    $font-weight-bold !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -90,10 +118,10 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-$padding-base-vertical:     6px !default;
+$padding-base-vertical:     8px !default;
 $padding-base-horizontal:   12px !default;
 
-$padding-large-vertical:    10px !default;
+$padding-large-vertical:    12px !default;
 $padding-large-horizontal:  16px !default;
 
 $padding-small-vertical:    5px !default;
@@ -102,12 +130,15 @@ $padding-small-horizontal:  10px !default;
 $padding-xs-vertical:       1px !default;
 $padding-xs-horizontal:     5px !default;
 
-$line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-large:         1.3333333 !default;
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+// $border-radius-base:        4px !default;
+// $border-radius-large:       6px !default;
+// $border-radius-small:       3px !default;
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -145,11 +176,15 @@ $table-border-color:            #ddd !default;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                normal !default;
+$btn-font-weight:                $font-weight-bold !default;
 
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
+
+$btn-plain-color:                $dark-blue !default;
+$btn-plain-bg:                   #fff !default;
+$btn-plain-border:               transparent !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -184,29 +219,38 @@ $btn-border-radius-small:        $border-radius-small !default;
 //##
 
 //** `<input>` background color
-$input-bg:                       #fff !default;
+// $input-bg:                       #fff !default;
+$input-bg:                       #E4EBEE !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $gray-lighter !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+// $input-color:                    $gray !default;
+$input-color:                    #5E7A87 !default;
 //** `<input>` border color
-$input-border:                   #ccc !default;
+// $input-border:                   #ccc !default;
+$input-border:                   darken($input-bg, 10%) !default;
+
+$input-hover-shadow-length: 5px;
+$jump-offset-ratio: 1.5;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-$input-border-radius:            $border-radius-base !default;
+// $input-border-radius:            $border-radius-base !default;
+$input-border-radius:            0 !default;
 //** Large `.form-control` border radius
 $input-border-radius-large:      $border-radius-large !default;
 //** Small `.form-control` border radius
 $input-border-radius-small:      $border-radius-small !default;
 
+$dark-blue: #004F93;
 //** Border color for inputs on focus
 $input-border-focus:             #66afe9 !default;
+$input-border-focus:             #004F93 !default;
 
 //** Placeholder text color
-$input-color-placeholder:        #999 !default;
+$input-color-placeholder:        desaturate(lighten($input-color, 10%), 10%) !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -625,7 +669,7 @@ $modal-sm:                    300px !default;
 
 $alert-padding:               15px !default;
 $alert-border-radius:         $border-radius-base !default;
-$alert-link-font-weight:      bold !default;
+$alert-link-font-weight:      $font-weight-bold !default;
 
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;
@@ -781,7 +825,7 @@ $badge-active-color:          $link-color !default;
 //** Badge background color in active nav link
 $badge-active-bg:             #fff !default;
 
-$badge-font-weight:           bold !default;
+$badge-font-weight:           $font-weight-bold !default;
 $badge-line-height:           1 !default;
 $badge-border-radius:         10px !default;
 
@@ -790,8 +834,8 @@ $badge-border-radius:         10px !default;
 //
 //##
 
-$breadcrumb-padding-vertical:   0 !default;
-$breadcrumb-padding-horizontal: inherit !default;
+$breadcrumb-padding-vertical:   $padding-base-vertical !default;
+$breadcrumb-padding-horizontal: 0 !default;
 //** Breadcrumb background color
 $breadcrumb-bg: none !default;
 //** Breadcrumb text color
@@ -823,7 +867,7 @@ $carousel-caption-color:                      #fff !default;
 //
 //##
 
-$close-font-weight:           bold !default;
+$close-font-weight:           $font-weight-bold !default;
 $close-color:                 #000 !default;
 $close-text-shadow:           0 1px 0 #fff !default;
 

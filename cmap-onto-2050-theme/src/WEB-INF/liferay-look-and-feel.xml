@@ -7,6 +7,9 @@
 	</compatibility>
 	<theme id="cmap-onto-2050-theme" name="CMAP ON TO 2050 Theme">
 		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="my-setting-language-key" options="true,false" type="select" value="false"/>
+		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>

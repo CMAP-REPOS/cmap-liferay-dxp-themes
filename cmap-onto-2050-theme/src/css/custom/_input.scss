@@ -1,0 +1,24 @@
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"]{
+  -webkit-appearance: none;
+}
+
+
+.input-group-btn{
+  .btn{
+    background-color: $input-bg;
+    border-color: $input-border;
+    color: $input-color;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+      background-color: $dark-blue;
+      border-color: $dark-blue;
+      color: white;
+      outline: 0;
+      @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $dark-blue);
+    }
+  }
+
+}

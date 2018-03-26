@@ -5,6 +5,36 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
+// sizes
+$variation: 1.414;
+$size0: 1em;
+$size1: $size0 * $variation;
+$size2: $size1 * $variation;
+$size3: $size2 * $variation;
+$size4: $size3 * $variation;
+$size5: $size4 * $variation;
+$size6: $size5 * $variation;
+$size7: $size6 * $variation;
+$size8: $size7 * $variation;
+$size9: $size8 * $variation;
+$size10: $size9 * $variation;
+$size-1: $size0 / $variation;
+$size-2: $size-1 / $variation;
+$size-3: $size-2 / $variation;
+$size-4: $size-3 / $variation;
+$size-5: $size-4 / $variation;
+
+$unit: $size1;
+
+$breakpoint-phone: 400px;
+$breakpoint-tablet: 750px;
+$breakpoint-desktop: 1000px;
+$breakpoint-tv: 1500px;
+
+
+@import "custom/input";
+@import "custom/typography";
+
 #wrapper{
   // overflow-x: hidden;
 }
@@ -12,36 +42,76 @@
 #heading{
   display: flex;
   align-items: center;
-  h1{
+  padding: $grid-gutter-width/1.8 0;
+  h1,h2{
     margin: 0;
   }
-}
+  .logo{
+    margin-left: $grid-gutter-width;
+  }
 
-.whitney{
-  font-family: $font-family-sans-serif;
-  &.bold{
-    font-weight: 600;
+  #search-input{
+    font-size: 0.95em;
+  }
+  .site-subheadline{
+    @extend .whiteny-semi-large;
+    color: $cmap-dark-blue;
   }
 }
-.whitney-small{
-  @extend .whitney;
-  font-size: $font-size-h6;
-}
-.whitney-normal{
-  @extend .whitney;
-  font-size: $font-size-base;
-}
-.presna{
-  font-family: $font-family-serif;
-  &.bold{
-    font-weight: bold;
+#navigation{
+  .site-nav{
+    margin-left: $grid-gutter-width;
+    li:first-of-type{
+      padding-left: 0;
+    }
+  }
+  a{
+    display: inline-block;
+    padding: $padding-base-vertical 0;
+    // margin-top: $padding-small-vertical;
+    font-weight: $font-weight-bold;
+    border-top: 0.1em solid transparent;
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+      border-top: 0.1em solid $dark-blue;
+    }
   }
 }
-.presna-normal{
-  @extend .presna;
-  font-size: $font-size-base;
-}
-.presna-large{
-  @extend .presna;
-  font-size: $font-size-h2;
+#breadcrumbs{
+  .trail-col{
+    position: relative;
+  }
+  .breadcrumb-cmap{
+    border-top: 1px solid $off-white;
+    border-bottom: 1px solid $off-white;
+    padding: 0.614em #{$grid-gutter-width / 2};
+  }
+  // .breadcrumb-trail{ }
+  .breadcrumb{
+    margin-bottom: 0;
+    margin-left: $grid-gutter-width;
+  }
+  .share-menu{
+    position: absolute;
+    top: 0;
+    left: $grid-gutter-width/2;
+    margin-left: $grid-gutter-width;
+    // left: $grid-gutter-width;
+    // margin-left: $grid-gutter-width;
+
+    .input-group{
+      max-width: 75%;
+    }
+  }
+
+  .share-col{
+
+  }
+
+  .share-button,
+  .close-button{
+    position: absolute;
+    left: 0;
+  }
 }
