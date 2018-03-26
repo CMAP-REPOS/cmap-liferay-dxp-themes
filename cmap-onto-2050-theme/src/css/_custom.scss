@@ -5,6 +5,10 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
+
+$site-border: 1px solid $light-grey;
+
+
 // sizes
 $variation: 1.414;
 $size0: 1em;
@@ -32,86 +36,167 @@ $breakpoint-desktop: 1000px;
 $breakpoint-tv: 1500px;
 
 
+@mixin container-margin-left(){
+  margin-left: $grid-gutter-width;
+}
+@mixin container-margin-right(){
+  margin-right: $grid-gutter-width;
+}
+@mixin container-margin(){
+  @include container-margin-left();
+  @include container-margin-right();
+}
+
 @import "custom/input";
 @import "custom/typography";
+@import "custom/header";
 
 #wrapper{
   // overflow-x: hidden;
 }
 
-#heading{
+.product-menu .scope-selector{
+  width: 100%;
+}
+
+/* I think 99.999% of web content is displayed in this div */
+.journal-content-article{
+  p{
+    font-family: $font-family-serif;
+    line-height: 1.5;
+  }
+}
+
+#page-header{
+  margin-bottom: 1em;
+  h1,h2{
+    font-weight: 400;
+  }
+  h2{
+    font-family: $font-family-serif;
+  }
+}
+
+#profile-grid{
+  // margin: 0 -30px;
+
+  .profile-grid-item{
+
+    min-height: 28vw;
+    border-top: 1px solid $light-grey;
+    background-size: contain;
+    background-position: center bottom;
+
+    &:nth-child(odd){
+      border-right: $site-border;
+    }
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      border-bottom: $site-border;
+    }
+  }
+
+  .profile-text{
+     @include container-margin();
+     margin-top: 1.5em;
+     span{
+       display: block;
+       font-weight: $font-weight-bold;
+       line-height: 1.5;
+     }
+     .profile-name{
+       color: $black;
+     }
+     .profile-title{
+       color: $light-blue;
+     }
+  }
+
+}
+
+section.profile-header{
+  border-bottom: $site-border;
+  height: 50vw;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  h2{
+    font-family: $font-family-serif;
+    font-weight: $font-weight-normal;
+  }
+
+  span{
+    display: block;
+    line-height: 1.5;
+    font-weight: $font-weight-bold;
+  }
+
+  .profile-name{
+    color: $black;
+  }
+  .profile-title{
+    color: $light-blue;
+  }
+}
+
+
+
+section.profile-footer{
   display: flex;
   align-items: center;
-  padding: $grid-gutter-width/1.8 0;
-  h1,h2{
-    margin: 0;
-  }
-  .logo{
-    margin-left: $grid-gutter-width;
-  }
 
-  #search-input{
-    font-size: 0.95em;
-  }
-  .site-subheadline{
-    @extend .whiteny-semi-large;
-    color: $cmap-dark-blue;
-  }
-}
-#navigation{
-  .site-nav{
-    margin-left: $grid-gutter-width;
-    li:first-of-type{
-      padding-left: 0;
+  border-top: $site-border;
+  border-bottom: $site-border;
+
+  .profile-footer-item{
+    border-right: $site-border;
+    &:last-of-type{
+      border-right: 0;
     }
   }
-  a{
+}
+
+#footer{
+  background: $off-white;
+  padding-top: $padding-large-vertical;
+  padding-bottom: $padding-large-vertical;
+  .row,
+  .footer-social-links{
+    display: flex;
+    align-items: center;
+  }
+
+  .jump-to-top-button{
+    display: inline-flex;
+    align-items: center;
+    .whitney-small{
+      font-weight: $font-weight-bold;
+      margin-left: 0.5em;
+      transform: translateY(0.2em);
+      color: $grey-blue;
+    }
+  }
+  .footer-page-links{
+    transform: translateY(0.1em);
+    a{
+      margin-right: 0.5em;
+    }
+  }
+  .footer-social-link{
     display: inline-block;
-    padding: $padding-base-vertical 0;
-    // margin-top: $padding-small-vertical;
-    font-weight: $font-weight-bold;
-    border-top: 0.1em solid transparent;
-    transition: all 0.2s ease-in-out;
-
-    &:hover{
-      border-top: 0.1em solid $dark-blue;
+    height: 20px; // change to same value as svg height;
+    margin-right: 0.2em;
+    path{
+      fill: $grey-blue;
     }
-  }
-}
-#breadcrumbs{
-  .trail-col{
-    position: relative;
-  }
-  .breadcrumb-cmap{
-    border-top: 1px solid $off-white;
-    border-bottom: 1px solid $off-white;
-    padding: 0.614em #{$grid-gutter-width / 2};
-  }
-  // .breadcrumb-trail{ }
-  .breadcrumb{
-    margin-bottom: 0;
-    margin-left: $grid-gutter-width;
-  }
-  .share-menu{
-    position: absolute;
-    top: 0;
-    left: $grid-gutter-width/2;
-    margin-left: $grid-gutter-width;
-    // left: $grid-gutter-width;
-    // margin-left: $grid-gutter-width;
 
-    .input-group{
-      max-width: 75%;
+    $logo-padding: 0.2em;
+    .youtube{
+      margin: 0 $logo-padding;
     }
-  }
-
-  .share-col{
-
-  }
-
-  .share-button,
-  .close-button{
-    position: absolute;
-    left: 0;
+    .instagram{
+      margin: 0 $logo-padding;
+    }
   }
 }

@@ -128,7 +128,7 @@ output {
   @include transition(all ease-in-out .2s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus($dark-blue);
+  @include form-control-focus($grey-blue);
 
   // Placeholder
   @include placeholder;
@@ -151,7 +151,7 @@ output {
   }
 
   &:focus {
-    color: $dark-blue;
+    color: $grey-blue;
   }
 
   // [converter] extracted textarea& to textarea.form-control
