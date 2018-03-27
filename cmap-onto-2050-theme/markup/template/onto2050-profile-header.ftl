@@ -7,7 +7,7 @@
 </#assign>
 
 <section class="profile-header row" style="${profilepicture}">
-  <div class="profile-text col-sm-6 col-sm-offset-8">
+  <div class="profile-text col-xs-8 col-xs-offset-8 col-sm-7 col-sm-offset-8">
     <h2>${Quote.getData()}</h2>
     <span class="profile-name">${Name.getData()}</span>
     <#if Title.getSiblings()?has_content>

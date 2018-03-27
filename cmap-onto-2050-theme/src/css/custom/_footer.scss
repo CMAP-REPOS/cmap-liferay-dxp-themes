@@ -1,0 +1,52 @@
+#footer{
+  background: $off-white;
+  padding-top: $padding-large-vertical;
+  padding-bottom: $padding-large-vertical;
+
+  .row,
+  .footer-social-links{
+    display: flex;
+    align-items: center;
+  }
+
+  .jump-to-top-button{
+    display: inline-flex;
+    align-items: center;
+    .whitney-small{
+      font-weight: $font-weight-bold;
+      margin-left: 0.5em;
+      transform: translateY(0.2em);
+      color: $grey-blue;
+    }
+  }
+  .footer-page-links{
+    transform: translateY(0.1em);
+    a{
+      margin-right: 0.5em;
+    }
+  }
+  .footer-social-link{
+    display: inline-block;
+    height: 20px; // change to same value as svg height;
+    margin-right: 0.2em;
+
+    path{
+      fill: $grey-blue;
+      transition: all 0.2s ease-in-out;
+    }
+    &:hover{
+      path{
+        fill: $blue;
+      }
+    }
+
+    $logo-padding: 0.2em;
+    .youtube{
+      margin: 0 $logo-padding;
+      transform: translateY(-0.05em);
+    }
+    .instagram{
+      margin: 0 $logo-padding;
+    }
+  }
+}

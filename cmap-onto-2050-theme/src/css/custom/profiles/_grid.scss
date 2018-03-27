@@ -1,0 +1,35 @@
+#profile-grid{
+
+  .profile-grid-item{
+    min-height: 28vw;
+    border-top: 1px solid $light-grey;
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    &:nth-child(odd){
+      border-right: $site-border;
+    }
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      border-bottom: $site-border;
+    }
+  }
+
+  .profile-text{
+     @include container-margin();
+     margin-top: 1.5em;
+     span{
+       display: block;
+       font-weight: $font-weight-bold;
+       line-height: 1.5;
+     }
+     .profile-name{
+       color: $black;
+     }
+     .profile-title{
+       color: $light-blue;
+     }
+  }
+
+}

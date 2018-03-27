@@ -1,0 +1,14 @@
+section.profile-footer{
+  display: flex;
+  align-items: center;
+
+  border-top: $site-border;
+  border-bottom: $site-border;
+
+  .profile-footer-item{
+    border-right: $site-border;
+    &:last-of-type{
+      border-right: 0;
+    }
+  }
+}

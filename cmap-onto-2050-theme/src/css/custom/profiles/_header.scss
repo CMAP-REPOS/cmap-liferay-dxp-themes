@@ -1,0 +1,25 @@
+section.profile-header{
+  border-bottom: $site-border;
+  height: 50vw;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  h2{
+    font-family: $font-family-serif;
+    font-weight: $font-weight-normal;
+  }
+
+  span{
+    display: block;
+    line-height: 1.5;
+    font-weight: $font-weight-bold;
+  }
+
+  .profile-name{
+    color: $black;
+  }
+  .profile-title{
+    color: $light-blue;
+  }
+}
