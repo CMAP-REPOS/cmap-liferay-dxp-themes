@@ -311,7 +311,7 @@
       };
 
       cmap.storymaps.scrollToContent = function () {
-        $('html, body').animate({ scrollTop: $('#map-container').offset().top }, 600);
+        $('html, body').animate({ scrollTop: $('#map-container').offset().top + $('#map-container').height()/4 }, 600);
       };
 
       cmap.storymaps.removeLayer = function (layer) {
@@ -469,8 +469,12 @@
         $('.leaflet-bottom.leaflet-right').css({ 'marginRight': offset });
 
         <#-- make sure slider toggle button is in "open" state   -->
-        document.getElementById('menu-toggler-left').style.display = "none";
-        document.getElementById('menu-toggler-right').style.display = "block";
+        if (document.getElementById('menu-toggler-left')) {
+            document.getElementById('menu-toggler-left').style.display = "none";
+        }
+        if (document.getElementById('menu-toggler-right')) {
+            document.getElementById('menu-toggler-right').style.display = "block";
+        }
       }
 
       cmap.storymaps.handleResize = function() {
@@ -552,6 +556,13 @@
           zoomControl: false
         }).setView([41.8781, -88.2298], cmap.storymaps.defaultZoom);
         
+        cmap.storymaps.map.createPane('labels');
+        cmap.storymaps.map.getPane('labels').style.zIndex = 650;
+
+        var labelsLayer = L.tileLayer('https://api.mapbox.com/styles/v1/onto2050/cjezz11vx2sfs2rt6z7jx8t09/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ', {
+                pane: 'labels'
+        }).addTo(cmap.storymaps.map);
+
         cmap.storymaps.map.scrollWheelZoom.disable();
         cmap.storymaps.map.doubleClickZoom.disable();
         L.mapbox.styleLayer(url).addTo(cmap.storymaps.map);
