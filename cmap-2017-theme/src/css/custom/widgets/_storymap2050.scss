@@ -68,6 +68,7 @@ $icon-nav-right-white: "\e91d";
     margin-top: $unit * -2;
     #map-container {
         height: 800px;
+        max-height: 80vh;
         position: relative;
     }
     /* make full-width content possible */
