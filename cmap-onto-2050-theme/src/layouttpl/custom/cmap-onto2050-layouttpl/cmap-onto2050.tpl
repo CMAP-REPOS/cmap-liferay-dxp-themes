@@ -36,4 +36,20 @@
 			$processor.processColumn("column-9", "portlet-column-content portlet-column-content-only")
 		</div>
 	</div>
+	<div class="portlet-layout row">
+		<div class="col-md-4 col-sm-16 portlet-column portlet-column-first" id="column-10">
+			$processor.processColumn("column-10", "portlet-column-content portlet-column-content-first")
+		</div>
+		<div class="col-md-8 col-sm-16 portlet-column" id="column-11">
+			$processor.processColumn("column-11", "portlet-column-content")
+		</div>
+		<div class="col-md-4 col-sm-16 portlet-column portlet-column-last" id="column-12">
+			$processor.processColumn("column-12", "portlet-column-content portlet-column-content-last")
+		</div>
+	</div>
+	<div class="portlet-layout row">
+		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-13">
+			$processor.processColumn("column-13", "portlet-column-content portlet-column-content-only")
+		</div>
+	</div>
 </div>

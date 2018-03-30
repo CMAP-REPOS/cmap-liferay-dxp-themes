@@ -34,6 +34,9 @@
 
 #page-header{
   margin: 3em 0;
+  @include tablet(){
+    @include container-margin(3em);
+  }
   h1,h2{
     font-weight: 400;
   }
@@ -44,4 +47,7 @@
 }
 #profile-content{
   margin: 3em 0;
+  @include tablet(){
+    @include container-margin(3em);
+  }
 }

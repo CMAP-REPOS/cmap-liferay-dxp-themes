@@ -17,7 +17,7 @@
 		</#assign>
 
 
-		<a href="${profilehref}" class="col-sm-8 profile-grid-item" style="${profilepicture}">
+		<a href="${profilehref}" class="col-md-8 col-sm-16 profile-grid-item" style="${profilepicture}">
 			<div class="profile-text">
 				<#if cur_Profile.Name.getData()??>
 					<span class="profile-name">${cur_Profile.Name.getData()}</span>

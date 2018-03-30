@@ -1,18 +1,22 @@
-@mixin container-margin-left(){
+@mixin container-margin-left($vertical: 0){
   margin-left: $grid-gutter-width;
+  margin-top: $vertical;
+  margin-bottom: $vertical;
   @include phone(){
     margin-left: 0;
   }
 }
-@mixin container-margin-right(){
+@mixin container-margin-right($vertical: 0){
   margin-right: $grid-gutter-width;
+  margin-top: $vertical;
+  margin-bottom: $vertical;
   @include phone(){
     margin-right: 0;
   }
 }
-@mixin container-margin(){
-  @include container-margin-left();
-  @include container-margin-right();
+@mixin container-margin($vertical: 0){
+  @include container-margin-left($vertical);
+  @include container-margin-right($vertical);
 }
 @mixin phone(){
   @media screen and (max-width: $screen-xs){

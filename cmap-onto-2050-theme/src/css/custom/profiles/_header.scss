@@ -10,6 +10,10 @@ section.profile-header{
     font-weight: $font-weight-normal;
   }
 
+  .mobile-image{
+    display: none;
+  }
+
   span{
     display: block;
     line-height: 1.5;
@@ -19,7 +23,28 @@ section.profile-header{
   .profile-name{
     color: $black;
   }
+
   .profile-title{
     color: $light-blue;
+  }
+
+  @include tablet(){
+    height: auto;
+    background: transparent !important;
+    border-bottom: none;
+    h2{
+      @include container-margin(0.5em);
+    }
+    .profile-text{
+      margin-top: 2em;
+    }
+    .mobile-image{
+      display: block;
+      border-bottom: $site-border;
+    }
+    .profile-name,
+    .profile-title{
+      @include container-margin(0);
+    }
   }
 }

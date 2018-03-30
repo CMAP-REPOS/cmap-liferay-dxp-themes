@@ -11,4 +11,17 @@ section.profile-footer{
       border-right: 0;
     }
   }
+
+  .profile-footer-item-mobile{
+    display: none;
+  }
+
+  @include tablet(){
+    .profile-footer-item{
+      display: none;
+    }
+    .profile-footer-item-mobile{
+      display: block;
+    }
+  }
 }

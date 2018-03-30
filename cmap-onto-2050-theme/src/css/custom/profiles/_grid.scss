@@ -1,6 +1,7 @@
 #profile-grid{
 
   .profile-grid-item{
+    display: block;
     min-height: 28vw;
     border-top: 1px solid $light-grey;
     background-size: contain;
@@ -13,6 +14,11 @@
     &:nth-last-child(1),
     &:nth-last-child(2) {
       border-bottom: $site-border;
+    }
+
+    @include tablet(){
+      min-height: 56vw;
+
     }
   }
 
