@@ -1,5 +1,12 @@
 <div id="heading" class="row">
-  <div class="col-xs-4">
+  <div class="col-md-4 col-sm-11 col-xs-10">
+
+    <button class="hamburger" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+
     <a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
       <svg xmlns="http://www.w3.org/2000/svg" width="102" height="20" viewBox="0 0 102 20">
         <g fill="none" fill-rule="evenodd" transform="translate(0 1)">
@@ -13,12 +20,12 @@
       <h1 class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></h1>
     </a>
   </div>
-  <div class="col-xs-8">
+  <div class="col-md-8 hidden-sm hidden-xs">
     <h2 class="site-subheadline">
       ON TO 2050
     </h2>
   </div>
-  <div class="col-xs-4">
+  <div class="col-md-4 col-sm-5 col-xs-6">
     <div class="input-group input-group-lg">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button">

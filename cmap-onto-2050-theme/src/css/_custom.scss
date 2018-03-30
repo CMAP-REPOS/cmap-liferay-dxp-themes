@@ -4,49 +4,10 @@
 /* endinject */
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+@import "custom/vendor/hamburgers/hamburgers";
 
-
-$site-border: 1px solid $light-grey;
-
-
-// sizes
-$variation: 1.414;
-$size0: 1em;
-$size1: $size0 * $variation;
-$size2: $size1 * $variation;
-$size3: $size2 * $variation;
-$size4: $size3 * $variation;
-$size5: $size4 * $variation;
-$size6: $size5 * $variation;
-$size7: $size6 * $variation;
-$size8: $size7 * $variation;
-$size9: $size8 * $variation;
-$size10: $size9 * $variation;
-$size-1: $size0 / $variation;
-$size-2: $size-1 / $variation;
-$size-3: $size-2 / $variation;
-$size-4: $size-3 / $variation;
-$size-5: $size-4 / $variation;
-
-$unit: $size1;
-
-$breakpoint-phone: 400px;
-$breakpoint-tablet: 750px;
-$breakpoint-desktop: 1000px;
-$breakpoint-tv: 1500px;
-
-
-@mixin container-margin-left(){
-  margin-left: $grid-gutter-width;
-}
-@mixin container-margin-right(){
-  margin-right: $grid-gutter-width;
-}
-@mixin container-margin(){
-  @include container-margin-left();
-  @include container-margin-right();
-}
-
+@import "custom/variables";
+@import "custom/mixins";
 @import "custom/input";
 @import "custom/typography";
 @import "custom/header";
@@ -79,6 +40,7 @@ $breakpoint-tv: 1500px;
   h2{
     font-family: $font-family-serif;
   }
+
 }
 #profile-content{
   margin: 3em 0;

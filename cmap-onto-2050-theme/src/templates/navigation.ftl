@@ -24,13 +24,9 @@
 			</ul>
 		</div>
 		<div class="col-sm-16 col-md-4">
-			<ul role="menubar" class="list-inline list-unstyled">
-				<li role="presentation">
-		    	<a href="/" role="menuitem">
-						<span> Back to CMAP.gov </span>
-					</a>
-		  	</li>
-			</ul>
+		<a class="return-to-cmap" href="/" role="menuitem">
+			<span> Back to CMAP.gov </span>
+		</a>
 		</div>
 	</div>
 </nav>

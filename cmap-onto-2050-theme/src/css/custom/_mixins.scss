@@ -1,0 +1,36 @@
+@mixin container-margin-left(){
+  margin-left: $grid-gutter-width;
+  @include phone(){
+    margin-left: 0;
+  }
+}
+@mixin container-margin-right(){
+  margin-right: $grid-gutter-width;
+  @include phone(){
+    margin-right: 0;
+  }
+}
+@mixin container-margin(){
+  @include container-margin-left();
+  @include container-margin-right();
+}
+@mixin phone(){
+  @media screen and (max-width: $screen-xs){
+    @content;
+  }
+}
+@mixin tablet(){
+  @media screen and (max-width: $screen-sm){
+    @content;
+  }
+}
+@mixin desktop(){
+  @media screen and (max-width: $screen-md){
+    @content;
+  }
+}
+@mixin huge(){
+  @media screen and (max-width: $screen-lg){
+    @content;
+  }
+}

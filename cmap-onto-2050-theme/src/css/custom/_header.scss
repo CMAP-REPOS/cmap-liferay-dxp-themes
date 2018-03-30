@@ -3,11 +3,28 @@
   display: flex;
   align-items: center;
   padding: $grid-gutter-width/1.8 0;
+
   h1,h2{
     margin: 0;
   }
+
+  .hamburger{
+    display: none;
+    @include container-margin-left();
+    padding-left: 0;
+    @include tablet(){
+      display: inline-block;
+    }
+  }
+
   .logo{
     @include container-margin-left();
+    @include tablet(){
+      margin-left: 0;
+    }
+    svg{
+      display: block;
+    }
   }
 
   #search-input{
@@ -20,8 +37,15 @@
 }
 
 #navigation{
+
+  @include tablet(){
+    display: none;
+  }
+
   .site-nav{
     @include container-margin-left();
+    margin-bottom: 0;
+
     li:first-of-type{
       padding-left: 0;
     }
@@ -35,6 +59,17 @@
 
     &:hover{
       border-top: 0.1em solid $grey-blue;
+    }
+  }
+
+  .return-to-cmap{
+    @include tablet(){
+      @include container-margin-left();
+    }
+    color: $light-blue;
+    margin-bottom: $padding-base-vertical;
+    &:hover{
+      border-top-color: $light-blue;
     }
   }
 }
@@ -53,8 +88,13 @@
     margin-bottom: 0;
     @include container-margin-left();
   }
+  .share-button,
+  .close-button{
+    position: relative;
+    left: 0;
+    padding-left: 0 !important;
+  }
   .share-menu{
-    position: absolute;
     top: 0;
     left: $grid-gutter-width/2;
     @include container-margin-left();
@@ -68,9 +108,5 @@
 
   }
 
-  .share-button,
-  .close-button{
-    position: absolute;
-    left: 0;
-  }
+
 }

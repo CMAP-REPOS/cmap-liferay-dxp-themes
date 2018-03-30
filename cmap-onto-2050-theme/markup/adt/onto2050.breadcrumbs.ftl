@@ -3,7 +3,7 @@
     <div class="row">
       <#assign cssClass="" />
 
-      <div class="trail-col col-xl-13 col-sm-12 col-xs-10">
+      <div class="trail-col col-md-12 col-sm-11 col-xs-16">
         <div class="breadcrumb-trail active">
           <!--<span class="entry home">
             <span class="square"></span>
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="share-col col-xl-3 col-sm-4 col-xs-6">
+      <div class="share-col col-md-4 col-sm-5 hidden-xs">
         <button class="share-button btn btn-sm btn-plain">
           <svg class="glyphicon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <g fill="#3C5976" transform="translate(4 2)">
