@@ -1,24 +1,42 @@
 <div class="page-cards">
-  <h4>${Title.getData()}</h4>
+  <h4 class="widget-title">${Title.getData()}</h4>
+
   <#if getterUtil.getBoolean(IsFullWidth.getData())>
       Full Width
   </#if>
+
   ${Anchor.getData()}
+
   <div class="row">
   <#if Card.getSiblings()?has_content>
     <#list Card.getSiblings() as cur_Card>
-      <div class="col-md-8 col-xs-16">
-        <#if cur_Card.Asset.getData()?? && cur_Card.Asset.getData() != "">
+
+      <#if cur_Card.Asset.getData()?? && cur_Card.Asset.getData() != "">
+        <#assign card_picture = cur_Card.Asset.getData()>
+      <#else>
+        <#assign card_picture = ''>
+      </#if>
+      <#if cur_Card.PageLink?? && cur_Card.PageLink.getData() != "" >
+        <#assign card_link = cur_Card.PageLink.getData()>
+      <#else>
+        <#assign card_link = ''>
+      </#if>
+
+      <div class="page-card col-sm-8 col-xs-16">
         <div class="top">
-          <#if cur_Card.PageLink?? && cur_Card.PageLink.getData() != "" >
+          <#if card_link != '' >
             <a href="${cur_Card.PageLink.getFriendlyUrl()}">
+          </#if>
+            <#if card_picture != '' >
               <img data-fileentryid="${cur_Card.Asset.getAttribute("fileEntryId")}" alt="${cur_Card.Asset.getAttribute("alt")}" src="${cur_Card.Asset.getData()}" />
+            <#else>
+              <div class="placeholder-image"></div>
+            </#if>
+          <#if card_link != '' >
             </a>
-          <#else>
-            <img data-fileentryid="${cur_Card.Asset.getAttribute("fileEntryId")}" alt="${cur_Card.Asset.getAttribute("alt")}" src="${cur_Card.Asset.getData()}" />
           </#if>
         </div>
-        </#if>
+
         <div class="bottom">
           <#if cur_Card.Title1?? && cur_Card.Title1.getData() != "" >
             <h4>

@@ -11,8 +11,10 @@
 @import "custom/input";
 @import "custom/typography";
 @import "custom/header";
-@import "custom/picture";
 @import "custom/footer";
+@import "custom/picture";
+@import "custom/goal";
+@import "custom/page-cards";
 @import "custom/profiles/footer";
 @import "custom/profiles/grid";
 @import "custom/profiles/header";
@@ -22,7 +24,7 @@
 @mixin underline-link($color){
   color: $color;
   text-decoration: none;
-  border-bottom: 1px solid $color;
+  border-bottom: 0.05em solid $color;
   &:hover,
   &:focus {
     color: lighten($color, 10%);
@@ -61,6 +63,7 @@
     width: 100%;
   }
 }
+
 .blue-theme{
   .journal-content-article{
     h1,h2,h3,h4,h5,h6,p{

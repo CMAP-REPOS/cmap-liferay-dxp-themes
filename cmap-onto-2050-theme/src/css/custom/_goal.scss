@@ -1,0 +1,12 @@
+.topic-goal{
+  header{
+    position: relative;
+
+    img{
+      position: absolute;
+      right: 100%;
+      width: auto;
+      margin-right: $grid-gutter-width / 2;
+    }
+  }
+}

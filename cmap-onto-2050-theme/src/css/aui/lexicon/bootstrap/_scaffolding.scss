@@ -48,6 +48,7 @@ textarea {
 a {
   color: $link-color;
   text-decoration: none;
+  transition: all 0.2s ease;
   &:hover,
   &:focus {
     color: lighten($link-color, 10%);
