@@ -5,7 +5,7 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "Quote"
+        "en_US": "Subtitle"
       },
       "predefinedValue": {
         "en_US": ""
@@ -14,35 +14,12 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
-      "indexType": "text",
-      "localizable": true,
-      "name": "Quote",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "textarea"
-    },
-    {
-      "label": {
-        "en_US": "Name"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
+        "en_US": "Displayed in a lighter shade, yet same size, as the title."
       },
       "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
-      "name": "Name",
+      "name": "Subtitle",
       "readOnly": false,
       "repeatable": false,
       "required": false,
@@ -67,14 +44,14 @@
       "localizable": true,
       "name": "Title",
       "readOnly": false,
-      "repeatable": true,
+      "repeatable": false,
       "required": false,
       "showLabel": true,
       "type": "text"
     },
     {
       "label": {
-        "en_US": "Background"
+        "en_US": "Description"
       },
       "predefinedValue": {
         "en_US": ""
@@ -83,42 +60,17 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "Displayed in a serif font, not sans-serif, at a large size underneath the other titles."
       },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
+      "dataType": "string",
       "indexType": "text",
       "localizable": true,
-      "name": "Background",
+      "name": "Description",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "ddm-image"
-    },
-    {
-      "label": {
-        "en_US": "Mobile Image"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
-      "indexType": "",
-      "localizable": true,
-      "name": "MobileImage",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "ddm-image"
+      "type": "textarea"
     }
   ]
 }

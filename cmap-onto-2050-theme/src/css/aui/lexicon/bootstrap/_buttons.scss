@@ -59,6 +59,14 @@
   }
   // [converter] extracted a& to a.btn
 }
+.blue-theme{
+  .glyphicon{
+    *[fill="#3C5976"],
+    *[fill="#3A5776"]{
+      fill: $white;
+    }
+  }
+}
 
 a.btn {
   &.disabled,
@@ -76,6 +84,11 @@ a.btn {
 }
 .btn-plain {
   @include button-variant($btn-plain-color, $btn-plain-bg, $btn-plain-border);
+}
+.blue-theme{
+  .btn-plain {
+    @include button-variant($white, $grey-blue, $btn-plain-border);
+  }
 }
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);

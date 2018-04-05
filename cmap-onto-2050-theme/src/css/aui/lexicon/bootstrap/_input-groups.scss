@@ -23,6 +23,7 @@ $jump-offset-ratio: 1;
       padding-right: #{$padding-base-horizontal / $jump-offset-ratio};
       &:hover{
         padding-right: $padding-base-horizontal;
+        z-index: 10;
       }
     }
   }
@@ -39,6 +40,7 @@ $jump-offset-ratio: 1;
 
     width: 100%;
     margin-bottom: 0;
+    margin-left: - $padding-base-horizontal;
     padding-left: #{$padding-base-horizontal / $jump-offset-ratio};
     border-left-color: $input-bg;
     &:focus{
@@ -68,6 +70,7 @@ $jump-offset-ratio: 1;
     }
   }
   .form-control {
+    margin-left: - $padding-large-horizontal;
     padding-left: #{$padding-large-horizontal / $jump-offset-ratio};
     &:focus{
       padding-left: $padding-large-horizontal;

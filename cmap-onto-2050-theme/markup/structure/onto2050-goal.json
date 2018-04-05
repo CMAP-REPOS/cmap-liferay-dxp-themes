@@ -5,7 +5,7 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "Quote"
+        "en_US": "Goal Number"
       },
       "predefinedValue": {
         "en_US": ""
@@ -16,38 +16,16 @@
       "tip": {
         "en_US": ""
       },
-      "dataType": "string",
-      "indexType": "text",
-      "localizable": true,
-      "name": "Quote",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "textarea"
-    },
-    {
-      "label": {
-        "en_US": "Name"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
+      "dataType": "integer",
+      "fieldNamespace": "ddm",
       "indexType": "keyword",
       "localizable": true,
-      "name": "Name",
+      "name": "GoalNumber",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "text"
+      "type": "ddm-integer"
     },
     {
       "label": {
@@ -67,14 +45,14 @@
       "localizable": true,
       "name": "Title",
       "readOnly": false,
-      "repeatable": true,
+      "repeatable": false,
       "required": false,
       "showLabel": true,
       "type": "text"
     },
     {
       "label": {
-        "en_US": "Background"
+        "en_US": "Anchor"
       },
       "predefinedValue": {
         "en_US": ""
@@ -83,22 +61,21 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "Link to the section (#my-section) on the page, leave blank for no anchor link."
       },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
-      "indexType": "text",
+      "dataType": "string",
+      "indexType": "keyword",
       "localizable": true,
-      "name": "Background",
+      "name": "Anchor",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "ddm-image"
+      "type": "text"
     },
     {
       "label": {
-        "en_US": "Mobile Image"
+        "en_US": "Content"
       },
       "predefinedValue": {
         "en_US": ""
@@ -109,16 +86,15 @@
       "tip": {
         "en_US": ""
       },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
-      "indexType": "",
+      "dataType": "string",
+      "indexType": "text",
       "localizable": true,
-      "name": "MobileImage",
+      "name": "Content",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "ddm-image"
+      "type": "textarea"
     }
   ]
 }

@@ -5,7 +5,30 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "Quote"
+        "en_US": "IsFullWidth"
+      },
+      "predefinedValue": {
+        "en_US": false
+      },
+      "style": {
+        "en_US": ""
+      },
+      "tip": {
+        "en_US": ""
+      },
+      "dataType": "boolean",
+      "indexType": "keyword",
+      "localizable": true,
+      "name": "IsFullWidth",
+      "readOnly": false,
+      "repeatable": false,
+      "required": false,
+      "showLabel": true,
+      "type": "checkbox"
+    },
+    {
+      "label": {
+        "en_US": "Asset"
       },
       "predefinedValue": {
         "en_US": ""
@@ -16,10 +39,34 @@
       "tip": {
         "en_US": ""
       },
+      "dataType": "image",
+      "fieldNamespace": "ddm",
+      "indexType": "text",
+      "localizable": true,
+      "name": "Asset",
+      "readOnly": false,
+      "repeatable": false,
+      "required": true,
+      "showLabel": true,
+      "type": "ddm-image"
+    },
+    {
+      "label": {
+        "en_US": "Caption Text"
+      },
+      "predefinedValue": {
+        "en_US": ""
+      },
+      "style": {
+        "en_US": ""
+      },
+      "tip": {
+        "en_US": "Displayed on top of the picture"
+      },
       "dataType": "string",
       "indexType": "text",
       "localizable": true,
-      "name": "Quote",
+      "name": "CaptionText",
       "readOnly": false,
       "repeatable": false,
       "required": false,
@@ -28,10 +75,37 @@
     },
     {
       "label": {
-        "en_US": "Name"
+        "en_US": "Caption Position"
       },
+      "options": [{
+          "value": "top-right",
+          "label": {
+            "en_US": "top-right"
+          }
+        },
+        {
+          "value": "top-left",
+          "label": {
+            "en_US": "top-left"
+          }
+        },
+        {
+          "value": "bottom-right",
+          "label": {
+            "en_US": "bottom-right"
+          }
+        },
+        {
+          "value": "bottom-left",
+          "label": {
+            "en_US": "bottom-left"
+          }
+        }
+      ],
       "predefinedValue": {
-        "en_US": ""
+        "en_US": [
+          ""
+        ]
       },
       "style": {
         "en_US": ""
@@ -42,16 +116,16 @@
       "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
-      "name": "Name",
+      "name": "CaptionPosition",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "text"
+      "type": "radio"
     },
     {
       "label": {
-        "en_US": "Title"
+        "en_US": "Footnote"
       },
       "predefinedValue": {
         "en_US": ""
@@ -60,65 +134,17 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "Displayed under the picture"
       },
       "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
-      "name": "Title",
+      "name": "Footnote",
       "readOnly": false,
-      "repeatable": true,
+      "repeatable": false,
       "required": false,
       "showLabel": true,
       "type": "text"
-    },
-    {
-      "label": {
-        "en_US": "Background"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
-      "indexType": "text",
-      "localizable": true,
-      "name": "Background",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "ddm-image"
-    },
-    {
-      "label": {
-        "en_US": "Mobile Image"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "image",
-      "fieldNamespace": "ddm",
-      "indexType": "",
-      "localizable": true,
-      "name": "MobileImage",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "ddm-image"
     }
   ]
 }

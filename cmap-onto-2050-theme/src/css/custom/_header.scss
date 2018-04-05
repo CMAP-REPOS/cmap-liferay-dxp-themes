@@ -19,9 +19,8 @@
 
   .logo{
     @include container-margin-left();
-    @include tablet(){
-      margin-left: 0;
-    }
+    border-bottom: none;
+
     svg{
       display: block;
     }
@@ -91,8 +90,9 @@
   .share-button,
   .close-button{
     position: relative;
-    left: 0;
-    padding-left: 0 !important;
+    left: - $padding-base-horizontal;
+
+    // padding-left: 0 !important;
   }
   .share-menu{
     top: 0;
@@ -107,6 +107,38 @@
   .share-col{
 
   }
+}
 
-
+.blue-theme{
+  #heading{
+    .site-subheadline{
+      color: $white;
+    }
+    .logo{
+      svg{
+        path,polygon{
+          &[fill="#000000"]{
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+  #navigation{
+    a{
+      &:hover{
+        border-top: 0.1em solid lighten($light-blue, 10%);
+      }
+    }
+  }
+  #breadcrumbs{
+    .breadcrumb-cmap{
+      $percent: 10%;
+      border-top-color: lighten($light-blue, $percent);
+      border-bottom-color: lighten($light-blue, $percent);
+    }
+    a{
+      color: $white;
+    }
+  }
 }

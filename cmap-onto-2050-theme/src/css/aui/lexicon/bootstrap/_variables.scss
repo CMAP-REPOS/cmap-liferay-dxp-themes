@@ -20,6 +20,7 @@ $dark-gold: #E7BB20;
 $dark-green: #346139;
 $green: #6CAD4E;
 $light-green: #A2D06D;
+
 $grey-blue: #3C5976;
 $light-blue: #88a0b2;
 $dark-blue: #004F93;
@@ -756,8 +757,8 @@ $list-group-link-heading-color: #333 !default;
 //##
 
 $panel-bg:                    #fff !default;
-$panel-body-padding:          15px !default;
-$panel-heading-padding:       10px 15px !default;
+$panel-body-padding:          0.5em !default;
+$panel-heading-padding:       0.25em 0.5em !default;
 $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
@@ -909,9 +910,9 @@ $headings-small-color:        $gray-light !default;
 //** Blockquote small color
 $blockquote-small-color:      $gray-light !default;
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-font-size:        $font-size-h2 !default;
 //** Blockquote border color
-$blockquote-border-color:     $gray-lighter !default;
+$blockquote-border-color:     transparent !default;
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
 //** Width of horizontal description list titles
