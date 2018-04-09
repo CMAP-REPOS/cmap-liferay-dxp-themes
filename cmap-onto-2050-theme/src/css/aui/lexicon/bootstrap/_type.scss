@@ -61,6 +61,10 @@ h6, .h6 { font-size: $font-size-h6; }
 
 p {
   margin: 0 0 1rem;
+
+  &:last-of-type{
+    margin-bottom: 0;
+  }
 }
 
 .lead {
@@ -153,7 +157,7 @@ mark,
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: 1rem;
   ul,
   ol {
     margin-bottom: 0;
@@ -165,6 +169,7 @@ ol {
 // [converter] extracted from `.list-unstyled` for libsass compatibility
 @mixin list-unstyled {
   padding-left: 0;
+  margin-bottom: 0;
   list-style: none;
 }
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility

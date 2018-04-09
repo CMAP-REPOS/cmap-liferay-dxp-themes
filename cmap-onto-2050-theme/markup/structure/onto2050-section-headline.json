@@ -5,7 +5,7 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "Goal Number"
+        "en_US": "Subtitle"
       },
       "predefinedValue": {
         "en_US": ""
@@ -16,16 +16,15 @@
       "tip": {
         "en_US": ""
       },
-      "dataType": "integer",
-      "fieldNamespace": "ddm",
+      "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
-      "name": "GoalNumber",
+      "name": "Subtitle",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "ddm-integer"
+      "type": "text"
     },
     {
       "label": {
@@ -72,29 +71,6 @@
       "required": false,
       "showLabel": true,
       "type": "text"
-    },
-    {
-      "label": {
-        "en_US": "Content"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
-      "indexType": "text",
-      "localizable": true,
-      "name": "Content",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "textarea"
     }
   ]
 }

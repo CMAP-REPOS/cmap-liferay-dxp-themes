@@ -4,6 +4,12 @@
   }
   .page-card{
     margin-bottom: $grid-gutter-width;
+    &:nth-last-of-type(1){
+      margin-bottom: 0;
+    }
+    &:nth-last-of-type(2){
+      margin-bottom: 0;
+    }
   }
   .top{
     position: relative;

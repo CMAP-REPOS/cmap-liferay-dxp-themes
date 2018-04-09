@@ -13,8 +13,12 @@
 @import "custom/header";
 @import "custom/footer";
 @import "custom/picture";
-@import "custom/goal";
+@import "custom/section-headline";
+@import "custom/page-nav";
+@import "custom/page-header";
 @import "custom/page-cards";
+@import "custom/advertisement";
+@import "custom/before-after";
 @import "custom/profiles/footer";
 @import "custom/profiles/grid";
 @import "custom/profiles/header";
@@ -32,8 +36,6 @@
     border-bottom-color: lighten($color, 10%);
   }
 }
-
-
 
 .underline-link{
   @include underline-link($link-color);
@@ -64,6 +66,10 @@
   }
 }
 
+.margin-bottom-portlet{
+  margin-bottom: 3rem;
+}
+
 .blue-theme{
   .journal-content-article{
     h1,h2,h3,h4,h5,h6,p{
@@ -75,21 +81,8 @@
   }
 }
 
-#page-header{
-  margin: 3em 0;
-  @include tablet(){
-    @include container-margin(3em);
-  }
-  h1,h2,h3{
-    font-weight: 400;
-  }
-  .page-description{
-    font-family: $font-family-serif;
-  }
-}
-
 #profile-content{
-  margin: 3em 0;
+  margin: 3rem 0;
   @include tablet(){
     @include container-margin(3em);
   }

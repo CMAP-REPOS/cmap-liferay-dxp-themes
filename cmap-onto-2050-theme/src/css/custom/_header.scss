@@ -133,9 +133,9 @@
   }
   #breadcrumbs{
     .breadcrumb-cmap{
-      $percent: 10%;
-      border-top-color: lighten($light-blue, $percent);
-      border-bottom-color: lighten($light-blue, $percent);
+      $percent: 0.5;
+      border-top-color: rgba($light-blue, $percent);
+      border-bottom-color: rgba($light-blue, $percent);
     }
     a{
       color: $white;

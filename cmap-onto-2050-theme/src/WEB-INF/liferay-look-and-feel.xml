@@ -27,14 +27,12 @@
 
 		<template-extension>ftl</template-extension>
 
-		<portlet-decorator id="barebone" name="Barebone">
-			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		<portlet-decorator id="margin-bottom" name="Margin Bottom">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>margin-bottom-portlet</portlet-decorator-css-class>
 		</portlet-decorator>
-		<portlet-decorator id="borderless" name="Borderless">
-			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
-		</portlet-decorator>
-		<portlet-decorator id="decorate" name="Decorate">
-			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		<portlet-decorator id="default" name="Default">
+			<portlet-decorator-css-class>default-portlet</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>
 </look-and-feel>

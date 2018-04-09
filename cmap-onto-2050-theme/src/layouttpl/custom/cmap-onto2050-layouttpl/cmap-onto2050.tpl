@@ -5,13 +5,13 @@
 		</div>
 	</div>
 	<div class="portlet-layout row">
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-first" id="column-2">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-2">
 			$processor.processColumn("column-2", "portlet-column-content portlet-column-content-first")
 		</div>
-		<div class="col-md-8 col-sm-16 portlet-column" id="column-3">
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-3">
 			$processor.processColumn("column-3", "portlet-column-content")
 		</div>
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-last" id="column-4">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-4">
 			$processor.processColumn("column-4", "portlet-column-content portlet-column-content-last")
 		</div>
 	</div>
@@ -21,13 +21,13 @@
 		</div>
 	</div>
 	<div class="portlet-layout row">
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-first" id="column-6">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-6">
 			$processor.processColumn("column-6", "portlet-column-content portlet-column-content-first")
 		</div>
-		<div class="col-md-8 col-sm-16 portlet-column" id="column-7">
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-7">
 			$processor.processColumn("column-7", "portlet-column-content")
 		</div>
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-last" id="column-8">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-8">
 			$processor.processColumn("column-8", "portlet-column-content portlet-column-content-last")
 		</div>
 	</div>
@@ -37,13 +37,13 @@
 		</div>
 	</div>
 	<div class="portlet-layout row">
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-first" id="column-10">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-10">
 			$processor.processColumn("column-10", "portlet-column-content portlet-column-content-first")
 		</div>
-		<div class="col-md-8 col-sm-16 portlet-column" id="column-11">
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-11">
 			$processor.processColumn("column-11", "portlet-column-content")
 		</div>
-		<div class="col-md-4 col-sm-16 portlet-column portlet-column-last" id="column-12">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-12">
 			$processor.processColumn("column-12", "portlet-column-content portlet-column-content-last")
 		</div>
 	</div>

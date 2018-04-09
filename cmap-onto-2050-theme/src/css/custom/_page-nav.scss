@@ -1,0 +1,40 @@
+
+.page-nav{
+  &.fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%;
+    padding-right: $grid-gutter-width/2;
+    padding-left: $grid-gutter-width/2;
+
+    @include tablet(){
+      width: 18.75%;
+    }
+  }
+  h4.widget-headline{
+    font-weight: $font-weight-normal;
+    color: $light-blue !important;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  ul li{
+    border-top: 1px solid rgba($light-blue, 0.5);
+    h4{
+      margin-bottom: 0;
+    }
+    a{
+      display: block;
+      width: 100%;
+      padding: 1rem 0;
+      border-bottom: none !important;
+      color: $white !important;
+    }
+  }
+}
+.signed-in{
+  .page-nav.fixed{
+    top: 64px;
+  }
+}

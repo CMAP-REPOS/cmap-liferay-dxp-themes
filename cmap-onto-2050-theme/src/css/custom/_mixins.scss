@@ -19,13 +19,6 @@
   @include container-margin-right($vertical);
 }
 
-$padding-large-vertical:    12px !default;
-$padding-large-horizontal:  16px !default;
-
-
-$padding-xs-vertical:       1px !default;
-$padding-xs-horizontal:     5px !default;
-
 @mixin phone(){
   @media screen and (max-width: $screen-xs){
     @content;
