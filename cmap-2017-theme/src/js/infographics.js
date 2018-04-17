@@ -41,7 +41,7 @@
 				return color(e);
 			}
 		};
-		
+
 		var lines = [];
 		lines.push('<div><table class="c3-tooltip"><thead><tr>');
 		lines.push('<th colspan="2">' + defaultTitleFormat(d[0].x) + '</th>');
@@ -91,6 +91,7 @@
 		}
 		return dataClasses;
 	}
+
 	function applyFade(dataClasses, index) {
 		var toFade;
 		// d3 always returns an array with a length of 1.
@@ -116,6 +117,7 @@
 			d3.select(toFade).classed('c3-defocused', true);
 		}
 	}
+
 	function resizeAxisLabels(options) {
 		if (!disableXAxisLabelResizing || !disableYAxisLabelResizing) {
 			var yChildren = d3.select('#' + options.chartId + ' g.c3-axis-y').selectAll('.tick text');
@@ -135,6 +137,7 @@
 			}
 		}
 	}
+
 	function generateLegend(options) {
 		// console.log('infographics.generateLegend()');
 		// console.log(options);
@@ -200,6 +203,7 @@
 				}
 			});
 	}
+
 
 	var donutWidth = 45;
 	var siFormat = d3.format(",");
