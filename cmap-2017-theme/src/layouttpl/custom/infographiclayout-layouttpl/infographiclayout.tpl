@@ -15,7 +15,8 @@ https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/liferay-themedisp
 <!-- https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries -->
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/d3.min.js"></script>
 <script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/c3.min.js"></script>
-<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/infographics.js"></script>
+<script type="text/javascript"
+ src="$themeDisplay.getPathThemeJavaScript()/infographics.js"></script>
 
 <script>
     define.amd = define._amd;
