@@ -1,26 +1,26 @@
 {
-  "name": "cmap-onto-2050-theme",
-  "version": "1.0.0",
-  "main": "package.json",
-  "keywords": [
-    "liferay-theme"
-  ],
-  "liferayTheme": {
-    "baseTheme": "styled",
-    "screenshot": "",
-    "rubySass": false,
-    "templateLanguage": "ftl",
-    "version": "7.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.10",
-    "liferay-theme-tasks": "^7.0.0",
-    "liferay-theme-deps-7.0": "~1.0.0"
-  },
-  "publishConfig": {
-    "tag": "7_0_x"
-  },
-  "dependencies": {
-    "npm": "^5.7.1"
-  }
+	"name": "cmap-onto-2050-theme",
+	"version": "1.0.0",
+	"main": "package.json",
+	"keywords": [
+		"liferay-theme"
+	],
+	"liferayTheme": {
+		"baseTheme": "unstyled",
+		"screenshot": "",
+		"rubySass": false,
+		"templateLanguage": "ftl",
+		"version": "7.0"
+	},
+	"devDependencies": {
+		"gulp": "^3.8.10",
+		"liferay-theme-tasks": "^7.0.0",
+		"liferay-theme-deps-7.0": "~1.0.0"
+	},
+	"publishConfig": {
+		"tag": "7_0_x"
+	},
+	"dependencies": {
+		"npm": "^5.7.1"
+	}
 }
