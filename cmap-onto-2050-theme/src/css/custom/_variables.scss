@@ -1,4 +1,3 @@
-$site-border: 1px solid $light-grey;
 
 
 // sizes
@@ -26,3 +25,45 @@ $breakpoint-phone: 400px;
 $breakpoint-tablet: 750px;
 $breakpoint-desktop: 1000px;
 $breakpoint-tv: 1500px;
+
+// Colors
+$dark-red: #750709;
+$red: #DB2028;
+$light-red: #F47932;
+
+$light-gold: #5E5011;
+$gold: #9E7A38;
+$dark-gold: #E7BB20;
+
+$dark-green: #346139;
+$green: #6CAD4E;
+$light-green: #A2D06D;
+
+$grey-blue: #3C5976;
+$light-blue: #88a0b2;
+$dark-blue: #004F93;
+$blue: #008FD4;
+
+$black: #000000;
+$dark-grey: #5E7A87;
+$light-grey: #E2E7EA;
+$off-white: #E4EBEE;
+$off-white-text: #587387;
+$almost-white: #F7F9FA;
+$white: #FFFFFF;
+
+
+// used so far
+// $grey-blue, $dark-blue, $light-blue, $off-white
+
+// $gray-base: #000 !default;
+// $gray-darker: lighten($gray-base, 13.5%) !default;
+// $gray-dark: lighten($gray-base, 20%) !default;
+// $gray: lighten($gray-base, 33.5%) !default;
+// $gray-light: lighten($gray-base, 46.7%) !default;
+// $gray-lighter: lighten($gray-base, 93.5%) !default;
+
+$cmap-dark-blue: $grey-blue;
+
+
+$site-border: 1px solid $light-grey;
