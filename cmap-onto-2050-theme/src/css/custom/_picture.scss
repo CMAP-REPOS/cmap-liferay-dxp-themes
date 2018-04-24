@@ -9,9 +9,11 @@
 
   .caption-row{
     position: absolute;
+    width: 100%;
     &.bottom{ bottom: 0; }
     &.top{ top: 0; }
   }
+
   .picture-caption{
     color: $white;
 
