@@ -1,0 +1,661 @@
+@charset "UTF-8";
+
+//icons
+//font icons
+$icon-back-light: "\e900";
+$icon-back-white: "\e901";
+$icon-close-light: "\e902";
+$icon-close-white: "\e903";
+$icon-info-dark: "\e904";
+$icon-info-white: "\e905";
+$icon-key-light: "\e906";
+$icon-key-white: "\e907";
+$icon-layers-dark: "\e908";
+$icon-layers-white: "\e909";
+$icon-map-large-accent: "\e90a";
+$icon-map-large-accent_1: "\e90b";
+$icon-map-large-dark: "\e90c";
+$icon-map-large-dark_1: "\e90d";
+$icon-map-med-dark: "\e90e";
+$icon-map-med-dark_1: "\e90f";
+$icon-map-med-white: "\e910";
+$icon-map-med-white_1: "\e911";
+$icon-map-small-light: "\e912";
+$icon-map-small-light_1: "\e913";
+$icon-map-small-white: "\e914";
+$icon-map-small-white_1: "\e915";
+$icon-marp-large-white: "\e916";
+$icon-nav-left-dark: "\e917";
+$icon-nav-left-dark_1: "\e918";
+$icon-nav-left-white: "\e919";
+$icon-nav-left-white_1: "\e91a";
+$icon-nav-right-dark: "\e91b";
+$icon-nav-right-dark_1: "\e91c";
+$icon-nav-right-white: "\e91d";
+$icon-nav-right-white_1: "\e91e";
+$icon-paragraphh-white: "\e91f";
+$icon-paragraph-light: "\e920";
+$icon-paragraph-light_1: "\e921";
+$icon-paragraph-white: "\e922";
+$icon-share-light: "\e923";
+$icon-share-white: "\e924";
+
+
+//resetting padding to 0. not sure if this is a temp fix or not
+//grid is more than slightly borked because of padding
+#main-content.infographiclayout {
+  .portlet-content {
+    padding: 0;
+  }
+  @media screen and (max-width: 750px) {
+    #main-content .portlet-content {
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    #main-content .portlet-content {
+      padding: 0;
+    }
+  }
+  .col-xs-16, .col-sm-16, .col-md-16, .col-lg-16, .col-xl-16 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .col-md-16.portlet-column, .col-lg-16.portlet-column, .col-xl-16.portlet-column, .col-sm-16.portlet-column, .col-xs-16.portlet-column {
+    padding: 0 !important;
+  }
+}
+
+
+@font-face {
+  font-family: 'cmap_icons';
+  src: url('../fonts/cmap_icons.eot');
+  src: url('../fonts/cmap_icons.eot') format('embedded-opentype'), url('../fonts/cmap_icons.ttf') format('truetype'), url('../fonts/cmap_icons.woff') format('woff'), url('../fonts/cmap_icons.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.infographiclayout {
+
+  .icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cmap_icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .icon-back-light:before {
+    content: $icon-back-light;
+  }
+  .icon-back-white:before {
+    content: $icon-back-white;
+  }
+  .icon-close-light:before {
+    content: $icon-close-light;
+  }
+  .icon-close-white:before {
+    // content: $icon-close-white;
+    content: '\e903';
+  }
+  .icon-info-dark:before {
+    content: $icon-info-dark;
+  }
+  .icon-info-white:before {
+    content: $icon-info-white;
+  }
+  .icon-key-light:before {
+    content: $icon-key-light;
+  }
+  .icon-key-white:before {
+    content: $icon-key-white;
+  }
+  .icon-layers-dark:before {
+    content: $icon-layers-dark;
+  }
+  .icon-layers-white:before {
+    content: $icon-layers-white;
+  }
+  .icon-map-large-accent:before {
+    content: $icon-map-large-accent;
+  }
+  .icon-map-large-accent_1:before {
+    content: $icon-map-large-accent_1;
+  }
+  .icon-map-large-dark:before {
+    content: $icon-map-large-dark;
+  }
+  .icon-map-large-dark_1:before {
+    content: $icon-map-large-dark_1;
+  }
+  .icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+  }
+  .icon-map-med-dark_1:before {
+    content: $icon-map-med-dark_1;
+  }
+  .icon-map-med-white:before {
+    content: $icon-map-med-white;
+  }
+  .icon-map-med-white_1:before {
+    content: $icon-map-med-white_1;
+  }
+  .icon-map-small-light:before {
+    content: $icon-map-small-light;
+  }
+  .icon-map-small-light_1:before {
+    content: $icon-map-small-light_1;
+  }
+  .icon-map-small-white:before {
+    content: $icon-map-small-white;
+  }
+  .icon-map-small-white_1:before {
+    content: $icon-map-small-white_1;
+  }
+  .icon-marp-large-white:before {
+    content: $icon-marp-large-white;
+  }
+  .icon-nav-left-dark:before {
+    content: $icon-nav-left-dark;
+  }
+  .icon-nav-left-dark_1:before {
+    content: $icon-nav-left-dark_1;
+  }
+  .icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+  }
+  .icon-nav-left-white_1:before {
+    content: $icon-nav-left-white_1;
+  }
+  .icon-nav-right-dark:before {
+    content: $icon-nav-right-dark;
+  }
+  .icon-nav-right-dark_1:before {
+    content: $icon-nav-right-dark_1;
+  }
+  .icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+  }
+  .icon-nav-right-white_1:before {
+    content: $icon-nav-right-white_1;
+  }
+  .icon-paragraphh-white:before {
+    content: $icon-paragraphh-white;
+  }
+  .icon-paragraph-light:before {
+    content: $icon-paragraph-light;
+  }
+  .icon-paragraph-light_1:before {
+    content: $icon-paragraph-light_1;
+  }
+  .icon-paragraph-white:before {
+    content: $icon-paragraph-white;
+  }
+  .icon-share-light:before {
+    content: $icon-share-light;
+  }
+  .icon-share-white:before {
+    content: $icon-share-white;
+  }
+} //trying to stay with columns, not succeeding with grid content classes overriding these
+.infographic-content {
+  .centered-main {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main-info {
+    width: 60%;
+  }
+}
+
+
+.infographiclayout {
+
+
+  .infographic-info-toggle {
+    color: $grey-blue;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 200;
+  }
+
+  .infographic-content {
+    background-color: #a8bcc8;
+    margin: 0;
+    padding: 1em 0;
+  }
+
+  .infographic-info {
+
+    .infographic-aside {
+      color: $grey-blue; // font-size: 12px;
+      font-size: #{ $size-1 - 0.1em };
+      line-height: 1.5em;
+      margin-bottom: 2em;
+    }
+
+    .infographic-description {
+      font-size: #{ $size0 - 0.2em };
+      line-height: 1.5em;
+      margin-bottom: 2em;
+      a {
+        color: $grey-blue;
+      }
+    }
+
+    .infographic-source {
+      color: $grey-blue;
+      font-size: #{ $size-1 - 0.1em };
+      line-height: 1.3em;
+      margin-bottom: 2em;
+    }
+
+    .infographic-title p {
+      color: #000; // font-size: 26px;
+      font-size: $size1;
+    }
+  }
+
+  .infographic-chart {
+
+    .c3-defocused {
+      .c3-line {
+        stroke: $off-white !important;
+      }
+      .c3-area {
+        fill: $off-white !important;
+      }
+    }
+
+    line {
+      stroke: $off-white;
+    }
+
+    path {
+      fill: none;
+    }
+
+    svg {
+      //13
+      font-size: $size-2;
+    }
+
+    text {
+      fill: $off-white;
+    }
+
+    .c3-axis-x, .c3-axis-y {
+
+      path {
+        display: none;
+      }
+
+      .tick {
+        line {
+          display: none;
+        }
+        text {
+          display: flex!important;
+        }
+      }
+      .c3-axis-x-label {
+        transform: translate(0, -8px);
+      }
+    }
+
+    .c3-line {
+      stroke-width: 3px
+    }
+
+    .c3-xgrid, .c3-ygrid {
+      opacity: .3 !important;
+      stroke-dasharray: 0
+    }
+
+    .c3-xgrid-focus, .c3-ygrid-focus {
+      line {
+        opacity: .3 !important;
+      }
+    }
+
+    .c3-tooltip-container {
+
+      .c3-tooltip {
+        font-size: $size-1;
+        table, td {
+          border-color: 1px solid #c9d5dd;
+        }
+
+        td {
+          border-left: none;
+        }
+
+        th {
+          background-color: #3c5976;
+          color: #FFF;
+          padding-left: 5px;
+        }
+      }
+
+      #Tooltip {
+        background: $white;
+        font-size: 13px;
+        padding: 0.5em 0.5em 0.5em 1em;
+        position: relative;
+        width: 150px;
+
+        .tooltip-circle {
+          position: absolute;
+          height: 18px;
+          width: 18px;
+          border-radius: 13px;
+          border: 3px solid white;
+          margin-left: -23px;
+          margin-top: 9.5%;
+          top: 57px;
+          left: 15px;
+        }
+
+        b {}
+      }
+    }
+
+    .side-narrative {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      color: #fff;
+      width: 30%;
+    }
+
+    &.area_stacked {
+
+      .c3-area {
+        opacity: 1 !important;
+      }
+    }
+
+    &.bar_chart_grouped {
+      .c3-axis-y text:not(.c3-axis-y-label) {
+        transform: translate(5px, 0);
+      }
+
+      .c3-axis-x {
+
+        .tick {
+          &:first-of-type, &:last-of-type {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.donut_chart {
+      height: 520px;
+      margin-left: -25%;
+
+      .c3-chart-arc path {
+        stroke: none
+      }
+
+      .c3-chart-arcs-title {
+        color: $grey-blue;
+        font-size: 22px;
+      }
+    }
+    &.bar_chart_stacked {
+      .c3-axis-y-label {
+        transform: translate(-55em, -8px);
+      }
+    }
+  }
+
+  .infographic-legend {
+    padding: 1em 0;
+
+    li {
+      color: $white;
+      cursor: pointer; // font-size: 13px;
+      font-size: $size-1;
+      margin-right: 1em;
+      text-transform: capitalize;
+    }
+    .mobile-legend-icons {
+      display: none;
+    }
+  }
+
+  .infographic-buttons {
+    padding: 1em 0;
+
+    button {
+      background: transparent;
+      border: 2px solid $grey-blue;
+      border-radius: 21px;
+      color: $grey-blue;
+      cursor: pointer; // font-size: 12;
+      font-size: $size0;
+      font-weight: 600;
+      text-transform: capitalize;
+      height: 45px;
+      letter-spacing: 0.05em;
+      line-height: 1.5em;
+      padding: 0 10px 0 10px;
+      width: 190px;
+      
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+      &:hover, &.on {
+        background: $grey-blue;
+        color: $white;
+        .pair-icons {
+          visibility: visible;
+        }
+      }
+      &:not(.on) {
+        .pair-icons {
+          visibility: hidden;
+        }
+      }
+      span {
+        vertical-align: middle;
+      }
+      span:first-of-type {
+        vertical-align: sub;
+      }
+      .icon {
+        font-size: $size1;
+      }
+    }
+  }
+
+  .icon-info-white {
+    color: $grey-blue;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .donut-flex {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .infographic-legend {
+      margin-left: -15%;
+      z-index: 100;
+
+      ul {
+
+        li {
+          border-top: 1px solid $white;
+          display: block;
+          padding: 1em 0;
+          text-align: left;
+
+          &:last-of-type {
+            border-bottom: 1px solid $white;
+          }
+        }
+      }
+    }
+  }
+
+  .side-narratives {
+    display: none;
+  }
+}
+
+
+@include phone() {
+
+  .infographiclayout {
+
+    .infographic-content {
+      .main-info {
+        width: 87%;
+        &.hide-desc {
+          display: none;
+        }
+      }
+    }
+
+    .infographic-info {
+      padding-left: 10px;
+      .infographic-description {
+        font-size: $size0;
+      }
+      .aside-container {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+      .infographic-aside, .infographic-source {
+        font-size: $size0;
+      }
+    }
+    .infographic-buttons {
+      .pair-icons {
+        margin-left: 10px;
+        .icon-paragraphh-white {
+          display: none;
+        }
+      }
+    }
+
+    .infographic-chart {
+      svg {
+        font-size: $size-1;
+      }
+
+      .c3-axis-x-label, .c3-axis-y-label {
+        display: none;
+      }
+
+      .c3-axis-x {
+        .tick {
+          &:nth-of-type(even) {
+            display: none;
+          }
+        }
+      }
+
+      &.area_stacked {}
+
+      &.bar_chart_grouped {}
+
+      &.donut_chart {
+        height: 360px;
+        margin: 0 auto;
+      }
+      &.bar_chart_stacked {
+        .c3-axis-x {
+          .tick {
+            // X axis is rotated
+            &:nth-of-type(even) {
+              display: block;
+            }
+          }
+        }
+        .c3-axis-y {
+          .tick {
+            // Y axis is rotated
+            &:nth-of-type(even) {
+              display: none;
+            }
+          }
+        }
+      }
+      .side-narrative {
+        display: none;
+      }
+    }
+
+    .infographic-legend {
+      display: flex;
+      justify-content: space-between;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          border-top: none;
+          display: block;
+          padding: .5em 0;
+          text-align: left;
+          font-size: $size0;
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+      .mobile-legend-icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $grey-blue;
+        font-size: $size1;
+        margin-right: 10px;
+        .activated {
+          color: #FFF;
+        }
+      }
+    }
+    .side-narratives {
+      display: block;
+      &.open {
+        margin-top: -50px;
+      }
+      div {
+        display: none;
+        color: #FFF;
+      }
+    }
+
+    .donut-flex {
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .infographic-legend {
+        margin-left: 0;
+
+        ul {
+
+          li {
+            border-top: none;
+            color: $grey-blue;
+            padding: .5em 0;
+            &:last-of-type {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

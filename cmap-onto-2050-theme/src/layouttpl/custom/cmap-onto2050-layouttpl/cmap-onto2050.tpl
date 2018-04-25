@@ -1,3 +1,18 @@
+<script>
+    define._amd = define.amd;
+    define.amd = false;
+</script>
+
+<!-- https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/using-external-libraries -->
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/d3.min.js"></script>
+<script type="text/javascript" src="$themeDisplay.getPathThemeJavaScript()/vendor/c3.min.js"></script>
+<script type="text/javascript"
+ src="$themeDisplay.getPathThemeJavaScript()/infographics.js"></script>
+
+<script>
+    define.amd = define._amd;
+</script>
+
 <div class="container-fluid" id="main-content" role="main">
 	<div class="portlet-layout row">
 		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-1">
