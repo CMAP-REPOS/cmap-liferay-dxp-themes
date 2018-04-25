@@ -1,14 +1,13 @@
-<#if BeforeImage.getData()?? && BeforeImage.getData() != "">
-  <#assign before_picture = BeforeImage.getData()>
-<#else>
-  <#assign before_picture = ''>
-</#if>
+<#function validate_field field_name>
+  <#if field_name?? && field_name != "">
+    <#return field_name>
+  <#else>
+    <#return ''>
+  </#if>
+</#function>
 
-<#if AfterImage.getData()?? && AfterImage.getData() != "">
-  <#assign after_picture = AfterImage.getData()>
-<#else>
-  <#assign after_picture = ''>
-</#if>
+<#assign after_picture = validate_field(AfterImage.getData())>
+<#assign before_picture = validate_field(BeforeImage.getData())>
 
 <div id="${randomNamespace}" class="before-after-widget">
 
@@ -26,7 +25,7 @@
       </div>
       <div class="slider">
         <div class="vertical-line"></div>
-        <img class="slider-button" src="${themeDisplay.getPathThemeImages()}/icons/ic_slider_button.svg"  draggable="false"/>
+        <img class="slider-button" src="" draggable="false"/>
       </div>
       <div class="after">
         <div class="after-shade shade">
@@ -56,11 +55,12 @@
   </div>
 </div>
 
-<script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+
 <script>
 Liferay.on(
 	'allPortletsReady',
 	function() {
+    $('.slider-button').attr('src', Liferay.ThemeDisplay.getPathThemeImages() + '/icons/ic_slider_button.svg');
 
     var $this = $('#${randomNamespace}');
     var last_left = window.innerWidth / 2;
@@ -103,13 +103,17 @@ Liferay.on(
       }
       last_left = e.srcEvent.clientX;
     }
-    
+
     // http://hammerjs.github.io/api/
     // http://hammerjs.github.io/touch-action/
     // http://hammerjs.github.io/recognizer-pan/
     // http://hammerjs.github.io/getting-started/
-    var hammertime = new Hammer($this.find('.slider')[0], {});
+    var hammertime = new Hammer($this[0], {});
     hammertime.on('pan', handle_pan);
 	}
 );
+
+require(['https://hammerjs.github.io/dist/hammer.min.js'], function(Hammer){
+  console.log(Hammer);
+});
 </script>

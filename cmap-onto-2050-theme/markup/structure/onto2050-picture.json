@@ -5,29 +5,6 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "IsFullWidth"
-      },
-      "predefinedValue": {
-        "en_US": false
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "boolean",
-      "indexType": "keyword",
-      "localizable": true,
-      "name": "IsFullWidth",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "checkbox"
-    },
-    {
-      "label": {
         "en_US": "Asset"
       },
       "predefinedValue": {
@@ -63,7 +40,8 @@
       "tip": {
         "en_US": "Displayed on top of the picture"
       },
-      "dataType": "string",
+      "dataType": "html",
+      "fieldNamespace": "ddm",
       "indexType": "text",
       "localizable": true,
       "name": "CaptionText",
@@ -71,7 +49,7 @@
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "textarea"
+      "type": "ddm-text-html"
     },
     {
       "label": {
@@ -80,25 +58,25 @@
       "options": [{
           "value": "top-right",
           "label": {
-            "en_US": "top-right"
+            "en_US": "Top Right"
           }
         },
         {
           "value": "top-left",
           "label": {
-            "en_US": "top-left"
+            "en_US": "Top Left"
           }
         },
         {
           "value": "bottom-right",
           "label": {
-            "en_US": "bottom-right"
+            "en_US": "Bottom Right"
           }
         },
         {
           "value": "bottom-left",
           "label": {
-            "en_US": "bottom-left"
+            "en_US": "Bottom Left"
           }
         }
       ],
@@ -116,12 +94,13 @@
       "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
+      "multiple": false,
       "name": "CaptionPosition",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "radio"
+      "type": "select"
     },
     {
       "label": {
@@ -136,15 +115,16 @@
       "tip": {
         "en_US": "Displayed under the picture"
       },
-      "dataType": "string",
-      "indexType": "keyword",
+      "dataType": "html",
+      "fieldNamespace": "ddm",
+      "indexType": "text",
       "localizable": true,
       "name": "Footnote",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "text"
+      "type": "ddm-text-html"
     }
   ]
 }

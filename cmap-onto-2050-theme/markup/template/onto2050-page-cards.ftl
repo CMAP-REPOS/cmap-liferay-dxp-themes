@@ -1,9 +1,7 @@
+
+
 <div class="page-cards">
   <h4 class="widget-title">${Title.getData()}</h4>
-
-  <#if getterUtil.getBoolean(IsFullWidth.getData())>
-      Full Width
-  </#if>
 
   ${Anchor.getData()}
 
@@ -16,6 +14,7 @@
       <#else>
         <#assign card_picture = ''>
       </#if>
+
       <#if cur_Card.PageLink?? && cur_Card.PageLink.getData() != "" >
         <#assign card_link = cur_Card.PageLink.getData()>
       <#else>

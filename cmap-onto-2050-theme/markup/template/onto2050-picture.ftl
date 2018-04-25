@@ -10,12 +10,6 @@
   <#assign footnote = ''>
 </#if>
 
-<#if getterUtil.getBoolean(IsFullWidth.getData())>
-  <#assign full_width = true>
-<#else>
-  <#assign full_width = false>
-</#if>
-
 <#if Asset.getData()?? && Asset.getData() != "">
   <#assign picture_asset = Asset.getData()>
 <#else>
@@ -28,10 +22,10 @@
   <#assign caption_position = ''>
 </#if>
 
-<div class="picture-figure">
-  <#if full_width>
-    <div class="row">
-  </#if>
+<#assign unique_namespace = randomNamespace>
+
+<div id="${unique_namespace}" class="picture-figure">
+
 
   <#if picture_asset != ''>
     <div class="picture-img" style="background-image: url('${picture_asset}')">
@@ -46,21 +40,13 @@
 
         <div class="caption-row ${top_bottom}">
           <#if caption_position == "bottom-right" || caption_position == "top-right">
-            <#if full_width>
-            <div class="col-md-5 col-md-offset-11">
-            <#else>
             <div class="col-md-8 col-md-offset-8">
-            </#if>
               <div class="picture-caption right">
-                ${CaptionText.getData()}
+                ${caption_text}
               </div>
             </div>
           <#else>
-            <#if full_width>
-            <div class="col-md-5">
-            <#else>
             <div class="col-md-8">
-            </#if>
               <div class="picture-caption left">
                 ${CaptionText.getData()}
               </div>
@@ -71,28 +57,41 @@
     </div>
   </#if>
 
-  <#if full_width>
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-      <#if footnote != ''>
-        <div class="picture-footnote">
-          <div class="icon">
-            <img src="${themeDisplay.getPathThemeImages()}/icons/ic_pin.svg" />
-          </div>
-          <small>${footnote}</small>
-        </div>
-      </#if>
-    </div>
-    <div class="col-md-4"></div>
-  <#else>
-    <#if footnote != ''>
+  <#if footnote != ''>
+    <div class="picture-footnote-container">
       <div class="picture-footnote">
-        ${footnote}
+        <small>${footnote}</small>
       </div>
-    </#if>
-  </#if>
-
-  <#if getterUtil.getBoolean(IsFullWidth.getData())>
     </div>
   </#if>
 </div>
+
+<script>
+function generateFullWidth(){
+  var root = $('#${unique_namespace}');
+  var footnote = root.find('.picture-footnote').remove();
+  footnote.prepend('<div class="icon"><img src="'+Liferay.ThemeDisplay.getPathThemeImages()+'/icons/ic_pin.svg" /></div>');
+
+  root.find('.picture-footnote-container').append('<div class="col-md-4"></div>');
+  root.find('.picture-footnote-container').append('<div class="col-md-8"></div>');
+  root.find('.picture-footnote-container').append('<div class="col-md-4"></div>');
+
+  root.find('.picture-footnote-container .col-md-8').append(footnote);
+
+  root.find('.caption-row .col-md-8').removeClass('col-md-8').addClass('col-md-5');
+  root.find('.caption-row .col-md-offset-8').removeClass('col-md-offset-8').addClass('col-md-offset-11');
+
+  root.wrapInner('<div class="row"></div>');
+}
+function checkForFullWidth(){
+  if($('#${unique_namespace}').parents('.col-md-16').length){
+    generateFullWidth();
+  }
+}
+Liferay.on(
+	'allPortletsReady',
+	function() {
+    checkForFullWidth();
+	}
+);
+</script>
