@@ -240,7 +240,6 @@ $icon-share-white: "\e924";
     }
 
     .infographic-description {
-      font-family: $font-serif; // font-size: 15px;
       font-size: #{ $size0 - 0.2em };
       line-height: 1.5em;
       margin-bottom: 2em;
@@ -250,20 +249,15 @@ $icon-share-white: "\e924";
     }
 
     .infographic-source {
-      color: $grey-blue; // font-size: 9px;
-      //same as aside now
+      color: $grey-blue;
       font-size: #{ $size-1 - 0.1em };
       line-height: 1.3em;
       margin-bottom: 2em;
-    }
-    .infographic-source p, .infographic-aside p {
-      font-family: $font-sans;
     }
 
     .infographic-title p {
       color: #000; // font-size: 26px;
       font-size: $size1;
-      font-family: $font-sans;
     }
   }
 
@@ -288,7 +282,7 @@ $icon-share-white: "\e924";
 
     svg {
       //13
-      font: $size-2 $font-sans;
+      font-size: $size-2;
     }
 
     text {
@@ -446,7 +440,6 @@ $icon-share-white: "\e924";
       color: $grey-blue;
       cursor: pointer; // font-size: 12;
       font-size: $size0;
-      font-family: $font-sans;
       font-weight: 600;
       text-transform: capitalize;
       height: 45px;
@@ -489,8 +482,6 @@ $icon-share-white: "\e924";
   }
 
   .donut-flex {
-    @include flex;
-    @include flex_space_between;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -559,7 +550,7 @@ $icon-share-white: "\e924";
 
     .infographic-chart {
       svg {
-        font: $size-1 $font-sans;
+        font-size: $size-1;
       }
 
       .c3-axis-x-label, .c3-axis-y-label {
@@ -646,7 +637,6 @@ $icon-share-white: "\e924";
     }
 
     .donut-flex {
-      @include flex_space_normal;
       flex-direction: column;
       max-width: 1200px;
       margin: 0 auto;

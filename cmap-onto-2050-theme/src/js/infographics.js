@@ -119,7 +119,7 @@
 	}
 
 	function resizeAxisLabels(options) {
-		if (!disableXAxisLabelResizing || !disableYAxisLabelResizing) {
+		if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
 			var yChildren = d3.select('#' + options.chartId + ' g.c3-axis-y').selectAll('.tick text');
 			//d3 arrays always have a single index, then arrays under that.
 			var yArr = yChildren[0];
@@ -213,8 +213,8 @@
 	}
 	return {
 		generateAreaStacked: function (options) {
-			// console.log('infographics.generateAreaStacked()');
-			// console.log(options);
+			console.log('infographics.generateAreaStacked()');
+			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var chart = c3.generate({
@@ -302,8 +302,8 @@
 			});
 		},
 		generateBarGrouped: function (options) {
-			// console.log('infographics.generateBarGrouped()');
-			// console.log(options);
+			console.log('infographics.generateBarGrouped()');
+			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -376,8 +376,8 @@
 			});
 		},
 		generateBarStacked: function (options) {
-			// console.log('infographics.generateBarStacked()');
-			// console.log(options);
+			console.log('infographics.generateBarStacked()');
+			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var rangeMin;
@@ -482,8 +482,8 @@
 			});
 		},
 		generateDonut: function (options) {
-			// console.log('infographics.generateDonut()');
-			// console.log(options);
+			console.log('infographics.generateDonut()');
+			console.log(options);
 			var d = options.d;
 
 			var chart = c3.generate({
@@ -533,8 +533,8 @@
 			});
 		},
 		generateMultiLine: function (options) {
-			// console.log('infographics.generateMultiLineBar()');
-			// console.log(options);
+			console.log('infographics.generateMultiLineBar()');
+			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 

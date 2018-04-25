@@ -10,113 +10,113 @@
 	<#assign description = ''>
 </#if>
 
+${Description.getData()}
 
-<div class="row">
-  <#if description == ''>
-    <div class="col-sm-16">
-      <canvas id="${randomNamespace}" width="400" height="400"></canvas>
-    </div>
-  <#else>
-    <div class="col-sm-8">
-      <canvas id="${randomNamespace}" width="400" height="400"></canvas>
-    </div>
-    <div class="col-sm-8">
-      ${description}
-    </div>
-  </#if>
-</div>
+<div id="${randomNamespace}chart"></div>
 
-<button class="chart-selector" data-type="line">Line</button>
-<button class="chart-selector" data-type="bar">Bar</button>
-<button class="chart-selector" data-type="donut">Donut</button>
-<button class="chart-selector" data-type="area">Area</button>
+<script type="text/javascript">
 
-<script>
-var myChart = null;
-function buildChart(type){
-  if(myChart){
-    myChart.destroy();
-  }
-  var config_object = {};
-  if(type === 'bar'){
-    config_object.type = 'bar';
-    config_object.data = {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
-    config_object.options = {
-      tooltips: {
-        mode: 'y'
-      },
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  }
+AUI().ready(
 
-
-  if(type === 'line'){
-
-    var example_data = [3, 2, 5, 4, 19, 12, 20, 1, 5, 16, 3, 2, 5, 4, 19, 12, 20, 1, 5, 16,3, 2, 5]
-    var example_data2 = example_data.reverse();
-    config_object.type = 'line';
-    config_object.data = {
-      labels: ["1995","","","","","","","","","","","","","","","","","","","","","","2017"],
-      datasets: [
-        {
-          label: '1 Unit',
-          data: example_data,
-          borderColor: '#DF824C',
-          backgroundColor: 'transparent',
-        },
-        {
-          label: '2+ Units',
-          data: example_data2,
-          borderColor: '#F4C357',
-          backgroundColor: 'transparent',
-        }
-      ]
-    };
-  }
-
-  myChart = new Chart($('#${randomNamespace}'), config_object);
-}
-
-Liferay.on(
-	'allPortletsReady',
 	function() {
-    $('.chart-selector').click(function(e){
-      e.preventDefault();
-      buildChart($(e.target).data('type'));
-    })
+
+    d3.csv('${File.getData()}', function (error, d) {
+
+        var options = {
+            d: d,
+            chartId: '${randomNamespace}chart',
+            chartType: '${ChartType.getData()}', 
+            data_url: '${File.getData()}',
+            axis_x_label_text: '${Axes.XAxisLabel.getData()}',
+            axis_x_padding: '${Axes.XPadding.getData()}',
+            axis_x_tick_format: '${Axes.XAxisNumberFormat.getData()}',
+            axis_y_label_position: 'outer-top',
+            axis_y_label_text: '${Axes.YAxisLabel.getData()}',
+            axis_y_padding: '${Axes.YPadding.getData()}',
+            axis_y_tick_format: '${Axes.YAxisNumberFormat.getData()}',
+        <#if getterUtil.getBoolean(Axes.DisableXAxisLabelResizing.getData())>
+            disableXAxisLabelResizing: true,
+        <#else>
+            disableXAxisLabelResizing: false,
+        </#if>
+        <#if getterUtil.getBoolean(Axes.DisableYAxisLabelResizing.getData())>
+        
+            disableYAxisLabelResizing: true
+        <#else>
+            disableYAxisLabelResizing: false
+        </#if>
+        };
+
+    <#if ChartType.getData() == "area_stacked">
+        var chartOptions = {};
+        $.extend(options, chartOptions);
+        infographics.generateAreaStacked(options);
+    </#if>
+
+    <#if ChartType.getData() == "bar_chart_grouped">
+        var chartOptions = {};
+        $.extend(options, chartOptions);
+        console.log(options);
+        infographics.generateBarGrouped(options);
+    </#if>
+
+    <#if ChartType.getData() == "bar_chart_stacked">
+        var chartOptions = {};
+        $.extend(options, chartOptions);
+        console.log(options);
+        infographics.generateBarStacked(options);
+    </#if>
+
+    <#if ChartType.getData() == "donut_chart">
+        var chartOptions = {};
+        $.extend(options, chartOptions);
+        console.log(options);
+        infographics.generateDonut(options);
+        infographics.bindDonutLegendEvents({
+            chartId: '${randomNamespace}chart'
+        });
+    </#if>
+
+    <#if ChartType.getData() == "multi_line">
+        var chartOptions = {};
+        $.extend(options, chartOptions);
+        console.log(options);
+        infographics.generateMultiLine(options);
+    </#if>
+
+    <#if ChartType.getData() == "multi_line_area">
+        var chartOptions = {
+            altDataType: '${MultiTypeColumnName.getData()}'
+        };
+        $.extend(options, chartOptions);
+        console.log(options);
+        infographics.generateMultiLine(options);
+    </#if>
+
+    <#if ChartType.getData() == "multi_line_bar">
+        var chartOptions = {
+            altDataType: '${MultiTypeColumnName.getData()}', 
+            axis_x_padding_left: 0,
+        };
+        $.extend(options, chartOptions);
+        infographics.generateMultiLine(options);
+    </#if>
+
+    <#if ChartType.getData() == "donut_chart">
+        infographics.bindDonutLegendEvents({
+            chartId: '${randomNamespace}chart'
+        });
+    </#if>
+
+        infographics.bindEvents();
+    });	
+
+    $('.infographic-info-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('.main-info').toggleClass('hide-desc');
+        $('.aside-container').toggleClass('show');
+    });
 	}
 );
 
-require(['https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js'], function(Chart){
-  buildChart('bar');
-});
 </script>
