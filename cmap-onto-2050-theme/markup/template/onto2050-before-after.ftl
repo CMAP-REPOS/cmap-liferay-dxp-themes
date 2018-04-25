@@ -63,11 +63,20 @@ Liferay.on(
     $('.slider-button').attr('src', Liferay.ThemeDisplay.getPathThemeImages() + '/icons/ic_slider_button.svg');
 
     var $this = $('#${randomNamespace}');
-    var last_left = window.innerWidth / 2;
+    var isFull = $this.parents('.col-md-16').length ? true : false;
+    var pan_shift = $this.offset().left;
+    function handle_pan(e){
+      if(isFull){ pan_shift = 0; }
+      var client_left = e.srcEvent.clientX - pan_shift;
+      if(client_left > 0 && client_left < window.innerWidth - (pan_shift*2)){
+        // console.log(e.srcEvent.clientX, e.srcEvent.clientX > 0);
+        $this.find('.slider').css('left', client_left);
+        $this.find('.before-shade').css('width', client_left);
+      }
+    }
+
     function set_text_width(){
-      var full = $this.parents('.col-md-16').length;
-      var middle = $this.parents('.col-md-10').length;
-      if(full){
+      if(isFull){
         var row = $this.find('.label-row');
         var labels = row.find('.col-sm-8').detach();
         var center = $('<div class="col-lg-offset-4 col-lg-8 col-md-offset-3 col-md-10 col-sm-offset-0 col-sm-16"></div>');
@@ -75,45 +84,35 @@ Liferay.on(
         new_row.append(labels);
         center.append(new_row);
         row.append(center);
-      }
-      if(!full){
-        alert('Before/After Widget is not in a supported column, please move the widget to a full width column or contect support.');
+      } else {
+        $this.find('.before-after-graphic').wrap('<div class="col-sm-16"></div>');
+        // alert('Before/After Widget is not in a supported column, please move the widget to a full width column or contect support.');
       }
     }
-
-    function calc_before_after_height(){
+    function set_height(){
       var before_height = $this.find('.no-js .before-placeholder').innerHeight()
       var after_height = $this.find('.no-js .after-placeholder').innerHeight();
       var height = before_height > after_height ? before_height : after_height;
       $this.find('.before-after-graphic').css('height', height);
     }
-    function init_before_after(){
-      set_text_width();
-      calc_before_after_height();
-    }
-    $this.ready(init_before_after);
-
-    function handle_pan(e){
-      if(e.srcEvent.clientX < window.innerWidth){
-        $this.find('.slider').css('left', e.srcEvent.clientX);
-        $this.find('.before-shade').css('width', e.srcEvent.clientX);
-      } else {
-        $this.find('.slider').css('left', window.innerWidth);
-        $this.find('.before-shade').css('width', window.innerWidth);
-      }
-      last_left = e.srcEvent.clientX;
+    function set_width(){
+      var widget_width = $this.find('.before-after-graphic').innerWidth();
+      $this.find('.before-graphic').css('width', widget_width);
     }
 
     // http://hammerjs.github.io/api/
     // http://hammerjs.github.io/touch-action/
     // http://hammerjs.github.io/recognizer-pan/
     // http://hammerjs.github.io/getting-started/
-    var hammertime = new Hammer($this[0], {});
-    hammertime.on('pan', handle_pan);
+    require(['https://hammerjs.github.io/dist/hammer.min.js'], function(Hammer){
+      set_text_width();
+      set_height();
+      set_width();
+      var hammertime = new Hammer($this[0], {});
+      hammertime.on('pan', handle_pan);
+    });
 	}
 );
 
-require(['https://hammerjs.github.io/dist/hammer.min.js'], function(Hammer){
-  console.log(Hammer);
-});
+
 </script>

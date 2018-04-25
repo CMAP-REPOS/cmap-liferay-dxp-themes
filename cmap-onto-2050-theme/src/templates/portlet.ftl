@@ -9,6 +9,14 @@
 	portlet_title = htmlUtil.escape(portlet_display.getTitle())
 />
 
+<#function validate_field field_name>
+  <#if field_name?? && field_name != "">
+    <#return field_name>
+  <#else>
+    <#return ''>
+  </#if>
+</#function>
+
 <section class="portlet" id="portlet_${portlet_id}">
 	<#if portlet_display.isPortletDecorate() && !portlet_display.isStateMax() && portlet_display.getPortletConfigurationIconMenu()?? && portlet_display.getPortletToolbar()??>
 		<#assign

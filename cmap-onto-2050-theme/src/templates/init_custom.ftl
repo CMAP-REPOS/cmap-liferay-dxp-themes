@@ -11,3 +11,5 @@ This file allows you to override and define new FreeMarker variables.
     <#return ''>
   </#if>
 </#function>
+
+<#assign butts = 'ha'>
