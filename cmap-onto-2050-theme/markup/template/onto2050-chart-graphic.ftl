@@ -40,7 +40,6 @@ AUI().ready(
             disableXAxisLabelResizing: false,
         </#if>
         <#if getterUtil.getBoolean(Axes.DisableYAxisLabelResizing.getData())>
-        
             disableYAxisLabelResizing: true
         <#else>
             disableYAxisLabelResizing: false
@@ -70,7 +69,6 @@ AUI().ready(
     <#if ChartType.getData() == "donut_chart">
         var chartOptions = {};
         $.extend(options, chartOptions);
-        console.log(options);
         infographics.generateDonut(options);
         infographics.bindDonutLegendEvents({
             chartId: '${randomNamespace}chart'
@@ -80,7 +78,6 @@ AUI().ready(
     <#if ChartType.getData() == "multi_line">
         var chartOptions = {};
         $.extend(options, chartOptions);
-        console.log(options);
         infographics.generateMultiLine(options);
     </#if>
 

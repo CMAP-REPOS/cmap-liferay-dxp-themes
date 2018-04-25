@@ -8,20 +8,6 @@
 	}
 }(this, function () {
 
-	function getDonutDataValue(d, id) {
-		var dataset;
-		for (var i = 0; i < d.length; i++) {
-			dataset = d[i];
-
-			for (var key in dataset) {
-
-				if (key === id) {
-					return dataset[key];
-				}
-			}
-		}
-	}
-
 	function formatValue(format, value) {
 		if (format === 'dollars') {
 			return '$' + d3.format(",")(value);
@@ -33,7 +19,6 @@
 	}
 
 	function getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options) {
-
 		var formatColor = function (e) {
 			if (options.altDataType && e.name.toLowerCase() === options.altDataType.toLowerCase()) {
 				return altDataColor;
@@ -51,29 +36,6 @@
 		});
 		lines.push('</tbody></table></div>');
 		return lines.join('');
-	}
-
-	function generateDonutArcTitle(options) {
-		var id = options.id;
-		var formattedValue = formatValue(options.format, options.value);
-		var node = d3.select('#' + options.chartId + ' .c3-chart-arcs-title').node();
-		if (id.length > 32) {
-			var words = id.split(/\s+/);
-			node.innerHTML = "<tspan>" +
-				formattedValue +
-				'</tspan><tspan class="upper" x="-1" y="25">' +
-				words.slice(0, Math.floor(words.length / 2)).join(' ') +
-				'</tspan><tspan class="upper" x="-1" y="50">' +
-				words.slice(Math.floor(words.length / 2)).join(' ') +
-				'</tspan>';
-		} else {
-			node.innerHTML = "<tspan>" +
-				formattedValue +
-				'</tspan><tspan class="upper" x="-1" y="25">' +
-				id +
-				'</tspan>';
-		}
-		node.parentNode.append(node);
 	}
 
 	function getDataClasses() {
@@ -139,8 +101,8 @@
 	}
 
 	function generateLegend(options) {
-		// console.log('infographics.generateLegend()');
-		// console.log(options);
+		console.log('infographics.generateLegend()');
+		console.log(options);
 		var d = options.d;
 		var legendData = d3.keys(d[0]).splice(1);
 		if (options.chartType === 'donut_chart') {
@@ -204,14 +166,10 @@
 			});
 	}
 
-
-	var donutWidth = 45;
 	var siFormat = d3.format(",");
 
-	if ($(window).width() > 420) {
-		donutWidth = 60;
-	}
 	return {
+
 		generateAreaStacked: function (options) {
 			console.log('infographics.generateAreaStacked()');
 			console.log(options);
@@ -280,7 +238,9 @@
 					show: false,
 				},
 				tooltip: {
-					grouped: true,
+					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
+					}
 				},
 				onrendered: function () {
 					getDataClasses();
@@ -444,22 +404,6 @@
 						show: true
 					}
 				},
-				tooltip: {
-					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-						var toolTipFormat = axis_y_tick_format(d[0].value);
-						return "<div id='Tooltip'><div class='tooltip-circle' style='background-color:"
-							+ color(d[0]) + ";'></div><p class='tooltip-text'><b>" + d[0].name + "</b><br />" + toolTipFormat + "<br/>"
-							+ defaultTitleFormat(d[0].x) + "</p></div>";
-					},
-					position: function (data, width, height, element) {
-						//tracking mouse position within unique div - get offset on page.
-						var offset = $('#' + options.chartId).offset();
-						var xPos = event.pageX - offset.left;
-						var yPos = event.pageY - offset.top;
-						return { top: yPos - 85, left: xPos };
-					},
-					grouped: false
-				},
 				legend: {
 					show: false
 				},
@@ -477,57 +421,6 @@
 						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
 						disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-					});
-				}
-			});
-		},
-		generateDonut: function (options) {
-			console.log('infographics.generateDonut()');
-			console.log(options);
-			var d = options.d;
-
-			var chart = c3.generate({
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				data: {
-					url: options.data_url,
-					order: [d3.keys(d[0])],
-					type: 'donut',
-					columns: [d3.keys(d[0])],
-					onmouseover: function (d) {
-						generateDonutArcTitle({
-							chartId: options.chartId,
-							format: options.axis_x_tick_format,
-							id: d.id,
-							value: d.value
-						});
-					}
-				},
-				donut: {
-					title: " ",
-					expand: false,
-					width: donutWidth,
-					label: {
-						show: false
-					}
-				},
-				color: {
-					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128", "#E2E7EA", '#000000', "#346139"]
-				},
-
-				tooltip: {
-					show: false
-				},
-				legend: {
-					show: false
-				},
-				onrendered: function () {
-					generateLegend({
-						d: d,
-						chart: this,
-						chartId: options.chartId,
-						chartType: 'donut_chart',
-						axis_x_tick_format: options.axis_x_tick_format,
-						axis_y_tick_format: options.axis_y_tick_format
 					});
 				}
 			});
@@ -637,32 +530,8 @@
 
 			});
 		},
-		bindDonutLegendEvents: function (options) {
-			// console.log('infographics.bindDonutLegendEvents()');
-			// console.log(options);
-
-			/* if ($(window).width() > 420) {
-				$('.legend-info.donut_chart .legend p').mouseover(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-				});
-				$('.legend-info.donut_chart .legend p').mouseout(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
-				});
-			}
-			else {
-				$('.legend-info.donut_chart .legend p').click(function () {
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target:not(.c3-focused)').classed('legend-hover', true);
-					d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target.c3-focused').classed('legend-hover', false);
-					if (!$(this).hasClass('legend-clicked')) {
-						d3.selectAll('#' + options.chartId + ' g.c3-chart-arcs g.c3-chart-arc.c3-target').classed('legend-hover', false);
-					}
-					return false;
-				});
-			} */
-		},
 		bindEvents: function () {
-			// console.log('infographics.bindEvents()');
-
+			console.log('infographics.bindEvents()');
 			$(".icon-info-white").on('click', function () {
 				var $this = $(this);
 				$this.toggleClass('on');
@@ -702,9 +571,7 @@
 						}
 					}
 				}
-
 			});
-
 
 			$('.infographic-button').on('mouseenter', function () {
 				var $this = $(this);
@@ -733,6 +600,7 @@
 					applyFade();
 				}
 			});
+
 			$('.infographic-button').on('click', function () {
 				var $this = $(this);
 				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
@@ -762,12 +630,13 @@
 				else {
 					applyFade(dataClasses, [0, 1, 2, 3]);
 				}
-
 			});
+
 			$('.pair-icons .icon-paragraphh-white').on('click', function () {
 				$('.side-narrative').toggle();
 				return false;
 			});
+
 			$('.icon-close-white').on('click', function () {
 				$(this).closest('.infographic-button').removeClass('on');
 				$('.side-narrative').remove();
