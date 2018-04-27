@@ -5,14 +5,15 @@
 </#if>
 
 <#if Description.getData()?? && Description.getData() != "">
-	<#assign description = Description.getData()>
-<#else>
-	<#assign description = ''>
-</#if>
-
+<div style="float: left; width: 75%">
+  <div id="${randomNamespace}chart"></div>
+</div>
+<div style="float: right; width: 25%">
 ${Description.getData()}
-
+</div>
+<#else>
 <div id="${randomNamespace}chart"></div>
+</#if>
 
 <script type="text/javascript">
 
