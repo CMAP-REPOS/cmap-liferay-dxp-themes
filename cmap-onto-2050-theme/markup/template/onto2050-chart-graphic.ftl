@@ -1,10 +1,19 @@
 <#include "${templatesPath}/848954">
+
 <#assign anchor = validate_field(Anchor.getData())>
 <#assign description = validate_field(Description.getData())>
 
-${description}
+<#if Description.getData()?? && Description.getData() != "">
+<div style="float: left; width: 75%">
+  <div id="${randomNamespace}chart"></div>
+</div>
+<div style="float: right; width: 25%">
+${Description.getData()}
+</div>
+<#else>
 
 <div id="${randomNamespace}chart"></div>
+</#if>
 
 <script type="text/javascript">
 
