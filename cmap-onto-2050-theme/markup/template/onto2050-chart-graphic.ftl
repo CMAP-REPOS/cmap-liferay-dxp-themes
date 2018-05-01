@@ -1,16 +1,8 @@
-<#if Anchor.getData()?? && Anchor.getData() != "">
-	<#assign anchor = Anchor.getData()>
-<#else>
-	<#assign anchor = ''>
-</#if>
+<#include "${templatesPath}/848954">
+<#assign anchor = validate_field(Anchor.getData())>
+<#assign description = validate_field(Description.getData())>
 
-<#if Description.getData()?? && Description.getData() != "">
-	<#assign description = Description.getData()>
-<#else>
-	<#assign description = ''>
-</#if>
-
-${Description.getData()}
+${description}
 
 <div id="${randomNamespace}chart"></div>
 
@@ -25,7 +17,7 @@ AUI().ready(
         var options = {
             d: d,
             chartId: '${randomNamespace}chart',
-            chartType: '${ChartType.getData()}', 
+            chartType: '${ChartType.getData()}',
             data_url: '${File.getData()}',
             axis_x_label_text: '${Axes.XAxisLabel.getData()}',
             axis_x_padding: '${Axes.XPadding.getData()}',
@@ -92,7 +84,7 @@ AUI().ready(
 
     <#if ChartType.getData() == "multi_line_bar">
         var chartOptions = {
-            altDataType: '${MultiTypeColumnName.getData()}', 
+            altDataType: '${MultiTypeColumnName.getData()}',
             axis_x_padding_left: 0,
         };
         $.extend(options, chartOptions);
@@ -106,7 +98,7 @@ AUI().ready(
     </#if>
 
         infographics.bindEvents();
-    });	
+    });
 
     $('.infographic-info-toggle').on('click', function(e) {
         e.preventDefault();

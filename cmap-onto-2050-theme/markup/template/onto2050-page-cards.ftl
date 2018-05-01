@@ -1,33 +1,29 @@
+<#include "${templatesPath}/875701">
 
+<#assign anchor = validate_field(Anchor.getData())>
+<#assign title = validate_field(Title.getData())>
 
-<div class="page-cards">
-  <h4 class="widget-title">${Title.getData()}</h4>
+<div ${anchor_signature('page-cards', anchor)}>
+  <h4 class="widget-title">${title}</h4>
 
-  ${Anchor.getData()}
+  <@render_anchor name=anchor/>
 
-  <div class="row">
   <#if Card.getSiblings()?has_content>
+  <div class="row">
+
     <#list Card.getSiblings() as cur_Card>
 
-      <#if cur_Card.Asset.getData()?? && cur_Card.Asset.getData() != "">
-        <#assign card_picture = cur_Card.Asset.getData()>
-      <#else>
-        <#assign card_picture = ''>
-      </#if>
-
-      <#if cur_Card.PageLink?? && cur_Card.PageLink.getData() != "" >
-        <#assign card_link = cur_Card.PageLink.getData()>
-      <#else>
-        <#assign card_link = ''>
-      </#if>
+      <#assign card_picture = validate_field(cur_Card.CardAsset.getData())>
+      <#assign card_title = validate_field(cur_Card.CardTitle.getData())>
+      <#assign card_link = validate_field(cur_Card.CardLink.getData())>
 
       <div class="page-card col-sm-8 col-xs-16">
         <div class="top">
           <#if card_link != '' >
-            <a href="${cur_Card.PageLink.getFriendlyUrl()}">
+            <a href="${card_link}">
           </#if>
             <#if card_picture != '' >
-              <img data-fileentryid="${cur_Card.Asset.getAttribute("fileEntryId")}" alt="${cur_Card.Asset.getAttribute("alt")}" src="${cur_Card.Asset.getData()}" />
+              <img data-fileentryid="${cur_Card.CardAsset.getAttribute("fileEntryId")}" alt="${cur_Card.CardAsset.getAttribute("alt")}" src="${card_picture}" />
             <#else>
               <div class="placeholder-image"></div>
             </#if>
@@ -37,20 +33,36 @@
         </div>
 
         <div class="bottom">
-          <#if cur_Card.Title1?? && cur_Card.Title1.getData() != "" >
+          <#if card_title != "" >
             <h4>
-            <#if cur_Card.PageLink?? && cur_Card.PageLink.getData() != "" >
-              <a href="${cur_Card.PageLink.getFriendlyUrl()}">
-                ${cur_Card.Title1.getData()}
-              </a>
-            <#else>
-              ${cur_Card.Title1.getData()}
-            </#if>
+              <#if card_link != "" >
+                <a href="${card_link}"> ${card_title} </a>
+              <#else>
+                ${card_title}
+              </#if>
             </h4>
           </#if>
         </div>
       </div>
     </#list>
-  </#if>
   </div>
+  </#if>
+
 </div>
+
+<script>
+Liferay.on(
+'allPortletsReady',
+function() {
+  $('.page-cards').each(function(){
+    var $this = $(this);
+    if($this.parents('.col-md-16.portlet-column').length){
+
+      $this.parents('.col-md-16.portlet-column').addClass('no-padding');
+      $this.after('<div class="col-lg-4 col-md-3 col-sm-16"></div>');
+      $this.before('<div class="col-lg-4 col-md-3 col-sm-16"></div>');
+      $this.wrap('<div class="col-lg-8 col-md-10 col-sm-16"></div>');
+    }
+  });
+});
+</script>

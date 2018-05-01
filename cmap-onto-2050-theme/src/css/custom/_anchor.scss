@@ -1,0 +1,15 @@
+.page-anchor{
+  position: absolute;
+  right: 100%;
+  top: 0;
+  // padding-right: $grid-gutter-width;
+  border: none;
+  outline: none;
+
+  .anchor-icon{
+    $size: $size1;
+    width: $size;
+    max-width: unset !important;
+    height: $size;
+  }
+}

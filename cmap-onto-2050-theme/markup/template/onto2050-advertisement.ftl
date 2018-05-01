@@ -1,17 +1,26 @@
-<#if Background.getData()?? && Background.getData() != "">
-	<#assign background = Background.getData()>
-<#else>
-	<#assign background = ''>
-</#if>
+
+<#include "${templatesPath}/848955">
+	
+<#assign background = validate_field(Anchor.getData())>
+<#assign title = validate_field(Title.getData())>
+<#assign paragraph = validate_field(Paragraph.getData())>
+<#assign button_text = validate_field(ButtonText.getData())>
+<#assign button_link = validate_field(ButtonLink.getData())>
 
 <div class="advertisement">
 	<div class="row">
 		<div class="col-md-offset-8 col-md-8 col-sm-offset-0 col-sm-12 col-xs-16">
 			<div class="cmap-ad-content">
-				<h6>${Title.getData()}</h6>
-				<p>${Paragraph.getData()}</p>
-				<a class="button" href="${ButtonLink.getFriendlyUrl()}">
-					${ButtonText.getData()}
+				<#if title != ''>
+					<h6>${title}</h6>
+				</#if>
+				<#if paragraph != ''>
+					<p>${paragraph}</p>
+				</#if>
+
+				<#if button_link !=
+				<a class="button" href="${button_link}">
+					${button_text}
 				</a>
 			</div>
 		</div>

@@ -1,6 +1,11 @@
-${Title.getData()}
 
-${Description.getData()}
+<#include "${templatesPath}/848954">
+
+<#assign title = validate_field(Title.getData())>
+<#assign description = validate_field(Description.getData())>
+
+	${title}
+	${description}
 
 <#if KeyItem.getSiblings()?has_content>
 	<#list KeyItem.getSiblings() as cur_KeyItem>

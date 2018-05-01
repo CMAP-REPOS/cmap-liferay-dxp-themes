@@ -1,24 +1,11 @@
-<#if Anchor.getData()?? && Anchor.getData() != ''>
-  <#assign anchor = Anchor.getData()>
-<#else>
-  <#assign anchor = ''>
-</#if>
-<#if Subtitle.getData()?? && Subtitle.getData() != ''>
-  <#assign subtitle = Subtitle.getData()>
-<#else>
-  <#assign subtitle = ''>
-</#if>
-<#if Title.getData()?? && Title.getData() != ''>
-  <#assign title = Title.getData()>
-<#else>
-  <#assign title = ''>
-</#if>
+<#include "${templatesPath}/848955">
+<#assign anchor = validate_field(Anchor.getData())>
+<#assign subtitle = validate_field(Subtitle.getData())>
+<#assign title = validate_field(Title.getData())>
 
-<div class="section-headline<#if anchor != ''> anchor-point" id="${anchor}"<#else>"</#if>>
+<div ${anchor_signature('section-headline', anchor)}>
   <header>
-    <#if anchor != ''>
-      <img src="${themeDisplay.getPathThemeImages()}/icons/ic_clipboard.svg" />
-    </#if>
+    <@render_anchor name=anchor/>
     <#if subtitle != ''>
       <h4 class="section-subtitle">${subtitle}</h4>
     </#if>

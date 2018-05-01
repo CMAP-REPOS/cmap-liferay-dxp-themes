@@ -5,27 +5,7 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
-@import "custom/variables";
-@import "custom/mixins";
-@import "custom/input";
-@import "custom/typography";
-@import "custom/header";
-@import "custom/footer";
-@import "custom/picture";
-@import "custom/section-headline";
-@import "custom/page-nav";
-@import "custom/page-header";
-@import "custom/page-cards";
-@import "custom/actions";
-@import "custom/advertisement";
-@import "custom/before-after";
-@import "custom/infographic";
-@import "custom/profiles/footer";
-@import "custom/profiles/grid";
-@import "custom/profiles/header";
-
-@import "custom/vendor/hamburgers/hamburgers";
-
+@import "custom/custom";
 @import "color_schemes/blue-theme";
 
 @mixin underline-link($color){

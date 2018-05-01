@@ -16,13 +16,6 @@
 Liferay.on(
 	'allPortletsReady',
 	function() {
-		// function set_advertisement(){
-		// 	var $this = $(this);
-		// 	var height = $this.outerWidth() * 0.5;
-		// 	var min_height = $this.find('.cmap-ad-content').outerHeight();
-		// 	$this.css('height', height);
-		// 	$this.css('min-height', min_height);
-		// }
 
     var temp_height = 0, temp_this = null;
 		function parse_actions(i){

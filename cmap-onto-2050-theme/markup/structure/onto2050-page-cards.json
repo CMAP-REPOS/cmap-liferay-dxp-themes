@@ -28,29 +28,6 @@
     },
     {
       "label": {
-        "en_US": "Is Full Width"
-      },
-      "predefinedValue": {
-        "en_US": false
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "boolean",
-      "indexType": "keyword",
-      "localizable": true,
-      "name": "IsFullWidth",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "checkbox"
-    },
-    {
-      "label": {
         "en_US": "Anchor"
       },
       "predefinedValue": {
@@ -96,7 +73,7 @@
       "type": "checkbox",
       "nestedFields": [{
           "label": {
-            "en_US": "Asset"
+            "en_US": "Card Asset"
           },
           "predefinedValue": {
             "en_US": ""
@@ -111,7 +88,7 @@
           "fieldNamespace": "ddm",
           "indexType": "text",
           "localizable": true,
-          "name": "Asset",
+          "name": "CardAsset",
           "readOnly": false,
           "repeatable": false,
           "required": false,
@@ -120,7 +97,7 @@
         },
         {
           "label": {
-            "en_US": "Title"
+            "en_US": "Card Title"
           },
           "predefinedValue": {
             "en_US": ""
@@ -134,7 +111,7 @@
           "dataType": "string",
           "indexType": "keyword",
           "localizable": true,
-          "name": "Title1",
+          "name": "CardTitle",
           "readOnly": false,
           "repeatable": false,
           "required": false,
@@ -143,7 +120,7 @@
         },
         {
           "label": {
-            "en_US": "Page Link"
+            "en_US": "Card Link"
           },
           "predefinedValue": {
             "en_US": ""
@@ -154,16 +131,15 @@
           "tip": {
             "en_US": ""
           },
-          "dataType": "link-to-page",
-          "fieldNamespace": "ddm",
+          "dataType": "string",
           "indexType": "keyword",
           "localizable": true,
-          "name": "PageLink",
+          "name": "CardLink",
           "readOnly": false,
           "repeatable": false,
           "required": false,
           "showLabel": true,
-          "type": "ddm-link-to-page"
+          "type": "text"
         }
       ]
     }
