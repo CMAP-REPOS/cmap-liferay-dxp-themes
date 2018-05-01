@@ -170,6 +170,55 @@
 
 	return {
 
+		generateArea: function (options) {
+
+			console.log(options.d);
+			var columns = [];
+			var groups = [];
+			var d = options.d;
+			var xColumn = ['x'];
+			
+			$.each(d3.keys(d[0]), function(i, e) {
+				if ($.isNumeric(e)) {
+					xColumn.push(e);
+				}
+			});
+			
+			columns.push(xColumn);
+			
+			$.each(d, function(i, e) {
+				var column = [];
+				$.each(e, function(i2, e2) {
+					if ($.isNumeric(e2)) {
+						column.push(e2);
+					} else {
+						column.unshift(e2);
+						groups.push(e2)
+					}
+				})
+				columns.push(column);
+			})
+			
+			console.log(columns);
+			console.log(groups);
+
+			c3.generate({
+				bindto: d3.select($('#' + options.chartId).get(0)),
+				data: {
+					columns: columns,
+					groups: [groups],
+					type: 'bar',
+			        x: 'x'
+				},
+				axis: {
+					rotated: true
+				},
+				legend: {
+				  show: false
+				}
+			});
+		},		
+
 		generateAreaStacked: function (options) {
 			console.log('infographics.generateAreaStacked()');
 			console.log(options);
