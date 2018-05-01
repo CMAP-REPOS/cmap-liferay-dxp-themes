@@ -170,7 +170,7 @@
 
 	return {
 
-		generateArea: function (options) {
+		generateAreaStacked: function (options) {
 
 			console.log(options.d);
 			var columns = [];
@@ -219,97 +219,97 @@
 			});
 		},		
 
-		generateAreaStacked: function (options) {
-			console.log('infographics.generateAreaStacked()');
-			console.log(options);
-			var d = options.d;
-			var headings = d3.keys(d[0]);
-			var chart = c3.generate({
-				axis: {
-					x: {
-						type: 'category',
-						padding: {
-							left: options.axis_x_padding_left,
-						},
-						label: {
-							text: options.axis_x_label_text,
-							position: 'outer-center'
-						},
-						tick: {
-							// can prolly be a function for multiples of 12..
-							values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
-							multiline: false
-						}
-					},
-					y: {
-						label: {
-							text: options.axis_y_label_text,
-							position: 'inner-middle'
-						},
-						tick: {
-							format: // custom formatting to make sure we dont
-								// have a lot of 0's
-								function (d) {
-									if (d > 1000) {
-										return siFormat(d).replace(",000", "");
-									}
-									else {
-										return d;
-									}
-								}
-						}
-					},
-				},
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				color: {
-					pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
-				},
-				data: {
-					url: options.data_url,
-					hide: [headings[0]],
-					order: [d3.keys(d[0])],
-					type: 'area',
-					x: headings[0],
-					groups: [d3.keys(d[0])],
-					keys: {
-						x: headings[0]
-					},
-				},
-				legend: {
-					show: false
-				},
-				grid: {
-					y: {
-						show: true,
-					}
-				},
-				point: {
-					show: false,
-				},
-				tooltip: {
-					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
-					}
-				},
-				onrendered: function () {
-					getDataClasses();
-					generateLegend({
-						d: d,
-						chart: this,
-						chartId: options.chartId,
-						chartType: 'area_stacked',
-						axis_x_tick_format: options.axis_x_tick_format,
-						axis_y_tick_format: options.axis_y_tick_format
-					});
-					resizeAxisLabels({
-						chartId: options.chartId,
-						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-						disableYAxisLabelResizing: options.disableYAxisLabelResizing
+		// generateAreaStacked: function (options) {
+		// 	console.log('infographics.generateAreaStacked()');
+		// 	console.log(options);
+		// 	var d = options.d;
+		// 	var headings = d3.keys(d[0]);
+		// 	var chart = c3.generate({
+		// 		axis: {
+		// 			x: {
+		// 				type: 'category',
+		// 				padding: {
+		// 					left: options.axis_x_padding_left,
+		// 				},
+		// 				label: {
+		// 					text: options.axis_x_label_text,
+		// 					position: 'outer-center'
+		// 				},
+		// 				tick: {
+		// 					// can prolly be a function for multiples of 12..
+		// 					values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
+		// 					multiline: false
+		// 				}
+		// 			},
+		// 			y: {
+		// 				label: {
+		// 					text: options.axis_y_label_text,
+		// 					position: 'inner-middle'
+		// 				},
+		// 				tick: {
+		// 					format: // custom formatting to make sure we dont
+		// 						// have a lot of 0's
+		// 						function (d) {
+		// 							if (d > 1000) {
+		// 								return siFormat(d).replace(",000", "");
+		// 							}
+		// 							else {
+		// 								return d;
+		// 							}
+		// 						}
+		// 				}
+		// 			},
+		// 		},
+		// 		bindto: d3.select($('#' + options.chartId).get(0)),
+		// 		color: {
+		// 			pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
+		// 		},
+		// 		data: {
+		// 			url: options.data_url,
+		// 			hide: [headings[0]],
+		// 			order: [d3.keys(d[0])],
+		// 			type: 'area',
+		// 			x: headings[0],
+		// 			groups: [d3.keys(d[0])],
+		// 			keys: {
+		// 				x: headings[0]
+		// 			},
+		// 		},
+		// 		legend: {
+		// 			show: false
+		// 		},
+		// 		grid: {
+		// 			y: {
+		// 				show: true,
+		// 			}
+		// 		},
+		// 		point: {
+		// 			show: false,
+		// 		},
+		// 		tooltip: {
+		// 			contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+		// 				return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
+		// 			}
+		// 		},
+		// 		onrendered: function () {
+		// 			getDataClasses();
+		// 			generateLegend({
+		// 				d: d,
+		// 				chart: this,
+		// 				chartId: options.chartId,
+		// 				chartType: 'area_stacked',
+		// 				axis_x_tick_format: options.axis_x_tick_format,
+		// 				axis_y_tick_format: options.axis_y_tick_format
+		// 			});
+		// 			resizeAxisLabels({
+		// 				chartId: options.chartId,
+		// 				disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+		// 				disableYAxisLabelResizing: options.disableYAxisLabelResizing
 
-					});
-				}
-			});
-		},
+		// 			});
+		// 		}
+		// 	});
+		// },
 		generateBarGrouped: function (options) {
 			console.log('infographics.generateBarGrouped()');
 			console.log(options);
