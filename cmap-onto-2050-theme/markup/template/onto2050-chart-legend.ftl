@@ -27,26 +27,37 @@
     </#if>
 </#list>
 
-${Title.getData()}
-
+<div class="chart-legend-2050">
+    <#--
+    <div class="chart-legend-2050-title">
+    ${Title.getData()}
+    </div>
+    -->
 <#if Description.getData()?has_content && Description.getData() != "">
-<p><strong>Chart</strong></p>
-${Description.getData()}
+    <div class="chart-legend-2050-description">
+    <p><strong>Chart</strong></p>
+    ${Description.getData()}
+    </div>
 </#if>
-
+    
 <#if keyArray?size != 0>
-<p><strong>Key</strong></p>
-<ul class="list-unstyled">
-    <#list keyArray as key>
-    <li>
-        <img alt="${key.keyImageAlt}" src="${key.keyImageUrl}" />
-        ${key.keyName}
-    </li>
-    </#list>
-</ul>
+    <div class="chart-legend-2050-key">
+    <p><strong>Key</strong></p>
+    <ul class="list-unstyled chart-legend-2050-key-list">
+        <#list keyArray as key>
+        <li>
+            <img alt="${key.keyImageAlt}" src="${key.keyImageUrl}" />
+            ${key.keyName}
+        </li>
+        </#list>
+    </ul>
+    </div>
 </#if>
 
 <#if Source.getData()?has_content && Source.getData() != "">
-<p><strong>Source</strong></p>
-${Source.getData()}
+    <div class="chart-legend-2050-source">
+    <p><strong>Source</strong></p>
+    ${Source.getData()}
+    </div>
 </#if>
+</div>
