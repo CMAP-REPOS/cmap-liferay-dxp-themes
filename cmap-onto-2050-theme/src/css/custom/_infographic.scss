@@ -100,16 +100,20 @@
         }
         .c3-tooltip-container {
             .c3-tooltip {
-                table,
-                td {
-                    border-color: 1px solid #c9d5dd;
+                table {
+                    border: 1px solid $grey-blue;
                 }
                 td {
+                    color: $grey-blue;
+                }
+                td {
+                    background-color: $light-blue;
                     border-left: none;
+                    color: $grey-blue;
                 }
                 th {
-                    background-color: #3c5976;
-                    color: #FFF;
+                    background-color: $light-blue;
+                    color: $grey-blue;
                     padding-left: 5px;
                 }
             }
@@ -129,7 +133,6 @@
                     top: 57px;
                     left: 15px;
                 }
-                b {}
             }
         }
         &.area_stacked {
@@ -138,9 +141,6 @@
             }
         }
         &.bar_chart_grouped {
-            .c3-axis-y text:not(.c3-axis-y-label) {
-                transform: translate(5px, 0);
-            }
             .c3-axis-x {
                 .tick {
                     &:first-of-type,
@@ -150,49 +150,19 @@
                 }
             }
         }
-        &.bar_chart_stacked {
-            .c3-axis-y-label {
-                transform: translate(-55em, -8px);
-            }
-        }
     }
 }
 
 @include phone() {
-    .chart-graphic-2050chart {
-        .c3-axis-x-label,
-        .c3-axis-y-label {
-            display: none;
+    .chart-graphic-2050-container {
+        .chart-graphic-2050-description {
+            float: none;
+            width: auto;
         }
-        .c3-axis-x {
-            .tick {
-                &:nth-of-type(even) {
-                    display: none;
-                }
-            }
-        }
-        &.area_stacked {}
-        &.bar_chart_grouped {}
-        &.donut_chart {
-            height: 360px;
-            margin: 0 auto;
-        }
-        &.bar_chart_stacked {
-            .c3-axis-x {
-                .tick {
-                    // X axis is rotated
-                    &:nth-of-type(even) {
-                        display: block;
-                    }
-                }
-            }
-            .c3-axis-y {
-                .tick {
-                    // Y axis is rotated
-                    &:nth-of-type(even) {
-                        display: none;
-                    }
-                }
+        .chart-graphic-2050 {
+            &.has_description {
+                float: none;
+                width: auto;
             }
         }
     }

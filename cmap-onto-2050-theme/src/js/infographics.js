@@ -103,67 +103,67 @@
 	function generateLegend(options) {
 		// console.log('infographics.generateLegend()');
 		// console.log(options);
-		var d = options.d;
-		var legendData = d3.keys(d[0]).splice(1);
-		if (options.chartType === 'donut_chart') {
-			legendData = d3.keys(d[0]);
-		}
-		$('.infographic-legend.' + options.chartId + '-legend .legend-data').html('');
-		d3.select('.infographic-legend.' + options.chartId + '-legend .legend-data').insert('ul')
-			.attr('class', 'list-unstyled list-inline ' + options.chartId)
-			.selectAll('div')
-			.data(legendData)
-			.enter().append('li')
-			.attr('class', function (id) {
-				return id;
-			})
-			.html(function (id) {
-				if (options.chartType !== 'donut_chart') {
-					if (options.altDataType && (options.altDataType.toLowerCase() === id.toLowerCase())) {
-						return '<span><i class="icon-circle" style="color: ' + options.altDataColor + '"></i> </span>' + id;
-					} else {
-						return '<span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id;
-					}
-				} else {
-					return '<div class="item-value" data-value="' + getDonutDataValue(d, id) + '"><span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id + '</div>';
-				}
-			})
-			.on('mouseover', function (id) {
-				if (options.chartType === 'donut_chart') {
-					var dataValue = $(this).children('div').attr('data-value');
-					generateDonutArcTitle({
-						chartId: options.chartId,
-						format: options.axis_x_tick_format,
-						id: id,
-						value: dataValue
-					});
-				}
-				if ($(window).width() > 420) {
-					options.chart.api.focus(id);
-					var childButtons = $('.button-container').children();
-					if (childButtons.hasClass('on')) {
-						childButtons.removeClass('on');
-						$('.side-narrative').children().removeClass('display');
-					}
-				}
-			})
-			.on('mouseout', function (id) {
-				options.chart.api.revert();
-			})
-			.on('click', function (id) {
-				if ($(window).width() < 420) {
-					$(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
-					$(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
-					options.chart.api.focus(id);
+		// var d = options.d;
+		// var legendData = d3.keys(d[0]).splice(1);
+		// if (options.chartType === 'donut_chart') {
+		// 	legendData = d3.keys(d[0]);
+		// }
+		// $('.infographic-legend.' + options.chartId + '-legend .legend-data').html('');
+		// d3.select('.infographic-legend.' + options.chartId + '-legend .legend-data').insert('ul')
+		// 	.attr('class', 'list-unstyled list-inline ' + options.chartId)
+		// 	.selectAll('div')
+		// 	.data(legendData)
+		// 	.enter().append('li')
+		// 	.attr('class', function (id) {
+		// 		return id;
+		// 	})
+		// 	.html(function (id) {
+		// 		if (options.chartType !== 'donut_chart') {
+		// 			if (options.altDataType && (options.altDataType.toLowerCase() === id.toLowerCase())) {
+		// 				return '<span><i class="icon-circle" style="color: ' + options.altDataColor + '"></i> </span>' + id;
+		// 			} else {
+		// 				return '<span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id;
+		// 			}
+		// 		} else {
+		// 			return '<div class="item-value" data-value="' + getDonutDataValue(d, id) + '"><span><i class="icon-circle" style="color: ' + options.chart.color(id) + '"></i> </span>' + id + '</div>';
+		// 		}
+		// 	})
+		// 	.on('mouseover', function (id) {
+		// 		if (options.chartType === 'donut_chart') {
+		// 			var dataValue = $(this).children('div').attr('data-value');
+		// 			generateDonutArcTitle({
+		// 				chartId: options.chartId,
+		// 				format: options.axis_x_tick_format,
+		// 				id: id,
+		// 				value: dataValue
+		// 			});
+		// 		}
+		// 		if ($(window).width() > 420) {
+		// 			options.chart.api.focus(id);
+		// 			var childButtons = $('.button-container').children();
+		// 			if (childButtons.hasClass('on')) {
+		// 				childButtons.removeClass('on');
+		// 				$('.side-narrative').children().removeClass('display');
+		// 			}
+		// 		}
+		// 	})
+		// 	.on('mouseout', function (id) {
+		// 		options.chart.api.revert();
+		// 	})
+		// 	.on('click', function (id) {
+		// 		if ($(window).width() < 420) {
+		// 			$(this).closest('.infographic-section').find('.button-container').children('.on').removeClass('on');
+		// 			$(this).toggleClass('legend-clicked').removeClass('m-legend-fade').siblings().removeClass('legend-clicked').addClass('m-legend-fade');
+		// 			options.chart.api.focus(id);
 
-					if (!$(this).hasClass('legend-clicked')) {
-						options.chart.api.revert();
-						$(this).removeClass('m-legend-fade').siblings().removeClass('m-legend-fade');
-					}
+		// 			if (!$(this).hasClass('legend-clicked')) {
+		// 				options.chart.api.revert();
+		// 				$(this).removeClass('m-legend-fade').siblings().removeClass('m-legend-fade');
+		// 			}
 
-					return false;
-				}
-			});
+		// 			return false;
+		// 		}
+		// 	});
 	}
 
 	var siFormat = d3.format(",");
@@ -175,6 +175,8 @@
 			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
+			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
+
 			var chart = c3.generate({
 				axis: {
 					x: {
@@ -268,14 +270,15 @@
 			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
-
+			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
 			var axis_y_tick_format = d3.format(",");
+
 			if (options.axis_y_tick_format === 'dollars') {
 				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
 				axis_y_tick_format = function (d) { return d + '%'; };
 			}
-						
+
 			var chart = c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
@@ -320,7 +323,10 @@
 					show: false
 				},
 				tooltip: {
-					show: options.display_tooltip
+					show: options.display_tooltip,
+					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
+					}
 				},
 				onrendered: function () {
 					generateLegend({
@@ -349,6 +355,9 @@
 			var rangeMax;
 			var tickLimit = 10;
 			var axis_y_tick_format = d3.format(",");
+			var axis_y_padding = null;
+			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
+
 			if (options.axis_y_tick_format === 'dollars') {
 				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
@@ -357,7 +366,6 @@
 				axis_y_tick_format = function (d) { return d + '%'; };
 			}
 
-			var axis_y_padding = null;
 			if ($.isNumeric(options.axis_y_padding)) {
 				axis_y_padding = { top: options.axis_y_padding, bottom: options.axis_y_padding };
 			}
@@ -366,18 +374,18 @@
 				tickLimit = d.length;
 			}
 
-			c3.generate({
+			var chart = c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
 					url: options.data_url,
 					hide: [headings[0]],
 					order: [d3.keys(d[0])],
 					type: 'bar',
-					 x: headings[0],
+					x: headings[0],
 					groups: [d3.keys(d[0])],
-					 keys: {
-					 	x: headings[0]
-					 },
+					keys: {
+						x: headings[0]
+					},
 				},
 				color: {
 					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
@@ -388,9 +396,9 @@
 						type: 'category',
 						label: {
 							text: options.axis_x_label_text,
-							// position: 'outer-top',
+							position: 'outer-top',
 							multiline: false
-						}, 
+						},
 						tick: {
 							count: tickLimit
 						}
@@ -426,7 +434,10 @@
 					show: false
 				},
 				tooltip: {
-					show: options.display_tooltip
+					show: options.display_tooltip,
+					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
+					}
 				},
 				onrendered: function () {
 					generateLegend({
@@ -451,15 +462,15 @@
 			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
-
+			var dataTypes = {};
 			var axis_y_tick_format = d3.format(",");
+			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
+
 			if (options.axis_y_tick_format === 'dollars') {
 				axis_y_tick_format = function (d) { return '$' + d; };
 			} else if (options.axis_y_tick_format === 'percent') {
 				axis_y_tick_format = function (d) { return d + '%'; };
 			}
-
-			var dataTypes = {};
 
 			if (options.altDataType && options.chartType === 'multi_line_bar') {
 				dataTypes[options.altDataType] = 'bar';
@@ -467,9 +478,7 @@
 				dataTypes[options.altDataType] = 'area';
 			}
 
-			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
-
-			c3.generate({
+			var chart = c3.generate({
 				axis: {
 					x: {
 						type: 'timeseries',
