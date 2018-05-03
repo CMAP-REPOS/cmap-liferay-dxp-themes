@@ -1,9 +1,0 @@
-{
-  "LiferayTheme": {
-    "deployPath": "/Users/clark/LiferayDeveloperStudio/CMAP/bundles/deploy",
-    "themeName": "cmap-admin-theme",
-    "appServerPathTheme": "/Users/clark/LiferayDeveloperStudio/CMAP/bundles/tomcat-8.0.32/webapps/cmap-admin-theme",
-    "deployed": false,
-    "appServerPath": "/Users/clark/LiferayDeveloperStudio/CMAP/bundles/tomcat-8.0.32"
-  }
-}

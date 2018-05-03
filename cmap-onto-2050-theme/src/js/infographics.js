@@ -171,7 +171,7 @@
 	return {
 
 		generateAreaStacked: function (options) {
-
+		
 			console.log(options.d);
 			var columns = [];
 			var groups = [];
@@ -201,19 +201,32 @@
 			
 			console.log(columns);
 			console.log(groups);
-
+		
 			c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
 					columns: columns,
 					groups: [groups],
 					type: 'bar',
-			        x: 'x'
+			        x: 'x',
+			        xSort: true
 				},
 				axis: {
-					rotated: true
+					rotated: true,
+					y: {
+						max: 90,
+						min: 10
+					}
 				},
 				legend: {
+				  show: false
+				},
+				bar: {
+				  width: {
+				    ratio: 1
+				  }
+				}, 
+				tooltip: {
 				  show: false
 				}
 			});
