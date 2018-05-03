@@ -171,158 +171,98 @@
 	return {
 
 		generateAreaStacked: function (options) {
-		
-			console.log(options.d);
-			var columns = [];
-			var groups = [];
+			console.log('infographics.generateAreaStacked()');
+			console.log(options);
 			var d = options.d;
-			var xColumn = ['x'];
-			
-			$.each(d3.keys(d[0]), function(i, e) {
-				if ($.isNumeric(e)) {
-					xColumn.push(e);
-				}
-			});
-			
-			columns.push(xColumn);
-			
-			$.each(d, function(i, e) {
-				var column = [];
-				$.each(e, function(i2, e2) {
-					if ($.isNumeric(e2)) {
-						column.push(e2);
-					} else {
-						column.unshift(e2);
-						groups.push(e2)
-					}
-				})
-				columns.push(column);
-			})
-			
-			console.log(columns);
-			console.log(groups);
-		
-			c3.generate({
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				data: {
-					columns: columns,
-					groups: [groups],
-					type: 'bar',
-			        x: 'x',
-			        xSort: true
-				},
+			var headings = d3.keys(d[0]);
+			var chart = c3.generate({
 				axis: {
-					rotated: true,
+					x: {
+						type: 'category',
+						padding: {
+							left: options.axis_x_padding_left,
+						},
+						label: {
+							text: options.axis_x_label_text,
+							position: 'outer-center'
+						},
+						tick: {
+							// can prolly be a function for multiples of 12..
+							values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
+							multiline: false
+						}
+					},
 					y: {
-						max: 90,
-						min: 10
-					}
+						label: {
+							text: options.axis_y_label_text,
+							position: 'inner-middle'
+						},
+						tick: {
+							format: // custom formatting to make sure we dont
+								// have a lot of 0's
+								function (d) {
+									if (d > 1000) {
+										return siFormat(d).replace(",000", "");
+									}
+									else {
+										return d;
+									}
+								}
+						}
+					},
+				},
+				bindto: d3.select($('#' + options.chartId).get(0)),
+				color: {
+					pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
+				},
+				data: {
+					url: options.data_url,
+					hide: [headings[0]],
+					order: [d3.keys(d[0])],
+					type: 'area',
+					x: headings[0],
+					groups: [d3.keys(d[0])],
+					keys: {
+						x: headings[0]
+					},
 				},
 				legend: {
-				  show: false
+					show: false
 				},
-				bar: {
-				  width: {
-				    ratio: 1
-				  }
-				}, 
+				grid: {
+					y: {
+						show: true,
+					}
+				},
+				point: {
+					show: false,
+				},
 				tooltip: {
-				  show: false
+					show: options.display_tooltip,
+					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
+					}
+				},
+				onrendered: function () {
+					getDataClasses();
+					generateLegend({
+						d: d,
+						chart: this,
+						chartId: options.chartId,
+						chartType: 'area_stacked',
+						axis_x_tick_format: options.axis_x_tick_format,
+						axis_y_tick_format: options.axis_y_tick_format
+					});
+					resizeAxisLabels({
+						chartId: options.chartId,
+						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
+						disableYAxisLabelResizing: options.disableYAxisLabelResizing
+
+					});
 				}
 			});
-		},		
+		},
 
-		// generateAreaStacked: function (options) {
-		// 	console.log('infographics.generateAreaStacked()');
-		// 	console.log(options);
-		// 	var d = options.d;
-		// 	var headings = d3.keys(d[0]);
-		// 	var chart = c3.generate({
-		// 		axis: {
-		// 			x: {
-		// 				type: 'category',
-		// 				padding: {
-		// 					left: options.axis_x_padding_left,
-		// 				},
-		// 				label: {
-		// 					text: options.axis_x_label_text,
-		// 					position: 'outer-center'
-		// 				},
-		// 				tick: {
-		// 					// can prolly be a function for multiples of 12..
-		// 					values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
-		// 					multiline: false
-		// 				}
-		// 			},
-		// 			y: {
-		// 				label: {
-		// 					text: options.axis_y_label_text,
-		// 					position: 'inner-middle'
-		// 				},
-		// 				tick: {
-		// 					format: // custom formatting to make sure we dont
-		// 						// have a lot of 0's
-		// 						function (d) {
-		// 							if (d > 1000) {
-		// 								return siFormat(d).replace(",000", "");
-		// 							}
-		// 							else {
-		// 								return d;
-		// 							}
-		// 						}
-		// 				}
-		// 			},
-		// 		},
-		// 		bindto: d3.select($('#' + options.chartId).get(0)),
-		// 		color: {
-		// 			pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
-		// 		},
-		// 		data: {
-		// 			url: options.data_url,
-		// 			hide: [headings[0]],
-		// 			order: [d3.keys(d[0])],
-		// 			type: 'area',
-		// 			x: headings[0],
-		// 			groups: [d3.keys(d[0])],
-		// 			keys: {
-		// 				x: headings[0]
-		// 			},
-		// 		},
-		// 		legend: {
-		// 			show: false
-		// 		},
-		// 		grid: {
-		// 			y: {
-		// 				show: true,
-		// 			}
-		// 		},
-		// 		point: {
-		// 			show: false,
-		// 		},
-		// 		tooltip: {
-		// 			contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-		// 				return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
-		// 			}
-		// 		},
-		// 		onrendered: function () {
-		// 			getDataClasses();
-		// 			generateLegend({
-		// 				d: d,
-		// 				chart: this,
-		// 				chartId: options.chartId,
-		// 				chartType: 'area_stacked',
-		// 				axis_x_tick_format: options.axis_x_tick_format,
-		// 				axis_y_tick_format: options.axis_y_tick_format
-		// 			});
-		// 			resizeAxisLabels({
-		// 				chartId: options.chartId,
-		// 				disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-		// 				disableYAxisLabelResizing: options.disableYAxisLabelResizing
-
-		// 			});
-		// 		}
-		// 	});
-		// },
 		generateBarGrouped: function (options) {
 			console.log('infographics.generateBarGrouped()');
 			console.log(options);
@@ -378,6 +318,9 @@
 				},
 				legend: {
 					show: false
+				},
+				tooltip: {
+					show: options.display_tooltip
 				},
 				onrendered: function () {
 					generateLegend({
@@ -435,7 +378,7 @@
 					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
 				},
 				axis: {
-					rotated: true,
+					rotated: options.display_horizontally,
 					x: {
 						type: 'category',
 						label: {
@@ -458,6 +401,11 @@
 						},
 					}
 				},
+				bar: {
+					width: {
+						ratio: options.bar_width_ratio
+					}
+				},
 				grid: {
 					y: {
 						show: true,
@@ -468,6 +416,9 @@
 				},
 				legend: {
 					show: false
+				},
+				tooltip: {
+					show: options.display_tooltip
 				},
 				onrendered: function () {
 					generateLegend({
@@ -559,6 +510,7 @@
 					show: false
 				},
 				tooltip: {
+					show: options.display_tooltip,
 					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
 						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
 					}
@@ -592,127 +544,128 @@
 
 			});
 		},
+
 		bindEvents: function () {
 			console.log('infographics.bindEvents()');
-			$(".icon-info-white").on('click', function () {
-				var $this = $(this);
-				$this.toggleClass('on');
-				$this.parents('.infographic-info').find('.infographic-aside, .infographic-source').toggle();
-				$this.parents('.infographic-info').find('.infographic-title, .infographic-description').toggle();
-			});
+			// $(".icon-info-white").on('click', function () {
+			// 	var $this = $(this);
+			// 	$this.toggleClass('on');
+			// 	$this.parents('.infographic-info').find('.infographic-aside, .infographic-source').toggle();
+			// 	$this.parents('.infographic-info').find('.infographic-title, .infographic-description').toggle();
+			// });
 
-			$('.icon-close-white').on('click', function () {
-				$('.side-narrative').remove();
-			});
+			// $('.icon-close-white').on('click', function () {
+			// 	$('.side-narrative').remove();
+			// });
 
-			$('.mobile-legend-icons .icon-paragraphh-white, .mobile-legend-icons .icon-key-white').on('click', function () {
-				var activeButton;
-				if ($('.infographic-button').hasClass('on')) {
-					activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+			// $('.mobile-legend-icons .icon-paragraphh-white, .mobile-legend-icons .icon-key-white').on('click', function () {
+			// 	var activeButton;
+			// 	if ($('.infographic-button').hasClass('on')) {
+			// 		activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
 
-					// note: not currently intended for multiple charts on a single page.
-					// fires once for each element on the page, if theres more than one
-					var $this = $(this);
-					if ($this.hasClass('icon-paragraphh-white')) {
-						// stuff for paragraph icon here.
-						if (!$this.hasClass('activated')) {
-							$this.addClass('activated');
-							$('.side-narratives').addClass('open').children().hide();
-							$('.icon-key-white').removeClass('activated');
-							$('.infographic-legend ul').hide();
-							$('.side-narratives #side-narrative' + activeButton).show();
-						}
-					}
-					else {
-						// we clicked the key. do stuff with the key.
-						if (!$this.hasClass('activated')) {
-							$this.addClass('activated');
-							$('.side-narratives').removeClass('open').children().hide();
-							$('.icon-paragraphh-white').removeClass('activated');
-							$('.infographic-legend ul').show();
-						}
-					}
-				}
-			});
+			// 		// note: not currently intended for multiple charts on a single page.
+			// 		// fires once for each element on the page, if theres more than one
+			// 		var $this = $(this);
+			// 		if ($this.hasClass('icon-paragraphh-white')) {
+			// 			// stuff for paragraph icon here.
+			// 			if (!$this.hasClass('activated')) {
+			// 				$this.addClass('activated');
+			// 				$('.side-narratives').addClass('open').children().hide();
+			// 				$('.icon-key-white').removeClass('activated');
+			// 				$('.infographic-legend ul').hide();
+			// 				$('.side-narratives #side-narrative' + activeButton).show();
+			// 			}
+			// 		}
+			// 		else {
+			// 			// we clicked the key. do stuff with the key.
+			// 			if (!$this.hasClass('activated')) {
+			// 				$this.addClass('activated');
+			// 				$('.side-narratives').removeClass('open').children().hide();
+			// 				$('.icon-paragraphh-white').removeClass('activated');
+			// 				$('.infographic-legend ul').show();
+			// 			}
+			// 		}
+			// 	}
+			// });
 
-			$('.infographic-button').on('mouseenter', function () {
-				var $this = $(this);
-				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
-				var buttonID = $this.attr('id');
-				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
-					$('.side-narrative').remove();
-					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
-					var dataClasses = getDataClasses();
-					if ($(this).is(":first-of-type")) {
-						applyFade(dataClasses, [2, 3, 4]);
-					}
-					else if ($(this).is(":nth-of-type(2)")) {
-						applyFade(dataClasses, [0, 1, 4]);
-					}
-					else {
-						applyFade(dataClasses, [0, 1, 2, 3]);
-					}
-				}
-			});
+			// $('.infographic-button').on('mouseenter', function () {
+			// 	var $this = $(this);
+			// 	var id = $this.attr('id').replace('infographic-button', 'side-narrative');
+			// 	var buttonID = $this.attr('id');
+			// 	if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
+			// 		$('.side-narrative').remove();
+			// 		$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
+			// 		var dataClasses = getDataClasses();
+			// 		if ($(this).is(":first-of-type")) {
+			// 			applyFade(dataClasses, [2, 3, 4]);
+			// 		}
+			// 		else if ($(this).is(":nth-of-type(2)")) {
+			// 			applyFade(dataClasses, [0, 1, 4]);
+			// 		}
+			// 		else {
+			// 			applyFade(dataClasses, [0, 1, 2, 3]);
+			// 		}
+			// 	}
+			// });
 
-			$('.infographic-button').on('mouseleave', function () {
-				var $this = $(this);
-				if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
-					$('.side-narrative').remove();
-					applyFade();
-				}
-			});
+			// $('.infographic-button').on('mouseleave', function () {
+			// 	var $this = $(this);
+			// 	if (!$this.hasClass('on') && !$(this).closest('.infographic-buttons').children().hasClass('on')) {
+			// 		$('.side-narrative').remove();
+			// 		applyFade();
+			// 	}
+			// });
 
-			$('.infographic-button').on('click', function () {
-				var $this = $(this);
-				var id = $this.attr('id').replace('infographic-button', 'side-narrative');
-				var buttonID = $this.attr('id');
-				var dataClasses = getDataClasses();
-				// var activeButton;
-				if (!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')) {
-					$(this).closest('.infographic-buttons').children().removeClass('on');
-					$('.side-narrative').remove();
-				}
-				applyFade();
-				$this.addClass('on');
-				if (!$('.side-narrative')) {
-					$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
-				}
-				if ($(window).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
-					activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
-					$('.side-narratives').children().hide();
-					$('.side-narratives #side-narrative' + activeButton).show();
-				}
-				if ($(this).is(":first-of-type")) {
-					applyFade(dataClasses, [2, 3, 4]);
-				}
-				else if ($(this).is(":nth-of-type(2)")) {
-					applyFade(dataClasses, [0, 1, 4]);
-				}
-				else {
-					applyFade(dataClasses, [0, 1, 2, 3]);
-				}
-			});
+			// $('.infographic-button').on('click', function () {
+			// 	var $this = $(this);
+			// 	var id = $this.attr('id').replace('infographic-button', 'side-narrative');
+			// 	var buttonID = $this.attr('id');
+			// 	var dataClasses = getDataClasses();
+			// 	// var activeButton;
+			// 	if (!$this.hasClass('on') && $(this).closest('.infographic-buttons').children().hasClass('on')) {
+			// 		$(this).closest('.infographic-buttons').children().removeClass('on');
+			// 		$('.side-narrative').remove();
+			// 	}
+			// 	applyFade();
+			// 	$this.addClass('on');
+			// 	if (!$('.side-narrative')) {
+			// 		$('.infographic-chart').append('<div class="side-narrative">' + $('#' + id).html() + '</p>');
+			// 	}
+			// 	if ($(window).width() <= 768 && $('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
+			// 		activeButton = $('.infographic-buttons .on').attr("id").slice(-1);
+			// 		$('.side-narratives').children().hide();
+			// 		$('.side-narratives #side-narrative' + activeButton).show();
+			// 	}
+			// 	if ($(this).is(":first-of-type")) {
+			// 		applyFade(dataClasses, [2, 3, 4]);
+			// 	}
+			// 	else if ($(this).is(":nth-of-type(2)")) {
+			// 		applyFade(dataClasses, [0, 1, 4]);
+			// 	}
+			// 	else {
+			// 		applyFade(dataClasses, [0, 1, 2, 3]);
+			// 	}
+			// });
 
-			$('.pair-icons .icon-paragraphh-white').on('click', function () {
-				$('.side-narrative').toggle();
-				return false;
-			});
+			// $('.pair-icons .icon-paragraphh-white').on('click', function () {
+			// 	$('.side-narrative').toggle();
+			// 	return false;
+			// });
 
-			$('.icon-close-white').on('click', function () {
-				$(this).closest('.infographic-button').removeClass('on');
-				$('.side-narrative').remove();
-				if ($(window).width() <= 768) {
-					d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-				}
-				if ($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
-					$('.side-narratives').removeClass('open').children().hide();
-					$('.icon-paragraphh-white').removeClass('activated');
-					$('.icon-key-white').addClass('activated');
-					$('.infographic-legend ul').show();
-				}
-				return false;
-			});
+			// $('.icon-close-white').on('click', function () {
+			// 	$(this).closest('.infographic-button').removeClass('on');
+			// 	$('.side-narrative').remove();
+			// 	if ($(window).width() <= 768) {
+			// 		d3.selectAll('.c3-defocused').classed('c3-defocused', false);
+			// 	}
+			// 	if ($('.mobile-legend-icons .icon-paragraphh-white').hasClass('activated')) {
+			// 		$('.side-narratives').removeClass('open').children().hide();
+			// 		$('.icon-paragraphh-white').removeClass('activated');
+			// 		$('.icon-key-white').addClass('activated');
+			// 		$('.infographic-legend ul').show();
+			// 	}
+			// 	return false;
+			// });
 		}
 	};
 }));
