@@ -1,17 +1,15 @@
-<#include "${templatesPath}/848954">
-
-<#assign anchor = validate_field(Anchor.getData())>
-<#assign description = validate_field(Description.getData())>
+<#if Anchor.getData()?? && Anchor.getData() != "">
+  <a id="${Anchor.getData}"></a>
+</#if>
 
 <#if Description.getData()?? && Description.getData() != "">
-<div style="float: left; width: 75%">
+<div style="float: left; width: 50%">
   <div id="${randomNamespace}chart"></div>
 </div>
-<div style="float: right; width: 25%">
+<div style="float: right; width: 50%">
 ${Description.getData()}
 </div>
 <#else>
-
 <div id="${randomNamespace}chart"></div>
 </#if>
 
@@ -26,8 +24,17 @@ AUI().ready(
         var options = {
             d: d,
             chartId: '${randomNamespace}chart',
-            chartType: '${ChartType.getData()}',
+            chartType: '${ChartType.getData()}', 
             data_url: '${File.getData()}',
+            display_tooltip: false,
+<#if getterUtil.getBoolean(Tooltip.DisplayTooltip.getData())>
+            display_tooltip: true,
+</#if> 
+            display_horizontally: false,
+<#if getterUtil.getBoolean(Bars.DisplayHorizontally.getData())>
+            display_horizontally: true,
+</#if>
+            bar_width_ratio: '${Bars.BarWidthRatio.getData()}',
             axis_x_label_text: '${Axes.XAxisLabel.getData()}',
             axis_x_padding: '${Axes.XPadding.getData()}',
             axis_x_tick_format: '${Axes.XAxisNumberFormat.getData()}',
@@ -93,7 +100,7 @@ AUI().ready(
 
     <#if ChartType.getData() == "multi_line_bar">
         var chartOptions = {
-            altDataType: '${MultiTypeColumnName.getData()}',
+            altDataType: '${MultiTypeColumnName.getData()}', 
             axis_x_padding_left: 0,
         };
         $.extend(options, chartOptions);
@@ -106,14 +113,8 @@ AUI().ready(
         });
     </#if>
 
-        infographics.bindEvents();
-    });
-
-    $('.infographic-info-toggle').on('click', function(e) {
-        e.preventDefault();
-        $('.main-info').toggleClass('hide-desc');
-        $('.aside-container').toggleClass('show');
-    });
+        // infographics.bindEvents();
+    });	
 	}
 );
 
