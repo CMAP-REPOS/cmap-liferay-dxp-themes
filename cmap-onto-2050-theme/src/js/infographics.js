@@ -101,8 +101,8 @@
 	}
 
 	function generateLegend(options) {
-		console.log('infographics.generateLegend()');
-		console.log(options);
+		// console.log('infographics.generateLegend()');
+		// console.log(options);
 		var d = options.d;
 		var legendData = d3.keys(d[0]).splice(1);
 		if (options.chartType === 'donut_chart') {
@@ -171,8 +171,8 @@
 	return {
 
 		generateAreaStacked: function (options) {
-			console.log('infographics.generateAreaStacked()');
-			console.log(options);
+			// console.log('infographics.generateAreaStacked()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var chart = c3.generate({
@@ -184,7 +184,7 @@
 						},
 						label: {
 							text: options.axis_x_label_text,
-							position: 'outer-center'
+							// position: 'outer-center'
 						},
 						tick: {
 							// can prolly be a function for multiples of 12..
@@ -195,7 +195,7 @@
 					y: {
 						label: {
 							text: options.axis_y_label_text,
-							position: 'inner-middle'
+							// position: 'inner-middle'
 						},
 						tick: {
 							format: // custom formatting to make sure we dont
@@ -264,8 +264,8 @@
 		},
 
 		generateBarGrouped: function (options) {
-			console.log('infographics.generateBarGrouped()');
-			console.log(options);
+			// console.log('infographics.generateBarGrouped()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -275,7 +275,7 @@
 			} else if (options.axis_y_tick_format === 'percent') {
 				axis_y_tick_format = function (d) { return d + '%'; };
 			}
-
+						
 			var chart = c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
@@ -297,14 +297,14 @@
 						type: 'category',
 						label: {
 							text: options.axis_x_label_text,
-							position: 'outer-center',
+							// position: 'outer-center',
 							multiline: false
 						},
 					},
 					y: {
 						label: {
 							text: options.axis_y_label_text,
-							position: 'inner-middle',
+							// position: 'inner-middle',
 						},
 						tick: {
 							format: axis_y_tick_format
@@ -341,12 +341,13 @@
 			});
 		},
 		generateBarStacked: function (options) {
-			console.log('infographics.generateBarStacked()');
-			console.log(options);
+			// console.log('infographics.generateBarStacked()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var rangeMin;
 			var rangeMax;
+			var tickLimit = 10;
 			var axis_y_tick_format = d3.format(",");
 			if (options.axis_y_tick_format === 'dollars') {
 				axis_y_tick_format = function (d) { return '$' + d; };
@@ -361,6 +362,10 @@
 				axis_y_padding = { top: options.axis_y_padding, bottom: options.axis_y_padding };
 			}
 
+			if (d.length < tickLimit) {
+				tickLimit = d.length;
+			}
+
 			c3.generate({
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				data: {
@@ -368,11 +373,11 @@
 					hide: [headings[0]],
 					order: [d3.keys(d[0])],
 					type: 'bar',
-					x: headings[0],
+					 x: headings[0],
 					groups: [d3.keys(d[0])],
-					keys: {
-						x: headings[0]
-					},
+					 keys: {
+					 	x: headings[0]
+					 },
 				},
 				color: {
 					pattern: ["#A2D06D", "#00396e", "#e6b936", "#008FD4", "#9E7A38", "#DA2128"]
@@ -383,8 +388,11 @@
 						type: 'category',
 						label: {
 							text: options.axis_x_label_text,
-							position: 'outer-top',
+							// position: 'outer-top',
 							multiline: false
+						}, 
+						tick: {
+							count: tickLimit
 						}
 					},
 					y: {
@@ -393,7 +401,7 @@
 						min: rangeMin,
 						label: {
 							text: options.axis_y_label_text,
-							position: 'outer-middle'
+							// position: 'outer-middle'
 						},
 						padding: axis_y_padding,
 						tick: {
@@ -439,8 +447,8 @@
 			});
 		},
 		generateMultiLine: function (options) {
-			console.log('infographics.generateMultiLineBar()');
-			console.log(options);
+			// console.log('infographics.generateMultiLineBar()');
+			// console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 
@@ -470,7 +478,7 @@
 						},
 						label: {
 							text: options.axis_x_label_text,
-							position: 'outer-center'
+							// position: 'outer-center'
 						},
 						tick: {
 							format: '%Y',
@@ -480,7 +488,7 @@
 					y: {
 						label: {
 							text: options.axis_y_label_text,
-							position: 'outer-top'
+							// position: 'outer-top'
 						},
 						tick: {
 							format: axis_y_tick_format
@@ -546,7 +554,7 @@
 		},
 
 		bindEvents: function () {
-			console.log('infographics.bindEvents()');
+			// console.log('infographics.bindEvents()');
 			// $(".icon-info-white").on('click', function () {
 			// 	var $this = $(this);
 			// 	$this.toggleClass('on');

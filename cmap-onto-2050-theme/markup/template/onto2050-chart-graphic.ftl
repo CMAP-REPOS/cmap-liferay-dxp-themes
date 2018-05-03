@@ -2,16 +2,16 @@
   <a id="${Anchor.getData}"></a>
 </#if>
 
-<#if Description.getData()?? && Description.getData() != "">
-<div style="float: left; width: 50%">
-  <div id="${randomNamespace}chart"></div>
+<div class="chart-graphic-2050-container">
+    <#if Description.getData()?? && Description.getData() != "">
+    <div id="${randomNamespace}chart" class="chart-graphic-2050 ${ChartType.getData()} has_description" ></div>
+    <div class="chart-graphic-2050-description">
+    ${Description.getData()}
+    </div>
+    <#else>
+    <div id="${randomNamespace}chart" class="chart-graphic-2050 ${ChartType.getData()}" ></div>
+    </#if>
 </div>
-<div style="float: right; width: 50%">
-${Description.getData()}
-</div>
-<#else>
-<div id="${randomNamespace}chart"></div>
-</#if>
 
 <script type="text/javascript">
 
