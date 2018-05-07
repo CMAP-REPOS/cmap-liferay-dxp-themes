@@ -61,7 +61,8 @@
         "tip": {
           "en_US": ""
         },
-        "dataType": "string",
+        "dataType": "html",
+        "fieldNamespace": "ddm",
         "indexType": "text",
         "localizable": true,
         "name": "Description",
@@ -69,7 +70,7 @@
         "repeatable": false,
         "required": false,
         "showLabel": true,
-        "type": "textarea"
+        "type": "ddm-text-html"
       }
     ]
   }]

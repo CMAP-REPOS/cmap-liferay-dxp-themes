@@ -1,27 +1,10 @@
-<#if CaptionText?? && CaptionText.getData()?? && CaptionText.getData() != "">
-  <#assign caption_text = CaptionText.getData()>
-<#else>
-  <#assign caption_text = ''>
-</#if>
+<#--<#include "${templatesPath}/875701">-->
+<#include "${templatesPath}/848954">
 
-<#if Footnote?? && Footnote.getData()?? && Footnote.getData() != "">
-  <#assign footnote = Footnote.getData()>
-<#else>
-  <#assign footnote = ''>
-</#if>
-
-<#if Asset.getData()?? && Asset.getData() != "">
-  <#assign picture_asset = Asset.getData()>
-<#else>
-  <#assign picture_asset = ''>
-</#if>
-
-<#if CaptionPosition.getData()?? && CaptionPosition.getData() != "">
-  <#assign caption_position = CaptionPosition.getData()>
-<#else>
-  <#assign caption_position = ''>
-</#if>
-
+<#assign caption_text = validate_field(CaptionText.getData())>
+<#assign footnote = validate_field(Footnote.getData())>
+<#assign picture_asset = validate_field(Asset.getData())>
+<#assign caption_position = validate_field(CaptionPosition.getData())>
 <#assign unique_namespace = randomNamespace>
 
 <div id="${unique_namespace}" class="picture-figure">
@@ -42,7 +25,7 @@
           <#if caption_position == "bottom-right" || caption_position == "top-right">
             <div class="col-md-8 col-md-offset-8">
               <div class="picture-caption right">
-                ${caption_text}
+                ${CaptionText.getData()}
               </div>
             </div>
           <#else>

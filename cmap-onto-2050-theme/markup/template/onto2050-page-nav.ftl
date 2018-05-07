@@ -9,7 +9,6 @@ Liferay.on(
 	function() {
 		var $nav = $('.page-nav');
 
-
 		function addLink(){
 			var $this = $(this),
 					id = $this.attr('id'),

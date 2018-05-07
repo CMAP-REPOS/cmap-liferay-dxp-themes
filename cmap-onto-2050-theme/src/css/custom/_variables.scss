@@ -1,5 +1,3 @@
-
-
 // sizes
 $variation: 1.414;
 $size0: 1em;
@@ -52,7 +50,6 @@ $off-white-text: #587387;
 $almost-white: #F7F9FA;
 $white: #FFFFFF;
 
-
 // used so far
 // $grey-blue, $dark-blue, $light-blue, $off-white
 
@@ -64,6 +61,7 @@ $white: #FFFFFF;
 // $gray-lighter: lighten($gray-base, 93.5%) !default;
 
 $cmap-dark-blue: $grey-blue;
-
+$cmap-primary: $cmap-dark-blue;
+$primary: $cmap-primary;
 
 $site-border: 1px solid $light-grey;

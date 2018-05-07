@@ -1,10 +1,11 @@
-<#include "${templatesPath}/875701">
+<#--<#include "${templatesPath}/875701">-->
+<#include "${templatesPath}/848954">
 
 <#assign anchor = validate_field(Anchor.getData())>
 <#assign title = validate_field(Title.getData())>
 
 <div ${anchor_signature('page-cards', anchor)}>
-  <h4 class="widget-title">${title}</h4>
+  <h4 class="section-title">${title}</h4>
 
   <@render_anchor name=anchor/>
 

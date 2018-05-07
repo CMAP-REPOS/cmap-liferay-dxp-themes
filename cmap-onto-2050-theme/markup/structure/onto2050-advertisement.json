@@ -39,7 +39,8 @@
       "tip": {
         "en_US": ""
       },
-      "dataType": "string",
+      "dataType": "html",
+      "fieldNamespace": "ddm",
       "indexType": "text",
       "localizable": true,
       "name": "Paragraph",
@@ -47,7 +48,7 @@
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "textarea"
+      "type": "ddm-text-html"
     },
     {
       "label": {
@@ -85,8 +86,7 @@
       "tip": {
         "en_US": ""
       },
-      "dataType": "link-to-page",
-      "fieldNamespace": "ddm",
+      "dataType": "string",
       "indexType": "keyword",
       "localizable": true,
       "name": "ButtonLink",
@@ -94,7 +94,7 @@
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "ddm-link-to-page"
+      "type": "text"
     },
     {
       "label": {

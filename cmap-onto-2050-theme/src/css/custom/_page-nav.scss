@@ -5,6 +5,7 @@
     top: 0;
     right: 0;
     width: 25%;
+    z-index: 100;
     padding-right: $grid-gutter-width/2;
     padding-left: $grid-gutter-width/2;
 
@@ -12,6 +13,7 @@
       width: 18.75%;
     }
   }
+
   h4.widget-headline{
     font-weight: $font-weight-normal;
     color: $light-blue !important;
@@ -29,7 +31,7 @@
       width: 100%;
       padding: 1rem 0;
       border-bottom: none !important;
-      color: $white !important;
+      color: $cmap-primary !important;
     }
   }
 }
@@ -37,4 +39,13 @@
   .page-nav.fixed{
     top: 64px;
   }
+}
+
+body.blue-theme{
+  .page-nav{
+    ul li a{
+      color: $white !important;
+    }
+  }
+
 }

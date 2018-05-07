@@ -1,3 +1,6 @@
+<#include "${templatesPath}/848955">
+<#include "${templatesPath}/875701">
+
 <div id="${randomNamespace}" class="actions-widget">
   <h4 class="widget-title">Actions include:</h4>
   <#if Actions.getSiblings()?has_content>
