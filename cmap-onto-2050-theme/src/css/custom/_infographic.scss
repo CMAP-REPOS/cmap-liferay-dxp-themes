@@ -1,0 +1,169 @@
+@charset "UTF-8";
+.chart-legend-2050 {
+    border-top: 2px solid $grey-blue;
+    color: $light-blue;
+    p {
+        color: $light-blue;
+    }
+    .chart-legend-2050-description {
+        margin-top: $unit;
+    }
+    .chart-legend-2050-key {
+        margin-top: $unit;
+    }
+    .chart-legend-2050-key-list {
+        li {
+            font-size: $size-1
+        }
+    }
+    .chart-legend-2050-source {
+        margin-top: $unit;
+    }
+}
+
+.chart-graphic-2050-container {
+    border-top: 2px solid $grey-blue;
+    clear: both;
+    color: $light-blue;
+    padding-top: $unit;
+    p {
+        color: $light-blue;
+    }
+    .chart-graphic-2050-description {
+        float: right;
+        width: 50%;
+    }
+    .chart-graphic-2050 {
+        color: $light-blue;
+        &.has_description {
+            float: left;
+            width: 50%;
+        }
+        line {
+            stroke: $off-white;
+        }
+        p {
+            color: $light-blue;
+        }
+        path {
+            fill: none;
+            &.domain {
+                fill: none;
+            }
+        }
+        svg {
+            font-size: $size0;
+        }
+        text {
+            font-size: $size0;
+            fill: $light-blue;
+            font-size: $size-1
+        }
+        .c3-defocused {
+            .c3-line {
+                stroke: $off-white !important;
+            }
+            .c3-area {
+                fill: $off-white !important;
+            }
+        }
+        .c3-axis-x,
+        .c3-axis-y {
+            path {
+                display: none;
+            }
+            .tick {
+                line {
+                    display: none;
+                }
+                text {
+                    display: flex !important;
+                }
+            }
+            .c3-axis-x-label {
+                transform: translate(0, -8px);
+            }
+        }
+        .c3-line {
+            stroke-width: 3px
+        }
+        .c3-xgrid,
+        .c3-ygrid {
+            opacity: .3 !important;
+            stroke-dasharray: 0
+        }
+        .c3-xgrid-focus,
+        .c3-ygrid-focus {
+            line {
+                opacity: .3 !important;
+            }
+        }
+        .c3-tooltip-container {
+            .c3-tooltip {
+                table {
+                    border: 1px solid $grey-blue;
+                }
+                td {
+                    color: $grey-blue;
+                }
+                td {
+                    background-color: $light-blue;
+                    border-left: none;
+                    color: $grey-blue;
+                }
+                th {
+                    background-color: $light-blue;
+                    color: $grey-blue;
+                    padding-left: 5px;
+                }
+            }
+            #Tooltip {
+                background: $white;
+                padding: 0.5em 0.5em 0.5em 1em;
+                position: relative;
+                width: 150px;
+                .tooltip-circle {
+                    position: absolute;
+                    height: 18px;
+                    width: 18px;
+                    border-radius: 13px;
+                    border: 3px solid white;
+                    margin-left: -23px;
+                    margin-top: 9.5%;
+                    top: 57px;
+                    left: 15px;
+                }
+            }
+        }
+        &.area_stacked {
+            .c3-area {
+                opacity: 1 !important;
+            }
+        }
+        &.bar_chart_grouped {
+            .c3-axis-x {
+                .tick {
+                    &:first-of-type,
+                    &:last-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include phone() {
+    .chart-graphic-2050-container {
+        .chart-graphic-2050-description {
+            float: none;
+            width: auto;
+        }
+        .chart-graphic-2050 {
+            &.has_description {
+                float: none;
+                width: auto;
+            }
+        }
+    }
+}
