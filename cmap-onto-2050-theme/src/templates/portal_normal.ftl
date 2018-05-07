@@ -23,6 +23,11 @@
 
 <@liferay.control_menu />
 
+<@liferay_portlet["runtime"]
+    instanceId=""
+    portletName="GlossaryUtility"
+/>
+
 <div id="wrapper">
 	<header id="banner" class="container-fluid" role="banner">
 		<#include "${full_templates_path}/header.ftl" />
