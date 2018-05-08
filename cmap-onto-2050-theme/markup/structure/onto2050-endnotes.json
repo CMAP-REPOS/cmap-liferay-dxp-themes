@@ -1,79 +1,81 @@
 {
-  "availableLanguageIds": [
-      "en_US"
-  ],
-  "defaultLanguageId": "en_US",
-  "fields": [
-      {
-          "label": {
-              "en_US": "Page Title"
-          },
-          "predefinedValue": {
-              "en_US": ""
-          },
-          "style": {
-              "en_US": ""
-          },
-          "tip": {
-              "en_US": ""
-          },
-          "dataType": "string",
-          "indexType": "keyword",
-          "localizable": true,
-          "name": "PageTitle",
-          "readOnly": false,
-          "repeatable": false,
-          "required": false,
-          "showLabel": true,
-          "type": "text"
-      },
-      {
-          "label": {
-              "en_US": "Page Link"
-          },
-          "predefinedValue": {
-              "en_US": ""
-          },
-          "style": {
-              "en_US": ""
-          },
-          "tip": {
-              "en_US": "Select the source page for this group of endnotes"
-          },
-          "dataType": "link-to-page",
-          "fieldNamespace": "ddm",
-          "indexType": "keyword",
-          "localizable": true,
-          "name": "PageLink",
-          "readOnly": false,
-          "repeatable": false,
-          "required": false,
-          "showLabel": true,
-          "type": "ddm-link-to-page"
-      },
-      {
-          "label": {
-              "en_US": "Notes"
-          },
-          "predefinedValue": {
-              "en_US": ""
-          },
-          "style": {
-              "en_US": ""
-          },
-          "tip": {
-              "en_US": ""
-          },
-          "dataType": "html",
-          "fieldNamespace": "ddm",
-          "indexType": "text",
-          "localizable": true,
-          "name": "Notes",
-          "readOnly": false,
-          "repeatable": false,
-          "required": false,
-          "showLabel": true,
-          "type": "ddm-text-html"
-      }
-  ]
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Page Title"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "PageTitle",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Page Link"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "Select the ONTO 2050 page that links to this section of the Endnotes "
+                    },
+                    "dataType": "link-to-page",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "PageLink",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-link-to-page"
+                },
+                {
+                    "label": {
+                        "en_US": "Notes"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "html",
+                    "fieldNamespace": "ddm",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "Notes",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-text-html"
+                }
+            ]
+        }
+    ]
 }
