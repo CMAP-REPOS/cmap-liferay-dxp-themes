@@ -1,7 +1,7 @@
 <#--<#include "${templatesPath}/875701">-->
 <#include "${templatesPath}/848954">
 
-<#assign background = validate_field(Anchor.getData())>
+<#assign background = validate_field(Background.getData())>
 <#assign title = validate_field(Title.getData())>
 <#assign paragraph = validate_field(Paragraph.getData())>
 <#assign button_text = validate_field(ButtonText.getData())>
@@ -17,11 +17,11 @@
 				<#if paragraph != ''>
 					<p>${paragraph}</p>
 				</#if>
-
-				<#if button_link !=
+				<#if button_link != ''>
 				<a class="button" href="${button_link}">
 					${button_text}
 				</a>
+				</#if>
 			</div>
 		</div>
 	</div>
