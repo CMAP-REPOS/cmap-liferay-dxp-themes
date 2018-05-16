@@ -8,6 +8,27 @@ section.profile-header{
   h2{
     font-family: $font-family-serif;
     font-weight: $font-weight-normal;
+    position: relative;
+    &:before{
+      content: '“';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: $font-size-h2;
+      transform: translateX(-100%);
+      // width: $font-size-h2;
+      // height: $font-size-h2;
+    }
+    &:after{
+      content: '”';
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateX(100%);
+      font-size: $font-size-h2;
+      // width: $font-size-h2;
+      // height: $font-size-h2;
+    }
   }
 
   .mobile-image{
