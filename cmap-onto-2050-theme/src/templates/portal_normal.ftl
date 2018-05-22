@@ -40,8 +40,7 @@
 		<h1 class="hide-accessible">${the_title}</h1>
 
 		<nav id="breadcrumbs">
-			<#assign preferencesMap = {"displayStyle": "ddmTemplate_838001", "portletSetupPortletDecoratorId": "barebone"} />
-			<@liferay.breadcrumbs default_preferences=freeMarkerPortletPreferences.getPreferences(preferencesMap)/>
+			<@liferay.breadcrumbs />
 		</nav>
 
 		<#if selectable>
