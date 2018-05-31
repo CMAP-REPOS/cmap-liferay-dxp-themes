@@ -21,7 +21,7 @@
 	<@liferay_util["include"] page=top_head_include />
 </head>
 
-<body class="${css_class}">
+<body class="${css_class} cmap-2017-theme">
 
 	<@liferay_ui["quick-access"] contentId="#main-content" />
 
@@ -53,7 +53,7 @@
 				<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}" />
 				<#assign VOID=freeMarkerPortletPreferences.reset() />
 
-		
+
 			</nav>
 			</#if>
 

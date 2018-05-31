@@ -13,7 +13,7 @@
     define.amd = define._amd;
 </script>
 
-<div class="container-fluid" id="onto2050-main-content" role="main">
+<div class="container-fluid cmap-onto-2050-main-content" id="main-content" role="main">
 	<div class="portlet-layout row">
 		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-1">
 			$processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")

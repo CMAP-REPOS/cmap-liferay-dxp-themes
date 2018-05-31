@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
 </head>
 
-<body class="${css_class}">
+<body class="${css_class} cmap-on-to-2050-theme">
 
 <@liferay_ui["quick-access"] contentId="#main-content" />
 

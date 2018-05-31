@@ -1,4 +1,3 @@
-
 <#if entries?has_content>
 
   <nav id="cmap-onto2050-breadcrumbs" class="breadcrumb-cmap container-fluid">
@@ -68,7 +67,7 @@
   <nav id="cmap-breadcrumbs" class="breadcrumb breadcrumb-cmap container-fluid">
     <#assign cssClass="" />
     <div class="row">
-      <div class="share-col col-sm-4">
+      <div class="share-col col-xl-3 col-sm-16">
         <!-- <button type="button" class="btn btn-default">
           <span class="glyphicon glyphicon-share"></span> Star
         </button> -->
@@ -90,7 +89,7 @@
         </button>
       </div>
 
-      <div class="trail-col col-sm-12">
+      <div class="trail-col col-xl-13 col-sm-16">
         <div class="breadcrumb-trail active">
           <span class="entry home">
             <span class="square"></span>
@@ -133,7 +132,7 @@
 Liferay.on(
 	'allPortletsReady',
 	function() {
-    if($('#onto2050-main-content').length){
+    if($('.cmap-onto-2050-main-content').length){
       $('#cmap-breadcrumbs').hide();
     } else {
       $('#cmap-onto2050-breadcrumbs').hide();

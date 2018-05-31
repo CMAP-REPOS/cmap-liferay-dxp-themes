@@ -5,7 +5,6 @@
 
       <div class="trail-col col-md-12 col-sm-11 col-xs-16">
         <div class="breadcrumb-trail active">
-
           <ol class="breadcrumb">
           <#list entries as entry>
             <#if entry?is_last>

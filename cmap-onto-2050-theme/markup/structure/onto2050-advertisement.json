@@ -3,32 +3,10 @@
     "en_US"
   ],
   "defaultLanguageId": "en_US",
-  "fields": [{
-      "label": {
-        "en_US": "Title"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
-      "indexType": "keyword",
-      "localizable": true,
-      "name": "Title",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "text"
-    },
+  "fields": [
     {
       "label": {
-        "en_US": "Paragraph"
+        "en_US": "Content"
       },
       "predefinedValue": {
         "en_US": ""
@@ -37,64 +15,18 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "A description of the page that you will link to, include an actual link or button also!"
       },
       "dataType": "html",
       "fieldNamespace": "ddm",
       "indexType": "text",
       "localizable": true,
-      "name": "Paragraph",
+      "name": "Content",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
       "type": "ddm-text-html"
-    },
-    {
-      "label": {
-        "en_US": "Button Text"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
-      "indexType": "keyword",
-      "localizable": true,
-      "name": "ButtonText",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "text"
-    },
-    {
-      "label": {
-        "en_US": "Button Link"
-      },
-      "predefinedValue": {
-        "en_US": ""
-      },
-      "style": {
-        "en_US": ""
-      },
-      "tip": {
-        "en_US": ""
-      },
-      "dataType": "string",
-      "indexType": "keyword",
-      "localizable": true,
-      "name": "ButtonLink",
-      "readOnly": false,
-      "repeatable": false,
-      "required": false,
-      "showLabel": true,
-      "type": "text"
     },
     {
       "label": {
@@ -107,7 +39,7 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "Should only cover the left side of the image. Can slightly come into the right half on the bottom of the image."
       },
       "dataType": "image",
       "fieldNamespace": "ddm",

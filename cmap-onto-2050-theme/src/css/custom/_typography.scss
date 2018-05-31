@@ -14,22 +14,26 @@
   @extend .whitney;
   font-size: $font-size-h5;
 }
-.whiteny-middle{
+.whitney-middle{
   @extend .whitney;
   font-size: $font-size-h4;
 }
-.whiteny-semi-large{
+.whitney-semi-large{
   @extend .whitney;
   font-size: $font-size-h3;
   letter-spacing: 0.025em;
 }
-.whiteny-large{
+.whitney-large{
   @extend .whitney;
   font-size: $font-size-h2;
 }
-.whiteny-huge{
+.whitney-huge{
   @extend .whitney;
   font-size: $font-size-h1;
+}
+.whitney-jumbo{
+  @extend .whitney;
+  font-size: $font-size-jumbo;
 }
 
 .presna{
@@ -40,9 +44,11 @@
 }
 .presna-normal{
   @extend .presna;
+  line-height: 1.4;
   font-size: $font-size-base;
 }
 .presna-large{
   @extend .presna;
+  line-height: 1.2;
   font-size: $font-size-h2;
 }

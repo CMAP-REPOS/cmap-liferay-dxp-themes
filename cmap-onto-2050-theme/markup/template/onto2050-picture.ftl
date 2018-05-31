@@ -43,7 +43,7 @@
   <#if footnote != ''>
     <div class="picture-footnote-container">
       <div class="picture-footnote">
-        <small>${footnote}</small>
+        ${footnote}
       </div>
     </div>
   </#if>

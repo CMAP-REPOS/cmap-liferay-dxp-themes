@@ -1,3 +1,32 @@
 .no-padding{
   padding: 0 !important;
 }
+
+.grey-blue-color{
+  color: $grey-blue;
+}
+.dark-blue-color{
+  color: $dark-blue;
+}
+.light-blue-color{
+  color: $light-blue;
+}
+.off-white-color{
+  color: $off-white;
+}
+.margin-top-small{
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+.margin-top-large{
+  display: inline-block;
+  margin-top: 3rem;
+}
+.margin-bottom-small{
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+.margin-bottom-large{
+  display: inline-block;
+  margin-bottom: 3rem;
+}

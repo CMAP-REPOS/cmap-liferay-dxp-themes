@@ -2,25 +2,14 @@
 <#include "${templatesPath}/848954">
 
 <#assign background = validate_field(Background.getData())>
-<#assign title = validate_field(Title.getData())>
-<#assign paragraph = validate_field(Paragraph.getData())>
-<#assign button_text = validate_field(ButtonText.getData())>
-<#assign button_link = validate_field(ButtonLink.getData())>
+<#assign content = validate_field(Content.getData())>
 
 <div class="advertisement">
 	<div class="row">
 		<div class="col-md-offset-8 col-md-8 col-sm-offset-0 col-sm-12 col-xs-16">
 			<div class="cmap-ad-content">
-				<#if title != ''>
-					<h6>${title}</h6>
-				</#if>
-				<#if paragraph != ''>
-					<p>${paragraph}</p>
-				</#if>
-				<#if button_link != ''>
-				<a class="button" href="${button_link}">
-					${button_text}
-				</a>
+				<#if content != ''>
+					${content}
 				</#if>
 			</div>
 		</div>
