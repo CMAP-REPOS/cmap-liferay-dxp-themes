@@ -4,6 +4,11 @@
   border-bottom: 1px solid rgba($light-blue, 0.5);
   overflow: hidden;
 
+  .widget-spacer{
+    width: 100%;
+    padding-bottom: 50%;
+  }
+
   .row{
     position: absolute;
     top: 0;
@@ -15,22 +20,11 @@
 
   .cmap-ad-content{
     padding: 2rem 0;
-  }
 
-  h6{
-    color: $grey-blue;
-    margin-bottom: 0.5rem;
+    p{
+      margin-bottom: 0.5rem;
+    }
   }
-  p{
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
-
-  .button{
-    min-width: 50%;
-    text-align: center;
-  }
-
   .placeholder-background{
     position: absolute;
     top: 0; left: 0;
@@ -38,6 +32,7 @@
     background: rgba($light-blue, 0.2);
   }
   img.background{
+    position: absolute;
     width: auto;
     max-width: none;
     height: 100%;
@@ -53,14 +48,4 @@
       width: 100%;
     }
   }
-}
-
-.button{
-  display: inline-block;
-  border: 1px solid $light-blue !important;
-  @include responsive-padding();
-  border-radius: 2vw;
-  background: $white;
-  font-weight: bold;
-  color: $light-blue !important;
 }

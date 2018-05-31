@@ -1,5 +1,4 @@
-<#--<#include "${templatesPath}/875701">-->
-<#include "${templatesPath}/848954">
+<#include "${templatesPath}/830929">
 
 <#assign caption_text = validate_field(CaptionText.getData())>
 <#assign footnote = validate_field(Footnote.getData())>
@@ -43,7 +42,7 @@
   <#if footnote != ''>
     <div class="picture-footnote-container">
       <div class="picture-footnote">
-        ${footnote}
+        <h6>${footnote}</h6>
       </div>
     </div>
   </#if>

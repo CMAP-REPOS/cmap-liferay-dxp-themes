@@ -19,24 +19,5 @@
 	<#else>
 		<div class="placeholder-background"></div>
 	</#if>
+	<div class="widget-spacer"></div>
 </div>
-
-<script>
-Liferay.on(
-	'allPortletsReady',
-	function() {
-		function set_advertisement(){
-			var $this = $(this);
-			var height = $this.outerWidth() * 0.5;
-			var min_height = $this.find('.cmap-ad-content').outerHeight();
-			$this.css('height', height);
-			$this.css('min-height', min_height);
-		}
-		function handle_resize(e){
-			$('.advertisement').each(set_advertisement);
-		}
-		$(window).resize(_.throttle(handle_resize, 100));
-		handle_resize();
-	}
-);
-</script>
