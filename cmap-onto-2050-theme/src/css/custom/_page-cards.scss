@@ -1,10 +1,6 @@
 .page-cards{
-  .section-title{
-    margin-bottom: $grid-gutter-width;
-  }
-  .page-card{
-    margin-bottom: $grid-gutter-width;
-  }
+  margin: 3rem 0;
+  
   .top{
     position: relative;
     padding-bottom: 50%;
@@ -32,23 +28,6 @@
         color: $cmap-dark-blue;
         border-bottom-color: $cmap-dark-blue;
       }
-    }
-  }
-}
-
-body.blue-theme{
-  .page-cards{
-    .top{
-      .placeholder-image{
-        background: $white;
-      }
-    }
-  }
-  .bottom{
-    background: #526A82;
-    h4 a {
-      color: $white;
-      border-bottom-color: $white;
     }
   }
 }

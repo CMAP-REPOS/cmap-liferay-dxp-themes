@@ -66,8 +66,11 @@
     position: absolute;
     width: 100%;
     opacity: 0;
+    height: 0;
+    overflow: hidden;
     img{
       position: absolute;
+      top: 0;
       width: 100%;
       height: auto;
     }

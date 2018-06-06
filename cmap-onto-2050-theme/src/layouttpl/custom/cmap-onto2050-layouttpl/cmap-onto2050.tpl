@@ -67,4 +67,70 @@
 			$processor.processColumn("column-13", "portlet-column-content portlet-column-content-only")
 		</div>
 	</div>
+
+
+  <div class="portlet-layout row">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-14">
+			$processor.processColumn("column-14", "portlet-column-content portlet-column-content-first")
+		</div>
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-15">
+			$processor.processColumn("column-15", "portlet-column-content")
+		</div>
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-16">
+			$processor.processColumn("column-16", "portlet-column-content portlet-column-content-last")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-17">
+			$processor.processColumn("column-17", "portlet-column-content portlet-column-content-only")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-18">
+			$processor.processColumn("column-18", "portlet-column-content portlet-column-content-first")
+		</div>
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-19">
+			$processor.processColumn("column-19", "portlet-column-content")
+		</div>
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-20">
+			$processor.processColumn("column-20", "portlet-column-content portlet-column-content-last")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-21">
+			$processor.processColumn("column-21", "portlet-column-content portlet-column-content-only")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-22">
+			$processor.processColumn("column-22", "portlet-column-content portlet-column-content-first")
+		</div>
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-23">
+			$processor.processColumn("column-23", "portlet-column-content")
+		</div>
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-24">
+			$processor.processColumn("column-24", "portlet-column-content portlet-column-content-last")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-25">
+			$processor.processColumn("column-25", "portlet-column-content portlet-column-content-only")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-first" id="column-26">
+			$processor.processColumn("column-26", "portlet-column-content portlet-column-content-first")
+		</div>
+		<div class="col-lg-8 col-md-10 col-sm-16 portlet-column" id="column-27">
+			$processor.processColumn("column-27", "portlet-column-content")
+		</div>
+		<div class="col-lg-4 col-md-3 col-sm-16 portlet-column portlet-column-last" id="column-28">
+			$processor.processColumn("column-28", "portlet-column-content portlet-column-content-last")
+		</div>
+	</div>
+  <div class="portlet-layout row">
+		<div class="col-md-16 col-sm-16 portlet-column portlet-column-only" id="column-29">
+			$processor.processColumn("column-29", "portlet-column-content portlet-column-content-only")
+		</div>
+	</div>
 </div>

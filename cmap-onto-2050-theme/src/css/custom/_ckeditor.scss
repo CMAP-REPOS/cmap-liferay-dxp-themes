@@ -4,4 +4,13 @@ body#cmap-ckeditor{
   h1,h2,h3,h4,h5,h6,p{
     color: black;
   }
+
+  .inline-center-col{
+    .col-lg-4{
+      background: rgba(blue, 0.2);
+    }
+    .col-lg-8{
+      background: rgba(green, 0.2);
+    }
+  }
 }
