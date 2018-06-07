@@ -209,6 +209,8 @@
 			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
+			var axis_x_rotation = (options.rotate_x_axis_label) ? 45 : 0;
+			var axis_y_rotation = (options.rotate_y_axis_label) ? 45 : 0;
 			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
 			var axis_y_tick_format = d3.format(",");
 
@@ -234,23 +236,34 @@
 				axis: {
 					x: {
 						label: {
-							position: 'outer-right',
+							position: options.axis_x_label_position,
 							text: options.axis_x_label_text
 						},
+						padding: { 
+							left: parseFloat(options.axis_x_padding), 
+							right: parseFloat(options.axis_x_padding) 
+						},
 						tick: {
-							rotate: 90,
-							multiline: false
+							multiline: false,
+							rotate: axis_x_rotation
 						},
 						type: 'category'
 					},
 					y: {
 						label: {
-							position: 'outer-left',
+							position: options.axis_y_label_position,
 							text: options.axis_y_label_text
 						},
-						tick: {
-							format: axis_y_tick_format
+						padding: { 
+							bottom: parseFloat(options.axis_y_padding), 
+							top: parseFloat(options.axis_y_padding) 
 						},
+						tick: {
+							format: function (y) {
+								return formatValue(options.axis_y_tick_format, y);
+							},
+							rotate: axis_y_rotation
+						}
 					}
 				},
 				grid: {
@@ -399,6 +412,8 @@
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var data_types = {};
+			var axis_x_rotation = (options.rotate_x_axis_label) ? 45 : 0;
+			var axis_y_rotation = (options.rotate_y_axis_label) ? 45 : 0;
 			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
 
 			if (options.altDataType && options.chartType === 'multi_line_bar') {
@@ -415,13 +430,11 @@
 							text: options.axis_x_label_text
 						},
 						padding: { 
-							left: options.axis_x_padding, 
-							right: options.axis_x_padding 
+							left: parseFloat(options.axis_x_padding), 
+							right: parseFloat(options.axis_x_padding) 
 						},
 						tick: {
-							format: function (x) {
-								return formatValue(options.axis_x_tick_format, x);
-							}
+							rotate: axis_x_rotation
 						}
 					},
 					y: {
@@ -430,13 +443,14 @@
 							text: options.axis_y_label_text
 						},
 						padding: { 
-							bottom: options.axis_y_padding, 
-							top: options.axis_y_padding 
+							bottom: parseFloat(options.axis_y_padding), 
+							top: parseFloat(options.axis_y_padding) 
 						},
 						tick: {
 							format: function (y) {
 								return formatValue(options.axis_y_tick_format, y);
-							}
+							},
+							rotate: axis_y_rotation
 						}
 					}
 				},

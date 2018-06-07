@@ -26,26 +26,35 @@ AUI().ready(
             chartId: '${randomNamespace}chart',
             chartType: '${ChartType.getData()}', 
             data_url: '${File.getData()}',
-            display_tooltip: false,
 <#if getterUtil.getBoolean(Tooltip.DisplayTooltip.getData())>
             display_tooltip: true,
+<#else>
+            display_tooltip: false,
 </#if> 
-            display_horizontally: false,
 <#if getterUtil.getBoolean(Bars.DisplayHorizontally.getData())>
             display_horizontally: true,
+<#else>
+            display_horizontally: false,
 </#if>
             bar_width_ratio: '${Bars.BarWidthRatio.getData()}',
-
+<#if getterUtil.getBoolean(Axes.RotateXAxisLabel.getData())>
+            rotate_x_axis_label: true,
+<#else>
+            rotate_x_axis_label: false,
+</#if>
+<#if getterUtil.getBoolean(Axes.RotateYAxisLabel.getData())>
+            rotate_y_axis_label: true,
+<#else>
+            rotate_y_axis_label: false,
+</#if>
             axis_x_label_position: '${Axes.XAxisLabelPosition.getData()}',
             axis_x_label_text: '${Axes.XAxisLabel.getData()}',
             axis_x_padding: '${Axes.XPadding.getData()}',
             axis_x_tick_format: '${Axes.XAxisNumberFormat.getData()}',
-            
             axis_y_label_position: '${Axes.YAxisLabelPosition.getData()}',
             axis_y_label_text: '${Axes.YAxisLabel.getData()}',
             axis_y_padding: '${Axes.YPadding.getData()}',
             axis_y_tick_format: '${Axes.YAxisNumberFormat.getData()}',
-
         <#if getterUtil.getBoolean(Axes.DisableXAxisLabelResizing.getData())>
             disableXAxisLabelResizing: true,
         <#else>
