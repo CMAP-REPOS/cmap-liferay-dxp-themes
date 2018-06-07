@@ -1,5 +1,5 @@
 <#if Anchor.getData()?? && Anchor.getData() != "">
-  <a id="${Anchor.getData}"></a>
+  <a id="${Anchor.getData()}"></a>
 </#if>
 
 <div class="chart-graphic-2050-container">
@@ -35,13 +35,17 @@ AUI().ready(
             display_horizontally: true,
 </#if>
             bar_width_ratio: '${Bars.BarWidthRatio.getData()}',
+
+            axis_x_label_position: '${Axes.XAxisLabelPosition.getData()}',
             axis_x_label_text: '${Axes.XAxisLabel.getData()}',
             axis_x_padding: '${Axes.XPadding.getData()}',
             axis_x_tick_format: '${Axes.XAxisNumberFormat.getData()}',
-            axis_y_label_position: 'outer-top',
+            
+            axis_y_label_position: '${Axes.YAxisLabelPosition.getData()}',
             axis_y_label_text: '${Axes.YAxisLabel.getData()}',
             axis_y_padding: '${Axes.YPadding.getData()}',
             axis_y_tick_format: '${Axes.YAxisNumberFormat.getData()}',
+
         <#if getterUtil.getBoolean(Axes.DisableXAxisLabelResizing.getData())>
             disableXAxisLabelResizing: true,
         <#else>
@@ -63,7 +67,6 @@ AUI().ready(
     <#if ChartType.getData() == "bar_chart_grouped">
         var chartOptions = {};
         $.extend(options, chartOptions);
-        console.log(options);
         infographics.generateBarGrouped(options);
     </#if>
 
@@ -100,21 +103,12 @@ AUI().ready(
 
     <#if ChartType.getData() == "multi_line_bar">
         var chartOptions = {
-            altDataType: '${MultiTypeColumnName.getData()}', 
-            axis_x_padding_left: 0,
+            altDataType: '${MultiTypeColumnName.getData()}'
         };
         $.extend(options, chartOptions);
         infographics.generateMultiLine(options);
     </#if>
-
-    <#if ChartType.getData() == "donut_chart">
-        infographics.bindDonutLegendEvents({
-            chartId: '${randomNamespace}chart'
-        });
-    </#if>
-
-        // infographics.bindEvents();
-    });	
+        });	
 	}
 );
 

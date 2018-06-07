@@ -1,8 +1,13 @@
 @charset "UTF-8";
 .chart-legend-2050 {
-    border-top: 2px solid $grey-blue;
+    @extend .whitney-small;
+	border-top: 4px solid $grey-blue;
     color: $light-blue;
+    h6 {
+		color: $grey-blue;
+    }
     p {
+	    @extend .whitney-small;
         color: $light-blue;
     }
     .chart-legend-2050-description {
@@ -13,7 +18,21 @@
     }
     .chart-legend-2050-key-list {
         li {
-            font-size: $size-1
+            @extend .whitney-small;
+            line-height: 1;
+            padding-bottom: .25em;
+            &:last-of-type {
+                padding-bottom: 0;
+            }
+            .chart-legend-2050-key-image {
+                display: inline-block;
+                max-height: 12px;
+                max-width: 12px;
+            }
+            .chart-legend-2050-key-label {
+                display: inline-block;
+                vertical-align: bottom;
+            }
         }
     }
     .chart-legend-2050-source {
@@ -22,7 +41,7 @@
 }
 
 .chart-graphic-2050-container {
-    border-top: 2px solid $grey-blue;
+    border-top: 4px solid $grey-blue;
     clear: both;
     color: $light-blue;
     padding-top: $unit;
@@ -76,12 +95,9 @@
                 line {
                     display: none;
                 }
-                text {
-                    display: flex !important;
-                }
             }
             .c3-axis-x-label {
-                transform: translate(0, -8px);
+                // transform: translate(0, -8px);
             }
         }
         .c3-line {
@@ -95,43 +111,29 @@
         .c3-xgrid-focus,
         .c3-ygrid-focus {
             line {
-                opacity: .3 !important;
+                // opacity: .3 !important;
             }
         }
         .c3-tooltip-container {
-            .c3-tooltip {
-                table {
-                    border: 1px solid $grey-blue;
-                }
-                td {
-                    color: $grey-blue;
-                }
-                td {
-                    background-color: $light-blue;
-                    border-left: none;
-                    color: $grey-blue;
-                }
-                th {
-                    background-color: $light-blue;
-                    color: $grey-blue;
-                    padding-left: 5px;
-                }
-            }
-            #Tooltip {
-                background: $white;
-                padding: 0.5em 0.5em 0.5em 1em;
-                position: relative;
-                width: 150px;
-                .tooltip-circle {
-                    position: absolute;
-                    height: 18px;
-                    width: 18px;
-                    border-radius: 13px;
-                    border: 3px solid white;
-                    margin-left: -23px;
-                    margin-top: 9.5%;
-                    top: 57px;
-                    left: 15px;
+            background-color: $light-grey;
+            border: 1px solid $grey-blue;
+            padding: .5em .5em .25em .5em;
+            table {
+                &.c3-tooltip {
+                    td {
+                        @extend .whitney-small;
+                        background-color: $light-grey;
+                        color: $grey-blue;
+                        padding-bottom: .25em;
+                        &.name {
+                            padding-right: .5em;
+                        }
+                    }
+                    th {
+                        @extend .whitney-small;
+                        background-color: $light-grey;
+                        color: $grey-blue;
+                    }
                 }
             }
         }
@@ -140,7 +142,7 @@
                 opacity: 1 !important;
             }
         }
-        &.bar_chart_grouped {
+        /* &.bar_chart_grouped {
             .c3-axis-x {
                 .tick {
                     &:first-of-type,
@@ -149,7 +151,7 @@
                     }
                 }
             }
-        }
+        } */
     }
 }
 
