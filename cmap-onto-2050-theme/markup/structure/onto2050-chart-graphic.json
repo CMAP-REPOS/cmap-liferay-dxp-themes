@@ -227,9 +227,9 @@
                         "en_US": ""
                     },
                     "tip": {
-                        "en_US": "Enter a value between 0.1 and 1 to set the relative with of bars in a bar chart"
+                        "en_US": "Enter a value between 0.1 and 1 to set the relative width of bars in a bar chart"
                     },
-                    "dataType": "number",
+                    "dataType": "double",
                     "fieldNamespace": "ddm",
                     "indexType": "keyword",
                     "localizable": true,
@@ -238,7 +238,7 @@
                     "repeatable": false,
                     "required": false,
                     "showLabel": true,
-                    "type": "ddm-number"
+                    "type": "ddm-decimal"
                 },
                 {
                     "label": {
@@ -337,7 +337,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "X Padding"
+                        "en_US": "X Axis Padding"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -348,19 +348,20 @@
                     "tip": {
                         "en_US": ""
                     },
-                    "dataType": "string",
-                    "indexType": "",
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
                     "localizable": true,
                     "name": "XPadding",
                     "readOnly": false,
                     "repeatable": false,
                     "required": false,
                     "showLabel": true,
-                    "type": "text"
+                    "type": "ddm-decimal"
                 },
                 {
                     "label": {
-                        "en_US": "Y Padding"
+                        "en_US": "Y Axis Padding"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -371,15 +372,16 @@
                     "tip": {
                         "en_US": ""
                     },
-                    "dataType": "string",
-                    "indexType": "",
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
                     "localizable": true,
                     "name": "YPadding",
                     "readOnly": false,
                     "repeatable": false,
                     "required": false,
                     "showLabel": true,
-                    "type": "text"
+                    "type": "ddm-decimal"
                 },
                 {
                     "label": {
@@ -429,6 +431,52 @@
                 },
                 {
                     "label": {
+                        "en_US": "Rotate x axis label"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "RotateXAxisLabel",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Rotate y axis label"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "RotateYAxisLabel",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
                         "en_US": "X Axis Number Format"
                     },
                     "options": [
@@ -436,6 +484,12 @@
                             "value": "default",
                             "label": {
                                 "en_US": "Default"
+                            }
+                        },
+                        {
+                            "value": "number",
+                            "label": {
+                                "en_US": "Number"
                             }
                         },
                         {
@@ -483,6 +537,12 @@
                             }
                         },
                         {
+                            "value": "number",
+                            "label": {
+                                "en_US": "Number"
+                            }
+                        },
+                        {
                             "value": "dollars",
                             "label": {
                                 "en_US": "Dollars"
@@ -509,6 +569,130 @@
                     "localizable": true,
                     "multiple": false,
                     "name": "YAxisNumberFormat",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                },
+                {
+                    "label": {
+                        "en_US": "X Axis Label Position"
+                    },
+                    "options": [
+                        {
+                            "value": "inner-right",
+                            "label": {
+                                "en_US": "inner-right"
+                            }
+                        },
+                        {
+                            "value": "inner-center",
+                            "label": {
+                                "en_US": "inner-center"
+                            }
+                        },
+                        {
+                            "value": "inner-left",
+                            "label": {
+                                "en_US": "inner-left"
+                            }
+                        },
+                        {
+                            "value": "outer-right",
+                            "label": {
+                                "en_US": "outer-right"
+                            }
+                        },
+                        {
+                            "value": "outer-center",
+                            "label": {
+                                "en_US": "outer-center"
+                            }
+                        },
+                        {
+                            "value": "outer-left",
+                            "label": {
+                                "en_US": "outer-left"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": []
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "XAxisLabelPosition",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Label Position"
+                    },
+                    "options": [
+                        {
+                            "value": "inner-top",
+                            "label": {
+                                "en_US": "inner-top"
+                            }
+                        },
+                        {
+                            "value": "inner-middle",
+                            "label": {
+                                "en_US": "inner-middle"
+                            }
+                        },
+                        {
+                            "value": "inner-bottom",
+                            "label": {
+                                "en_US": "inner-bottom"
+                            }
+                        },
+                        {
+                            "value": "outer-top",
+                            "label": {
+                                "en_US": "outer-top"
+                            }
+                        },
+                        {
+                            "value": "outer-middle",
+                            "label": {
+                                "en_US": "outer-middle"
+                            }
+                        },
+                        {
+                            "value": "outer-bottom",
+                            "label": {
+                                "en_US": "outer-bottom"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": []
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "YAxisLabelPosition",
                     "readOnly": false,
                     "repeatable": false,
                     "required": false,
