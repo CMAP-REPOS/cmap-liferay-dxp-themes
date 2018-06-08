@@ -142,7 +142,11 @@ cmap.titleWithSections.init = function() {
   $('.page-nav-container').data('original-offet-top', $('.page-nav-container').offset().top);
 
   // remove inline styles from content items
-  $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,span,table').removeAttr('style');
+  var pathname = window.location.pathname.replace('/web/guest','');
+  
+  if ((pathname.indexOf('/on-to-2050/') !== 0) && (pathname.indexOf('/2050/') !== 0)) {
+    $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,span,table').removeAttr('style');
+  }
 
   // remove empty paragraphs
   $('p').each(function(){
