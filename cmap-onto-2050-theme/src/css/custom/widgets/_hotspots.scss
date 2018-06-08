@@ -1,0 +1,138 @@
+.hotspot-widget{
+  position: relative;
+
+  .hotspot-layer{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hotspot-layer-background{
+    border-top: 2px solid $light-blue;
+    border-bottom: 2px solid $light-blue;
+  }
+
+  $icon-width: 2rem;
+  $margin: 1rem;
+  $transition: all 0.2s ease-in;
+
+  .hotspot-spot{
+    position: absolute;
+    width: 25%;
+    min-width: 200px;
+
+    display: flex;
+    align-items: flex-start;
+
+
+    .caption-toggle{
+      position: relative;
+      z-index: 10;
+      flex: 0 0 ($icon-width + ($margin * 2));
+      cursor: pointer;
+
+      img{
+        width: $icon-width; height: $icon-width;
+        margin: ($margin) $margin;
+        transform: rotate(0);
+        transition: all 0.2s ease;
+      }
+    }
+
+    .caption-content{
+      position: relative;
+      z-index: 10;
+      opacity: 1;
+      transition: $transition;
+      padding-right: 1rem;
+
+      h5{
+        color: white;
+        margin: ($margin) 0;
+      }
+    }
+
+    .caption-background{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($dark-blue, 0.614);
+      border: 2px solid white;
+      transition: $transition;
+    }
+
+    &.min{
+      .caption-content{
+        opacity: 0;
+      }
+      .caption-toggle{
+        img{
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .hotspot-footer{
+    padding-top: 0.5rem;
+
+    .hotspot-footer-instructions{
+      @include container-margin-left();
+      h6{
+        margin: 1rem 0;
+        font-weight: 400;
+        color: $light-blue;
+      }
+
+      @include tablet(){
+        display: none;
+      }
+    }
+
+    .hotspot-layer-item{
+      position: relative;
+      display: inline-block;
+      margin-right: 2rem;
+      cursor: pointer;
+
+      &:hover{
+        &:after{
+          background: lighten($light-blue, 25%);
+        }
+      }
+
+      h4{
+        color: $light-blue;
+        transition: all 0.2s ease;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: -1.5rem;
+        left: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: 2px solid $light-blue;
+        background: white;
+        transition: all 0.2s ease;
+      }
+
+      &.active{
+        h4{
+          color: $dark-blue;
+        }
+        &:after{
+          background: $dark-blue;
+        }
+      }
+
+    }
+
+  }
+
+}
