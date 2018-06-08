@@ -21,7 +21,7 @@
     position: absolute;
     width: 25%;
     min-width: 200px;
-
+    z-index: 10;
     display: flex;
     align-items: flex-start;
 
@@ -65,6 +65,7 @@
     }
 
     &.min{
+      z-index: 5;
       .caption-content{
         opacity: 0;
       }
