@@ -10,12 +10,6 @@
             },
             "options": [
                 {
-                    "value": "area_stacked",
-                    "label": {
-                        "en_US": "Area Chart (Stacked)"
-                    }
-                },
-                {
                     "value": "bar_chart_grouped",
                     "label": {
                         "en_US": "Bar Chart (Grouped)"
@@ -43,12 +37,6 @@
                     "value": "multi_line_area",
                     "label": {
                         "en_US": "Multi Line (Area)"
-                    }
-                },
-                {
-                    "value": "donut_chart",
-                    "label": {
-                        "en_US": "Donut Chart"
                     }
                 }
             ],
@@ -194,6 +182,55 @@
         },
         {
             "label": {
+                "en_US": "Colors"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Colors",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Bar/Line Color"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "BarLineColor",
+                    "readOnly": false,
+                    "repeatable": true,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "label": {
                 "en_US": "Bars"
             },
             "predefinedValue": {
@@ -245,7 +282,7 @@
                         "en_US": "Display horizontally"
                     },
                     "predefinedValue": {
-                        "en_US": true
+                        "en_US": false
                     },
                     "style": {
                         "en_US": ""
@@ -431,7 +468,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "Rotate x axis label"
+                        "en_US": "Rotate x axis labels"
                     },
                     "predefinedValue": {
                         "en_US": false
@@ -451,79 +488,6 @@
                     "required": false,
                     "showLabel": true,
                     "type": "checkbox"
-                },
-                {
-                    "label": {
-                        "en_US": "Rotate y axis label"
-                    },
-                    "predefinedValue": {
-                        "en_US": false
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "boolean",
-                    "indexType": "",
-                    "localizable": true,
-                    "name": "RotateYAxisLabel",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "checkbox"
-                },
-                {
-                    "label": {
-                        "en_US": "X Axis Number Format"
-                    },
-                    "options": [
-                        {
-                            "value": "default",
-                            "label": {
-                                "en_US": "Default"
-                            }
-                        },
-                        {
-                            "value": "number",
-                            "label": {
-                                "en_US": "Number"
-                            }
-                        },
-                        {
-                            "value": "dollars",
-                            "label": {
-                                "en_US": "Dollars"
-                            }
-                        },
-                        {
-                            "value": "percent",
-                            "label": {
-                                "en_US": "Percent"
-                            }
-                        }
-                    ],
-                    "predefinedValue": {
-                        "en_US": []
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "string",
-                    "indexType": "",
-                    "localizable": true,
-                    "multiple": false,
-                    "name": "XAxisNumberFormat",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "select"
                 },
                 {
                     "label": {

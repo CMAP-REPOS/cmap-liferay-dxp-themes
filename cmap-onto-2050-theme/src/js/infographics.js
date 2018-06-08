@@ -40,48 +40,6 @@
 		return lines.join('');
 	}
 
-	function getDataClasses() {
-		//get the array of svg objects and all their info with d3
-		var chartLines = d3.select('.c3-chart-lines').selectAll('g.c3-chart-line');
-		var dataClasses = [];
-		//get the class names
-		for (i = 0; i < chartLines[0].length; i++) {
-			$.each(chartLines[0][i].classList, function (key, value) {
-				//we only need the second value - unique to that data set
-				if (key == 2) {
-					dataClasses.push(value);
-				}
-			});
-		}
-		return dataClasses;
-	}
-
-	function applyFade(dataClasses, index) {
-		var toFade;
-		// d3 always returns an array with a length of 1.
-		// looking one level deeper tells us whether we actually got a result.
-		if (!index) {
-			d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-			return;
-		}
-		if (d3.selectAll('.c3-defocused')[0].length != 0) {
-			d3.selectAll('.c3-defocused').classed('c3-defocused', false);
-		}
-		else if (index.length > 1) {
-			var num;
-			for (i = 0; i < index.length; i++) {
-				num = index[i];
-				toFade = ".c3-chart-line." + dataClasses[num];
-				d3.select(toFade).classed('c3-defocused', true);
-			}
-		}
-		else {
-			// single index functionality in case its needed in future
-			toFade = '.c3-chart-line.' + dataClasses[index];
-			d3.select(toFade).classed('c3-defocused', true);
-		}
-	}
-
 	function resizeAxisLabels(options) {
 		if (!options.disableXAxisLabelResizing || !options.disableYAxisLabelResizing) {
 			var yChildren = d3.select('#' + options.chartId + ' g.c3-axis-y').selectAll('.tick text');
@@ -110,129 +68,21 @@
 
 	return {
 
-		generateAreaStacked: function (options) {
-			console.log('infographics.generateAreaStacked()');
-			console.log(options);
-			var d = options.d;
-			var headings = d3.keys(d[0]);
-			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
-
-			var chart = c3.generate({
-				axis: {
-					x: {
-						type: 'category',
-						padding: {
-							left: options.axis_x_padding_left,
-						},
-						label: {
-							text: options.axis_x_label_text,
-							// position: 'outer-center'
-						},
-						tick: {
-							// can prolly be a function for multiples of 12..
-							values: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276],
-							multiline: false
-						}
-					},
-					y: {
-						label: {
-							text: options.axis_y_label_text,
-							// position: 'inner-middle'
-						},
-						tick: {
-							format: // custom formatting to make sure we dont
-								// have a lot of 0's
-								function (d) {
-									if (d > 1000) {
-										return siFormat(d).replace(",000", "");
-									}
-									else {
-										return d;
-									}
-								}
-						}
-					},
-				},
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				color: {
-					pattern: ["#00396e", "#51c0ec", "#2a5633", "#a3ce72", "#e6b936"]
-				},
-				data: {
-					url: options.data_url,
-					hide: [headings[0]],
-					order: [d3.keys(d[0])],
-					type: 'area',
-					x: headings[0],
-					groups: [d3.keys(d[0])],
-					keys: {
-						x: headings[0]
-					},
-				},
-				legend: {
-					show: false
-				},
-				grid: {
-					y: {
-						show: true,
-					}
-				},
-				point: {
-					show: false,
-				},
-				tooltip: {
-					show: options.display_tooltip,
-					contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-						return getTooltip(d, defaultTitleFormat, defaultValueFormat, color, altDataColor, options);
-					}
-				},
-				onrendered: function () {
-					getDataClasses();
-					generateLegend({
-						d: d,
-						chart: this,
-						chartId: options.chartId,
-						chartType: 'area_stacked',
-						axis_x_tick_format: options.axis_x_tick_format,
-						axis_y_tick_format: options.axis_y_tick_format
-					});
-					resizeAxisLabels({
-						chartId: options.chartId,
-						disableXAxisLabelResizing: options.disableXAxisLabelResizing,
-						disableYAxisLabelResizing: options.disableYAxisLabelResizing
-
-					});
-				}
-			});
-		},
 		generateBarGrouped: function (options) {
 			console.log('infographics.generateBarGrouped()');
 			console.log(options);
 			var d = options.d;
 			var headings = d3.keys(d[0]);
 			var axis_x_rotation = (options.rotate_x_axis_label) ? 45 : 0;
-			var axis_y_rotation = (options.rotate_y_axis_label) ? 45 : 0;
+			var color_pattern = undefined; 
 			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
 			var axis_y_tick_format = d3.format(",");
 
-			if (options.axis_y_tick_format === 'dollars') {
-				axis_y_tick_format = function (d) { return '$' + d; };
-			} else if (options.axis_y_tick_format === 'percent') {
-				axis_y_tick_format = function (d) { return d + '%'; };
+			if (options.color_pattern && options.color_pattern.length) {
+				color_pattern = options.color_pattern;
 			}
-
+			
 			var chart = c3.generate({
-				bindto: d3.select($('#' + options.chartId).get(0)),
-				data: {
-					url: options.data_url,
-					hide: [headings[0]],
-					order: [d3.keys(d[0])],
-					type: 'bar',
-					x: headings[0],
-					columns: [d3.keys(d[0])],
-					keys: {
-						x: headings[0]
-					},
-				},
 				axis: {
 					x: {
 						label: {
@@ -261,10 +111,24 @@
 						tick: {
 							format: function (y) {
 								return formatValue(options.axis_y_tick_format, y);
-							},
-							rotate: axis_y_rotation
+							}
 						}
 					}
+				},
+				bindto: d3.select($('#' + options.chartId).get(0)),
+				color: {
+					pattern: color_pattern
+				},
+				data: {
+					url: options.data_url,
+					hide: [headings[0]],
+					order: [d3.keys(d[0])],
+					type: 'bar',
+					x: headings[0],
+					columns: [d3.keys(d[0])],
+					keys: {
+						x: headings[0]
+					},
 				},
 				grid: {
 					y: {
@@ -306,28 +170,77 @@
 			var rangeMin;
 			var rangeMax;
 			var tickLimit = 10;
-			var axis_y_tick_format = d3.format(",");
-			var axis_y_padding = null;
+			var axis_x_rotation = (options.rotate_x_axis_label) ? 45 : 0;
+			var color_pattern = undefined; 
 			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
 
-			if (options.axis_y_tick_format === 'dollars') {
-				axis_y_tick_format = function (d) { return '$' + d; };
-			} else if (options.axis_y_tick_format === 'percent') {
+			if (options.axis_y_tick_format === 'percent') {
 				rangeMin = 10;
 				rangeMax = 90;
-				axis_y_tick_format = function (d) { return d + '%'; };
-			}
-
-			if ($.isNumeric(options.axis_y_padding)) {
-				axis_y_padding = { top: options.axis_y_padding, bottom: options.axis_y_padding };
 			}
 
 			if (d.length < tickLimit) {
 				tickLimit = d.length;
 			}
+			
+			var axis_x_format_function = undefined;
+			var axis_y_format_function = function (v) {
+				return formatValue(options.axis_y_tick_format, v);
+			};
+
+			if (options.display_horizontally) {
+				axis_x_format_function = function (v) {
+					return formatValue(options.axis_y_tick_format, v);
+				}
+				axis_y_format_function = undefined;
+			}
 
 			var chart = c3.generate({
+				axis: {
+					rotated: options.display_horizontally,
+					x: {
+						label: {
+							position: options.axis_x_label_position,
+							text: options.axis_x_label_text
+						},
+						padding: { 
+							left: parseFloat(options.axis_x_padding), 
+							right: parseFloat(options.axis_x_padding) 
+						},
+						tick: {
+							count: tickLimit,
+							rotate: axis_x_rotation
+						},
+						type: 'category'
+					},
+					y: {
+						inner: false,
+						max: rangeMax,
+						min: rangeMin,
+						label: {
+							position: options.axis_y_label_position,
+							text: options.axis_y_label_text
+						},
+						padding: { 
+							bottom: parseFloat(options.axis_y_padding), 
+							top: parseFloat(options.axis_y_padding) 
+						},
+						tick: {
+							format: function (y) {
+								return formatValue(options.axis_y_tick_format, y);
+							}
+						},
+					}
+				},
+				bar: {
+					width: {
+						ratio: options.bar_width_ratio
+					}
+				},
 				bindto: d3.select($('#' + options.chartId).get(0)),
+				color: {
+					pattern: color_pattern
+				},
 				data: {
 					url: options.data_url,
 					hide: [headings[0]],
@@ -338,38 +251,6 @@
 					keys: {
 						x: headings[0]
 					},
-				},
-				axis: {
-					rotated: options.display_horizontally,
-					x: {
-						type: 'category',
-						label: {
-							text: options.axis_x_label_text,
-							position: 'outer-top',
-							multiline: false
-						},
-						tick: {
-							count: tickLimit
-						}
-					},
-					y: {
-						inner: false,
-						max: rangeMax,
-						min: rangeMin,
-						label: {
-							text: options.axis_y_label_text,
-							position: 'outer-left'
-						},
-						padding: axis_y_padding,
-						tick: {
-							format: axis_y_tick_format
-						},
-					}
-				},
-				bar: {
-					width: {
-						ratio: options.bar_width_ratio
-					}
 				},
 				grid: {
 					y: {
@@ -413,8 +294,12 @@
 			var headings = d3.keys(d[0]);
 			var data_types = {};
 			var axis_x_rotation = (options.rotate_x_axis_label) ? 45 : 0;
-			var axis_y_rotation = (options.rotate_y_axis_label) ? 45 : 0;
+			var color_pattern = undefined; 
 			var altDataColor = (options.altDataColor) ? options.altDataColor : 'rgba(60, 89, 118, 0.2)';
+
+			if (options.color_pattern && options.color_pattern.length) {
+				color_pattern = options.color_pattern;
+			}
 
 			if (options.altDataType && options.chartType === 'multi_line_bar') {
 				data_types[options.altDataType] = 'bar';
@@ -449,12 +334,14 @@
 						tick: {
 							format: function (y) {
 								return formatValue(options.axis_y_tick_format, y);
-							},
-							rotate: axis_y_rotation
+							}
 						}
 					}
 				},
 				bindto: d3.select($('#' + options.chartId).get(0)),
+				color: {
+					pattern: color_pattern
+				},
 				data: {
 					url: options.data_url,
 					type: 'line',

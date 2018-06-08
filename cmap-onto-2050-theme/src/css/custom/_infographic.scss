@@ -42,16 +42,23 @@
 
 .chart-graphic-2050-container {
     border-top: 4px solid $grey-blue;
+	border-bottom: 2px solid $light-blue;
     clear: both;
     color: $light-blue;
+    overflow: hidden;
     padding-top: $unit;
     p {
         color: $light-blue;
     }
-    .chart-graphic-2050-description {
+    .chart-graphic-2050-description-container {
         float: right;
         width: 50%;
-    }
+        .chart-graphic-2050-description {
+            @extend .presna-normal;
+            color: $black;
+        	margin: 0 $unit;
+        }
+	}
     .chart-graphic-2050 {
         color: $light-blue;
         &.has_description {
@@ -96,8 +103,10 @@
                     display: none;
                 }
             }
-            .c3-axis-x-label {
-                // transform: translate(0, -8px);
+        }
+        .c3-axis-y {
+            .tick {
+            	font-weight: bold;
             }
         }
         .c3-line {
@@ -106,13 +115,8 @@
         .c3-xgrid,
         .c3-ygrid {
             opacity: .3 !important;
-            stroke-dasharray: 0
-        }
-        .c3-xgrid-focus,
-        .c3-ygrid-focus {
-            line {
-                // opacity: .3 !important;
-            }
+            stroke-dasharray: 0;
+            stroke-width: 2;
         }
         .c3-tooltip-container {
             background-color: $light-grey;
@@ -142,17 +146,34 @@
                 opacity: 1 !important;
             }
         }
-        /* &.bar_chart_grouped {
-            .c3-axis-x {
-                .tick {
-                    &:first-of-type,
-                    &:last-of-type {
-                        display: none;
-                    }
-                }
-            }
-        } */
+        &.bar_chart_stacked.horizontal {
+	        .c3-axis-x {
+	            .tick {
+	            	font-weight: bold;
+	            }
+	        }
+	        .c3-axis-y {
+	            .tick {
+	            	font-weight: normal;
+	            }
+	        }
+        }
     }
+}
+
+@include desktop() {
+	.chart-graphic-2050-container {
+		.chart-graphic-2050-description {
+	        float: none;
+	        width: 100%;
+	    }
+	    .chart-graphic-2050 {
+	        &.has_description {
+		        float: none;
+		        width: 100%;
+		    }
+	    }
+	}
 }
 
 @include phone() {
