@@ -1,15 +1,24 @@
 .page-anchor{
-  position: absolute;
-  right: 100%;
-  top: 0;
-  // padding-right: $grid-gutter-width;
-  border: none;
-  outline: none;
+  position: relative;
+  color: black !important;
+  border-bottom: none !important;
 
-  .anchor-icon{
-    $size: $size1;
-    width: $size;
+  .page-anchor-button{
+    position: absolute;
+    top: 0;
+    right: 100%;
+    border: none;
+    outline: none;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+  }
+
+  .page-anchor-icon{
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
     max-width: unset !important;
-    height: $size;
   }
 }

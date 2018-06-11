@@ -66,6 +66,7 @@
     border-bottom-color: lighten($color, 10%);
   }
 }
+
 @mixin clear-underline-link($color){
   color: $color;
   text-decoration: underline;

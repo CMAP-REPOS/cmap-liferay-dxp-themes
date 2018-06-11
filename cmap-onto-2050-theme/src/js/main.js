@@ -2,10 +2,46 @@
 
 window.cmap = window.cmap || {};
 window.cmap.global = window.cmap.global || {};
+window.cmap.global.anchors = window.cmap.global.anchors || function(){
+	$('.onto2050-basic-web-content a').each(parse_anchors);
+	function parse_anchors(el){
+	  var $this = $(this);
+		var attr_name = $this.attr('name');
+		var attr_id = $this.attr('id');
+		var name = $this.text();
+		var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="https://clarknelson.com/drop/ic_clipboard.svg" /></button>');
+		var url = window.location.href + '#' + attr_id;
+
+		$button.click(function(){
+			var $temp = $("<div>");
+		  $this.append($temp);
+		  $temp.attr("contenteditable", true)
+		       .html(url).select()
+		       .on("focus", function() { document.execCommand('selectAll',false,null) })
+		       .focus();
+		  document.execCommand("copy");
+		  $temp.remove();
+		});
+		// var $temp = $("<input>");
+		// $temp.val(attr_id);
+    // $("body").append($temp);
+		// console.log($this.attr('id'), attr_id, $temp);
+    // $temp.select();
+    // document.execCommand("copy");
+    // $temp.remove();
+
+	  // console.log($this, $this.attr('name'), $this.attr('id'));
+	  if(attr_name === attr_id){
+	    // console.log('ANCHOR TAG FOUND', $this);
+			$this.addClass('page-anchor');
+			$this.prepend($button);
+	  }
+	}
+};
+
 window.cmap.global.init = window.cmap.global.init || function(){
 
-	// alert('hello world');
-	// console.log($);
+	window.cmap.global.anchors();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
 
