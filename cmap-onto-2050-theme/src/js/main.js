@@ -8,8 +8,9 @@ window.cmap.global.anchors = window.cmap.global.anchors || {};
 window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(){
 	var $this = $(this);
 	var attr_name = $this.attr('name');
-	var attr_id = $this.attr('id');
-	var name = $this.text();
+	var attr_id = $this.attr('id'); // should be == to previous if anchor
+	var name = $this.text(); // actual text highlighted for anchor
+	var url = window.location.origin + window.location.pathname + '#' + attr_id;
 
 	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="https://clarknelson.com/drop/ic_clipboard.svg" /></button>');
 	var $link = $('<li><h4><a href="#'+attr_id+'">'+name+'</a></h4></li>');
@@ -17,14 +18,15 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	$link.click(function(e){
 		e.preventDefault();
 
-		var push = 0;
+		var pull = 0; // we might need to pull the page a bit higher
 		if(window.Liferay.ThemeDisplay.isSignedIn()){
-			push = push + $('.control-menu').innerHeight();
+			pull = pull + $('.control-menu').innerHeight();
 		}
-		console.log(push, $('.control-menu').innerHeight());
+
+		history.replaceState({}, name, ('#' + attr_id));
 
 		$('html,body').animate({
-			scrollTop: $('#'+attr_id).offset().top - push
+			scrollTop: $('#'+attr_id).offset().top - pull
 		}, 1000);
 	});
 
@@ -32,10 +34,11 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 		var $temp = $("<div>");
 		$this.append($temp);
 		$temp.attr("contenteditable", true)
-				 .html(window.location.origin + window.location.pathname + '#' + attr_id).select()
+				 .html(url).select()
 				 .on("focus", function() { document.execCommand('selectAll',false,null) })
 				 .focus();
 		document.execCommand("copy");
+		history.replaceState({}, name, ('#' + attr_id));
 		$temp.remove();
 	}
 
