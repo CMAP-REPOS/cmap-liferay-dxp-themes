@@ -3,7 +3,6 @@
 window.cmap = window.cmap || {};
 window.cmap.global = window.cmap.global || {};
 
-
 window.cmap.global.anchors = window.cmap.global.anchors || {};
 window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(){
 	var $this = $(this);
@@ -42,20 +41,39 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 		$temp.remove();
 	}
 
-	if(attr_name === attr_id){
-		$('.page-nav .list-unstyled').append($link);
-		$button.click(copy_link_to_clipboard);
-		$this.click(copy_link_to_clipboard);
-		$this.addClass('page-anchor');
-		$this.prepend($button);
+	if(attr_id !== undefined && attr_name !== undefined){
+		if(attr_name === attr_id){
+			$('.page-nav .list-unstyled').append($link);
+			$button.click(copy_link_to_clipboard);
+			$this.click(copy_link_to_clipboard);
+			$this.addClass('page-anchor');
+			$this.prepend($button);
+		}
 	}
 }
 window.cmap.global.anchors.init = window.cmap.global.anchors.init || function(){
 	$('.onto2050-basic-web-content a').each(window.cmap.global.anchors.crawl);
 };
 
+
+window.cmap.global.scrollNav = window.cmap.global.scrollNav || {};
+window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || function(){
+	$(window).scroll(_.throttle(function(){
+		var this_scroll = window.scrollY + $('#ControlMenu').innerHeight();
+		var target_scroll = $('#banner').offset().top + $('#banner').innerHeight();
+		if(this_scroll > target_scroll){
+			$('#scroll-nav').addClass('active');
+		} else {
+			$('#scroll-nav').removeClass('active');
+		}
+	},100));
+
+
+}
+
 window.cmap.global.init = window.cmap.global.init || function(){
 
+	window.cmap.global.scrollNav.init();
 	window.cmap.global.anchors.init();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
@@ -81,10 +99,17 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		$('.share-menu').removeClass('hidden');
 		$('.share-button').addClass('hidden');
 	});
+
 	$('.close-button').click(function(){
 		$('.share-button').removeClass('hidden');
 		$('.share-menu').addClass('hidden');
 		$('.close-button').addClass('hidden');
+	});
+
+	$('.jump-to-top-button').click(function(e){
+		$('html,body').animate({
+			scrollTop: 0
+		}, 1000);
 	});
 };
 

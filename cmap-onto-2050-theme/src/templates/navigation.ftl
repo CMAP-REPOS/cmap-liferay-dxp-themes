@@ -1,6 +1,6 @@
 <nav class="${nav_css_class}" id="navigation" role="navigation">
 	<div class="row">
-		<div class="col-sm-16 col-md-12">
+		<div class="col-lg-12 col-md-16">
 			<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 			<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="site-nav list-inline list-unstyled">
 				<li role="presentation">
@@ -23,7 +23,7 @@
 		  	</li>
 			</ul>
 		</div>
-		<div class="col-sm-16 col-md-4">
+		<div class="col-lg-4 hidden-md">
 		<a class="return-to-cmap" href="/" role="menuitem">
 			<span> Back to CMAP.gov </span>
 		</a>

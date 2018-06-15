@@ -25,3 +25,18 @@ section.profile-footer{
     }
   }
 }
+
+section.profile-footer-alt{
+  position: relative;
+  .profile-footer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .profile-footer-inner-content{
+    width: 75%;
+    min-width: 200px;
+  }
+}

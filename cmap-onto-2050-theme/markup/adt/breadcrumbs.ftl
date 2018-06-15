@@ -3,7 +3,7 @@
   <nav id="cmap-onto2050-breadcrumbs" class="breadcrumb-cmap container-fluid">
     <#assign cssClass="" />
     <div class="row">
-      <div class="trail-col col-md-12 col-sm-11 col-xs-16">
+      <div class="trail-col col-lg-12 col-md-13 col-sm-16">
         <div class="breadcrumb-trail active">
           <ol class="breadcrumb">
           <#list entries as entry>
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="share-col col-md-4 col-sm-5 hidden-xs">
+      <div class="share-col col-lg-4 col-md-3 hidden-sm">
         <button class="share-button btn btn-sm btn-plain">
           <svg class="glyphicon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <g fill="#3C5976" transform="translate(4 2)">

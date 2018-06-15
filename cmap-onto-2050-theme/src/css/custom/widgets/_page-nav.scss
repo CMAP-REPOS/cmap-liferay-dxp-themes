@@ -1,15 +1,18 @@
 
 .page-nav{
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  
   &.fixed{
     position: fixed;
     top: 0;
     right: 0;
     width: 25%;
-    z-index: 100;
     padding-right: $grid-gutter-width/2;
     padding-left: $grid-gutter-width/2;
 
-    @include tablet(){
+    @include desktop(){
       width: 18.75%;
     }
   }
@@ -35,6 +38,7 @@
     }
   }
 }
+
 .signed-in{
   .page-nav.fixed{
     top: 64px;

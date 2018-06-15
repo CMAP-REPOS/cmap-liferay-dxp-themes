@@ -34,6 +34,7 @@
 		<#if has_navigation && is_setup_complete>
 			<#include "${full_templates_path}/navigation.ftl" />
 		</#if>
+		<#include "${full_templates_path}/scrollNav.ftl" />
 	</header>
 
 	<section id="content">

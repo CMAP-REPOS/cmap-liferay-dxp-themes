@@ -1,6 +1,13 @@
+.default-theme a.page-anchor{
+  color: black;
+  &:hover{ color: black; }
+}
+.blue-theme a.page-anchor{
+  color: white;
+  &:hover{ color: white; }
+}
 .page-anchor{
   position: relative;
-  color: black !important;
   border-bottom: none !important;
   outline: none;
   cursor: pointer;
@@ -14,6 +21,13 @@
     padding: 0;
     border: none;
     outline: none;
+    background: none;
+
+    @include tablet(){
+      position: relative;
+      right: auto;
+      left: 0;
+    }
   }
 
   .page-anchor-icon{
@@ -22,5 +36,10 @@
     height: 60%;
     margin: 20%;
     max-width: unset !important;
+
+    @include tablet(){
+      margin-bottom: -4px;
+      margin-left: 0;
+    }
   }
 }

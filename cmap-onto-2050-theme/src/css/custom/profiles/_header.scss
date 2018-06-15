@@ -9,6 +9,7 @@ section.profile-header{
     font-family: $font-family-serif;
     font-weight: $font-weight-normal;
     position: relative;
+
     &:before{
       content: '“';
       position: absolute;

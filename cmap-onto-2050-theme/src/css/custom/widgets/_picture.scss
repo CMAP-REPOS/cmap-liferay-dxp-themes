@@ -1,5 +1,7 @@
 .picture-figure{
-
+  position: relative;
+  z-index: 100;
+  
   .picture-img{
     position: relative;
     height: 85vh;
@@ -24,7 +26,7 @@
       @include container-margin-right(3em);
     }
   }
-  
+
   .picture-footnote{
     padding: 1em 0;
     .icon{

@@ -50,7 +50,7 @@ $gray-lighter: lighten($gray-base, 93.5%) !default;
 
 $cmap-dark-blue: #3c5976;
 
-$brand-primary: $cmap-dark-blue !default;
+$brand-primary: $grey-blue !default;
 $brand-success: #5cb85c !default;
 $brand-info: #5bc0de !default;
 $brand-warning: #f0ad4e !default;
@@ -86,7 +86,7 @@ $font-size-base: 15px !default;
 $font-size-large: ceil(($font-size-base * 1.2)) !default;
 $font-size-small: ceil(($font-size-base * 0.8)) !default;
 
-$font-size-jumbo: 72px !default;
+$font-size-jumbo: floor(($font-size-base * 3.6)) !default;
 $font-size-h1: floor(($font-size-base * 2.4)) !default;
 $font-size-h2: floor(($font-size-base * 2)) !default;
 $font-size-h3: ceil(($font-size-base * 1.733333333)) !default;

@@ -1,5 +1,5 @@
 <div id="heading" class="row">
-  <div class="col-md-4 col-sm-11 col-xs-10">
+  <div class="col-lg-4 col-md-6 col-sm-10 col-xs-9">
 
     <button class="hamburger" type="button">
       <span class="hamburger-box">
@@ -20,12 +20,12 @@
       <h1 class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></h1>
     </a>
   </div>
-  <div class="col-md-8 hidden-sm hidden-xs">
-    <h2 class="site-subheadline">
+  <div class="col-lg-8 col-md-10 hidden-sm hidden-xs">
+    <h2 class="site-subheadline bold">
       ON TO 2050
     </h2>
   </div>
-  <div class="col-md-4 col-sm-5 col-xs-6">
+  <div class="col-lg-4 hidden-md col-sm-6 col-xs-7">
     <div class="input-group input-group-lg">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button">

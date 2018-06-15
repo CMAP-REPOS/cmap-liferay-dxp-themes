@@ -1,0 +1,62 @@
+#scroll-nav{
+  background: $off-white;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1000;
+  width: 100%;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid darken($off-white, 10%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .left-container{
+    display: flex;
+    align-items: center;
+    .hamburger{
+      padding: 0;
+      margin-right: 5%;
+      margin-bottom: -4px;
+      transform: translateY(0) scale(0.75);
+    }
+
+    .logo{
+      svg{
+        display: block;
+        transform: scale(0.8);
+      }
+    }
+  }
+  .row{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .portlet-breadcrumb{
+    margin-bottom: 0;
+  }
+  .breadcrumb-cmap.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.active{
+    transform: translateY(0);
+  }
+
+  .logo{
+    .site-title{
+      margin: 0;
+    }
+  }
+}
+
+body.has-control-menu{
+  #scroll-nav{
+    top: 64px;
+
+    @include tablet(){
+      top: 48px;
+    }
+  }
+
+}

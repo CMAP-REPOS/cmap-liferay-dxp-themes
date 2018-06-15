@@ -17,8 +17,7 @@
 @import "buttons";
 @import "ckeditor";
 @import "infographic";
-@import "picture";
-@import "page-nav";
+@import "scroll-nav";
 @import "page-header";
 @import "page-cards";
 @import "section-headline";
@@ -29,5 +28,7 @@
 @import "profiles/header";
 
 @import "widgets/hotspots";
+@import "widgets/picture";
+@import "widgets/page-nav";
 
 @import "vendor/hamburgers/hamburgers";

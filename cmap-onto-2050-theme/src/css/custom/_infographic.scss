@@ -1,192 +1,219 @@
 @charset "UTF-8";
+
 .chart-legend-2050 {
+  @extend .whitney-small;
+  font-weight: 600;
+  border-top: 0.25rem solid $grey-blue;
+  color: $light-blue;
+
+  p {
     @extend .whitney-small;
-	border-top: 4px solid $grey-blue;
-    color: $light-blue;
-    h6 {
-		color: $grey-blue;
+    color: $grey-blue;
+  }
+
+  .chart-legend-2050-description,
+  .chart-legend-2050-key,
+  .chart-legend-2050-source {
+    margin-top: 1rem;
+  }
+
+  .chart-legend-2050-key-list {
+    li {
+      @extend .whitney-small;
+      line-height: 1;
+      padding-bottom: 0.25em;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+
+      .chart-legend-2050-key-image {
+        display: inline-block;
+        max-height: 12px;
+        max-width: 12px;
+      }
+
+      .chart-legend-2050-key-label {
+        display: inline-block;
+        vertical-align: bottom;
+        font-weight: bold;
+      }
     }
-    p {
-	    @extend .whitney-small;
-        color: $light-blue;
-    }
-    .chart-legend-2050-description {
-        margin-top: $unit;
-    }
-    .chart-legend-2050-key {
-        margin-top: $unit;
-    }
-    .chart-legend-2050-key-list {
-        li {
-            @extend .whitney-small;
-            line-height: 1;
-            padding-bottom: .25em;
-            &:last-of-type {
-                padding-bottom: 0;
-            }
-            .chart-legend-2050-key-image {
-                display: inline-block;
-                max-height: 12px;
-                max-width: 12px;
-            }
-            .chart-legend-2050-key-label {
-                display: inline-block;
-                vertical-align: bottom;
-            }
-        }
-    }
-    .chart-legend-2050-source {
-        margin-top: $unit;
-    }
+  }
 }
 
 .chart-graphic-2050-container {
-    border-top: 4px solid $grey-blue;
-	border-bottom: 2px solid $light-blue;
-    clear: both;
+  border-top: 0.25rem solid $grey-blue;
+  border-bottom: 0.125rem solid $light-blue;
+  clear: both;
+  color: $light-blue;
+  overflow: hidden;
+  padding-top: $unit;
+
+  p {
     color: $light-blue;
-    overflow: hidden;
-    padding-top: $unit;
+  }
+
+  .chart-graphic-2050-description-container {
+    float: right;
+    width: 50%;
+
+    .chart-graphic-2050-description {
+      @extend .presna-normal;
+      color: $black;
+      margin: 0 $unit;
+    }
+  }
+
+  .chart-graphic-2050 {
+    color: $light-blue;
+
+    &.has_description {
+      float: left;
+      width: 50%;
+    }
+
+    line {
+      stroke: $off-white;
+    }
+
     p {
-        color: $light-blue;
+      color: $light-blue;
     }
-    .chart-graphic-2050-description-container {
-        float: right;
-        width: 50%;
-        .chart-graphic-2050-description {
-            @extend .presna-normal;
-            color: $black;
-        	margin: 0 $unit;
-        }
-	}
-    .chart-graphic-2050 {
-        color: $light-blue;
-        &.has_description {
-            float: left;
-            width: 50%;
-        }
+
+    path {
+      fill: none;
+
+      &.domain {
+        fill: none;
+      }
+    }
+
+    svg {
+      font-size: $size0;
+    }
+
+    text {
+      font-size: $size-1;
+      font-weight: bold;
+      fill: $light-blue;
+    }
+
+    .c3-defocused {
+      .c3-line {
+        stroke: $off-white !important;
+      }
+
+      .c3-area {
+        fill: $off-white !important;
+      }
+    }
+
+    .c3-axis-x,
+    .c3-axis-y {
+      path {
+        display: none;
+      }
+
+      .tick {
         line {
-            stroke: $off-white;
+          display: none;
         }
-        p {
-            color: $light-blue;
-        }
-        path {
-            fill: none;
-            &.domain {
-                fill: none;
-            }
-        }
-        svg {
-            font-size: $size0;
-        }
-        text {
-            font-size: $size0;
-            fill: $light-blue;
-            font-size: $size-1
-        }
-        .c3-defocused {
-            .c3-line {
-                stroke: $off-white !important;
-            }
-            .c3-area {
-                fill: $off-white !important;
-            }
-        }
-        .c3-axis-x,
-        .c3-axis-y {
-            path {
-                display: none;
-            }
-            .tick {
-                line {
-                    display: none;
-                }
-            }
-        }
-        .c3-axis-y {
-            .tick {
-            	font-weight: bold;
-            }
-        }
-        .c3-line {
-            stroke-width: 3px
-        }
-        .c3-xgrid,
-        .c3-ygrid {
-            opacity: .3 !important;
-            stroke-dasharray: 0;
-            stroke-width: 2;
-        }
-        .c3-tooltip-container {
+      }
+    }
+
+    .c3-axis-y {
+      .tick {
+        font-weight: bold;
+      }
+    }
+
+    .c3-line {
+      stroke-width: 3px;
+    }
+
+    .c3-xgrid,
+    .c3-ygrid {
+      opacity: 0.3 !important;
+      stroke-dasharray: 0;
+      stroke-width: 2;
+    }
+
+    .c3-tooltip-container {
+      background-color: $light-grey;
+      border: 1px solid $grey-blue;
+      padding: 0.5em 0.5em 0.25em;
+
+      table {
+        &.c3-tooltip {
+          td {
+            @extend .whitney-small;
             background-color: $light-grey;
-            border: 1px solid $grey-blue;
-            padding: .5em .5em .25em .5em;
-            table {
-                &.c3-tooltip {
-                    td {
-                        @extend .whitney-small;
-                        background-color: $light-grey;
-                        color: $grey-blue;
-                        padding-bottom: .25em;
-                        &.name {
-                            padding-right: .5em;
-                        }
-                    }
-                    th {
-                        @extend .whitney-small;
-                        background-color: $light-grey;
-                        color: $grey-blue;
-                    }
-                }
-            }
-        }
-        &.area_stacked {
-            .c3-area {
-                opacity: 1 !important;
-            }
-        }
-        &.bar_chart_stacked.horizontal {
-	        .c3-axis-x {
-	            .tick {
-	            	font-weight: bold;
-	            }
-	        }
-	        .c3-axis-y {
-	            .tick {
-	            	font-weight: normal;
-	            }
-	        }
-        }
-    }
-}
+            color: $grey-blue;
+            padding-bottom: 0.25em;
 
+            &.name {
+              padding-right: 0.5em;
+            }
+          }
+
+          th {
+            @extend .whitney-small;
+            background-color: $light-grey;
+            color: $grey-blue;
+          }
+        }
+      }
+    }
+
+    &.area_stacked {
+      .c3-area {
+        opacity: 1 !important;
+      }
+    }
+
+    &.bar_chart_stacked.horizontal {
+      .c3-axis-x {
+        .tick {
+          font-weight: bold;
+        }
+      }
+
+      .c3-axis-y {
+        .tick {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
 @include desktop() {
-	.chart-graphic-2050-container {
-		.chart-graphic-2050-description {
-	        float: none;
-	        width: 100%;
-	    }
-	    .chart-graphic-2050 {
-	        &.has_description {
-		        float: none;
-		        width: 100%;
-		    }
-	    }
-	}
-}
-
-@include phone() {
-    .chart-graphic-2050-container {
-        .chart-graphic-2050-description {
-            float: none;
-            width: auto;
-        }
-        .chart-graphic-2050 {
-            &.has_description {
-                float: none;
-                width: auto;
-            }
-        }
+  .chart-graphic-2050-container {
+    .chart-graphic-2050-description {
+      float: none;
+      width: 100%;
     }
+
+    .chart-graphic-2050 {
+      &.has_description {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+@include phone() {
+  .chart-graphic-2050-container {
+    .chart-graphic-2050-description {
+      float: none;
+      width: auto;
+    }
+
+    .chart-graphic-2050 {
+      &.has_description {
+        float: none;
+        width: auto;
+      }
+    }
+  }
 }

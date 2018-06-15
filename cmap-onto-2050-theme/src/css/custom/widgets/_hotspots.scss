@@ -1,6 +1,7 @@
 .hotspot-widget{
   position: relative;
-
+  z-index: 100;
+  
   .hotspot-layer{
     position: absolute;
     top: 0; left: 0;
