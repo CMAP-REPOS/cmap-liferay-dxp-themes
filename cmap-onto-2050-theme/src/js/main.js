@@ -44,8 +44,12 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	if(attr_id !== undefined && attr_name !== undefined){
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
-			$button.click(copy_link_to_clipboard);
-			$this.click(copy_link_to_clipboard);
+			$button.click(()=>{
+				window.cmap.global.copyToClipboard(url);
+			});
+			$this.click(()=>{
+				window.cmap.global.copyToClipboard(url);
+			});
 			$this.addClass('page-anchor');
 			$this.prepend($button);
 		}
@@ -58,6 +62,9 @@ window.cmap.global.anchors.init = window.cmap.global.anchors.init || function(){
 
 window.cmap.global.scrollNav = window.cmap.global.scrollNav || {};
 window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || function(){
+
+	$button.click(copy_link_to_clipboard);
+
 	$(window).scroll(_.throttle(function(){
 		var this_scroll = window.scrollY + $('#ControlMenu').innerHeight();
 		var target_scroll = $('#banner').offset().top + $('#banner').innerHeight();
@@ -68,9 +75,40 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 		}
 	},100));
 
+	var $jumbo = $('.onto2050-basic-web-content .whitney-jumbo:first-of-type');
+	var $huge = $('.onto2050-basic-web-content .whitney-huge:first-of-type');
+	var $large = $('.onto2050-basic-web-content .whitney-large:first-of-type');
+
+	function set_page_title(){
+		$('#scroll-nav .page-title').text($(this).text());
+	}
+	if($jumbo.length){
+		$jumbo.each(set_page_title);
+	} else if ($huge.length) {
+		$huge.each(set_page_title);
+	} else if ($large.length) {
+		$large.each(set_page_title);
+	}
+
+	function copy_link_to_clipboard(){
+
+	}
+
+	$('.share-menu .page-url').val(window.location.href);
 
 }
 
+window.cmap.global.copyToClipboard = window.cmap.global.copyToClipboard || function(url){
+	var $temp = $("<div>");
+	$this.append($temp);
+	$temp.attr("contenteditable", true)
+			 .html(url).select()
+			 .on("focus", function() { document.execCommand('selectAll',false,null) })
+			 .focus();
+	document.execCommand("copy");
+	history.replaceState({}, name, ('#' + attr_id));
+	$temp.remove();
+}
 window.cmap.global.init = window.cmap.global.init || function(){
 
 	window.cmap.global.scrollNav.init();

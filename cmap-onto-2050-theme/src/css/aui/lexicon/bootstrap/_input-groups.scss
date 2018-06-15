@@ -22,11 +22,12 @@ $jump-offset-ratio: 1;
     .btn{
       padding-right: #{$padding-base-horizontal / $jump-offset-ratio};
       &:hover{
-        padding-right: $padding-base-horizontal;
+        padding-right: #{$padding-base-horizontal / $jump-offset-ratio};
         z-index: 10;
       }
     }
   }
+
   .form-control {
     // Ensure that the input is always above the *appended* addon button for
     // proper border colors.
@@ -40,7 +41,7 @@ $jump-offset-ratio: 1;
 
     width: 100%;
     margin-bottom: 0;
-    margin-left: - $padding-base-horizontal;
+    // margin-left: - #{$padding-base-horizontal / 2};
     padding-left: #{$padding-base-horizontal / $jump-offset-ratio};
     border-left-color: $input-bg;
     &:focus{
@@ -60,6 +61,7 @@ $jump-offset-ratio: 1;
 .input-group-lg > .input-group-btn > .btn {
   @extend .input-lg;
 }
+
 .input-group-lg{
   .input-group-btn{
     .btn{
@@ -70,11 +72,10 @@ $jump-offset-ratio: 1;
     }
   }
   .form-control {
-    margin-left: - $padding-large-horizontal;
+    margin-left: - #{$padding-large-horizontal / 2};
     padding-left: #{$padding-large-horizontal / $jump-offset-ratio};
     &:focus{
       padding-left: $padding-large-horizontal;
-
     }
   }
 }

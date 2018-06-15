@@ -27,6 +27,7 @@
       }
     }
   }
+
   .row{
     margin-left: 0;
     margin-right: 0;
@@ -38,6 +39,32 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .page-title{
+    position: absolute;
+    color: $dark-blue;
+    margin-bottom: 0;
+    top: -1px;
+
+    @include tablet(){
+      position: relative;
+      top: 0;
+    }
+  }
+
+  .share-menu{
+    position: absolute;
+    top: -0.5rem;
+    left: $grid-gutter-width / 2;
+    width: calc(100% - #{$grid-gutter-width});
+  }
+
+  .close-button,
+  .share-button{
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+  }
+
 
   &.active{
     transform: translateY(0);

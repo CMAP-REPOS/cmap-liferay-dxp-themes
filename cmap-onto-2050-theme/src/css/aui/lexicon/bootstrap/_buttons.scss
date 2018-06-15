@@ -50,6 +50,7 @@
     @include opacity(.65);
     @include box-shadow(none);
   }
+
   .glyphicon{
     // $glyphicon-size: $line-height-base;
     $glyphicon-size: 1.2em;
@@ -84,6 +85,9 @@ a.btn {
 }
 .btn-plain {
   @include button-variant($btn-plain-color, $btn-plain-bg, $btn-plain-border);
+}
+.btn-off-white {
+  @include button-variant($grey-blue, $off-white, $btn-plain-border);
 }
 .blue-theme{
   .btn-plain {
@@ -128,18 +132,21 @@ a.btn {
     background-color: transparent;
     @include box-shadow(none);
   }
+
   &,
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
   }
+
   &:hover,
   &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
     background-color: transparent;
   }
+
   &[disabled],
   fieldset[disabled] & {
     &:hover,
