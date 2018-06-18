@@ -79,11 +79,10 @@
 
 body.has-control-menu{
   #scroll-nav{
-    top: 64px;
+    top: $control-menu-height-desktop;
 
     @include tablet(){
-      top: 48px;
+      top: $control-menu-height-mobile;
     }
   }
-
 }

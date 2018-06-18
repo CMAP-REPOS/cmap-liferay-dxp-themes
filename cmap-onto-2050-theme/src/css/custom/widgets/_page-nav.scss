@@ -3,7 +3,7 @@
   position: absolute;
   z-index: 99;
   width: 100%;
-  
+
   &.fixed{
     position: fixed;
     top: 0;
@@ -41,7 +41,10 @@
 
 .signed-in{
   .page-nav.fixed{
-    top: 64px;
+    top: $control-menu-height-desktop;
+    @include tablet(){
+      top: $control-menu-height-mobile;
+    }
   }
 }
 

@@ -23,6 +23,22 @@
 			</color-scheme-images-path>
 		</color-scheme>
 
+		<color-scheme id="03" name="Grey Background">
+			<default-cs>false</default-cs>
+			<css-class>grey-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/themes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+
+		<color-scheme id="04" name="Black Background">
+			<default-cs>false</default-cs>
+			<css-class>black-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/themes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+
 		<template-extension>ftl</template-extension>
 
 		<portlet-decorator id="margin-bottom" name="Margin Bottom">

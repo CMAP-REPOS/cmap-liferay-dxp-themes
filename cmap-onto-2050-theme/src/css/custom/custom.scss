@@ -1,4 +1,3 @@
-
 @import "variables";
 @import "mixins";
 
@@ -19,6 +18,7 @@
 @import "infographic";
 @import "scroll-nav";
 @import "page-header";
+@import "nav";
 @import "page-cards";
 @import "section-headline";
 @import "glossary";
@@ -27,6 +27,10 @@
 @import "profiles/grid";
 @import "profiles/header";
 
+@import "themes/blue-theme";
+@import "themes/grey-theme";
+
+@import "widgets/cover-photo";
 @import "widgets/hotspots";
 @import "widgets/picture";
 @import "widgets/page-nav";

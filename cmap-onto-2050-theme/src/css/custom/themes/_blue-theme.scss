@@ -1,14 +1,12 @@
 body.blue-theme{
   background: $grey-blue;
 
-  &.signed-in .portlet-column-content.empty {
-		opacity: 0.2;
-		&:hover{
-			opacity: 0.5;
-		}
-	}
-  &.portal-popup{
-    background: $white;
+  a {
+    color: $light-blue;
+    &:hover,
+    &:focus {
+      color: lighten($light-blue, 10%);
+    }
   }
 
   #heading{
@@ -79,4 +77,15 @@ body.blue-theme{
   .btn-plain {
     @include button-variant($white, $grey-blue, $btn-plain-border);
   }
+
+  &.signed-in .portlet-column-content.empty {
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.5;
+		}
+	}
+  &.portal-popup{
+    background: $white;
+  }
+
 }

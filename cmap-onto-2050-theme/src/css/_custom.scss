@@ -6,7 +6,6 @@
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
 @import "custom/custom";
-@import "color_schemes/blue-theme";
 
 .underline-link{
   @include underline-link($link-color);

@@ -11,7 +11,7 @@ body.cmap-on-to-2050-theme{
   .breadcrumb-cmap{
     border-top: 1px solid $off-white;
     border-bottom: 1px solid $off-white;
-    padding: 0.614em #{$grid-gutter-width / 2};
+    padding: 1rem #{$grid-gutter-width / 2};
   }
   // .breadcrumb-trail{ }
   .breadcrumb{
@@ -21,9 +21,7 @@ body.cmap-on-to-2050-theme{
   .share-button,
   .close-button{
     position: relative;
-    left: - $padding-base-horizontal;
-
-    // padding-left: 0 !important;
+    left: - #{$grid-gutter-width / 2};
   }
   .share-menu{
     position: absolute;

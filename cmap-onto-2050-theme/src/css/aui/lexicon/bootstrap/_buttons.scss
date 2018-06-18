@@ -60,14 +60,6 @@
   }
   // [converter] extracted a& to a.btn
 }
-.blue-theme{
-  .glyphicon{
-    *[fill="#3C5976"],
-    *[fill="#3A5776"]{
-      fill: $white;
-    }
-  }
-}
 
 a.btn {
   &.disabled,

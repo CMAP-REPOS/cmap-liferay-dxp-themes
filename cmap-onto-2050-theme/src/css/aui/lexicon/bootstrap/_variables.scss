@@ -8,6 +8,7 @@ $bootstrap-sass-asset-helper: false !default;
 //
 //## Gray and brand colors for use across Bootstrap.
 
+
 // Colors
 $dark-red: #750709;
 $red: #DB2028;
@@ -27,6 +28,7 @@ $dark-blue: #004F93;
 $blue: #008FD4;
 
 $black: #000000;
+$off-black: #3C3837;
 $dark-grey: #5E7A87;
 $light-grey: #E2E7EA;
 $off-white: #E4EBEE;
@@ -38,8 +40,7 @@ $white: #FFFFFF;
 // used so far
 // $grey-blue, $dark-blue, $light-blue, $off-white
 
-
-
+$cmap-dark-blue: #3c5976;
 
 $gray-base: #000 !default;
 $gray-darker: lighten($gray-base, 13.5%) !default;
@@ -47,8 +48,6 @@ $gray-dark: lighten($gray-base, 20%) !default;
 $gray: lighten($gray-base, 33.5%) !default;
 $gray-light: lighten($gray-base, 46.7%) !default;
 $gray-lighter: lighten($gray-base, 93.5%) !default;
-
-$cmap-dark-blue: #3c5976;
 
 $brand-primary: $grey-blue !default;
 $brand-success: #5cb85c !default;
@@ -228,7 +227,7 @@ $btn-border-radius-small:        $border-radius-small !default;
 
 //** `<input>` background color
 // $input-bg:                       #fff !default;
-$input-bg:                       #E4EBEE !default;
+$input-bg:                       $off-white !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $gray-lighter !default;
 
@@ -240,7 +239,6 @@ $input-color:                    #5E7A87 !default;
 $input-border:                   darken($input-bg, 10%) !default;
 
 $input-hover-shadow-length: 5px;
-$jump-offset-ratio: 1.5;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius

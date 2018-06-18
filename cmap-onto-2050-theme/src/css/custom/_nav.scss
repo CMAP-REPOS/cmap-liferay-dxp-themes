@@ -1,0 +1,39 @@
+
+#navigation{
+
+  @include tablet(){
+    display: none;
+  }
+
+  .site-nav{
+    @include container-margin-left();
+    margin-bottom: 0;
+
+    li:first-of-type{
+      padding-left: 0;
+    }
+  }
+
+  a{
+    display: inline-block;
+    padding: 1rem 0;
+    font-weight: $font-weight-bold;
+    border-top: 0.1em solid transparent;
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+      border-top: 0.1em solid $grey-blue;
+    }
+  }
+
+  .return-to-cmap{
+    @include tablet(){
+      @include container-margin-left();
+    }
+    color: $light-blue;
+    margin-bottom: $padding-base-vertical;
+    &:hover{
+      border-top-color: $light-blue;
+    }
+  }
+}

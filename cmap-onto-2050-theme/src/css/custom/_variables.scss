@@ -1,3 +1,36 @@
+
+// Colors
+$dark-red: #750709;
+$red: #DB2028;
+$light-red: #F47932;
+
+$light-gold: #5E5011;
+$gold: #9E7A38;
+$dark-gold: #E7BB20;
+
+$dark-green: #346139;
+$green: #6CAD4E;
+$light-green: #A2D06D;
+
+$grey-blue: #3C5976;
+$light-blue: #88a0b2;
+$dark-blue: #004F93;
+$blue: #008FD4;
+
+$black: #000000;
+$dark-grey: #5E7A87;
+$light-grey: #E2E7EA;
+$off-white: #E4EBEE;
+$off-white-text: #587387;
+$almost-white: #F7F9FA;
+$white: #FFFFFF;
+
+
+// used so far
+// $grey-blue, $dark-blue, $light-blue, $off-white
+
+$cmap-dark-blue: #3c5976;
+
 // sizes
 $variation: 1.414;
 $size0: 1em;
@@ -65,3 +98,6 @@ $cmap-primary: $cmap-dark-blue;
 $primary: $cmap-primary;
 
 $site-border: 1px solid $light-grey;
+
+$control-menu-height-desktop: 64px;
+$control-menu-height-mobile: 48px;

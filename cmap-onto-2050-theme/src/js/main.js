@@ -29,18 +29,6 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 		}, 1000);
 	});
 
-	function copy_link_to_clipboard(){
-		var $temp = $("<div>");
-		$this.append($temp);
-		$temp.attr("contenteditable", true)
-				 .html(url).select()
-				 .on("focus", function() { document.execCommand('selectAll',false,null) })
-				 .focus();
-		document.execCommand("copy");
-		history.replaceState({}, name, ('#' + attr_id));
-		$temp.remove();
-	}
-
 	if(attr_id !== undefined && attr_name !== undefined){
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
@@ -63,17 +51,18 @@ window.cmap.global.anchors.init = window.cmap.global.anchors.init || function(){
 window.cmap.global.scrollNav = window.cmap.global.scrollNav || {};
 window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || function(){
 
-	$button.click(copy_link_to_clipboard);
-
-	$(window).scroll(_.throttle(function(){
-		var this_scroll = window.scrollY + $('#ControlMenu').innerHeight();
-		var target_scroll = $('#banner').offset().top + $('#banner').innerHeight();
-		if(this_scroll > target_scroll){
-			$('#scroll-nav').addClass('active');
-		} else {
-			$('#scroll-nav').removeClass('active');
-		}
-	},100));
+	var $banner = $('#banner'), $scroll_nav = $('#scroll-nav');
+	if($banner.length && $scroll_nav.length){
+		$(window).scroll(_.throttle(function(){
+			var this_scroll = window.scrollY + $('#ControlMenu').innerHeight();
+			var target_scroll = $banner.offset().top + $banner.innerHeight();
+			if(this_scroll > target_scroll){
+				$scroll_nav.addClass('active');
+			} else {
+				$scroll_nav.removeClass('active');
+			}
+		},100));
+	}
 
 	var $jumbo = $('.onto2050-basic-web-content .whitney-jumbo:first-of-type');
 	var $huge = $('.onto2050-basic-web-content .whitney-huge:first-of-type');
@@ -88,10 +77,8 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 		$huge.each(set_page_title);
 	} else if ($large.length) {
 		$large.each(set_page_title);
-	}
-
-	function copy_link_to_clipboard(){
-
+	} else {
+		console.log('No page title found for this page. Please use H1, H2, or Huge.');
 	}
 
 	$('.share-menu .page-url').val(window.location.href);
