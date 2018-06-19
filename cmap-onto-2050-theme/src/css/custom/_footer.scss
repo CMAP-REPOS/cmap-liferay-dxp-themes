@@ -8,6 +8,7 @@
       display: none;
     }
   }
+
   .mobile-content{
     display: none;
     @include tablet(){
@@ -44,6 +45,11 @@
     transform: translateY(0.1em);
     a{
       margin-right: 0.5em;
+      color: $grey-blue !important;
+      &:hover{
+        color: $blue !important;
+        border-bottom: 1px solid $blue;
+      }
     }
   }
   .footer-social-link{

@@ -116,6 +116,29 @@
       "required": true,
       "showLabel": true,
       "type": "select"
+    },
+    {
+      "label": {
+        "en_US": "Shade Color"
+      },
+      "predefinedValue": {
+        "en_US": ""
+      },
+      "style": {
+        "en_US": ""
+      },
+      "tip": {
+        "en_US": "If set (with a hex value such as #000), there will be placed a colored vail over the image to make text easier to read."
+      },
+      "dataType": "string",
+      "indexType": "keyword",
+      "localizable": true,
+      "name": "ShadeColor",
+      "readOnly": false,
+      "repeatable": false,
+      "required": false,
+      "showLabel": true,
+      "type": "text"
     }
   ]
 }

@@ -81,6 +81,7 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 		console.log('No page title found for this page. Please use H1, H2, or Huge.');
 	}
 
+
 	$('.share-menu .page-url').val(window.location.href);
 
 }
@@ -96,8 +97,18 @@ window.cmap.global.copyToClipboard = window.cmap.global.copyToClipboard || funct
 	history.replaceState({}, name, ('#' + attr_id));
 	$temp.remove();
 }
+window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight || function(){
+	function compute(){
+		var $banner_height = $('#banner').innerHeight();
+		var $footer_height = $('#footer').innerHeight();
+		$('#content').css('min-height', (window.innerHeight - ($banner_height + $footer_height)));
+	}
+	$(window).resize(_.throttle(compute));
+	compute();
+}
 window.cmap.global.init = window.cmap.global.init || function(){
 
+	window.cmap.global.setContentMinHeight();
 	window.cmap.global.scrollNav.init();
 	window.cmap.global.anchors.init();
 
@@ -136,6 +147,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 			scrollTop: 0
 		}, 1000);
 	});
+
 };
 
 /* This function gets loaded when all the HTML, not including the portlets, is loaded. */

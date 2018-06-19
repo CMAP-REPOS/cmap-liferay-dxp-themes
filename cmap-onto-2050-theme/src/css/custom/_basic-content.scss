@@ -39,9 +39,15 @@
     padding: 0;
     margin: 3rem 0;
     @extend .hang-quotes;
-    
+
     p{
       @extend .presna-large;
+    }
+  }
+
+  .inline-center-col{
+    .col-lg-4:first-of-type > *{
+      @include container-margin-left();
     }
   }
 }

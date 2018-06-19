@@ -1,7 +1,13 @@
+<#assign shade_color = ShadeColor.getData()>
+<#assign image = Image.getData()>
+
 <div class="onto2050-cover-photo-widget">
-  <#if Image.getData()?? && Image.getData() != "">
-    <div class="cover-photo-container" style="background: url(${Image.getData()}); background-position: ${HorzImgAlign.getData()} ${VertImgAlign.getData()}; background-size: cover;">
+  <#if image?? && image != "">
+    <div class="cover-photo-container" style="background: url(${image}); background-position: ${HorzImgAlign.getData()} ${VertImgAlign.getData()}; background-size: cover;">
       <span class="sr-only">${Image.getAttribute("alt")}</span>
+      <#if shade_color?? && shade_color != "">
+        <div class="image-mask" style="background: ${shade_color};"></div>
+      </#if>
     </div>
   </#if>
 </div>
@@ -15,9 +21,31 @@ Liferay.on(
       alert('There should only be one cover photo per page.');
     } else {
       $('body').addClass('has-cover-photo');
+
       var $photo = $cover_photo.find('.cover-photo-container');
       $photo.remove();
       $('#wrapper').before($photo);
+
+      var content_rows = ${NumberOfRows.getData()};
+      var banner_height = $('#banner').innerHeight();
+      var breadcrumbs_height = $('#breadcrumbs').innerHeight();
+      var foobar = banner_height + breadcrumbs_height;
+      var $row = $('.cmap-onto-2050-main-content > .row');
+
+      if($('body.signed-in').length){
+        foobar += $('#ControlMenu').innerHeight();
+        // console.log('Control bar height: ', $('#ControlMenu').innerHeight());
+      }
+      for(var i=0; i<content_rows; i++){
+        // console.log($row[i], $($row[i]), $($row[i]).innerHeight(), foobar);
+        foobar -= $($row[i]).innerHeight();
+      }
+
+      console.log(foobar, window.innerHeight - foobar);
+      
+      if(foobar > 0 && (window.innerHeight - foobar) > 0){
+        $($row[content_rows]).css('padding-top', window.innerHeight - foobar);
+      }
     }
 	}
 );
