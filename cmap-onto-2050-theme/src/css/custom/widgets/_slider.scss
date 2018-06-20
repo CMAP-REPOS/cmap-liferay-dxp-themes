@@ -1,0 +1,34 @@
+.portlet-layout > .col-md-16 {
+  .onto2050-slider {
+    @include container-margin();
+  }
+}
+
+.onto2050-slider{
+  display: flex;
+  height: 80vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: $grid-gutter-width / $ratio;
+
+  img{
+    width: auto;
+    height: 100%;
+    margin-right: $grid-gutter-width;
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+  }
+}
+
+.onto2050-slider::-webkit-scrollbar{
+  height: 5px;
+}
+.onto2050-slider::-webkit-scrollbar-thumb{
+  background: $white;
+}
+.onto2050-slider::-webkit-scrollbar-track{
+  opacity: 1;
+  background: rgba($black,0.25);
+}
