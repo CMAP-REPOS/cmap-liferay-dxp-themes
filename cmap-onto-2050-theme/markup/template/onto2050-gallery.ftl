@@ -1,5 +1,6 @@
 
 <#assign unique = randomNamespace>
+<#assign show_dots = getterUtil.getBoolean(ShowDots.getData())>
 <div id="${unique}" class="onto2050-gallery row">
   <#if Image.getSiblings()?has_content>
 
@@ -51,7 +52,7 @@ Liferay.on(
 
       $nav_container.find('.nav-item').removeClass('active');
       $nav_container.find('.nav-item[data-index="'+index+'"]').addClass('active');
-      
+
       $slides.each(function(){
         if(this == element.el){
           $(this).removeClass('invis');
@@ -123,6 +124,11 @@ Liferay.on(
       if($slides.length === 1){
         $gallery.find('.gallery-controls').hide();
       }
+      <#if show_dots>
+      $nav_container.show();
+      <#else>
+      $nav_container.hide();
+      </#if>
 
       $gallery.find('.gallery-controls .left').click(prev_slide);
       $gallery.find('.gallery-controls .right').click(next_slide);
