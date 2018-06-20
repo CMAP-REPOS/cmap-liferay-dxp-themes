@@ -1,0 +1,138 @@
+
+.portlet-layout > .col-md-16 {
+  .onto2050-gallery {
+    .gallery-root{
+      @include container-margin();
+    }
+  }
+}
+.portlet-layout > .col-lg-8 {
+  .onto2050-gallery {
+  }
+}
+.onto2050-gallery {
+
+  .gallery-container{
+    position: relative;
+  }
+
+  .gallery-controls{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+
+    .left, .right{
+      position: absolute;
+      height: 100%;
+      width: 25%;
+      top: 0;
+      cursor: pointer;
+
+      svg{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: $grid-gutter-width !important;
+        height: $grid-gutter-width !important;
+      }
+    }
+    .left{
+      left: 0;
+      svg{
+        left: $grid-gutter-width;
+      }
+    }
+    .right{
+      right: 0;
+      svg{
+        right: $grid-gutter-width;
+      }
+    }
+  }
+
+  .gallery-root{
+    position: relative;
+  }
+
+  .gallery-root,
+  .caption-container{
+    transition: all 0.4s ease-in-out;
+  }
+
+  img.slide{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .caption{
+    position: absolute;
+    left: 0;
+    padding-top: $grid-gutter-width;
+    color: #88a0b2;
+
+    &.empty{
+      padding-top: 0;
+    }
+  }
+
+  img.slide,
+  .caption{
+    opacity: 1;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &.invis{
+      opacity: 0;
+      z-index: 5;
+    }
+  }
+
+  .nav-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $grid-gutter-width / 2;
+
+    .nav-item{
+      position: relative;
+      display: inline-block;
+      width: $grid-gutter-width;
+      height: $grid-gutter-width;
+      cursor: pointer;
+
+      &:after{
+        content:'';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: $grid-gutter-width / 5;
+        height: $grid-gutter-width / 5;
+        background: transparent;
+        border-radius: 50%;
+        border: 1px solid $off-white;
+        transition: all 0.2s ease;
+      }
+
+      &:hover{
+        &:after{
+          background: $off-white;
+        }
+      }
+
+      &.active{
+        &:after{
+          border-color: $white;
+          background: $white;
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,8 @@
   .left-container{
     display: flex;
     align-items: center;
+    @include container-margin-left();
+    
     .hamburger{
       padding: 0;
       margin-right: 5%;

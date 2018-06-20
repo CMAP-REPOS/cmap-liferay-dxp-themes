@@ -12,18 +12,18 @@
 }
 
 .content-margin{
-  margin: 3em 0;
+  margin: $grid-gutter-width 0;
 }
 .product-menu .scope-selector{
   width: 100%;
 }
 
 .margin-bottom-portlet{
-  margin-bottom: 3rem;
+  margin-bottom: $grid-gutter-width;
 }
 
 #profile-content{
-  margin: 3rem 0;
+  margin: $grid-gutter-width 0;
   @include tablet(){
     @include container-margin(3em);
   }

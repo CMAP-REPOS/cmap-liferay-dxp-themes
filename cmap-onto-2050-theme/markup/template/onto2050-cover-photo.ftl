@@ -16,7 +16,27 @@
 Liferay.on(
 	'allPortletsReady',
 	function() {
+
+
     var $cover_photo = $('.onto2050-cover-photo-widget');
+
+    function compute_padding_top(){
+      var content_rows = ${NumberOfRows.getData()};
+      var banner_height = $('#banner').innerHeight();
+      var breadcrumbs_height = $('#breadcrumbs').innerHeight();
+      var foobar = banner_height + breadcrumbs_height;
+      var $row = $('.cmap-onto-2050-main-content > .row');
+
+      if($('body.signed-in').length){
+        foobar += $('#ControlMenu').innerHeight();
+      }
+      for(var i=0; i<content_rows; i++){
+        foobar += $($row[i]).innerHeight();
+      }
+      if((window.innerHeight - foobar) > 0){
+        $($row[content_rows]).css('padding-top', window.innerHeight - foobar);
+      }
+    }
     if($cover_photo.length > 1){
       alert('There should only be one cover photo per page.');
     } else {
@@ -26,26 +46,8 @@ Liferay.on(
       $photo.remove();
       $('#wrapper').before($photo);
 
-      var content_rows = ${NumberOfRows.getData()};
-      var banner_height = $('#banner').innerHeight();
-      var breadcrumbs_height = $('#breadcrumbs').innerHeight();
-      var foobar = banner_height + breadcrumbs_height;
-      var $row = $('.cmap-onto-2050-main-content > .row');
-
-      if($('body.signed-in').length){
-        foobar += $('#ControlMenu').innerHeight();
-        // console.log('Control bar height: ', $('#ControlMenu').innerHeight());
-      }
-      for(var i=0; i<content_rows; i++){
-        // console.log($row[i], $($row[i]), $($row[i]).innerHeight(), foobar);
-        foobar -= $($row[i]).innerHeight();
-      }
-
-      console.log(foobar, window.innerHeight - foobar);
-      
-      if(foobar > 0 && (window.innerHeight - foobar) > 0){
-        $($row[content_rows]).css('padding-top', window.innerHeight - foobar);
-      }
+      compute_padding_top();
+      $(window).resize(_.throttle(compute_padding_top, 100));
     }
 	}
 );
