@@ -1,0 +1,109 @@
+body.blue-theme{
+
+  background: $blue-theme-background-color;
+
+  .journal-content-article{
+    h1,h2,h3,h4,h5,h6,p{
+      color: $blue-theme-text-color;
+    }
+  }
+
+  #heading{
+    .site-subheadline{
+      color: $blue-theme-alt-text-color;
+    }
+    .logo{
+      svg{
+        path,polygon{
+          &[fill="#000000"]{
+            fill: $blue-theme-alt-text-color;
+          }
+        }
+      }
+    }
+  }
+
+  #navigation{
+    a{
+      &:hover{
+        border-top: 0.1em solid lighten($blue-theme-text-color, 10%);
+      }
+    }
+  }
+
+
+  #breadcrumbs{
+    .breadcrumb-cmap{
+      $percent: 0.5;
+      border-top-color: rgba($blue-theme-text-color, $percent);
+      border-bottom-color: rgba($blue-theme-text-color, $percent);
+    }
+    a{
+      color: $blue-theme-alt-text-color;
+    }
+  }
+
+  #wrapper{
+    a {
+      color: $blue-theme-text-color;
+      &:hover,
+      &:focus {
+        color: lighten($blue-theme-text-color, 10%);
+      }
+    }
+  }
+
+  .page-nav{
+    ul li a{
+      color: $blue-theme-alt-text-color !important;
+    }
+  }
+
+  .journal-content-article{
+    h1,h2,h3,h4,h5,h6,p{
+      color: $blue-theme-alt-text-color;
+    }
+  }
+
+  .page-cards{
+    .top{
+      .placeholder-image{
+        background: $blue-theme-alt-text-color;
+      }
+    }
+    .bottom{
+      background: lighten($blue-theme-background-color, 10%);
+      h4 a {
+        @include clear-underline-link($blue-theme-alt-text-color);
+      }
+    }
+  }
+  $blue-theme-background-color: #3C5976;
+  $blue-theme-text-color: #C1CDD7;
+  .picture-figure{
+    .picture-footnote{
+      color: $blue-theme-alt-text-color;
+    }
+  }
+
+  .glyphicon{
+    *[fill="#3C5976"],
+    *[fill="#3A5776"]{
+      fill: $blue-theme-alt-text-color;
+    }
+  }
+  .btn-plain {
+    @include button-variant($blue-theme-alt-text-color, $blue-theme-text-color, $btn-plain-border);
+  }
+
+  &.signed-in .portlet-column-content.empty {
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.5;
+		}
+	}
+  &.portal-popup{
+    background: $blue-theme-alt-text-color;
+  }
+
+}

@@ -1,5 +1,5 @@
 <div class="page-nav">
-  <h4 class="widget-headline">${Heading.getData()}</h4>
+  <h5 class="widget-headline">${Heading.getData()}</h5>
 	<ul class="list-unstyled"></ul>
 </div>
 
@@ -13,7 +13,7 @@ Liferay.on(
 			var $this = $(this),
 					id = $this.attr('id'),
 					title = $this.find('.section-title').text(),
-					$item = $('<li><h4><a href="#'+id+'">'+title+'</a></h4></li>');
+					$item = $('<li><h5><a href="#'+id+'">'+title+'</a></h5></li>');
 			$item.click(handleClick);
 			$nav.find('ul').append($item);
 		}

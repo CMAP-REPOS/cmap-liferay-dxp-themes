@@ -13,11 +13,17 @@ body#cmap-ckeditor{
   }
 
   .inline-center-col{
-    .col-lg-4{
-      background: rgba(blue, 0.2);
+    .col-md-4{
+      background: rgba($blue, 0.2);
     }
-    .col-lg-8{
-      background: rgba(green, 0.2);
+    .col-md-8{
+      background: rgba($blue, 0.2);
+    }
+  }
+  .onto2050-actions{
+    background: black;
+    .col-sm-8{
+      background: rgba($blue, 0.2);
     }
   }
   .white-color{

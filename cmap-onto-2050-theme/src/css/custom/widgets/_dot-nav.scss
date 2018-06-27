@@ -1,0 +1,39 @@
+
+.dot-nav{
+  display: flex;
+  justify-content: center;
+
+  .nav-item{
+    position: relative;
+    display: inline-block;
+    width: $grid-gutter-width;
+    height: $grid-gutter-width;
+    cursor: pointer;
+
+    &:after{
+      content:'';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: $grid-gutter-width / 5;
+      height: $grid-gutter-width / 5;
+      background: transparent;
+      border-radius: 50%;
+      border: 1px solid $off-white;
+      transition: all 0.2s ease;
+    }
+
+    &:hover{
+      &:after{
+        background: $off-white;
+      }
+    }
+
+    &.active{
+      &:after{
+        border-color: $white;
+        background: $white;
+      }
+    }
+  }
+}

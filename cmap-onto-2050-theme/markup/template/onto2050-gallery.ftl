@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="nav-container"></div>
+      <div class="nav-container dot-nav"></div>
     </div>
     <div class="caption-container col-sm-16"></div>
   </#if>
@@ -91,11 +91,9 @@ Liferay.on(
         $img_container.prepend($slide);
 
         if(is_full_width){
-          $caption.addClass('col-sm-offset-8');
-          $caption.addClass('col-sm-4');
+          $caption.addClass('col-xs-16 col-sm-7 col-sm-offset-8 col-lg-4');
         } else {
-          $caption.addClass('col-sm-offset-8');
-          $caption.addClass('col-sm-8');
+          $caption.addClass('col-xs-16 col-sm-8 col-sm-offset-8 col-md-16 col-md-offset-0 col-lg-8 col-lg-offset-8');
         }
         if($slide.data('caption') == ''){
           $caption.addClass('empty');
@@ -144,9 +142,13 @@ Liferay.on(
       set_active_slide(current_slide);
     }
 
-    $(window).on('resize', _.throttle(recompute_heights, 100));
-    init_gallery();
-    set_active_slide(current_slide);
+    $gallery.imagesLoaded( function() {
+      // images have loaded
+      $(window).on('resize', _.throttle(recompute_heights, 100));
+      init_gallery();
+      set_active_slide(current_slide);
+    });
+
 	}
 );
 </script>

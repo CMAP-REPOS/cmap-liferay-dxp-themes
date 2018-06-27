@@ -12,7 +12,10 @@
     display: none;
     @include container-margin-left();
     padding-left: 0;
-    @include desktop(){
+    @include tablet(){
+      display: inline-block;
+    }
+    @media screen and (max-width: $breakpoint-tablet){
       display: inline-block;
     }
   }

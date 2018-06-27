@@ -7,3 +7,21 @@
   font-weight: bold;
   color: $light-blue !important;
 }
+
+.jump-to-top-button{
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg{
+    width: auto !important;
+    height: 15px !important;
+  }
+  span{
+    @extend .whitney-small;
+    font-weight: $font-weight-bold;
+    margin-left: 0.5em;
+    transform: translateY(0.2em);
+    color: $grey-blue;
+  }
+}

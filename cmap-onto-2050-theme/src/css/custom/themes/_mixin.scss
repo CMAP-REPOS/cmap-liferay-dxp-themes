@@ -1,0 +1,167 @@
+@mixin theme-color-mixin($background, $primary, $alt){
+  &:not(.portal-popup){
+    background: $background;
+    color: $primary;
+  }
+
+  .journal-content-article{
+    h1,h2,h3,h4,h5,h6,p{
+      color: $primary;
+    }
+  }
+
+  #heading{
+    input::placeholder,
+    .site-subheadline,
+    .input-group-btn .btn{
+      color: $alt;
+    }
+
+    .logo{
+      svg{
+        path,polygon{
+          &[fill="#000000"]{
+            fill: $alt;
+          }
+        }
+      }
+    }
+    .form-control {
+      color: $alt;
+      background-color: rgba($primary, 0.42);
+      border-color: rgba($primary, 0.42);
+      border-color: transparent;
+    }
+    .input-group-btn{
+      .btn{
+        background-color: rgba($primary, 0.42);
+        border-color: rgba($primary, 0.42);
+        border-color: transparent;
+        &:hover{
+          background-color: rgba($primary, 0.84);
+        }
+      }
+    }
+  }
+
+  #navigation{
+    a{
+      &:hover{
+        border-top: 0.1em solid lighten($primary, 10%);
+      }
+    }
+    .return-to-cmap{
+      color: $primary;
+
+      &:hover{
+        color: $primary;
+      }
+    }
+  }
+
+  #breadcrumbs{
+    .breadcrumb-cmap{
+      $percent: 0.5;
+      border-top-color: rgba($primary, $percent);
+      border-bottom-color: rgba($primary, $percent);
+
+      & > .active {
+        color: $primary;
+        opacity: 0.75;
+      }
+    }
+
+    .share-button,
+    .close-button{
+      color: $primary;
+      background: transparent;
+
+      *[fill="#3A5776"],
+      *[fill="#3C5976"]{
+        fill: $primary;
+      }
+
+      &:hover,
+      &:focus,
+      &.focus {
+        color: $primary;
+
+        *[fill="#3A5776"],
+        *[fill="#3C5976"]{
+          fill: $primary;
+        }
+      }
+    }
+    a{
+      color: $alt;
+    }
+  }
+
+  #wrapper{
+    // .dropdown a.dropdown-toggle,
+    .portlet-topper-toolbar a{
+      color: #777;
+    }
+
+    a {
+      color: $primary;
+      &:hover,
+      &:focus {
+        color: lighten($primary, 20%);
+      }
+    }
+  }
+
+  .page-nav{
+    ul li a{
+      color: $alt !important;
+    }
+  }
+
+
+
+  .page-cards{
+    .top{
+      .placeholder-image{
+        background: $alt;
+      }
+    }
+    .bottom{
+      background: lighten($background, 10%);
+      h4 a {
+        @include clear-underline-link($alt);
+      }
+    }
+  }
+
+  .picture-figure{
+    .picture-footnote{
+      color: $alt;
+    }
+  }
+
+  .glyphicon{
+    *[fill="#3C5976"],
+    *[fill="#3A5776"]{
+      fill: $alt;
+    }
+  }
+  .btn-plain {
+    @include button-variant($alt, $primary, $btn-plain-border);
+  }
+
+  &.signed-in .portlet-column-content.empty {
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.5;
+		}
+	}
+  &.portal-popup{
+    background: $alt;
+  }
+
+}
+
+// https://chicagotonight.wttw.com/2018/06/25/when-does-taking-moral-stand-cross-line-incivility?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685
+
+//  https://chicagotonight.wttw.com/2018/06/25/look-biggest-us-supreme-court-decisions-term-nears-end?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685

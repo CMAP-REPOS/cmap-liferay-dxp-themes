@@ -1,0 +1,33 @@
+.onto2050-staggered-images{
+  position: relative;
+
+  &.left{
+    .left{
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+    .right{
+      position: absolute;
+      top: 0;
+      .caption{
+        padding-bottom: $grid-gutter-width;
+      }
+    }
+  }
+
+  &.right{
+    .right{
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+    .left{
+      position: absolute;
+      top: 0;
+      .caption{
+        padding-bottom: $grid-gutter-width;
+      }
+    }
+  }
+}

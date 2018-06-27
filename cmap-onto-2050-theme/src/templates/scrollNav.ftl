@@ -1,6 +1,6 @@
 <div id="scroll-nav">
   <div class="row">
-    <div class="col-lg-4 col-md-3 col-sm-16">
+    <div class="col-sm-4">
       <div class="left-container">
         <button class="hamburger" type="button">
           <span class="hamburger-box">
@@ -22,37 +22,15 @@
         </a>
       </div>
     </div>
-    <div class="col-lg-8 col-md-10 col-sm-16">
+    <div class="col-sm-8">
       <h4 class="page-title"></h4>
-
-      <div class="share-menu hidden">
-        <div class="input-group input-group-sm">
-          <span class="input-group-btn">
-            <button class="btn" type="button">
-              <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-            </button>
-          </span>
-          <input class="page-url form-control" type="text" value="http://www.cmap.illinois.gov/on-to-2050/resources/profiles" placeholder="https://www.cmap.illinois.gov">
-        </div><!-- /input-group -->
-        <div class="addthis_inline_share_toolbox"></div>
-      </div>
+      <div class="addthis_inline_share_toolbox"></div>
     </div>
-    <div class="col-lg-4 col-md-3 col-sm-16">
-      <button class="share-button btn btn-sm btn-off-white">
-        <svg class="glyphicon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-          <g fill="#3C5976" transform="translate(4 2)">
-            <path d="M1.5,13.3333333 L1.5,6.5625 C1.5,6.15979237 1.16421356,5.83333333 0.75,5.83333333 C0.335786438,5.83333333 0,6.15979237 0,6.5625 L0,14.7916667 L11.7857143,14.7916667 L11.7857143,6.5625 C11.7857143,6.15979237 11.4499278,5.83333333 11.0357143,5.83333333 C10.6215007,5.83333333 10.2857143,6.15979237 10.2857143,6.5625 L10.2857143,13.3333333 L1.5,13.3333333 Z"/>
-            <path d="M6.75755451,2.56260921 L6.75755451,8.72602083 C6.75755451,9.12872846 6.42176807,9.4551875 6.00755451,9.4551875 C5.59334095,9.4551875 5.25755451,9.12872846 5.25755451,8.72602083 L5.25755451,2.56289829 L3.81283082,3.78104837 C3.49990642,4.04489736 3.026228,4.01216042 2.75484047,3.70792836 C2.48345294,3.4036963 2.51712523,2.94317562 2.83004963,2.67932663 L6.00772594,0 L9.18540225,2.67932663 C9.49832665,2.94317562 9.53199894,3.4036963 9.26061141,3.70792836 C8.98922388,4.01216042 8.51554546,4.04489736 8.20262106,3.78104837 L6.75755451,2.56260921 Z"/>
-          </g>
-        </svg>
-        <span>Share</span>
-      </button>
-
-      <button class="close-button hidden btn btn-sm btn-off-white">
-        <svg class="glyphicon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-          <path fill="#3A5776" d="M10.7928932,9.29289322 L10.7928932,2 L9.29289322,2 L9.29289322,9.29289322 L2,9.29289322 L2,10.7928932 L9.29289322,10.7928932 L9.29289322,18 L10.7928932,18 L10.7928932,10.7928932 L18,10.7928932 L18,9.29289322 L10.7928932,9.29289322 Z" transform="rotate(45 10 10)"/>
-        </svg>
-        <span>Close</span>
+    <div class="col-sm-4">
+      <button class="jump-to-top-button btn btn-sm btn-off-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19">
+          <path fill="#3C5976" d="M8.70320061,4.28823998 L8.70320061,17.4126841 C8.70320061,17.8959333 8.31144977,18.2876841 7.82820061,18.2876841 C7.34495145,18.2876841 6.95320061,17.8959333 6.95320061,17.4126841 L6.95320061,4.28785174 L2.48442136,8.62526255 C2.13765366,8.96183633 1.58369594,8.95357254 1.24712216,8.60680484 C0.910548372,8.26003715 0.918812169,7.70607943 1.26557986,7.36950564 L7.82800061,1 L14.3904214,7.36950564 C14.7371891,7.70607943 14.7454528,8.26003715 14.4088791,8.60680484 C14.0723053,8.95357254 13.5183476,8.96183633 13.1715799,8.62526255 L8.70320061,4.28823998 Z"/> </svg>
+        <span class="whitney-small">To Top</span>
       </button>
     </div>
   </div>

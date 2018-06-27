@@ -72,7 +72,6 @@
     position: absolute;
     left: 0;
     padding-top: $grid-gutter-width;
-    color: #88a0b2;
 
     &.empty{
       padding-top: 0;
@@ -91,48 +90,12 @@
     }
   }
 
-  .nav-container{
+  .dot-nav{
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    display: flex;
-    justify-content: center;
     margin-bottom: $grid-gutter-width / 2;
-
-    .nav-item{
-      position: relative;
-      display: inline-block;
-      width: $grid-gutter-width;
-      height: $grid-gutter-width;
-      cursor: pointer;
-
-      &:after{
-        content:'';
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: $grid-gutter-width / 5;
-        height: $grid-gutter-width / 5;
-        background: transparent;
-        border-radius: 50%;
-        border: 1px solid $off-white;
-        transition: all 0.2s ease;
-      }
-
-      &:hover{
-        &:after{
-          background: $off-white;
-        }
-      }
-
-      &.active{
-        &:after{
-          border-color: $white;
-          background: $white;
-        }
-      }
-    }
   }
 }

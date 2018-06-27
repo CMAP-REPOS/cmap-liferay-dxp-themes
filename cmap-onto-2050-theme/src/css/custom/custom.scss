@@ -8,8 +8,7 @@
 @import "footer";
 
 @import "global";
-@import "actions";
-@import "advertisement";
+
 @import "anchor";
 @import "basic-content";
 @import "before-after";
@@ -27,14 +26,21 @@
 @import "profiles/grid";
 @import "profiles/header";
 
+@import "themes/mixin";
 @import "themes/blue-theme";
+@import "themes/default-theme";
 @import "themes/grey-theme";
 
+@import "widgets/actions";
+@import "widgets/advertisement";
 @import "widgets/cover-photo";
+@import "widgets/dot-nav";
 @import "widgets/gallery";
 @import "widgets/hotspots";
 @import "widgets/picture";
 @import "widgets/page-nav";
+@import "widgets/related-pages";
 @import "widgets/slider";
+@import "widgets/staggered-images";
 
 @import "vendor/hamburgers/hamburgers";

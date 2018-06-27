@@ -20,22 +20,27 @@
 }
 
 @mixin phone(){
-  @media screen and (max-width: $screen-xs){
+  @media screen and (max-width: $breakpoint-phone){
     @content;
   }
 }
 @mixin tablet(){
-  @media screen and (max-width: $screen-sm){
+  @media screen and (max-width: $breakpoint-tablet){
     @content;
   }
 }
 @mixin desktop(){
-  @media screen and (max-width: $screen-md){
+  @media screen and (max-width: $breakpoint-desktop){
     @content;
   }
 }
 @mixin huge(){
-  @media screen and (max-width: $screen-lg){
+  @media screen and (max-width: $breakpoint-huge){
+    @content;
+  }
+}
+@mixin mq($size){
+  @media screen and (max-width: $size){
     @content;
   }
 }

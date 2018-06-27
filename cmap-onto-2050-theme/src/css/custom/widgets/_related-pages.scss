@@ -1,0 +1,24 @@
+.onto2050-related-pages{
+
+  .headline-container{
+    border-top: 1px solid rgba($light-blue, 0.5);
+    border-bottom: 1px solid rgba($light-blue, 0.5);
+    padding: 2rem 0 1.5rem;
+  }
+  .page-item{
+    padding-top: 3rem;
+  }
+  .page-item-row{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    &.active{
+      position: relative;
+      opacity: 1;
+    }
+  }
+
+  .dot-nav{
+    margin-top: $grid-gutter-width / 2;
+  }
+}

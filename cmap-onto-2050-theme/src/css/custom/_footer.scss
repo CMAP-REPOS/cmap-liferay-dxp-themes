@@ -30,17 +30,6 @@
     align-items: center;
   }
 
-  .jump-to-top-button{
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    .whitney-small{
-      font-weight: $font-weight-bold;
-      margin-left: 0.5em;
-      transform: translateY(0.2em);
-      color: $grey-blue;
-    }
-  }
   .footer-page-links{
     transform: translateY(0.1em);
     a{

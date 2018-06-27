@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     @include container-margin-left();
-    
+
     .hamburger{
       padding: 0;
       margin-right: 5%;
@@ -26,6 +26,12 @@
       svg{
         display: block;
         transform: scale(0.8);
+      }
+      @include mq(600px){
+        display: none;
+      }
+      @include phone(){
+        display: block;
       }
     }
   }
@@ -46,27 +52,16 @@
     color: $dark-blue;
     margin-bottom: 0;
     top: -1px;
-
-    @include tablet(){
-      position: relative;
-      top: 0;
-    }
-  }
-
-  .share-menu{
-    position: absolute;
-    top: -0.5rem;
     left: $grid-gutter-width / 2;
+    height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: calc(100% - #{$grid-gutter-width});
   }
 
-  .close-button,
-  .share-button{
-    position: absolute;
-    top: -0.5rem;
-    left: 0;
+  .jump-to-top-button{
+    padding: 0;
   }
-
 
   &.active{
     transform: translateY(0);
