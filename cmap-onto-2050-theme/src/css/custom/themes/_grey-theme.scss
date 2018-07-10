@@ -1,5 +1,3 @@
 body.grey-theme{
-
   @include theme-color-mixin($grey-theme-background-color, $grey-theme-text-color, $grey-theme-alt-text-color);
-
 }

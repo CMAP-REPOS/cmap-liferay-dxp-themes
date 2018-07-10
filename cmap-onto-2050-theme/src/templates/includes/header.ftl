@@ -1,14 +1,14 @@
 <div id="heading" class="row">
 
-  <div class="col-md-4 col-sm-8 col-xs-16">
+  <div class="col-md-4 col-sm-16 first-column">
 
-    <button class="hamburger" type="button">
+    <button class="hamburger hamburger--boring" type="button">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
     </button>
 
-    <a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+    <a class="${logo_css_class} hidden-sm hidden-xs" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
       <svg xmlns="http://www.w3.org/2000/svg" width="102" height="20" viewBox="0 0 102 20">
         <g fill="none" fill-rule="evenodd" transform="translate(0 1)">
           <path fill="#000000" d="M42.954,18.096 C38.228,18.096 35.044,14.456 35.044,9.072 C35.044,3.714 38.278,0 43.08,0 C45.052,0 46.67,0.58 47.984,1.49 L47.706,3.26 C46.34,2.274 44.824,1.566 43.056,1.566 C39.214,1.566 36.838,4.6 36.838,9.022 C36.838,13.496 39.238,16.504 43.03,16.504 C44.9,16.504 46.594,15.77 48.008,14.684 L48.262,16.352 C46.948,17.338 45.026,18.096 42.954,18.096"/>
@@ -18,13 +18,16 @@
           <path fill="#6DAE4F" d="M0,0.2702 L0,17.7682 L17.498,17.7682 L17.498,14.5862 C12.082,14.4182 7.498,7.8302 7.498,0.2702 L0,0.2702 Z"/>
         </g>
       </svg>
-      <h1 class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></h1>
+      <div class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></div>
     </a>
-  </div>
-  <div class="col-sm-8 hidden-xs">
-    <h2 class="site-subheadline bold">
+    <div class="site-subheadline mobile">
       ON TO 2050
-    </h2>
+    </div>
+  </div>
+  <div class="col-md-8 hidden-sm hidden-xs">
+    <div class="site-subheadline">
+      ON TO 2050
+    </div>
   </div>
   <div class="col-md-4 hidden-sm hidden-xs">
     <div class="input-group input-group-lg">
@@ -34,6 +37,8 @@
         </button>
       </span>
       <input id="search-input" class="form-control" type="text" value="" placeholder="Search">
-    </div><!-- /input-group -->
+    </div>
   </div>
 </div>
+
+

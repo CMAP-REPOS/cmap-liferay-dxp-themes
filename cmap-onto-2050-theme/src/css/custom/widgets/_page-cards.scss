@@ -1,0 +1,17 @@
+.page-cards{
+  .top{
+    position: relative;
+    padding-bottom: 50%;
+    overflow: hidden;
+
+    img{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .bottom{
+    padding: 1.5rem;
+  }
+}

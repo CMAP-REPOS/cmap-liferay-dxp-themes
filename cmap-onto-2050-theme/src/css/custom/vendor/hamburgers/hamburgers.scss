@@ -10,10 +10,10 @@
 
 // Settings
 // ==================================================
-$hamburger-padding-x                       : $padding-base-horizontal !default;
-$hamburger-padding-y                       : $padding-base-vertical !default;
-$hamburger-layer-width                     : 1.75em !default;
-$hamburger-layer-height                    : 3px !default;
+$hamburger-padding-x                       : 0 !default;
+$hamburger-padding-y                       : 0 !default;
+$hamburger-layer-width                     : 3rem !default;
+$hamburger-layer-height                    : 2px !default;
 $hamburger-layer-spacing                   : 5px !default;
 $hamburger-layer-color                     : $grey-blue !default;
 $hamburger-layer-border-radius             : 3px !default;

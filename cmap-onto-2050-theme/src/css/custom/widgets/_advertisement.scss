@@ -84,3 +84,7 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     border-left: $ad-border;
   }
 }
+
+.portlet-layout .col-md-8 .ad-grid{
+  display: none;
+}

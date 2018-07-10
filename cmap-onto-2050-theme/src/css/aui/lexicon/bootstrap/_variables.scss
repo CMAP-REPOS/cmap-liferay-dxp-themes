@@ -76,12 +76,12 @@ $link-hover-decoration: none !default;
 // $serif-font:;
 // normal, italic, bold, bold italic
 
-$font-family-sans-serif: "Whitney SSm A", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif: "Prensa LF", Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
-$font-size-base: 16px !default;
+$font-size-base: 17px !default;
 $font-size-large: ceil(($font-size-base * 1.2)) !default;
 $font-size-small: ceil(($font-size-base * 0.8)) !default;
 

@@ -1,4 +1,13 @@
 @mixin theme-color-mixin($background, $primary, $alt){
+
+  $darker-background: darken($background, 10%);
+  $darker-primary: darken($primary, 10%);
+  $darker-alt: darken($alt, 10%);
+
+  $lighter-background: lighten($background, 10%);
+  $lighter-primary: lighten($primary, 10%);
+  $lighter-alt: lighten($alt, 10%);
+
   &:not(.portal-popup){
     background: $background;
     color: $primary;
@@ -8,37 +17,68 @@
     h1,h2,h3,h4,h5,h6,p{
       color: $primary;
     }
+    .huge-headline{
+      color: $alt;
+    }
+    a {
+      color: $alt;
+      &:hover,
+      &:focus {
+        color: $lighter-alt;
+      }
+    }
+  }
+
+  // .dropdown a.dropdown-toggle,
+  .portlet-topper-toolbar a{
+    color: #777;
+  }
+
+  #mobile-navigation{
+    background: $darker-background;
+    color: $alt;
+
+    .site-nav{
+      a{
+        color: $alt;
+      }
+    }
+    .return-to-cmap{
+      color: $primary;
+    }
   }
 
   #heading{
-    input::placeholder,
-    .site-subheadline,
-    .input-group-btn .btn{
-      color: $alt;
+    .site-subheadline{
+      color: $primary;
     }
-
-    .logo{
-      svg{
-        path,polygon{
-          &[fill="#000000"]{
-            fill: $alt;
-          }
-        }
-      }
+    input::placeholder{
+      color: $alt;
     }
     .form-control {
       color: $alt;
-      background-color: rgba($primary, 0.42);
-      border-color: rgba($primary, 0.42);
+      background-color: $darker-background;
       border-color: transparent;
     }
     .input-group-btn{
       .btn{
-        background-color: rgba($primary, 0.42);
-        border-color: rgba($primary, 0.42);
+        background-color: $darker-background;
         border-color: transparent;
+        color: $alt;
         &:hover{
-          background-color: rgba($primary, 0.84);
+          background-color: $darker-background;
+        }
+      }
+    }
+  }
+
+
+
+  .logo{
+    svg{
+      path,polygon{
+        &[fill="#000000"]{
+          fill: $alt;
         }
       }
     }
@@ -46,8 +86,10 @@
 
   #navigation{
     a{
+      color: $alt;
       &:hover{
-        border-top: 0.1em solid lighten($primary, 10%);
+        color: $lighter-alt;
+        border-top: 0.1em solid $lighter-alt;
       }
     }
     .return-to-cmap{
@@ -61,7 +103,7 @@
 
   #breadcrumbs{
     .breadcrumb-cmap{
-      $percent: 0.5;
+      $percent: 0.25;
       border-top-color: rgba($primary, $percent);
       border-bottom-color: rgba($primary, $percent);
 
@@ -72,7 +114,7 @@
     }
 
     .share-button,
-    .close-button{
+    .close-button {
       color: $primary;
       background: transparent;
 
@@ -97,40 +139,11 @@
     }
   }
 
-  #wrapper{
-    // .dropdown a.dropdown-toggle,
-    .portlet-topper-toolbar a{
-      color: #777;
-    }
 
-    a {
-      color: $primary;
-      &:hover,
-      &:focus {
-        color: lighten($primary, 20%);
-      }
-    }
-  }
 
   .page-nav{
     ul li a{
       color: $alt !important;
-    }
-  }
-
-
-
-  .page-cards{
-    .top{
-      .placeholder-image{
-        background: $alt;
-      }
-    }
-    .bottom{
-      background: lighten($background, 10%);
-      h4 a {
-        @include clear-underline-link($alt);
-      }
     }
   }
 
@@ -146,20 +159,79 @@
       fill: $alt;
     }
   }
+
   .btn-plain {
     @include button-variant($alt, $primary, $btn-plain-border);
   }
 
-  &.signed-in .portlet-column-content.empty {
-		opacity: 0.2;
-		&:hover{
-			opacity: 0.5;
-		}
-	}
-  &.portal-popup{
-    background: $alt;
+  &.signed-in{
+    .portlet-column-content.empty {
+      background: lighten($background, 25%);
+    }
+    .portlet-column-content.empty {
+      opacity: 0.2;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
   }
 
+  
+
+  // widgets
+
+  .onto2050-basic-web-content{
+
+    .page-cards{
+      .bottom{
+        background: $lighter-background;
+        a {
+          @include clear-underline-link($lighter-alt);
+        }
+      }
+    }
+
+    .glossary-term{
+      .term-name{
+        border-bottom: 1px dotted $primary;
+      }
+      .term-definition-container{
+        background: $lighter-background;
+      }
+      .term-definition{
+        color: $alt;
+      }
+      .term-down-arrow{
+        background: $lighter-background;
+      }
+      .term-close path{
+        fill: $alt;
+      }
+    }
+
+  }
+
+  .onto2050-related-pages{
+    .headline-container{
+      border-top: 1px solid rgba($primary, 0.5);
+      border-bottom: 1px solid rgba($primary, 0.5);
+    }
+    .page-item-link{
+      @include clear-underline-link($alt);
+    }
+  }
+
+
+  .before-after-widget .label-row h4{
+    color: $primary;
+  }
+
+  .onto2050-slider::-webkit-scrollbar-thumb{
+    background: $alt;
+  }
+  .onto2050-slider::-webkit-scrollbar-track{
+    background: rgba($alt,0.25);
+  }
 }
 
 // https://chicagotonight.wttw.com/2018/06/25/when-does-taking-moral-stand-cross-line-incivility?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685

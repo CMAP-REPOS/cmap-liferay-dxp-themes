@@ -1,4 +1,10 @@
+
+.portlet-layout.row > .col-md-8 .onto2050-basic-web-content .inline-center-col{
+  display: none;
+}
+
 .journal-content-article{
+
   h1,h2,h3,h4,h5,h6,p{
     margin: 0;
   }
@@ -17,27 +23,10 @@
   img{
     width: 100%;
   }
-  h1,h2{
-    margin-bottom: 1rem;
-  }
-  h3,h4{
-    margin-bottom: 0.5rem;
-  }
-  h5,h6{
-    margin-bottom: 0.25rem;
-  }
-
-  p{
-    margin-bottom: 1.5rem;
-
-    &:last-of-type{
-      margin-bottom: 0;
-    }
-  }
   blockquote{
     padding: 0;
     margin: 3rem 0;
-    @extend .hang-quotes;
+    // @extend .hang-quotes;
 
     p{
       @extend .presna-large;
@@ -49,4 +38,5 @@
       @include container-margin-left();
     }
   }
+  
 }

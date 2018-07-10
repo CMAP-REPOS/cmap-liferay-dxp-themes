@@ -17,16 +17,46 @@ body#cmap-ckeditor{
       background: rgba($blue, 0.2);
     }
     .col-md-8{
-      background: rgba($blue, 0.2);
+      background: rgba($red, 0.2);
     }
   }
   .onto2050-actions{
-    background: black;
     .col-sm-8{
-      background: rgba($blue, 0.2);
+      background: rgba($green, 0.2);
     }
   }
   .white-color{
     background: $black;
   }
+
+  // .glossary-term{
+  //   display: inline-block;
+  //   position: relative;
+  //   .term-definition-container{
+  //     position: relative;
+  //     bottom: 0;
+  //     left: 0;
+  //     transform: none;
+  //     display: inline-block;
+  //     width: auto;
+  //     max-width: none;
+  //     opacity: 1;
+  //     pointer-events: all;
+  //   }
+  //   .term-definition{
+  //     padding: 0;
+  //     line-height: inherit;
+  //   }
+  //   .term-down-arrow{
+  //     position: relative;
+  //     bottom: 0;
+  //     left: 0;
+  //     transform: none;
+  //     width: 1em;
+  //     height: 1em;
+  //   }
+  //   .term-close{
+  //     display: none;
+  //   }
+  // }
 }

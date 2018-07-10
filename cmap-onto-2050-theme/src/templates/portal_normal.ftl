@@ -12,10 +12,15 @@
 	<@liferay_util["include"] page=top_head_include />
 
 	<link href="https://cloud.webtype.com/css/2f300d46-99ee-4656-bf09-870688012aaf.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
+	<!-- Clark -->
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7363556/6800792/css/fonts.css" />
+	<!-- CMAP -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" /> -->
 </head>
 
 <body class="${css_class} cmap-on-to-2050-theme">
+
+
 
 <@liferay_ui["quick-access"] contentId="#main-content" />
 
@@ -23,22 +28,14 @@
 
 <@liferay.control_menu />
 
-<@liferay_portlet["runtime"]
-    instanceId=""
-    portletName="GlossaryUtility"
-/>
-
 <div id="wrapper">
-	<header id="banner" class="container-fluid" role="banner">
-		<#include "${full_templates_path}/header.ftl" />
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-		<#include "${full_templates_path}/scrollNav.ftl" />
-	</header>
+
+	<@liferay_portlet["runtime"] instanceId="" portletName="GlossaryUtility" />
+
+	<#include "${full_templates_path}/includes/banner.ftl" />
 
 	<section id="content">
-		<h1 class="hide-accessible">${the_title}</h1>
+		<h1 class="hide-accessible">CMAP - On To 2050 Plan - ${the_title}</h1>
 
 		<nav id="breadcrumbs">
 			<@liferay.breadcrumbs />
@@ -59,6 +56,9 @@
 
 	<#include "${full_templates_path}/footer.ftl" />
 </div>
+
+<#include "${full_templates_path}/includes/mobile_nav.ftl" />
+
 
 <@liferay_util["include"] page=body_bottom_include />
 

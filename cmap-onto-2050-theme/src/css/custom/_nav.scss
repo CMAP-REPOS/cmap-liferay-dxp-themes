@@ -31,7 +31,6 @@
       @include container-margin-left();
     }
     color: $light-blue;
-    margin-bottom: $padding-base-vertical;
     &:hover{
       border-top-color: $light-blue;
     }

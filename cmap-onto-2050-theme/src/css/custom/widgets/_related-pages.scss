@@ -8,6 +8,19 @@
   .page-item{
     padding-top: 3rem;
   }
+  .page-item-date{
+    margin-bottom: 0.5rem;
+    &.empty{
+      opacity: 0;
+    }
+  }
+  .page-item-link{
+    @include clear-underline-link($black);
+  }
+  .page-item-description{
+    margin: 1rem 0 1.5rem;
+  }
+
   .page-item-row{
     position: absolute;
     top: 0;

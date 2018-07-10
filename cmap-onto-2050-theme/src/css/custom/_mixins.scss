@@ -70,15 +70,17 @@
     text-decoration: none;
     border-bottom-color: lighten($color, 10%);
   }
+
 }
 
 @mixin clear-underline-link($color){
-  color: $color;
-  text-decoration: underline;
-  border-bottom: none;
+  color: $color !important;
+  text-decoration: underline !important;
+  border-bottom: none !important;
+
   &:hover,
   &:focus {
-    color: lighten($color, 10%);
-    text-decoration: underline;
+    color: lighten($color, 25%) !important;
+    text-decoration: underline !important;
   }
 }

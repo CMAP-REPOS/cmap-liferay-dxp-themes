@@ -4,7 +4,7 @@
   font-weight: 400;
   font-family: $font-family-sans-serif;
   &.bold{
-    font-weight: 600;
+    font-weight: $font-weight-bold;
   }
 }
 .whitney-small{
@@ -35,6 +35,31 @@
 .whitney-jumbo{
   @extend .whitney;
   font-size: $font-size-jumbo;
+}
+
+.huge-headline{
+  @extend .whitney-jumbo;
+  font-weight: $font-weight-bold;
+}
+.page-headline{
+  @extend .whitney-huge;
+  font-weight: $font-weight-bold;
+}
+.section-headline{
+  @extend .whitney-large;
+  font-weight: $font-weight-bold;
+}
+.section-sub-headline{
+  @extend .whitney-semi-large;
+  font-weight: $font-weight-bold;
+}
+.normal-headline{
+  @extend .whitney-normal;
+  font-weight: $font-weight-bold;
+}
+.small-headline{
+  @extend .whitney-small;
+  font-weight: $font-weight-bold;
 }
 
 .presna{

@@ -7,8 +7,11 @@
 </#function>
 
 <#assign after_picture = validate_field(AfterImage.getData())>
+<#assign after_text = validate_field(AfterText.getData())>
 <#assign before_picture = validate_field(BeforeImage.getData())>
+<#assign before_text = validate_field(BeforeText.getData())>
 
+<#if before_picture != '' && after_picture != ''>
 <div id="${randomNamespace}" class="before-after-widget">
 
   <div class="row">
@@ -43,23 +46,37 @@
 
   <div class="label-row row">
     <div class="col-sm-8 before-label">
-      <h4>${BeforeText.getData()}</h4>
+      <#if before_text != ''>
+        <h4>${before_text}</h4>
+      </#if>
     </div>
     <div class="col-sm-8 after-label">
-      <h4>${AfterText.getData()}</h4>
+      <#if after_text != ''>
+        <h4>${after_text}</h4>
+      </#if>
     </div>
   </div>
+
   <div class="no-js row">
     <img class="after-placeholder" src="${after_picture}" />
     <img class="before-placeholder" src="${before_picture}" />
   </div>
 </div>
-
+<#else>
+<div id="${randomNamespace}" class="before-after-widget">
+  <div class="label-row row">
+    <div class="col-sm-16">
+      <h3>Both pictures are not defined, please make sure both pictures are set to display the widget.</h3>
+    </div>
+  </div>
+</div>
+</#if>
 
 <script>
 Liferay.on(
 	'allPortletsReady',
 	function() {
+    // I do not know the static location for theme images, so I am setting it with javascript
     $('.slider-button').attr('src', Liferay.ThemeDisplay.getPathThemeImages() + '/icons/ic_slider_button.svg');
 
     var $this = $('#${randomNamespace}');
@@ -79,7 +96,7 @@ Liferay.on(
       if(isFull){
         var row = $this.find('.label-row');
         var labels = row.find('.col-sm-8').detach();
-        var center = $('<div class="col-lg-offset-4 col-lg-8 col-md-offset-3 col-md-10 col-sm-offset-0 col-sm-16"></div>');
+        var center = $('<div class="col-md-offset-4 col-md-8 col-sm-offset-0 col-sm-16"></div>');
         var new_row = $('<div class="row"></div>');
         new_row.append(labels);
         center.append(new_row);
@@ -108,6 +125,12 @@ Liferay.on(
       set_text_width();
       set_height();
       set_width();
+
+      $(window).resize(_.throttle(function(){
+        set_height();
+        set_width();
+      }, 100));
+
       var hammertime = new Hammer($this[0], {});
       hammertime.on('pan', handle_pan);
     });

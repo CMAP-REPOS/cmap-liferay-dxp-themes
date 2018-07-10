@@ -5,11 +5,11 @@
 }
 
 .onto2050-slider{
-  display: flex;
   height: 80vh;
+  padding-bottom: $grid-gutter-width / $ratio;
+  display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding-bottom: $grid-gutter-width / $ratio;
 
   img{
     width: auto;
@@ -26,9 +26,9 @@
   height: 3px;
 }
 .onto2050-slider::-webkit-scrollbar-thumb{
-  background: $white;
+  // see themes mixin for colors
 }
 .onto2050-slider::-webkit-scrollbar-track{
   opacity: 1;
-  background: rgba($black,0.25);
+  // see themes mixin for colors
 }

@@ -1,0 +1,94 @@
+#p_p_id_GlossaryUtility_{
+  margin-bottom: 0;
+}
+
+h3 {
+  &.glossary-initial {
+    clear: both;
+    color: $almost-white;
+    background: $grey-blue;
+    margin: 1em 0;
+    padding: .5em;
+  }
+}
+
+dt {
+  &.glossary-term {
+    color: $grey-blue;
+    float: left;
+    width: 50%;
+  }
+}
+
+
+dd {
+  &.glossary-definition {
+    color: $grey-blue;
+    float: right;
+    width: 50%;
+  }
+}
+
+.glossary-wrapper {
+  clear: both;
+  margin: 1em 0;
+  overflow: auto;
+  + .glossary-wrapper {
+    border-top: 1px solid $grey-blue;
+    padding-top: 1em;
+  }
+}
+
+
+.onto2050-basic-web-content{
+
+  .glossary-term{
+    display: inline-block;
+    position: relative;
+    
+    .term-name{
+      cursor: pointer;
+    }
+    .term-definition-container{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      width: 25vw;
+      max-width: 20em;
+      transition: all 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .term-definition{
+      padding: 1em;
+      line-height: 1em;
+    }
+    .term-down-arrow{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(0.5em) rotate(45deg);
+      background: white;
+      width: 1em;
+      height: 1em;
+    }
+    .term-close{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1em !important;
+      height: 1em !important;
+      cursor: pointer;
+    }
+
+    &.active{
+      .term-definition-container{
+        opacity: 1;
+        pointer-events: all;
+        bottom: 2em;
+      }
+    }
+  }
+}

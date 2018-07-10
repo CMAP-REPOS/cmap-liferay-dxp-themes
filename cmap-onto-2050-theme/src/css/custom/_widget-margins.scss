@@ -1,0 +1,45 @@
+body#cmap-ckeditor,
+.onto2050-basic-web-content{
+
+  .inline-center-col + .onto2050-actions{
+    margin-top: $grid-gutter-width;
+  }
+  .huge-headline + .presna-large{
+    margin-top: 0.5rem;
+  }
+  .section-headline + .section-headline{
+    margin-top: 1rem;
+  }
+
+  p + p {
+    margin-top: $grid-gutter-width / 2;
+  }
+
+  .presna-large + .section-headline,
+  .presna-large + .section-sub-headline{
+    margin-top: $grid-gutter-width;
+  }
+
+  p + .section-headline,
+  p + .section-sub-headline {
+    margin-top: $grid-gutter-width;
+  }
+  p + .normal-headline{
+    margin-top: $grid-gutter-width / 2;
+  }
+
+  .section-headline + p,
+  .section-sub-headline + p{
+    margin-top: 1rem;
+  }
+
+  p + .inline-center-col{
+    margin-top: $grid-gutter-width;
+  }
+
+  .onto2050-actions + .page-cards,
+  .page-cards + .page-cards{
+    margin-top: $grid-gutter-width;
+  }
+
+}
