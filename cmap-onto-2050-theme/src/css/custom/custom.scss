@@ -9,16 +9,6 @@
 
 @import "global";
 
-@import "anchor";
-@import "breadcrumbs";
-@import "buttons";
-@import "ckeditor";
-@import "infographic";
-@import "scroll-nav";
-@import "page-header";
-@import "nav";
-@import "widget-margins";
-
 @import "profiles/footer";
 @import "profiles/grid";
 @import "profiles/header";
@@ -44,5 +34,14 @@
 @import "widgets/related-pages";
 @import "widgets/slider";
 @import "widgets/staggered-images";
+
+@import "anchor";
+@import "breadcrumbs";
+@import "buttons";
+@import "ckeditor";
+@import "infographic";
+@import "scroll-nav";
+@import "nav";
+@import "widget-margins";
 
 @import "vendor/hamburgers/hamburgers";

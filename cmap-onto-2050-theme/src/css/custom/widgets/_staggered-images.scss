@@ -30,4 +30,24 @@
       }
     }
   }
+
+  .mobile{
+    display: none;
+    .bottom-image{
+      padding-top: $grid-gutter-width;
+    }
+    .caption{
+      padding-top: #{$grid-gutter-width / 2};
+    }
+  }
+
+  @include tablet(){
+    .right, .left{
+      display: none;
+    }
+    .mobile{
+      display: block;
+    }
+  }
+  
 }

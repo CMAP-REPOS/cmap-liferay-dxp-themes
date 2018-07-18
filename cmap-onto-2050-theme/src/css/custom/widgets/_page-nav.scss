@@ -6,7 +6,7 @@
 
   &.fixed{
     position: fixed;
-    top: 0;
+    top: 45px;
     right: 0;
     width: 25%;
     padding-right: $grid-gutter-width/2;
@@ -17,10 +17,10 @@
     }
   }
 
-  h4.widget-headline{
+  .widget-headline{
     font-weight: $font-weight-normal;
     color: $light-blue !important;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -41,10 +41,7 @@
 
 .signed-in{
   .page-nav.fixed{
-    top: $control-menu-height-desktop;
-    @include tablet(){
-      top: $control-menu-height-mobile;
-    }
+    top: 109px;
   }
 }
 
@@ -54,5 +51,4 @@ body.blue-theme{
       color: $white !important;
     }
   }
-
 }

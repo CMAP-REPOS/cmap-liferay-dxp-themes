@@ -27,13 +27,36 @@
         color: $lighter-alt;
       }
     }
+    ul,ol{
+      li{
+        border-bottom-color: rgba($primary, 0.25);
+      }
+    }
   }
+  
 
   // .dropdown a.dropdown-toggle,
   .portlet-topper-toolbar a{
     color: #777;
   }
 
+  .dot-nav{
+    .nav-item:after{
+      border-color: 1px solid $primary;
+    }   
+    .nav-item:hover:after{
+      background: $primary;
+    }
+    .nav-item.active:after{
+      background: $primary;
+      border-color: $primary;
+    }
+  }
+  
+  .alt-color{
+    color: $alt !important;
+  }
+  
   #mobile-navigation{
     background: $darker-background;
     color: $alt;

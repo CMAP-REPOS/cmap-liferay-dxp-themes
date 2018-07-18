@@ -116,6 +116,10 @@
             "showLabel": true,
             "type": "ddm-image"
         },
+
+
+
+        
         {
             "label": {
                 "en_US": "Right Caption"

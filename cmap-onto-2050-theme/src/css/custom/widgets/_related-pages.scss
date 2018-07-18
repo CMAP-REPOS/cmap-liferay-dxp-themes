@@ -20,17 +20,6 @@
   .page-item-description{
     margin: 1rem 0 1.5rem;
   }
-
-  .page-item-row{
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    &.active{
-      position: relative;
-      opacity: 1;
-    }
-  }
-
   .dot-nav{
     margin-top: $grid-gutter-width / 2;
   }

@@ -1,3 +1,23 @@
+
+.onto2050-basic-web-content{
+  ul li{
+    list-style: disc inside;
+  } 
+  ol li{
+    list-style: decimal inside;
+  }
+  ul,ol{
+    padding: 0;
+    margin: 0;
+
+    li{
+      @extend .presna-normal;
+      padding: 1rem 0;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
 body#cmap-ckeditor{
   margin: 1rem;
 
@@ -31,29 +51,20 @@ body#cmap-ckeditor{
 
   // .glossary-term{
   //   display: inline-block;
-  //   position: relative;
-  //   .term-definition-container{
-  //     position: relative;
-  //     bottom: 0;
-  //     left: 0;
-  //     transform: none;
+  //   .term-name{
   //     display: inline-block;
-  //     width: auto;
-  //     max-width: none;
-  //     opacity: 1;
-  //     pointer-events: all;
+  //     padding: 0.25em;
+  //     background: rgba($green, 0.2);
+  //   }
+  //   .term-definition-container{
+  //     display: inline-block;
   //   }
   //   .term-definition{
-  //     padding: 0;
-  //     line-height: inherit;
+  //     padding: 0.25em;
+  //     background: rgba($red, 0.2);
   //   }
   //   .term-down-arrow{
-  //     position: relative;
-  //     bottom: 0;
-  //     left: 0;
-  //     transform: none;
-  //     width: 1em;
-  //     height: 1em;
+  //     display: none;
   //   }
   //   .term-close{
   //     display: none;

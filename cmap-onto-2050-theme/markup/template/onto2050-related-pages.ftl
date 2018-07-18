@@ -48,6 +48,7 @@ Liferay.on(
     var $container = $('<div class="related-pages-container"></div>');
     var center = $this.parents('.portlet-layout').find('> .col-md-8').length;
     var full = $this.parents('.portlet-layout').find('> .col-md-16').length;
+    var rows = [];
 
     var $row = $('<div class="page-item-row row"></div>');
     var $blank_item = $('<div class="page-item"></div>');
@@ -61,12 +62,33 @@ Liferay.on(
       $items.addClass('col-sm-16 col-md-8');
     }
 
-    function new_row(){
-      var $nav_item = $('<div class="nav-item"></div>')
-      $nav_item.click(function(){
-        console.log(this);
+    function activate_row(i){
+      $this.find('.page-item-row').each(function(index){
+        if(index === i){
+          $(this).fadeIn();
+        } else {
+          $(this).hide();
+        }
       });
+      $this.find('.nav-item').each(function(index){
+        if(index === i){
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
+      });
+    }
+
+    function new_row(){
+      var $nav_item = $('<div class="nav-item"></div>');
+      var l = rows.length;
+      rows.push($row.clone());
       $container.append($row.clone());
+
+      $nav_item.click(function(){
+        activate_row(l)
+      });
+      $nav.append($nav_item);
       $row = $('<div class="page-item-row row"></div>');
     }
     var normal_count = Math.floor($items.length / 4) * 4;
@@ -104,10 +126,13 @@ Liferay.on(
         }
       }
     });
-    
-    $($this.find('.page-item-row')[0]).addClass('active');
+
+
     $this.append($container);
+    // console.log($this, $this.find('.page-item-row') $this.find('.page-item-row')[0]);
+    // $($this.find('.page-item-row')[0]).addClass('active');
     $this.append($nav);
+    activate_row(0);
 
     if(center){
       alert('centered related pages is not supported at the moment.');

@@ -11,8 +11,11 @@ body#cmap-ckeditor,
     margin-top: 1rem;
   }
 
-  p + p {
-    margin-top: $grid-gutter-width / 2;
+  
+
+  
+  .ad-grid + p{
+    margin-top: $grid-gutter-width;
   }
 
   .presna-large + .section-headline,
@@ -27,19 +30,39 @@ body#cmap-ckeditor,
   p + .normal-headline{
     margin-top: $grid-gutter-width / 2;
   }
-
-  .section-headline + p,
-  .section-sub-headline + p{
-    margin-top: 1rem;
-  }
-
   p + .inline-center-col{
     margin-top: $grid-gutter-width;
   }
 
+  p {
+    margin-top: $grid-gutter-width / 2;
+  }
+  
+  ul, ol{
+    margin-top: $grid-gutter-width;
+    & + p{
+      margin-top: $grid-gutter-width;
+    }
+  }
+
+  ol + p,
+  ul + p{
+  }
+  ol + .section-headline,
+  ul + .section-headline{
+    margin-top: $grid-gutter-width;
+  }
+  ol + .section-sub-headline,
+  ul + .section-sub-headline{
+    margin-top: $grid-gutter-width;
+  }
+
+
+  .page-cards + .ad-grid,
   .onto2050-actions + .page-cards,
   .page-cards + .page-cards{
     margin-top: $grid-gutter-width;
   }
+
 
 }

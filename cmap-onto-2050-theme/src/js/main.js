@@ -1,7 +1,3 @@
-
-
-
-
 window.cmap = window.cmap || {};
 window.cmap.global = window.cmap.global || {};
 
@@ -35,14 +31,26 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
 			$button.click(()=>{
-				window.cmap.global.copyToClipboard(url);
+				copyToClipboard(url);
 			});
 			$this.click(()=>{
-				window.cmap.global.copyToClipboard(url);
+				copyToClipboard(url);
 			});
 			$this.addClass('page-anchor');
 			$this.prepend($button);
 		}
+	}
+
+	function copyToClipboard(url){
+		var $temp = $("<div>");
+		$this.append($temp);
+		$temp.attr("contenteditable", true)
+				 .html(url).select()
+				 .on("focus", function() { document.execCommand('selectAll',false,null) })
+				 .focus();
+		document.execCommand("copy");
+		history.replaceState({}, name, ('#' + attr_id));
+		$temp.remove();
 	}
 }
 window.cmap.global.anchors.init = window.cmap.global.anchors.init || function(){
@@ -81,18 +89,6 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 	}
 
 	$('.share-menu .page-url').val(window.location.href);
-}
-
-window.cmap.global.copyToClipboard = window.cmap.global.copyToClipboard || function(url){
-	var $temp = $("<div>");
-	$this.append($temp);
-	$temp.attr("contenteditable", true)
-			 .html(url).select()
-			 .on("focus", function() { document.execCommand('selectAll',false,null) })
-			 .focus();
-	document.execCommand("copy");
-	history.replaceState({}, name, ('#' + attr_id));
-	$temp.remove();
 }
 
 window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight || function(){
