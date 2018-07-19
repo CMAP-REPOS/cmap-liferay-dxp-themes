@@ -1,4 +1,3 @@
-
 .portlet-layout > .col-md-16 {
   .onto2050-gallery {
     .gallery-root{
@@ -6,14 +5,11 @@
     }
   }
 }
-.portlet-layout > .col-lg-8 {
-  .onto2050-gallery {
-  }
-}
 .onto2050-gallery {
 
   .gallery-container{
     position: relative;
+    z-index: 100;
   }
 
   .gallery-controls{

@@ -99,7 +99,7 @@ Liferay.on(
           $caption.addClass('empty');
         }
 
-        $caption.text($slide.data('caption'));
+        $caption.html($slide.data('caption'));
         $caption_container.append($caption);
         $caption.addClass('invis');
 
