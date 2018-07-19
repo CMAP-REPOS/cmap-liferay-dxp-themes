@@ -27,29 +27,6 @@
             "required": false,
             "showLabel": true,
             "type": "ddm-text-html"
-        },
-        {
-            "label": {
-                "en_US": "Anchor"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": "Used to link directly to this section from the page navigation."
-            },
-            "dataType": "string",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "Anchor",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "text"
         }
     ]
 }
