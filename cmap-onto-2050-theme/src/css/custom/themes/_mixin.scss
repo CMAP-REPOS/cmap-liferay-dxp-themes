@@ -164,7 +164,9 @@
 
 
 
+
   .page-nav{
+    background: $background;
     ul li a{
       color: $alt !important;
     }
@@ -241,6 +243,12 @@
     }
     .page-item-link{
       @include clear-underline-link($alt);
+    }
+  }
+
+  div.cover-photo-container {
+    .gradient-fade{
+      background: linear-gradient(to bottom, transparent, $background);      
     }
   }
 
