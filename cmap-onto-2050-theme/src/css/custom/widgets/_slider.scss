@@ -10,6 +10,8 @@
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  position: relative;
+  z-index: 98;
 
   img{
     width: auto;

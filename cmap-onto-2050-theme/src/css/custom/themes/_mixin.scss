@@ -153,7 +153,6 @@
 
 
   .page-nav{
-    background: $background;
     ul li a{
       color: $alt !important;
     }
@@ -231,6 +230,18 @@
     .page-item-link{
       @include clear-underline-link($alt);
     }
+    .dot-nav{
+      .nav-item:after{
+        border-color: 1px solid $primary;
+      }   
+      .nav-item:hover:after{
+        background: $primary;
+      }
+      .nav-item.active:after{
+        background: $primary;
+        border-color: $primary;
+      }
+    }
   }
 
   div.cover-photo-container {
@@ -249,6 +260,12 @@
   }
   .onto2050-slider::-webkit-scrollbar-track{
     background: rgba($alt,0.25);
+  }
+
+  .onto2050-staggered-images{
+    .caption{
+      background: $background;
+    }
   }
 }
 

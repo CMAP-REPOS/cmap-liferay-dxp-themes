@@ -9,7 +9,7 @@
 
   .gallery-container{
     position: relative;
-    z-index: 100;
+    z-index: 98;
   }
 
   .gallery-controls{
@@ -91,7 +91,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 98;
     margin-bottom: $grid-gutter-width / 2;
   }
 }
