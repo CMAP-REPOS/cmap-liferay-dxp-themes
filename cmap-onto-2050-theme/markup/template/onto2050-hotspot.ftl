@@ -1,8 +1,5 @@
-
-<#assign unique_id = randomNamespace>
-
 <#if Layer.getSiblings()?has_content>
-<div id="${unique_id}" class="hotspot-widget row">
+<div id="${randomNamespace}" class="hotspot-widget row">
 
 	<#list Layer.getSiblings() as cur_Layer>
 		<div class="hotspot-layer" data-layer-name="${cur_Layer.getData()}">
@@ -43,14 +40,12 @@ Liferay.on(
 	'allPortletsReady',
 	function() {
 
-    // set up footer!
-    $('#${unique_id}').each(function(){
+    $('#${randomNamespace}').each(function(){
       var $this = $(this);
       var $layers = $this.find('.hotspot-layer');
-
+      
       if($layers.length < 2){
         $this.find('.hotspot-footer').css('display', 'none');
-        return;
       }
 
       $layers.each(function(i,el){
@@ -74,13 +69,16 @@ Liferay.on(
         $this.find('.hotspot-footer nav').append($nav_item);
       });
 
-			$('.hotspot-spot').each(function(index){
+      console.log($('.hotspot-spot'));
+
+			$('.hotspot-spot').each(function(index){        
 				var $this = $(this);
         var $background = $this.find('.caption-background');
 				var $toggle = $this.find('.caption-toggle');
 				$this.addClass('min');
 				$background.css('width', $toggle.innerWidth());
 				$background.css('height', $toggle.innerHeight());
+        console.log($this);
       });
 
 			$layers.addClass('hidden');
