@@ -20,8 +20,6 @@ Liferay.on(
 		}
 		$('.anchor-point').each(addLink);
 
-		
-
 		function handleClick(event){
 			event.preventDefault();
 			var target = $(event.target).attr('href');
@@ -30,7 +28,6 @@ Liferay.on(
 			$('html,body').animate({
 				scrollTop: offset - trigger_offset
 			}, 800);
-			// console.log(event, event.target, $(event.target), );
 		}
 
 		function getTriggerOffset(){
@@ -49,9 +46,9 @@ Liferay.on(
 			var trigger_offset = getTriggerOffset();
 			// console.log(window.scrollY, trigger, trigger_offset,(trigger + trigger_offset));
 			if(window.scrollY > (trigger - trigger_offset)){
-				$nav.addClass('fixed');
+				// $nav.addClass('fixed');
 			} else {
-				$nav.removeClass('fixed');
+				// $nav.removeClass('fixed');
 			}
 		}, 100));
 	}
