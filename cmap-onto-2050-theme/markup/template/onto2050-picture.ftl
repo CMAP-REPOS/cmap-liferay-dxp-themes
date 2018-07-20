@@ -1,48 +1,41 @@
-<#include "${templatesPath}/830929">
-
-<#assign caption_text = validate_field(CaptionText.getData())>
-<#assign footnote = validate_field(Footnote.getData())>
-<#assign picture_asset = validate_field(Asset.getData())>
-<#assign caption_position = validate_field(CaptionPosition.getData())>
 <#assign unique_namespace = randomNamespace>
+
+<#if CaptionPosition.getData() == 'top-right' || CaptionPosition.getData() == 'top-right'>
+  <#assign top_bottom = 'top'>
+<#else>
+  <#assign top_bottom = 'bottom'>
+</#if>
 
 <div id="${unique_namespace}" class="picture-figure">
 
+  <div class="picture-container">
+    <#if Asset.getData() != ''>
+      <img class="picture-img" src="${Asset.getData()}" alt="${Asset.getAttribute("alt")}" />
+    </#if>
 
-  <#if picture_asset != ''>
-    <div class="picture-img" style="background-image: url('${picture_asset}')">
-      <div class="sr-only">${Asset.getAttribute("alt")}</div>
-      <#if caption_text != ''>
-
-        <#if caption_position == 'top-right' || caption_position == 'top-right'>
-          <#assign top_bottom = 'top'>
+    <#if CaptionText.getData() != ''>
+      <div class="caption-row ${top_bottom}">
+        <#if CaptionPosition.getData() == "bottom-right" || CaptionPosition.getData() == "top-right">
+          <div class="col-md-8 col-md-offset-8">
+            <div class="picture-caption right">
+              ${CaptionText.getData()}
+            </div>
+          </div>
         <#else>
-          <#assign top_bottom = 'bottom'>
+          <div class="col-md-8">
+            <div class="picture-caption left">
+              ${CaptionText.getData()}
+            </div>
+          </div>
         </#if>
+      </div>
+    </#if>
+  </div>
 
-        <div class="caption-row ${top_bottom}">
-          <#if caption_position == "bottom-right" || caption_position == "top-right">
-            <div class="col-md-8 col-md-offset-8">
-              <div class="picture-caption right">
-                ${CaptionText.getData()}
-              </div>
-            </div>
-          <#else>
-            <div class="col-md-8">
-              <div class="picture-caption left">
-                ${CaptionText.getData()}
-              </div>
-            </div>
-          </#if>
-        </div>
-      </#if>
-    </div>
-  </#if>
-
-  <#if footnote != ''>
+  <#if Footnote.getData() != ''>
     <div class="picture-footnote-container">
       <div class="picture-footnote">
-        <h6>${footnote}</h6>
+        <h6>${Footnote.getData()}</h6>
       </div>
     </div>
   </#if>
@@ -63,7 +56,8 @@ function generateFullWidth(){
   root.find('.caption-row .col-md-8').removeClass('col-md-8').addClass('col-md-5');
   root.find('.caption-row .col-md-offset-8').removeClass('col-md-offset-8').addClass('col-md-offset-11');
 
-  root.wrapInner('<div class="row"></div>');
+  root.addClass('row');
+  // root.wrapInner('<div class="row"></div>');
 }
 function checkForFullWidth(){
   if($('#${unique_namespace}').parents('.col-md-16').length){

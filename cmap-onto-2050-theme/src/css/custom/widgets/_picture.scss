@@ -2,11 +2,11 @@
   position: relative;
   z-index: 98;
   
+  .picture-container{
+    position: relative;
+  }
   .picture-img{
     position: relative;
-    height: 85vh;
-    background-size: cover;
-    background-position: center;
   }
 
   .caption-row{
@@ -35,6 +35,7 @@
       width: $size;
       height: $size;
       right: 100%;
+      transform: translateY(-12.5%);
       @include tablet(){
         position: relative;
         right: 0;
