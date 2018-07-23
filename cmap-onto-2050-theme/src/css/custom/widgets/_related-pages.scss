@@ -24,3 +24,10 @@
     margin-top: $grid-gutter-width / 2;
   }
 }
+
+.portlet-layout.row > .col-md-8 .onto2050-related-pages{
+  .headline-container{
+    border-top: none;
+    padding-top: 0;
+  }
+}

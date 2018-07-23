@@ -16,12 +16,14 @@ section.profile-footer{
     display: none;
   }
 
-  @include tablet(){
-    .profile-footer-item{
-      display: none;
-    }
-    .profile-footer-item-mobile{
-      display: block;
+  &.has-mobile-pictures{
+    @include tablet(){
+      .profile-footer-item{
+        display: none;
+      }
+      .profile-footer-item-mobile{
+        display: block;
+      }
     }
   }
 }

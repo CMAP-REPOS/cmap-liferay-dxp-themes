@@ -1,6 +1,6 @@
 <#assign unique_namespace = randomNamespace>
 
-<#if CaptionPosition.getData() == 'top-right' || CaptionPosition.getData() == 'top-right'>
+<#if CaptionPosition.getData() == 'top-right' || CaptionPosition.getData() == 'top-left'>
   <#assign top_bottom = 'top'>
 <#else>
   <#assign top_bottom = 'bottom'>
@@ -28,6 +28,7 @@
             </div>
           </div>
         </#if>
+        ${CaptionPosition.getData()}
       </div>
     </#if>
   </div>

@@ -7,8 +7,8 @@
       <span class="sr-only">${Image.getAttribute("alt")}</span>
       <#if shade_color?? && shade_color != "">
         <div class="image-mask" style="background: ${shade_color};"></div>
-        <div class="gradient-fade"></div>
       </#if>
+      <div class="gradient-fade"></div>
     </div>
   </#if>
 </div>

@@ -57,6 +57,9 @@ body#cmap-ckeditor,
     margin-top: $grid-gutter-width;
   }
 
+  p + .button{
+    margin-top: 2rem;
+  }
 
   .page-cards + .ad-grid,
   .onto2050-actions + .page-cards,

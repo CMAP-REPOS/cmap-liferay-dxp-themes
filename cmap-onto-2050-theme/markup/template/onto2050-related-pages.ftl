@@ -134,8 +134,13 @@ Liferay.on(
     $this.append($nav);
     activate_row(0);
 
+    function setCentered(){
+      var $headline = $this.find('.headline-container');
+      $headline.removeClass('row');
+      $headline.find('.col-md-8').removeClass('col-md-8 col-md-offset-4');
+    }
     if(center){
-      alert('centered related pages is not supported at the moment.');
+      setCentered();
     }
   }
 );

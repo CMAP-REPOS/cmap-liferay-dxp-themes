@@ -16,7 +16,6 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     position: absolute;
     top: 0;
     z-index: 1;
-
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -26,11 +25,6 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     position: relative;
     padding: 2rem 0;
     z-index: 1;
-
-    p{
-      display: block;
-      margin-bottom: 0.5rem;
-    }
   }
 
   .placeholder-background{

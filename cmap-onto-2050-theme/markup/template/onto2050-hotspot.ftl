@@ -69,8 +69,6 @@ Liferay.on(
         $this.find('.hotspot-footer nav').append($nav_item);
       });
 
-      console.log($('.hotspot-spot'));
-
 			$('.hotspot-spot').each(function(index){        
 				var $this = $(this);
         var $background = $this.find('.caption-background');
@@ -78,7 +76,6 @@ Liferay.on(
 				$this.addClass('min');
 				$background.css('width', $toggle.innerWidth());
 				$background.css('height', $toggle.innerHeight());
-        console.log($this);
       });
 
 			$layers.addClass('hidden');
