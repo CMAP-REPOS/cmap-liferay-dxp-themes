@@ -129,8 +129,6 @@ Liferay.on(
 
 
     $this.append($container);
-    // console.log($this, $this.find('.page-item-row') $this.find('.page-item-row')[0]);
-    // $($this.find('.page-item-row')[0]).addClass('active');
     $this.append($nav);
     activate_row(0);
 

@@ -102,8 +102,15 @@ window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight 
 }
 
 window.cmap.global.headline_check = window.cmap.global.headline_check || function(){
+	var no_more_headlines = false;
 	function check_for_el(name){
-		console.log(name + ' has ' + $(name).length + ' elements');
+		var len = $(name).length;
+		console.log(name + ' has ' + len + ' elements');
+		if(len && no_more_headlines){
+			alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be using instead, please see the javascript console for more information')
+		} else if (!len){
+			no_more_headlines = true;
+		}
 		// $(name).each(function(){ console.log(this); });
 	}
 	check_for_el('h1');
@@ -112,6 +119,9 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h4');
 	check_for_el('h5');
 	check_for_el('h6');
+
+	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
+
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};
@@ -204,10 +214,28 @@ window.cmap.glossary.init = window.cmap.glossary.init || function(){
 		});
 	}); 
 }
+window.cmap.global.check_images = window.cmap.global.check_images || function(){
+	var bad_image_count = 0;
+	$('img').each(function(){
+		var $this = $(this), alt = $this.attr('alt');
+		if(alt){
+			console.log(this, ' has an alt tag of ', alt);
+		} else {
+			if($this.hasClass('company-logo')){ return true; } // this is only seen if logged in
+			bad_image_count++;
+			console.log("ALERT: ", this, ' does not have an alt tag');
+		}
+	});
+
+	if(bad_image_count > 0){
+		alert('There are ' + bad_image_count + ' images without alt tags on this page. See the javascript console for more information.');
+	}
+}
 
 
 window.cmap.global.init = window.cmap.global.init || function(){
 
+	window.cmap.global.check_images();
 	window.cmap.global.headline_check();
 	window.cmap.global.setContentMinHeight();
 	window.cmap.global.scrollNav.init();

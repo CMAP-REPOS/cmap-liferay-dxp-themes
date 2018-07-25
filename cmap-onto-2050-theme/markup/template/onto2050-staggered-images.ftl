@@ -75,7 +75,6 @@ Liferay.on(
       var right_height = $this.find('.right.row').innerHeight(), right_size = right_height;
 
       if($this.hasClass('left')){
-        console.log('left');
         var push = $this.find('.left img').innerHeight() * 0.666;
         push -= $this.find('.right .caption').innerHeight();
         if(push >= 0){
@@ -86,7 +85,6 @@ Liferay.on(
       }
 
       if($this.hasClass('right')){
-        console.log('right');
         var push = $this.find('.right img').innerHeight() * 0.666;
         push -= $this.find('.left .caption').innerHeight();
         if(push >= 0){
@@ -98,7 +96,6 @@ Liferay.on(
 
       var min_height = left_size > right_size ? left_size : right_size;
       $this.css('min-height', min_height);
-      console.log(left_size, right_size);
     }
 
     compute();

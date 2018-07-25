@@ -110,7 +110,7 @@
     }
     .page-title{
       position: absolute;
-      top: -1px;
+      top: 2px;
       left: $grid-gutter-width / 2;
       width: calc(100% - #{$grid-gutter-width});
     }

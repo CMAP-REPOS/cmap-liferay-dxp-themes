@@ -20,9 +20,7 @@
 
 <body class="${css_class} cmap-on-to-2050-theme">
 
-
-
-<@liferay_ui["quick-access"] contentId="#main-content" />
+<a class="skip-to-content" href="#main-content" tabindex="0">Skip to Content</a>
 
 <@liferay_util["include"] page=body_top_include />
 

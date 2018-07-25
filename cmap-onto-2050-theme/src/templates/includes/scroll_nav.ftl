@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <h4 class="page-title"></h4>
+      <div class="page-title whitney-normal bold"></div>
       <div class="addthis_inline_share_toolbox"></div>
     </div>
     <div class="col-sm-4">
@@ -42,7 +42,7 @@
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h4 class="page-title"></h4>
+      <div class="page-title whitney-normal bold"></div>
     </div>
     <div class="right">
       <button class="jump-to-top-button btn btn-sm btn-off-white">
