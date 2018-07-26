@@ -1,0 +1,290 @@
+//These icons exist in infographic.scss as well, in case of needed edits.
+$icon-layers-dark: "\e908";
+$icon-layers-white: "\e909";
+$icon-map-med-dark: "\e90e";
+$icon-nav-left-white: "\e919";
+$icon-nav-right-white: "\e91d";
+@font-face {
+    font-family: 'cmap_icons';
+    src: url('../fonts/cmap_icons.eot');
+    src: url('../fonts/cmap_icons.eot') format('embedded-opentype'), url('../fonts/cmap_icons.ttf') format('truetype'), url('../fonts/cmap_icons.woff') format('woff'), url('../fonts/cmap_icons.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-cmap {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cmap_icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-layers-dark:before {
+    content: $icon-layers-dark;
+}
+
+.icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+}
+
+.icon-map-med-dark {
+    font-size: $size2;
+    color: $grey-blue;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+}
+
+.icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+}
+
+#main-content.storymaplayout {
+    .portlet-content {
+        padding: 0;
+    }
+    @media screen and (max-width: 750px) {
+        #main-content .portlet-content {
+            padding: 0;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        #main-content .portlet-content {
+            padding: 0;
+        }
+    }
+}
+
+.storymaplayout {
+    /* make storymap flush with breadcrumbs */
+    margin-top: $unit * -2;
+    .map-container {
+        height: 800px;
+        max-height: 80vh;
+        position: relative;
+    }
+    /* make full-width content possible */
+    #column-1 {
+        &.portlet-column-only {
+            padding: 0;
+        }
+        .story-step-content-full-width {
+            padding: 0;
+        }
+        .story-step-content-centered {
+            /* @include section-padding(); */
+        }
+    }
+    .story-map {
+        height: 100%;
+        width: 100%;
+    }
+    .storymap-intro-content {
+        /* @include section-padding(); */
+        /* font-family: $font-sans; */
+        margin: 0;
+        padding-bottom: 25px;
+        padding-top: 50px;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        .storymap-info-toggle {
+            border: none;
+            color: $off-white;
+            display: none;
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            z-index: 200;
+        }
+        .storymap-title {
+            p {
+                @extend .whitney-huge;
+            }
+        }
+        .storymap-info {
+            color: #000;
+        }
+        .storymap-data-link {
+            @extend .whitney-small;
+            color: $grey-blue;
+            a {
+                color: $dark-blue;
+            }
+        }
+        .storymap-aside {
+            color: $grey-blue;
+            padding-bottom: 25px;
+            p {
+                @extend .whitney-small;
+            }
+        }
+        .storymap-data-link {
+            a {
+                border: none;
+                color: $dark-blue;
+                display: inline-block;
+                line-height: 30px;
+                &:hover {
+                    color: $dark-blue;
+                }
+                span,
+                svg {
+                    display: inline-block;
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+    .storymap-main-content {
+        margin: 25px 0;
+    }
+    .storymap-nav-container {
+        /* @include section-padding(); */
+        background: $grey-blue;
+        display: block;
+        margin: 0;
+        width: 100%;
+        .storymap-nav-list {
+            padding: 25px 0;
+            >li {
+                list-style: none;
+                padding: 0;
+            }
+        }
+        .story-steps {
+            margin-bottom: 0;
+            max-width: none;
+            li {
+                list-style: none;
+                cursor: pointer;
+            }
+        }
+        .story-step-title {
+            /* @extend .whitney-normal__bold; */
+            color: $light-grey;
+            cursor: pointer;
+            margin-right: 1em;
+            opacity: 0.5;
+            text-transform: capitalize;
+            &.story-active {
+                color: $white;
+                opacity: 1;
+            }
+        }
+    }
+    .story-step-content {
+        display: none;
+    }
+    .story-map-layer-switcher {
+        display: none;
+        &.leaflet-control {
+            display: block;
+            float: none;
+            margin: 0;
+            padding: 0 0 25px 0;
+        }
+        .layers-menu {
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    /* font-family: $font-sans; */
+                    font-size: 1.2em;
+                    margin: 0;
+                    padding: 0;
+                    a {
+                        border: none;
+                        color: $grey-blue;
+                        display: inline-block;
+                        line-height: 30px;
+                        margin-top: 0.6628788vw;
+                        &:hover {
+                            border: none;
+                            color: $grey-blue;
+                        }
+                    }
+                    span,
+                    svg {
+                        float: left;
+                        vertical-align: bottom;
+                    }
+                    span {
+                        padding-left: 0.9469697vw;
+                        /* font-weight: $bold-weight; */
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+    .story-map-zoom-toggler {
+        display: none;
+        /* font-family: $font-sans; */
+        font-size: 1.2em;
+        &.leaflet-control {
+            display: block;
+            float: none;
+            margin: 0;
+            padding: 25px 0 0 0;
+        }
+        a {
+            border: none;
+            color: $grey-blue;
+            display: inline-block;
+            /* font-weight: $bold-weight; */
+            line-height: 30px;
+            &:hover {
+                border: none;
+                color: $grey-blue;
+            }
+            span,
+            svg {
+                float: left;
+                vertical-align: bottom;
+            }
+            span {
+                padding-left: 0.9469697vw;
+            }
+        }
+    }
+    @include tablet() {
+        .storymap-intro-content {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            .storymap-aside {
+                display: none;
+            }
+            .storymap-source {
+                display: none;
+            }
+            .storymap-info-toggle {
+                display: block;
+            }
+        }
+    }
+    @include phone() {
+        #map-container {
+            height: 400px;
+        }
+        .storymap-intro-content {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            .storymap-aside {
+                display: none;
+            }
+            .storymap-source {
+                display: none;
+            }
+        }
+    }
+}
