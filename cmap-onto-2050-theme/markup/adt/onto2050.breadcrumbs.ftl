@@ -33,7 +33,7 @@
           <div class="input-group input-group-sm">
             <span class="input-group-btn">
               <button class="btn" type="button">
-                <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-share"></span>
               </button>
             </span>
             <input class="page-url form-control" type="text" value="http://www.cmap.illinois.gov/on-to-2050/resources/profiles" placeholder="https://www.cmap.illinois.gov">

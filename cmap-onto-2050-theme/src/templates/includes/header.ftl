@@ -33,7 +33,7 @@
     <div class="input-group input-group-lg">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-search"></span>
         </button>
       </span>
       <input id="search-input" class="form-control" type="text" value="" placeholder="Search">

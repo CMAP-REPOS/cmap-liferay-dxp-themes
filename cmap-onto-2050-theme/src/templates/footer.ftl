@@ -11,11 +11,11 @@
       </div>
 
       <div class="col-lg-8 col-md-10 col-sm-16 footer-page-links" aria-label="Site Pages">
-        <a href="/about/terms-and-conditions" role="menuitem"> <span role="presentation">Terms & Conditions</span> </a>
-        <a href="/about/careers" role="menuitem"> <span role="presentation">Careers</span> </a>
-        <a href="/sitemap" role="menuitem"> <span role="presentation">Sitemap</span> </a>
-        <a href="/contact" role="menuitem"> <span role="presentation">Contact Us</span> </a>
-        <span class="copyright" role="presentation"> © CMAP ${.now?string('yyyy')} </span>
+        <a href="/about/terms-and-conditions" role="menuitem">Terms & Conditions</a>
+        <a href="/about/careers" role="menuitem">Careers</a>
+        <a href="/sitemap" role="menuitem">Sitemap</a>
+        <a href="/contact" role="menuitem">Contact Us</a>
+        <span class="copyright"> © CMAP ${.now?string('yyyy')} </span>
       </div>
 
       <div class="col-lg-4 col-md-3 col-sm-16 footer-social-links" aria-label="Links to social media websites">
@@ -49,11 +49,11 @@
     <div class="row">
 
       <div class="col-xs-16 footer-page-links" aria-label="Site Pages">
-        <a href="/about/terms-and-conditions" role="menuitem"> <span role="presentation">Terms & Conditions</span> </a>
-        <a href="/about/careers" role="menuitem"> <span role="presentation">Careers</span> </a>
-        <a href="/sitemap" role="menuitem"> <span role="presentation">Sitemap</span> </a>
-        <a href="/contact" role="menuitem"> <span role="presentation">Contact Us</span> </a>
-        <span class="copyright" role="presentation"> © CMAP ${.now?string('yyyy')} </span>
+        <a href="/about/terms-and-conditions" role="menuitem">Terms & Conditions</a>
+        <a href="/about/careers" role="menuitem">Careers</a>
+        <a href="/sitemap" role="menuitem">Sitemap</a>
+        <a href="/contact" role="menuitem">Contact Us</a>
+        <span class="copyright"> © CMAP ${.now?string('yyyy')} </span>
       </div>
 
     </div>
