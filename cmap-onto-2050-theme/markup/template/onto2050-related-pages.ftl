@@ -5,7 +5,7 @@
   <#if headline != ''>
     <div class="headline-container row">
       <div class="col-md-8 col-md-offset-4">
-        <h5>${headline}</h5>
+        <div class="whitney-normal bold">${headline}</div>
       </div>
     </div>
   </#if>
@@ -20,14 +20,14 @@
           <#assign PageDate_Data = getterUtil.getString(Page.PageDate.getData())>
           <#if validator.isNotNull(PageDate_Data)>
             <#assign PageDate_DateObj = dateUtil.parseDate("yyyy-MM-dd", PageDate_Data, locale)>
-            <h5 class="page-item-date">${dateUtil.getDate(PageDate_DateObj, "MMMM dd, yyyy", locale)}</h5>
+            <div class="page-item-date whitney-normal bold">${dateUtil.getDate(PageDate_DateObj, "MMMM dd, yyyy", locale)}</div>
           <#else>
-            <h5 class="page-item-date empty">July 26, 2018</h5>
+            <div class="page-item-date empty whitney-normal bold">July 26, 2018</div>
           </#if>
           <#if link != ''> 
-            <h4 class="page-item-title"><a class="page-item-link" href="${link}">${title}</a></h4>
+            <div class="page-item-title whitney-middle bold"><a class="page-item-link" href="${link}">${title}</a></div>
           <#else>
-            <h4 class="page-item-title">${title}</h4>
+            <div class="page-item-title whitney-middle bold">${title}</div>
           </#if>
           <p class="page-item-description"> ${description} </p>
           <#if link != ''> <a class="page-item-link" href="${link}">Read more</a> </#if>
