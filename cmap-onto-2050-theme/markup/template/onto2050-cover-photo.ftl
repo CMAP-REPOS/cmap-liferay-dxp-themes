@@ -17,8 +17,6 @@
 Liferay.on(
 	'allPortletsReady',
 	function() {
-
-
     var $cover_photo = $('.onto2050-cover-photo-widget');
 
     function compute_padding_top(){

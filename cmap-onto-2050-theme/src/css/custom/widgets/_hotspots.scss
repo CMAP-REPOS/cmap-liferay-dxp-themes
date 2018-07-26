@@ -49,7 +49,7 @@
       transition: $transition;
       padding-right: 1rem;
 
-      h5{
+      .whitney-normal{
         color: white;
         margin: $margin 0;
       }
@@ -114,7 +114,7 @@
         }
       }
 
-      h4{
+      .whiteny-small{
         color: $light-blue;
         transition: all 0.2s ease;
         margin-top: 0.5rem;
@@ -134,7 +134,7 @@
       }
 
       &.active{
-        h4{
+        .whitney-normal{
           color: $dark-blue;
         }
         &:after{

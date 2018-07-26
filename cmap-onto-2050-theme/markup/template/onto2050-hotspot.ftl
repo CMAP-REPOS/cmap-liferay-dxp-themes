@@ -10,7 +10,7 @@
 		        <img src="https://clarknelson.com/drop/ic_close.svg" />
 		      </div>
 		      <div class="caption-content">
-		        <h5>${cur_caption.getData()}</h5>
+		        <div class="whitney-normal bold">${cur_caption.getData()}</div>
 		      </div>
 		      <div class="caption-background"></div>
 		      <div class="caption-background-size"></div>
@@ -26,7 +26,7 @@
   <div class="hotspot-footer">
     <div class="col-md-4 col-sm-16">
       <div class="hotspot-footer-instructions">
-        <h6>Click to toggle views</h6>
+        <div class="whitney-small bold">Click to toggle views</div>
       </div>
     </div>
     <div class="col-md-12 col-sm-16"><nav></nav></div>
@@ -51,7 +51,7 @@ Liferay.on(
       $layers.each(function(i,el){
         var $el = $(el);
         var layer_name = $el.data('layer-name');
-        var $nav_item = $('<div class="hotspot-layer-item" data-toggle="'+layer_name+'"><h4>'+layer_name+'</h4></div>');
+        var $nav_item = $('<div class="hotspot-layer-item" data-toggle="'+layer_name+'"><div class="whitney-normal bold">'+layer_name+'</div></div>');
 
         $nav_item.click(function(){
           var self = this;
