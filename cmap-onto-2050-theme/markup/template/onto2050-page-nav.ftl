@@ -1,8 +1,8 @@
 <div class="page-nav">
-  <h5 class="widget-headline">${Heading.getData()}</h5>
+  <span class="widget-headline whitney-normal bold">${Heading.getData()}</span>
 	<ul class="list-unstyled"></ul>
 </div>
-
+ 
 <script>
 Liferay.on(
 	'allPortletsReady',
@@ -13,12 +13,11 @@ Liferay.on(
 			var $this = $(this),
 					id = $this.attr('id'),
 					title = $this.find('.section-title').text(),
-					$item = $('<li><h5><a href="#'+id+'">'+title+'</a></h5></li>');
+					$item = $('<li><span class="whitney-normal bold"><a href="#'+id+'">'+title+'</a></span></li>');
 			console.log($this, id, title, $item);
 			$item.click(handleClick);
 			$nav.find('ul').append($item);
 		}
-		$('.anchor-point').each(addLink);
 
 		function handleClick(event){
 			event.preventDefault();
@@ -53,4 +52,4 @@ Liferay.on(
 		}, 100));
 	}
 );
-</script>
+</script> 

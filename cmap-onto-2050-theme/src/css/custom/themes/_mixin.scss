@@ -48,16 +48,15 @@
     background: $darker-background;
     color: $alt;
 
-    .site-nav{
-      a{
-        color: $alt;
-      }
+    .site-nav a{
+      color: $alt;
     }
     .return-to-cmap{
       color: $primary;
     }
   }
 
+  
   #heading{
     .site-subheadline{
       color: $primary;
@@ -81,8 +80,13 @@
       }
     }
   }
-
-
+  &.has-cover-photo{
+    #heading{
+      .site-subheadline{
+        color: $alt;
+      }
+    }
+  }
 
   .logo{
     svg{
@@ -110,23 +114,31 @@
       }
     }
   }
+  &.has-cover-photo{
+    #navigation{
+      .return-to-cmap{
+        color: $alt;
+        &:hover{
+          color: $alt;
+        }
+      }
+    } 
+  }
 
   #breadcrumbs{
-    .breadcrumb-cmap{
+    .breadcrumb{
       $percent: 0.25;
       border-top-color: rgba($primary, $percent);
       border-bottom-color: rgba($primary, $percent);
 
       & > .active {
         color: $primary;
-        opacity: 0.75;
       }
     }
 
     .share-button,
     .close-button {
       color: $primary;
-      background: transparent;
 
       *[fill="#3A5776"],
       *[fill="#3C5976"]{
@@ -146,6 +158,37 @@
     }
     a{
       color: $alt;
+    }
+  }
+
+  &.has-cover-photo{
+    #breadcrumbs{
+      .breadcrumb{
+        & > .active {
+          color: $alt;
+          opacity: 0.5;
+        }
+      }
+      .share-button,
+      .close-button {
+        color: $alt;
+
+        *[fill="#3A5776"],
+        *[fill="#3C5976"]{
+          fill: $alt;
+        }
+
+        &:hover,
+        &:focus,
+        &.focus {
+          color: $alt;
+
+          *[fill="#3A5776"],
+          *[fill="#3C5976"]{
+            fill: $alt;
+          }
+        }
+      }
     }
   }
 

@@ -18,8 +18,7 @@
   }
 
   .widget-headline{
-    font-weight: $font-weight-normal;
-    color: $light-blue !important;
+    display: block;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -34,7 +33,6 @@
       width: 100%;
       padding: 1rem 0;
       border-bottom: none !important;
-      color: $cmap-primary !important;
     }
   }
 }
@@ -42,13 +40,5 @@
 .signed-in{
   .page-nav.fixed{
     top: 109px;
-  }
-}
-
-body.blue-theme{
-  .page-nav{
-    ul li a{
-      color: $white !important;
-    }
   }
 }

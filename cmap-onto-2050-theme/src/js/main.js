@@ -10,12 +10,12 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	var url = window.location.origin + window.location.pathname + '#' + attr_id;
 
 	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="https://clarknelson.com/drop/ic_clipboard.svg" /></button>');
-	var $link = $('<li><h4><a href="#'+attr_id+'">'+name+'</a></h4></li>');
+	var $link = $('<li><span class="whitney-normal bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
 
 	$link.click(function(e){
 		e.preventDefault();
 
-		var pull = 0; // we might need to pull the page a bit higher
+		var pull = $('#scroll-nav').innerHeight(); // we might need to pull the page a bit higher
 		if(window.Liferay.ThemeDisplay.isSignedIn()){
 			pull = pull + $('.control-menu').innerHeight();
 		}
@@ -102,12 +102,15 @@ window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight 
 }
 
 window.cmap.global.headline_check = window.cmap.global.headline_check || function(){
-	var no_more_headlines = false;
+	var no_more_headlines = false, user_alerted = false;
 	function check_for_el(name){
 		var len = $(name).length;
 		console.log(name + ' has ' + len + ' elements');
 		if(len && no_more_headlines){
-			alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be using instead, please see the javascript console for more information')
+			if(!user_alerted){
+				alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be used instead, please see the javascript console for more information')
+				user_alerted = true; 
+			}
 		} else if (!len){
 			no_more_headlines = true;
 		}
