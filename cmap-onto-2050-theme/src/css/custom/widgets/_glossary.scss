@@ -2,43 +2,51 @@
   margin-bottom: 0;
 }
 
-h3 {
-  &.glossary-initial {
-    clear: both;
-    color: $almost-white;
-    background: $grey-blue;
-    margin: 1em 0;
-    padding: .5em;
+
+.onto2050-glossary-page{
+  
+  .page-header{
+    margin-bottom: $grid-gutter-width;
+
+    h2{
+      margin-bottom: $grid-gutter-width;
+    }
+
+    label{
+      display: flex;
+      align-items: center;
+      
+      span{
+        padding-right: $grid-gutter-width / 2;
+      }
+    }
+
+    select, input{
+      display: inline-block;
+      flex: 1 0 auto;
+      width: auto;
+    }
+  }
+
+  dl{
+    header{
+      padding: $grid-gutter-width / 2;
+    }
+  }
+
+  .glossary-term-def{
+    padding: #{$grid-gutter-width / 2} 0;
+    border-bottom: 1px solid black;
+  } 
+
+  .glossary-section{
+    .glossary-term-def{
+      &:last-of-type{
+        border-bottom: none;
+      }
+    }
   }
 }
-
-dt {
-  &.glossary-term {
-    color: $grey-blue;
-    float: left;
-    width: 50%;
-  }
-}
-
-
-dd {
-  &.glossary-definition {
-    color: $grey-blue;
-    float: right;
-    width: 50%;
-  }
-}
-
-.glossary-wrapper {
-  clear: both;
-  margin: 1em 0;
-  overflow: auto;
-  + .glossary-wrapper {
-    border-top: 1px solid $grey-blue;
-    padding-top: 1em;
-  }
-}
-
 
 .onto2050-basic-web-content{
 

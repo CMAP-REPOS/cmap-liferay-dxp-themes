@@ -310,6 +310,28 @@
       background: $background;
     }
   }
+
+  .form-control {
+    border: 1px solid darken($darker-background, 10%);
+    color: $alt;
+    background-color: $darker-background;
+  }
+
+  .onto2050-glossary-page{
+  
+    dl{
+      header{
+        background: $primary;
+        h3{
+          color: $background;
+        }
+      }
+    }
+
+    .glossary-term-def{
+      border-bottom: 1px solid $primary;
+    }
+  }
 }
 
 // https://chicagotonight.wttw.com/2018/06/25/when-does-taking-moral-stand-cross-line-incivility?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685
