@@ -1,7 +1,6 @@
 .hotspot-widget{
   position: relative;
   z-index: 98;
-  overflow: hidden;
 
   .hotspot-layer{
     position: relative;
@@ -25,8 +24,12 @@
     z-index: 10;
     display: flex;
     align-items: flex-start;
-    transform: translate(- #{($icon-width / 2) + $margin}, - #{($icon-width / 2) + $margin});
+    margin-top: - #{($icon-width / 2) + $margin};
+    margin-left: - #{($icon-width / 2) + $margin};
 
+    @include phone(){
+      display: none;
+    }
 
     .caption-toggle{
       position: relative;
@@ -35,8 +38,8 @@
       cursor: pointer;
 
       img{
-        width: $icon-width; height: $icon-width;
-        margin: $margin;
+        width: $icon-width * 2; 
+        height: $icon-width * 2;
         transform: rotate(0);
         transition: all 0.2s ease;
       }
@@ -61,10 +64,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba($dark-blue, 0.614);
+      background: $dark-blue;
       border: 2px solid white;
       transition: $transition;
     }
+
     .caption-background-size{
       position: absolute;
       top: 0;
@@ -84,14 +88,44 @@
         }
       }
     }
+
+    &.flipped{
+      flex-direction: row-reverse;
+      transform: translateX(-100%);
+      .caption-content{
+        position: absolute;
+        right: 0;
+        padding-right: $icon-width + $icon-width;
+        padding-left: 1rem;
+      }
+      .caption-background{
+        left: auto;
+        right: 0;
+      }
+    }
   }
 
+  .mobile-hotspot-information{
+    display: none;
+    padding: 0 $grid-gutter-width / 2;
+
+    ul{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+    
+    @include phone(){
+      display: block;
+    }
+  }
   .hotspot-footer{
     padding-top: 0.5rem;
 
     .hotspot-footer-instructions{
       @include container-margin-left();
-      h6{
+      .whiteny-small{
         margin: 1rem 0;
         font-weight: 400;
         color: $light-blue;
@@ -114,7 +148,7 @@
         }
       }
 
-      .whiteny-small{
+      .whiteny-normal{
         color: $light-blue;
         transition: all 0.2s ease;
         margin-top: 0.5rem;
@@ -131,7 +165,13 @@
         border: 2px solid $light-blue;
         background: white;
         transition: all 0.2s ease;
+
+        @include phone(){
+          display: none;
+        }
       }
+
+      
 
       &.active{
         .whitney-normal{

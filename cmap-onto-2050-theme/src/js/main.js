@@ -9,7 +9,7 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	var name = $this.text(); // actual text highlighted for anchor
 	var url = window.location.origin + window.location.pathname + '#' + attr_id;
 
-	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="https://clarknelson.com/drop/ic_clipboard.svg" /></button>');
+	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="/o/cmap-onto-2050-theme/images/icons/ic_clipboard.svg" /></button>');
 	var $link = $('<li><span class="whitney-normal bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
 
 	$link.click(function(e){

@@ -332,6 +332,64 @@
       border-bottom: 1px solid $primary;
     }
   }
+
+  .hotspot-widget{
+  
+    .hotspot-layer-background{
+      border-top: 2px solid $primary;
+      border-bottom: 2px solid $primary;
+    }
+  
+    .hotspot-spot{
+      .caption-content{  
+        .whitney-normal{
+          color: $background;
+        }
+      }
+      .caption-background{
+        background: $primary;
+        border: 2px solid $background;
+      }
+    }
+
+    .hotspot-footer{
+      .hotspot-footer-instructions{
+        .whiteny-small{
+          color: $primary;
+        }
+      }
+  
+      .hotspot-layer-item{
+  
+        .whiteny-normal{
+          color: $primary;
+        }
+  
+        &:after{
+          border: 2px solid $primary;
+          background: $background;
+        }
+        &:hover{
+          &:after{
+            background: $darker-background;
+          }
+        }
+  
+        &.active{
+          .whitney-normal{
+            color: $primary;
+            @include phone(){
+              color: $alt;
+            }
+          }
+          &:after{
+            background: $primary;
+          }
+        }
+      }
+  
+    }
+  }
 }
 
 // https://chicagotonight.wttw.com/2018/06/25/when-does-taking-moral-stand-cross-line-incivility?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685

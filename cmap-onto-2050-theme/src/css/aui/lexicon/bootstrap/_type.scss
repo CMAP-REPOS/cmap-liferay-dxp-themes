@@ -170,6 +170,9 @@ ol {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  li{
+    list-style: none;
+  }
 }
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility
 .list-unstyled {

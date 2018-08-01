@@ -4,7 +4,6 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
   border-top: $ad-border;
   border-bottom: $ad-border;
   overflow: hidden;
-  margin: 3rem 0;
 
   .widget-spacer{
     width: 100%;
@@ -52,9 +51,16 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     .cmap-ad-content{
       padding: 1rem 0;
     }
+    .widget-spacer{
+      padding-bottom: 0;
+    }
     img.background{
+      position: relative;
       height: auto;
       width: 100%;
+    }
+    .placeholder-background{
+      display: none;
     }
   }
 }

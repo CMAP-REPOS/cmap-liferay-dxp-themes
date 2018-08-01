@@ -47,12 +47,12 @@
   <div class="label-row row">
     <div class="col-sm-8 before-label">
       <#if before_text != ''>
-        <div class="whitney-middle bold">${before_text}</div>
+        <div class="whitney-normal bold">${before_text}</div>
       </#if>
     </div>
     <div class="col-sm-8 after-label">
       <#if after_text != ''>
-        <div class="whitney-middle bold">${after_text}</div>
+        <div class="whitney-normal bold">${after_text}</div>
       </#if>
     </div>
   </div>
