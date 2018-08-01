@@ -28,7 +28,7 @@
       </div>
       <div class="slider">
         <div class="vertical-line"></div>
-        <img class="slider-button" src="" draggable="false"/>
+        <img class="slider-button" src="" alt="Three horizontal lines that denote an area to grab and drag around" draggable="false"/>
       </div>
       <div class="after">
         <div class="after-shade shade">
@@ -58,8 +58,8 @@
   </div>
 
   <div class="no-js row">
-    <img class="after-placeholder" src="${after_picture}" />
-    <img class="before-placeholder" src="${before_picture}" />
+    <img class="after-placeholder" alt="${AfterImage.getAttribute("alt")}" src="${after_picture}" />
+    <img class="before-placeholder" alt="${BeforeImage.getAttribute("alt")}" src="${before_picture}" />
   </div>
 </div>
 <#else>

@@ -285,7 +285,11 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	// removes empty paragraph tags
 	$('p').each(function(){
 		var $this = $(this);
-		if($.trim($this.text()) == ''){ $this.remove(); }
+		if($.trim($this.text()) == ''){ 
+			if($this.find('img').length){ return; }
+			console.log('removing empty paragraph tag', $this);
+			$this.remove(); 
+		}
 	});
 
 };

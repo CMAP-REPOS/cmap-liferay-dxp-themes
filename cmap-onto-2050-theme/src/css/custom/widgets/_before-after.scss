@@ -58,6 +58,8 @@
       top: 50%;
       width: 18px;
       transform: translateY(-50%);
+      pointer-events: none;
+      max-width: none;
     }
   }
 

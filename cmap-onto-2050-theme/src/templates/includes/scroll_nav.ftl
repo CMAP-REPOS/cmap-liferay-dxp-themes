@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <div class="page-title whitney-normal bold"></div>
+      <div class="page-title whitney-normal bold">${the_title}</div>
       <div class="addthis_inline_share_toolbox"></div>
     </div>
     <div class="col-sm-4">
