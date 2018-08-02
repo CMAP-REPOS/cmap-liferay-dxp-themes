@@ -4,4 +4,38 @@ body#cmap-ckeditor,
   .advertisement{
     margin: 3rem 0;
   }
+
+  ol,
+  ul,
+  p{
+    margin-top: 1.5rem;
+
+    & + .huge-headline,
+    & + .page-headline,
+    & + .section-headline,
+    & + .section-sub-headline,
+    & + .normal-headline,
+    & + .small-headline{
+      margin-top: 1.5rem;
+    }
+  }
+
+  .huge-headline,
+  .page-headline,
+  .section-headline,
+  .section-sub-headline,
+  .normal-headline,
+  .small-headline{
+
+    & + p,
+    & + ul,
+    & + ol{
+      margin-top: 1rem;
+    }
+  }
+
+  .section-headline + .section-headline {
+    margin-top: 0.5rem;
+  }
+
 }

@@ -33,7 +33,7 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     background: rgba($light-blue, 0.2);
   }
 
-  img.background{
+  .background{
     position: absolute;
     left: 0;
     top: 0;
@@ -41,6 +41,10 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     width: auto;
     max-width: none;
     height: 100%;
+
+    img{
+      height: 100%;
+    }
   }
 
   @include tablet(){
@@ -66,7 +70,6 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
 }
 
 .ad-grid{
-
   & + .ad-grid{
     .advertisement{
       border-top: none;

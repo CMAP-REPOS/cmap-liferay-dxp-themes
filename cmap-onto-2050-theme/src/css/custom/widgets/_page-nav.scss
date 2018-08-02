@@ -25,13 +25,10 @@
 
   ul li{
     border-top: 1px solid rgba($light-blue, 0.5);
-    h4{
-      margin-bottom: 0;
-    }
+    list-style: none;
     a{
       display: block;
       width: 100%;
-      padding: 1rem 0;
       border-bottom: none !important;
     }
   }
