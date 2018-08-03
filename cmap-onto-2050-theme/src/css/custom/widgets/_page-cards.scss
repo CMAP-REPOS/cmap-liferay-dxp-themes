@@ -1,5 +1,9 @@
 .page-cards{
-  .top{
+
+  .page-card{
+    margin-bottom: 1.5rem;
+  }
+  .top-content{
     position: relative;
     padding-bottom: 50%;
     overflow: hidden;
@@ -11,7 +15,7 @@
     }
   }
 
-  .bottom{
+  .bottom-content{
     padding: 1.5rem;
   }
 }
