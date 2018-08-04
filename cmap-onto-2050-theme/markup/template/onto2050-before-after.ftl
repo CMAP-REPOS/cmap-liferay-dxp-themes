@@ -136,6 +136,4 @@ Liferay.on(
     });
 	}
 );
-
-
 </script>
