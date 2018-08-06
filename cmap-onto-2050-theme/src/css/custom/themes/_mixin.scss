@@ -237,7 +237,7 @@
   .onto2050-basic-web-content{
 
     .page-cards{
-      .bottom{
+      .bottom-content{
         background: $lighter-background;
         a {
           @include clear-underline-link($lighter-alt);
@@ -293,6 +293,18 @@
     }
   }
 
+  .onto2050-actions{
+    .actions-header{
+      hr{
+        border-bottom: 1px solid $alt;
+      }
+    }
+    .actions-row{
+      hr{
+        border-bottom: 1px solid $primary;
+      }
+    }
+  }
 
   .before-after-widget .label-row h4{
     color: $primary;

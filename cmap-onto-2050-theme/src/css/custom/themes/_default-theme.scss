@@ -20,7 +20,7 @@ body.default-theme{
 
   .onto2050-basic-web-content{
     .page-cards{
-      .bottom{
+      .bottom-content{
         background: $darker-background;
         a {
           @include clear-underline-link($darker-alt);
