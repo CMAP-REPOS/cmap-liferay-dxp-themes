@@ -1,6 +1,6 @@
 <#if entries?has_content>
 
-  <nav id="cmap-onto2050-breadcrumbs" class="breadcrumb-cmap container-fluid">
+  <nav id="cmap-onto2050-breadcrumbs" class="breadcrumb-cmap container-fluid" aria-label="Breadcrumb">
     <#assign cssClass="" />
     <div class="row">
       <div class="trail-col col-lg-12 col-md-13 col-sm-16">
@@ -17,7 +17,9 @@
               </#if>
               <#if entry.isBrowsable()>
                 <#if entry?is_last>
-                  ${htmlUtil.escape(entry.getTitle())}
+                  <a href="" aria-current="page">
+                    ${htmlUtil.escape(entry.getTitle())}
+                  </a>
                 <#else>
                   <a href="${url}">
                     ${htmlUtil.escape(entry.getTitle())}
@@ -64,7 +66,7 @@
   </nav>
 
 
-  <nav id="cmap-breadcrumbs" class="breadcrumb breadcrumb-cmap container-fluid">
+  <nav id="cmap-breadcrumbs" class="breadcrumb breadcrumb-cmap container-fluid" aria-label="Breadcrumb">
     <#assign cssClass="" />
     <div class="row">
       <div class="share-col col-xl-3 col-sm-16">
@@ -101,21 +103,15 @@
               <#assign cssClass="active" />
             </#if>
 
-            <span class="entry whitney-small ${cssClass}">
-              <#assign url = entry.getURL()! "" >
-              <#if url?has_content && url?contains("/web/guest")>
-                <#assign url = url?replace("/web/guest","") >
-              </#if>
-              <#if entry.isBrowsable()>
-                <#if entry?is_last>
-                  ${htmlUtil.escape(entry.getTitle())}
-                <#else>
-                  <a href="${url}">
-                    ${htmlUtil.escape(entry.getTitle())}
-                  </a>
-                </#if>
-              </#if>
-    				</span>
+            <#assign url = entry.getURL()! "" >
+            <#if url?has_content && url?contains("/web/guest")>
+              <#assign url = url?replace("/web/guest","") >
+            </#if>
+            <#if entry.isBrowsable()>
+              <a class="entry whitney-small ${cssClass}" href="${url}" <#if entry?is_last> aria-current="page" </#if>>
+                ${htmlUtil.escape(entry.getTitle())}
+              </a>
+            </#if>
           </#list>
         </div>
 

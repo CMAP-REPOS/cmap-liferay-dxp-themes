@@ -1,4 +1,4 @@
-<header id="banner" class="container-fluid" role="banner">
+<header id="banner" class="container-fluid">
   <#include "${full_templates_path}/includes/header.ftl" />
   <nav class="${nav_css_class}" id="navigation" role="navigation">
     <div class="row">

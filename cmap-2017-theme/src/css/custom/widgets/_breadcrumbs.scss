@@ -107,16 +107,13 @@ body.cmap-2017-theme{
       }
     }
 
-    span{
+    a{
       padding: 0 $size-2 0 #{$size-1 - 0.1em};
       border-left: 1px solid $off-white;
 
       &.active{
         cursor: default;
         color: $off-white-text;
-      }
-      &:first-of-type{
-        padding-left: 0;
       }
     }
   }

@@ -4,7 +4,21 @@
     .whitney-normal{
       padding-bottom: $grid-gutter-width / 2;
     }
+
+    @include phone(){
+      display: none;
+    }
   }
+
+
+  .mobile-headline,
+  .mobile-hr {
+    display: none;
+    @include phone(){
+      display: block;
+    }
+  }
+
   .actions-row{
     *{
       margin: 0;
