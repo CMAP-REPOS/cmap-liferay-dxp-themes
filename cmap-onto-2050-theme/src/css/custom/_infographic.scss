@@ -2,10 +2,13 @@
 
 .chart-legend-2050 {
   @extend .whitney-small;
-  font-weight: 600;
+  
   border-top: 0.25rem solid $grey-blue;
   color: $light-blue;
 
+  h6 {
+	font-weight: 600;
+  }
   p {
     @extend .whitney-small;
     color: $grey-blue;
@@ -36,7 +39,6 @@
       .chart-legend-2050-key-label {
         display: inline-block;
         vertical-align: bottom;
-        font-weight: bold;
       }
     }
   }
