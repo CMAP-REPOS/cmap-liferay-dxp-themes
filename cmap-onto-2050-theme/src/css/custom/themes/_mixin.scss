@@ -55,7 +55,6 @@
       color: $primary;
     }
   }
-
   
   #heading{
     .site-subheadline{
@@ -88,6 +87,17 @@
     }
   }
 
+
+  #scroll-nav{
+    background: $darker-background;
+    border-bottom: 1px solid $primary;
+  
+    .page-title{
+      color: $primary;
+    }
+  }
+  
+
   .logo{
     svg{
       path,polygon{
@@ -114,6 +124,7 @@
       }
     }
   }
+
   &.has-cover-photo{
     #navigation{
       .return-to-cmap{
@@ -193,7 +204,33 @@
   }
 
 
+  #footer{
+    background: $darker-background;
 
+    .footer-page-links{
+      a{
+        color: $primary !important;
+        &:hover{
+          color: $alt !important;
+          border-bottom: 1px solid $alt;
+        }
+      }
+    }
+    .footer-social-link{
+      path{
+        fill: $primary;
+      }
+      &:hover{
+        path{
+          fill: $alt;
+        }
+      }
+    }
+
+    .copyright{
+      color: $grey-blue;
+    }
+  }
 
   .page-nav{
     ul li a{

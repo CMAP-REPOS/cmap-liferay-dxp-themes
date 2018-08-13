@@ -34,6 +34,12 @@ body#cmap-ckeditor,
     }
   }
 
+  .huge-headline + p,
+  .section-headline + p{
+    margin-top: 0.5rem;
+  }
+
+
   .section-headline + .section-headline {
     margin-top: 0.5rem;
   }

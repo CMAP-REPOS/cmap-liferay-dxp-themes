@@ -1,5 +1,9 @@
 body.default-theme{
 
+  $default-theme-background-color: #FFFFFF;
+  $default-theme-text-color: #495C65;
+  $default-theme-alt-text-color: #181F22;
+
   $darker-background: darken($default-theme-background-color, 10%);
   $darker-primary: darken($default-theme-text-color, 10%);
   $darker-alt: darken($default-theme-alt-text-color, 10%);
@@ -9,8 +13,6 @@ body.default-theme{
   $lighter-alt: lighten($default-theme-alt-text-color, 10%);
 
   @include theme-color-mixin($default-theme-background-color, $default-theme-text-color, $default-theme-alt-text-color);
-
-  
 
   &.signed-in{
     .portlet-column-content.empty {
@@ -39,5 +41,8 @@ body.default-theme{
         background: $darker-background;
       }
     }
+  }
+  #cmap-ckeditor{
+    @include theme-color-mixin($default-theme-background-color, $default-theme-text-color, $default-theme-alt-text-color);
   }
 }

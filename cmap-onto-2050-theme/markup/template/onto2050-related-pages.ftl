@@ -2,6 +2,8 @@
 <#assign headline = Headline.getData()>
 <div id="${randomNamespace}" class="onto2050-related-pages">
 
+  <a href="#${randomNamespace}_mobile-content" class="sr-only">Jump to content</a>
+
   <#if headline != ''>
     <div class="headline-container row">
       <div class="col-md-8 col-md-offset-4">
@@ -11,7 +13,31 @@
   </#if>
 
   <#if PageTitle.getSiblings()?has_content>
-    <div class="page-item-container row">
+    <div id="" class="page-item-container row" aria-live="polite" id="#${randomNamespace}_content">
+    	<#list PageTitle.getSiblings() as Page>
+        <#assign title = Page.getData()>
+        <#assign link = Page.PageLink.getData()>
+        <#assign description = Page.PageDescription.getData()>
+        <div class="page-item">
+          <#assign PageDate_Data = getterUtil.getString(Page.PageDate.getData())>
+          <#if validator.isNotNull(PageDate_Data)>
+            <#assign PageDate_DateObj = dateUtil.parseDate("yyyy-MM-dd", PageDate_Data, locale)>
+            <div class="page-item-date whitney-normal bold">${dateUtil.getDate(PageDate_DateObj, "MMMM dd, yyyy", locale)}</div>
+          <#else>
+            <div class="page-item-date empty whitney-normal bold">July 26, 2018</div>
+          </#if>
+          <#if link != ''> 
+            <div class="page-item-title whitney-middle bold"><a class="page-item-link" href="${link}">${title}</a></div>
+          <#else>
+            <div class="page-item-title whitney-middle bold">${title}</div>
+          </#if>
+          <p class="page-item-description"> ${description} </p>
+          <#if link != ''> <a class="page-item-link" href="${link}">Read more</a> </#if>
+        </div>
+    	</#list>
+    </div>
+
+    <div class="page-item-screen-reader sr-only" id="#${randomNamespace}_mobile-content">
     	<#list PageTitle.getSiblings() as Page>
         <#assign title = Page.getData()>
         <#assign link = Page.PageLink.getData()>
@@ -44,7 +70,7 @@ Liferay.on(
 	function() {
     var $this = $('#${randomNamespace}');
     var $items = $this.find('.page-item');
-    var $nav = $('<nav class="dot-nav"></nav>');
+    var $nav = $('<nav class="dot-nav" aria-controls="${randomNamespace}_content"></nav>');
     var $container = $('<div class="related-pages-container"></div>');
     var center = $this.parents('.portlet-layout').find('> .col-md-8').length;
     var full = $this.parents('.portlet-layout').find('> .col-md-16').length;
