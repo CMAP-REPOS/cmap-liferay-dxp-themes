@@ -30,10 +30,10 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	if(attr_id !== undefined && attr_name !== undefined){
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
-			$button.click(()=>{
+			$button.click(function(){
 				copyToClipboard(url);
 			});
-			$this.click(()=>{
+			$this.click(function(){
 				copyToClipboard(url);
 			});
 			$this.addClass('page-anchor');
@@ -116,6 +116,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 		}
 		// $(name).each(function(){ console.log(this); });
 	}
+
 	check_for_el('h1');
 	check_for_el('h2');
 	check_for_el('h3');
@@ -124,7 +125,6 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h6');
 
 	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
-
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};
