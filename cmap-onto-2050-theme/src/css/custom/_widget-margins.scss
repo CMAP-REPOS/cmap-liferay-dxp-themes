@@ -2,13 +2,14 @@ body#cmap-ckeditor,
 .onto2050-basic-web-content{
 
   .advertisement{
-    margin: 3rem 0;
+    margin: $grid-gutter-width 0;
   }
+  
 
   ol,
   ul,
   p{
-    margin-top: 1.5rem;
+    margin-top: $grid-gutter-width / 2;
 
     & + .huge-headline,
     & + .page-headline,
@@ -16,7 +17,7 @@ body#cmap-ckeditor,
     & + .section-sub-headline,
     & + .normal-headline,
     & + .small-headline{
-      margin-top: 1.5rem;
+      margin-top: $grid-gutter-width / 2;
     }
   }
 
@@ -30,18 +31,23 @@ body#cmap-ckeditor,
     & + p,
     & + ul,
     & + ol{
-      margin-top: 1rem;
+      margin-top: $grid-gutter-width / 3;
     }
   }
 
   .huge-headline + p,
   .section-headline + p{
-    margin-top: 0.5rem;
+    margin-top: $grid-gutter-width / 6;
   }
 
 
   .section-headline + .section-headline {
-    margin-top: 0.5rem;
+    margin-top: $grid-gutter-width / 6;
+  }
+
+  p + .section-sub-headline,
+  .onto2050-actions + .section-sub-headline{
+    margin-top: $grid-gutter-width * 2;
   }
 
 }

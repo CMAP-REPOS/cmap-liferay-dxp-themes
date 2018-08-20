@@ -1,8 +1,12 @@
 body.blue-theme{
-
   @include theme-color-mixin($blue-theme-background-color, $blue-theme-text-color, $blue-theme-alt-text-color);
-
   #cmap-ckeditor{
     @include theme-color-mixin($blue-theme-background-color, $blue-theme-text-color, $blue-theme-alt-text-color);
   }
+
+  .page-headline{
+    @extend .huge-headline;
+    margin-bottom: 0.5em;
+  }
 }
+

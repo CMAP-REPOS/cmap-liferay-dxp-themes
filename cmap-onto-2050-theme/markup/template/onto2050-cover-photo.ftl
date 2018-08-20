@@ -33,7 +33,7 @@ Liferay.on(
         foobar += $($row[i]).innerHeight();
       }
       if((window.innerHeight - foobar) > 0){
-        $($row[content_rows]).css('padding-top', window.innerHeight - foobar);
+        $($row[content_rows]).css('padding-top', (window.innerHeight * 1.2) - foobar);
       }
     }
     if($cover_photo.length > 1){

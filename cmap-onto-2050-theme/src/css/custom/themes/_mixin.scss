@@ -8,6 +8,8 @@
   $lighter-primary: lighten($primary, 10%);
   $lighter-alt: lighten($alt, 10%);
 
+  $translucent-alt: rgba($alt,0.1);
+
   &:not(.portal-popup){
     background: $background;
     color: $primary;
@@ -22,6 +24,7 @@
     }
     a {
       color: $alt;
+      border-bottom: 1px solid rgba($alt, 0.3);
       &:hover,
       &:focus {
         color: $lighter-alt;
@@ -63,21 +66,6 @@
     input::placeholder{
       color: $alt;
     }
-    .form-control {
-      color: $alt;
-      background-color: $darker-background;
-      border-color: transparent;
-    }
-    .input-group-btn{
-      .btn{
-        background-color: $darker-background;
-        border-color: transparent;
-        color: $alt;
-        &:hover{
-          background-color: $darker-background;
-        }
-      }
-    }
   }
   &.has-cover-photo{
     #heading{
@@ -87,15 +75,26 @@
     }
   }
 
+ 
+
 
   #scroll-nav{
     background: $darker-background;
-    border-bottom: 1px solid $primary;
+    border-bottom: 1px solid rgba($alt, 0.3);
   
     .page-title{
       color: $primary;
     }
   }
+  .jump-to-top-button{
+    span{
+      color: $primary;
+    }
+    svg path{
+      fill: $primary !important;
+    }
+  }
+  
   
 
   .logo{
@@ -137,10 +136,10 @@
   }
 
   #breadcrumbs{
-    .breadcrumb{
-      $percent: 0.25;
-      border-top-color: rgba($primary, $percent);
-      border-bottom-color: rgba($primary, $percent);
+    .breadcrumb-cmap{      
+      $percent: 0.2;
+      border-top: 1px solid rgba($alt, $percent);
+      border-bottom: 1px solid rgba($alt, $percent);
 
       & > .active {
         color: $primary;
@@ -206,6 +205,7 @@
 
   #footer{
     background: $darker-background;
+    border-top: 1px solid rgba($alt, 0.3);
 
     .footer-page-links{
       a{
@@ -223,6 +223,12 @@
       &:hover{
         path{
           fill: $alt;
+        }
+      }
+
+      .youtube{
+        polyline{
+          fill: $darker-background;
         }
       }
     }
@@ -266,7 +272,24 @@
       }
     }
   }
-
+  #wrapper{
+    .form-control {
+      border-color: transparent;
+      color: $alt;
+      background-color: hsla(0, 100%, 100%, 0.3);
+    }
+  
+    .input-group-btn{
+      .btn{
+        background-color: hsla(0, 100%, 100%, 0.3);
+        border-color: transparent;
+        color: $alt;
+        &:hover{
+          background-color: hsla(0, 100%, 100%, 0.1);
+        }
+      }
+    }
+  }
   
 
   // widgets
@@ -275,10 +298,7 @@
 
     .page-cards{
       .bottom-content{
-        background: $lighter-background;
-        a {
-          @include clear-underline-link($lighter-alt);
-        }
+        background: $translucent-alt;
       }
     }
 
@@ -333,12 +353,12 @@
   .onto2050-actions{
     .actions-header{
       hr{
-        border-bottom: 1px solid $alt;
+        border-bottom: 1px solid rgba($alt, 0.3);
       }
     }
     .actions-row{
       hr{
-        border-bottom: 1px solid $primary;
+        border-bottom: 1px solid rgba($primary, 0.3);
       }
     }
   }
@@ -360,11 +380,6 @@
     }
   }
 
-  .form-control {
-    border: 1px solid darken($darker-background, 10%);
-    color: $alt;
-    background-color: $darker-background;
-  }
 
   .onto2050-glossary-page{
   
@@ -382,6 +397,12 @@
     }
   }
 
+  .related-recommendations{
+    .related-recommendation a{
+      border-top: 1px solid rgba($alt, 0.3);
+      border-bottom: 0;
+    }
+  }
   .hotspot-widget{
   
     .hotspot-layer-background{

@@ -15,7 +15,7 @@ body#cmap-ckeditor,
 
   ul li{
     list-style: disc inside;
-  } 
+  }
   ol li{
     list-style: decimal inside;
   }
@@ -31,6 +31,10 @@ body#cmap-ckeditor,
   }
   h1,h2,h3,h4,h5,h6,p{
     margin: 0;
+  }
+
+  h2{
+    margin-top: 3rem;
   }
   
   p{

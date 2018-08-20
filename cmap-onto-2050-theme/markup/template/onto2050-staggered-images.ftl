@@ -18,24 +18,24 @@
           </div>
         </#if>
       <#else>
+        <img class="col-sm-16" data-fileentryid="${LeftImage.getAttribute("fileEntryId")}" alt="${LeftImage.getAttribute("alt")}" src="${left_image}"/>
         <#if left_caption?? && left_caption != "">
-          <div class="caption col-sm-12">
+          <div class="caption col-sm-16">
             ${left_caption}
           </div>
         </#if>
-        <img class="col-sm-16" data-fileentryid="${LeftImage.getAttribute("fileEntryId")}" alt="${LeftImage.getAttribute("alt")}" src="${left_image}"/>
       </#if>
     </div>
   </div>
   <div class="right row">
     <div class="col-sm-8 col-sm-offset-7 row">
       <#if align == "left">
+        <img class="col-sm-16" data-fileentryid="${RightImage.getAttribute("fileEntryId")}" alt="${RightImage.getAttribute("alt")}" src="${right_image}"/>
         <#if right_caption?? && right_caption != "">
-          <div class="caption col-sm-12 col-sm-offset-4">
+          <div class="caption col-sm-16">
             ${right_caption}
           </div>
         </#if>
-        <img class="col-sm-16" data-fileentryid="${RightImage.getAttribute("fileEntryId")}" alt="${RightImage.getAttribute("alt")}" src="${right_image}"/>
       <#else>
         <img class="col-sm-16" data-fileentryid="${RightImage.getAttribute("fileEntryId")}" alt="${RightImage.getAttribute("alt")}" src="${right_image}"/>
         <#if right_caption?? && right_caption != "">

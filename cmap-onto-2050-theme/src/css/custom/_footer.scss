@@ -1,12 +1,18 @@
 #footer{
   background: $off-white;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.75rem;
+  padding-bottom: 2rem;
 
   .desktop-content{
     @include tablet(){
       display: none;
     }
+  }
+
+
+
+  .jump-to-top-button{
+    @include container-margin-left();
   }
 
   .mobile-content{
@@ -33,6 +39,7 @@
   .footer-page-links{
     transform: translateY(0.1em);
     a{
+      @extend .small-headline;
       margin-right: 0.5em;
       color: $grey-blue !important;
       &:hover{
@@ -41,10 +48,11 @@
       }
     }
   }
+
   .footer-social-link{
     display: inline-block;
     height: 20px; // change to same value as svg height;
-    margin-right: 0.2em;
+    margin-right: 0.5em;
 
     path{
       fill: $grey-blue;

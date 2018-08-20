@@ -24,3 +24,4 @@ body.black-theme{
     @include theme-color-mixin($black-theme-background-color, $black-theme-text-color, $black-theme-alt-text-color);
   }
 }
+

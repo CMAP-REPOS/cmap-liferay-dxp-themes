@@ -5,6 +5,7 @@
   .actions-header{  
     .whitney-normal{
       padding-bottom: $grid-gutter-width / 2;
+      @extend .whitney-small;
     }
 
     @include phone(){

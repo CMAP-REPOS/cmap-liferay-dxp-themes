@@ -85,8 +85,8 @@ $font-size-base: 17px !default;
 $font-size-large: ceil(($font-size-base * 1.2)) !default;
 $font-size-small: ceil(($font-size-base * 0.8)) !default;
 
-$font-size-jumbo: floor(($font-size-base * 3.6)) !default;
-$font-size-h1: floor(($font-size-base * 2.4)) !default;
+$font-size-jumbo: floor(($font-size-base * 5)) !default;
+$font-size-h1: floor(($font-size-base * 2.5)) !default;
 $font-size-h2: floor(($font-size-base * 2)) !default;
 $font-size-h3: ceil(($font-size-base * 1.733333333)) !default;
 $font-size-h4: ceil(($font-size-base * 1.2)) !default;

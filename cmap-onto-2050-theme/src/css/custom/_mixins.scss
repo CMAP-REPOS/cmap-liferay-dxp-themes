@@ -1,5 +1,5 @@
 @mixin container-margin-left($vertical: 0){
-  margin-left: $grid-gutter-width;
+  margin-left: $grid-gutter-width * 2;
   margin-top: $vertical;
   margin-bottom: $vertical;
   @include phone(){
@@ -7,7 +7,7 @@
   }
 }
 @mixin container-margin-right($vertical: 0){
-  margin-right: $grid-gutter-width;
+  margin-right: $grid-gutter-width * 2;
   margin-top: $vertical;
   margin-bottom: $vertical;
   @include phone(){

@@ -69,8 +69,12 @@ $control-menu-height-mobile: 48px;
 // I think these are best left as hex values
 // In order to ensure that the themes meet AA accessiblity
 
+$default-theme-background-color: #FFFFFF;
+$default-theme-text-color: rgb(71,92,102);
+$default-theme-alt-text-color: rgb(24,31,34);
+
 $blue-theme-background-color: #3C5976;
-$blue-theme-text-color: #C1CDD7;
+$blue-theme-text-color: rgba(255,255,255,0.8);
 $blue-theme-alt-text-color: #FFFFFF;
 
 $grey-theme-background-color: #3C3837;

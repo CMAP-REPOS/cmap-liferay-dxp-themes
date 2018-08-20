@@ -6,9 +6,9 @@
   width: 100%;
   transform: translateY(-100%);
   transition: all 0.3s ease;
-  border-bottom: 1px solid darken($off-white, 10%);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(white, 0.1);
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 
   .left-container{
     display: flex;
