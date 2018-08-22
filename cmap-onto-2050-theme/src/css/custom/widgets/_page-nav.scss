@@ -32,6 +32,10 @@
       border-bottom: none !important;
     }
   }
+
+  .whitney-normal{
+    @extend .whitney-small;
+  }
 }
 
 .signed-in{

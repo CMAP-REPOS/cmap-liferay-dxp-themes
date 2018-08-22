@@ -10,7 +10,7 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	var url = window.location.origin + window.location.pathname + '#' + attr_id;
 
 	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="/o/cmap-onto-2050-theme/images/icons/ic_clipboard.svg" /></button>');
-	var $link = $('<li><span class="whitney-normal bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
+	var $link = $('<li><span class="whitney-small bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
 
 	$link.click(function(e){
 		e.preventDefault();
@@ -104,7 +104,7 @@ window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight 
 window.cmap.global.headline_check = window.cmap.global.headline_check || function(){
 
 	$('#breadcrumbs h1.hide-accessible').hide();
-	console.log($('#breadcrumbs h1.hide-accessible'));
+
 	var no_more_headlines = false, user_alerted = false;
 	function check_for_el(name){
 		var len = $(name).length;
@@ -127,7 +127,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h5');
 	check_for_el('h6');
 
-	// if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
+	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};
