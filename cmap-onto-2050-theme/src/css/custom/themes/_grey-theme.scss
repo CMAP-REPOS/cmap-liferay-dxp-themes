@@ -3,5 +3,11 @@ body.grey-theme{
   #cmap-ckeditor{
     @include theme-color-mixin($grey-theme-background-color, $grey-theme-text-color, $grey-theme-alt-text-color);
   }
+
+  .related-recommendations{
+    .normal-headline{
+      opacity: 0.5;
+    }
+  }
 }
 

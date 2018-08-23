@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+// remember to add color rules to the theme mixin
 .chart-legend-2050 {
   @extend .whitney-small;
   
@@ -9,6 +11,7 @@
   h6 {
 	font-weight: 600;
   }
+
   p {
     @extend .whitney-small;
     color: $grey-blue;
@@ -59,12 +62,11 @@
   .chart-graphic-2050-description-container {
     float: right;
     width: 50%;
-
-    .chart-graphic-2050-description {
-      @extend .presna-normal;
-      color: $black;
-      margin: 0 $unit;
-    }
+  }
+  .chart-graphic-2050-description {
+    @extend .presna-normal;
+    color: $black;
+    margin: 0 $unit;
   }
 
   .chart-graphic-2050 {

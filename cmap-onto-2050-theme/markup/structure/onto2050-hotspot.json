@@ -1,130 +1,177 @@
 {
-  "availableLanguageIds": [
-      "en_US"
-  ],
-  "defaultLanguageId": "en_US",
-  "fields": [
-      {
-          "label": {
-              "en_US": "Layer"
-          },
-          "predefinedValue": {
-              "en_US": ""
-          },
-          "style": {
-              "en_US": ""
-          },
-          "tip": {
-              "en_US": "Used as the label for the image. If only one layer, this is ignored."
-          },
-          "dataType": "string",
-          "indexType": "keyword",
-          "localizable": true,
-          "name": "Layer",
-          "readOnly": false,
-          "repeatable": true,
-          "required": false,
-          "showLabel": true,
-          "type": "text",
-          "nestedFields": [
-              {
-                  "label": {
-                      "en_US": "Image"
-                  },
-                  "predefinedValue": {
-                      "en_US": ""
-                  },
-                  "style": {
-                      "en_US": ""
-                  },
-                  "tip": {
-                      "en_US": ""
-                  },
-                  "dataType": "image",
-                  "fieldNamespace": "ddm",
-                  "indexType": "text",
-                  "localizable": true,
-                  "name": "Image",
-                  "readOnly": false,
-                  "repeatable": false,
-                  "required": true,
-                  "showLabel": true,
-                  "type": "ddm-image"
-              },
-              {
-                  "label": {
-                      "en_US": "Caption"
-                  },
-                  "predefinedValue": {
-                      "en_US": ""
-                  },
-                  "style": {
-                      "en_US": ""
-                  },
-                  "tip": {
-                      "en_US": ""
-                  },
-                  "dataType": "string",
-                  "indexType": "text",
-                  "localizable": true,
-                  "name": "Caption",
-                  "readOnly": false,
-                  "repeatable": true,
-                  "required": false,
-                  "showLabel": true,
-                  "type": "textarea",
-                  "nestedFields": [
-                      {
-                          "label": {
-                              "en_US": "Top"
-                          },
-                          "predefinedValue": {
-                              "en_US": "0"
-                          },
-                          "style": {
-                              "en_US": ""
-                          },
-                          "tip": {
-                              "en_US": "percentage from the top of the image to the top of the spot"
-                          },
-                          "dataType": "number",
-                          "fieldNamespace": "ddm",
-                          "indexType": "keyword",
-                          "localizable": true,
-                          "name": "Top",
-                          "readOnly": false,
-                          "repeatable": false,
-                          "required": true,
-                          "showLabel": true,
-                          "type": "ddm-number"
-                      },
-                      {
-                          "label": {
-                              "en_US": "Left"
-                          },
-                          "predefinedValue": {
-                              "en_US": "0"
-                          },
-                          "style": {
-                              "en_US": ""
-                          },
-                          "tip": {
-                              "en_US": "percentage from the left edge of the image to the left edge of the spot"
-                          },
-                          "dataType": "number",
-                          "fieldNamespace": "ddm",
-                          "indexType": "keyword",
-                          "localizable": true,
-                          "name": "Left",
-                          "readOnly": false,
-                          "repeatable": false,
-                          "required": true,
-                          "showLabel": true,
-                          "type": "ddm-number"
-                      }
-                  ]
-              }
-          ]
-      }
-  ]
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Title"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Title",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Description"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "html",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "Description",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-text-html"
+        },
+        {
+            "label": {
+                "en_US": "Layer"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Layer",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Image"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "image",
+                    "fieldNamespace": "ddm",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "Image",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "ddm-image"
+                },
+                {
+                    "label": {
+                        "en_US": "Caption"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "Caption",
+                    "readOnly": false,
+                    "repeatable": true,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "textarea",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Top"
+                            },
+                            "predefinedValue": {
+                                "en_US": "0"
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": "percentage from the top of the image to the top of the spot"
+                            },
+                            "dataType": "number",
+                            "fieldNamespace": "ddm",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "Top",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": true,
+                            "showLabel": true,
+                            "type": "ddm-number"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Left"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": "percentage from the left edge of the image to the left edge of the spot"
+                            },
+                            "dataType": "number",
+                            "fieldNamespace": "ddm",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "Left",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": true,
+                            "showLabel": true,
+                            "type": "ddm-number"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

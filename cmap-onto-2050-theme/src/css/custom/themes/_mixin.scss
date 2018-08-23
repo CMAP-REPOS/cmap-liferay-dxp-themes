@@ -403,13 +403,34 @@
       border-bottom: 0;
     }
   }
+
+    
+  .chart-legend-2050{
+    border-top: 0.25rem solid $primary;
+    color: $primary;
+    p{
+      color: $primary;
+    }
+  }
+  
+  .chart-graphic-2050-container {
+    border-top: 0.25rem solid $primary;
+    border-bottom: 0.125rem solid $primary;
+    color: $primary;
+    p{
+      color: $primary;
+    }
+    .chart-graphic-2050-description{
+      color: $alt;
+    }
+  }
+
   .hotspot-widget{
   
-    .hotspot-layer-background{
+    .hotspot-rule{
       border-top: 2px solid $primary;
-      border-bottom: 2px solid $primary;
     }
-  
+    
     .hotspot-spot{
       .caption-content{  
         .whitney-normal{

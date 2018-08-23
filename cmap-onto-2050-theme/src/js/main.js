@@ -74,20 +74,6 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 		},100));
 	}
 
-	var $jumbo = $('.onto2050-basic-web-content .huge-headline:first-of-type');
-	var $huge = $('.onto2050-basic-web-content .page-headline:first-of-type');
-
-	function set_page_title(){
-		$('#scroll-nav .page-title').text($(this).text());
-	}
-	if($jumbo.length){
-		$jumbo.each(set_page_title);
-	} else if ($huge.length) {
-		$huge.each(set_page_title);
-	} else {
-		console.log('No page title found for this page. Please use H1, H2, or Huge.');
-	}
-
 	$('.share-menu .page-url').val(window.location.href);
 }
 

@@ -18,14 +18,14 @@ body.default-theme{
 
 
   .form-control {
-    background-color: rgba(236,240,242,1);
+    background-color: rgba(236,240,242,1) !important;
   }
 
   .input-group-btn{
     .btn{
-      background-color: rgba(236,240,242,1);
+      background-color: rgba(236,240,242,1) !important;
       &:hover{
-        background-color: rgba(236,240,242,1);
+        background-color: rgba(236,240,242,1) !important;
       }
     }
   }

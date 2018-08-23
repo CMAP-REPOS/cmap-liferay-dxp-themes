@@ -1,5 +1,17 @@
 <#if Layer.getSiblings()?has_content>
 <div id="${randomNamespace}" class="hotspot-widget row">
+  <hr class="hotspot-rule" />
+
+  <#if Title.getData() != '' && Description.getData() != ''>
+    <header class="hotspot-header">
+      <#if Title.getData() != ''>
+        <div class="whitney-normal bold">${Title.getData()}</div>
+      </#if>
+      <#if Description.getData() != ''>
+        <div class="whitney-small">${Description.getData()}</div>
+      </#if>
+    </header>
+  </#if>
 
   <div class="hotspot-layer-contents" id="${randomNamespace}_hotspots_desktop" aria-live="polite">
     <#list Layer.getSiblings() as cur_Layer>
@@ -34,6 +46,7 @@
 
         <#if cur_Layer.Image.getData()?? && cur_Layer.Image.getData() != "">
           <img class="hotspot-layer-background" data-fileentryid="${cur_Layer.Image.getAttribute("fileEntryId")}" alt="${cur_Layer.Image.getAttribute("alt")}" src="${cur_Layer.Image.getData()}" />
+          <hr class="hotspot-rule" />
         </#if>
       </div>
     </#list>
@@ -49,7 +62,7 @@
     </#list>
   </div>
 
-  <footer class="hotspot-footer">
+  <footer class="hotspot-footer row">
     <div class="col-md-4 col-sm-16">
       <div class="hotspot-footer-instructions">
         <div class="whitney-small bold">Click to toggle views</div>
@@ -70,11 +83,19 @@ Liferay.on(
     var FLIP_CUTOFF = 0.5; // switch up there in the markup also
 
     $('#${randomNamespace}').each(function(){
-      var $this = $(this);
-      var $layers = $this.find('.hotspot-layer');
+      var $hotspot = $(this);
+      var $layers = $hotspot.find('.hotspot-layer');
       
       if($layers.length < 2){
-        $this.find('.hotspot-footer').css('display', 'none');
+        $hotspot.find('.hotspot-footer').css('display', 'none');
+      }
+
+      var $portlet_column = $hotspot.parents('.portlet-column');
+      if($portlet_column.hasClass('col-md-8')){
+        $hotspot.find('.hotspot-header').addClass('col-sm-10 col-sm-offset-3');
+      }
+      if($portlet_column.hasClass('col-md-16')){
+        $hotspot.find('.hotspot-header').addClass('col-sm-6 col-sm-offset-5');
       }
 
       $layers.each(function(i,el){
@@ -99,7 +120,7 @@ Liferay.on(
             }
           });
         });
-        $this.find('.hotspot-footer nav').append($nav_item);
+        $hotspot.find('.hotspot-footer nav').append($nav_item);
       });
 
 
@@ -111,16 +132,17 @@ Liferay.on(
 				$background.css('width', $toggle.innerWidth());
 				$background.css('height', $toggle.innerHeight());
         // the caption is too far to the left and we need to flip it
-        if(parseInt($this.css('left')) / window.innerWidth > FLIP_CUTOFF){
+
+        if(parseInt($this.css('left')) / $hotspot.innerWidth() > FLIP_CUTOFF){
           $this.addClass('flipped');
         }
       });
 
-      $this.find('.mobile-hotspot-information ul').removeClass('active');      
-      $this.find('.mobile-hotspot-information ul:first-of-type').addClass('active');
+      $hotspot.find('.mobile-hotspot-information ul').removeClass('active');      
+      $hotspot.find('.mobile-hotspot-information ul:first-of-type').addClass('active');
 			$layers.addClass('hidden');
-			$this.find('.hotspot-layer:first-of-type').removeClass('hidden');
-			$this.find('.hotspot-layer-item:first-of-type').addClass('active');
+			$hotspot.find('.hotspot-layer:first-of-type').removeClass('hidden');
+			$hotspot.find('.hotspot-layer-item:first-of-type').addClass('active');
     });
 
     $('.caption-toggle').click(function(){
