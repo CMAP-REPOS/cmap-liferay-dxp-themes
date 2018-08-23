@@ -19,13 +19,28 @@
 
   .chart-legend-2050-description,
   .chart-legend-2050-key,
-  .chart-legend-2050-source {
-    margin-top: 1rem;
+  .chart-legend-2050-source,
+  .chart-legend-2050-download {
+	margin-top: 1rem;
+  }
+  .chart-legend-2050-download {
+	a {
+		display: inline-block;
+		font-weight: 600;
+		line-height: 30px;
+		color: #5D7A90;
+		svg,
+		span {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+	}
   }
 
   .chart-legend-2050-key-list {
     li {
-      @extend .whitney-small;
+	  @extend .whitney-small;
+	  list-style-type: none;
       line-height: 1;
       padding-bottom: 0.25em;
 
@@ -36,11 +51,12 @@
       .chart-legend-2050-key-image {
         display: inline-block;
         max-height: 12px;
-        max-width: 12px;
+		max-width: 12px;
+		margin-right: 5px;
       }
 
       .chart-legend-2050-key-label {
-        display: inline-block;
+        display: inline;
         vertical-align: bottom;
       }
     }
