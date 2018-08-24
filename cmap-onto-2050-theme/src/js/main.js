@@ -223,6 +223,10 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 	}
 }
 
+window.cmap.full_screen_picture = window.cmap.full_screen_picture || function(){
+	console.log(this);
+};
+
 
 window.cmap.global.init = window.cmap.global.init || function(){
 
@@ -234,6 +238,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	window.cmap.navigation.init();
 	window.cmap.pageCards.init();
 	window.cmap.glossary.init();
+	window.cmap.full_screen_picture();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
 
@@ -283,6 +288,8 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	});
 
 };
+
+
 
 /* This function gets loaded when all the HTML, not including the portlets, is loaded. */
 AUI().ready(

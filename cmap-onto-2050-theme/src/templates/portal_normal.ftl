@@ -37,7 +37,7 @@
 		<nav id="breadcrumbs">
 			<@liferay.breadcrumbs />
 		</nav>
-
+		
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>

@@ -23,7 +23,7 @@
 		<#if (portlet_configuration_icons?has_content || portlet_title_menus?has_content)>
 			<header class="portlet-topper">
 				<div class="portlet-title-default">
-					<span class="portlet-name-text" title="${portlet_display_name} : ${portlet_title}"><a href="${portlet_edit_url}"></a>${portlet_display_name} : ${portlet_title}</span>
+					<span class="portlet-name-text" title="${portlet_display_name}"><a href="${portlet_edit_url}"></a>${portlet_display_name}</span>
 				</div>
 
 				<#foreach portletTitleMenu in portlet_title_menus>

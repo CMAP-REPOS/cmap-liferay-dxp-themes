@@ -38,7 +38,6 @@
 		</#if>
 
 		<section id="content">
-			<h1 class="hide-accessible">${the_title}</h1>
 
 			<#if currentUrl == '/' ||
 				currentUrl == '/home' ||
