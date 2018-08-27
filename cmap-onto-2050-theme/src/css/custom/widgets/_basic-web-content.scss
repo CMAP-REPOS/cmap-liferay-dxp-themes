@@ -15,7 +15,7 @@ body#cmap-ckeditor,
 
   ul li{
     list-style: disc inside;
-  } 
+  }
   ol li{
     list-style: decimal inside;
   }
@@ -26,11 +26,15 @@ body#cmap-ckeditor,
     li{
       @extend .presna-normal;
       padding: 1rem 0;
-      border-bottom: 1px solid black;
+      // border-bottom: 1px solid black;
     }
   }
   h1,h2,h3,h4,h5,h6,p{
     margin: 0;
+  }
+
+  h2{
+    margin-top: 3rem;
   }
   
   p{

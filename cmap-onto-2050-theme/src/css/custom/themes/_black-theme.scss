@@ -19,4 +19,9 @@ body.black-theme{
       background: lighten($black-theme-background-color, 40%);
     }
   }
+
+  #cmap-ckeditor{
+    @include theme-color-mixin($black-theme-background-color, $black-theme-text-color, $black-theme-alt-text-color);
+  }
 }
+

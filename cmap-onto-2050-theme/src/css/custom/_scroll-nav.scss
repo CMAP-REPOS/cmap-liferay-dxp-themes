@@ -1,14 +1,14 @@
 #scroll-nav{
-  background: $off-white;
+  background: $white;
   position: fixed;
   top: 0; left: 0;
   z-index: 1000;
   width: 100%;
   transform: translateY(-100%);
   transition: all 0.3s ease;
-  border-bottom: 1px solid darken($off-white, 10%);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(white, 0.1);
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 
   .left-container{
     display: flex;
@@ -59,6 +59,8 @@
   }
 
   .jump-to-top-button{
+    background: transparent;
+    border: none;
     padding: 0;
   }
 

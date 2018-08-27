@@ -15,7 +15,6 @@
         <a href="/about/careers" role="menuitem">Careers</a>
         <a href="/sitemap" role="menuitem">Sitemap</a>
         <a href="/contact" role="menuitem">Contact Us</a>
-        <span class="copyright"> © CMAP ${.now?string('yyyy')} </span>
       </div>
 
       <div class="col-lg-4 col-md-3 col-sm-16 footer-social-links" aria-label="Links to social media websites">
@@ -53,7 +52,7 @@
         <a href="/about/careers" role="menuitem">Careers</a>
         <a href="/sitemap" role="menuitem">Sitemap</a>
         <a href="/contact" role="menuitem">Contact Us</a>
-        <span class="copyright"> © CMAP ${.now?string('yyyy')} </span>
+        <#--  <span class="copyright"> © CMAP ${.now?string('yyyy')} </span>  -->
       </div>
 
     </div>

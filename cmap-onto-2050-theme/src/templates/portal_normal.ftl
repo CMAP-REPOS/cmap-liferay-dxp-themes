@@ -33,12 +33,11 @@
 	<#include "${full_templates_path}/includes/banner.ftl" />
 
 	<section id="content">
-		<h1 class="hide-accessible">CMAP - On To 2050 Plan - ${the_title}</h1>
 
 		<nav id="breadcrumbs">
 			<@liferay.breadcrumbs />
 		</nav>
-
+		
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>

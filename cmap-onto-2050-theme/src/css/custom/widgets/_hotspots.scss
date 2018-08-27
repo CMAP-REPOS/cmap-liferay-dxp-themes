@@ -8,9 +8,12 @@
     width: 100%;
   }
 
-  .hotspot-layer-background{
+  .hotspot-layer-contents{
+    position: relative;
+  }
+  .hotspot-rule{
+    margin: 0;
     border-top: 2px solid $light-blue;
-    border-bottom: 2px solid $light-blue;
   }
 
   $icon-width: 2rem;
@@ -120,11 +123,16 @@
       display: block;
     }
   }
+
+  .hotspot-header{
+    float: none;
+    padding: $grid-gutter-width 0;
+  }
+
   .hotspot-footer{
     padding-top: 0.5rem;
 
     .hotspot-footer-instructions{
-      @include container-margin-left();
       .whiteny-small{
         margin: 1rem 0;
         font-weight: 400;
@@ -171,8 +179,6 @@
         }
       }
 
-      
-
       &.active{
         .whitney-normal{
           color: $dark-blue;
@@ -185,5 +191,21 @@
     }
 
   }
+}
 
+.portlet-column.col-md-8{
+  .hotspot-widget{
+    padding: 0 $grid-gutter-width / 2;
+  }
+}
+
+.portlet-column.col-md-16{
+  .hotspot-footer{
+    .hotspot-footer-instructions{
+      @include container-margin-left();
+    }
+  }
+  .hotspot-widget{
+    @include container-margin();
+  }
 }

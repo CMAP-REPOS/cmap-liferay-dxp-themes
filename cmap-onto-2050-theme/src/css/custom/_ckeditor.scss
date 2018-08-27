@@ -2,15 +2,8 @@
 body#cmap-ckeditor{
   margin: 1rem;
 
-  .journal-content-article{
-    a[data-cke-saved-name]{
-      color: black;
-    }
-  }
-
-  // probably an anchor tag in the
   h1,h2,h3,h4,h5,h6,p{
-    color: black;
+    color: #666;
   }
 
   .inline-center-col{
@@ -31,7 +24,7 @@ body#cmap-ckeditor{
   }
 
   .alt-color{
-    color: #444;
+    color: #000;
   }
 
   // .glossary-term{

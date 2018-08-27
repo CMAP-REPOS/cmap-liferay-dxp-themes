@@ -7,6 +7,7 @@
     font-weight: $font-weight-bold;
   }
 }
+
 .whitney-small{
   @extend .whitney;
   font-size: $font-size-h6;
@@ -22,7 +23,6 @@
 .whitney-semi-large{
   @extend .whitney;
   font-size: $font-size-h3;
-  letter-spacing: 0.025em;
 }
 .whitney-large{
   @extend .whitney;

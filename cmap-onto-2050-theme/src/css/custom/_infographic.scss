@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+// remember to add color rules to the theme mixin
 .chart-legend-2050 {
   @extend .whitney-small;
   
@@ -9,6 +11,7 @@
   h6 {
 	font-weight: 600;
   }
+
   p {
     @extend .whitney-small;
     color: $grey-blue;
@@ -16,13 +19,28 @@
 
   .chart-legend-2050-description,
   .chart-legend-2050-key,
-  .chart-legend-2050-source {
-    margin-top: 1rem;
+  .chart-legend-2050-source,
+  .chart-legend-2050-download {
+	margin-top: 1rem;
+  }
+  .chart-legend-2050-download {
+	a {
+		display: inline-block;
+		font-weight: 600;
+		line-height: 30px;
+		color: #5D7A90;
+		svg,
+		span {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+	}
   }
 
   .chart-legend-2050-key-list {
     li {
-      @extend .whitney-small;
+	  @extend .whitney-small;
+	  list-style-type: none;
       line-height: 1;
       padding-bottom: 0.25em;
 
@@ -33,12 +51,13 @@
       .chart-legend-2050-key-image {
         display: inline-block;
         vertical-align: bottom;
+        margin-right: 5px;
         height: 12px;
         width: 12px;
       }
 
       .chart-legend-2050-key-label {
-        display: inline-block;
+        display: inline;
         vertical-align: bottom;
       }
     }
@@ -60,12 +79,11 @@
   .chart-graphic-2050-description-container {
     float: right;
     width: 50%;
-
-    .chart-graphic-2050-description {
-      @extend .presna-normal;
-      color: $black;
-      margin: 0 $unit;
-    }
+  }
+  .chart-graphic-2050-description {
+    @extend .presna-normal;
+    color: $black;
+    margin: 0 $unit;
   }
 
   .chart-graphic-2050 {

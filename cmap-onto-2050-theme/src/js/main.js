@@ -10,7 +10,7 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	var url = window.location.origin + window.location.pathname + '#' + attr_id;
 
 	var $button = $('<button class="page-anchor-button"><span class="sr-only">'+name+'</span><img class="page-anchor-icon" src="/o/cmap-onto-2050-theme/images/icons/ic_clipboard.svg" /></button>');
-	var $link = $('<li><span class="whitney-normal bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
+	var $link = $('<li><span class="whitney-small bold"><a href="#'+attr_id+'">'+name+'</a></span></li>');
 
 	$link.click(function(e){
 		e.preventDefault();
@@ -30,10 +30,10 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	if(attr_id !== undefined && attr_name !== undefined){
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
-			$button.click(()=>{
+			$button.click(function(){
 				copyToClipboard(url);
 			});
-			$this.click(()=>{
+			$this.click(function(){
 				copyToClipboard(url);
 			});
 			$this.addClass('page-anchor');
@@ -74,20 +74,6 @@ window.cmap.global.scrollNav.init = window.cmap.global.scrollNav.init || functio
 		},100));
 	}
 
-	var $jumbo = $('.onto2050-basic-web-content .huge-headline:first-of-type');
-	var $huge = $('.onto2050-basic-web-content .page-headline:first-of-type');
-
-	function set_page_title(){
-		$('#scroll-nav .page-title').text($(this).text());
-	}
-	if($jumbo.length){
-		$jumbo.each(set_page_title);
-	} else if ($huge.length) {
-		$huge.each(set_page_title);
-	} else {
-		console.log('No page title found for this page. Please use H1, H2, or Huge.');
-	}
-
 	$('.share-menu .page-url').val(window.location.href);
 }
 
@@ -102,6 +88,9 @@ window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight 
 }
 
 window.cmap.global.headline_check = window.cmap.global.headline_check || function(){
+
+	$('#breadcrumbs h1.hide-accessible').hide();
+
 	var no_more_headlines = false, user_alerted = false;
 	function check_for_el(name){
 		var len = $(name).length;
@@ -116,6 +105,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 		}
 		// $(name).each(function(){ console.log(this); });
 	}
+
 	check_for_el('h1');
 	check_for_el('h2');
 	check_for_el('h3');
@@ -124,7 +114,6 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h6');
 
 	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
-
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};
@@ -134,7 +123,6 @@ window.cmap.pageCards.init = window.cmap.pageCards.init || function(){
 		var $this = $(this);
 		var $cards = $this.find('.page-card');
 		var count = $cards.length;
-		if(count != 2){ return; }
 
 		var $a = $($cards[0]);
 		var $b = $($cards[1]);
@@ -235,6 +223,10 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 	}
 }
 
+window.cmap.full_screen_picture = window.cmap.full_screen_picture || function(){
+	console.log(this);
+};
+
 
 window.cmap.global.init = window.cmap.global.init || function(){
 
@@ -246,6 +238,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	window.cmap.navigation.init();
 	window.cmap.pageCards.init();
 	window.cmap.glossary.init();
+	window.cmap.full_screen_picture();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
 
@@ -268,12 +261,14 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		$('.close-button').removeClass('hidden');
 		$('.share-menu').removeClass('hidden');
 		$('.share-button').addClass('hidden');
+		$('.breadcrumb-trail').addClass('hidden');
 	});
 
 	$('.close-button').click(function(){
 		$('.share-button').removeClass('hidden');
 		$('.share-menu').addClass('hidden');
 		$('.close-button').addClass('hidden');
+		$('.breadcrumb-trail').removeClass('hidden');
 	});
 
 	$('.jump-to-top-button').click(function(e){
@@ -293,6 +288,8 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	});
 
 };
+
+
 
 /* This function gets loaded when all the HTML, not including the portlets, is loaded. */
 AUI().ready(

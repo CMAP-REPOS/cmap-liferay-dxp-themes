@@ -78,9 +78,6 @@ a.btn {
 .btn-plain {
   @include button-variant($btn-plain-color, $btn-plain-bg, $btn-plain-border);
 }
-.btn-off-white {
-  @include button-variant($grey-blue, $off-white, $btn-plain-border);
-}
 .blue-theme{
   .btn-plain {
     @include button-variant($white, $grey-blue, $btn-plain-border);

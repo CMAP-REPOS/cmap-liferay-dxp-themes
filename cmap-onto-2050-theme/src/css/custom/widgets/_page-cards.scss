@@ -1,7 +1,8 @@
 .page-cards{
+  margin: 3rem 0;
 
   .page-card{
-    margin-bottom: 1.5rem;
+    margin-bottom: $grid-gutter-width / 2;
   }
   .top-content{
     position: relative;
@@ -16,6 +17,9 @@
   }
 
   .bottom-content{
-    padding: 1.5rem;
+    padding: $grid-gutter-width / 2;
+    a{
+      border-bottom: none;
+    }
   }
 }
