@@ -424,11 +424,20 @@
       color: $alt;
     }
   }
-
+    
   .hotspot-widget{
   
     .hotspot-rule{
       border-top: 2px solid $primary;
+    }
+
+    .download-link{
+      svg path {
+        fill: $primary;
+        &:hover{
+          fill: $darker-primary;
+        }
+      }
     }
     
     .hotspot-spot{
@@ -478,7 +487,6 @@
           }
         }
       }
-  
     }
   }
 }

@@ -2,23 +2,35 @@
   position: relative;
   z-index: 98;
 
+  $icon-width: 2rem;
+  $margin: 1rem;
+  $transition: all 0.2s ease-in;
+
   .hotspot-layer{
     position: relative;
     top: 0; left: 0;
     width: 100%;
   }
 
+  .download-link{
+    border-bottom: none !important;
+    display: flex;
+    align-items: center;
+
+    svg{
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+
   .hotspot-layer-contents{
     position: relative;
   }
+
   .hotspot-rule{
     margin: 0;
     border-top: 2px solid $light-blue;
   }
-
-  $icon-width: 2rem;
-  $margin: 1rem;
-  $transition: all 0.2s ease-in;
 
   .hotspot-spot{
     position: absolute;
@@ -187,9 +199,7 @@
           background: $dark-blue;
         }
       }
-
     }
-
   }
 }
 

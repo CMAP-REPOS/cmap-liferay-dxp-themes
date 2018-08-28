@@ -30,6 +30,24 @@ body.default-theme{
     }
   }
 
+  .hotspot-widget{
+    .download-link{
+      color: rgba(94, 122, 135, 1);
+      svg path{
+        fill: rgba(94, 122, 135, 1);
+      }
+
+      &:hover{
+        color: rgba(71, 92, 102, 1);
+        svg path{
+          fill: rgba(71, 92, 102, 1);
+        }
+      }
+
+      
+    }
+  }
+
   .onto2050-basic-web-content{
     .page-cards{
       .bottom-content{
