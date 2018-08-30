@@ -34,7 +34,21 @@
       li{
         border-bottom-color: rgba($primary, 0.25);
       }
-    }
+	}
+	sup {
+		a {
+			padding: 1px 3px;
+            border: 1px solid #3d5975;
+            font-size: 8px;
+            border-radius: 50%;
+            font-weight: bold;
+			color: blue;
+			&:hover {
+				background-color: #3d5975;
+        		color: #FFF;
+			}
+		}
+	}
   }
   
 
