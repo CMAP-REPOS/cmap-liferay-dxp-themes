@@ -179,6 +179,10 @@
 				rangeMax = 90;
 			}
 
+			if (options.color_pattern && options.color_pattern.length) {
+				color_pattern = options.color_pattern;
+			}
+
 			if (d.length < tickLimit) {
 				tickLimit = d.length;
 			}
