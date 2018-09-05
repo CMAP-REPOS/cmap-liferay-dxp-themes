@@ -8,10 +8,6 @@
   border-top: 0.25rem solid $grey-blue;
   color: $light-blue;
 
-  h6 {
-	font-weight: 600;
-  }
-
   p {
     @extend .whitney-small;
     color: $grey-blue;
@@ -35,6 +31,10 @@
 			vertical-align: bottom;
 		}
 	}
+  }
+
+  .chart-legend-2050-section-title {
+	  font-weight: 600;
   }
 
   .chart-legend-2050-key-list {
