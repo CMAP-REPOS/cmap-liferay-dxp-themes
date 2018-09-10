@@ -621,9 +621,20 @@ AUI().ready(
 			cmap.storymaps.map.createPane('labels');
 			cmap.storymaps.map.getPane('labels').style.zIndex = 650;
 
-			var labelsLayer = L.tileLayer('https://api.mapbox.com/styles/v1/onto2050/cjezz11vx2sfs2rt6z7jx8t09/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ', {
-				pane: 'labels'
-			}).addTo(cmap.storymaps.map);
+			<#if Options.MapboxOverlay??>
+				<#list Options.MapboxOverlay.getSiblings() as cur_MapboxOverlay>
+					<#if cur_MapboxOverlay.getData() ?? && cur_MapboxOverlay.getData() != "">
+						<#assign mapboxOverlayURL = cur_MapboxOverlay.getData()>
+						var labelsLayer = L.tileLayer('${mapboxOverlayURL}', {
+							pane: 'labels'
+						}).addTo(cmap.storymaps.map);
+					</#if>
+				</#list>
+			<#else>
+				var labelsLayer = L.tileLayer('https://api.mapbox.com/styles/v1/onto2050/cjezz11vx2sfs2rt6z7jx8t09/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib250bzIwNTAiLCJhIjoiY2lzdjJycTZrMGE3dDJ5b2RsYTRvaHdiZSJ9.SIUNXOhAVC2rXywtDIrraQ', {
+					pane: 'labels'
+				}).addTo(cmap.storymaps.map);
+			</#if>
 
 			cmap.storymaps.map.scrollWheelZoom.disable();
 			cmap.storymaps.map.doubleClickZoom.disable();
