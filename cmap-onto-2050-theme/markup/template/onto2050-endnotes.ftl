@@ -1,25 +1,20 @@
 <style>
 
-body.default-theme .endnotes-container h1,
-body.default-theme .endnotes-container h2 {
-	color: #000;
-	font-weight: normal;
-}			
-
 body.default-theme .endnotes-introduction {
-    color: #000;
+	color: #000;
 	font-family: "Prensa LF", Georgia, "Times New Roman", Times, serif ;
 }
 
 body.default-theme .endnotes-group-recommendation {
-    background-color: #89a0b1;
-    color: #fff !important;
-    font-size: 15px;
-    padding: 10px 20px;
-    margin-left: -13px;
-    margin-right: -13px;
+  background-color: #89a0b1;
+  color: #fff !important;;
+  padding: 10px 20px;
+  margin-left: -13px;
+  margin-right: -13px;
+	font-size: 15px;
 }
 			
+		
 body.default-theme .endnotes-group-content ol li {
 	border-top: 1px solid rgba(71, 92, 102, 0.25);  
 	color: #000;
@@ -30,6 +25,7 @@ body.default-theme .endnotes-group-content ol li:first-of-type {
 }
 
 </style>
+
 
 <div class="col-md-4 col-sm-16 portlet-column portlet-column-first" id="column-2"> 
 </div>
@@ -43,9 +39,9 @@ body.default-theme .endnotes-group-content ol li:first-of-type {
         <#if PageTitle.getSiblings()?has_content>
         	<div class="endnote-group">
         	<#list PageTitle.getSiblings() as cur_PageTitle>
-        	<a id="${cur_PageTitle.PageLink.getFriendlyUrl()?lower_case?remove_beginning('/web/guest')?remove_beginning('/')}"></a>
-        		<h2 class="endnotes-group-title">
-        			${cur_PageTitle.getData()}
+            	<h2 class="section-sub-headline bold alt-color">
+            	    <a id="${cur_PageTitle.PageLink.getFriendlyUrl()?lower_case?remove_beginning('/web/guest')?remove_beginning('/')}" name="${cur_PageTitle.PageLink.getFriendlyUrl()?lower_case?remove_beginning('/web/guest')?remove_beginning('/')}" class="page-anchor" tabindex="0">
+            	    <button class="page-anchor-button" tabindex="0"><span class="sr-only">${cur_PageTitle.getData()}</span> <img class="page-anchor-icon" src="${themeDisplay.getPathThemeImages()}/icons/ic_clipboard.svg"></button> ${cur_PageTitle.getData()}</a>
         		</h2>
         		<#if cur_PageTitle.Recommendation.getData()?has_content>
         		<h3 class="endnotes-group-recommendation">${cur_PageTitle.Recommendation.getData()}</h3>
