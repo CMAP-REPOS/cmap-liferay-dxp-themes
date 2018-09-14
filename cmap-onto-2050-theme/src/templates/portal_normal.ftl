@@ -35,7 +35,11 @@
 	<section id="content">
 
 		<nav id="breadcrumbs">
-			<@liferay.breadcrumbs />
+		<@liferay_portlet["runtime"]
+				defaultPreferences=""
+				portletProviderAction=portletProviderAction.VIEW
+				portletProviderClassName="com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry"
+			/>
 		</nav>
 		
 		<#if selectable>

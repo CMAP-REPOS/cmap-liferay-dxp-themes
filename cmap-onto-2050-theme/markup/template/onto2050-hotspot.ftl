@@ -33,28 +33,30 @@
 
         <#if cur_Layer.Caption.getSiblings()?has_content>
           <#list cur_Layer.Caption.getSiblings() as cur_caption>
-          
-          <#assign top = cur_caption.Top.getData()?number>
-          <#assign left = cur_caption.Left.getData()?number>
-          <div class="hotspot-spot" style="top: ${top}%; left: ${left}%;">
-            <#if (left > 50)>
-              <div class="caption-content">
-                <div class="whitney-normal bold">${cur_caption.getData()}</div>
-              </div>
-              <div class="caption-toggle">
-                <img alt="Close icon for picture captions" src="/o/cmap-onto-2050-theme/images/icons/ic_close.svg" />
-              </div>
-            <#else>
-              <div class="caption-toggle">
-                <img alt="Close icon for picture captions" src="/o/cmap-onto-2050-theme/images/icons/ic_close.svg" />
-              </div>
-              <div class="caption-content">
-                <div class="whitney-normal bold">${cur_caption.getData()}</div>
+            <#assign top = cur_caption.Top.getData()?number>
+            <#assign left = cur_caption.Left.getData()?number>
+
+            <#if cur_caption.getData() != ''>
+              <div class="hotspot-spot" style="top: ${top}%; left: ${left}%;">
+                <#if (left > 50)>
+                  <div class="caption-content">
+                    <div class="whitney-normal bold">${cur_caption.getData()}</div>
+                  </div>
+                  <div class="caption-toggle">
+                    <img alt="Close icon for picture captions" src="/o/cmap-onto-2050-theme/images/icons/ic_close.svg" />
+                  </div>
+                <#else>
+                  <div class="caption-toggle">
+                    <img alt="Close icon for picture captions" src="/o/cmap-onto-2050-theme/images/icons/ic_close.svg" />
+                  </div>
+                  <div class="caption-content">
+                    <div class="whitney-normal bold">${cur_caption.getData()}</div>
+                  </div>
+                </#if>
+                <div class="caption-background"></div>
+                <div class="caption-background-size"></div>
               </div>
             </#if>
-            <div class="caption-background"></div>
-            <div class="caption-background-size"></div>
-          </div>
           </#list>
         </#if>
 
