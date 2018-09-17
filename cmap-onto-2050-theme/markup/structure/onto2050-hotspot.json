@@ -76,6 +76,30 @@
         },
         {
             "label": {
+                "en_US": "Documents and Media"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "document-library",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "PDF",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-documentlibrary"
+        },
+        {
+            "label": {
                 "en_US": "Layer"
             },
             "predefinedValue": {
