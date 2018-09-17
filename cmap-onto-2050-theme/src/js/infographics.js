@@ -342,6 +342,11 @@
 						}
 					}
 				},
+				bar: {
+					width: {
+						ratio: options.bar_width_ratio
+					}
+				},
 				bindto: d3.select($('#' + options.chartId).get(0)),
 				color: {
 					pattern: color_pattern
