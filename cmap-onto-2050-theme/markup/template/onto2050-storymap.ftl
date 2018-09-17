@@ -408,6 +408,7 @@ AUI().ready(
 			console.log('cmap.storymaps.showLocation');
 			$('.story-step').removeClass('story-active');
 			$('#${randomNamespace}_step' + l).addClass('story-active');
+			$('.storymap-info-bottom').animate({ scrollTop: 0 }, "fast");
 			$('.xs-story-step').html(cmap.storymaps.locations[l].stepTitle);
 			$('.button_location_dot_active').css("display","none");
 			$('.button_location_dot_inactive').css("display","inline");
