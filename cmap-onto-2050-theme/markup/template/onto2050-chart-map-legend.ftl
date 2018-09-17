@@ -75,7 +75,7 @@
 	<#if LinkToDataHub?? && LinkToDataHub.getData()?? && LinkToDataHub.getData() != "">
 		<div class="chart-legend-2050-download">
 			<a name="download-link-${webContentId}"></a>
-			<a href="${LinkToDataHub.getData()}">
+			<a href="${LinkToDataHub.getData()}" target="_blank">
 				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
 					<g fill="#3C5976" transform="translate(-1 6)">
 						<path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
