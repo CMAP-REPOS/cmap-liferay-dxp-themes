@@ -53,7 +53,7 @@
         },
         {
             "label": {
-                "en_US": "Source"
+                "en_US": "PDF"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -67,36 +67,12 @@
             "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
-            "name": "Source",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "text"
-        },
-        {
-            "label": {
-                "en_US": "Documents and Media"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "document-library",
-            "fieldNamespace": "ddm",
-            "indexType": "keyword",
-            "localizable": true,
             "name": "PDF",
             "readOnly": false,
             "repeatable": false,
             "required": false,
             "showLabel": true,
-            "type": "ddm-documentlibrary"
+            "type": "text"
         },
         {
             "label": {

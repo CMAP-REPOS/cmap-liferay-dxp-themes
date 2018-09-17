@@ -15,6 +15,7 @@
           </a>
         </div>
       </#if>
+      
 
       <div class="center">
         <#if Title.getData() != ''>
