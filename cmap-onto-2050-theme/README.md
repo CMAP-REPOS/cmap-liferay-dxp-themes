@@ -6,9 +6,6 @@ server login:
 -------------
 ssh thirst@localhost -p 26
 
-server password:
-----------------
-C3L7&Ib!QrO3
 
 locally:
 --------
