@@ -30,15 +30,6 @@
     </div>
   </div>
   <div class="col-md-4 hidden-sm hidden-xs">
-    <div class="input-group input-group-lg">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </span>
-      <input id="search-input" class="form-control" type="text" value="" placeholder="Search">
-    </div>
+    <#include "${full_templates_path}/includes/search.ftl" />
   </div>
 </div>
-
-
