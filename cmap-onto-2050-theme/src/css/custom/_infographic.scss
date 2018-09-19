@@ -206,7 +206,16 @@
           font-weight: normal;
         }
       }
-    }
+	}
+	&.recession {
+		.c3-tooltip {
+			tbody {
+				tr:last-child {
+					display: none;
+				}
+			}
+		}
+	  }
   }
 }
 @include desktop() {
