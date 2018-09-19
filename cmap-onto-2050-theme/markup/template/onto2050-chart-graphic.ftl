@@ -8,6 +8,10 @@
 <#if getterUtil.getBoolean(Bars.DisplayHorizontally.getData())>
 	<#assign classes = classes + ["horizontal"]>
 </#if>
+
+<#if MultiTypeColumnName.getData()?? && MultiTypeColumnName.getData() != "">
+	<#assign classes = classes + ["${MultiTypeColumnName.getData()?lower_case}"]>
+</#if>
 	
 <#if Colors.BarLineColor.getSiblings()?has_content>
 	<#list Colors.BarLineColor.getSiblings() as cur_Color>
