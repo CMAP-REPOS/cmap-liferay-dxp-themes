@@ -208,6 +208,9 @@
       }
 	}
 	&.recession {
+		path.c3-bar {
+			stroke: none !important;
+		}
 		.c3-tooltip {
 			tbody {
 				tr:last-child {
