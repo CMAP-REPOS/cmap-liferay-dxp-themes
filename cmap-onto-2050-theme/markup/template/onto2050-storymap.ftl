@@ -429,7 +429,9 @@ AUI().ready(
 			$('.story-step-content').hide();
 			if (isLocation && index > -1) {
 			<#if getterUtil.getBoolean(Options.ShowLocationContent.getData()) >
-				$('#${randomNamespace}location_content' + index).show();
+				var loadingContentHTML = document.getElementById('${randomNamespace}location_content' + index).innerHTML;
+				document.getElementById('${randomNamespace}location_content' + index).innerHTML = loadingContentHTML;
+				document.getElementById('${randomNamespace}location_content' + index).style.display = 'block';
 			</#if>
 			} else if (index > -1) {
 			<#if getterUtil.getBoolean(Options.ShowLayerContent.getData()) >
