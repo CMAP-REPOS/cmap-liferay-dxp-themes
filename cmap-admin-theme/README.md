@@ -1,1 +1,0 @@
-cp dist/cmap-admin-theme.war ../../bundles/deploy

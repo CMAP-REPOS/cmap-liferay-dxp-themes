@@ -1,5 +1,5 @@
 <nav class="${nav_css_class}" id="navigation" role="navigation">
-	<div class="hide-accessible"><@liferay.language key="navigation" /></div>
+	<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 
 	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar">
 		<#list nav_items as nav_item>

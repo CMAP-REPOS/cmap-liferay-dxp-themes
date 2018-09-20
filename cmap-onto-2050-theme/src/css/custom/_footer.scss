@@ -1,34 +1,7 @@
 #footer{
   background: $off-white;
-  padding-top: 1.75rem;
-  padding-bottom: 2rem;
-
-  .desktop-content{
-    @include tablet(){
-      display: none;
-    }
-  }
-
-
-
-  .jump-to-top-button{
-    @include container-margin-left();
-  }
-
-  .mobile-content{
-    display: none;
-    @include tablet(){
-      display: block;
-    }
-
-    .footer-page-links{
-      padding-bottom: 1rem;
-    }
-    .jump-to-top-button{
-      padding-right: 1rem;
-    }
-  }
-
+  padding-top: $padding-large-vertical;
+  padding-bottom: $padding-large-vertical;
 
   .row,
   .footer-social-links{
@@ -36,23 +9,26 @@
     align-items: center;
   }
 
+  .jump-to-top-button{
+    display: inline-flex;
+    align-items: center;
+    .whitney-small{
+      font-weight: $font-weight-bold;
+      margin-left: 0.5em;
+      transform: translateY(0.2em);
+      color: $grey-blue;
+    }
+  }
   .footer-page-links{
     transform: translateY(0.1em);
     a{
-      @extend .small-headline;
       margin-right: 0.5em;
-      color: $grey-blue !important;
-      &:hover{
-        color: $blue !important;
-        border-bottom: 1px solid $blue;
-      }
     }
   }
-
   .footer-social-link{
     display: inline-block;
     height: 20px; // change to same value as svg height;
-    margin-right: 0.5em;
+    margin-right: 0.2em;
 
     path{
       fill: $grey-blue;
@@ -72,10 +48,5 @@
     .instagram{
       margin: 0 $logo-padding;
     }
-  }
-
-  .copyright{
-    display: inline-block;
-    color: $grey-blue;
   }
 }

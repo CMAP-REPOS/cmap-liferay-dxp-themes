@@ -5,7 +5,7 @@
   "defaultLanguageId": "en_US",
   "fields": [{
       "label": {
-        "en_US": "Image"
+        "en_US": "Asset"
       },
       "predefinedValue": {
         "en_US": ""
@@ -113,17 +113,18 @@
         "en_US": ""
       },
       "tip": {
-        "en_US": ""
+        "en_US": "Displayed under the picture"
       },
-      "dataType": "string",
-      "indexType": "keyword",
+      "dataType": "html",
+      "fieldNamespace": "ddm",
+      "indexType": "text",
       "localizable": true,
       "name": "Footnote",
       "readOnly": false,
       "repeatable": false,
       "required": false,
       "showLabel": true,
-      "type": "text"
+      "type": "ddm-text-html"
     }
   ]
 }

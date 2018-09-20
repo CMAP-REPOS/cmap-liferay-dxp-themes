@@ -1,7 +1,7 @@
 
+
 // sizes
 $variation: 1.414;
-$ratio: $variation;
 $size0: 1em;
 $size1: $size0 * $variation;
 $size2: $size1 * $variation;
@@ -21,13 +21,10 @@ $size-5: $size-4 / $variation;
 
 $unit: $size1;
 
-
-// these need to be manually synced with values in
-// src/css/aui/lexicon/bootstrap/_variables.scss
 $breakpoint-phone: 400px;
-$breakpoint-tablet: 800px;
-$breakpoint-desktop: 1200px;
-$breakpoint-huge: 1600px;
+$breakpoint-tablet: 750px;
+$breakpoint-desktop: 1000px;
+$breakpoint-tv: 1500px;
 
 // Colors
 $dark-red: #750709;
@@ -55,33 +52,18 @@ $off-white-text: #587387;
 $almost-white: #F7F9FA;
 $white: #FFFFFF;
 
+
+// used so far
+// $grey-blue, $dark-blue, $light-blue, $off-white
+
+// $gray-base: #000 !default;
+// $gray-darker: lighten($gray-base, 13.5%) !default;
+// $gray-dark: lighten($gray-base, 20%) !default;
+// $gray: lighten($gray-base, 33.5%) !default;
+// $gray-light: lighten($gray-base, 46.7%) !default;
+// $gray-lighter: lighten($gray-base, 93.5%) !default;
+
 $cmap-dark-blue: $grey-blue;
-$cmap-primary: $cmap-dark-blue;
-$primary: $cmap-primary;
+
 
 $site-border: 1px solid $light-grey;
-
-$control-menu-height-desktop: 64px;
-$control-menu-height-mobile: 48px;
-
-
-// THEMES
-// I think these are best left as hex values
-// In order to ensure that the themes meet AA accessiblity
-
-$default-theme-background-color: #FFFFFF;
-$default-theme-text-color: rgb(71,92,102);
-$default-theme-alt-text-color: rgb(24,31,34);
-
-$blue-theme-background-color: #3C5976;
-$blue-theme-text-color: rgba(255,255,255,0.8);
-$blue-theme-alt-text-color: #FFFFFF;
-
-$grey-theme-background-color: #3C3837;
-$grey-theme-text-color: #ffffff;
-// $grey-theme-text-color: #A8BCC8;
-$grey-theme-alt-text-color: #FFFFFF;
-
-$black-theme-background-color: #000000;
-$black-theme-text-color: #88A0B2;
-$black-theme-alt-text-color: #FFFFFF;

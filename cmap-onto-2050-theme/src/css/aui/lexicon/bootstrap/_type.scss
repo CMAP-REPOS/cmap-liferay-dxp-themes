@@ -70,6 +70,7 @@ p {
 .lead {
   margin-bottom: $line-height-computed;
   font-size: floor(($font-size-base * 1.15));
+  font-weight: 300;
   line-height: 1.4;
 
   @media (min-width: $screen-sm-min) {
@@ -170,9 +171,6 @@ ol {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  li{
-    list-style: none;
-  }
 }
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility
 .list-unstyled {
@@ -202,7 +200,7 @@ dd {
   line-height: $line-height-base;
 }
 dt {
-  font-weight: 600;
+  font-weight: bold;
 }
 dd {
   margin-left: 0; // Undo browser default

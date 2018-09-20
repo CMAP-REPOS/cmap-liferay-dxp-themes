@@ -7,8 +7,15 @@
 	portlet_display_root_portlet_id = htmlUtil.escapeAttribute(portlet_display.getRootPortletId())
 	portlet_id = htmlUtil.escapeAttribute(portlet_display.getId())
 	portlet_title = htmlUtil.escape(portlet_display.getTitle())
-	portlet_edit_url = htmlUtil.escape( portlet_display.getURLConfigurationJS() )
 />
+
+<#function validate_field field_name>
+  <#if field_name?? && field_name != "">
+    <#return field_name>
+  <#else>
+    <#return ''>
+  </#if>
+</#function>
 
 <section class="portlet" id="portlet_${portlet_id}">
 	<#if portlet_display.isPortletDecorate() && !portlet_display.isStateMax() && portlet_display.getPortletConfigurationIconMenu()?? && portlet_display.getPortletToolbar()??>
@@ -23,7 +30,7 @@
 		<#if (portlet_configuration_icons?has_content || portlet_title_menus?has_content)>
 			<header class="portlet-topper">
 				<div class="portlet-title-default">
-					<span class="portlet-name-text" title="${portlet_display_name}"><a href="${portlet_edit_url}"></a>${portlet_display_name}</span>
+					<span class="portlet-name-text">${portlet_display_name}</span>
 				</div>
 
 				<#foreach portletTitleMenu in portlet_title_menus>

@@ -1,5 +1,5 @@
 @mixin container-margin-left($vertical: 0){
-  margin-left: $grid-gutter-width * 2;
+  margin-left: $grid-gutter-width;
   margin-top: $vertical;
   margin-bottom: $vertical;
   @include phone(){
@@ -7,7 +7,7 @@
   }
 }
 @mixin container-margin-right($vertical: 0){
-  margin-right: $grid-gutter-width * 2;
+  margin-right: $grid-gutter-width;
   margin-top: $vertical;
   margin-bottom: $vertical;
   @include phone(){
@@ -20,27 +20,22 @@
 }
 
 @mixin phone(){
-  @media screen and (max-width: $breakpoint-phone){
+  @media screen and (max-width: $screen-xs){
     @content;
   }
 }
 @mixin tablet(){
-  @media screen and (max-width: $breakpoint-tablet){
+  @media screen and (max-width: $screen-sm){
     @content;
   }
 }
 @mixin desktop(){
-  @media screen and (max-width: $breakpoint-desktop){
+  @media screen and (max-width: $screen-md){
     @content;
   }
 }
 @mixin huge(){
-  @media screen and (max-width: $breakpoint-huge){
-    @content;
-  }
-}
-@mixin mq($size){
-  @media screen and (max-width: $size){
+  @media screen and (max-width: $screen-lg){
     @content;
   }
 }
@@ -56,31 +51,5 @@
   }
   @include phone(){
     padding: $padding-xs-vertical $padding-xs-horizontal;
-  }
-}
-
-@mixin underline-link($color){
-  color: $color;
-  text-decoration: none;
-  border-bottom: 0.025em solid $color;
-
-  &:hover,
-  &:focus {
-    color: lighten($color, 10%);
-    text-decoration: none;
-    border-bottom-color: lighten($color, 10%);
-  }
-
-}
-
-@mixin clear-underline-link($color){
-  color: $color !important;
-  text-decoration: underline !important;
-  border-bottom: none !important;
-
-  &:hover,
-  &:focus {
-    color: lighten($color, 25%) !important;
-    text-decoration: underline !important;
   }
 }

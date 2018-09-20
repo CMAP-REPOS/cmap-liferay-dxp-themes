@@ -1,13 +1,17 @@
 section.profile-header{
-  position: relative;
-  border-bottom: 1px solid $light-grey;
+  border-bottom: $site-border;
+  height: 50vw;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  h2{
+    font-family: $font-family-serif;
+    font-weight: $font-weight-normal;
+  }
 
   .mobile-image{
     display: none;
-  }
-
-  .background-image{
-    width: 100%;
   }
 
   span{
@@ -16,21 +20,27 @@ section.profile-header{
     font-weight: $font-weight-bold;
   }
 
-  .profile-text{
-    position: absolute;
-    top: 0;
+  .profile-name{
+    color: $black;
   }
-  
+
+  .profile-title{
+    color: $light-blue;
+  }
+
   @include tablet(){
     height: auto;
     background: transparent !important;
     border-bottom: none;
+    h2{
+      @include container-margin(0.5em);
+    }
     .profile-text{
       margin-top: 2em;
     }
     .mobile-image{
       display: block;
-      border-bottom: 1px solid $light-grey;
+      border-bottom: $site-border;
     }
     .profile-name,
     .profile-title{

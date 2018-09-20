@@ -1,0 +1,24 @@
+#page-header{
+  // margin: 3rem;
+  @include tablet(){
+    @include container-margin(3em);
+  }
+  h1,h2,h3{
+    font-weight: 400;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .duel-headlines{
+    .page-subtitle{
+      color: $light-blue;
+      margin-bottom: 0.5rem;
+    }
+    .page-title{
+      font-size: $font-size-h2;
+    }
+  }
+  .page-description{
+    font-family: $font-family-serif;
+  }
+}

@@ -1,24 +1,19 @@
 $animation: all 0.3s ease-out;
 
-body.cmap-2017-theme{
-  #cmap-onto2050-breadcrumbs{
-    display: none;
-  }
-}
-#cmap-breadcrumbs{
+#breadcrumbs{
   position: relative;
   border-top: 1px solid $off-white;
   border-bottom: 1px solid $off-white;
   margin-bottom: $unit * 2;
   height: $unit * 2;
-  padding: 0 !important;
 
-  .row{
+  .breadcrumb.row{
     @include section-padding();
     height: $unit * 2;
 
     @include tablet(){
       flex-wrap: wrap;
+      height: auto !important;
     }
 
     a{
@@ -32,16 +27,13 @@ body.cmap-2017-theme{
 
   .share-col{
     display: flex;
-
+    
     .share-button,
     .close-button{
       @include desktop(){
         opacity: 0;
         pointer-events: none;
       }
-    }
-    @include tablet(){
-      display: none;
     }
   }
 
@@ -107,7 +99,7 @@ body.cmap-2017-theme{
       }
     }
 
-    a{
+    span{
       padding: 0 $size-2 0 #{$size-1 - 0.1em};
       border-left: 1px solid $off-white;
 
@@ -115,6 +107,10 @@ body.cmap-2017-theme{
         cursor: default;
         color: $off-white-text;
       }
+      &:first-of-type{
+        padding-left: 0;
+      }
     }
   }
 }
+

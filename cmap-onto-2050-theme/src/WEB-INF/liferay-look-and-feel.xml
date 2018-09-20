@@ -6,7 +6,6 @@
 		<version>7.0.0+</version>
 	</compatibility>
 	<theme id="cmap-onto-2050-theme" name="CMAP ON TO 2050 Theme">
-
 		<color-scheme id="01" name="Default">
 			<default-cs>true</default-cs>
 			<css-class>default-theme</css-class>
@@ -14,7 +13,6 @@
 				${images-path}/themes/${css-class}
 			</color-scheme-images-path>
 		</color-scheme>
-
 		<color-scheme id="02" name="Blue Background">
 			<default-cs>false</default-cs>
 			<css-class>blue-theme</css-class>
@@ -23,21 +21,9 @@
 			</color-scheme-images-path>
 		</color-scheme>
 
-		<color-scheme id="03" name="Grey Background">
-			<default-cs>false</default-cs>
-			<css-class>grey-theme</css-class>
-			<color-scheme-images-path>
-				${images-path}/themes/${css-class}
-			</color-scheme-images-path>
-		</color-scheme>
-
-		<color-scheme id="04" name="Black Background">
-			<default-cs>false</default-cs>
-			<css-class>black-theme</css-class>
-			<color-scheme-images-path>
-				${images-path}/themes/${css-class}
-			</color-scheme-images-path>
-		</color-scheme>
+		<settings>
+			<setting configurable="true" key="my-setting-language-key" options="true,false" type="select" value="false"/>
+		</settings>
 
 		<template-extension>ftl</template-extension>
 

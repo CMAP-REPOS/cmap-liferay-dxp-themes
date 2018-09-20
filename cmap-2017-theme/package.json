@@ -18,8 +18,7 @@
 	"devDependencies": {
 		"gulp": "^3.8.10",
 		"liferay-theme-deps-7.0": "~1.0.0",
-		"liferay-theme-tasks": "^1.5.0",
-		"liferay-frontend-theme-unstyled": "^2.2.15"
+		"liferay-theme-tasks": "^1.5.0"
 	},
 	"publishConfig": {
 		"tag": "7_0_x"
