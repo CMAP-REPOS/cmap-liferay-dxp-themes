@@ -120,6 +120,9 @@ $icon-nav-right-white: "\e91d";
 			height: 100%;
 			width: 100%;
 		}
+		.leaflet-popup-pane {
+			z-index:1000;
+		}
 		.tooltip2050 {
 			.leaflet-popup-tip-container {
 				width: 40px;
