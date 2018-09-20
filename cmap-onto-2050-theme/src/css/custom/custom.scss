@@ -1,26 +1,50 @@
-
 @import "variables";
 @import "mixins";
 
-@import "utility";
 @import "input";
 @import "typography";
 @import "header";
 @import "footer";
 
-@import "actions";
-@import "advertisement";
-@import "anchor";
-@import "before-after";
-@import "infographic";
-@import "picture";
-@import "page-nav";
-@import "page-header";
-@import "page-cards";
-@import "section-headline";
+@import "global";
 
 @import "profiles/footer";
 @import "profiles/grid";
 @import "profiles/header";
+
+@import "themes/mixin";
+@import "themes/black-theme";
+@import "themes/blue-theme";
+@import "themes/default-theme";
+@import "themes/grey-theme";
+
+@import "widgets/actions";
+@import "widgets/advertisement";
+@import "widgets/basic-web-content";
+@import "widgets/before-after";
+@import "widgets/cover-photo";
+@import "widgets/dot-nav";
+@import "widgets/gallery";
+@import "widgets/glossary";
+@import "widgets/hotspots";
+@import "widgets/page-cards";
+@import "widgets/page-nav";
+@import "widgets/picture";
+@import "widgets/related-pages";
+@import "widgets/related-recommendations";
+@import "widgets/slider";
+@import "widgets/staggered-images";
+@import "widgets/video";
+@import "widgets/storymap";
+@import "widgets/static-maps";
+
+@import "anchor";
+@import "breadcrumbs";
+@import "buttons";
+@import "ckeditor";
+@import "infographic";
+@import "scroll-nav";
+@import "nav";
+@import "widget-margins";
 
 @import "vendor/hamburgers/hamburgers";

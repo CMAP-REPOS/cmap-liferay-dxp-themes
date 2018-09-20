@@ -1,0 +1,221 @@
+.hotspot-widget{
+  position: relative;
+  z-index: 98;
+
+  $icon-width: 2rem;
+  $margin: 1rem;
+  $transition: all 0.2s ease-in;
+
+  .hotspot-layer{
+    position: relative;
+    top: 0; left: 0;
+    width: 100%;
+  }
+
+  .download-link{
+    border-bottom: none !important;
+    display: flex;
+    align-items: center;
+
+    svg{
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+
+  .hotspot-layer-contents{
+    position: relative;
+  }
+
+  .hotspot-rule{
+    margin: 0;
+    border-top: 2px solid $light-blue;
+  }
+
+  .hotspot-spot{
+    position: absolute;
+    width: 25%;
+    min-width: 200px;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    margin-top: - #{($icon-width / 2) + $margin};
+    margin-left: - #{($icon-width / 2) + $margin};
+
+    @include phone(){
+      display: none;
+    }
+
+    .caption-toggle{
+      position: relative;
+      z-index: 10;
+      flex: 0 0 ($icon-width + ($margin * 2));
+      cursor: pointer;
+
+      img{
+        width: $icon-width * 2; 
+        height: $icon-width * 2;
+        transform: rotate(0);
+        transition: all 0.2s ease;
+      }
+    }
+
+    .caption-content{
+      position: relative;
+      z-index: 10;
+      opacity: 1;
+      transition: $transition;
+      padding-right: 1rem;
+
+      .whitney-normal{
+        color: white;
+        margin: $margin 0;
+      }
+    }
+
+    .caption-background{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $dark-blue;
+      border: 2px solid white;
+      transition: $transition;
+    }
+
+    .caption-background-size{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &.min{
+      z-index: 5;
+      .caption-content{
+        opacity: 0;
+      }
+      .caption-toggle{
+        img{
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    &.flipped{
+      flex-direction: row-reverse;
+      transform: translateX(-100%);
+      .caption-content{
+        position: absolute;
+        right: 0;
+        padding-right: $icon-width + $icon-width;
+        padding-left: 1rem;
+      }
+      .caption-background{
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  .mobile-hotspot-information{
+    display: none;
+    padding: 0 $grid-gutter-width / 2;
+
+    ul{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+    
+    @include phone(){
+      display: block;
+    }
+  }
+
+  .hotspot-header{
+    float: none;
+    padding: $grid-gutter-width 0;
+  }
+
+  .hotspot-footer{
+    padding-top: 0.5rem;
+
+    .hotspot-footer-instructions{
+      .whiteny-small{
+        margin: 1rem 0;
+        font-weight: 400;
+        color: $light-blue;
+      }
+
+      @include tablet(){
+        display: none;
+      }
+    }
+
+    .hotspot-layer-item{
+      position: relative;
+      display: inline-block;
+      margin-right: 2rem;
+      cursor: pointer;
+
+      &:hover{
+        &:after{
+          background: lighten($light-blue, 25%);
+        }
+      }
+
+      .whiteny-normal{
+        color: $light-blue;
+        transition: all 0.2s ease;
+        margin-top: 0.5rem;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: -1.5rem;
+        left: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: 2px solid $light-blue;
+        background: white;
+        transition: all 0.2s ease;
+
+        @include phone(){
+          display: none;
+        }
+      }
+
+      &.active{
+        .whitney-normal{
+          color: $dark-blue;
+        }
+        &:after{
+          background: $dark-blue;
+        }
+      }
+    }
+  }
+}
+
+.portlet-column.col-md-8{
+  .hotspot-widget{
+    padding: 0 $grid-gutter-width / 2;
+  }
+}
+
+.portlet-column.col-md-16{
+  .hotspot-footer{
+    .hotspot-footer-instructions{
+      @include container-margin-left();
+    }
+  }
+  .hotspot-widget{
+    @include container-margin();
+  }
+}

@@ -30,6 +30,7 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
+  min-height: 100vh;
 }
 
 // Reset fonts for relevant elements
@@ -55,16 +56,6 @@ a {
   }
   &:focus {
     @include tab-focus;
-  }
-}
-
-.blue-theme{
-  a {
-    color: $light-blue;
-    &:hover,
-    &:focus {
-      color: lighten($light-blue, 10%);
-    }
   }
 }
 

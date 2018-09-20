@@ -1,0 +1,101 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Embed"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Set this field to an <iframe> element provided by Youtube or Vimeo. Please only provide the <iframe> tag."
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "Embed",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
+                "en_US": "Autoplay"
+            },
+            "predefinedValue": {
+                "en_US": false
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "If set, the website will attept to automatically play the video when the user visits the page."
+            },
+            "dataType": "boolean",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Autoplay",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "checkbox"
+        },
+        {
+            "label": {
+                "en_US": "Loop"
+            },
+            "predefinedValue": {
+                "en_US": false
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "If selected, the video will play again when it is finished."
+            },
+            "dataType": "boolean",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Loop",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "checkbox"
+        },
+        {
+            "label": {
+                "en_US": "Cover Image"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "If set, this picture will cover the component before the user requests the video."
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "CoverImage",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        }
+    ]
+}

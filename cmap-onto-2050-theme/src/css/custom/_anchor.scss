@@ -1,15 +1,45 @@
+.default-theme a.page-anchor{
+  color: black;
+  &:hover{ color: black; }
+}
+.blue-theme a.page-anchor{
+  color: white;
+  &:hover{ color: white; }
+}
 .page-anchor{
-  position: absolute;
-  right: 100%;
-  top: 0;
-  // padding-right: $grid-gutter-width;
-  border: none;
+  position: relative;
+  border-bottom: none !important;
   outline: none;
+  cursor: pointer;
 
-  .anchor-icon{
-    $size: $size1;
-    width: $size;
+  .page-anchor-button{
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+
+    @include tablet(){
+      position: relative;
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .page-anchor-icon{
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20%;
     max-width: unset !important;
-    height: $size;
+
+    @include tablet(){
+      margin-bottom: -4px;
+      margin-left: 0;
+    }
   }
 }

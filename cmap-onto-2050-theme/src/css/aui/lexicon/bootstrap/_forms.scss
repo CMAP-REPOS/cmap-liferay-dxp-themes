@@ -33,7 +33,7 @@ label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 
@@ -85,7 +85,7 @@ output {
   padding-top: ($padding-base-vertical + 1);
   font-size: $font-size-base;
   line-height: $line-height-base;
-  color: $input-color;
+  color: $dark-grey;
 }
 
 
@@ -120,10 +120,10 @@ output {
   font-size: $font-size-base;
   font-weight: $font-weight-bold;
   line-height: $line-height-base;
-  color: $input-color;
-  background-color: $input-bg;
+  color: $dark-grey;
+  background-color: $off-white;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid $input-border;
+  border: 1px solid darken($dark-grey, 10%);
   border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
   // @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
   @include transition(all ease-in-out .2s);
@@ -157,6 +157,7 @@ output {
 
   // [converter] extracted textarea& to textarea.form-control
 }
+
 
 .has-value{
   background-color: white;

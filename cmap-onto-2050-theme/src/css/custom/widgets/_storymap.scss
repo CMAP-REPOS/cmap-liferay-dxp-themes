@@ -1,0 +1,314 @@
+//These icons exist in infographic.scss as well, in case of needed edits.
+$icon-layers-dark: "\e908";
+$icon-layers-white: "\e909";
+$icon-map-med-dark: "\e90e";
+$icon-nav-left-white: "\e919";
+$icon-nav-right-white: "\e91d";
+@font-face {
+    font-family: 'cmap_icons';
+    src: url('../fonts/cmap_icons.eot');
+    src: url('../fonts/cmap_icons.eot') format('embedded-opentype'), url('../fonts/cmap_icons.ttf') format('truetype'), url('../fonts/cmap_icons.woff') format('woff'), url('../fonts/cmap_icons.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-cmap {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cmap_icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-layers-dark:before {
+    content: $icon-layers-dark;
+}
+
+.icon-map-med-dark:before {
+    content: $icon-map-med-dark;
+}
+
+.icon-map-med-dark {
+    font-size: $size2;
+    color: $grey-blue;
+	text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.icon-nav-left-white:before {
+    content: $icon-nav-left-white;
+}
+
+.icon-nav-right-white:before {
+    content: $icon-nav-right-white;
+}
+
+#main-content.storymaplayout {
+    .portlet-content {
+        padding: 0;
+    }
+    @media screen and (max-width: 750px) {
+        #main-content .portlet-content {
+            padding: 0;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        #main-content .portlet-content {
+            padding: 0;
+        }
+    }
+}
+
+.storymaplayout {
+    /* make storymap flush with breadcrumbs */
+	margin-top: $unit * -2;
+	.storymap-intro-content {
+        /* @include section-padding(); */
+        /* font-family: $font-sans; */
+        margin: 0;
+        padding-bottom: 25px;
+        padding-top: 50px;
+        .storymap-title {
+			margin-bottom: 25px;
+            p {
+                @extend .whitney-huge;
+            }
+        }
+        .storymap-info {
+            color: #000;
+        }
+        .storymap-aside {
+            color: $grey-blue;
+            padding-bottom: 25px;
+            p {
+                @extend .whitney-small;
+            }
+        }
+        .storymap-data-link {
+			@extend .whitney-small;
+			color: $grey-blue;
+            a {
+                border: none;
+				color: #3D5975;
+				font-weight: bold;
+                display: inline-block;
+                line-height: 30px;
+                &:hover {
+                    color: $dark-blue;
+                }
+                span,
+                svg {
+                    display: inline-block;
+                    vertical-align: bottom;
+                }
+            }
+        }
+	}
+	.storymap-detail-panel {
+		border-top: 4px solid #638198;
+		border-bottom: 4px solid #638198;
+	}
+    .map-container {
+        height: 800px;
+        max-height: 80vh;
+		position: relative;
+		.story-map {
+			height: 100%;
+			width: 100%;
+		}
+		.leaflet-popup-pane {
+			z-index:1000;
+		}
+		.tooltip2050 {
+			.leaflet-popup-tip-container {
+				width: 40px;
+				height: 20px;
+				margin-left: -20px;
+				position: absolute;
+			}
+			.leaflet-popup-tip {
+				width: 17px;
+				height: 17px;
+				margin: -10px auto 0;
+				border: none;
+			}
+			.leaflet-popup-content-wrapper {
+				border-radius: 0;
+			}
+			&.leaflet-popup a.leaflet-popup-close-button {
+				text-indent: 0;
+				font-size: 12px;
+				color: #333;
+			}
+		}
+		.icon-map-med-dark:before {
+			content: "";
+		}
+	}
+	.storymap-info-top {
+		border-bottom: 1px solid #ccc;
+		.story-map-layers,
+		.story-map-locations {
+			padding: 20px 0;
+		}
+		.header {
+			min-height: 60px;
+			font-size: 15px;
+			color: #516A83;
+		}
+		.icon {
+			float: left;
+			margin-right: 15px;
+		}
+		.description {
+			display: inline;
+		}
+		.story-map-layer-switcher {
+			display: block;
+			&.leaflet-control {
+				display: block;
+				float: none;
+				margin: 0;
+				padding: 0 0 25px 0;
+			}
+			.layers-menu {
+				float: none;
+			}
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				display: block;
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				a {
+					display: block;
+					margin-top: 0;
+					margin-bottom: 5px;
+					line-height: normal;
+					border: none;
+					color: #000;
+					svg, span {
+						display: inline;
+						vertical-align: middle;
+						padding: 0;
+						line-height: 1.4em;
+					}
+					svg {
+						float: left;
+						margin-right: 15px;
+					}
+					span {
+						font-family: sans-serif;
+						font-size: 14px;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+	.storymap-info-bottom {
+		.storymap-main-content {
+			margin: 25px 0;
+			.story-step-content {
+				display: none;
+			}
+		}
+	}
+    /* make full-width content possible */
+    #column-1 {
+        &.portlet-column-only {
+            padding: 0;
+        }
+        .story-step-content-full-width {
+            padding: 0;
+        }
+    }
+    
+    .story-map-zoom-toggler {
+        display: none;
+        /* font-family: $font-sans; */
+        font-size: 1.2em;
+        &.leaflet-control {
+            display: block;
+            float: none;
+            margin: 0;
+            padding: 25px 0 0 0;
+        }
+        a {
+            border: none;
+            color: $grey-blue;
+            display: inline-block;
+            /* font-weight: $bold-weight; */
+            line-height: 30px;
+            &:hover {
+                border: none;
+                color: $grey-blue;
+            }
+            span,
+            svg {
+                float: left;
+                vertical-align: bottom;
+            }
+            span {
+                padding-left: 0.9469697vw;
+            }
+        }
+    }
+    @include tablet() {
+        .storymap-intro-content {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            .storymap-aside {
+                display: none;
+            }
+            .storymap-source {
+                display: none;
+            }
+            .storymap-info-toggle {
+                display: block;
+            }
+        }
+    }
+    @include phone() {
+        #map-container {
+            height: 400px;
+        }
+        .storymap-intro-content {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            .storymap-aside {
+                display: none;
+            }
+            .storymap-source {
+                display: none;
+            }
+        }
+    }
+}
+@media (min-width: 800px) {
+	.map-info-grid-wrapper {
+		height: 800px;
+		max-height: 80vh;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+	.storymap-info-bottom {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.map-container-grid-wrapper {
+		padding-right:0;
+	}
+	.map-info-grid-wrapper {
+		padding-left:0;
+	}
+}

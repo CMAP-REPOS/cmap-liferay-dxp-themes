@@ -1,18 +1,12 @@
 <#if entries?has_content>
   <nav class="breadcrumb-cmap container-fluid">
+    <#assign cssClass="" />
     <div class="row">
-      <#assign cssClass="" />
 
       <div class="trail-col col-md-12 col-sm-11 col-xs-16">
         <div class="breadcrumb-trail active">
-          <!--<span class="entry home">
-            <span class="square"></span>
-            <a class="whitney-small" href="/"> Home </a>
-          </span>-->
-
           <ol class="breadcrumb">
           <#list entries as entry>
-
             <#if entry?is_last>
               <#assign cssClass="active" />
             </#if>
@@ -39,8 +33,7 @@
           <div class="input-group input-group-sm">
             <span class="input-group-btn">
               <button class="btn" type="button">
-                <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-                <!-- <span class="glyphicon glyphicon-check" aria-hidden="true"></span> -->
+                <span class="glyphicon glyphicon-share"></span>
               </button>
             </span>
             <input class="page-url form-control" type="text" value="http://www.cmap.illinois.gov/on-to-2050/resources/profiles" placeholder="https://www.cmap.illinois.gov">
@@ -59,6 +52,7 @@
           </svg>
           <span>Share</span>
         </button>
+
         <button class="close-button hidden btn btn-sm btn-plain">
           <svg class="glyphicon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <path fill="#3A5776" d="M10.7928932,9.29289322 L10.7928932,2 L9.29289322,2 L9.29289322,9.29289322 L2,9.29289322 L2,10.7928932 L9.29289322,10.7928932 L9.29289322,18 L10.7928932,18 L10.7928932,10.7928932 L18,10.7928932 L18,9.29289322 L10.7928932,9.29289322 Z" transform="rotate(45 10 10)"/>
@@ -66,6 +60,7 @@
           <span>Close</span>
         </button>
       </div>
+
     </div>
   </nav>
 </#if>

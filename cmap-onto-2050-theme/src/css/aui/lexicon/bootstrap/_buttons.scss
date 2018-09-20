@@ -50,6 +50,7 @@
     @include opacity(.65);
     @include box-shadow(none);
   }
+
   .glyphicon{
     // $glyphicon-size: $line-height-base;
     $glyphicon-size: 1.2em;
@@ -58,14 +59,6 @@
     margin-bottom: - 0.1em;
   }
   // [converter] extracted a& to a.btn
-}
-.blue-theme{
-  .glyphicon{
-    *[fill="#3C5976"],
-    *[fill="#3A5776"]{
-      fill: $white;
-    }
-  }
 }
 
 a.btn {
@@ -128,18 +121,21 @@ a.btn {
     background-color: transparent;
     @include box-shadow(none);
   }
+
   &,
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
   }
+
   &:hover,
   &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
     background-color: transparent;
   }
+
   &[disabled],
   fieldset[disabled] & {
     &:hover,

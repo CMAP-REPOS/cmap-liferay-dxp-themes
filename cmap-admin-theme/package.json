@@ -18,8 +18,5 @@
 	"main": "package.json",
 	"name": "cmap-admin-theme",
 	"author": "3st & Workstate (Clark & Jon)",
-	"version": "1.0.0",
-	"dependencies": {
-		"liferay-westeros-bank-theme": "^1.0.47"
-	}
+	"version": "1.0.0"
 }

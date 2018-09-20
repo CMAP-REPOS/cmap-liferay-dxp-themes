@@ -1,0 +1,510 @@
+@mixin theme-color-mixin($background, $primary, $alt){
+
+  $darker-background: darken($background, 10%);
+  $darker-primary: darken($primary, 10%);
+  $darker-alt: darken($alt, 10%);
+
+  $lighter-background: lighten($background, 10%);
+  $lighter-primary: lighten($primary, 10%);
+  $lighter-alt: lighten($alt, 10%);
+
+  $translucent-alt: rgba($alt,0.1);
+
+  &:not(.portal-popup){
+    background: $background;
+    color: $primary;
+  }
+
+  .journal-content-article{
+    h1,h2,h3,h4,h5,h6,p{
+      color: $primary;
+    }
+    .huge-headline{
+      color: $alt;
+    }
+    a {
+      color: $alt;
+      border-bottom: 1px solid rgba($alt, 0.3);
+      &:hover,
+      &:focus {
+        color: $lighter-alt;
+      }
+    }
+    ul,ol{
+      li{
+        border-bottom-color: rgba($primary, 0.25);
+      }
+	}
+	sup {
+		a {
+			padding: 1px 3px;
+            border: 1px solid #3d5975;
+            font-size: 8px;
+            border-radius: 50%;
+            font-weight: bold;
+			color: blue;
+			&:hover {
+				background-color: #3d5975;
+        		color: #FFF;
+			}
+		}
+	}
+  }
+  
+
+  // .dropdown a.dropdown-toggle,
+  .portlet-topper-toolbar a{
+    color: #777;
+  }
+  
+  .alt-color{
+    color: $alt !important;
+  }
+  
+  #mobile-navigation{
+    background: $darker-background;
+    color: $alt;
+
+    .site-nav a{
+      color: $alt;
+    }
+    .return-to-cmap{
+      color: $primary;
+    }
+  }
+  
+  #heading{
+    .site-subheadline{
+      color: $primary;
+    }
+    input::placeholder{
+      color: $alt;
+    }
+  }
+  &.has-cover-photo{
+    #heading{
+      .site-subheadline{
+        color: $alt;
+      }
+    }
+  }
+
+ 
+
+
+  #scroll-nav{
+    background: $darker-background;
+    border-bottom: 1px solid rgba($alt, 0.3);
+  
+    .page-title{
+      color: $primary;
+    }
+  }
+  .jump-to-top-button{
+    span{
+      color: $primary;
+    }
+    svg path{
+      fill: $primary !important;
+    }
+  }
+  
+  
+
+  .logo{
+    svg{
+      path,polygon{
+        &[fill="#000000"]{
+          fill: $alt;
+        }
+      }
+    }
+  }
+
+  #navigation{
+    a{
+      color: $alt;
+      &:hover{
+        color: $lighter-alt;
+        border-top: 0.1em solid $lighter-alt;
+      }
+    }
+    .return-to-cmap{
+      color: $primary;
+
+      &:hover{
+        color: $primary;
+      }
+    }
+  }
+
+  &.has-cover-photo{
+    #navigation{
+      .return-to-cmap{
+        color: $alt;
+        &:hover{
+          color: $alt;
+        }
+      }
+    } 
+  }
+
+  #breadcrumbs{
+    .breadcrumb-cmap{      
+      $percent: 0.2;
+      border-top: 1px solid rgba($alt, $percent);
+      border-bottom: 1px solid rgba($alt, $percent);
+
+      & > .active {
+        color: $primary;
+      }
+    }
+
+    .share-button,
+    .close-button {
+      color: $primary;
+
+      *[fill="#3A5776"],
+      *[fill="#3C5976"]{
+        fill: $primary;
+      }
+
+      &:hover,
+      &:focus,
+      &.focus {
+        color: $primary;
+
+        *[fill="#3A5776"],
+        *[fill="#3C5976"]{
+          fill: $primary;
+        }
+      }
+    }
+    a{
+      color: $alt;
+    }
+  }
+
+  &.has-cover-photo{
+    #breadcrumbs{
+      .breadcrumb{
+        & > .active {
+          color: $alt;
+          opacity: 0.5;
+        }
+      }
+      .share-button,
+      .close-button {
+        color: $alt;
+
+        *[fill="#3A5776"],
+        *[fill="#3C5976"]{
+          fill: $alt;
+        }
+
+        &:hover,
+        &:focus,
+        &.focus {
+          color: $alt;
+
+          *[fill="#3A5776"],
+          *[fill="#3C5976"]{
+            fill: $alt;
+          }
+        }
+      }
+    }
+  }
+
+
+  #footer{
+    background: $darker-background;
+    border-top: 1px solid rgba($alt, 0.3);
+
+    .footer-page-links{
+      a{
+        color: $primary !important;
+        &:hover{
+          color: $alt !important;
+          border-bottom: 1px solid $alt;
+        }
+      }
+    }
+    .footer-social-link{
+      path{
+        fill: $primary;
+      }
+      &:hover{
+        path{
+          fill: $alt;
+        }
+      }
+
+      .youtube{
+        polyline{
+          fill: $darker-background;
+        }
+      }
+    }
+
+    .copyright{
+      color: $grey-blue;
+    }
+  }
+
+  .page-nav{
+    ul li a{
+      color: $alt !important;
+    }
+  }
+
+  .picture-figure{
+    .picture-footnote{
+      color: $alt;
+    }
+  }
+
+  .glyphicon{
+    *[fill="#3C5976"],
+    *[fill="#3A5776"]{
+      fill: $alt;
+    }
+  }
+
+  .btn-plain {
+    @include button-variant($alt, $primary, $btn-plain-border);
+  }
+
+  &.signed-in{
+    .portlet-column-content.empty {
+      background: lighten($background, 25%);
+    }
+    .portlet-column-content.empty {
+      opacity: 0.2;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  #wrapper{
+    .form-control {
+      border-color: transparent;
+      color: $alt;
+      background-color: hsla(0, 100%, 100%, 0.3);
+    }
+  
+    .input-group-btn{
+      .btn{
+        background-color: hsla(0, 100%, 100%, 0.3);
+        border-color: transparent;
+        color: $alt;
+        &:hover{
+          background-color: hsla(0, 100%, 100%, 0.1);
+        }
+      }
+    }
+  }
+  
+
+  // widgets
+
+  .onto2050-basic-web-content{
+
+    .page-cards{
+      .bottom-content{
+        background: $translucent-alt;
+      }
+    }
+
+    .glossary-term{
+      .term-name{
+        border-bottom: 1px dotted $primary;
+      }
+      .term-definition-container{
+        background: $lighter-background;
+      }
+      .term-definition{
+        color: $alt;
+      }
+      .term-down-arrow{
+        background: $lighter-background;
+      }
+      .term-close path{
+        fill: $alt;
+      }
+    }
+
+  }
+
+  .onto2050-related-pages{
+    .headline-container{
+      border-top: 1px solid rgba($primary, 0.5);
+      border-bottom: 1px solid rgba($primary, 0.5);
+    }
+    .page-item-link{
+      @include clear-underline-link($alt);
+    }
+    .dot-nav{
+      .nav-item:after{
+        border-color: 1px solid $primary;
+      }   
+      .nav-item:hover:after{
+        background: $primary;
+      }
+      .nav-item.active:after{
+        background: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+
+  div.cover-photo-container {
+    .gradient-fade{
+      background: linear-gradient(to bottom, transparent, $background);      
+    }
+  }
+
+  .onto2050-actions{
+    .actions-header{
+      hr{
+        border-bottom: 1px solid rgba($alt, 0.3);
+      }
+    }
+    .actions-row{
+      hr{
+        border-bottom: 1px solid rgba($primary, 0.3);
+      }
+    }
+  }
+
+  .before-after-widget .label-row h4{
+    color: $primary;
+  }
+
+  .onto2050-slider::-webkit-scrollbar-thumb{
+    background: $alt;
+  }
+  .onto2050-slider::-webkit-scrollbar-track{
+    background: rgba($alt,0.25);
+  }
+
+  .onto2050-staggered-images{
+    .caption{
+      background: $background;
+    }
+  }
+
+
+  .onto2050-glossary-page{
+  
+    dl{
+      header{
+        background: $primary;
+        h3{
+          color: $background;
+        }
+      }
+    }
+
+    .glossary-term-def{
+      border-bottom: 1px solid $primary;
+    }
+  }
+
+  .related-recommendations{
+    .related-recommendation a{
+      border-top: 1px solid rgba($alt, 0.3);
+      border-bottom: 0;
+    }
+  }
+
+    
+  .chart-legend-2050{
+    border-top: 0.25rem solid $primary;
+    color: $primary;
+    p{
+      color: $primary;
+    }
+  }
+  
+  .chart-graphic-2050-container {
+    border-top: 0.25rem solid $primary;
+    border-bottom: 0.125rem solid $primary;
+    color: $primary;
+    p{
+      color: $primary;
+    }
+    .chart-graphic-2050-description{
+      color: $alt;
+    }
+  }
+    
+  .hotspot-widget{
+  
+    .hotspot-rule{
+      border-top: 2px solid $primary;
+    }
+
+    .download-link{
+      svg path {
+        fill: $primary;
+        &:hover{
+          fill: $darker-primary;
+        }
+      }
+    }
+    
+    .hotspot-spot{
+      .caption-content{  
+        .whitney-normal{
+          color: $background;
+        }
+      }
+      .caption-background{
+        background: $primary;
+        border: 2px solid $background;
+      }
+    }
+
+    .hotspot-footer{
+      .hotspot-footer-instructions{
+        .whiteny-small{
+          color: $primary;
+        }
+      }
+  
+      .hotspot-layer-item{
+  
+        .whiteny-normal{
+          color: $primary;
+        }
+  
+        &:after{
+          border: 2px solid $primary;
+          background: $background;
+        }
+        &:hover{
+          &:after{
+            background: $darker-background;
+          }
+        }
+  
+        &.active{
+          .whitney-normal{
+            color: $primary;
+            @include phone(){
+              color: $alt;
+            }
+          }
+          &:after{
+            background: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+// https://chicagotonight.wttw.com/2018/06/25/when-does-taking-moral-stand-cross-line-incivility?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685
+
+//  https://chicagotonight.wttw.com/2018/06/25/look-biggest-us-supreme-court-decisions-term-nears-end?utm_source=WTTW%2FWFMT+Subscribers&utm_campaign=b6d9245425-Daily_Briefing_Thursday_10_20_16_COPY_01&utm_medium=email&utm_term=0_5bc493c2d1-b6d9245425-95897685

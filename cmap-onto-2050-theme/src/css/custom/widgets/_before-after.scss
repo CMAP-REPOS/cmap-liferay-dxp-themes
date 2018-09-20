@@ -1,0 +1,90 @@
+
+.before-after-widget{
+
+  .before-after-header{
+    padding: $grid-gutter-width 0;
+  }
+
+  .before-after-graphic,
+  .before,
+  .after{
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .before-after-graphic{
+    position: relative;
+  }
+  .before, .after{
+    position: absolute;
+    height: 100%;
+  }
+  .before{
+    z-index: 10;
+  }
+
+  .after-graphic,
+  .before-graphic{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .shade{
+    height: 100%;
+  }
+
+  .before-shade{
+    width: 50%;
+    overflow: hidden;
+    left: 0;
+    border-right: 1px solid white;
+  }
+
+  .slider{
+    position: absolute;
+    z-index: 20;
+    height: 100%;
+    left: 50%;
+    padding: 0 1rem;
+    transform: translateX(-50%);
+
+    .vertical-line{
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .slider-button{
+      position: relative;
+      top: 50%;
+      width: 18px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      max-width: none;
+    }
+  }
+
+  .no-js{
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .label-row{
+    margin: 1.5rem 0 0;
+  }
+  .after-label{
+    text-align: right;
+  }
+}

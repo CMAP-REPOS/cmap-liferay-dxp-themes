@@ -6,66 +6,24 @@
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
 @import "custom/custom";
-@import "color_schemes/blue-theme";
-
-@mixin underline-link($color){
-  color: $color;
-  text-decoration: none;
-  border-bottom: 0.05em solid $color;
-  &:hover,
-  &:focus {
-    color: lighten($color, 10%);
-    text-decoration: none;
-    border-bottom-color: lighten($color, 10%);
-  }
-}
 
 .underline-link{
   @include underline-link($link-color);
 }
 
-#wrapper{
-  // overflow-x: hidden;
-}
-
 .content-margin{
-  margin: 3em 0;
+  margin: $grid-gutter-width 0;
 }
 .product-menu .scope-selector{
   width: 100%;
 }
 
-/* I think 99.999% of web content is displayed in this div */
-.journal-content-article{
-  a{
-    @include underline-link($link-color);
-  }
-  p{
-    font-family: $font-family-serif;
-    line-height: 1.5;
-  }
-  img{
-    width: 100%;
-  }
-}
-
 .margin-bottom-portlet{
-  margin-bottom: 3rem;
-}
-
-.blue-theme{
-  .journal-content-article{
-    h1,h2,h3,h4,h5,h6,p{
-      color: $white;
-    }
-    a{
-      @include underline-link($light-blue);
-    }
-  }
+  margin-bottom: $grid-gutter-width;
 }
 
 #profile-content{
-  margin: 3rem 0;
+  margin: $grid-gutter-width 0;
   @include tablet(){
     @include container-margin(3em);
   }

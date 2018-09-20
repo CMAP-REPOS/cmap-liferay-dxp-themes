@@ -60,3 +60,7 @@
 @media (min-width: $screen-md) {
   @include make-grid(lg);
 }
+
+@media (min-width: $screen-lg) {
+  @include make-grid(xl);
+}

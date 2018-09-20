@@ -1,19 +1,24 @@
 $animation: all 0.3s ease-out;
 
-#breadcrumbs{
+body.cmap-2017-theme{
+  #cmap-onto2050-breadcrumbs{
+    display: none;
+  }
+}
+#cmap-breadcrumbs{
   position: relative;
   border-top: 1px solid $off-white;
   border-bottom: 1px solid $off-white;
   margin-bottom: $unit * 2;
   height: $unit * 2;
+  padding: 0 !important;
 
-  .breadcrumb.row{
+  .row{
     @include section-padding();
     height: $unit * 2;
 
     @include tablet(){
       flex-wrap: wrap;
-      height: auto !important;
     }
 
     a{
@@ -27,13 +32,16 @@ $animation: all 0.3s ease-out;
 
   .share-col{
     display: flex;
-    
+
     .share-button,
     .close-button{
       @include desktop(){
         opacity: 0;
         pointer-events: none;
       }
+    }
+    @include tablet(){
+      display: none;
     }
   }
 
@@ -99,7 +107,7 @@ $animation: all 0.3s ease-out;
       }
     }
 
-    span{
+    a{
       padding: 0 $size-2 0 #{$size-1 - 0.1em};
       border-left: 1px solid $off-white;
 
@@ -107,10 +115,6 @@ $animation: all 0.3s ease-out;
         cursor: default;
         color: $off-white-text;
       }
-      &:first-of-type{
-        padding-left: 0;
-      }
     }
   }
 }
-
