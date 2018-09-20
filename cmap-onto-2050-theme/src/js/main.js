@@ -289,25 +289,107 @@ window.cmap.global.init = window.cmap.global.init || function(){
 
 };
 
+window.youtube_url_parser = function(url){
+	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+	var match = url.match(regExp);
+	return (match&&match[7].length==11)? match[7] : false;
+}
 
+window.set_iframe_video_size = function($iframe){
+
+	var is_full_width = $iframe.parents('.portlet-layout').find('.col-md-16').length > 0 ? true : false;
+	var iframe_width, iframe_height;
+
+	function get_iframe_size(){
+		iframe_width = $iframe.attr('width');
+		iframe_height = $iframe.attr('height');
+	}
+	console.log(iframe_width, iframe_height);
+
+	function set_iframe_size(){
+		if(is_full_width){
+			$iframe.css('width', window.innerWidth);
+			$iframe.css('height', (window.innerWidth / iframe_width) * iframe_height);
+			$iframe.parents('.onto2050-video-widget').find('.video-container').addClass('row');
+		} else {
+			var width = $iframe.parents('.portlet-layout').find('.col-md-8 .portlet-dropzone').innerWidth();
+			$iframe.css('width', width);
+			$iframe.css('height', (width / iframe_width) * iframe_height);
+			console.log('setting width', $iframe);
+		}
+	}
+	
+	get_iframe_size();
+	set_iframe_size();
+	$(window).resize(_.throttle(function(){
+		get_iframe_size();
+		set_iframe_size();
+	}, 100));
+}
+
+window.onYouTubeIframeAPIReady = function(){
+
+	for(var i in window.video_frames){
+		var video_id = window.youtube_url_parser(window.video_frames[i]);
+
+		if(video_id){
+		
+			var current_index = i;
+			var final_options;
+			var default_options = {
+				controls: 1,
+				modestbranding: 1,
+				rel: 0,
+				showinfo: 0,
+			};
+
+			if(window.video_autoplay[i]){
+				final_options = Object.assign(default_options, {
+					autoplay: 1,
+				});
+			}
+			if(window.video_loop[i]){
+				final_options = Object.assign(default_options, {
+					loop: 1,
+					playlist: video_id,
+				});
+			}
+			final_options = Object.assign(default_options, {});
+
+			// console.log(window.video_player, YT.Player, $(window.video_ids[i]+'video')[0])
+
+			window.video_player[i] = new YT.Player($(window.video_ids[i]+'video')[0], {
+				width: 1280,
+				height: 720,
+				videoId: video_id,
+				playerVars: final_options,
+				events: {
+					'onReady': function(event){
+						// console.log(event, event.target, event.target.getIframe());
+						// console.log(window.video_ids[current_index]);
+				
+						// alert('on ready fired');
+						window.set_iframe_video_size($(event.target.getIframe()));
+						// window.set_iframe_video_size($(window.video_ids[i]+'video')[0]);
+					}
+				}
+			});
+			
+
+			if(window.video_player[i]){
+
+				console.log(window.video_player[i]);
+			}
+			
+		}
+		console.log(window.video_player)
+	}
+}
 
 /* This function gets loaded when all the HTML, not including the portlets, is loaded. */
-AUI().ready(
-	function() {
-	}
-);
+AUI().ready(function(){ });
 
 /* This function gets loaded after each and every portlet on the page. */
-Liferay.Portlet.ready(
-	function(portletId, node) {
-		// portletId: the current portlet's id
-		// node: the Alloy Node object of the current portlet
-	}
-);
+Liferay.Portlet.ready(function(portletId, node){ });
 
-Liferay.on(
-	'allPortletsReady',
-	function() {
-		window.cmap.global.init();
-	}
-);
+Liferay.on('allPortletsReady', function(){ window.cmap.global.init(); });
