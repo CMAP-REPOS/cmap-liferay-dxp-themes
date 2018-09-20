@@ -22,7 +22,6 @@
     display: block;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    @extend .whitney-small;
   }
 
   ul li{
@@ -33,10 +32,6 @@
       width: 100%;
       border-bottom: none !important;
     }
-  }
-
-  .whitney-normal{
-    @extend .whitney-small;
   }
 }
 

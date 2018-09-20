@@ -1,6 +1,6 @@
 <div class="page-nav">
-  <span class="widget-headline whitney-small bold">${Heading.getData()}</span>
-	<ul class="list-unstyled"></ul>
+  <h2 class="widget-headline whitney-normal bold">${Heading.getData()}</h2>
+  <ul class="list-unstyled"></ul>
 </div>
  
 <script>
@@ -42,4 +42,4 @@ Liferay.on(
 		}, 100));
 	}
 );
-</script> 
+</script>
