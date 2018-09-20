@@ -130,6 +130,7 @@
 																					</g>
 																				</svg>
 																				<span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span>
+																				<span class="sr-only">toggle map layer</span>
 																			</a>
 																		<#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
 																			</a>
@@ -164,7 +165,7 @@
 														<#assign storyStepsIndex = cur_StoryStep?index>
 															<#if cur_StoryStep.LocationLabel.getData() != "">
 															<li>
-																<a id="${randomNamespace}_step${storyStepsIndex}" class="story-step" href="#" data-step="${cur_StoryStep?index}">
+																<a id="${randomNamespace}_step${storyStepsIndex}" class="story-step" href="#" data-step="${cur_StoryStep?index}" aria-controls="${randomNamespace}location_content${cur_StoryStep?index}">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" id="button_location_dot_inactive_${storyStepsIndex}" class="button_location_dot_inactive" style="display: inline">
 																		<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
 																			<path fill="#638198" fill-rule="nonzero" d="M14.064,26.9096 C6.85695383,26.9096 0.995,21.0476462 0.995,13.8406 C0.995,6.63355383 6.85695383,0.7716 14.064,0.7716 C21.2710462,0.7716 27.133,6.63355383 27.133,13.8406 C27.133,21.0476462 21.2710462,26.9096 14.064,26.9096 Z M14.064,24.8996 C20.1609538,24.8996 25.123,19.9375538 25.123,13.8406 C25.123,7.74364617 20.1609538,2.7816 14.064,2.7816 C7.96704617,2.7816 3.005,7.74364617 3.005,13.8406 C3.005,19.9375538 7.96704617,24.8996 14.064,24.8996 Z"/>
@@ -197,7 +198,7 @@
 						<#if getterUtil.getBoolean(Options.ShowLocationContent.getData())>
 						<#list Location.getSiblings() as cur_StoryStep>
 						<#assign storyStepsIndex = cur_StoryStep?index>
-						<div id="${randomNamespace}location_content${storyStepsIndex}" class="story-step-content">
+						<div id="${randomNamespace}location_content${storyStepsIndex}" class="story-step-content" aria-live="polite">
 							<#list cur_StoryStep.LocationContent.getSiblings() as cur_LocationContent>
 								<#if getterUtil.getBoolean(cur_LocationContent.LocationContentFullWidth.getData())>
 								<div class="col-xl-16 story-step-content-full-width">
