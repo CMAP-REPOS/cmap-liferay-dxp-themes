@@ -75,7 +75,7 @@
 	<#if LinkToDataHub?? && LinkToDataHub.getData()?? && LinkToDataHub.getData() != "">
 		<div class="chart-legend-2050-download">
 			<a name="download-link-${webContentId}"></a>
-			<a href="${LinkToDataHub.getData()}">
+			<a href="${LinkToDataHub.getData()}" target="_blank">
 				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
 					<g fill="#3C5976" transform="translate(-1 6)">
 						<path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
@@ -83,7 +83,11 @@
 						<path d="M10.6068201,7.96600256 C10.9739776,7.64756628 11.5297612,7.68706263 11.8481974,8.05422012 C12.1666337,8.42137761 12.1271374,8.97716117 11.7599799,9.29559744 L8.03358295,12.5275074 L4.305029,9.29577855 C3.93777149,8.97745763 3.89810054,8.42168651 4.21642145,8.054429 C4.53474237,7.68717149 5.09051349,7.64750054 5.457771,7.96582145 L8.03321705,10.1980926 L10.6068201,7.96600256 Z"/>
 					</g>
 				</svg>
+				<#if LinkDescription?? && LinkDescription.getData()?? && LinkDescription.getData() != "">
+				<span>${LinkDescription.getData()}</span>
+				<#else>
 				<span>Download the Data</span>
+				</#if>
 			</a>
 		</div>
 	</#if>

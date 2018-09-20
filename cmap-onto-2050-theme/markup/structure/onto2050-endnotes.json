@@ -6,6 +6,29 @@
     "fields": [
         {
             "label": {
+                "en_US": "Introduction"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "Introduction",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
                 "en_US": "Page Title"
             },
             "predefinedValue": {
@@ -50,6 +73,29 @@
                     "required": false,
                     "showLabel": true,
                     "type": "ddm-link-to-page"
+                },
+                {
+                    "label": {
+                        "en_US": "Recommendation"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Recommendation",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
                 },
                 {
                     "label": {

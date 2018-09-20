@@ -27,25 +27,25 @@ body#cmap-ckeditor{
     color: #000;
   }
 
-  // .glossary-term{
-  //   display: inline-block;
-  //   .term-name{
-  //     display: inline-block;
-  //     padding: 0.25em;
-  //     background: rgba($green, 0.2);
-  //   }
-  //   .term-definition-container{
-  //     display: inline-block;
-  //   }
-  //   .term-definition{
-  //     padding: 0.25em;
-  //     background: rgba($red, 0.2);
-  //   }
-  //   .term-down-arrow{
-  //     display: none;
-  //   }
-  //   .term-close{
-  //     display: none;
-  //   }
-  // }
+  .glossary-term{
+    display: inline-block;
+    .term-name{
+      display: inline-block;
+      padding: 0.25em;
+      background: rgba($green, 0.2);
+    }
+    .term-definition-container{
+      display: inline-block;
+    }
+    .term-definition{
+      padding: 0.25em;
+      background: rgba($red, 0.2);
+    }
+    .term-down-arrow{
+      display: none;
+    }
+    .term-close{
+      display: none;
+    }
+  }
 }

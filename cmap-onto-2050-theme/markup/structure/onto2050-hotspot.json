@@ -53,7 +53,7 @@
         },
         {
             "label": {
-                "en_US": "Source"
+                "en_US": "PDF"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -67,7 +67,7 @@
             "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
-            "name": "Source",
+            "name": "PDF",
             "readOnly": false,
             "repeatable": false,
             "required": false,

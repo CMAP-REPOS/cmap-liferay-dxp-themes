@@ -14,6 +14,19 @@
 <#if before_picture != '' && after_picture != ''>
 <div id="${randomNamespace}" class="before-after-widget">
 
+  <#if Title.getData() != '' && Description.getData() != ''>
+    <header class="before-after-header row">
+      <div class="center">
+        <#if Title.getData() != ''>
+          <div class="whitney-normal bold">${Title.getData()}</div>
+        </#if>
+        <#if Description.getData() != ''>
+          <div class="whitney-small">${Description.getData()}</div>
+        </#if>
+      </div>
+    </header>
+  </#if>
+
   <div class="row">
     <div class="before-after-graphic">
       <div class="before">
@@ -82,6 +95,7 @@ Liferay.on(
     var $this = $('#${randomNamespace}');
     var isFull = $this.parents('.col-md-16').length ? true : false;
     var pan_shift = $this.offset().left;
+
     function handle_pan(e){
       if(isFull){ pan_shift = 0; }
       var client_left = e.srcEvent.clientX - pan_shift;
@@ -90,6 +104,15 @@ Liferay.on(
         $this.find('.slider').css('left', client_left);
         $this.find('.before-shade').css('width', client_left);
       }
+    }
+
+    var $header = $this.find('.before-after-header');
+    var $center = $header.find('.center');
+
+    if(isFull){
+      $center.addClass('col-md-6 col-sm-16 col-md-offset-5');
+    } else {
+      $center.addClass('col-sm-16');
     }
 
     function set_text_width(){
@@ -112,6 +135,7 @@ Liferay.on(
       var height = before_height > after_height ? before_height : after_height;
       $this.find('.before-after-graphic').css('height', height);
     }
+
     function set_width(){
       var widget_width = $this.find('.before-after-graphic').innerWidth();
       $this.find('.before-graphic').css('width', widget_width);

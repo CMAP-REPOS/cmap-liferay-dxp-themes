@@ -35,7 +35,11 @@
 	<section id="content">
 
 		<nav id="breadcrumbs">
-			<@liferay.breadcrumbs />
+		<@liferay_portlet["runtime"]
+				defaultPreferences=""
+				portletProviderAction=portletProviderAction.VIEW
+				portletProviderClassName="com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry"
+			/>
 		</nav>
 		
 		<#if selectable>
@@ -55,7 +59,6 @@
 </div>
 
 <#include "${full_templates_path}/includes/mobile_nav.ftl" />
-
 
 <@liferay_util["include"] page=body_bottom_include />
 
@@ -78,6 +81,8 @@
     s.parentNode.insertBefore(t, s);
   })();
 </script>
+
+<script src="http://localhost:8080/o/cmap-onto-2050-theme/js/main.js" type="text/javascript"></script>
 
 </body>
 

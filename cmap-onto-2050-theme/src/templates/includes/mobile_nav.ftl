@@ -58,12 +58,5 @@
     <span> Back to CMAP.gov </span>
   </a>
 
-  <div class="input-group">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">
-        <span class="glyphicon glyphicon-search"></span>
-      </button>
-    </span>
-    <input id="search-input" class="form-control" type="text" value="" placeholder="Search">
-  </div>
+	<#include "${full_templates_path}/includes/search-mobile.ftl" />
 </div>

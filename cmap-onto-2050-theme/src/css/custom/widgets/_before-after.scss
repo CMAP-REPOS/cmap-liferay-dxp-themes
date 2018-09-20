@@ -1,6 +1,10 @@
 
 .before-after-widget{
 
+  .before-after-header{
+    padding: $grid-gutter-width 0;
+  }
+
   .before-after-graphic,
   .before,
   .after{
@@ -78,9 +82,7 @@
   }
 
   .label-row{
-    .whitney-middle {
-      margin: 1.5rem 0 0;
-    }
+    margin: 1.5rem 0 0;
   }
   .after-label{
     text-align: right;
