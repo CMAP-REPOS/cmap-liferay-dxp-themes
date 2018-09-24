@@ -191,6 +191,122 @@ window.cmap.navigation.init = window.cmap.navigation.init || function(){
 	// hide_menu();
 }
 
+window.cmap.hotspots = window.cmap.hotspots || function(){
+	// what point does the caption flip around and open to the left
+	var FLIP_CUTOFF = 0.5; // switch up there in the markup also
+
+	$('.hotspot-widget').each(function(){
+		var $hotspot = $(this);
+		var $layers = $hotspot.find('.hotspot-layer');
+		
+		if($layers.length < 2){
+			$hotspot.find('.hotspot-footer').css('display', 'none');
+		}
+
+		var $portlet_column = $hotspot.parents('.portlet-column');
+		var $header = $hotspot.find('.hotspot-header');
+		var $left = $header.find('.left');
+		var $center = $header.find('.center');
+
+		if($portlet_column.hasClass('col-md-8')){
+			$center.addClass('col-md-10 col-sm-16');
+			if($left.length){
+				$left.addClass('col-md-3 col-sm-16');
+			} else {
+				$center.addClass('col-md-offset-3');
+			}
+		}
+
+		if($portlet_column.hasClass('col-md-16')){
+			$center.addClass('col-md-6 col-sm-16');
+			if($left.length){
+				$left.addClass('col-md-5 col-sm-16');
+			} else {
+				$center.addClass('col-sm-offset-5');
+			}
+		}
+
+		$layers.each(function(i,el){
+			var $el = $(el);
+			var layer_name = $el.data('layer-name');
+			var $nav_item = $('<div class="hotspot-layer-item" data-toggle="'+layer_name+'"><div class="whitney-normal bold">'+layer_name+'</div></div>');
+			console.log(this);
+
+			$nav_item.click(function(){
+				var self = this;
+				$('.hotspot-layer-item').removeClass('active');
+				$(this).addClass('active');
+				
+				console.log(layer_name);
+				$('.mobile-hotspot-information ul').removeClass('active');
+				$('.mobile-hotspot-information ul[data-layer-name="'+layer_name+'"]').addClass('active');
+
+				$layers.each(function(i_b,el_b){
+					if(el_b == el){
+						$(el_b).removeClass('hidden');
+					} else {
+						$(el_b).addClass('hidden');
+					}
+				});
+			});
+			$hotspot.find('.hotspot-footer nav').append($nav_item);
+		});
+
+
+		$('.hotspot-spot').each(function(index){        
+			var $this = $(this);
+			console.log($this);
+
+			var $background = $this.find('.caption-background');
+			var $toggle = $this.find('.caption-toggle');
+			$this.addClass('min');
+			$background.css('width', $toggle.innerWidth());
+			$background.css('height', $toggle.innerHeight());
+			// the caption is too far to the left and we need to flip it
+
+			if(parseInt($this.css('left')) / $hotspot.innerWidth() > FLIP_CUTOFF){
+				$this.addClass('flipped');
+			}
+		});
+
+		$hotspot.find('.mobile-hotspot-information ul').removeClass('active');      
+		$hotspot.find('.mobile-hotspot-information ul:first-of-type').addClass('active');
+		$layers.addClass('hidden');
+		$hotspot.find('.hotspot-layer:first-of-type').removeClass('hidden');
+		$hotspot.find('.hotspot-layer-item:first-of-type').addClass('active');
+	});
+
+	$('.caption-toggle').click(function(){
+		var parent = $(this).parent().toggleClass('min');
+
+		var toggle_width = $(this).innerWidth();
+		var toggle_height = $(this).innerHeight();
+
+		$('.hotspot-spot').each(function(index){
+			var $this = $(this);
+			var $background = $this.find('.caption-background');
+			var $caption = $this.find('.caption-content');
+			var $toggle = $this.find('.caption-toggle');
+
+			if(this == parent[0]){
+				console.log(parent);
+				if(parent.hasClass('min')){
+					$background.css('width', toggle_width);
+					$background.css('height', toggle_height);
+				} else {
+					var w = $this.hasClass('flipped') ? $caption.innerWidth() : $caption.innerWidth() + $toggle.innerWidth();
+					$background.css('width', w);
+					$background.css('height', $caption.innerHeight());
+				}
+			} else {
+				$(this).addClass('min');
+				$background.css('width', toggle_width);
+				$background.css('height', toggle_height);
+			}
+		});
+	});
+}
+
 window.cmap.glossary = window.cmap.glossary || {};
 window.cmap.glossary.init = window.cmap.glossary.init || function(){
 	$('.glossary-term').each(function(){
@@ -239,6 +355,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	window.cmap.pageCards.init();
 	window.cmap.glossary.init();
 	window.cmap.full_screen_picture();
+	window.cmap.hotspots();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
 

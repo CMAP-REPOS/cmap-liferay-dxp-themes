@@ -82,8 +82,6 @@
   })();
 </script>
 
-<script src="http://localhost:8080/o/cmap-onto-2050-theme/js/main.js" type="text/javascript"></script>
-
 </body>
 
 </html>
