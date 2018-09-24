@@ -2,6 +2,42 @@
 <link rel="stylesheet" href="${themeDisplay.getPathThemeCss()}/vendor/c3.min.css" />
 
 <style>
+#industry-clusters {
+	border: 1px solid #ccc;
+}
+.industry-clusters-list {
+	height: 500px;
+	width: 300px;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.industry-clusters-details {
+}
+.industry-clusters-list .industry {
+	display: block;
+	height: 80px;
+	margin: 0;
+	border: none !important;
+}
+.industry-clusters-list .industry.selected {
+	background-color: #8A4E11;
+}
+.industry-clusters-list .industry.selected .industry-name {
+	color: #FFF;
+}
+.industry-clusters-list .industry-image,
+.industry-clusters-list .industry-name {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 10px;
+}
+.industry-clusters-list .industry-name {
+	font-size: 13px;
+	font-weight: bold;
+}
+.industry-clusters-details .industry-name,
 .industry header {
 	font-size: 18px;
 	font-weight: bold;
@@ -68,6 +104,27 @@
 	color: #903E25;
 }
 </style>
+
+<div id="industry-clusters" class="row">
+	<div class="industry-clusters-list col-xs-16 col-sm-4">
+		<#list Industry.getSiblings() as cur_Industry>
+			<#assign industryIndex = cur_Industry?index>
+			<#assign industryName = cur_Industry.Name.getData()>
+			<#assign industryDataURL = "">
+			<a href="#" class="industry row" data-industryindex="${industryIndex}" data-industryname="${industryName}" data>
+				<div class="industry-image col-xs-8">
+					<img src="https://picsum.photos/100/50" alt="${industryName}" height="60%" />
+				</div>
+				<div class="industry-name col-xs-8">
+					<span>${industryName}</span>
+				</div>
+			</a>
+		</#list>
+	</div>
+	<div class="industry-clusters-details col-xs-16 col-sm-12">
+		<div class="industry-name"></div>
+	</div>
+</div>
 
 <#list Industry.getSiblings() as cur_Industry>
 	<#assign industryIndex = cur_Industry?index>
@@ -159,3 +216,12 @@
 		</div>
 	</div>
 </#list>
+
+<script>
+$('.industry-clusters-list').find('.industry').on('click', function(e){
+	e.preventDefault();
+	var $selectedCluster = $( this );
+	$('.industry-clusters-list').find('.industry').removeClass('selected');
+	$selectedCluster.addClass('selected');
+});
+</script>
