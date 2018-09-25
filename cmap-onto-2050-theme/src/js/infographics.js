@@ -339,7 +339,9 @@
 							format: function (y) {
 								return formatValue(options.axis_y_tick_format, y);
 							}
-						}
+						},
+						min: options.axis_y_min_value,
+						max: options.axis_y_max_value,
 					}
 				},
 				bar: {

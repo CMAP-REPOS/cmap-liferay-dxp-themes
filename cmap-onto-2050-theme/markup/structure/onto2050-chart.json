@@ -3,7 +3,6 @@
         "en_US"
     ],
     "defaultLanguageId": "en_US",
-
     "fields": [
         {
             "label": {
@@ -61,8 +60,6 @@
             "showLabel": true,
             "type": "select"
         },
-
-
         {
             "label": {
                 "en_US": "File"
@@ -98,7 +95,7 @@
                 "en_US": ""
             },
             "tip": {
-                "en_US": ""
+                "en_US": "Optional paragraphs to describe the information presented"
             },
             "dataType": "html",
             "fieldNamespace": "ddm",
@@ -111,106 +108,6 @@
             "showLabel": true,
             "type": "ddm-text-html"
         },
-
-        {
-            "label": {
-                "en_US": "Key Item"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "",
-            "fieldNamespace": "ddm",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "KeyItem",
-            "readOnly": false,
-            "repeatable": true,
-            "required": false,
-            "showLabel": true,
-            "type": "ddm-separator",
-            "nestedFields": [
-                {
-                    "label": {
-                        "en_US": "Key Item Name"
-                    },
-                    "predefinedValue": {
-                        "en_US": ""
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "string",
-                    "indexType": "keyword",
-                    "localizable": true,
-                    "name": "KeyItemName",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "text"
-                },
-                {
-                    "label": {
-                        "en_US": "Key Item Image"
-                    },
-                    "predefinedValue": {
-                        "en_US": ""
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "image",
-                    "fieldNamespace": "ddm",
-                    "indexType": "text",
-                    "localizable": true,
-                    "name": "KeyItemImage",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "ddm-image"
-                }
-            ]
-        },
-        {
-            "label": {
-                "en_US": "Source"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "html",
-            "fieldNamespace": "ddm",
-            "indexType": "text",
-            "localizable": true,
-            "name": "Source",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "ddm-text-html"
-        },
-
-
         {
             "label": {
                 "en_US": "Anchor"
@@ -282,6 +179,29 @@
                     "type": "checkbox"
                 }
             ]
+        },
+        {
+            "label": {
+                "en_US": "Text"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Textat4h",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
         },
         {
             "label": {
@@ -522,6 +442,54 @@
                     "required": false,
                     "showLabel": true,
                     "type": "ddm-decimal"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Min Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "YMin",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Max Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "YMax",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-number"
                 },
                 {
                     "label": {
@@ -790,6 +758,30 @@
             "required": false,
             "showLabel": true,
             "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Custom Height"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Use this field to set a custom height value for the chart when needed."
+            },
+            "dataType": "number",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "CustomHeight",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-number"
         }
     ]
 }
