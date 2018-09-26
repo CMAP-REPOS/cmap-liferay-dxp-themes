@@ -2,29 +2,28 @@
 <#assign initials = []>
 
 <#if Term.getSiblings()?has_content>
-	<#list Term.getSiblings() as cur_Term>
-	
-		<#if cur_Term?has_content >
-		<#assign term = cur_Term.getData()>
-		<#assign definition = cur_Term.Definition.getData()>
-		<#assign anchor = term?lower_case?replace('[^a-z]', '-', 'ri')>
-		<#assign initial = term?upper_case[0]>
-		<#-- generate array of unique first letters for  jump list -->
-		<#assign initialIndex = initials?seq_index_of(initial)>
-		<#if initialIndex == -1>
-			<#assign initials = initials + [initial]>
-		</#if>
 
-		<#assign glossary = glossary + [{
-			"term" : term,
-			"anchor" : anchor,
-			"initial" : initial, 
-			"definition" : definition
-		}]>
+	<#list Term.getSiblings() as cur_Term>
+		<#if cur_Term?has_content >
+			<#assign term = cur_Term.getData()>
+			<#assign definition = cur_Term.Definition.getData()>
+			<#assign anchor = term?lower_case?replace('[^a-z]', '-', 'ri')>
+			<#assign initial = term?upper_case[0]>
+			<#-- generate array of unique first letters for  jump list -->
+			<#assign initialIndex = initials?seq_index_of(initial)>
+			<#if initialIndex == -1>
+				<#assign initials = initials + [initial]>
+			</#if>
+			<#assign glossary = glossary + [{
+				"term"			: term,
+				"anchor"		: anchor,
+				"initial"		: initial, 
+				"definition"	: definition
+			}]>
 		</#if>
 	</#list>
 
-	<div class="glossary onto2050-glossary">
+	<div class="onto2050-glossary">
 		<header>
 			<div clas="row">
 				<div class="col-xs-16 col-md-8">
