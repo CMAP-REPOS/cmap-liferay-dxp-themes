@@ -1,7 +1,7 @@
 <script>
 $(function() {
     $('.endnotes-navigation').find('ul').html('');
-    $('.endnote-group .section-sub-headline').each(function() {
+    $('.section-sub-headline').each(function() {
         var anchor = $(this).find('a').prop('id');
         var title = $(this).find('button').text();
         $('.endnotes-navigation').find('ul')

@@ -29,7 +29,7 @@
         },
         {
             "label": {
-                "en_US": "Page Title"
+                "en_US": "Section Title"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -43,13 +43,60 @@
             "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
-            "name": "PageTitle",
+            "name": "SectionTitle",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Recommendation"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Recommendation",
             "readOnly": false,
             "repeatable": true,
             "required": false,
             "showLabel": true,
-            "type": "text",
+            "type": "ddm-separator",
             "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Page Title"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "PageTitle",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
                 {
                     "label": {
                         "en_US": "Page Link"
@@ -76,30 +123,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "Recommendation"
-                    },
-                    "predefinedValue": {
-                        "en_US": ""
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "string",
-                    "indexType": "keyword",
-                    "localizable": true,
-                    "name": "Recommendation",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "text"
-                },
-                {
-                    "label": {
-                        "en_US": "Notes"
+                        "en_US": "Page Notes"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -114,7 +138,7 @@
                     "fieldNamespace": "ddm",
                     "indexType": "text",
                     "localizable": true,
-                    "name": "Notes",
+                    "name": "PageNotes",
                     "readOnly": false,
                     "repeatable": false,
                     "required": false,
