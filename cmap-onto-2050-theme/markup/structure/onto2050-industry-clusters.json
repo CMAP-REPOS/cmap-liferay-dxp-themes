@@ -77,6 +77,80 @@
                 },
                 {
                     "label": {
+                        "en_US": "Thumbnails"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Thumbnails",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Normal"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "image",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "Normal",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-image"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Highlight"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "image",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "Highlight",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-image"
+                        }
+                    ]
+                },
+                {
+                    "label": {
                         "en_US": "National Average Reference"
                     },
                     "options": [
@@ -162,6 +236,29 @@
                     "required": false,
                     "showLabel": true,
                     "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Regional Performance"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "RegionalPerformance",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
                 }
             ]
         }

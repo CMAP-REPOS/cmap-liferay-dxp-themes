@@ -6,26 +6,29 @@
 .industry-clusters-list { height: 500px; padding: 0; overflow-x: hidden; overflow-y: auto; }
 .industry-clusters-details { }
 .industry-clusters-list .industry { display: block; height: 80px; margin: 0; border: none !important; }
-.industry-clusters-list .industry.selected { background-color: #8A4E11; }
+.industry-clusters-list .industry.selected { background-color: #246A8C; }
 .industry-clusters-list .industry.selected .industry-name { color: #FFF; }
 .industry-clusters-list .industry-image, .industry-clusters-list .industry-name { display: flex; align-items: center; height: 100%; padding: 0 10px; }
 .industry-clusters-list .industry-name { font-size: 13px; font-weight: bold; }
 .current-industry .industry-name { margin-top:20px; font-size: 22px; font-weight: bold; color: #000; }
 .current-industry .chart-container { margin-bottom: 10px; }
-.current-industry .nationalAverage { display: none; height: 1px; position: relative; margin: 0 12px; border-top: 1px solid #E4E5AD; padding-top: 10px; text-align: right; text-transform: uppercase; font-size: 13px; color: #BBB; }
+.current-industry .nationalAverage { display: none; height: 1px; position: relative; margin: 0 12px; border-top: 2px solid #CFCFE6; padding-top: 10px; text-align: right; text-transform: uppercase; font-size: 13px; font-weight: bold; color: #CFCFE6; }
 .current-industry .nationalAverage.below { top: 28px; }
 .current-industry .nationalAverage.above { bottom: 18px; }
-#current-industry-chart circle { cursor: pointer !important; }
-#current-industry-chart .c3-circle { stroke-width: 2px; fill: #786A1C !important; }
-#current-industry-chart .c3-circle:first-child { fill: #5F489A !important; }
-#current-industry-chart .c3-circle:last-child { fill: #8C4323 !important; }
+#current-industry-chart .c3-line { stroke-width: 2px; }
+#current-industry-chart .c3-circle { stroke-width: 2px; fill: #000 !important; }
+#current-industry-chart .c3-circle:first-child { fill: #1D6989 !important; }
+#current-industry-chart .c3-circle:last-child { fill: #A8532F !important; }
 .current-industry .startYear { text-align: left; }
 .current-industry .indicator { text-align: center; font-size: 50px; color: #903E25; }
 .current-industry .endYear { text-align: right; }
 .current-industry .year { font-size: 24px; }
 .current-industry .startValue, .current-industry .currentValue { font-size: 35px; font-weight: 900; }
-.current-industry .startValue { color: #5C4799; }
-.current-industry .currentValue { color: #903E25; }
+.current-industry .startValue { color: #1D6989; }
+.current-industry .currentValue { color: #A8532F; }
+.current-industry .regional-performance { margin-top: 20px; }
+.current-industry .regional-performance .header { font-size: 18px; font-weight: bold; color: #000; }
+.current-industry .regional-performance .value { font-size: 16px; color: #000; }
 </style>
 
 <div id="industry-clusters" class="row">
@@ -36,7 +39,10 @@
 			<#assign industryDataURL = "">
 			<a href="${cur_Industry.Data.getData()}" class="industry row" data-index="${industryIndex}">
 				<div class="industry-image col-xs-8">
-					<img src="https://picsum.photos/100/50" alt="${industryName} thumnbnail" height="60%" />
+					<#if cur_Industry.Thumbnails.Normal.getData() != '' && cur_Industry.Thumbnails.Highlight.getData() != ''>
+					<img src="${cur_Industry.Thumbnails.Normal.getData()}" class="normal" alt="${industryName} thumnbnail" height="60%" />
+					<img src="${cur_Industry.Thumbnails.Highlight.getData()}" class="highlight" style="display:none" alt="${industryName} thumnbnail" height="60%" />
+					</#if>
 				</div>
 				<div class="industry-name col-xs-8">
 					<span>${industryName}</span>
@@ -67,6 +73,12 @@
 					<div class="currentValue"></div>
 				</div>
 			</div>
+			<div class="regional-performance row">
+				<div class="header col-xs-16">Regional Performance</div>
+				<div class="col-xs-16">
+					<span class="value"></span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -76,18 +88,18 @@ var industries = [];
 <#list Industry.getSiblings() as cur_Industry>
 	<#assign startValue = 0>
 	<#assign currentValue = 0>
-	<#if cur_Industry.StartValue?? && cur_Industry.StartValue.getData()?? && cur_Industry.StartValue.getData() != ''>
-		<#assign startValue = cur_Industry.StartValue.getData()>
+	<#if cur_Industry.StartValue.getData()?? && cur_Industry.StartValue.getData() != ''>
+		<#assign startValue = cur_Industry.StartValue.getData()?number>
 	</#if>
-	<#if cur_Industry.CurrentValue?? && cur_Industry.CurrentValue.getData()?? && cur_Industry.CurrentValue.getData() != ''>
-		<#assign currentValue = cur_Industry.CurrentValue.getData()>
+	<#if cur_Industry.CurrentValue.getData()?? && cur_Industry.CurrentValue.getData() != ''>
+		<#assign currentValue = cur_Industry.CurrentValue.getData()?number>
 	</#if>
 industries.push({
-	idx:			${cur_Industry?index},
-	name:			"${cur_Industry.Name.getData()}",
-	nationalAvg:	"cur_Industry.NationalAverageReference.getData()",
-	startValue:		${startValue},
-	currentValue:	${currentValue}
+	name:					"${cur_Industry.Name.getData()}",
+	nationalAvg:			"${cur_Industry.NationalAverageReference.getData()}",
+	startValue:				${startValue?string("0.##")},
+	currentValue:			${currentValue?string("0.##")},
+	regionalPerformance:	"${cur_Industry.RegionalPerformance.getData()}",
 });
 </#list>
 $('.industry-clusters-list').find('.industry').on('click', function(e){
@@ -95,47 +107,53 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 
 	var $selectedIndustry = $( this ),
 		$currentIndutryDetails = $('.current-industry'),
-		industryIndex = $selectedIndustry.data("index"),
-		industryName = industries[ industryIndex ].industryName,
-		industryNationalAvgReference = industries[ industryIndex ].nationalAvg,
-		industryDataURL = $selectedIndustry.attr("href"),
-		industryStartValue = industries[ industryIndex ].startValue,
-		industryCurrentValue = industries[ industryIndex ].currentValue;
+		index = $selectedIndustry.data("index"),
+		name = industries[ index ].name,
+		nationalAvg = industries[ index ].nationalAvg,
+		dataURL = $selectedIndustry.attr("href"),
+		startValue = industries[ index ].startValue,
+		currentValue = industries[ index ].currentValue;
 
+	$('.industry-clusters-list').find('.industry.selected').find('.industry-image .highlight').hide();
+	$('.industry-clusters-list').find('.industry.selected').find('.industry-image .normal').show();
 	$('.industry-clusters-list').find('.industry').removeClass('selected');
 	$selectedIndustry.addClass('selected');
-	$currentIndutryDetails.find('.industry-name').html( industryName );
+	$selectedIndustry.find('.industry-image .normal').hide();
+	$selectedIndustry.find('.industry-image .highlight').show();
+	$currentIndutryDetails.find('.industry-name').html( name );
 
 	$currentIndutryDetails.find('.nationalAverage').hide();
-	if (industryNationalAvgReference == "Above") {
+	if (nationalAvg == "Above") {
 		$currentIndutryDetails.find('.nationalAverage.above').show();
 	}
 	else {
 		$currentIndutryDetails.find('.nationalAverage.below').show();
 	}
 
-	$currentIndutryDetails.find('.startValue').html( industries[ industryIndex ].startValue );
-	$currentIndutryDetails.find('.currentValue').html( industries[ industryIndex ].currentValue );
+	$currentIndutryDetails.find('.startValue').html( industries[ index ].startValue );
+	$currentIndutryDetails.find('.currentValue').html( industries[ index ].currentValue );
 
 	$currentIndutryDetails.find('.indicator').html("");
-	if (industryStartValue != "" & industryCurrentValue != "") {
-		if (industryStartValue < industryCurrentValue) {
+	if (startValue != "" & currentValue != "") {
+		if (startValue < currentValue) {
 			$currentIndutryDetails.find('.indicator').html( "&#11014;" )
 		}
-		if (industryStartValue > industryCurrentValue) {
+		if (startValue > currentValue) {
 			$currentIndutryDetails.find('.indicator').html( "&#11015;" )
 		}
 	}
 
-	if( industryDataURL != ''){
-		d3.csv(industryDataURL , function (error, d) {
+	$currentIndutryDetails.find('.regional-performance .value').html( industries[ index ].regionalPerformance );
+
+	if( dataURL != ''){
+		d3.csv(dataURL , function (error, d) {
 			var chart = c3.generate({
 				bindto: '#current-industry-chart',
 				line: {
 					connectNull: true
 				},
 				data: {
-					url: industryDataURL,
+					url: dataURL,
 					type: 'line',
 					x: "Year",
 					onclick: function (e) {
@@ -154,7 +172,7 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 				},
 				legend: { show: false },
 				color: {
-					pattern: ['#E4D880']
+					pattern: ['#A7B4D6']
 				},
 				point: { r: 5 }
 			});
