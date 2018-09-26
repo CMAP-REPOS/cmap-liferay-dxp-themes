@@ -89,13 +89,3 @@
 
 </div>
 </#if>
-
-<script>
-Liferay.on(
-	'allPortletsReady',
-	function() {
-
-    
-	}
-);
-</script>

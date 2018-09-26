@@ -10,12 +10,24 @@ body.default-theme{
 
   @include theme-color-mixin($default-theme-background-color, $default-theme-text-color, $default-theme-alt-text-color);
 
+  $link-blue: #07418a;
   &.signed-in{
     .portlet-column-content.empty {
       background: darken($default-theme-background-color, 25%);
     }
   }
 
+
+  .journal-content-article{
+    a {
+      color: $link-blue;
+      border-bottom: 1px solid rgba($link-blue, 0.3);
+      &:hover,
+      &:focus {
+        color: lighten($link-blue, 10%);
+      }
+    }
+  }
 
   .form-control {
     background-color: rgba(236,240,242,1) !important;

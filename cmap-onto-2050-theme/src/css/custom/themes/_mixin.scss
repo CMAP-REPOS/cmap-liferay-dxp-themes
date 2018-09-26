@@ -30,25 +30,14 @@
         color: $lighter-alt;
       }
     }
+    .page-anchor{
+      color: $alt !important;
+    }
     ul,ol{
       li{
         border-bottom-color: rgba($primary, 0.25);
       }
-	}
-	sup {
-		a {
-			padding: 1px 3px;
-            border: 1px solid #3d5975;
-            font-size: 8px;
-            border-radius: 50%;
-            font-weight: bold;
-			color: blue;
-			&:hover {
-				background-color: #3d5975;
-        		color: #FFF;
-			}
-		}
-	}
+	  }
   }
   
 
@@ -418,7 +407,38 @@
     }
   }
 
+  .onto2050-endnote{
+    position: relative;
     
+    .onto2050-endnote-psudo-anchor{
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 100px;
+      width: 1px;
+    }
+  }
+  
+  .onto2050-endnote-dot{
+    background: $primary;
+    color: $background !important;
+  }
+  
+  .onto2050-endnotes-page{
+    .page-section{
+      header{
+        background: $primary;
+  
+        a{
+          color: $background;
+        }
+      }
+  
+      .endnote-row{
+        border-bottom: 1px solid $primary;
+      }
+    }
+  }
+
   .chart-legend-2050{
     border-top: 0.25rem solid $primary;
     color: $primary;

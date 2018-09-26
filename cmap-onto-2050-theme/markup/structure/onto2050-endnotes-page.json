@@ -1,0 +1,57 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Section"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Section",
+          "readOnly": false,
+          "repeatable": true,
+          "required": false,
+          "showLabel": true,
+          "type": "text",
+          "nestedFields": [
+              {
+                "label": {
+                  "en_US": "Page With Endnotes"
+                },
+                "predefinedValue": {
+                  "en_US": ""
+                },
+                "style": {
+                  "en_US": ""
+                },
+                "tip": {
+                  "en_US": ""
+                },
+                "dataType": "link-to-page",
+                "fieldNamespace": "ddm",
+                "indexType": "keyword",
+                "localizable": true,
+                "name": "PageWithEndnotes",
+                "readOnly": false,
+                "repeatable": true,
+                "required": false,
+                "showLabel": true,
+                "type": "ddm-link-to-page"
+              }
+          ]
+      }
+  ]
+}

@@ -1,0 +1,71 @@
+.onto2050-endnote{
+  position: relative;
+  
+  .onto2050-endnote-psudo-anchor{
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 100px;
+    width: 1px;
+  }
+}
+
+.onto2050-endnote-dot{
+
+  $size: 18px;
+  @extend .whitney-small;
+  @extend .bold;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.618) translateY(- #{$size * 0.25});
+
+  width: $size;
+  height: $size;
+
+  background: black;
+  color: white !important;
+  line-height: 1;
+  border-radius: 50%;
+
+  
+}
+
+.onto2050-endnotes-page{
+
+  .endnotes-section{
+    h2{
+      margin-bottom: 3rem;
+    }
+  }
+  .page-section{
+    margin-bottom: 3rem;
+
+    header{
+      background: black;
+      padding: 0.5em 1em;
+
+      a{
+        color: white;
+        border-bottom: 0;
+      }
+    }
+
+    .endnote-row{
+      display: flex;
+      border-bottom: 1px solid black;
+      padding: 0.5em 0;
+    }
+
+    .endnote-number{
+      width: 2em;
+      flex: 0 0 2em;
+    }
+    .endnote-details{
+      flex: 1 1 auto;
+    }
+    .backlink{
+      margin-left: 0.5em;
+    }
+  }
+}

@@ -41,7 +41,7 @@
       </div>
       <div class="slider">
         <div class="vertical-line"></div>
-        <img class="slider-button" src="" alt="Three horizontal lines that denote an area to grab and drag around" draggable="false"/>
+        <img class="slider-button" src="/o/cmap-onto-2050-theme/images/icons/ic_slider_button.svg" alt="Three horizontal lines that denote an area to grab and drag around" draggable="false"/>
       </div>
       <div class="after">
         <div class="after-shade shade">
@@ -89,9 +89,6 @@
 Liferay.on(
 	'allPortletsReady',
 	function() {
-    // I do not know the static location for theme images, so I am setting it with javascript
-    $('.slider-button').attr('src', Liferay.ThemeDisplay.getPathThemeImages() + '/icons/ic_slider_button.svg');
-
     var $this = $('#${randomNamespace}');
     var isFull = $this.parents('.col-md-16').length ? true : false;
     var pan_shift = $this.offset().left;
