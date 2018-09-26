@@ -26,8 +26,8 @@
 .current-industry .startValue, .current-industry .currentValue { font-size: 35px; font-weight: 900; }
 .current-industry .startValue { color: #1D6989; }
 .current-industry .currentValue { color: #A8532F; }
-.current-industry .regional-performance { margin-top: 20px; }
-.current-industry .regional-performance .header { font-size: 18px; font-weight: bold; color: #000; }
+.current-industry .regional-performance { margin-top: 40px; }
+.current-industry .regional-performance .header { margin-bottom:10px; font-size: 18px; font-weight: bold; color: #000; }
 .current-industry .regional-performance .value { font-size: 16px; color: #000; }
 </style>
 
@@ -158,7 +158,7 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 					x: "Year",
 					onclick: function (e) {
 						var selectedYear = e.x,
-							selectedYearValue = e.value;
+							selectedYearValue = e.value.toFixed(2);
 						$('.current-industry')
 							.find('.startYear .year').html( selectedYear );
 						$('.current-industry')
