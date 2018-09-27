@@ -3,7 +3,7 @@
 
 <style>
 #industry-clusters { border: 1px solid #ccc; }
-.industry-clusters-list { height: 500px; padding: 0; overflow-x: hidden; overflow-y: auto; }
+.industry-clusters-list { height: 480px; padding: 0; overflow-x: hidden; overflow-y: auto; }
 .industry-clusters-details { }
 .industry-clusters-list .industry { display: block; height: 80px; margin: 0; border: none !important; outline:none; }
 .industry-clusters-list .industry.selected { background-color: #246A8C; }
