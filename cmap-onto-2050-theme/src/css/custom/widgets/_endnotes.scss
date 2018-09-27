@@ -9,6 +9,23 @@
   }
 }
 
+body#cmap-ckeditor{
+  .onto2050-endnote{
+    color: green !important;
+
+    &:after{
+      content: '';
+      position: relative;
+      right: 0;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+    }
+  }
+}
+
 .onto2050-endnote-dot{
 
   $size: 18px;
@@ -54,7 +71,13 @@
     .endnote-row{
       display: flex;
       border-bottom: 1px solid black;
-      padding: 0.5em 0;
+      padding: 1em 0;
+
+      @extend .presna-normal;
+
+      &.active{
+        font-size: 1.5rem;
+      }
     }
 
     .endnote-number{
@@ -63,6 +86,8 @@
     }
     .endnote-details{
       flex: 1 1 auto;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .backlink{
       margin-left: 0.5em;

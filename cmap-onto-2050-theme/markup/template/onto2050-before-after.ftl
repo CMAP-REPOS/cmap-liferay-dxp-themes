@@ -94,10 +94,13 @@ Liferay.on(
     var pan_shift = $this.offset().left;
 
     function handle_pan(e){
+      console.log(e);
       if(isFull){ pan_shift = 0; }
-      var client_left = e.srcEvent.clientX - pan_shift;
+      var client_left = e.srcEvent.pageX - pan_shift;
+      
+      console.log(client_left, window.innerWidth - (pan_shift*2));
+
       if(client_left > 0 && client_left < window.innerWidth - (pan_shift*2)){
-        // console.log(e.srcEvent.clientX, e.srcEvent.clientX > 0);
         $this.find('.slider').css('left', client_left);
         $this.find('.before-shade').css('width', client_left);
       }
@@ -142,7 +145,7 @@ Liferay.on(
     // http://hammerjs.github.io/touch-action/
     // http://hammerjs.github.io/recognizer-pan/
     // http://hammerjs.github.io/getting-started/
-    require(['https://hammerjs.github.io/dist/hammer.min.js'], function(Hammer){
+    require(['https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'], function(Hammer){
       set_text_width();
       set_height();
       set_width();
@@ -153,6 +156,7 @@ Liferay.on(
       }, 100));
 
       var hammertime = new Hammer($this[0], {});
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
       hammertime.on('pan', handle_pan);
     });
 	}

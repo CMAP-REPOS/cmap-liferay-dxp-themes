@@ -11,7 +11,9 @@ window.endnotes.query_for_page = window.endnotes.query_for_page || function(url,
     type: "GET"
   })
   .done(function(data, textStatus, jqXHR) {
-    console.log("HTTP Request Succeeded: " + jqXHR.status);
+    if(jqXHR.status != 200){
+      console.log("HTTP Request Status: " + jqXHR.status);
+    }
     window.endnotes.build_page(data, parent, url);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
@@ -25,23 +27,30 @@ window.endnotes.query_for_page = window.endnotes.query_for_page || function(url,
 window.endnotes.build_page = window.endnotes.build_page || function(html, parent, url) {
   var $html = $(html);
   var $page_title = $html.find('#scroll-nav .desktop-row .page-title');
+
+  if($html.find('h1').length){
+    $page_title = $html.find('h1');
+    $page_title.find('.section-sub-headline').remove();
+    $page_title.find('br').remove();
+  }
+
+  var friendly_page_title = $page_title.text().toLowerCase().replace(/ /g, '-').replace(/-/g,'').trim();
+
   var $endnotes = $html.find('.onto2050-endnote');
 
   if($endnotes.length){
     var $section = $('<div class="page-section row"></div>');
     $section.append('<header><a class="whitney-small bold" href="'+url+'" target="_blank">'+$page_title.text()+'</a></header>');
 
-    var $links = $('<div class="page-endnotes col-sm-16"></div>');
-
+    var $links = $('<div class="page-endnotes"></div>');
     $endnotes.each(function(i,el){
-      console.log(el, i);
-      var $endnote_row = $('<div class="endnote-row presna-normal" id="'+$page_title.text()+'-endnote-'+(i+1)+'"></div>');
+      var $endnote_row = $('<div class="endnote-row col-sm-16" id="'+friendly_page_title+'-endnote-'+(i+1)+'"></div>');
       $endnote_row.append('<span class="endnote-number">'+(i+1)+'</span>');
       var $endnote_details = $('<span class="endnote-details"></span>');
       var reference = $(el).attr('reference');
       $endnote_details.html(reference);
       $endnote_details.linkify();
-      $endnote_details.append('<a class="backlink" href="'+url+'#endnote-'+(i+1)+'">In situ</a>');
+      $endnote_details.append('<a class="backlink" href="'+url+'#endnote-'+(i+1)+'" target="_blank">Back</a>');
       $endnote_row.append($endnote_details);
       $links.append($endnote_row);
     });
@@ -53,28 +62,40 @@ window.endnotes.build_page = window.endnotes.build_page || function(html, parent
   window.endnotes.check_finish();
 }
 
+window.endnotes.already_focused = false;
 window.endnotes.check_finish = window.endnotes.check_finish || function(){
-  if(window.location.hash && window.endnotes.count === 0){
-    $('html,body').animate({
-      scrollTop: $(window.location.hash).offset().top - $('#scroll-nav').innerHeight()
-    });
+  if(window.location.hash){
+    console.log($(window.location.hash));
+    if($(window.location.hash).length){
+
+      if(!window.endnotes.already_focused){
+        var jump = $(window.location.hash).offset().top - $('#scroll-nav').innerHeight();
+
+        if($('#ControlMenu').length){
+          jump += $('#ControlMenu').innerHeight();
+        }
+
+        $('html,body').animate({
+          scrollTop: jump
+        });
+
+        $(window.location.hash).addClass('active');
+        window.endnotes.already_focused = true;
+      }
+      
+    } 
   }
 };
 </script>
 
 <div class="onto2050-endnotes-page">
 <#if Section.getSiblings()?has_content>
-<script>
-  Liferay.on(
-    'allPortletsReady',
-    function() {
-    }
-  );
-</script>
 	<#list Section.getSiblings() as current_section>
-    <div class="endnotes-section ${current_section.getData()}-section">
+
+    <#assign friendly_url = current_section.getData()?lower_case?replace(" ", "-") />
+    <div class="endnotes-section ${friendly_url}-section">
       
-      <h2 class="section-sub-headline bold alt-color onto2050-basic-web-content"><a name="${current_section.getData()}" id="${current_section.getData()}">${current_section.getData()}</a></h2>
+      <h2 class="section-sub-headline bold alt-color onto2050-basic-web-content"><a name="${friendly_url}" id="${friendly_url}">${current_section.getData()}</a></h2>
       
       <#if current_section.PageWithEndnotes.getSiblings()?has_content>
       	<#list current_section.PageWithEndnotes.getSiblings() as current_page>
@@ -85,7 +106,7 @@ window.endnotes.check_finish = window.endnotes.check_finish || function(){
                 window.endnotes.count += 1;
                 window.endnotes.query_for_page(
                   window.location.origin+'${current_page.getFriendlyUrl()}', 
-                  '.${current_section.getData()}-section'
+                  '.${friendly_url}-section'
                 );
               }
             );

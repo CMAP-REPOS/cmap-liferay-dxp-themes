@@ -306,13 +306,20 @@ window.cmap.hotspots = window.cmap.hotspots || function(){
 window.cmap.global.check_images = window.cmap.global.check_images || function(){
 	var bad_image_count = 0;
 	$('img').each(function(){
-		var $this = $(this), alt = $this.attr('alt');
-		if(alt){
-			// console.log(this, ' has an alt tag of ', alt);
-		} else {
+		var $this = $(this), alt = $this.attr('alt'), src = $this.attr('src');
+		
+		if(!alt){
 			if($this.hasClass('company-logo')){ return true; } // this is only seen if logged in
-			bad_image_count++;
-			console.log("ALERT: ", this, ' does not have an alt tag');
+			console.log($this, 'has no alt');
+			if(src.search(/http(s)?/g)){
+				console.log(src, src.search(/http(s)?/g));
+				if(src.search(window.location.origin)){
+					console.log(src, src.search(window.location.origin));
+					bad_image_count++;
+					return true; // the image is from a source that is not the current website
+				}
+			}
+			// console.log("ALERT: ", this, ' does not have an alt tag');
 		}
 	});
 
@@ -320,11 +327,6 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 		alert('There are ' + bad_image_count + ' images without alt tags on this page. See the javascript console for more information.');
 	}
 }
-
-window.cmap.full_screen_picture = window.cmap.full_screen_picture || function(){
-	console.log(this);
-};
-
 
 window.cmap.global.init = window.cmap.global.init || function(){
 
@@ -335,7 +337,6 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	window.cmap.global.anchors.init();
 	window.cmap.navigation.init();
 	window.cmap.pageCards.init();
-	window.cmap.full_screen_picture();
 	window.cmap.hotspots();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
@@ -386,13 +387,32 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	});
 
 	$('.onto2050-endnote').each(function(i,el){
-		var $page_title = $('#scroll-nav .desktop-row .page-title').text().replace(/ /g,'-');
-		$(el).append('<span class="onto2050-endnote-psudo-anchor" id="endnote-'+(i+1)+'"></span>');
-		$(el).after('<a class="onto2050-endnote-dot" href="/2050/endnotes/#'+$page_title+'-endnote-'+(i+1)+'">'+(i+1)+'</a>');
+		var $el = $(el);
+		var $page_title = $('#wrapper h1').clone();
+		console.log($page_title, $page_title.find('.section-sub-headline'), $page_title.find('br'));
+		$page_title.find('.section-sub-headline').remove();
+		$page_title.find('br').remove();
+		var page_title = $page_title.text().toLowerCase().replace(/ /g,'-').replace(/-/g,'').trim();
+		// $el.append('<span class="onto2050-endnote-psudo-anchor"></span>');
+		$el.after('<a id="endnote-'+(i+1)+'" class="onto2050-endnote-dot" href="/2050/endnotes/#'+page_title+'-endnote-'+(i+1)+'" title="'+$el.attr('reference')+'" target="_blank">'+(i+1)+'</a>');
 	});
 
 	$('.onto2050-actions .mobile-headline').append('<span class="sr-only">:</span>');
+
+	if(window.location.hash && $(window.location.hash).length){
+		var offset = $(window.location.hash).offset().top;
+		if($('#scroll-nav').length){
+			offset -= $('#scroll-nav').innerHeight();
+		}
+		if($('#ControlMenu').length){
+			offset -= $('#ControlMenu').innerHeight();
+		}
+		$('html,body').animate({
+			scrollTop: offset
+		}, 800);
+	}
 };
+
 
 window.youtube_url_parser = function(url){
 	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
