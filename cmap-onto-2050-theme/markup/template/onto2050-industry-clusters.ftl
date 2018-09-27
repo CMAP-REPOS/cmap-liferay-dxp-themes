@@ -20,7 +20,7 @@
 #current-industry-chart .c3-circle:first-child { fill: #1D6989 !important; }
 #current-industry-chart .c3-circle:last-child { fill: #A8532F !important; }
 .current-industry .startYear { text-align: left; }
-.current-industry .indicator { text-align: center; font-size: 50px; color: #903E25; }
+.current-industry .indicator { text-align: center; }
 .current-industry .endYear { text-align: right; }
 .current-industry .year { font-size: 24px; }
 .current-industry .startValue, .current-industry .currentValue { font-size: 35px; font-weight: 900; }
@@ -32,7 +32,7 @@
 </style>
 
 <div id="industry-clusters" class="row">
-	<div class="industry-clusters-list col-xs-16 col-sm-4">
+	<div class="industry-clusters-list col-xs-16 col-md-4">
 		<#list Industry.getSiblings() as cur_Industry>
 			<#assign industryIndex = cur_Industry?index>
 			<#assign industryName = cur_Industry.Name.getData()>
@@ -50,7 +50,7 @@
 			</a>
 		</#list>
 	</div>
-	<div class="current-industry col-xs-16 col-sm-12">
+	<div class="current-industry col-xs-16 col-md-12">
 		<div class="industry-name"></div>
 		<div class="chart-container">
 			<div class="nationalAverage below row">
@@ -82,6 +82,7 @@
 		</div>
 	</div>
 </div>
+<div id="stacked-bar-chart" style="height:80px"></div>
 
 <script>
 var industries = [];
@@ -136,10 +137,10 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 	$currentIndutryDetails.find('.indicator').html("");
 	if (startValue != "" & currentValue != "") {
 		if (startValue < currentValue) {
-			$currentIndutryDetails.find('.indicator').html( "&#11014;" )
+			$currentIndutryDetails.find('.indicator').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><defs><style>.arrow-up{fill:#5f469c;}</style></defs><path class="arrow-up" d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' )
 		}
 		if (startValue > currentValue) {
-			$currentIndutryDetails.find('.indicator').html( "&#11015;" )
+			$currentIndutryDetails.find('.indicator').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><defs><style>.arrow-down{fill:#8b4f21}</style></defs><path class="arrow-down" d="M81.35,4.14c0,.21-38.35,76.71-38.41,76.63C42.72,80.52,4.58,4.12,4.65,4.1s8.69,3.69,19.2,8.24L43,20.62l19.09-8.28C72.58,7.79,81.21,4.06,81.26,4.06A.09.09,0,0,1,81.35,4.14Z"/></svg>' )
 		}
 	}
 
@@ -183,4 +184,37 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 	}
 });
 $('.industry-clusters-list').find('.industry').first().click();
+
+var industrySizes = [];
+industrySizes.push(['industry_0', 30]);
+industrySizes.push(['industry_1', 50]);
+industrySizes.push(['industry_2', 25]);
+
+var chart = c3.generate({
+	bindto: '#stacked-bar-chart',
+    data: {
+		type: 'bar',
+		columns: industrySizes,
+		groups: [
+			['industry_0', 'industry_1', 'industry_2']
+		],
+		order: null
+    },
+	padding: { top: 0, right: 0, bottom: 0, left: 0 },
+	axis: {
+		rotated: true,
+		x: { show: false, padding: 0 },
+		y: { show: false, padding: 0 }
+	},
+	bar: {
+		width: { ratio: 1 },
+		height: { ratio: 0.5 }
+	},
+	legend: { show: false },
+	grid: {
+        y: {
+            lines: [{value:0}]
+        }
+    }
+});
 </script>
