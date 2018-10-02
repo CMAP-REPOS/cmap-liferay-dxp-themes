@@ -1,11 +1,9 @@
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.7/linkify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.7/linkify-jquery.min.js"></script>
-<script>
 
+<script>
 window.endnotes = window.endnotes || {};
-window.endnotes.count = 0;
-window.endnotes.query_for_page = window.endnotes.query_for_page || function(url, parent){
+window.endnotes.query_for_page = window.endnotes.query_for_page || function(url, index){
   jQuery.ajax({
     url: url,
     type: "GET"
@@ -14,7 +12,7 @@ window.endnotes.query_for_page = window.endnotes.query_for_page || function(url,
     if(jqXHR.status != 200){
       console.log("HTTP Request Status: " + jqXHR.status);
     }
-    window.endnotes.build_page(data, parent, url);
+    window.endnotes.build_page(data, url, index);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     console.log("HTTP Request Failed");
@@ -24,7 +22,7 @@ window.endnotes.query_for_page = window.endnotes.query_for_page || function(url,
   });
 }
 
-window.endnotes.build_page = window.endnotes.build_page || function(html, parent, url) {
+window.endnotes.build_page = window.endnotes.build_page || function(html, url, index) {
   var $html = $(html);
   var $page_title = $html.find('#scroll-nav .desktop-row .page-title');
 
@@ -34,7 +32,8 @@ window.endnotes.build_page = window.endnotes.build_page || function(html, parent
     $page_title.find('br').remove();
   }
 
-  var friendly_page_title = $page_title.text().toLowerCase().replace(/ /g, '-').replace(/-/g,'').trim();
+  var friendly_page_title = $page_title.text().replace(/,/g,'').replace(/\'/g, '').replace(/ /g, '-');
+  friendly_page_title = friendly_page_title.toLowerCase().trim()
 
   var $endnotes = $html.find('.onto2050-endnote');
 
@@ -44,7 +43,7 @@ window.endnotes.build_page = window.endnotes.build_page || function(html, parent
 
     var $links = $('<div class="page-endnotes"></div>');
     $endnotes.each(function(i,el){
-      var $endnote_row = $('<div class="endnote-row col-sm-16" id="'+friendly_page_title+'-endnote-'+(i+1)+'"></div>');
+      var $endnote_row = $('<div class="endnote-row col-sm-16"></div>');
       $endnote_row.append('<span class="endnote-number">'+(i+1)+'</span>');
       var $endnote_details = $('<span class="endnote-details"></span>');
       var reference = $(el).attr('reference');
@@ -52,68 +51,46 @@ window.endnotes.build_page = window.endnotes.build_page || function(html, parent
       $endnote_details.linkify();
       $endnote_details.append('<a class="backlink" href="'+url+'#endnote-'+(i+1)+'" target="_blank">Back</a>');
       $endnote_row.append($endnote_details);
+      $endnote_row.append('<div class="endnote-row-anchor" id="'+friendly_page_title+'-endnote-'+(i+1)+'"></div>');
       $links.append($endnote_row);
     });
     $section.append($links);
 
-    $(parent).append($section);
-  }
-  window.endnotes.count -= 1;
-  window.endnotes.check_finish();
-}
+    $('.endnotes-page-'+index).append($section);
 
-window.endnotes.already_focused = false;
-window.endnotes.check_finish = window.endnotes.check_finish || function(){
-  if(window.location.hash){
-    console.log($(window.location.hash));
-    if($(window.location.hash).length){
-
-      if(!window.endnotes.already_focused){
-        var jump = $(window.location.hash).offset().top - $('#scroll-nav').innerHeight();
-
-        if($('#ControlMenu').length){
-          jump += $('#ControlMenu').innerHeight();
-        }
-
-        $('html,body').animate({
-          scrollTop: jump
-        });
-
-        $(window.location.hash).addClass('active');
-        window.endnotes.already_focused = true;
+    $('.endnote-row').each(function(){
+      var $this = $(this), height = $this.innerHeight();
+      if($('#scroll-nav').length){
+        height += $('#scroll-nav').innerHeight();
       }
-      
-    } 
+      if($('#ControlMenu').length){
+        height += $('#ControlMenu').innerHeight();
+      }
+      $this.find('.endnote-row-anchor').css('height', height);
+    });
   }
-};
+}
 </script>
 
 <div class="onto2050-endnotes-page">
-<#if Section.getSiblings()?has_content>
-	<#list Section.getSiblings() as current_section>
+  <#if Introduction?has_content>
+    <header>
+      ${Introduction.getData()}
+    </header>
+  </#if>
 
-    <#assign friendly_url = current_section.getData()?lower_case?replace(" ", "-") />
-    <div class="endnotes-section ${friendly_url}-section">
-      
-      <h2 class="section-sub-headline bold alt-color onto2050-basic-web-content"><a name="${friendly_url}" id="${friendly_url}">${current_section.getData()}</a></h2>
-      
-      <#if current_section.PageWithEndnotes.getSiblings()?has_content>
-      	<#list current_section.PageWithEndnotes.getSiblings() as current_page>
-          <script>
-            Liferay.on(
-              'allPortletsReady',
-              function() {
-                window.endnotes.count += 1;
-                window.endnotes.query_for_page(
-                  window.location.origin+'${current_page.getFriendlyUrl()}', 
-                  '.${friendly_url}-section'
-                );
-              }
-            );
-          </script>
-        </#list>
-      </#if>
-    </div>
-	</#list>
-</#if>
+  <#if PageWithEndnotes.getSiblings()?has_content>
+    <#list PageWithEndnotes.getSiblings() as current_page>
+      <div class="endnotes-page endnotes-page-${current_page?index}">
+        <script>
+          Liferay.on(
+            'allPortletsReady',
+            function() {
+              window.endnotes.query_for_page(window.location.origin+'${current_page.getFriendlyUrl()}', ${current_page?index});
+            }
+          );
+        </script>
+      </div>
+    </#list>
+  </#if>
 </div>

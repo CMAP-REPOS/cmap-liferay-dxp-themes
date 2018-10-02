@@ -138,8 +138,8 @@
     }
     .term-definition-container{
       position: absolute;
-      bottom: 0;
-      left: 50%;
+      bottom: 0; left: 50%;
+      z-index: 1;
       transform: translateX(-50%);
       display: inline-block;
       width: 25vw;

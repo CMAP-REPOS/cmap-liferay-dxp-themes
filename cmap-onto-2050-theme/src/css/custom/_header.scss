@@ -35,13 +35,10 @@
     }
   }
 
-  #search-input{
-    font-size: 0.95em;
-  }
-
-  .site-subheadline{
-    @extend .whitney-semi-large;
-    @extend .bold;
+  #desktop-search{
+    input{
+      font-size: 0.95em;
+    }
   }
 
   .site-subheadline.mobile{

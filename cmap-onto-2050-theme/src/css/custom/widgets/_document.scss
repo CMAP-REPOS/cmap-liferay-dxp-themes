@@ -1,0 +1,52 @@
+
+$top: 42%;
+
+.onto2050-document{
+  padding: $unit 0;
+  background: $off-white;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin-bottom: $size0;
+
+  .document-img-link{
+    display: block;
+    position: relative;
+    border-bottom: none !important;
+  }
+
+  .document-img{
+    position: relative;
+    left: 50%;
+    width: 40%;
+    transition: all 0.4s cubic-bezier(0.22, 0.52, 0.58, 1);
+    transform: translateX(-50%) translateY($top) rotate(-25deg) scale(1.5);
+  }
+
+  .document-title{
+    @extend .normal-headline;
+    @extend .bold;
+  }
+
+  .document-cta{
+    display: flex;
+    margin-top: 1.5rem;
+    @extend .whitney-normal;
+  }
+
+  .file-extension{
+    text-transform: uppercase;
+  }
+
+  .file-icon{
+    display: inline-block;
+    margin-right: $size-3;
+  }
+
+  &:hover{
+    background: saturate($off-white, 15%);
+
+    .document-img{
+      transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
+    }
+  }
+}

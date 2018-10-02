@@ -310,7 +310,6 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 		
 		if(!alt){
 			if($this.hasClass('company-logo')){ return true; } // this is only seen if logged in
-			console.log($this, 'has no alt');
 			if(src.search(/http(s)?/g)){
 				console.log(src, src.search(/http(s)?/g));
 				if(src.search(window.location.origin)){
@@ -388,29 +387,56 @@ window.cmap.global.init = window.cmap.global.init || function(){
 
 	$('.onto2050-endnote').each(function(i,el){
 		var $el = $(el);
+		
 		var $page_title = $('#wrapper h1').clone();
-		console.log($page_title, $page_title.find('.section-sub-headline'), $page_title.find('br'));
+		if(!$page_title.length){
+			$page_title = $('#scroll-nav .desktop-row .page-title').clone();
+		}
+		console.log($page_title);
 		$page_title.find('.section-sub-headline').remove();
 		$page_title.find('br').remove();
-		var page_title = $page_title.text().toLowerCase().replace(/ /g,'-').replace(/-/g,'').trim();
-		// $el.append('<span class="onto2050-endnote-psudo-anchor"></span>');
-		$el.after('<a id="endnote-'+(i+1)+'" class="onto2050-endnote-dot" href="/2050/endnotes/#'+page_title+'-endnote-'+(i+1)+'" title="'+$el.attr('reference')+'" target="_blank">'+(i+1)+'</a>');
+		var page_title = $page_title.text().replace(/,/g,'').replace(/ /g,'-').replace(/\'/g, '');
+		page_title = page_title.toLowerCase().trim();
+
+		var reference = $el.attr('reference');
+		var endnotes_page = $el.attr('endnote-page');
+		if(!endnotes_page){
+			endnotes_page = '/2050/endnotes';
+		}
+
+		$el.append('<span id="endnote-'+(i+1)+'" class="onto2050-endnote-anchor"></span>');
+		$el.after('<a class="onto2050-endnote-dot" href="'+endnotes_page+'#'+page_title+'-endnote-'+(i+1)+'" title="'+reference+'" target="_blank">'+(i+1)+'</a>');
 	});
 
 	$('.onto2050-actions .mobile-headline').append('<span class="sr-only">:</span>');
 
-	if(window.location.hash && $(window.location.hash).length){
-		var offset = $(window.location.hash).offset().top;
-		if($('#scroll-nav').length){
-			offset -= $('#scroll-nav').innerHeight();
-		}
-		if($('#ControlMenu').length){
-			offset -= $('#ControlMenu').innerHeight();
-		}
-		$('html,body').animate({
-			scrollTop: offset
-		}, 800);
+
+	var push = 0;
+	if($('#scroll-nav').length){
+		push += $('#scroll-nav').innerHeight();
 	}
+	if($('#ControlMenu').length){
+		push += $('#ControlMenu').innerHeight();
+	}
+
+	$('.onto2050-endnote').each(function(){
+		$(this).find('.onto2050-endnote-anchor').css('height', push + $(this).innerHeight());
+	});
+
+	
+	$(window).load(function(){
+		if(window.location.hash){
+			var jump_to_hash = setInterval(function(){
+				if($(window.location.hash).length){
+					var offset = $(window.location.hash).offset().top;
+					$('html,body').animate({
+						scrollTop: offset
+					}, 800);
+					clearInterval(jump_to_hash);
+				}
+			}, 100);
+		}
+	});
 };
 
 

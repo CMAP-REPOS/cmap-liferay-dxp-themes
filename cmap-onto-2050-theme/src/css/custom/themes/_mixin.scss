@@ -64,7 +64,11 @@
   
   #heading{
     .site-subheadline{
-      color: $primary;
+      svg{
+        g{
+          fill: $primary;
+        }
+      }
     }
     input::placeholder{
       color: $alt;
@@ -434,7 +438,7 @@
       }
   
       .endnote-row{
-        border-bottom: 1px solid $primary;
+        border-bottom: 1px solid rgba($primary,0.25);
       }
     }
   }

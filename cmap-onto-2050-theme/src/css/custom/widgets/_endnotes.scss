@@ -12,16 +12,26 @@
 body#cmap-ckeditor{
   .onto2050-endnote{
     color: green !important;
+    padding-right: 0.8em;
+
+    &:not([endnote-page]){
+      color: red !important;
+    }
 
     &:after{
-      content: '';
-      position: relative;
+      content: '1';
+      position: absolute;
       right: 0;
       bottom: 0;
-      width: 10px;
-      height: 10px;
+      width: 1em;
+      height: 1em;
+      margin-bottom: 1em;
       background: black;
+      color: white;
       border-radius: 50%;
+      line-height: 1;
+      text-align: center;
+      font-size: 0.6em;
     }
   }
 }
@@ -44,19 +54,21 @@ body#cmap-ckeditor{
   color: white !important;
   line-height: 1;
   border-radius: 50%;
+}
 
-  
+.onto2050-endnote-anchor{
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 100px;
 }
 
 .onto2050-endnotes-page{
 
-  .endnotes-section{
-    h2{
-      margin-bottom: 3rem;
-    }
-  }
   .page-section{
-    margin-bottom: 3rem;
+    margin-top: 3rem;
 
     header{
       background: black;
@@ -69,17 +81,20 @@ body#cmap-ckeditor{
     }
 
     .endnote-row{
+      position: relative;
       display: flex;
       border-bottom: 1px solid black;
       padding: 1em 0;
 
       @extend .presna-normal;
-
-      &.active{
-        font-size: 1.5rem;
-      }
     }
 
+    .endnote-row-anchor{
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 100px;
+    }
+    
     .endnote-number{
       width: 2em;
       flex: 0 0 2em;

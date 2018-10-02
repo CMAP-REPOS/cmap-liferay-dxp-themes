@@ -100,7 +100,7 @@ Liferay.on(
       
       console.log(client_left, window.innerWidth - (pan_shift*2));
 
-      if(client_left > 0 && client_left < window.innerWidth - (pan_shift*2)){
+      if(client_left > 0 && client_left < (window.innerWidth - (pan_shift*2))){
         $this.find('.slider').css('left', client_left);
         $this.find('.before-shade').css('width', client_left);
       }
