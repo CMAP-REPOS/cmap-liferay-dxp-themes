@@ -63,7 +63,7 @@
 									<div class="initial">${g.initial}</div>
 								</div>
 						</#if>
-								<div data-term="${g.term?lower_case}" class="row term-wrapper">
+								<div data-search="${g.term?lower_case} ${g.definition?lower_case}" class="row term-wrapper">
 									<a id="${g.anchor}"></a>
 									<dt class="col-xs-16 col-sm-4">${g.term}</dt>
 									<dd class="col-xs-16 col-sm-12">${g.definition}</dd>
@@ -94,7 +94,7 @@ AUI().ready( function () {
 			$("dl").find('div.term-wrapper').show();
 		} else {
 			$("dl").find('div.term-wrapper').hide();
-			$("dl").find('div.term-wrapper[data-term*="' + term + '"]').show();
+			$("dl").find('div.term-wrapper[data-search*="' + term + '"]').show();
 		}
 	});
 });
