@@ -70,8 +70,6 @@
 <script>
 $(document).ready(function(){
   var $this = $('#${randomNamespace}');
-
-
   if($this.parents('.col-md-16.portlet-column').length){
     // col-md-16 col-sm-16 portlet-column portlet-column-only yui3-dd-drop
     // col-md-8 col-sm-16 portlet-column yui3-dd-drop

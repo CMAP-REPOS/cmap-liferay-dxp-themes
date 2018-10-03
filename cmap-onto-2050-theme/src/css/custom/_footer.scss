@@ -13,6 +13,9 @@
 
   .jump-to-top-button{
     @include container-margin-left();
+    @include tablet(){
+      display: none;
+    }
   }
 
   .mobile-content{
@@ -42,6 +45,9 @@
       @extend .small-headline;
       margin-right: 0.5em;
       color: $grey-blue !important;
+      @include tablet(){
+        font-size: 10px;
+      }
       &:hover{
         color: $blue !important;
         border-bottom: 1px solid $blue;

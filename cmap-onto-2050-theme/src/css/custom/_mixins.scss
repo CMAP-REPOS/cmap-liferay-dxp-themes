@@ -2,7 +2,7 @@
   margin-left: $grid-gutter-width * 2;
   margin-top: $vertical;
   margin-bottom: $vertical;
-  @include phone(){
+  @include tablet(){
     margin-left: 0;
   }
 }
@@ -10,7 +10,7 @@
   margin-right: $grid-gutter-width * 2;
   margin-top: $vertical;
   margin-bottom: $vertical;
-  @include phone(){
+  @include tablet(){
     margin-right: 0;
   }
 }

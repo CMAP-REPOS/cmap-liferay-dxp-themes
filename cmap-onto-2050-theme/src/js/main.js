@@ -126,16 +126,22 @@ window.cmap.pageCards.init = window.cmap.pageCards.init || function(){
 
 		var $a = $($cards[0]);
 		var $b = $($cards[1]);
-		var $a_bot = $a.find('.bottom');
-		var $b_bot = $b.find('.bottom');
-		var $a_bot_h5 = $a_bot.find('h5');
-		var $b_bot_h5 = $b_bot.find('h5');
+		var $a_bot = $a.find('.bottom-content');
+		var $b_bot = $b.find('.bottom-content');
+		var $a_bot_h5 = $a_bot.find('.normal-headline');
+		var $b_bot_h5 = $b_bot.find('.normal-headline');
 		var a_bot_height, b_bot_height, padding;
+		
+
+		for(var i=0; i<$cards.length; i=i+2){
+			console.log(i);
+		}
 
 		function calculate(){
 			b_bot_height = $b_bot_h5.innerHeight();
 			a_bot_height = $a_bot_h5.innerHeight();
 			padding = parseInt($a.find('.bottom').css('padding'));
+			console.log(a_bot_height, b_bot_height, a_bot_height > b_bot_height)
 			if(a_bot_height > b_bot_height){
 				$a_bot.css('height', a_bot_height + (padding * 2));
 				$b_bot.css('height', a_bot_height + (padding * 2));
@@ -410,6 +416,21 @@ window.cmap.global.init = window.cmap.global.init || function(){
 
 	$('.onto2050-actions .mobile-headline').append('<span class="sr-only">:</span>');
 
+	$('.advertisement').each(function(){
+		var $this = $(this);
+		$this.find('.col-md-8').removeClass('col-xs-16 col-sm-12').addClass('col-sm-16');
+
+		var widget_height = $this.innerWidth() / 2, 
+				background_height = $this.find('.background img').innerHeight(), 
+				content_height = $this.find('.cmap-ad-content').innerHeight();
+		var final_height = Math.max(widget_height, background_height, content_height);
+
+		console.log(final_height, widget_height, background_height, content_height);
+		$this.css('min-height', final_height);
+		$(window).resize(_.throttle(function(){
+			$this.css('min-height', final_height);
+		}, 100));
+	});
 
 	var push = 0;
 	if($('#scroll-nav').length){

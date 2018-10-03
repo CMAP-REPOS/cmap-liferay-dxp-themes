@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="share-col col-lg-4 col-md-3 hidden-sm">
+      <div class="share-col col-lg-4 col-md-3 hidden-sm hidden-xs">
         <button class="share-button btn btn-sm btn-plain">
           <svg class="glyphicon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <g fill="#3C5976" transform="translate(4 2)">

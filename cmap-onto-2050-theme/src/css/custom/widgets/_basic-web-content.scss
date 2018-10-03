@@ -38,9 +38,6 @@ body#cmap-ckeditor,
   }
   .presna-large{
     @extend .presna-large;
-    a{
-      @include clear-underline-link($blue);
-    }
   }
   img{
     width: 100%;
@@ -52,6 +49,13 @@ body#cmap-ckeditor,
 
     p{
       @extend .presna-large;
+    }
+  }
+
+  .page-headline{
+    word-break: break-word;
+    @include tablet(){
+      font-size: 5rem !important;
     }
   }
 

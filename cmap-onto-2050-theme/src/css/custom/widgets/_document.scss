@@ -11,7 +11,6 @@ $top: 42%;
   .document-img-link{
     display: block;
     position: relative;
-    border-bottom: none !important;
   }
 
   .document-img{
@@ -31,6 +30,10 @@ $top: 42%;
     display: flex;
     margin-top: 1.5rem;
     @extend .whitney-normal;
+  }
+  
+  a{
+    border-bottom: none !important;
   }
 
   .file-extension{
