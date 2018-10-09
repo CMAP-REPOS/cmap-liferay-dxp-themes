@@ -19,6 +19,7 @@
 #current-industry-chart .c3-circle { stroke-width: 2px; fill: #000 !important; }
 #current-industry-chart .c3-circle:first-child { fill: #1D6989 !important; }
 #current-industry-chart .c3-circle:last-child { fill: #A8532F !important; }
+#stacked-bar-chart .c3-bar { stroke:#FFF !important; stroke-width:5 !important; }
 .current-industry .startYear { text-align: left; }
 .current-industry .indicator { text-align: center; }
 .current-industry .endYear { text-align: right; }
@@ -186,9 +187,14 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 $('.industry-clusters-list').find('.industry').first().click();
 
 var industrySizes = [];
-industrySizes.push(['industry_0', 30]);
-industrySizes.push(['industry_1', 50]);
-industrySizes.push(['industry_2', 25]);
+
+<#list Industry.getSiblings() as cur_Industry>
+	<#assign currentValue = 0>
+	<#if cur_Industry.CurrentValue.getData()?? && cur_Industry.CurrentValue.getData() != ''>
+		<#assign currentValue = cur_Industry.CurrentValue.getData()?number>
+	</#if>
+industrySizes.push(['industry_${cur_Industry?index}', ${currentValue}]);
+</#list>
 
 var chart = c3.generate({
 	bindto: '#stacked-bar-chart',
@@ -196,7 +202,11 @@ var chart = c3.generate({
 		type: 'bar',
 		columns: industrySizes,
 		groups: [
-			['industry_0', 'industry_1', 'industry_2']
+			[
+				<#list Industry.getSiblings() as cur_Industry>
+				'industry_${cur_Industry?index}',
+				</#list>
+			]
 		],
 		order: null
     },
@@ -210,11 +220,8 @@ var chart = c3.generate({
 		width: { ratio: 1 },
 		height: { ratio: 0.5 }
 	},
+	color: { pattern: ['#dfe3e4'] },
 	legend: { show: false },
-	grid: {
-        y: {
-            lines: [{value:0}]
-        }
-    }
+	tooltip: { show: false }
 });
 </script>
