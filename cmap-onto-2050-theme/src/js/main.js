@@ -404,7 +404,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		}
 
 		$el.append('<span id="endnote-'+(i+1)+'" class="onto2050-endnote-anchor"></span>');
-		$el.after('<a class="onto2050-endnote-dot" href="'+endnotes_page+'#'+page_title+'-endnote-'+(i+1)+'" title="'+reference+'" target="_blank">'+(i+1)+'</a>');
+		$el.after('<a class="onto2050-endnote-dot" href="'+endnotes_page+'#'+page_title+'-endnote-'+(i+1)+'" title="'+reference+'" target="_blank">'+ '<span class="sr-only">source material reference number</span>' +(i+1)+'<span class="sr-only">.</span><span class="sr-only">Opens in new window</span></a>');
 	});
 
 	$('.onto2050-actions .mobile-headline').append('<span class="sr-only">:</span>');
