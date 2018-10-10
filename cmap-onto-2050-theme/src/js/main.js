@@ -28,7 +28,6 @@ window.cmap.global.anchors.crawl = window.cmap.global.anchors.crawl || function(
 	});
 
 	if(attr_id !== undefined && attr_name !== undefined){
-		console.log(attr_name, attr_id);
 		if(attr_name === attr_id){
 			$('.page-nav .list-unstyled').append($link);
 			$button.click(function(){
@@ -95,7 +94,6 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	var no_more_headlines = false, user_alerted = false;
 	function check_for_el(name){
 		var len = $(name).length;
-		console.log(name + ' has ' + len + ' elements');
 		if(len && no_more_headlines){
 			if(!user_alerted){
 				alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be used instead, please see the javascript console for more information')
@@ -132,7 +130,7 @@ window.cmap.pageCards.init = window.cmap.pageCards.init || function(){
 		var $b_bot_h5 = $b_bot.find('.normal-headline');
 		var a_bot_height, b_bot_height, padding;
 		
-
+		console.log($cards);
 		for(var i=0; i<$cards.length; i=i+2){
 			console.log(i);
 		}
@@ -317,14 +315,11 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 		if(!alt){
 			if($this.hasClass('company-logo')){ return true; } // this is only seen if logged in
 			if(src.search(/http(s)?/g)){
-				console.log(src, src.search(/http(s)?/g));
 				if(src.search(window.location.origin)){
-					console.log(src, src.search(window.location.origin));
 					bad_image_count++;
-					return true; // the image is from a source that is not the current website
+					return true;
 				}
 			}
-			// console.log("ALERT: ", this, ' does not have an alt tag');
 		}
 	});
 
@@ -386,7 +381,6 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		var $this = $(this);
 		if($.trim($this.text()) == ''){ 
 			if($this.find('img').length){ return; }
-			console.log('removing empty paragraph tag', $this);
 			$this.remove(); 
 		}
 	});
@@ -398,7 +392,6 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		if(!$page_title.length){
 			$page_title = $('#scroll-nav .desktop-row .page-title').clone();
 		}
-		console.log($page_title);
 		$page_title.find('.section-sub-headline').remove();
 		$page_title.find('br').remove();
 		var page_title = $page_title.text().replace(/,/g,'').replace(/ /g,'-').replace(/\'/g, '');
@@ -420,16 +413,14 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		var $this = $(this);
 		$this.find('.col-md-8').removeClass('col-xs-16 col-sm-12').addClass('col-sm-16');
 
-		var widget_height = $this.innerWidth() / 2, 
-				background_height = $this.find('.background img').innerHeight(), 
-				content_height = $this.find('.cmap-ad-content').innerHeight();
-		var final_height = Math.max(widget_height, background_height, content_height);
-
-		console.log(final_height, widget_height, background_height, content_height);
-		$this.css('min-height', final_height);
-		$(window).resize(_.throttle(function(){
-			$this.css('min-height', final_height);
-		}, 100));
+		function compute(){
+			var widget_height = $this.innerWidth() / 2, 
+					background_height = $this.find('.background img').innerHeight(), 
+					content_height = $this.find('.cmap-ad-content').innerHeight();
+			$this.css('min-height', Math.max(widget_height, background_height, content_height));
+		}
+		compute();
+		$(window).resize(_.throttle(compute, 100));
 	});
 
 	var push = 0;

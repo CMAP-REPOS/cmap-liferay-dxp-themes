@@ -26,7 +26,7 @@ section.profile-header{
     background: transparent !important;
     border-bottom: none;
     .profile-text{
-      margin-top: 2em;
+      position: relative;
     }
     .mobile-image{
       display: block;
@@ -35,6 +35,9 @@ section.profile-header{
     .profile-name,
     .profile-title{
       @include container-margin(0);
+    }
+    .background-image{
+      display: none;
     }
   }
 }

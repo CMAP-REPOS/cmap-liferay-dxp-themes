@@ -451,6 +451,13 @@
     p{
       color: $primary;
     }
+    .chart-legend-2050-download{
+      svg{
+        g{
+          fill: $alt !important;
+        }
+      }
+    }
   }
   
   .chart-graphic-2050-container {
