@@ -1,6 +1,6 @@
 <ul aria-label="Site Pages" role="menubar">
   <li role="presentation">
-    <a href="/onto2050" role="menuitem"><span> ON TO 2050 </span></a>
+    <a data-senna-off="true" href="/onto2050" role="menuitem"><span> ON TO 2050 </span></a>
   </li>
   <li role="presentation">
     <a href="/about" role="menuitem"><span> About CMAP </span></a>
