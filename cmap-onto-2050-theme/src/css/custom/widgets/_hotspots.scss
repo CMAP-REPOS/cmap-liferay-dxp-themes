@@ -39,6 +39,7 @@
     z-index: 10;
     display: flex;
     align-items: flex-start;
+    pointer-events: all;
     margin-top: - #{($icon-width / 2) + $margin};
     margin-left: - #{($icon-width / 2) + $margin};
 
@@ -51,6 +52,7 @@
       z-index: 10;
       flex: 0 0 ($icon-width + ($margin * 2));
       cursor: pointer;
+      pointer-events: all;
 
       img{
         width: $icon-width * 2; 
@@ -94,6 +96,7 @@
 
     &.min{
       z-index: 5;
+      pointer-events: none;
       .caption-content{
         opacity: 0;
       }

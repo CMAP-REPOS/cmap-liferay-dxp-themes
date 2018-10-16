@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 
+
+.col-md-4.portlet-column-first{
+  .chart-legend-2050{
+    @include container-margin-left();
+  }
+}
 // remember to add color rules to the theme mixin
 .chart-legend-2050 {
   @extend .whitney-small;
@@ -208,6 +214,9 @@
       }
 	}
 	&.recession {
+		path.c3-bar {
+			stroke: none !important;
+		}
 		.c3-tooltip {
 			tbody {
 				tr:last-child {
@@ -248,3 +257,4 @@
     }
   }
 }
+.do-wrapper { @include container-margin(); }

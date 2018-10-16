@@ -1,8 +1,4 @@
 
-.portlet-layout.row > .col-md-8 .onto2050-basic-web-content .inline-center-col{
-  display: none;
-}
-
 .onto2050-basic-web-content{
   a{
     @include underline-link($blue);
@@ -42,9 +38,6 @@ body#cmap-ckeditor,
   }
   .presna-large{
     @extend .presna-large;
-    a{
-      @include clear-underline-link($blue);
-    }
   }
   img{
     width: 100%;
@@ -56,6 +49,13 @@ body#cmap-ckeditor,
 
     p{
       @extend .presna-large;
+    }
+  }
+
+  .page-headline{
+    word-break: break-word;
+    @include tablet(){
+      font-size: 5rem !important;
     }
   }
 

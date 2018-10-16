@@ -36,7 +36,7 @@
   <#if Footnote.getData() != ''>
     <div class="picture-footnote-container">
       <div class="picture-footnote">
-        <h6>${Footnote.getData()}</h6>
+        <div class="whitney-small bold">${Footnote.getData()}</div>
       </div>
     </div>
   </#if>
@@ -46,7 +46,7 @@
 function generateFullWidth(){
   var root = $('#${unique_namespace}');
   var footnote = root.find('.picture-footnote').remove();
-  footnote.prepend('<div class="icon"><img src="'+Liferay.ThemeDisplay.getPathThemeImages()+'/icons/ic_pin.svg" /></div>');
+  footnote.prepend('<div class="icon"><img src="'+Liferay.ThemeDisplay.getPathThemeImages()+'/icons/ic_pin.svg" alt="Icon which represents location"/></div>');
 
   root.find('.picture-footnote-container').append('<div class="col-md-4"></div>');
   root.find('.picture-footnote-container').append('<div class="col-md-8"></div>');

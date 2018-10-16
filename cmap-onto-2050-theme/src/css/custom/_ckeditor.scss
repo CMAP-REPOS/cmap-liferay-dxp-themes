@@ -5,15 +5,10 @@ body#cmap-ckeditor{
   h1,h2,h3,h4,h5,h6,p{
     color: #666;
   }
-
-  .inline-center-col{
-    .col-md-4{
-      background: rgba($blue, 0.2);
-    }
-    .col-md-8{
-      background: rgba($red, 0.2);
-    }
+  a{
+    color: blue;
   }
+  
   .onto2050-actions{
     .col-sm-8{
       background: rgba($green, 0.2);

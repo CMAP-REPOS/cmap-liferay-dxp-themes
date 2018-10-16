@@ -68,7 +68,11 @@
     position: absolute;
     left: 0;
     padding-top: $grid-gutter-width;
+    @extend .presna-normal;
 
+    p, div{
+      @extend .presna-normal;
+    }
     &.empty{
       padding-top: 0;
     }

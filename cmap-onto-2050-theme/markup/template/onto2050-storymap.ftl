@@ -59,7 +59,7 @@
 					&& LinkToDataHub.getData()?? 
 					&& LinkToDataHub.getData() != "">
 					<div class="storymap-data-link">
-						<a href="${LinkToDataHub.getData()}">
+						<a href="${LinkToDataHub.getData()}" target="_blank">
 							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
 								<g fill="#3C5976" transform="translate(-1 6)">
 									<path d="M2.88,15.381 L13.184,15.381 L13.184,13.119 L2.88,13.119 L2.88,15.381 Z M14.944,11.359 L14.944,17.141 L1.12,17.141 L1.12,11.359 L14.944,11.359 Z"/>
@@ -110,11 +110,12 @@
 																	<li>
 																		<#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
 																			<a href="#" id="button_overlay_${layerIndex}" data-index="${layerIndex}" class="button_overlay">
+																		<#else>
+																			<div id="button_overlay_${layerIndex}" data-index="${layerIndex}" class="button_overlay_inactive">
 																		</#if>
 																		<#if cur_Layer.LayerColor.getData()?? && cur_Layer.LayerColor.getData() != "">
 																			<#assign layerColor = cur_Layer.LayerColor.getData()>
 																		<#else>
-																		<#--  magic value $grey-blue from _variables.scss  -->
 																			<#assign layerColor = "#3C5976">
 																		</#if>
 																				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" id="button_overlay_dot_active_${layerIndex}" style="display: block">
@@ -131,9 +132,10 @@
 																				</svg>
 																				<span class="overlay-label">${cur_Layer.LayerLabel.getData()}</span>
 																				<span class="sr-only">toggle map layer</span>
-																			</a>
 																		<#if getterUtil.getBoolean(cur_Layer.MakeLayerInteractive.getData())>
 																			</a>
+																		<#else>
+																			</div>
 																		</#if>
 																	</li>
 																</#if>
@@ -429,7 +431,9 @@ AUI().ready(
 			$('.story-step-content').hide();
 			if (isLocation && index > -1) {
 			<#if getterUtil.getBoolean(Options.ShowLocationContent.getData()) >
-				$('#${randomNamespace}location_content' + index).show();
+				var loadingContentHTML = document.getElementById('${randomNamespace}location_content' + index).innerHTML;
+				document.getElementById('${randomNamespace}location_content' + index).innerHTML = loadingContentHTML;
+				document.getElementById('${randomNamespace}location_content' + index).style.display = 'block';
 			</#if>
 			} else if (index > -1) {
 			<#if getterUtil.getBoolean(Options.ShowLayerContent.getData()) >

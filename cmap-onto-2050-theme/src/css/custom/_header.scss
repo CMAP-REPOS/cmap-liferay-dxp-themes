@@ -7,6 +7,7 @@
   .first-column{
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .hamburger{
@@ -35,15 +36,21 @@
     }
   }
 
-  #search-input{
-    font-size: 0.95em;
+  #desktop-search{
+    input{
+      font-size: 0.95em;
+    }
   }
 
   .site-subheadline{
-    @extend .whitney-semi-large;
-    @extend .bold;
-  }
+    svg{
+      margin-top: 1rem;
 
+      @include tablet(){
+        margin-left: 3rem;
+      }
+    }
+  }
   .site-subheadline.mobile{
     display: none;
 

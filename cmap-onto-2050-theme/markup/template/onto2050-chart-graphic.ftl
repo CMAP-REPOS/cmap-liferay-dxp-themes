@@ -78,6 +78,12 @@ AUI().ready(
 			axis_y_label_position: '${Axes.YAxisLabelPosition.getData()}',
 			axis_y_label_text: '${Axes.YAxisLabel.getData()}',
 			axis_y_padding: '${Axes.YPadding.getData()}',
+<#if Axes.YMin?? && Axes.YMin.getData()?? && Axes.YMin.getData() != "">
+			axis_y_min_value: ${Axes.YMin.getData()},
+</#if>
+<#if Axes.YMax?? && Axes.YMin.getData()?? && Axes.YMin.getData() != "">
+			axis_y_max_value: ${Axes.YMax.getData()},
+</#if>
 			axis_y_tick_format: '${Axes.YAxisNumberFormat.getData()}',
 		<#if getterUtil.getBoolean(Axes.DisableXAxisLabelResizing.getData())>
 			disableXAxisLabelResizing: true,

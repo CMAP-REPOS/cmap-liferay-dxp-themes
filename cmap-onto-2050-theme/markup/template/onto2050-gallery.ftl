@@ -7,7 +7,7 @@
     <#list Image.getSiblings() as Slide>
       <#if Slide.getData()?? && Slide.getData() != "">
         <#assign caption = Slide.Caption.getData()>
-        <img class="slide" data-fileentryid="${Slide.getAttribute("fileEntryId")}" alt="${Slide.getAttribute("alt")}" data-caption="${caption}" src="${Slide.getData()}" />
+        <img class="slide" data-fileentryid="${Slide.getAttribute('fileEntryId')}" alt="${Slide.getAttribute('alt')}" data-caption="${caption?html}" src="${Slide.getData()}" />
       </#if>
   	</#list>
 
@@ -15,10 +15,14 @@
       <div class="gallery-root">
         <div class="gallery-controls">
           <div class="left">
-            <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20"> <path fill="#fff" d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path> </svg>
+            <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20">
+              <path fill="#fff" d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path>
+            </svg>
           </div>
           <div class="right">
-            <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20"> <path fill="#fff" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path> </svg>
+            <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20">
+              <path fill="#fff" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
+            </svg>
           </div>
         </div>
       </div>
@@ -27,7 +31,6 @@
     <div class="caption-container col-sm-16"></div>
   </#if>
 </div>
-
 
 <script>
 Liferay.on(
@@ -70,6 +73,7 @@ Liferay.on(
       }
       set_active_slide(current_slide);
     }
+
     function prev_slide(){
       if(current_slide - 1 < 0){
         current_slide = slide_data.length - 1;
@@ -91,10 +95,11 @@ Liferay.on(
         $img_container.prepend($slide);
 
         if(is_full_width){
-          $caption.addClass('col-xs-16 col-sm-7 col-sm-offset-8 col-lg-4');
+          $caption.addClass('col-sm-16 col-md-7 col-md-offset-8 col-lg-4');
         } else {
-          $caption.addClass('col-xs-16 col-sm-8 col-sm-offset-8 col-md-16 col-md-offset-0 col-lg-8 col-lg-offset-8');
+          $caption.addClass('col-xs-16');
         }
+
         if($slide.data('caption') == ''){
           $caption.addClass('empty');
         }
@@ -106,6 +111,7 @@ Liferay.on(
         $nav.click(function(){
           set_active_slide($(this).data('index'));
         });
+
         $nav.attr('data-index', index);
         $nav_container.append($nav);
 
@@ -122,6 +128,7 @@ Liferay.on(
       if($slides.length === 1){
         $gallery.find('.gallery-controls').hide();
       }
+      
       <#if show_dots>
       $nav_container.show();
       <#else>
@@ -148,7 +155,6 @@ Liferay.on(
       init_gallery();
       set_active_slide(current_slide);
     });
-
 	}
 );
 </script>

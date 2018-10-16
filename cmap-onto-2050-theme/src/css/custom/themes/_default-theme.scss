@@ -10,12 +10,24 @@ body.default-theme{
 
   @include theme-color-mixin($default-theme-background-color, $default-theme-text-color, $default-theme-alt-text-color);
 
+  $link-blue: #07418a;
   &.signed-in{
     .portlet-column-content.empty {
       background: darken($default-theme-background-color, 25%);
     }
   }
 
+
+  .journal-content-article{
+    a {
+      color: $link-blue;
+      border-bottom: 1px solid rgba($link-blue, 0.3);
+      &:hover,
+      &:focus {
+        color: lighten($link-blue, 10%);
+      }
+    }
+  }
 
   .form-control {
     background-color: rgba(236,240,242,1) !important;
@@ -76,12 +88,14 @@ body.default-theme{
     background: rgb(236,240,242);
   }
 
-  .onto2050-actions{
-    .actions-row hr{
-      border-bottom-color: rgb(210,217,222);
-    }
-    .actions-header .bold{
-      color: rgba(94,122,135,1.0) !important;
+  .onto2050-actions{ 
+    .actions-row{
+      hr{
+        border-bottom-color: rgb(210,217,222);
+      }
+      .mobile-headline{
+        color: rgba(94,122,135,1.0) !important;
+      }
     }
   }
 

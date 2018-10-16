@@ -32,4 +32,9 @@ body.cmap-on-to-2050-theme{
       max-width: 75%;
     }
   }
+  .whitney-small{
+    @include tablet(){
+      font-size: 10px;
+    }
+  }
 }

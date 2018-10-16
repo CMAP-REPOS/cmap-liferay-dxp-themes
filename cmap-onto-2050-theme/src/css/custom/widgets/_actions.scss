@@ -1,38 +1,44 @@
 .onto2050-actions{
+  width: 100%;
   margin-top: $grid-gutter-width;
   margin-bottom: $grid-gutter-width;
 
-  .actions-header{  
+  .actions-header{
+    .col-sm-10, .col-sm-6{
+      display: none;
+    }
     .whitney-normal{
       padding-bottom: $grid-gutter-width / 2;
       @extend .whitney-small;
     }
-
     @include phone(){
       display: none;
     }
   }
 
-
-  .mobile-headline,
-  .mobile-hr {
+  .mobile-hr,
+  .mobile-headline{
     display: none;
     @include phone(){
       display: block;
     }
   }
 
-  .actions-row{
-    *{
-      margin: 0;
-    }
+  .mobile-headline{
+    display: block;
+    @extend .whitney-small;
+  }
 
+  .actions-row{
     .col-sm-10, .col-sm-6{
-      padding-top: $grid-gutter-width / 2;
-      padding-bottom: $grid-gutter-width / 2;
+      padding-top: $grid-gutter-width;
+      padding-bottom: $grid-gutter-width;
     }
   }
 
+  .whitney-normal{
+    @extend .whitney-small;
+  }
 
   hr{
     margin: 0;

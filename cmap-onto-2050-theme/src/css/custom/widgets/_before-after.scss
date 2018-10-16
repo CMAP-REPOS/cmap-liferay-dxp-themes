@@ -1,4 +1,13 @@
 
+
+.col-md-8.portlet-column{
+  .before-after-widget{
+    @include tablet(){
+      margin: 0 3rem;
+    }
+  }
+}
+
 .before-after-widget{
 
   .before-after-header{
