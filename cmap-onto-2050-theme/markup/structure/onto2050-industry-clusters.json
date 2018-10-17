@@ -47,7 +47,7 @@
                     "name": "Name",
                     "readOnly": false,
                     "repeatable": false,
-                    "required": false,
+                    "required": true,
                     "showLabel": true,
                     "type": "text"
                 },
@@ -151,47 +151,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "National Average Reference"
-                    },
-                    "options": [
-                        {
-                            "value": "Above",
-                            "label": {
-                                "en_US": "Above National Average"
-                            }
-                        },
-                        {
-                            "value": "Below",
-                            "label": {
-                                "en_US": "Below National Average"
-                            }
-                        }
-                    ],
-                    "predefinedValue": {
-                        "en_US": [
-                            ""
-                        ]
-                    },
-                    "style": {
-                        "en_US": ""
-                    },
-                    "tip": {
-                        "en_US": ""
-                    },
-                    "dataType": "string",
-                    "indexType": "keyword",
-                    "localizable": true,
-                    "multiple": false,
-                    "name": "NationalAverageReference",
-                    "readOnly": false,
-                    "repeatable": false,
-                    "required": false,
-                    "showLabel": true,
-                    "type": "select"
-                },
-                {
-                    "label": {
-                        "en_US": "Start Value"
+                        "en_US": "Start Employment Value"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -209,13 +169,13 @@
                     "name": "StartValue",
                     "readOnly": false,
                     "repeatable": false,
-                    "required": false,
+                    "required": true,
                     "showLabel": true,
                     "type": "ddm-number"
                 },
                 {
                     "label": {
-                        "en_US": "Current Value"
+                        "en_US": "Current Employment Value"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -233,7 +193,7 @@
                     "name": "CurrentValue",
                     "readOnly": false,
                     "repeatable": false,
-                    "required": false,
+                    "required": true,
                     "showLabel": true,
                     "type": "ddm-number"
                 },
@@ -250,7 +210,8 @@
                     "tip": {
                         "en_US": ""
                     },
-                    "dataType": "string",
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
                     "indexType": "keyword",
                     "localizable": true,
                     "name": "RegionalPerformance",
@@ -258,7 +219,73 @@
                     "repeatable": false,
                     "required": false,
                     "showLabel": true,
-                    "type": "text"
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Labor Skill Level"
+                            },
+                            "options": [
+                                {
+                                    "value": "Specialized",
+                                    "label": {
+                                        "en_US": "Specialized"
+                                    }
+                                },
+                                {
+                                    "value": "Unspecialized",
+                                    "label": {
+                                        "en_US": "Unspecialized"
+                                    }
+                                }
+                            ],
+                            "predefinedValue": {
+                                "en_US": [
+                                    ""
+                                ]
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "multiple": false,
+                            "name": "LaborSkillLevel",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": true,
+                            "showLabel": true,
+                            "type": "select"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Location Quotient"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "number",
+                            "fieldNamespace": "ddm",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "LocationQuotient",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": true,
+                            "showLabel": true,
+                            "type": "ddm-number"
+                        }
+                    ]
                 }
             ]
         }
