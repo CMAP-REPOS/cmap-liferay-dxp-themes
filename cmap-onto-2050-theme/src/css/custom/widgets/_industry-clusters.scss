@@ -1,0 +1,196 @@
+#industry-clusters {
+	border: 1px solid #ccc;
+	.current-industry {
+		.regional-performance {
+			.whats-this {
+				font-size: 0.7em;
+				margin-left: 30px;
+				color: #999;
+				border-bottom-color: #999;
+				&:hover {
+					color: #ccc;
+					border-bottom-color:#ccc;
+				}
+			}
+		}
+	}
+}
+.industry-clusters-list {
+	height: 480px;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	.industry {
+		display: block;
+		height: 80px;
+		margin: 0;
+		border: none !important;
+		outline:none;
+		background-color:#FFF;
+		&.selected {
+			background-color: #246A8C;
+			.industry-name {
+				color: #FFF;
+			}
+		}
+		.industry-image,
+		.industry-name {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 0 10px;
+		}
+		.industry-name {
+			font-size: 13px;
+			font-weight: bold;
+		}
+	}
+}
+.current-industry {
+	.industry-name {
+		margin-top:20px;
+		font-size: 22px;
+		font-weight: bold;
+		color: #000;
+	}
+	.employment {
+		display: -ms-grid;
+		display:grid;
+		-ms-grid-columns: 1fr 70px 1fr;
+		grid-template-columns: 1fr 70px 1fr;
+		.startYear {
+			-ms-grid-column: 1;
+			text-align: left;
+		}
+		.change {
+			-ms-grid-column: 2;
+			max-height: 77px;
+			text-align: center;
+		}
+		.endYear {
+			-ms-grid-column: 3;
+			text-align: right;
+		}
+		.year {
+			font-size: 24px;
+		}
+		.startValue, .currentValue {
+			font-size: 35px;
+			font-weight: 900;
+		}
+		.startValue {
+			color: #1D6989;
+		}
+	}
+	.regional-performance {
+		margin: 40px 0;
+		.header {
+			margin-bottom:10px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #000;
+		}
+		.laborSkill {
+			margin-right: 8px;
+			font-size: 16px;
+			color: #000;
+		}
+		.locationQuotient {
+			display: inline-block;
+			width:15px;
+			height: 15px;
+			.arrow-up {
+				fill: #3C6733
+			}
+			.arrow-down {
+				fill: #8b4f21
+			}
+		}
+	}
+	.chart-container {
+		margin-bottom: 10px;
+		.c3-line {
+			stroke-width: 2px;
+		}
+		.c3-circle {
+			stroke-width: 2px;
+			fill: #000 !important;
+		}
+		.c3-circle:first-child {
+			fill: #1D6989 !important;
+		}
+		.c3-target-Reference {
+			circle.c3-circle {
+				display:none
+			}
+			path.c3-line {
+				opacity: 0.5 !important;
+				stroke-width: 1px;
+			}
+		}
+	}
+	&.increased {
+		.c3-circle:last-child {
+			fill: #3C6733 !important;
+		}
+		.employment {
+			.change {
+				svg {
+					path { fill: #3C6733 }
+				} 
+			}
+			.currentValue {
+				color: #3C6733;
+			}
+		} 
+	}
+	&.decreased {
+		.c3-circle:last-child {
+			fill: #8b4f21 !important;
+		}
+		.employment {
+			.change {
+				svg {
+					path { fill: #8b4f21 }
+				} 
+			}
+			.currentValue {
+				color: #8b4f21;
+			}
+		} 
+	}
+}
+
+@media (max-width: 800px) {
+	.industry-clusters-list {
+		height:auto;
+		white-space: nowrap;
+		border: 1px solid #DFDFDF;
+		background-color:#EBEBEB;
+		padding: 10px;
+		overflow-x: auto;
+		.industry {
+			display: inline-block;
+			width: 140px;
+			white-space: normal;
+			border: 1px solid #DFDFDF !important;
+			.industry-name {
+				font-size:12px
+			}
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.current-industry {
+		.employment {
+			grid-template-columns: 1fr 60px 1fr;
+		}
+		.year {
+			font-size: 22px;
+		}
+		.startValue, .currentValue {
+			font-size: 28px; 
+		}
+	}
+}
