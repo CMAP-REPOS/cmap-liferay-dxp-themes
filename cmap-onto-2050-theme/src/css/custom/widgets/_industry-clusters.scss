@@ -1,19 +1,5 @@
 #industry-clusters {
 	border: 1px solid #ccc;
-	.current-industry {
-		.regional-performance {
-			.whats-this {
-				font-size: 0.7em;
-				margin-left: 30px;
-				color: #999;
-				border-bottom-color: #999;
-				&:hover {
-					color: #ccc;
-					border-bottom-color:#ccc;
-				}
-			}
-		}
-	}
 }
 .industry-clusters-list {
 	height: 480px;
@@ -106,6 +92,30 @@
 				fill: #8b4f21
 			}
 		}
+		.whats-this {
+			display: inline-block;
+			font-size: 0.7em;
+			margin-left: 30px;
+			color: #999;
+			.main {
+				border-bottom: 1px dashed #999;
+				cursor: pointer;
+			}
+			.popup {
+				visibility: hidden;
+				background: #000;
+				opacity: 0.8;
+				color: #fff;
+				margin-left: 10px;
+				padding: 15px;
+				border-radius: 8px;
+			}
+			&:hover {
+				.popup {
+					visibility: visible;
+				}
+			}
+		}
 	}
 	.chart-container {
 		margin-bottom: 10px;
@@ -136,7 +146,9 @@
 		.employment {
 			.change {
 				svg {
-					path { fill: #3C6733 }
+					path {
+						fill: #3C6733
+					}
 				} 
 			}
 			.currentValue {
@@ -151,7 +163,9 @@
 		.employment {
 			.change {
 				svg {
-					path { fill: #8b4f21 }
+					path {
+						fill: #8b4f21
+					}
 				} 
 			}
 			.currentValue {
