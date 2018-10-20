@@ -37,7 +37,7 @@
 			<div class="header">Regional Performance</div>
 			<div>
 				<span class="laborSkill"></span><span class="locationQuotient"></span>
-				<a href="#" class="whats-this">What's this?</a>
+				<div href="#" id="whats-this" class="whats-this"><span class="main">What's this?</span><span class="popup">Here goes the explanation</span></div>
 			</div>
 		</div>
 	</div>
