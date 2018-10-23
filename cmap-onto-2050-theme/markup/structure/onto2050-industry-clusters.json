@@ -227,15 +227,15 @@
                             },
                             "options": [
                                 {
-                                    "value": "Specialized",
+                                    "value": "More specialized",
                                     "label": {
-                                        "en_US": "Specialized"
+                                        "en_US": "More specialized"
                                     }
                                 },
                                 {
-                                    "value": "Unspecialized",
+                                    "value": "Less specialized",
                                     "label": {
-                                        "en_US": "Unspecialized"
+                                        "en_US": "Less specialized"
                                     }
                                 }
                             ],
