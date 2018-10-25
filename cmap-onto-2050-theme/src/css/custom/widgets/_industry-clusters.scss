@@ -27,7 +27,9 @@
 			padding: 0 10px;
 		}
 		.industry-image {
-			background-color: inherit;
+			.highlight {
+				background-color: inherit;
+			}
 		}
 		.industry-name {
 			font-size: 13px;
@@ -97,6 +99,7 @@
 		}
 		.whats-this {
 			display: inline-block;
+			position:relative;
 			font-size: 0.7em;
 			margin-left: 30px;
 			color: #999;
@@ -106,12 +109,17 @@
 			}
 			.popup {
 				visibility: hidden;
+				position: absolute;
+				width: 300px;
+				top: -70px;
+				left: 105%;
+				margin-left: 10px;
+				border-radius: 8px;
 				background: #000;
 				opacity: 0.8;
-				color: #fff;
-				margin-left: 10px;
 				padding: 15px;
-				border-radius: 8px;
+				color: #fff;
+				font-size: 13px;
 			}
 			&:hover {
 				.popup {

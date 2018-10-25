@@ -37,7 +37,10 @@
 			<div class="header">Regional Performance</div>
 			<div>
 				<span class="laborSkill"></span><span class="locationQuotient"></span>
-				<div href="#" id="whats-this" class="whats-this"><span class="main">What's this?</span><span class="popup">Here goes the explanation</span></div>
+				<div href="#" id="whats-this" class="whats-this">
+					<div class="main">What's this?</div>
+					<div class="popup">Clusters are considered more or less specialized based on how regional employment in such industries compares to the national average.<br>The arrow indicates how this measure of cluster competitiveness changed between 2001-17.</div>
+				</div>
 			</div>
 		</div>
 	</div>
