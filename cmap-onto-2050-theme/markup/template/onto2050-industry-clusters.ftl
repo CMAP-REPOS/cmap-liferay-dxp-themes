@@ -120,7 +120,7 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="arrow-down" d="M81.35,4.14c0,.21-38.35,76.71-38.41,76.63C42.72,80.52,4.58,4.12,4.65,4.1s8.69,3.69,19.2,8.24L43,20.62l19.09-8.28C72.58,7.79,81.21,4.06,81.26,4.06A.09.09,0,0,1,81.35,4.14Z"/></svg>' );
 			break;
 		default:
-			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="stable" d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' );
+			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.74 84"><path class="stable" d="M56.34,7.15c.18,0,38.15,33.42,38.08,33.48-.23.2-38.1,36.28-38.13,36.22s3.36-7.9,7.49-17.46L71.31,42,63.79,24.67c-4.14-9.54-7.52-17.39-7.52-17.43A.08.08,0,0,1,56.34,7.15Z"/><path class="stable" d="M40.41,7.15c-.19,0-38.16,33.42-38.09,33.48.23.2,38.11,36.28,38.13,36.22S37.1,69,33,59.39L25.44,42,33,24.67c4.13-9.54,7.52-17.39,7.52-17.43A.08.08,0,0,0,40.41,7.15Z"/></svg>' );
 	}
 
 	if( dataURL != ''){
