@@ -1,3 +1,7 @@
+$stable-color: #5e4598;
+$up-growth-color: #310066;
+$down-loss-color: #8b4524;
+
 #industry-clusters {
 	border: 1px solid #ccc;
 }
@@ -14,7 +18,12 @@
 		outline:none;
 		background-color:#FFF;
 		&.selected {
-			background-color: #246A8C;
+			&.growth {
+				background-color: $up-growth-color;
+			}
+			&.loss {
+				background-color: $down-loss-color;
+			}
 			.industry-name {
 				color: #FFF;
 			}
@@ -70,7 +79,7 @@
 			font-weight: 900;
 		}
 		.startValue {
-			color: #1D6989;
+			color: $stable-color;
 		}
 	}
 	.regional-performance {
@@ -86,15 +95,18 @@
 			font-size: 16px;
 			color: #000;
 		}
-		.locationQuotient {
+		.changeDirection {
 			display: inline-block;
 			width:15px;
 			height: 15px;
 			.arrow-up {
-				fill: #3C6733
+				fill: $up-growth-color
 			}
 			.arrow-down {
-				fill: #8b4f21
+				fill: $down-loss-color
+			}
+			.stable {
+				fill: $stable-color;
 			}
 		}
 		.whats-this {
@@ -138,7 +150,7 @@
 			fill: #000 !important;
 		}
 		.c3-circle:first-child {
-			fill: #1D6989 !important;
+			fill: $stable-color !important;
 		}
 		.c3-target-Reference {
 			circle.c3-circle {
@@ -150,37 +162,37 @@
 			}
 		}
 	}
-	&.increased {
+	&.growth {
 		.c3-circle:last-child {
-			fill: #3C6733 !important;
+			fill: $up-growth-color !important;
 		}
 		.employment {
 			.change {
 				svg {
 					path {
-						fill: #3C6733
+						fill: $up-growth-color
 					}
 				} 
 			}
 			.currentValue {
-				color: #3C6733;
+				color: $up-growth-color;
 			}
 		} 
 	}
-	&.decreased {
+	&.loss {
 		.c3-circle:last-child {
-			fill: #8b4f21 !important;
+			fill: $down-loss-color !important;
 		}
 		.employment {
 			.change {
 				svg {
 					path {
-						fill: #8b4f21
+						fill: $down-loss-color
 					}
 				} 
 			}
 			.currentValue {
-				color: #8b4f21;
+				color: $down-loss-color;
 			}
 		} 
 	}

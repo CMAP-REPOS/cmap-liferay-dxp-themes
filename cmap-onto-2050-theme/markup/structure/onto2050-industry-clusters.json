@@ -263,10 +263,32 @@
                         },
                         {
                             "label": {
-                                "en_US": "Location Quotient"
+                                "en_US": "Direction of Change"
                             },
+                            "options": [
+                                {
+                                    "value": "Up",
+                                    "label": {
+                                        "en_US": "Up"
+                                    }
+                                },
+                                {
+                                    "value": "Down",
+                                    "label": {
+                                        "en_US": "Down"
+                                    }
+                                },
+                                {
+                                    "value": "Stable",
+                                    "label": {
+                                        "en_US": "Stable"
+                                    }
+                                }
+                            ],
                             "predefinedValue": {
-                                "en_US": ""
+                                "en_US": [
+                                    ""
+                                ]
                             },
                             "style": {
                                 "en_US": ""
@@ -274,16 +296,16 @@
                             "tip": {
                                 "en_US": ""
                             },
-                            "dataType": "number",
-                            "fieldNamespace": "ddm",
+                            "dataType": "string",
                             "indexType": "keyword",
                             "localizable": true,
-                            "name": "LocationQuotient",
+                            "multiple": false,
+                            "name": "DirectionOfChange",
                             "readOnly": false,
                             "repeatable": false,
-                            "required": true,
+                            "required": false,
                             "showLabel": true,
-                            "type": "ddm-number"
+                            "type": "select"
                         }
                     ]
                 }
