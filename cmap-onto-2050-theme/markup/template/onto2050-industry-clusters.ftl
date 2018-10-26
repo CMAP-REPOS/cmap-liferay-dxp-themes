@@ -36,7 +36,7 @@
 		<div class="regional-performance">
 			<div class="header">Regional Performance</div>
 			<div>
-				<span class="laborSkill"></span><span class="locationQuotient"></span>
+				<span class="laborSkill"></span><span class="changeDirection"></span>
 				<div href="#" id="whats-this" class="whats-this">
 					<div class="main">What's this?</div>
 					<div class="popup">Clusters are considered more or less specialized based on how regional employment in such industries compares to the national average.<br>The arrow indicates how this measure of cluster competitiveness changed between 2001-17.</div>
@@ -58,10 +58,10 @@ var industries = [];
 		<#assign currentValue = cur_Industry.CurrentValue.getData()?number>
 	</#if>
 	<#if currentValue gt startValue>
-		<#assign employmentChange = "increased">
+		<#assign employmentChange = "growth">
 	</#if>
 	<#if currentValue lt startValue>
-		<#assign employmentChange = "decreased">
+		<#assign employmentChange = "loss">
 	</#if>
 industries.push({
 	name:					"${cur_Industry.Name.getData()}",
@@ -69,7 +69,7 @@ industries.push({
 	currentValue:			${currentValue?string("0.##")},
 	employmentChange:		"${employmentChange}",
 	skillLevel:				"${cur_Industry.RegionalPerformance.LaborSkillLevel.getData()}",
-	locationQuotient:		${cur_Industry.RegionalPerformance.LocationQuotient.getData()}
+	changeDirection:		"${cur_Industry.RegionalPerformance.DirectionOfChange.getData()}"
 });
 </#list>
 $('.industry-clusters-list').find('.industry').on('click', function(e){
@@ -83,7 +83,7 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 		startValue = industries[ index ].startValue,
 		currentValue = industries[ index ].currentValue,
 		employmentChange = industries[ index ].employmentChange,
-		locationQuotient = industries[ index ].locationQuotient;
+		changeDirection = industries[ index ].changeDirection;
 
 	$('.industry-clusters-list').find('.industry.selected').find('.industry-image .highlight').hide();
 	$('.industry-clusters-list').find('.industry.selected').find('.industry-image .normal').show();
@@ -98,21 +98,29 @@ $('.industry-clusters-list').find('.industry').on('click', function(e){
 
 	$currentIndutryDetails.find('.change').html("");
 
-	$currentIndutryDetails.removeClass("increased decreased");
-	if (employmentChange == "increased") {
+	$(".industry").removeClass("growth loss");
+	$currentIndutryDetails.removeClass("growth loss");
+	if (employmentChange == "growth") {
 		$currentIndutryDetails.find('.change').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' )
 	}
-	if (employmentChange == "decreased") {
+	if (employmentChange == "loss") {
 		$currentIndutryDetails.find('.change').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path d="M81.35,4.14c0,.21-38.35,76.71-38.41,76.63C42.72,80.52,4.58,4.12,4.65,4.1s8.69,3.69,19.2,8.24L43,20.62l19.09-8.28C72.58,7.79,81.21,4.06,81.26,4.06A.09.09,0,0,1,81.35,4.14Z"/></svg>' )
 	}
+	$selectedIndustry.addClass( employmentChange );
 	$currentIndutryDetails.addClass( employmentChange );
 
 	$currentIndutryDetails.find('.regional-performance .laborSkill').html( industries[ index ].skillLevel );
 
-	if ( industries[ index ].locationQuotient  >= 1) {
-		$currentIndutryDetails.find('.regional-performance .locationQuotient').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="arrow-up" d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' );
-	} else {
-		$currentIndutryDetails.find('.regional-performance .locationQuotient').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="arrow-down" d="M81.35,4.14c0,.21-38.35,76.71-38.41,76.63C42.72,80.52,4.58,4.12,4.65,4.1s8.69,3.69,19.2,8.24L43,20.62l19.09-8.28C72.58,7.79,81.21,4.06,81.26,4.06A.09.09,0,0,1,81.35,4.14Z"/></svg>' );
+	
+	switch( industries[ index ].changeDirection ) {
+		case "Up":
+			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="arrow-up" d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' );
+			break;
+		case "Down":
+			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="arrow-down" d="M81.35,4.14c0,.21-38.35,76.71-38.41,76.63C42.72,80.52,4.58,4.12,4.65,4.1s8.69,3.69,19.2,8.24L43,20.62l19.09-8.28C72.58,7.79,81.21,4.06,81.26,4.06A.09.09,0,0,1,81.35,4.14Z"/></svg>' );
+			break;
+		default:
+			$currentIndutryDetails.find('.regional-performance .changeDirection').html( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84.5"><path class="stable" d="M4.36,80.7C4.36,80.49,42.71,4,42.77,4.06c.22.26,38.37,76.65,38.3,76.68s-8.69-3.69-19.21-8.24L42.73,64.22,23.64,72.5C13.14,77.05,4.5,80.77,4.45,80.77A.08.08,0,0,1,4.36,80.7Z"/></svg>' );
 	}
 
 	if( dataURL != ''){
