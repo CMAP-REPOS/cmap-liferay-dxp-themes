@@ -1,0 +1,315 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Industry"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Industry",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Name"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Name",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "Data"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "document-library",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Data",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-documentlibrary"
+                },
+                {
+                    "label": {
+                        "en_US": "Thumbnails"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Thumbnails",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Normal"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "image",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "Normal",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-image"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Highlight"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "image",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "Highlight",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-image"
+                        }
+                    ]
+                },
+                {
+                    "label": {
+                        "en_US": "Start Employment Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "StartValue",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Current Employment Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "CurrentValue",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Regional Performance"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "RegionalPerformance",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Labor Skill Level"
+                            },
+                            "options": [
+                                {
+                                    "value": "More specialized",
+                                    "label": {
+                                        "en_US": "More specialized"
+                                    }
+                                },
+                                {
+                                    "value": "Less specialized",
+                                    "label": {
+                                        "en_US": "Less specialized"
+                                    }
+                                }
+                            ],
+                            "predefinedValue": {
+                                "en_US": [
+                                    ""
+                                ]
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "multiple": false,
+                            "name": "LaborSkillLevel",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": true,
+                            "showLabel": true,
+                            "type": "select"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Direction of Change"
+                            },
+                            "options": [
+                                {
+                                    "value": "Up",
+                                    "label": {
+                                        "en_US": "Up"
+                                    }
+                                },
+                                {
+                                    "value": "Down",
+                                    "label": {
+                                        "en_US": "Down"
+                                    }
+                                },
+                                {
+                                    "value": "Stable",
+                                    "label": {
+                                        "en_US": "Stable"
+                                    }
+                                }
+                            ],
+                            "predefinedValue": {
+                                "en_US": [
+                                    ""
+                                ]
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "multiple": false,
+                            "name": "DirectionOfChange",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "select"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
