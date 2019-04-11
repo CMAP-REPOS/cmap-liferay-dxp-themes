@@ -1,14 +1,51 @@
 <#assign layers = []>
 <#assign locations = []>
 
+<#assign serviceContext = staticUtil["com.liferay.portal.kernel.service.ServiceContextThreadLocal"].getServiceContext()>
+<#assign themeDisplay = serviceContext.getThemeDisplay() /> 
+<#assign is2050 = themeDisplay.getPathThemeRoot()?index_of("2050") != -1 />
+<#assign
+		colxs16 = "col-xs-12"
+		colxs15 = "col-xs-11"
+		colxs14 = "col-xs-10"
+		colxsoffset1 = "col-xs-offset-1"
+		colsm16 = "col-sm-12"
+		colsm8 = "col-sm-6"
+		colmd4 = "col-md-3"
+		colmd8 = "col-md-6"
+		colmd12 = "col-md-9"
+		colmdpush4 = "col-md-push-3"
+		colmdpull8 = "col-md-pull-6"
+		colmdoffset2 = "col-md-offset-2"
+		colxl10 = "col-xl-7"
+		colxloffset3 = "col-xl-offset-2"
+	/>
+
+<#if is2050>
+	<#assign 
+		colxs16 = "col-xs-16"
+		colxs15 = "col-xs-15"
+		colxs14 = "col-xs-14"
+		colxsoffset1 = "col-xs-offset-1"
+		colsm16 = "col-sm-16"
+		colsm8 = "col-sm-8"
+		colmd4 = "col-md-4"
+		colmd8 = "col-md-8"
+		colmd12 = "col-md-12"
+		colmdpush4 = "col-md-push-4"
+		colmdpull8 = "col-md-pull-8"
+		colmdoffset2 = "col-md-offset-2"
+		colxl10 = "col-xl-10"
+		colxloffset3 = "col-xl-offset-3"
+	/>	
+</#if>
+
+
 <script>
     define._amd = define.amd;
     define.amd = false;
 </script>
 
-<#assign serviceContext = staticUtil["com.liferay.portal.kernel.service.ServiceContextThreadLocal"].getServiceContext()>
-<#assign themeDisplay = serviceContext.getThemeDisplay() /><#assign serviceContext = staticUtil["com.liferay.portal.kernel.service.ServiceContextThreadLocal"].getServiceContext()>
-<#assign themeDisplay = serviceContext.getThemeDisplay() />
 
 <script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/vendor/leaflet.min.js"></script> 
 <script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/vendor/mapbox.min.js"></script> 
@@ -41,7 +78,7 @@
 
 	<div class="storymap-intro-content">
 		<div class="row">
-			<div class="col-sm-16 col-md-8 col-md-push-4 title-block">
+			<div class="${colsm16} ${colmd8} ${colmdpush4} title-block">
 				<div class="storymap-title">
 					${StoryTitle.getData()}
 				</div>
@@ -49,12 +86,12 @@
 					${StoryDescription.getData()}
 				</div>
 			</div>
-			<div class="col-sm-16 col-md-4 col-md-pull-8">
+			<div class="${colsm16} ${colmd4} ${colmdpull8}">
 				<div class="storymap-aside">
 					${AsideAndSource.getData()}
 				</div>
 			</div>
-			<div class="col-sm-16 col-md-4">
+			<div class="${colsm16} ${colmd4}">
 				<#if LinkToDataHub?? 
 					&& LinkToDataHub.getData()?? 
 					&& LinkToDataHub.getData() != "">
@@ -77,21 +114,21 @@
 
 	<div class="storymap-detail-panel">
 		<div class="row">
-			<div class="col-xs-16 col-md-8 map-container-grid-wrapper">
+			<div class="col-xs-16 col-sm-16 col-md-8 col-lg-8 col-xl-8 map-container-grid-wrapper">
 				<div class="map-container">
 					<div id="${randomNamespace}_map" class="story-map"></div>
 				</div>
 			</div>
-			<div class="col-xs-16 col-md-8 map-info-grid-wrapper">
+			<div class="col-xs-16 col-sm-16 col-md-8 col-lg-8 col-xl-8 map-info-grid-wrapper">
 				<div class="storymap-info-top">
 					<div class="row">
-						<div class="col-xs-15 col-xs-offset-1">
+						<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
 							<div class="row">
 								<#if getterUtil.getBoolean(Options.ShowLayers.getData())>
 									<#if getterUtil.getBoolean(Options.ShowLocations.getData())>
-										<div class="col-xs-16 col-md-8">
+										<div class="col-xs-15 col-sm-15 col-md-8 col-lg-8 col-xl-8">
 									<#else>
-										<div class="col-xs-16">
+										<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15">
 									</#if>
 											<div class="story-map-layers">
 												<div class="header">
@@ -149,9 +186,9 @@
 								</#if>
 								<#if getterUtil.getBoolean(Options.ShowLocations.getData())>
 									<#if getterUtil.getBoolean(Options.ShowLayers.getData())>
-										<div class="col-xs-16 col-md-8">
+										<div class="${colxs16} ${colmd8}">
 									<#else>
-										<div class="col-xs-16">
+										<div class="${colxs16}">
 									</#if>
 											<div class="story-map-locations">
 												<div class="header">
@@ -207,9 +244,9 @@
 									${cur_LocationContent.LocationContentContent.getData()}
 								</div>
 								<#else>
-								<div class="story-step-content-centered">
+								<div class="a story-step-content-centered">
 									<div class="row">
-										<div class="col-xs-14 col-xs-offset-1">
+										<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
 											${cur_LocationContent.LocationContentContent.getData()}
 										</div>
 									</div>
@@ -230,9 +267,9 @@
 										${cur_LayerContent.LayerContentContent.getData()}
 									</div>
 									<#else>
-									<div class="story-step-content-centered">
+									<div class="b story-step-content-centered">
 										<div class="row">
-											<div class="col-xl-10 col-xl-offset-3 col-md-12 col-md-offset-2 col-sm-16 col-sm-offset-0">
+											<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
 												${cur_LayerContent.LayerContentContent.getData()}
 											</div>
 										</div>

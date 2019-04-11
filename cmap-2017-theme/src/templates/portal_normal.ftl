@@ -7,13 +7,17 @@
 <head>
 	<title>${the_title} - ${company_name}</title>
 
+
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-	<#assign portalUrl = theme_display.getURLPortal()>
-	<#assign currentUrl = theme_display.getURLCurrent()>
-	<link rel="canonical" href="${portalUrl}${currentUrl}" />
+	<#assign currentUrl = theme_display.getURLPortal() + themeDisplay.getURLCurrent() />
+	<link rel="canonical" href="${currentUrl}" />
+
+	<#if currentUrl?contains("asset_publisher_web_portlet")>
+		<meta name="robots" content="noindex">
+	</#if>
 
   <link href="https://cloud.webtype.com/css/2f300d46-99ee-4656-bf09-870688012aaf.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
