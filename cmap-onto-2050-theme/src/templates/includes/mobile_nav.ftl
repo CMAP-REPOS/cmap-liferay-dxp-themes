@@ -57,6 +57,9 @@
   <a class="return-to-cmap" href="/" role="menuitem">
     <span> Back to CMAP.gov </span>
   </a>
+  <a class="return-to-cmap" href="/search?q=" role="menuitem">
+    <span> Search CMAP.gov </span>
+  </a>
 
 	<#include "${full_templates_path}/includes/search-mobile.ftl" />
 </div>
