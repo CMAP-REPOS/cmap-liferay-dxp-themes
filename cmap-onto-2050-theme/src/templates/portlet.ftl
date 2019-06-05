@@ -24,6 +24,13 @@
 			<header class="portlet-topper">
 				<div class="portlet-title-default">
 					<span class="portlet-name-text" title="${portlet_display_name}"><a href="${portlet_edit_url}"></a>${portlet_display_name}</span>
+                    <span class="portlet-name-text"
+                    <#if portlet_display.getPortletDecoratorId() == "full-width-content">
+                        title="Full Width: ${portlet_display_name}">
+                    <#else>
+                        title="${portlet_display_name}">
+                    </#if>
+                    <a href="${portlet_edit_url}"></a>${portlet_display_name}</span>
 				</div>
 
 				<#foreach portletTitleMenu in portlet_title_menus>
@@ -53,6 +60,12 @@
 			</a>
 		</#if>
 
-		${portlet_display.writeContent(writer)}
+        <#if portlet_display.getPortletDecoratorId() == "full-width-content">
+        <div class="portlet-full-width">
+        ${portlet_display.writeContent(writer)}
+        </div>
+        <#else>
+        ${portlet_display.writeContent(writer)}
+        </#if>
 	</div>
 </section>

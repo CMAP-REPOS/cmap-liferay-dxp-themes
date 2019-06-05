@@ -35,8 +35,11 @@
 		colmdpush4 = "col-md-push-4"
 		colmdpull8 = "col-md-pull-8"
 		colmdoffset2 = "col-md-offset-2"
+        colxl3 = "col-xl-3"
+        colxl6 = "col-xl-6"
 		colxl10 = "col-xl-10"
 		colxloffset3 = "col-xl-offset-3"
+        colxlpush3 = "col-xl-push-3"
 	/>	
 </#if>
 
@@ -78,7 +81,7 @@
 
 	<div class="storymap-intro-content">
 		<div class="row">
-			<div class="${colsm16} ${colmd8} ${colmdpush4} title-block">
+			<div class="${colsm16} ${colxl6} ${colxlpush3} title-block">
 				<div class="storymap-title">
 					${StoryTitle.getData()}
 				</div>
@@ -91,7 +94,7 @@
 					${AsideAndSource.getData()}
 				</div>
 			</div>
-			<div class="${colsm16} ${colmd4}">
+			<div class="${colsm16} ${colxl3}">
 				<#if LinkToDataHub?? 
 					&& LinkToDataHub.getData()?? 
 					&& LinkToDataHub.getData() != "">
@@ -122,13 +125,13 @@
 			<div class="col-xs-16 col-sm-16 col-md-8 col-lg-8 col-xl-8 map-info-grid-wrapper">
 				<div class="storymap-info-top">
 					<div class="row">
-						<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+						<div class="col-xs-16">
 							<div class="row">
 								<#if getterUtil.getBoolean(Options.ShowLayers.getData())>
 									<#if getterUtil.getBoolean(Options.ShowLocations.getData())>
-										<div class="col-xs-15 col-sm-15 col-md-8 col-lg-8 col-xl-8">
+										<div class="col-xs-16 col-sm-16 col-md-8 col-lg-8 col-xl-8">
 									<#else>
-										<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15">
+										<div class="col-xs-16">
 									</#if>
 											<div class="story-map-layers">
 												<div class="header">
@@ -246,7 +249,7 @@
 								<#else>
 								<div class="a story-step-content-centered">
 									<div class="row">
-										<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+										<div class="col-xs-16">
 											${cur_LocationContent.LocationContentContent.getData()}
 										</div>
 									</div>
@@ -269,7 +272,7 @@
 									<#else>
 									<div class="b story-step-content-centered">
 										<div class="row">
-											<div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 col-xl-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+											<div class="col-xs-16">
 												${cur_LayerContent.LayerContentContent.getData()}
 											</div>
 										</div>
@@ -296,6 +299,8 @@ AUI().ready(
 	function () {
 
 		console.log('AUI().ready()');
+
+        $('.empty.portlet-column-content').remove();
 
 		L.Control.ZoomToggler = L.Control.extend({
 			onAdd: function (map) {
