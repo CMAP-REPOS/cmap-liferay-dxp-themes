@@ -66,6 +66,11 @@ $icon-nav-right-white: "\e91d";
 .storymaplayout {
     /* make storymap flush with breadcrumbs */
     margin-top: $unit * -2;
+
+    .map-info-grid-wrapper {
+        padding: 0 16px;
+    }
+
     .storymap-intro-content {
         /* @include section-padding(); */
         /* font-family: $font-sans; */
@@ -233,7 +238,7 @@ $icon-nav-right-white: "\e91d";
             padding: 0;
         }
     }
-    
+
     .story-map-zoom-toggler {
         display: none;
         /* font-family: $font-sans; */
@@ -311,6 +316,6 @@ $icon-nav-right-white: "\e91d";
         padding-right:0;
     }
     .map-info-grid-wrapper {
-        padding-left:0;
+        padding: 0 16px;
     }
 }

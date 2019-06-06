@@ -67,6 +67,7 @@ $icon-nav-right-white: "\e91d";
     /* make storymap flush with breadcrumbs */
     margin-top: $unit * -2;
     margin-bottom: 50px;
+
     .storymap-intro-content {
         /* @include section-padding(); */
         /* font-family: $font-sans; */
@@ -115,8 +116,12 @@ $icon-nav-right-white: "\e91d";
             border-top: 4px solid #638198;
             border-bottom: 4px solid #638198;
         }
-        .map-container-grid-wrapper, .map-info-grid-wrapper {
+        .map-container-grid-wrapper {
             padding: 0;
+        }
+
+        .map-info-grid-wrapper{
+            padding: 0 16px;
         }
     }
     .map-container {
@@ -240,7 +245,7 @@ $icon-nav-right-white: "\e91d";
             padding: 0;
         }
     }
-    
+
     .story-map-zoom-toggler {
         display: none;
         /* font-family: $font-sans; */
@@ -318,7 +323,7 @@ $icon-nav-right-white: "\e91d";
         padding-right:0;
     }
     .map-info-grid-wrapper {
-        padding-left:0;
+        padding: 0 16px;
     }
 }
 @media (max-width: 800px) {
