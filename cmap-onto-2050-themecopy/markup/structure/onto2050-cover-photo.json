@@ -1,0 +1,171 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Image"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "image",
+          "fieldNamespace": "ddm",
+          "indexType": "text",
+          "localizable": true,
+          "name": "Image",
+          "readOnly": false,
+          "repeatable": false,
+          "required": true,
+          "showLabel": true,
+          "type": "ddm-image"
+      },
+      {
+          "label": {
+              "en_US": "Image Alignment Horizontal"
+          },
+          "options": [
+              {
+                  "value": "left",
+                  "label": {
+                      "en_US": "Left"
+                  }
+              },
+              {
+                  "value": "center",
+                  "label": {
+                      "en_US": "Center"
+                  }
+              },
+              {
+                  "value": "right",
+                  "label": {
+                      "en_US": "Right"
+                  }
+              }
+          ],
+          "predefinedValue": {
+              "en_US": [
+                  "center"
+              ]
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "multiple": false,
+          "name": "HorzImgAlign",
+          "readOnly": false,
+          "repeatable": false,
+          "required": true,
+          "showLabel": true,
+          "type": "select"
+      },
+      {
+          "label": {
+              "en_US": "Image Alignment Vertical"
+          },
+          "options": [
+              {
+                  "value": "top",
+                  "label": {
+                      "en_US": "Top"
+                  }
+              },
+              {
+                  "value": "center",
+                  "label": {
+                      "en_US": "Center"
+                  }
+              },
+              {
+                  "value": "bottom",
+                  "label": {
+                      "en_US": "Bottom"
+                  }
+              }
+          ],
+          "predefinedValue": {
+              "en_US": [
+                  "center"
+              ]
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "multiple": false,
+          "name": "VertImgAlign",
+          "readOnly": false,
+          "repeatable": false,
+          "required": true,
+          "showLabel": true,
+          "type": "select"
+      },
+      {
+          "label": {
+              "en_US": "Shade Color"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": "If set (with a hex value such as #000), there will be placed a colored vail over the image to make text easier to read."
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ShadeColor",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Number Of Rows"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "integer",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "NumberOfRows",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-integer"
+      }
+  ]
+}

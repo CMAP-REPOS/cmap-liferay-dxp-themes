@@ -1,0 +1,27 @@
+body.has-cover-photo {
+  div.cover-photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 110vh;
+
+    .image-mask{
+      height: 110vh;
+      width: 100%;
+    }
+    .gradient-fade{
+      width: 100%;
+      height: 10vh;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  &.signed-in{
+    .onto2050-cover-photo-widget{
+      height: 3rem;
+    }
+  }
+}

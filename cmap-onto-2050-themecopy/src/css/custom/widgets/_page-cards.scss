@@ -1,0 +1,25 @@
+.page-cards{
+  margin: 3rem 0;
+
+  .page-card{
+    margin-bottom: $grid-gutter-width / 2;
+  }
+  .top-content{
+    position: relative;
+    padding-bottom: 50%;
+    overflow: hidden;
+
+    img{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .bottom-content{
+    padding: $grid-gutter-width / 2;
+    a{
+      border-bottom: none;
+    }
+  }
+}

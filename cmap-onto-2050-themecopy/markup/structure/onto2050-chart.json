@@ -1,0 +1,787 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Chart Type"
+            },
+            "options": [
+                {
+                    "value": "bar_chart_grouped",
+                    "label": {
+                        "en_US": "Bar Chart (Grouped)"
+                    }
+                },
+                {
+                    "value": "bar_chart_stacked",
+                    "label": {
+                        "en_US": "Bar Chart (Stacked)"
+                    }
+                },
+                {
+                    "value": "multi_line",
+                    "label": {
+                        "en_US": "Multi Line (Standard)"
+                    }
+                },
+                {
+                    "value": "multi_line_bar",
+                    "label": {
+                        "en_US": "Multi Line (Bar)"
+                    }
+                },
+                {
+                    "value": "multi_line_area",
+                    "label": {
+                        "en_US": "Multi Line (Area)"
+                    }
+                }
+            ],
+            "predefinedValue": {
+                "en_US": []
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "",
+            "localizable": true,
+            "multiple": false,
+            "name": "ChartType",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "select"
+        },
+        {
+            "label": {
+                "en_US": "File"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "document-library",
+            "fieldNamespace": "ddm",
+            "indexType": "",
+            "localizable": true,
+            "name": "File",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-documentlibrary"
+        },
+        {
+            "label": {
+                "en_US": "Description"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Optional paragraphs to describe the information presented"
+            },
+            "dataType": "html",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "Description",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-text-html"
+        },
+        {
+            "label": {
+                "en_US": "Anchor"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "This is the URL if the graphic is linked to directly. Please no space or special characters (example: my-chart-title)"
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Anchor",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Tooltip"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Tooltip",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Display tooltip"
+                    },
+                    "predefinedValue": {
+                        "en_US": true
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "Uncheck to prevent the tooltip from appearing"
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "DisplayTooltip",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Text"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Textat4h",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Colors"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Colors",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Bar/Line Color"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "BarLineColor",
+                    "readOnly": false,
+                    "repeatable": true,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Bars"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Bars",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Bar Width Ratio"
+                    },
+                    "predefinedValue": {
+                        "en_US": "0.6"
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "Enter a value between 0.1 and 1 to set the relative width of bars in a bar chart"
+                    },
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "BarWidthRatio",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-decimal"
+                },
+                {
+                    "label": {
+                        "en_US": "Display horizontally"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "Uncheck to display bars vertically (only applies to stacked bar charts)"
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "DisplayHorizontally",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Axes"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Axes",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "X Axis Label"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "XAxisLabel",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Label"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "YAxisLabel",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "X Axis Padding"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "XPadding",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-decimal"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Padding"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "YPadding",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-decimal"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Min Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "YMin",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Max Value"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "number",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "YMax",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-number"
+                },
+                {
+                    "label": {
+                        "en_US": "Disable x axis label resizing"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "DisableXAxisLabelResizing",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Disable y axis label resizing"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "DisableYAxisLabelResizing",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Rotate x axis labels"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "",
+                    "localizable": true,
+                    "name": "RotateXAxisLabel",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Number Format"
+                    },
+                    "options": [
+                        {
+                            "value": "default",
+                            "label": {
+                                "en_US": "Default"
+                            }
+                        },
+                        {
+                            "value": "number",
+                            "label": {
+                                "en_US": "Number"
+                            }
+                        },
+                        {
+                            "value": "dollars",
+                            "label": {
+                                "en_US": "Dollars"
+                            }
+                        },
+                        {
+                            "value": "percent",
+                            "label": {
+                                "en_US": "Percent"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": []
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "YAxisNumberFormat",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                },
+                {
+                    "label": {
+                        "en_US": "X Axis Label Position"
+                    },
+                    "options": [
+                        {
+                            "value": "inner-right",
+                            "label": {
+                                "en_US": "inner-right"
+                            }
+                        },
+                        {
+                            "value": "inner-center",
+                            "label": {
+                                "en_US": "inner-center"
+                            }
+                        },
+                        {
+                            "value": "inner-left",
+                            "label": {
+                                "en_US": "inner-left"
+                            }
+                        },
+                        {
+                            "value": "outer-right",
+                            "label": {
+                                "en_US": "outer-right"
+                            }
+                        },
+                        {
+                            "value": "outer-center",
+                            "label": {
+                                "en_US": "outer-center"
+                            }
+                        },
+                        {
+                            "value": "outer-left",
+                            "label": {
+                                "en_US": "outer-left"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": []
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "XAxisLabelPosition",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                },
+                {
+                    "label": {
+                        "en_US": "Y Axis Label Position"
+                    },
+                    "options": [
+                        {
+                            "value": "inner-top",
+                            "label": {
+                                "en_US": "inner-top"
+                            }
+                        },
+                        {
+                            "value": "inner-middle",
+                            "label": {
+                                "en_US": "inner-middle"
+                            }
+                        },
+                        {
+                            "value": "inner-bottom",
+                            "label": {
+                                "en_US": "inner-bottom"
+                            }
+                        },
+                        {
+                            "value": "outer-top",
+                            "label": {
+                                "en_US": "outer-top"
+                            }
+                        },
+                        {
+                            "value": "outer-middle",
+                            "label": {
+                                "en_US": "outer-middle"
+                            }
+                        },
+                        {
+                            "value": "outer-bottom",
+                            "label": {
+                                "en_US": "outer-bottom"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": []
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "YAxisLabelPosition",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Multi-Type Column Name"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "In  Multi Line (Area)​ and Multi Line (Bar)​ charts, this specifies CSV column used to generate the background area or bars"
+            },
+            "dataType": "string",
+            "indexType": "",
+            "localizable": true,
+            "name": "MultiTypeColumnName",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Custom Height"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Use this field to set a custom height value for the chart when needed."
+            },
+            "dataType": "number",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "CustomHeight",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-number"
+        }
+    ]
+}

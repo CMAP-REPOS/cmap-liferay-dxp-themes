@@ -1,0 +1,101 @@
+.portlet-full-width{
+
+  .slider {
+
+    .row {
+      padding: 0 4.242em;
+      position: relative;
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    header {
+      .buttons {
+        display: flex;
+        align-items: center;
+        height: 2.828em;
+      }
+
+      h3 {
+        margin-right: .50015em;
+      }
+    }
+
+    .slider-container {
+      position: relative;
+      display: flex;
+      transition: all .4s ease-in-out;
+
+      .slider-slide {
+        flex: 0 0 100%;
+
+        .item {
+          padding-bottom: 30px;
+
+          p.item-description {
+            padding-bottom: 20px;
+          }
+
+          a.read-more-link, .item-title a{
+            text-decoration: underline;
+          }
+
+          .item-title{
+            font-size: 25px;
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1em;
+      padding-top: .25015em;
+      margin-bottom: 2.828em;
+
+      .nav-item {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        margin-right: .25015em;
+        transition: all .2s ease-in;
+        cursor: pointer;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: .35371em;
+          height: .35371em;
+          background: #e4ebee;
+          border-radius: 50%;
+          transform: translate(-50%,-50%);
+        }
+
+        &.active:after {
+          background: #004f93;
+        }
+      }
+    }
+  }
+}
+
+
+body.blue-theme .portlet-full-width {
+  a {
+    color: #FFFFFF;
+  }
+}
+
+div.portlet-full-width section.slider header.row {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e4ebee;
+    border-bottom: 1px solid #e4ebee;
+    margin-bottom: 30px;
+}
