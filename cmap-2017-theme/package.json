@@ -16,15 +16,16 @@
 		"version": "7.0"
 	},
 	"devDependencies": {
-		"gulp": "^3.9.1",
+		"gulp": "^3.8.10",
+		"require-directory": "^2.1.1",
 		"liferay-frontend-theme-unstyled": "^2.2.15",
-		"liferay-theme-deps-7.0": "~1.0.0",
-		"liferay-theme-tasks": "^1.5.0"
+		"liferay-theme-tasks": "^9.1.5",
+		"liferay-theme-deps-7.0": "~1.0.0"
 	},
 	"publishConfig": {
 		"tag": "7_0_x"
 	},
 	"dependencies": {
-		"clipboard": "^1.7.1"
+		"npm": "^5.7.1"
 	}
 }
