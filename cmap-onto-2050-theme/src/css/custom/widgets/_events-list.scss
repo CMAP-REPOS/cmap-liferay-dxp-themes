@@ -1,0 +1,72 @@
+.b-event-list {
+
+	.b-event-list__header {
+		position: relative;
+
+		h3 {
+			line-height: 36px;
+			font-size: 1em;
+		}
+
+		svg {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		.b-event-list__today {
+			position: absolute;
+			top: 14px;
+			right: 0;
+			font-size: 12px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			width: 36px;
+			text-align: center;
+		}
+	}
+
+	.b-event-list__view-all {
+		font-size: 0.70721em;
+		margin-left: 1.5em;
+	}
+
+	.b-event-list__list {
+
+	}
+
+}
+
+.b-event-item {
+
+	.b-event-item__event-date {
+		margin: 1.7em 0 0.5em 0;
+
+		.b-event-item__date {
+			letter-spacing: 0.05em;
+			font-weight: bold;
+		}
+
+		.b-event-item__day {
+			text-transform: uppercase;
+			font-size: 0.70721em;
+			font-weight: bold;
+		}
+	}
+
+	&:first-child .b-event-item__event-date {
+		margin-top: 0.5em;
+	}
+
+	.b-event-item__event-time {
+		margin: 0.5em 0 0 0;
+	}
+
+	.b-event-item__event-name {
+		margin: 0.3em 0 1.2em 0;
+	}
+}
+
+.slider .slider-container .b-event-item__event-date {
+	margin-top: 1.5em;
+}

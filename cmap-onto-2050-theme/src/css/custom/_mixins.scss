@@ -84,3 +84,14 @@
     text-decoration: underline !important;
   }
 }
+
+@mixin section-padding($vertical: 0){
+  padding: $vertical #{$unit * 3};
+
+  @include tablet(){
+    padding: $vertical #{$unit * 2};
+  }
+  @include phone(){
+    padding: $vertical $unit;
+  }
+}

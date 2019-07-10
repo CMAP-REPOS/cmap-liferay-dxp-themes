@@ -1,4 +1,6 @@
 
+$bold-weight: 600;
+$normal-weight: 400;
 
 .whitney{
   font-weight: 400;
@@ -77,4 +79,60 @@
   @extend .presna;
   line-height: 1.2;
   font-size: $font-size-h2;
+}
+
+
+.whitney-small {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size-1;
+  line-height: $variation;
+}
+.whitney-small__bold{
+  @extend .whitney-small;
+  font-weight: $bold-weight;
+}
+
+.whitney-normal {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size0;
+  line-height: $variation;
+}
+
+.whitney-normal__bold {
+  @extend .whitney-normal;
+  font-weight: $bold-weight;
+}
+
+.whitney-large {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size1;
+  line-height: 1.1em;
+}
+
+.whitney-large__bold {
+  @extend .whitney-large;
+  font-weight: $bold-weight;
+}
+
+.whitney-huge {
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: $size2;
+  line-height: 1.1em;
+}
+
+.whitney-huge__bold{
+  @extend .whitney-huge;
+  font-weight: $bold-weight;
+}
+
+.whitney-huge__green {
+  @extend .whitney-huge;
+  color: $green;
+  a {
+    color: $green;
+  }
 }
