@@ -1,0 +1,138 @@
+.title-with-sections{
+
+    @include section-padding();
+
+    .primary-image{
+        margin-top: 6rem;
+        margin-bottom:  6rem;
+    }
+
+    .section-content{
+        margin-bottom:  6rem;
+      }
+
+    .page-date,
+    .page-nav-title{
+      height: $unit * 2;
+    }
+  
+    .page-title{
+      h1,h2,h3{
+        margin-top: 0;
+        margin-bottom: $size-1;
+      }
+    }
+  
+    .page-title,
+    .section-title{
+      display: flex;
+      align-items: flex-end;
+      h1{
+        @extend .whitney-huge;
+      }
+      h2,h3{
+        @extend .whitney-large__bold;
+      }
+    }
+  
+    .page-date,
+    .page-nav-title{
+      display: flex;
+      align-items: center;
+      h3,h4{
+        @extend .whitney-normal;
+        color: $off-white-text;
+        margin-top: 0;
+        margin-bottom: $size2;
+      }
+    }
+  
+    .page-nav{
+      opacity: 1;
+      pointer-events: all;
+      transition: all 0.2s ease;
+      &.hidden{
+        opacity: 0;
+        pointer-events: none;
+      }
+      @include tablet(){
+        display: none;
+      }
+    }
+  
+    .page-nav-item{
+      display: flex;
+      align-items: center;
+      border-top: 1px solid darken($off-white, 5%);
+  
+      &:last-of-type{
+        border-bottom: 0;
+      }
+  
+      a{
+        @extend .whitney-small__bold;
+        padding: $unit 0;
+        border-bottom: none;
+        color: $primary;
+  
+        &:hover{
+          border-bottom: none;
+          color: lighten($primary, 15%);
+        }
+      }
+    }
+  
+    .page-nav-container{
+      position: absolute;
+      top: 0;    
+      z-index: 10;
+      
+      &.fixed{
+        position: fixed;
+        top: $unit * 4;
+        width: inherit;
+  
+        .page-nav-list{
+          width: 78%;
+        }
+      }
+    }
+  
+    .mobile-page-nav{
+      margin-bottom: $size0;
+      display: none;
+      @include tablet(){
+        display: block;
+      }
+  
+      select{
+        width: 94%;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+    }
+  
+    .section-title{
+      position: relative;
+    }
+    .section-hyperlink{
+      -webkit-appearance: none;
+      border: none;
+      background: none;
+      position: absolute;
+      transform: translateX(-100%) translateY(-20%);
+      top: 50%;
+  
+      @include tablet(){
+        display: none;
+      }
+    }
+  
+    // used to get the computed value of $unit*4
+    .page-nav-top{
+      height: $unit * 4;
+      width: 1px;
+      opacity: 0;
+    }
+  }
+  

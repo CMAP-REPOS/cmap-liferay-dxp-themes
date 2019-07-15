@@ -1,0 +1,20 @@
+.banner_with_dynamic_links{
+
+    @include section-padding();
+
+    .banner-message,
+    .banner-links{
+        margin-top: $grid-gutter-width;
+        margin-top: $grid-gutter-width;
+        display: flex;
+        align-items: flex-end;
+        h1{
+            @extend .whitney-huge;
+        }
+        h2,h3{
+            @extend .whitney-large__bold;
+        }
+    }
+
+
+}
