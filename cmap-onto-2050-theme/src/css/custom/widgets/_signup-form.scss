@@ -1,0 +1,64 @@
+section[id^="portlet_constant_contact_sign_up"] {
+	background: #88a0b2;
+	margin: 0 -13px;
+	padding: 26px 13px;
+
+	form {
+		margin: 0 !important;
+		overflow: hidden;
+	}
+
+	.b-signup-form {
+
+		label {
+			float: left;
+			color: white;
+			font-size: 16px;
+			font-weight: normal;
+			width: 70%;
+			margin-top: 12px;
+		}
+
+		.b-signup-form__input {
+			width: 30%;
+			float: left;
+			height: 60px;
+		}
+
+	}
+
+	[role="alert"].required {
+		position: absolute;
+		top: 62px;
+		right: 0px;
+	}
+
+	.form-group {
+		overflow: hidden;
+		position: relative;
+		width: 80%;
+		float: left;
+	}
+
+	.button-holder {
+		clear: none;
+		width: 20%;
+		float: left;
+		margin: 10px 0;
+		padding: 0 24px;
+
+		button {
+			width: 140px;
+			text-align: left;
+			border-radius: 16px;
+			border: none;
+			font-size: 12px;
+			line-height: 2em;
+			padding: 8px 16px;
+		}
+	}
+
+	.form-validator-stack {
+		height: 70px;
+	}
+}
