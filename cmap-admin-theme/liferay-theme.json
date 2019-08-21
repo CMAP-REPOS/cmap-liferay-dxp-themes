@@ -1,9 +1,1 @@
-{
-  "LiferayTheme": {
-    "deployPath": "/Users/clark/liferay-workspace/bundles/deploy",
-    "themeName": "cmap-admin-theme",
-    "appServerPathTheme": "/Users/clark/liferay-workspace/bundles/tomcat-8.0.32/webapps/cmap-admin-theme",
-    "deployed": false,
-    "appServerPath": "/Users/clark/liferay-workspace/bundles/tomcat-8.0.32"
-  }
-}
+{"LiferayTheme":{"deployPath":"/Users/hectorortiz/Documents/Work/CMAP/prodliferay-dxp-digital-enterprise-7.0-sp4/deploy","themeName":"cmap-admin-theme","appServerPathTheme":"/Users/hectorortiz/Documents/Work/CMAP/prodliferay-dxp-digital-enterprise-7.0-sp4/tomcat-8.0.32/webapps/cmap-admin-theme","deployed":false,"appServerPath":"/Users/hectorortiz/Documents/Work/CMAP/prodliferay-dxp-digital-enterprise-7.0-sp4/tomcat-8.0.32"}}

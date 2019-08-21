@@ -1,14 +1,22 @@
 .b-event-list {
 
+	.row {
+  		@include tablet(){
+		  padding: 0;
+		}
+	  }
+
 	.b-event-list__header {
 		position: relative;
 
 		h3 {
-			line-height: 36px;
-			font-size: 1em;
+			@extend .whitney-normal__bold;
+			color: $black;
+			letter-spacing: 0.05em;
 		}
 
 		svg {
+			margin-right: 1rem;
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -27,30 +35,54 @@
 	}
 
 	.b-event-list__view-all {
-		font-size: 0.70721em;
+		@extend .whitney-small__bold;
+		color: $dark-blue !important;
 		margin-left: 1.5em;
+		letter-spacing: 0.05em;
+
+		a:hover{
+			text-decoration: underline !important;	
+		}
 	}
 
 	.b-event-list__list {
 
 	}
+}
 
+.svg-calendar{
+	position: absolute;
+  	top: 0;
+  	right: 0;
+}
+
+.row-mobile {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0;
 }
 
 .b-event-item {
 
 	.b-event-item__event-date {
 		margin: 1.7em 0 0.5em 0;
+		@extend .whitney-normal__bold;
+		letter-spacing: 0.05em;
 
 		.b-event-item__date {
+			text-transform: uppercase;
+			@extend .whitney-normal__bold;
 			letter-spacing: 0.05em;
-			font-weight: bold;
+			color: $black;
 		}
 
 		.b-event-item__day {
 			text-transform: uppercase;
-			font-size: 0.70721em;
-			font-weight: bold;
+			@extend .whitney-small__bold;
+			letter-spacing: 0.05em;
+			color: $black;
 		}
 	}
 
@@ -59,14 +91,22 @@
 	}
 
 	.b-event-item__event-time {
+		text-transform: lowercase;
+		@extend .whitney-normal;
 		margin: 0.5em 0 0 0;
 	}
 
 	.b-event-item__event-name {
-		margin: 0.3em 0 1.2em 0;
+		@extend .whitney-normal;
+		margin: 0 0 1.2em 0;
+		color: $dark-blue !important;
+
+		a:hover{
+			text-decoration: underline !important;	
+		}
 	}
 }
 
 .slider .slider-container .b-event-item__event-date {
-	margin-top: 1.5em;
+	margin-top: 1em;
 }

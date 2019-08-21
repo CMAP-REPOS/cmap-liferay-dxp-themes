@@ -57,9 +57,9 @@ $size-5: $size-4 / $variation;
 
 $unit: $size1;
 
-$breakpoint-phone: 400px;
-$breakpoint-tablet: 750px;
-$breakpoint-desktop: 1000px;
-$breakpoint-tv: 1500px;
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-tv: 1200px;
 
 $side-nav-animation: all 0.4s ease;

@@ -4,7 +4,11 @@ $off-white-text: #8f8f8f;
 .b-featured-mosaic {
 	overflow: hidden;
 	margin: 0 ($gutter-width*-1);
-	padding: $gutter-width 0;
+	padding: 0 $gutter-width $gutter-width 4.242em;
+
+	@include tablet(){
+        padding: $gutter-width .5em;
+      }
 
 	&.b-featured-mosaic--single {
 		.b-mosaic-item {
@@ -125,7 +129,11 @@ $off-white-text: #8f8f8f;
 			}
 
 			.b-mosaic-item__thumbnail {
-				height: 175px;
+				height: 262.5px;
+
+				@media (max-width: 1440px) {
+					height: 175px;
+				}
 
 				@media (max-width: 991px) {
 					height: 275px;
@@ -144,7 +152,12 @@ $off-white-text: #8f8f8f;
 			}
 
 			.b-mosaic-item__thumbnail {
-				height: 350px;
+				height: 525px;
+
+				@media (max-width: 1440px) {
+					height: 350px;
+				}
+
 				@media (max-width: 991px) {
 					height: 275px;
 				}
@@ -204,6 +217,7 @@ $off-white-text: #8f8f8f;
 
 		.b-mosaic-item__title {
 			padding: $gutter-width 0;
+			color: $black;
 		}
 
 		.b-mosaic-item__description {

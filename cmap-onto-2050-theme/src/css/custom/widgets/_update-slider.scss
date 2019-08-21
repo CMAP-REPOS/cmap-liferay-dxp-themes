@@ -1,6 +1,18 @@
-.portlet-full-width{
+.update-slider{
 
-  .slider {
+  &.slider {
+
+    .view-all-mobile {
+      text-align: center;
+      margin-bottom: 1rem;
+      @extend .whitney-normal;
+      color: $dark-blue;
+  
+      a{
+        border-bottom: 1px solid $dark-blue;
+        padding-bottom: 2px;
+      }
+    }
 
     .row {
       padding: 0 4.242em;
@@ -9,6 +21,18 @@
       width: 100%;
       flex-wrap: wrap;
       margin: 0;
+
+      @include tablet(){
+        padding: 0 .5em;
+      }
+
+        h1{
+            font-family: $font-sans;
+            font-weight: 600;
+            font-size: $size2;
+            line-height: 1.1em;
+            font-weight: $bold-weight;
+        } 
     }
 
     header {
@@ -16,10 +40,32 @@
         display: flex;
         align-items: center;
         height: 2.828em;
+        @extend .whitney-normal__bold;
+        letter-spacing: 0.05em;
       }
 
       h3 {
         margin-right: .50015em;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        @extend .whitney-normal__bold;
+        color: $black;
+      }
+
+      .view-all {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        @extend .whitney-normal;
+        color: $dark-blue;
+
+        a:link{
+          text-decoration: none !important; 
+          border-bottom: none;
+        }
+
+        a:hover{
+          text-decoration: underline !important;	
+        }
       }
     }
 
@@ -28,14 +74,39 @@
       display: flex;
       transition: all .4s ease-in-out;
 
+      .item-date{
+        margin-bottom: .1rem;
+        @extend .whitney-small__bold;
+        color: #c9d5dc;
+      }
+
+      .item-title{
+        padding-bottom: 0px;
+        @extend .whitney-normal__bold;
+
+        @include tablet(){
+          font-size: 1em !important;
+        }
+
+        a:link{
+          text-decoration: none !important; 
+        }
+
+        a:hover{
+          text-decoration: underline !important;	
+        }
+      }
+
       .slider-slide {
         flex: 0 0 100%;
 
         .item {
-          padding-bottom: 30px;
+          padding-bottom: 20px;
 
           p.item-description {
-            padding-bottom: 20px;
+            @extend .whitney-normal;
+            padding: 1rem 0 1rem 0;
+            color: $black;
           }
 
           a.read-more-link, .item-title a{
@@ -44,7 +115,7 @@
 
           .item-title{
             font-size: 25px;
-            padding-bottom: 10px;
+            padding-bottom: 0px;
           }
         }
       }
