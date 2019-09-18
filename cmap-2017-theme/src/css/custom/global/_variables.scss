@@ -27,6 +27,7 @@ $light-blue: #4DBEEE;
 
 $black: #000000;
 $dark-grey: #5E7A87;
+$grey:  #c9d5dc;
 $light-grey: #E2E7EA;
 $off-white: #E4EBEE;
 $off-white-text: #587387;
@@ -35,6 +36,10 @@ $white: #FFFFFF;
 
 $link-blue: $blue;
 $primary: $dark-blue;
+
+//Border styles:
+$border: 1px solid $off-white;
+$border-thick: 4px solid $grey;
 
 // sizes
 $variation: 1.414;

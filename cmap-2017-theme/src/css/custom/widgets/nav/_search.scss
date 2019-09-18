@@ -2,12 +2,25 @@
   position: relative;
   margin-right: 0 !important;
 
+  ::-webkit-input-placeholder { /* Edge */
+    color: $grey-blue;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $grey-blue;
+  }
+  
+  ::placeholder {
+    color:$grey-blue;
+  }
+
   @include search-widget-color($primary, $off-white);
 
   .search-widget-field,
   .search-placeholder-text{
     font-size: $size-1;
     font-weight: 600;
+    background-color: #ecf0f2 !important;
   }
 
   .search-widget-decorators{

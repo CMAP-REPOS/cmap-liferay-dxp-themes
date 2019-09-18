@@ -3,8 +3,6 @@
 @mixin logo-size($size){
   // override the fallback width and height attr
   svg{
-    width: $size !important;
-    height: $size !important;
   }
   span{
     font-size: #{$size * 1.2};
@@ -22,11 +20,11 @@
   }
   .search-widget-decorators{
     .search-placeholder-text{
-      color: $primary;
+      color: $grey-blue;
     }
     .search-icon{
       path{
-        stroke: $primary;
+        stroke: $grey-blue;
       }
     }
   }

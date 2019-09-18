@@ -6,6 +6,10 @@
     <#include "${full_templates_path}/components/site_pages.ftl" />
   </div>
 
+  <div class="side-nav-search">
+      <#include "${full_templates_path}/components/search_widget.ftl" />
+  </div>
+
   <div class="side-nav-share-toggle">
 	  <button class="share-button">
 	    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
