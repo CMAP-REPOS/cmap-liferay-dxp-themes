@@ -2,6 +2,11 @@
   background: $off-white;
   padding: 2rem 4.242em;
   border-top: 4px solid #3c5976 !important;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
 
   @include tablet(){
     padding: 2rem $unit;

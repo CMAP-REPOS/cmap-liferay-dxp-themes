@@ -4,6 +4,10 @@
   align-items: center;
   padding: #{$grid-gutter-width} 0;
 
+  @include tablet(){
+    padding: #{$grid-gutter-width} 13px;
+  }
+
   .first-column{
     display: flex;
     align-items: center;
@@ -113,12 +117,14 @@
 
   .search-button{
     border: none !important;
+    background-color: $white !important;
   }
   
   .search-input{
     //border: 2px solid #495f69;
      //border-left: none;
      border: none;
+     background-color: $white !important;
   }
 
   .header-row{

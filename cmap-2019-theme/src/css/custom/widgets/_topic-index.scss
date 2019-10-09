@@ -1,10 +1,20 @@
 .topic-index{
 
   @include section-padding();
+  
+  @include tablet(){
+    padding: 1em $unit 0;
+  }
+
+  .row{
+    @include tablet(){
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 
   .page-title{
     margin-top: 2rem;
-    margin-bottom: 2rem;
   }
 
   .page-abstract{
@@ -17,7 +27,6 @@
   }
 
   .page-abstract{
-    margin-top: 0;
     margin-bottom: 3rem;
   }
 
@@ -25,11 +34,8 @@
     display: flex;
     align-items: stretch; 
     justify-content: space-between;
-    width: 100%;
     margin: 0;
     padding: 0;
-    padding-top: 20px;
-    text-align: center;
   }
 
   .navbar-list-hr{
@@ -43,7 +49,7 @@
   }
 
   .alpha-nav-wrapper{
-    padding-bottom: 1em;
+    padding: 1em 0;
   }
 
   .jump-to-text{
@@ -61,30 +67,8 @@
   }
 
   .select-wrapper {
-		flex: 2;
-		border-radius: 35px;
-		background-color: #E4EAEE;
-		overflow: hidden;
+    width: 100%;
 	}
-	select {
-		height: 2em;
-		width: 100%;
-		border: 0;
-		outline: 0;
-		padding: 0 15px;
-		background-color: #E4EAEE;
-		background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%201792%201792%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1395%20736q0%2013-10%2023l-466%20466q-10%2010-23%2010t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10%2023-10t23%2010l393%20393%20393-393q10-10%2023-10t23%2010l50%2050q10%2010%2010%2023z%27%2F%3E%3C%2Fsvg%3E');
-		background-position: right 10px center;
-		background-repeat: no-repeat;
-		appearance: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-    -o-appearance: none;
-    
-		&::-ms-expand {
-			display: none;
-		}
-  }
 
   .letter-list-hr{
     margin-top: 0;
@@ -147,7 +131,6 @@
   a:link{
     text-decoration: none;
   }
-
 }
 
 

@@ -285,6 +285,12 @@
       color: $alt;
       background-color: hsla(0, 100%, 100%, 0.3);
     }
+
+    .form-dropdown {
+      border-color: $grey-blue;
+      color: $dark-grey;
+      background-color: hsla(0, 100%, 100%, 0.3);
+    }
   
     .input-group-btn{
       .btn{

@@ -96,7 +96,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 		var len = $(name).length;
 		if(len && no_more_headlines){
 			if(!user_alerted){
-				alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be used instead, please see the javascript console for more information')
+				//alert('There is a ' + name + ' headline breaking the accessibility rules. There is a larger headline to be used instead, please see the javascript console for more information')
 				user_alerted = true; 
 			}
 		} else if (!len){
@@ -111,7 +111,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h5');
 	check_for_el('h6');
 
-	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
+	//if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};

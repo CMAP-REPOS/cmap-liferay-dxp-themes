@@ -2,8 +2,10 @@
     margin-top: 3em;
   
     .row {
-        margin: 0;
+        padding: 0 4.242em;
+        position: relative;
         display: flex;
+        margin: 0;
   
         @include tablet(){
           padding: 0;
@@ -35,7 +37,7 @@
         }
     
         .slider-slide {
-          display: grid;
+          display: flex;
           border-top: $border;
 
           .social-icon{

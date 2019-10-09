@@ -1,3 +1,21 @@
+body {
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-size: 18px;
+  line-height: $variation;
+
+  @include desktop() {
+    font-size: 16px;
+  }
+  @include tablet() {
+    font-size: 15px;
+  }
+  @include phone() {
+    font-size: 14px;
+  }
+}
+p {
+  font-family: $font-family-sans-serif;
+}
 
 $bold-weight: 600;
 $normal-weight: 400;

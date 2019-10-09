@@ -19,18 +19,12 @@
         @include tablet() { 
             padding: 0 $unit;;
         }
-
     }  
 
     .banner-message{
         margin-top: 2em;
-        display: flex;
-        align-items: flex-end;
-
-        
-
+ 
         h1{
-            margin-top: 0;
             color: black !important;
             @extend .whitney-large__bold;
 
@@ -38,17 +32,14 @@
                 font-size: $size1;
             }
     
-            // Medium devices (tablets, 768px and up)
             @media (min-width: 768px) { 
                 font-size: $size2;
             }
     
-            // Large devices (desktops, 992px and up)
             @media (min-width: 992px) { 
                 font-size: $size1;
             }
     
-            // Extra large devices (large desktops, 1200px and up)
             @media (min-width: 1200px) { 
                 font-size: $size2;
              }
@@ -57,8 +48,10 @@
 
     .banner-links{
         margin-top: 1em;
-        display: flex;
-        align-items: flex-end;
+        @include tablet(){
+            margin-top: 0;
+        }
+
         h1{
             margin-top: 0;
             color: black;
@@ -71,20 +64,15 @@
         }
         @include tablet(){
             h1{
-                font-family: $font-sans;
-                font-weight: 600;
                 font-size: $size2;
-                line-height: 1.1em;
                 font-weight: $bold-weight;
             } 
         }
     }
 
     .page-nav-list{
-        margin-right: $gutter-width;;
-        opacity: 1;
+        margin-right: $gutter-width;
         width: 100%;
-        pointer-events: all;
         transition: all 0.2s ease;
 
         &.hidden{
@@ -95,13 +83,11 @@
 
     .page-nav-item{
         display: flex;
-        align-items: center;
         border-bottom: 1px solid $dark-grey;
 
         @include tablet(){
             border-bottom: $border;
         }
-
     
         &:last-of-type{
           border-bottom: 0;
@@ -111,19 +97,15 @@
           @extend .whitney-normal__bold;
           padding: 1em 0; 
           border-bottom: none !important;
-          color: $primary;
 
           @include tablet(){
-            padding: $unit 2em;
+            padding: 1em 2em;
           }
-          
     
           &:hover{
             border-bottom: none;
             color: lighten($primary, 15%);
           }
         }
-      }
-
-
+    }
 }

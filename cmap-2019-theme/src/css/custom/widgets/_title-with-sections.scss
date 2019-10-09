@@ -1,6 +1,16 @@
 .title-with-sections{
 
     @include section-padding();
+    @include tablet(){
+      padding: 1em $unit 0;
+    }
+
+    .row{
+      @include tablet(){
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
 
     .primary-image{
         margin-top: 3rem;
@@ -8,14 +18,22 @@
         width: 100%
     }
 
+    .fixed-jump-to-top-button{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 1em 4.242em;
+    }
+
     .section-content{
         margin-bottom:  6rem;
+        p{
+          color: black !important;
+          @extend .presna-normal;
+        }
       }
-
-    .page-date,
-    .page-nav-title{
-      height: $unit * 2;
-    }
   
     .page-title{
       h1,h2,h3{
@@ -47,12 +65,13 @@
   
     .page-date,
     .page-nav-title{
+      height: $unit * 2;
       display: flex;
       align-items: center;
 
       h3,h4{
         @extend .whitney-normal;
-        color: $off-white-text;
+        color: $dark-grey !important;
         margin-top: 0;
         margin-bottom: $size2;
       }
@@ -136,19 +155,24 @@
     }
   
     .mobile-page-nav{
-      margin-bottom: $size0;
+      border-radius: 16px;
+      display: inline-block;
+      overflow: hidden;
+      border: 1px solid $grey-blue;
+      width: 100%;
       display: none;
+
       @include tablet(){
         display: block;
       }
 
       .pages-select {
-        height: 30px;
+        height: 2em;
         width: 100%;
         border: 0;
         outline: 0;
         padding: 0 15px;
-        background-color: #E4EAEE;
+        background-color: $white !important;
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%201792%201792%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1395%20736q0%2013-10%2023l-466%20466q-10%2010-23%2010t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10%2023-10t23%2010l393%20393%20393-393q10-10%2023-10t23%2010l50%2050q10%2010%2010%2023z%27%2F%3E%3C%2Fsvg%3E');
         background-position: right 10px center;
         background-repeat: no-repeat;
@@ -180,8 +204,7 @@
       border: none;
       background: none;
       position: absolute;
-      transform: translateX(-100%) translateY(-20%);
-      top: 50%;
+      transform: translateX(-100%) translateY(-45%);
   
       @include tablet(){
         display: none;

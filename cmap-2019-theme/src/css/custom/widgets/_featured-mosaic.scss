@@ -192,7 +192,7 @@ $off-white-text: #8f8f8f;
 	.b-mosaic-item {
 		float: left;
 		display: block;
-		padding: 0 $gutter-width;
+		padding: 0 $gutter-width $gutter-width;
 		padding-top: $unit;
 		border-right: $border;
 		border-left: $border;
