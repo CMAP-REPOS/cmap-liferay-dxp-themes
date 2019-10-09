@@ -48,5 +48,9 @@
 		<portlet-decorator id="default" name="Default">
 			<portlet-decorator-css-class>default-portlet</portlet-decorator-css-class>
 		</portlet-decorator>
+        <portlet-decorator id="full-width-content" name="Full Width Content">
+        <default-portlet-decorator>true</default-portlet-decorator>
+        <portlet-decorator-css-class>portlet-full-width</portlet-decorator-css-class>
+        </portlet-decorator>
 	</theme>
 </look-and-feel>

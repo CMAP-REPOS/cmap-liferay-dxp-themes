@@ -3,6 +3,10 @@
   z-index: 20;
   background: white;
 
+  .col-md-4 {
+    width: 25% !important;
+  }
+
   .item{
     padding: $unit * 2 0 $unit;
 

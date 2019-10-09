@@ -87,3 +87,11 @@ h1,h2,h3,h4,h5,h6,
     }
   }
 }
+
+.section-content a {
+    @extend .underline-link;
+    color: $blue;
+    &:hover {
+      color: lighten($blue, 25%);
+    }
+  }

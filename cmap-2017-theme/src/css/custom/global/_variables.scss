@@ -27,6 +27,7 @@ $light-blue: #4DBEEE;
 
 $black: #000000;
 $dark-grey: #5E7A87;
+$grey:  #c9d5dc;
 $light-grey: #E2E7EA;
 $off-white: #E4EBEE;
 $off-white-text: #587387;
@@ -35,6 +36,10 @@ $white: #FFFFFF;
 
 $link-blue: $blue;
 $primary: $dark-blue;
+
+//Border styles:
+$border: 1px solid $off-white;
+$border-thick: 4px solid $grey;
 
 // sizes
 $variation: 1.414;
@@ -57,9 +62,9 @@ $size-5: $size-4 / $variation;
 
 $unit: $size1;
 
-$breakpoint-phone: 400px;
-$breakpoint-tablet: 750px;
-$breakpoint-desktop: 1000px;
-$breakpoint-tv: 1500px;
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-tv: 1200px;
 
 $side-nav-animation: all 0.4s ease;

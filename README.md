@@ -22,6 +22,12 @@ Check out [Liferay Themes and Layout Templates](https://dev.liferay.com/develop/
 
 Install [Node.js](https://nodejs.org/en/), [Yeoman](http://yeoman.io/), and [gulp](https://gulpjs.com/). See [Install the Liferay Theme Generator](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/introduction-to-themes) for more info.
 
+Important: If you have Node version higher than version 8, you should run:
+ 
+ `npm install natives`
+ 
+Then you can use `npm install` to install the repository dependencies
+
 ### Contribution guidelines ###
 
 When in doubt, create a branch.

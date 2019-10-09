@@ -1,0 +1,221 @@
+.title-with-sections{
+
+    @include section-padding();
+    @include tablet(){
+      padding: 1em $unit 0;
+    }
+
+    .row{
+      @include tablet(){
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .primary-image{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        width: 100%
+    }
+
+    .fixed-jump-to-top-button{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 1em 4.242em;
+    }
+
+    .section-content{
+        margin-bottom:  6rem;
+        p{
+          color: black !important;
+          @extend .presna-normal;
+        }
+      }
+  
+    .page-title{
+      h1,h2,h3{
+        margin-top: 0;
+        margin-bottom: $size-1;
+      }
+    }
+
+    .page-summary{
+      @include tablet(){ 
+        .presna-large{
+          line-height: 1.4;
+          font-size: $font-size-base;
+        }
+      }
+    }
+  
+    .page-title,
+    .section-title{
+      display: flex;
+      align-items: flex-end;
+      h1{
+        @extend .whitney-huge;
+      }
+      h2,h3{
+        @extend .whitney-large__bold;
+      }
+    }
+  
+    .page-date,
+    .page-nav-title{
+      height: $unit * 2;
+      display: flex;
+      align-items: center;
+
+      h3,h4{
+        @extend .whitney-normal;
+        color: $dark-grey !important;
+        margin-top: 0;
+        margin-bottom: $size2;
+      }
+    }
+  
+    .page-nav{
+      opacity: 1;
+      pointer-events: all;
+      transition: all 0.2s ease;
+      &.hidden{
+        opacity: 0;
+        pointer-events: none;
+      }
+      @include tablet(){
+        display: none;
+      }
+    }
+  
+    .page-nav-item{
+      display: flex;
+      align-items: center;
+      border-top: 1px solid darken($off-white, 5%);
+  
+      &:last-of-type{
+        border-bottom: 0;
+      }
+  
+      a{
+        @extend .whitney-normal__bold;
+        padding: 1em 0;
+        border-bottom: none !important;
+        color: $primary;
+
+        @include desktop(){
+          font-family: $font-sans;
+          font-weight: $normal-weight;
+          font-size: $size-1;
+          line-height: $variation;
+          font-weight: $bold-weight;
+        }
+  
+        &:hover{
+          border-bottom: none;
+          color: lighten($primary, 15%);
+        }
+      }
+    }
+  
+    .page-nav-container-links{
+      top: 0;    
+      z-index: 10;
+      width: 80%;
+
+      
+      &.fixed{
+        position: fixed;
+        top: $unit * 4;
+        width: inherit;
+  
+        .page-nav-list{
+          width: 78%;
+        }
+      }
+    }
+
+    .page-nav-container-sections{
+      top: 0;    
+      z-index: 10;
+      width: 80%;
+
+      
+      &.fixed{
+        position: fixed;
+        top: $unit * 4;
+        width: inherit;
+  
+        .page-nav-list{
+          width: 78%;
+        }
+      }
+    }
+  
+    .mobile-page-nav{
+      border-radius: 16px;
+      display: inline-block;
+      overflow: hidden;
+      border: 1px solid $grey-blue;
+      width: 100%;
+      display: none;
+
+      @include tablet(){
+        display: block;
+      }
+
+      .pages-select {
+        height: 2em;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        padding: 0 15px;
+        background-color: $white !important;
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%201792%201792%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1395%20736q0%2013-10%2023l-466%20466q-10%2010-23%2010t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10%2023-10t23%2010l393%20393%20393-393q10-10%2023-10t23%2010l50%2050q10%2010%2010%2023z%27%2F%3E%3C%2Fsvg%3E');
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        &::-ms-expand {
+          display: none;
+        }
+    
+        &:focus {
+          color: $dark-blue;
+        }
+    
+        &.has-value {
+          background-color: $white;
+          border-color: $off-white;
+        }
+      }
+    }
+  
+    .section-title{
+      position: relative;
+    }
+    
+    .section-hyperlink{
+      -webkit-appearance: none;
+      border: none;
+      background: none;
+      position: absolute;
+      transform: translateX(-100%) translateY(-45%);
+  
+      @include tablet(){
+        display: none;
+      }
+    }
+  
+    // used to get the computed value of $unit*4
+    .page-nav-top{
+      height: $unit * 4;
+      width: 1px;
+      opacity: 0;
+    }
+  }
+  

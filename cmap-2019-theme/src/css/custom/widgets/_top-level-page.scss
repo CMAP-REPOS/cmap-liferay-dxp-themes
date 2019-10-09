@@ -1,0 +1,128 @@
+.top-level-page{
+
+  @include section-padding();
+  padding-top: 2em;
+
+  @include tablet(){
+    padding: 1em $unit 0;
+  }
+
+  .section-select{
+    margin-bottom: 1.5em;
+  }
+
+  .primary-image{
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      width: 100%
+  }
+
+  .section-content{
+      margin-bottom:  3em;
+      p{
+        color: black;
+        @extend .presna-normal;
+      }
+    }
+
+  .main-body {
+      padding-right: $gutter-width*2;
+      padding-left: 0;
+
+      @include tablet(){
+        padding: 0;
+      }
+  }
+
+  .page-summary{
+    @include tablet(){ 
+      .presna-large{
+        line-height: 1.4;
+        font-size: $font-size-base;
+      }
+    }
+  }
+
+  .page-title,
+  .section-title{
+    h1{
+      @extend .whitney-huge;
+    }
+    h2,h3{
+      @extend .whitney-large__bold;
+    }
+  }
+
+  .page-date,
+  .page-nav-title{
+    display: flex;
+    align-items: center;
+    height: $unit * 2;
+
+    h3,h4{
+      @extend .whitney-small__bold;
+      color: $dark-grey !important;
+      margin-top: 0;
+      margin-bottom: $size2;
+    }
+  }
+
+  .page-nav{
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.2s ease;
+    &.hidden{
+      opacity: 0;
+      pointer-events: none;
+    }
+    @include tablet(){
+      display: none;
+    }
+  }
+
+  .page-nav-item{
+    display: flex;
+    border-top: 1px solid darken($off-white, 5%);
+
+    @include tablet(){
+      font-size: $size0;
+      font-weight: $bold-weight;
+    }
+
+    &:last-of-type{
+      border-bottom: 0;
+    }
+
+    a{
+      @extend .whitney-normal__bold;
+      padding: 1em 0;
+      border-bottom: none !important;
+      color: $primary;
+
+      @include desktop(){
+        font-size: $size-1;
+        line-height: $variation;
+      }
+
+      @include tablet(){
+        font-size: $size0;
+        line-height: 1.1em;
+      }
+
+      &:hover{
+        border-bottom: none;
+        color: lighten($primary, 15%);
+      }
+    }
+  }
+
+  .mobile-links{
+    margin-bottom: 1em;
+  }
+
+  .page-nav-top{
+    height: $unit * 4;
+    width: 1px;
+    opacity: 0;
+  }
+}

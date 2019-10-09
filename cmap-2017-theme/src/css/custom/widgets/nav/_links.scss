@@ -15,7 +15,8 @@
     a{
       display: block;
       @extend .whitney-normal__bold;
-      color: $primary;
+      font-size: 16px;
+      color: $grey-blue;
     }
   }
 }
@@ -23,7 +24,10 @@
 .main-nav-links{
   li{
     a{
-      color: $primary;
+      @media screen and (max-width: 1200px){
+        font-size: small;
+      }
+      color: $grey-blue;
     }
   }
 }

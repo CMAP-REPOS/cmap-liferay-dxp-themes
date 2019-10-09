@@ -305,6 +305,7 @@ cmap.forms.replaceAst = function () {
   }
 };
 
+/*
 cmap.footer = {};
 cmap.footer.checkForLayoutChange = function () {
 
@@ -340,6 +341,7 @@ cmap.footer.checkForLayoutChange = function () {
   check();
   $(window).resize(_.throttle(check, 100));
 };
+*/
 
 // Runs when.. all the portlets are loaded and ready
 Liferay.on('allPortletsReady', function () {
@@ -358,7 +360,7 @@ Liferay.on('allPortletsReady', function () {
   cmap.forms.global();
   cmap.forms.replaceAst();
 
-  cmap.footer.checkForLayoutChange();
+  //cmap.footer.checkForLayoutChange();
 
   $('table *').removeAttr('valign');
   $('table').removeAttr('align');
