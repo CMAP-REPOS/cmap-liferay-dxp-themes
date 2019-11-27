@@ -56,6 +56,8 @@
   }
 
   #desktop-search{
+    
+
     ::-webkit-input-placeholder { /* Edge */
       color: $grey-blue;
     }
@@ -69,8 +71,8 @@
     }
     
     input{
+      @extend .whitney-small__bold;
       padding-left: 0;
-      font-size: 0.95em;
     }
   }
 

@@ -34,6 +34,7 @@
     @content;
   }
 }
+
 @mixin huge(){
   @media screen and (max-width: $breakpoint-huge){
     @content;
@@ -89,7 +90,8 @@
   padding: $vertical #{$unit * 3};
 
   @include tablet(){
-    padding: $vertical #{$unit * 2};
+    padding: $vertical $unit;
+    //padding: $vertical #{$unit * 2};
   }
   @include phone(){
     padding: $vertical $unit;

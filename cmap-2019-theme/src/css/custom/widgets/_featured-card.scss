@@ -1,0 +1,66 @@
+
+$top: 42%;
+
+.featured-card{
+
+    @include section-padding();
+    @include tablet(){
+      padding: 1em $unit 0;
+    }
+
+    overflow: hidden;
+    transition: all 0.2s ease;
+    margin-bottom: $size0;
+
+    .featured-card-main{
+        background: $off-white;
+
+        &:hover{
+            background: saturate($off-white, 15%);
+    
+            .featured-card-img{
+            transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
+            }
+        }
+    }
+
+    .featured-card-img-link{
+        display: block;
+        position: relative;
+        border-bottom: none !important;
+        padding-top: $unit;
+        padding-bottom: $unit;
+    }
+
+    .featured-card-img{
+        position: relative;
+        left: 50%;
+        width: 40%;
+        transition: all 0.4s cubic-bezier(0.22, 0.52, 0.58, 1);
+        transform: translateX(-50%) translateY($top) rotate(-25deg) scale(1.5);
+    }
+
+    .featured-card-title{
+        @extend .whitney-normal__bold;
+    }
+
+    .featured-card-cta{
+        display: flex;
+        margin-top: $size-3;
+        @extend .whitney-normal;
+        line-height: 1;
+    }
+
+    .underline-link{
+        border-bottom: $light-blue;
+    }
+
+    .file-extension{
+        text-transform: uppercase;
+    }
+
+    .file-icon{
+        display: inline-block;
+        margin-right: $size-3;
+    }
+}

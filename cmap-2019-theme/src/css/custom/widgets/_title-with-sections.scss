@@ -1,8 +1,31 @@
 .title-with-sections{
 
     @include section-padding();
+    padding-top: 2em;
+
     @include tablet(){
       padding: 1em $unit 0;
+    }
+
+    div[class^="col"] {
+      @include tablet(){
+        padding: 0 !important;
+      }
+    }
+
+    .fixed-jump-to-top-button{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+      @include section-padding();
+      padding-bottom: 1em;
+
+      @include tablet(){
+        background: $white;
+        padding: 1em $unit;
+      }
     }
 
     .row{
@@ -12,28 +35,27 @@
       }
     }
 
-    .primary-image{
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        width: 100%
-    }
+    
 
-    .fixed-jump-to-top-button{
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
+    .page-nav-container{
+      position: absolute;
+      top: 0;    
       z-index: 10;
-      padding: 1em 4.242em;
-    }
 
-    .section-content{
-        margin-bottom:  6rem;
-        p{
-          color: black !important;
-          @extend .presna-normal;
+      .page-nav-list{
+        width: 75%;
+      }
+      
+      &.fixed{
+        position: fixed;
+        top: $unit * 5;
+        width: inherit;
+  
+        .page-nav-list{
+          width: 70%;
         }
       }
+    }
   
     .page-title{
       h1,h2,h3{
@@ -41,39 +63,31 @@
         margin-bottom: $size-1;
       }
     }
-
-    .page-summary{
-      @include tablet(){ 
-        .presna-large{
-          line-height: 1.4;
-          font-size: $font-size-base;
-        }
-      }
-    }
   
     .page-title,
     .section-title{
       display: flex;
       align-items: flex-end;
-      h1{
-        @extend .whitney-huge;
-      }
-      h2,h3{
-        @extend .whitney-large__bold;
+      h3{
+        font-weight: normal;
       }
     }
   
     .page-date,
     .page-nav-title{
-      height: $unit * 2;
       display: flex;
       align-items: center;
+      margin-bottom: 1em;
+
+      p{
+        @extend .whitney-small__bold;
+        color: $dark-grey !important;
+        margin: 0 !important;
+        padding-bottom: $unit !important;
+      }  
 
       h3,h4{
-        @extend .whitney-normal;
         color: $dark-grey !important;
-        margin-top: 0;
-        margin-bottom: $size2;
       }
     }
   
@@ -100,56 +114,14 @@
       }
   
       a{
-        @extend .whitney-normal__bold;
-        padding: 1em 0;
+        @extend .whitney-small__bold;
+        padding: $unit 0;
         border-bottom: none !important;
-        color: $primary;
-
-        @include desktop(){
-          font-family: $font-sans;
-          font-weight: $normal-weight;
-          font-size: $size-1;
-          line-height: $variation;
-          font-weight: $bold-weight;
-        }
+        color: $link-blue !important;
   
         &:hover{
           border-bottom: none;
-          color: lighten($primary, 15%);
-        }
-      }
-    }
-  
-    .page-nav-container-links{
-      top: 0;    
-      z-index: 10;
-      width: 80%;
-
-      
-      &.fixed{
-        position: fixed;
-        top: $unit * 4;
-        width: inherit;
-  
-        .page-nav-list{
-          width: 78%;
-        }
-      }
-    }
-
-    .page-nav-container-sections{
-      top: 0;    
-      z-index: 10;
-      width: 80%;
-
-      
-      &.fixed{
-        position: fixed;
-        top: $unit * 4;
-        width: inherit;
-  
-        .page-nav-list{
-          width: 78%;
+          color: lighten($link-blue, 15%);
         }
       }
     }
@@ -197,6 +169,10 @@
   
     .section-title{
       position: relative;
+    }
+
+    .section-content{
+      padding-bottom: 1.5em;
     }
     
     .section-hyperlink{

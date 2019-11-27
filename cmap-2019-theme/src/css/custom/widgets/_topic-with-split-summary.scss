@@ -1,11 +1,17 @@
 .topic-with-split-summary{
 
     @include section-padding();
+    padding-top: 2em;
 
     @include tablet(){
-      padding: 0 $unit;
+      padding: 1em $unit 0;
     }
-    padding-top: 3em;
+
+    div[class^="col"] {
+      @include tablet(){
+        padding: 0 !important;
+      }
+    }
 
     .row{
       @include tablet(){
@@ -17,6 +23,11 @@
     .split-column{
       @include tablet(){
         padding: 0;
+      }
+      .section-title-text{
+        color: $black !important;
+        @extend .whitney-normal__bold;
+        margin: 0 !important;
       }
     }
 
@@ -86,17 +97,22 @@
         @extend .whitney-large__bold;
       }
     }
-  
+
     .page-date,
     .page-nav-title{
       display: flex;
       align-items: center;
-      height: $unit * 2;
+      margin-bottom: 1em;
+
       p{
         @extend .whitney-small__bold;
         color: $dark-grey !important;
-        margin-top: 0;
-        margin-bottom: $size2;
+        margin: 0 !important;
+        padding-bottom: $unit !important;
+      }
+
+      h3,h4{
+        color: $dark-grey !important;
       }
     }
   
@@ -112,6 +128,26 @@
         display: none;
       }
     }
+
+    .page-nav-container{
+      position: absolute;
+      top: 0;    
+      z-index: 10;
+
+      .page-nav-list{
+        width: 75%;
+      }
+      
+      &.fixed{
+        position: fixed;
+        top: $unit * 5;
+        width: inherit;
+  
+        .page-nav-list{
+          width: 70%;
+        }
+      }
+    }
   
     .page-nav-item{
       display: flex;
@@ -123,48 +159,14 @@
       }
   
       a{
-        @extend .whitney-normal__bold;
-        padding: 1em 0;
+        @extend .whitney-small__bold;
+        padding: $unit 0;
         border-bottom: none !important;
         color: $primary;
   
         &:hover{
           border-bottom: none;
           color: lighten($primary, 15%);
-        }
-      }
-    }
-  
-    .page-nav-container-links{
-      top: 0;    
-      z-index: 10;
-      width: 80%;
-
-      
-      &.fixed{
-        position: fixed;
-        top: $unit * 4;
-        width: inherit;
-  
-        .page-nav-list{
-          width: 78%;
-        }
-      }
-    }
-
-    .page-nav-container-sections{
-      top: 0;    
-      z-index: 10;
-      width: 80%;
-
-      
-      &.fixed{
-        position: fixed;
-        top: $unit * 4;
-        width: inherit;
-  
-        .page-nav-list{
-          width: 78%;
         }
       }
     }
@@ -215,7 +217,7 @@
       border: none;
       background: none;
       position: absolute;
-      transform: translateX(-100%) translateY(-20%);
+      transform: translateX(-100%) translateY(-40%);
       top: 35%;
   
       @include tablet(){

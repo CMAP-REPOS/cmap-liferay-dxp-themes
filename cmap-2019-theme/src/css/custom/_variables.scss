@@ -1,3 +1,6 @@
+//fonts
+$font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$font-serif: "Prensa LF", serif;
 
 // sizes
 $variation: 1.414;
@@ -24,10 +27,10 @@ $unit: $size1;
 
 // these need to be manually synced with values in
 // src/css/aui/lexicon/bootstrap/_variables.scss
-$breakpoint-phone: 400px;
-$breakpoint-tablet: 800px;
-$breakpoint-desktop: 1200px;
-$breakpoint-huge: 1600px;
+$breakpoint-phone: 576px; //400px;
+$breakpoint-tablet: 768px; //800px;
+$breakpoint-desktop: 992px; //1200px;
+$breakpoint-huge: 1200px; 
 
 // Colors
 $dark-red: #750709;
@@ -96,4 +99,3 @@ $black-theme-background-color: #000000;
 $black-theme-text-color: #88A0B2;
 $black-theme-alt-text-color: #FFFFFF;
 
-$font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;

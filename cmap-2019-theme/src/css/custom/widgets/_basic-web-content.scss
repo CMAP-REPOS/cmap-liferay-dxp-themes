@@ -1,68 +1,52 @@
 
-.onto2050-basic-web-content{
-  a{
-    @include underline-link($blue);
-  }
-}
+.basic-web-content{
 
-body#cmap-ckeditor,
-.onto2050-basic-web-content,
-.cmap-onto-2050-main-content{
+  margin-top: 2em;
 
-  ul li{
-    list-style: disc inside;
-  }
-  ol li{
-    list-style: decimal inside;
-  }
-  ul,ol{
-    padding: 0;
-    margin: 0;
-
-    li{
-      @extend .presna-normal;
-      padding: 1rem 0;
-      // border-bottom: 1px solid black;
-    }
-  }
-  h1,h2,h3,h4,h5,h6,p{
-    margin: 0;
-  }
-
-  h2{
-    margin-top: 3rem;
-  }
-  
-  p{
-    @extend .presna-normal;
-  }
-  .presna-large{
-    @extend .presna-large;
-  }
-  img{
-    width: 100%;
-  }
-  blockquote{
-    padding: 0;
-    margin: 3rem 0;
-    // @extend .hang-quotes;
-
-    p{
-      @extend .presna-large;
-    }
-  }
-
-  .page-headline{
-    word-break: break-word;
+  @include section-padding();
     @include tablet(){
-      font-size: 5rem !important;
+      padding: 1em $unit 0;
     }
-  }
 
-  .inline-center-col{
-    .col-lg-4:first-of-type > *{
-      @include container-margin-left();
+    div[class^="col"] {
+      @include tablet(){
+        padding: 0 !important;
+      }
     }
-  }
-  
+
+    .row{
+      @include tablet(){
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .small{
+      @extend .whitney-small;
+    }
+
+    .normal{
+      @extend .whitney-normal;
+    }
+
+    .middle{
+      @extend .whitney-middle;
+    }
+
+    .semi-large{
+      @extend .whitney-semi-large;
+    }
+
+    .large{
+      @extend .whitney-large;
+    }
+
+    .huge{
+      @extend .whitney-huge;
+    }
+
+    .jumbo{
+      @extend .whitney-jumbo;
+    }
+
 }

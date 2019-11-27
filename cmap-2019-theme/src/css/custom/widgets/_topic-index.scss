@@ -14,7 +14,7 @@
   }
 
   .page-title{
-    margin-top: 2rem;
+    margin-top: 2em;
   }
 
   .page-abstract{
@@ -35,7 +35,7 @@
     align-items: stretch; 
     justify-content: space-between;
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
   }
 
   .navbar-list-hr{
@@ -63,6 +63,7 @@
   }
     a{
       border-bottom: none;
+      color: $link-blue;
     }
   }
 
@@ -91,17 +92,19 @@
   ul.horizontal-list li {
     display: inline;
     list-style: none;
-    @extend .whitney-normal__bold;
-    color: $light-blue;
+    font-family: $font-sans;
+    //@extend .whitney-small__bold;
     font-weight: bold;
+    color: $light-blue;
 
     .letter-link{
       border-bottom: none;
+      color: $link-blue;
     }
   }
 
   .vertical-list {
-    padding-left: 0;
+    padding: 0 !important;
 
     .letter-list-li:last-of-type{
       border-bottom: none;
@@ -111,11 +114,13 @@
   ul.vertical-list li {
     list-style: none;
     color: $black;
-    @extend .whitney-normal__bold;
+    //@extend .whitney-small__bold;
+    font-weight: bold;
+    font-family: $font-sans;
   } 
 
   .letter-list {
-    padding-left: 0;
+    padding: 0 !important;
 
     li {
       padding-top: 1em;
@@ -124,6 +129,7 @@
 
       .letter-link{
         border-bottom: none;
+        color: $link-blue;
       }
     }
   }

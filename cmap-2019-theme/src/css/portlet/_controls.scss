@@ -74,7 +74,7 @@ body.portlet {
 
 .portlet {
 	.visible-interaction {
-		position: absolute;
+		//position: absolute;
 		right: 0;
 		z-index: 100;
 		@include sm {

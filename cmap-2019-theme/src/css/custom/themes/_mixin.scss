@@ -12,32 +12,73 @@
 
   &:not(.portal-popup){
     background: $background;
-    color: $primary;
+    color: $black;
   }
 
   .journal-content-article{
+
+    .table-container {
+      padding: 0;
+    }
+  
+    h1 {
+      @extend .whitney-huge__bold;
+    }
+    h2 {
+      @extend .whitney-large__bold;
+    }
+    h3 {
+      @extend .whitney-normal__bold;
+    }
+    h4, h5, h6 {
+      @extend .whitney-normal__bold;
+      color: $off-white-text;
+    }
+
     h1,h2,h3,h4,h5,h6,p{
-      color: $primary;
+      color: $black;
+      //color: $primary;
     }
     .huge-headline{
-      color: $alt;
+      color: $link-blue;
     }
     a {
-      color: $alt;
-      border-bottom: 1px solid rgba($alt, 0.3);
+      color: $link-blue;
+      border-bottom: 1px solid rgba($link-blue, 0.3);
       &:hover,
       &:focus {
-        color: $lighter-alt;
+        color: lighten($link-blue, 25%);
       }
     }
+    h1{
+      margin-bottom: $size0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      //margin-top: $size0;
+    }
+    p {
+      margin-bottom: $size0;
+    }
+    
     .page-anchor{
-      color: $alt !important;
+      color: $blue !important;
     }
     ul,ol{
+      @extend .presna-normal;
       li{
         border-bottom-color: rgba($primary, 0.25);
       }
-	  }
+    }
+
+    ul{
+      padding: 0;
+      padding-left: $size0;
+      list-style: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSJhdXRvIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAyMCAyMCI+ICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjciIHI9IjciIGZpbGw9IiM1RjdBODciIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+  
+      ul{
+        list-style: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSJhdXRvIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAyMCAyMCI+ICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjciIHI9IjciIGZpbGw9IiNEN0RGRTQiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+      }
+    }
   }
   
 
@@ -213,6 +254,8 @@
   #footer{
     background: $darker-background;
     border-top: 1px solid rgba($alt, 0.3);
+    z-index: 10000;
+    position: relative;
 
     .footer-page-links{
       a{
