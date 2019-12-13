@@ -24,25 +24,14 @@
     .banner-message{
         margin-top: 2em;
  
-        h1{
+        p{
             color: black !important;
             @extend .whitney-large__bold;
 
-            @media (min-width: 576px) {
-                font-size: $size1;
-            }
-    
-            @media (min-width: 768px) { 
-                font-size: $size2;
-            }
-    
-            @media (min-width: 992px) { 
-                font-size: $size1;
-            }
-    
-            @media (min-width: 1200px) { 
-                font-size: $size2;
-             }
+            @include tablet(){
+                //Whitney Semi Large
+                font-size: $font-size-h3;
+              }
         }
     }
 

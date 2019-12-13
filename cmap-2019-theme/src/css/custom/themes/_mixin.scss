@@ -388,7 +388,7 @@
     }
     .dot-nav{
       .nav-item:after{
-        border-color: 1px solid $primary;
+        border-color: $primary;
       }   
       .nav-item:hover:after{
         background: $primary;
