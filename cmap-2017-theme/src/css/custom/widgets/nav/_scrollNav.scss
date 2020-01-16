@@ -4,7 +4,7 @@
   z-index: 1001;
   transform: translateY(-100%);
 
-  display: flex;
+  display: none;
   align-items: center;
   width: 100%;
   height: $unit * 2;
@@ -13,6 +13,10 @@
   background: $off-white;
   border-bottom: 1px solid darken($off-white, 10%);
   transition: all 0.2s ease;
+
+  @include tablet(){
+    display: flex;
+  }
 
   @if($debug){
     top: -1px;

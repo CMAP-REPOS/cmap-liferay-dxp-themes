@@ -146,6 +146,7 @@
     border: 1px solid $grey-blue;
     width: 100%;
     display: none;
+    margin: 1em 0;
 
     @include tablet(){
       display: block;

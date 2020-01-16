@@ -87,6 +87,13 @@ window.cmap.global.setContentMinHeight = window.cmap.global.setContentMinHeight 
 	compute();
 }
 
+window.cmap.global.changeEventText = window.cmap.global.changeEventText|| function(){
+	/*var body = $("body");
+    var text = body.html();
+    text = text.replace('CMAP Environment and Natural Resources Committee','CMAP Environment and Natural Resources Committee - Rescheduled to Jan. 9');
+    body.html(text);*/
+}
+
 window.cmap.global.headline_check = window.cmap.global.headline_check || function(){
 
 	$('#breadcrumbs h1.hide-accessible').hide();
@@ -325,7 +332,7 @@ window.cmap.global.check_images = window.cmap.global.check_images || function(){
 	});
 
 	if(bad_image_count > 0){
-		alert('There are ' + bad_image_count + ' images without alt tags on this page. See the javascript console for more information.');
+		//alert('There are ' + bad_image_count + ' images without alt tags on this page. See the javascript console for more information.');
 	}
 }
 
@@ -339,6 +346,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	window.cmap.navigation.init();
 	window.cmap.pageCards.init();
 	window.cmap.hotspots();
+	window.cmap.global.changeEventText();
 
 	// $('.breadcrumb-cmap .close-button').addClass('hidden');
 
@@ -541,3 +549,5 @@ AUI().ready(function(){ });
 Liferay.Portlet.ready(function(portletId, node){ });
 
 Liferay.on('allPortletsReady', function(){ window.cmap.global.init(); });
+
+

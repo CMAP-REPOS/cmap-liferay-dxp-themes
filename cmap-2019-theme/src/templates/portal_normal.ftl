@@ -7,6 +7,21 @@
 <head>
 	<title>${the_title} - ${company_name}</title>
 
+	<script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/vendor/d3.min.js"></script>
+	<script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/vendor/c3.min.js"></script>
+	<script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/infographics.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>	
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+
+	{'gtm.start': new Date().getTime(),event:'gtm.js'}
+	);var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TD2HPRH');</script>
+	<!-- End Google Tag Manager -->
+
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -35,6 +50,11 @@
 </head>
 
 <body class="${css_class} cmap-2019-theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD2HPRH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <a class="skip-to-content" href="#main-content" tabindex="0">Skip to Content</a>
 

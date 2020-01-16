@@ -1,98 +1,49 @@
 @charset "UTF-8";
 
+.chart-graphic-container {
 
+  @include section-padding();
+  padding-top: $unit;
 
-.col-md-4.portlet-column-first{
-  .chart-legend-2050{
-    @include container-margin-left();
+  @include tablet(){
+    padding: 1em $unit 0;
   }
-}
-// remember to add color rules to the theme mixin
-.chart-legend-2050 {
-  @extend .whitney-small;
+
+  div[class^="col"] {
+    @include tablet(){
+      padding: 0 !important;
+     }
+  }
   
-  border-top: 0.25rem solid $grey-blue;
-  color: $light-blue;
+  .row{
+    @include tablet(){
+       margin-left: 0;
+       margin-right: 0;
+     }
+   }
 
-  p {
-    @extend .whitney-small;
-    color: $grey-blue;
-  }
-
-  .chart-legend-2050-description,
-  .chart-legend-2050-key,
-  .chart-legend-2050-source,
-  .chart-legend-2050-download {
-	margin-top: 1rem;
-  }
-  .chart-legend-2050-download {
-	a {
-		display: inline-block;
-		font-weight: 600;
-		line-height: 30px;
-		color: #5D7A90;
-		svg,
-		span {
-			display: inline-block;
-			vertical-align: bottom;
-		}
-	}
-  }
-
-  .chart-legend-2050-section-title {
-	  font-weight: 600;
-  }
-
-  .chart-legend-2050-key-list {
-    li {
-	  @extend .whitney-small;
-	  list-style-type: none;
-      line-height: 1;
-      padding-bottom: 0.25em;
-
-      &:last-of-type {
-        padding-bottom: 0;
-      }
-
-      .chart-legend-2050-key-image {
-        display: inline-block;
-        vertical-align: bottom;
-        margin-right: 5px;
-        height: 12px;
-        width: 12px;
-      }
-
-      .chart-legend-2050-key-label {
-        display: inline;
-        vertical-align: bottom;
-      }
-    }
-  }
-}
-
-.chart-graphic-2050-container {
   border-top: 0.25rem solid $grey-blue;
   border-bottom: 0.125rem solid $light-blue;
   clear: both;
   color: $light-blue;
   overflow: hidden;
-  padding-top: $unit;
+  
 
   p {
     color: $light-blue;
   }
 
-  .chart-graphic-2050-description-container {
+  .chart-graphic-description-container {
     float: right;
     width: 50%;
   }
-  .chart-graphic-2050-description {
+  .chart-graphic-description {
     @extend .presna-normal;
     color: $black;
     margin: 0 $unit;
   }
 
-  .chart-graphic-2050 {
+  .chart-graphic {
     color: $light-blue;
 
     &.has_description {
@@ -228,13 +179,13 @@
   }
 }
 @include desktop() {
-  .chart-graphic-2050-container {
-    .chart-graphic-2050-description {
+  .chart-graphic-container {
+    .chart-graphic-description {
       float: none;
       width: 100%;
     }
 
-    .chart-graphic-2050 {
+    .chart-graphic {
       &.has_description {
         float: none;
         width: 100%;
@@ -243,13 +194,13 @@
   }
 }
 @include phone() {
-  .chart-graphic-2050-container {
-    .chart-graphic-2050-description {
+  .chart-graphic-container {
+    .chart-graphic-description {
       float: none;
       width: auto;
     }
 
-    .chart-graphic-2050 {
+    .chart-graphic {
       &.has_description {
         float: none;
         width: auto;

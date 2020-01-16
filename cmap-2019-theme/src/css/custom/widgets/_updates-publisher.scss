@@ -96,6 +96,7 @@
     }
 
     .updates-container{
+        padding-bottom: 2em;
         @include tablet(){
             padding: 0 !important;
           }

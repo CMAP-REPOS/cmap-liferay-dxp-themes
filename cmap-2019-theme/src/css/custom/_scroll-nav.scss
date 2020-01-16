@@ -9,6 +9,12 @@
   border-bottom: 1px solid rgba(white, 0.1);
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
+  display: none;
+ 
+  @include tablet(){
+    display: block;
+  }
+
 
   .left-container{
     display: flex;
