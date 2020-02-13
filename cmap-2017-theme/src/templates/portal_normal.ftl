@@ -8,13 +8,11 @@
 	<title>${the_title} - ${company_name}</title>
 
 	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
-
-	{'gtm.start': new Date().getTime(),event:'gtm.js'}
-	);var f=d.getElementsByTagName(s)[0],
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-TD2HPRH');</script>
+	})(window,document,'script','dataLayer','GTM-NLF8Z5B');</script>
 	<!-- End Google Tag Manager -->
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
@@ -37,9 +35,9 @@
 <body class="${css_class} cmap-2017-theme">
 
 	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD2HPRH"
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLF8Z5B"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
+	<!-- End Google Tag Manager (noscript) -->	
 
 	<@liferay_ui["quick-access"] contentId="#main-content" />
 

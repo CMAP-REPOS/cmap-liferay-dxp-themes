@@ -111,7 +111,7 @@ window.cmap.global.headline_check = window.cmap.global.headline_check || functio
 	check_for_el('h5');
 	check_for_el('h6');
 
-	if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
+	//if($('h1').length > 1){ alert('Two h1 elements are not allowed on the same page.'); }
 }
 
 window.cmap.pageCards = window.cmap.pageCards || {};

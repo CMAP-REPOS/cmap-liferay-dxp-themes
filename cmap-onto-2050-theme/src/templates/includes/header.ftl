@@ -59,29 +59,3 @@
     <#include "${full_templates_path}/includes/search.ftl" />
   </div>
 </div>
-
-
-<section class="homepage-hero">
-<div class="homepage-hero-background">
-<h1 class="sr-only"><a href="/2050/principles" tabindex="0">On To 2050 Cover Page, please click to continue</a></h1>
-</div>
-</section>
-<script>
-Liferay.on(
-  'allPortletsReady',
-  function() {
-    console.log("Developers: check the basic web content for background styles :)");
-    console.log($('body').css('background', 'linear-gradient(to bottom, #02144d 10%, #219bd6 50%, #f7ecbd)'));
-    $('#cmap-onto2050-breadcrumbs').hide();
-    $(".site-nav a").each(function(){$(this).attr("data-senna-off", "true")});
-  }
-);
-</script>
-<style type="text/css">.homepage-hero-background {
-	background-image: url(/documents/10180/862153/onto2050-homepage+%282%29.png/e1bee627-c971-a0e1-974d-114f2e8fd6ea?t=1538518067621);
-	height: calc( 100vh - 250px );
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-	}
-</style>
