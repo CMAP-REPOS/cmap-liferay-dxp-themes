@@ -6,6 +6,12 @@
     padding: 1em $unit 0;
   }
 
+  div[class^="col"] {
+    @include tablet(){
+      padding: 0 !important;
+    }
+  }
+
   .row{
     @include tablet(){
       margin-left: 0;

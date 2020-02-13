@@ -40,7 +40,6 @@
 @import "widgets/staggered-images";
 @import "widgets/video";
 @import "widgets/storymap";
-@import "widgets/static-maps";
 @import "widgets/update-slider";
 @import "widgets/search";
 @import "widgets/featured-mosaic";
@@ -55,12 +54,14 @@
 @import "widgets/table";
 @import "widgets/updates-publisher";
 @import "widgets/featured-card";
+@import "widgets/chart-graphic";
+@import "widgets/static-infographic";
+@import "widgets/chart-legend";
 
 @import "anchor";
 @import "breadcrumbs";
 @import "buttons";
 @import "ckeditor";
-@import "infographic";
 @import "scroll-nav";
 @import "nav";
 @import "widget-margins";

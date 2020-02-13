@@ -49,7 +49,7 @@ $gray: lighten($gray-base, 33.5%) !default;
 $gray-light: lighten($gray-base, 46.7%) !default;
 $gray-lighter: lighten($gray-base, 93.5%) !default;
 
-$brand-primary: $grey-blue !default;
+$brand-primary: #07418a !default;
 $brand-success: #5cb85c !default;
 $brand-info: #5bc0de !default;
 $brand-warning: #f0ad4e !default;
@@ -379,7 +379,7 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 //** Number of columns in the grid.
 $grid-columns:              16 !default;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         26px !default;
+$grid-gutter-width:         30px !default;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 $grid-float-breakpoint:     $screen-sm-min !default;

@@ -8,6 +8,8 @@
 	portlet_id = htmlUtil.escapeAttribute(portlet_display.getId())
 	portlet_title = htmlUtil.escape(portlet_display.getTitle())
 	portlet_edit_url = htmlUtil.escape( portlet_display.getURLConfigurationJS() )
+	portlet_title_menus = ""
+	portlet_configuration_icons = ""
 />
 
 <section class="portlet" id="portlet_${portlet_id}">
@@ -15,10 +17,14 @@
 		<#assign
 			portlet_configuration_icon_menu = portlet_display.getPortletConfigurationIconMenu()
 			portlet_toolbar = portlet_display.getPortletToolbar()
-
-			portlet_configuration_icons = portlet_configuration_icon_menu.getPortletConfigurationIcons(portlet_display_root_portlet_id, renderRequest, renderResponse)
-			portlet_title_menus = portlet_toolbar.getPortletTitleMenus(portlet_display_root_portlet_id, renderRequest, renderResponse)
 		/>
+
+		<#if (portlet_configuration_icon_menu?has_content && portlet_toolbar?has_content)>
+			<#assign
+				portlet_title_menus = portlet_toolbar.getPortletTitleMenus(portlet_display_root_portlet_id, renderRequest, renderResponse)
+				portlet_configuration_icons = portlet_configuration_icon_menu.getPortletConfigurationIcons(portlet_display_root_portlet_id, renderRequest, renderResponse)
+			/>
+		</#if>
 
 		<#if (portlet_configuration_icons?has_content || portlet_title_menus?has_content)>
 			<header class="portlet-topper">
