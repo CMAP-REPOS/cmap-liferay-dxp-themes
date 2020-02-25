@@ -6,3 +6,4 @@ my-liferay-theme/build_gradle
 .DS_Store
 _assets
 .idea
+*.iml
