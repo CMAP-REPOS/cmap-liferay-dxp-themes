@@ -1,10 +1,19 @@
 .title-with-sections{
 
+  .page-nav-title-h2 {
+    font-size: 17px;
+  }
+
+  .page-nav-link {
+    font-size: 12px !important;
+  }
+
   @include section-padding();
 
   .page-date,
   .page-nav-title{
     height: $unit * 2;
+    margin-bottom: 1rem;
   }
 
   .page-title{

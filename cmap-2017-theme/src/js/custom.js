@@ -193,7 +193,7 @@ cmap.global.checkforh1 = function () {
     if ($(this).hasClass('hide-accessible')) {
       convertToDiv(this);
     } else {
-      console.log(this);
+      //console.log(this);
       cmap.global.scrollnavTitle($(this).text());
     }
   });
@@ -224,7 +224,7 @@ cmap.global.addpageclass = function () {
     final = noSlash + '-page';
   }
 
-  console.log(rawPath, noWebGuest, noSlash, final);
+  //console.log(rawPath, noWebGuest, noSlash, final);
   $('body').addClass(final);
 };
 
@@ -256,7 +256,7 @@ cmap.forms.contactus = function () {
 cmap.forms.global = function () {
 
   var $form = $('.portlet-forms');
-  console.log($form);
+  //console.log($form);
   if ($form.length) {
 
     $form.find('.ddl-form-builder-app').removeClass('container-fluid-1280');
