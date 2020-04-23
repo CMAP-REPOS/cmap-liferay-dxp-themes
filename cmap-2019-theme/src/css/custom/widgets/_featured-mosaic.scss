@@ -257,7 +257,8 @@ $off-white-text: #8f8f8f;
 		}
 
 		.b-mosaic-item__description {
-			padding-bottom: $gutter-width*2;
+			//padding-bottom: $gutter-width*2;
+			padding-bottom: 0px;
 		}
 	}
 
