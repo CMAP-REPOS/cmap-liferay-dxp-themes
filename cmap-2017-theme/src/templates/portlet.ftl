@@ -9,6 +9,7 @@
 	portlet_title = htmlUtil.escape(portlet_display.getTitle())
 />
 
+<@liferay_util["dynamic-include"] key="portlet_header_${portlet_display_root_portlet_id}" />
 <section class="portlet" id="portlet_${portlet_id}">
 	<#if portlet_display.isPortletDecorate() && !portlet_display.isStateMax() && portlet_display.getPortletConfigurationIconMenu()?? && portlet_display.getPortletToolbar()??>
 		<#assign
@@ -51,7 +52,7 @@
 
 	<div class="${portlet_content_css_class}">
 		<#if portlet_display.isShowBackIcon()>
-			<a class="icon-monospaced portlet-icon-back text-default" href="${portlet_back_url}" title="<@liferay.language key="return-to-full-page" />">
+			<a class="icon-monospaced portlet-icon-back list-unstyled text-default" href="${portlet_back_url}" title="<@liferay.language key="return-to-full-page" />">
 				<@liferay_ui["icon"]
 					icon="angle-left"
 					markupView="lexicon"

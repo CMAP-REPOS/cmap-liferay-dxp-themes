@@ -83,7 +83,7 @@ input[type="search"] {
   display: block;
 
   label {
-    min-height: $spacers; // Ensure the input doesn't jump when there is no text
+    min-height: $spacer; // Ensure the input doesn't jump when there is no text
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
