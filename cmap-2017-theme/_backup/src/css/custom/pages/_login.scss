@@ -1,0 +1,12 @@
+.login-page {
+
+  #main-content>.row {
+    @include section-padding();
+  }
+  .portlet-login {
+    padding: $size3 0 $size5;
+  }
+  .portlet-icon-back {
+    display: none;
+  }
+}

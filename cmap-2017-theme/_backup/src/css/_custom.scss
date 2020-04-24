@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+// these are loaded in a specific order
+// the rest are listed alphabetically
+@import "custom/vendor/hamburger";
+@import "custom/global/variables";
+@import "custom/global/mixins";
+@import "custom/global/print";
+
+// CUSTOM CMAP SCSS
+@import "custom/global/elements";
+@import "custom/global/grid";
+@import "custom/global/layout";
+@import "custom/global/liferay";
+@import "custom/global/links";
+@import "custom/global/typography";
+@import "custom/global/utilities";
+
+@import "custom/widgets/nav/header";
+@import "custom/widgets/nav/links";
+@import "custom/widgets/nav/logo";
+@import "custom/widgets/nav/scrollNav";
+@import "custom/widgets/nav/search";
+@import "custom/widgets/nav/sideNav";
+
+@import "custom/widgets/sliders/slider";
+@import "custom/widgets/sliders/fullSlider";
+@import "custom/widgets/sliders/halfSlider";
+@import "custom/widgets/sliders/updateSlider";
+@import "custom/widgets/sliders/partnerSlider";
+
+@import "custom/widgets/forms/old";
+@import "custom/widgets/forms/mixins";
+@import "custom/widgets/forms/normalize";
+@import "custom/widgets/forms/bootstrap";
+@import "custom/widgets/forms/custom";
+@import "custom/widgets/forms/dropdown";
+
+@import "custom/widgets/boardMemberPage";
+@import "custom/widgets/breadcrumbs";
+@import "custom/widgets/buttons";
+@import "custom/widgets/calendar";
+@import "custom/widgets/featuredCard";
+@import "custom/widgets/footer";
+@import "custom/widgets/homepageHero";
+@import "custom/widgets/infographic";
+@import "custom/widgets/jumpToTop";
+@import "custom/widgets/sectionHero";
+@import "custom/widgets/share";
+@import "custom/widgets/splitSummary";
+@import "custom/widgets/storymap2050";
+@import "custom/widgets/table";
+@import "custom/widgets/titleWithSections";
+@import "custom/widgets/youtube";
+@import "custom/widgets/social-slicer";
+@import "custom/widgets/update-slider";
+
+@import "custom/pages/fy18";
+@import "custom/pages/homepage";
+@import "custom/pages/login";
+@import "custom/pages/search";
+@import "custom/pages/sitemap";
+@import "custom/pages/staffdirectory";
+@import "custom/pages/updates";

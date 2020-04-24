@@ -1,0 +1,106 @@
+.social-slider{
+    margin-top: 3em;
+  
+    .row {
+        padding: 0 4.242em;
+        position: relative;
+        display: flex;
+        margin: 0;
+  
+        @include tablet(){
+          padding: 0;
+        }
+
+        .item:last-of-type{
+          border-right: none !important;
+
+          @include tablet(){
+            border-right: $border !important;
+          }
+        }
+    
+        .item:first-of-type{
+          padding-left: 0 !important;
+
+          @include tablet(){
+            padding-left: $unit !important;
+          }
+        }
+    }
+  
+    .slider-container {
+        margin-top: 1em;
+        margin-bottom: 0;
+
+        @include tablet{
+          margin-right: 4em;
+        }
+    
+        .slider-slide {
+          display: flex;
+          border-top: $border;
+
+          .social-icon{
+            transform: translateY(-40%);
+          }
+  
+          .item {
+            border-right: $border;
+            padding: 0 $unit $unit $unit;
+
+            .retweet{
+                @extend .whitney-small__bold;
+                color: $dark-grey;
+            }
+
+            .post{
+                @extend .whitney-normal;
+                color: $black !important;
+
+                a{  
+                    color: $dark-blue;
+                    text-decoration: underline !important; 
+                    white-space: pre-wrap; /* CSS3 */    
+                    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+                    white-space: -pre-wrap; /* Opera 4-6 */    
+                    white-space: -o-pre-wrap; /* Opera 7 */    
+                    word-wrap: break-word;
+                }
+            }
+
+            .read-more-link{
+              margin-top: 1em;
+              text-decoration: underline;
+            }
+
+            .post-info{
+                color: $grey-blue;
+                @extend .whitney-small__bold;
+                padding-top: 1em;
+
+                svg{
+                    transform: translateY(25%);
+                }
+            }
+          }
+        }
+      }
+  
+      .slider-nav {
+        padding-bottom: 1em;
+        padding-top: 1em;
+        border-top: $border;
+        border-bottom: $border;
+  
+        .nav-item {
+          font-size: xx-large;
+
+          @include tablet(){
+            font-size: x-large;
+          }
+  
+          
+        }
+    }
+  }
+  

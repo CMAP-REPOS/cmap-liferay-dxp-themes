@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+
+	<theme id="cmap-2017" name="CMAP 2017">
+		<template-extension>ftl</template-extension>
+		<portlet-decorator id="centered-content" name="Centered Content">
+			<portlet-decorator-css-class>portlet-centered</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="full-width-content" name="Full Width Content">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-full-width</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

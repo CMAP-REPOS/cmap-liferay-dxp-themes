@@ -1,0 +1,142 @@
+#main-header{
+  position: relative;
+	width: 100%;
+  height: auto;
+  background: #fff;
+  border-bottom: 4px solid #C9D5DC;
+
+  .nav-row-one{
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+
+    @include section-padding($unit);
+
+    .left{
+      display: flex;
+      align-items: center;
+    }
+
+    .right{
+      flex: 0 0 auto;
+      margin-right: 0;
+    }
+
+    .side-nav-trigger{
+      display: none;
+
+      @include desktop(){
+        display: block;
+      }
+    }
+
+    .hamburger{
+      padding: 0;
+      outline: none;
+      float: right;
+
+      .glyphicon-search{
+        font-size: 2em;
+      }
+
+      @include tablet(){
+        padding-right: $size-1;
+        padding-left: 0;
+      }
+      @include phone(){
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .hamburger-box{
+        height: $unit;
+        transform: scale(0.75) translateX(-25%) translateY(0.2em);
+      }
+      
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after{
+        background: $grey-blue;
+        width: $size2;
+        height: 3px;
+        border-radius: 0;
+      }
+    }
+
+    .logo{
+      padding-left: 0;
+
+      @include desktop(){
+        padding-left: 0;
+      }
+      @include tablet(){
+        span{
+          display: none;
+        }
+      }
+    }
+
+    .input-group{
+    	flex: 0 0 auto;
+    }
+
+  }
+
+
+  .nav-row-two{
+    padding: 0 $unit*3;
+    align-items: center;
+    border-bottom: none;
+    @include desktop(){
+      display: none;
+    }
+  }
+
+  .main-nav-links{
+
+    padding-right: 0;
+
+  	li{
+  		display: inline-flex;
+  		align-items: center;
+      height: $unit * 2;
+      margin-right: 20px;
+      border-top: 2px solid transparent;
+      
+      @media screen and (max-width: 1200px){
+        margin-right: 5px;
+      }
+
+      &:hover{
+  			border-top-color: darken($primary, 10%);
+  		}
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+  	}
+  }
+
+  .main-nav-social{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .header-social-link{
+      padding-right: 1rem;
+
+      @include desktop(){
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.side-nav-active{
+  #main-header{
+    .left .logo{
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

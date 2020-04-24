@@ -1,0 +1,68 @@
+section.section-hero{
+  .top{
+  	&.black {
+  		h1 {
+  			color: $black;
+  		}
+  	}
+  	&.blue {
+  		h1 {
+  			color: $primary;
+  		}
+	}
+  	&.green {
+   		h1 {
+  			color: $green;
+  		}
+  	}
+    h1{
+      @extend .whitney-huge;
+    }
+  }
+  .bottom{
+    background-size: cover !important;
+    background-position: center !important;
+    padding: $unit 0 #{$unit * 2};
+    margin: $unit 0;
+  	&.black {
+  		a {
+  			color: $black;
+  			border-bottom: 1px solid $black;
+        opacity: 1;
+        transition: all 0.2s;
+        &:hover{
+          opacity: 0.5;
+        }
+  		}
+  		p {
+  			color: $black;
+  		}
+  	}
+  	&.white {
+  		a {
+  			color: $white;
+  			border-bottom: 1px solid $white;
+        opacity: 1;
+        transition: all 0.2s;
+        &:hover{
+          opacity: 0.5;
+        }
+  		}
+		  p {
+  			color: $white;
+  		}
+    }
+
+    p{
+      @extend .presna-large;
+    }
+  }
+}
+
+.portlet-full-width{
+  section.section-hero{
+    .row{
+      @include section-padding();
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.main-nav-links,
+.side-nav-links{
+
+  ul{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li{
+    transition: all 0.15s ease;
+
+    a{
+      display: block;
+      @extend .whitney-normal__bold;
+      font-size: 16px;
+      color: $grey-blue;
+    }
+  }
+}
+
+.main-nav-links{
+  li{
+    a{
+      @media screen and (max-width: 1200px){
+        font-size: small;
+      }
+      color: $grey-blue;
+    }
+  }
+}
+.side-nav-links{
+  li{
+    a{
+      color: $grey-blue;
+    }
+  }
+}

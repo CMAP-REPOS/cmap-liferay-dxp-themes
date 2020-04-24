@@ -1,0 +1,264 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "StaffMember"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "",
+          "fieldNamespace": "ddm",
+          "indexType": "",
+          "localizable": true,
+          "name": "StaffMember",
+          "readOnly": false,
+          "repeatable": true,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-separator",
+          "nestedFields": [
+              {
+                  "label": {
+                      "en_US": "FirstName"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "FirstName",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "LastName"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "LastName",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Department"
+                  },
+                  "options": [
+                      {
+                          "value": "Communications & Outreach",
+                          "label": {
+                              "en_US": "communications"
+                          }
+                      },
+                      {
+                          "value": "Executive Office",
+                          "label": {
+                              "en_US": "executiveoffice"
+                          }
+                      },
+                      {
+                          "value": "Finance & Administration",
+                          "label": {
+                              "en_US": "financeandadministration"
+                          }
+                      },
+                      {
+                          "value": "Governmental Affairs",
+                          "label": {
+                              "en_US": "governmentalaffairs"
+                          }
+                      },
+                      {
+                          "value": "Local Planning",
+                          "label": {
+                              "en_US": "localplanning"
+                          }
+                      },
+                      {
+                          "value": "Policy & Programming",
+                          "label": {
+                              "en_US": "policyandprogramming"
+                          }
+                      },
+                      {
+                          "value": "Research & Analysis",
+                          "label": {
+                              "en_US": "researchandanalysis"
+                          }
+                      }
+                  ],
+                  "predefinedValue": {
+                      "en_US": []
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "multiple": false,
+                  "name": "Department",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "select"
+              },
+              {
+                  "label": {
+                      "en_US": "Title"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "Title",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Phone"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "Phone",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Email"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "Email",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Website"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "string",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "Website",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "text"
+              },
+              {
+                  "label": {
+                      "en_US": "Photo"
+                  },
+                  "predefinedValue": {
+                      "en_US": ""
+                  },
+                  "style": {
+                      "en_US": ""
+                  },
+                  "tip": {
+                      "en_US": ""
+                  },
+                  "dataType": "document-library",
+                  "fieldNamespace": "ddm",
+                  "indexType": "",
+                  "localizable": true,
+                  "name": "Photo",
+                  "readOnly": false,
+                  "repeatable": false,
+                  "required": false,
+                  "showLabel": true,
+                  "type": "ddm-documentlibrary"
+              }
+          ]
+      }
+  ]
+}

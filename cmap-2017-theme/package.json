@@ -13,19 +13,19 @@
 		"screenshot": "",
 		"rubySass": false,
 		"templateLanguage": "ftl",
-		"version": "7.0"
+		"version": "7.1"
 	},
 	"devDependencies": {
 		"gulp": "^3.8.10",
+		"liferay-theme-tasks": "8.0.9",
 		"require-directory": "^2.1.1",
-		"liferay-frontend-theme-unstyled": "^2.2.15",
-		"liferay-theme-tasks": "^9.1.5",
-		"liferay-theme-deps-7.0": "~1.0.0"
+		"liferay-theme-deps-7.1": "8.0.9"
 	},
 	"publishConfig": {
 		"tag": "7_0_x"
 	},
 	"dependencies": {
+		"natives": "^1.1.6",
 		"npm": "^5.7.1"
 	}
 }

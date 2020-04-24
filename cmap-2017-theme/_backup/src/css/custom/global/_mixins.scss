@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+@mixin logo-size($size){
+  // override the fallback width and height attr
+  svg{
+  }
+  span{
+    font-size: #{$size * 1.2};
+    letter-spacing: -0.05em;
+    margin-left: $size / 2.25;
+    color: #000;
+  }
+}
+
+@mixin search-widget-color($primary, $background){
+  background: $background;
+
+  .search-widget-field{
+    color: $primary;
+  }
+  .search-widget-decorators{
+    .search-placeholder-text{
+      color: $grey-blue;
+    }
+    .search-icon{
+      path{
+        stroke: $grey-blue;
+      }
+    }
+  }
+}
+
+@mixin no_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin section-padding($vertical: 0){
+  padding: $vertical #{$unit * 3};
+
+  @include tablet(){
+    padding: $vertical #{$unit * 2};
+  }
+  @include phone(){
+    padding: $vertical $unit;
+  }
+}
+
+@mixin phone(){
+  @media screen and (max-width: $breakpoint-phone){
+    @content;
+  }
+}
+@mixin tablet(){
+  @media screen and (max-width: $breakpoint-tablet){
+    @content;
+  }
+}
+@mixin desktop(){
+  @media screen and (max-width: $breakpoint-desktop){
+    @content;
+  }
+}
+@mixin tv(){
+  @media screen and (max-width: $breakpoint-tv){
+    @content;
+  }
+}
+@mixin mq($size){
+  @media screen and (max-width: $size){
+    @content;
+  }
+}
+
+/* FLEXBOX */
+@mixin flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flex_space_between {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+@mixin flex_space_evenly {
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
+	justify-content: space-evenly;
+}
+
+@mixin flex_space_normal {
+	-webkit-box-pack: normal;
+	-ms-flex-pack: normal;
+	justify-content: normal;
+}

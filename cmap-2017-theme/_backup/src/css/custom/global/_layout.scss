@@ -1,0 +1,26 @@
+// 90% of things are in this div
+#wrapper {
+  position: relative;
+  transition: $side-nav-animation;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow-x: hidden;
+}
+
+// what the user is on the page to see
+#main-content {
+  // padding-bottom: $unit * 4;
+  .row {
+    @include tablet() {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.cmap-nested-layout {
+  .portlet-layout.row {
+    @include section-padding();
+  }
+}
