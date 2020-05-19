@@ -34,7 +34,7 @@ $normal-weight: 400;
 
 .whitney-small {
   @extend .whitney;
-  font-size: $font-size-h6;
+  font-size: $h6-font-size;
 }
 .whitney-small__bold{
   @extend .whitney-small;
@@ -43,7 +43,7 @@ $normal-weight: 400;
 
 .whitney-normal {
   @extend .whitney;
-  font-size: $font-size-h5;
+  font-size: $h5-font-size;
 }
 
 .whitney-normal__bold {
@@ -53,7 +53,7 @@ $normal-weight: 400;
 
 .whitney-middle{
   @extend .whitney;
-  font-size: $font-size-h4;
+  font-size: $h4-font-size;
 }
 
 .whitney-middle__bold {
@@ -63,7 +63,7 @@ $normal-weight: 400;
 
 .whitney-semi-large{
   @extend .whitney;
-  font-size: $font-size-h3;
+  font-size: $h3-font-size;
 }
 
 .whitney-semi-large__bold{
@@ -73,18 +73,18 @@ $normal-weight: 400;
 
 .whitney-large {
   @extend .whitney;
-  font-size: $font-size-h2;
+  font-size: $h2-font-size;
 }
 
 .whitney-large__bold {
   @extend .whitney-large;
   font-weight: $bold-weight;
-  font-size: $font-size-h2;
+  font-size: $h2-font-size;
 }
 
 .whitney-huge {
   @extend .whitney;
-  font-size: $font-size-h1;
+  font-size: $h1-font-size;
 }
 
 .whitney-huge__bold{
@@ -94,7 +94,7 @@ $normal-weight: 400;
 
 .whitney-jumbo{
   @extend .whitney;
-  font-size: $font-size-h1;
+  font-size: $h1-font-size;
 }
 
 .whitney-jumbo__bold{
@@ -135,10 +135,10 @@ $normal-weight: 400;
 }
 .presna-normal{
   @extend .presna;
-  font-size: $font-size-h5;
+  font-size: $h5-font-size;
 }
 
 .presna-large{
   @extend .presna;
-  font-size: $font-size-h2;
+  font-size: $h2-font-size;
 }

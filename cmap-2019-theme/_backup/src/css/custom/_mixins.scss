@@ -1,0 +1,99 @@
+@mixin container-margin-left($vertical: 0){
+  margin-left: $grid-gutter-width * 2;
+  margin-top: $vertical;
+  margin-bottom: $vertical;
+  @include tablet(){
+    margin-left: 0;
+  }
+}
+@mixin container-margin-right($vertical: 0){
+  margin-right: $grid-gutter-width * 2;
+  margin-top: $vertical;
+  margin-bottom: $vertical;
+  @include tablet(){
+    margin-right: 0;
+  }
+}
+@mixin container-margin($vertical: 0){
+  @include container-margin-left($vertical);
+  @include container-margin-right($vertical);
+}
+
+@mixin phone(){
+  @media screen and (max-width: $breakpoint-phone){
+    @content;
+  }
+}
+@mixin tablet(){
+  @media screen and (max-width: $breakpoint-tablet){
+    @content;
+  }
+}
+@mixin desktop(){
+  @media screen and (max-width: $breakpoint-desktop){
+    @content;
+  }
+}
+
+@mixin huge(){
+  @media screen and (max-width: $breakpoint-huge){
+    @content;
+  }
+}
+@mixin mq($size){
+  @media screen and (max-width: $size){
+    @content;
+  }
+}
+
+@mixin responsive-padding(){
+  padding: $padding-large-vertical $padding-large-horizontal;
+
+  @include desktop(){
+    padding: $padding-base-vertical $padding-base-horizontal;
+  }
+  @include tablet(){
+    padding: $padding-small-vertical $padding-small-horizontal;
+  }
+  @include phone(){
+    padding: $padding-xs-vertical $padding-xs-horizontal;
+  }
+}
+
+@mixin underline-link($color){
+  color: $color;
+  text-decoration: none;
+  border-bottom: 0.025em solid $color;
+
+  &:hover,
+  &:focus {
+    color: lighten($color, 10%);
+    text-decoration: none;
+    border-bottom-color: lighten($color, 10%);
+  }
+
+}
+
+@mixin clear-underline-link($color){
+  color: $color !important;
+  text-decoration: underline !important;
+  border-bottom: none !important;
+
+  &:hover,
+  &:focus {
+    color: lighten($color, 25%) !important;
+    text-decoration: underline !important;
+  }
+}
+
+@mixin section-padding($vertical: 0){
+  padding: $vertical #{$unit * 3};
+
+  @include tablet(){
+    padding: $vertical $unit;
+    //padding: $vertical #{$unit * 2};
+  }
+  @include phone(){
+    padding: $vertical $unit;
+  }
+}

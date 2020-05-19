@@ -23,11 +23,11 @@
 		}
 	}
 
-	#{$list} {
-		.portlet-topper {
-			width: 65%;
-		}
-	}
+	//#{$list} {
+	//	.portlet-topper {
+	//		width: 65%;
+	//	}
+	//}
 }
 
 @include media-query(sm) {

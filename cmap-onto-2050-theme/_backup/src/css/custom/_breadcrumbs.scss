@@ -1,0 +1,40 @@
+body.cmap-on-to-2050-theme{
+  #cmap-breadcrumbs{
+    display: none;
+  }
+}
+
+#breadcrumbs{
+  .trail-col{
+    position: relative;
+  }
+  .breadcrumb-cmap{
+    padding: 1rem #{$grid-gutter-width / 2};
+  }
+  // .breadcrumb-trail{ }
+  .breadcrumb{
+    margin-bottom: 0;
+    @include container-margin-left();
+  }
+  .share-button,
+  .close-button{
+    position: relative;
+    left: - #{$grid-gutter-width / 2};
+    background: transparent;
+  }
+  .share-menu{
+    position: absolute;
+    top: 0;
+    left: $grid-gutter-width/2;
+    @include container-margin-left();
+
+    .input-group{
+      max-width: 75%;
+    }
+  }
+  .whitney-small{
+    @include tablet(){
+      font-size: 10px;
+    }
+  }
+}

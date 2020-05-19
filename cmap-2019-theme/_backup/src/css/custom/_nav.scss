@@ -1,0 +1,48 @@
+
+#navigation{
+
+  @include tablet(){
+    display: none;
+  }
+
+  .site-nav{
+    margin-left: 0;
+    margin-bottom: 0;
+
+    li:first-of-type{
+      padding-left: 0;
+    }
+
+    .banner-menu-item{
+      color: $grey-blue !important;
+    }
+
+  }
+
+  a{
+    display: inline-block;
+    padding: 2rem 0;
+    font-weight: $font-weight-bold;
+    border-top: 0.1em solid transparent;
+    transition: all 0.2s ease-in-out;
+    color: $grey-blue !important;
+
+    @include desktop() { 
+      font-size: small;
+    }
+
+    &:hover{
+      border-top: 0.1em solid $grey-blue;
+    }
+  }
+
+  .return-to-cmap{
+    @include tablet(){
+      @include container-margin-left();
+    }
+    color: $light-blue;
+    &:hover{
+      border-top-color: $light-blue;
+    }
+  }
+}

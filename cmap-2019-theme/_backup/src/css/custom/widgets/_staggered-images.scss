@@ -1,0 +1,54 @@
+.onto2050-staggered-images{
+  position: relative;
+  z-index: 98;
+
+  &.left{
+    .left{
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+    .right{
+      position: absolute;
+      top: 0;
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+  }
+
+  &.right{
+    .right{
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+    .left{
+      position: absolute;
+      top: 0;
+      .caption{
+        padding-top: $grid-gutter-width;
+      }
+    }
+  }
+
+  .mobile{
+    display: none;
+    .bottom-image{
+      padding-top: $grid-gutter-width;
+    }
+    .caption{
+      padding-top: #{$grid-gutter-width / 2};
+    }
+  }
+
+  @include tablet(){
+    .right, .left{
+      display: none;
+    }
+    .mobile{
+      display: block;
+    }
+  }
+  
+}

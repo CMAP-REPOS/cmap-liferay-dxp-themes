@@ -12,6 +12,7 @@
 	portlet_configuration_icons = ""
 />
 
+<@liferay_util["dynamic-include"] key="portlet_header_${portlet_display_root_portlet_id}" />
 <section class="portlet" id="portlet_${portlet_id}">
 	<#if portlet_display.isPortletDecorate() && !portlet_display.isStateMax() && portlet_display.getPortletConfigurationIconMenu()?? && portlet_display.getPortletToolbar()??>
 		<#assign

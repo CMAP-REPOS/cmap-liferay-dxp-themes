@@ -1,10 +1,16 @@
 /* ---------- Portlet topper ---------- */
 
-$portlet-topper-bg: $navbar-default-bg !default;
-$portlet-topper-border: $navbar-default-border !default;
-$portlet-topper-color: $navbar-default-color !default;
-$portlet-topper-link-color: $navbar-default-link-color !default;
-$portlet-topper-link-hover-color: $navbar-default-link-hover-color !default;
+//$portlet-topper-bg: $navbar-default-bg !default;
+$portlet-topper-bg: #f8f8f8 !default;
+//$portlet-topper-border: $navbar-default-border !default;
+//https://github.com/twbs/bootstrap-sass/blob/b34765d8a6aa775816c59012b2d6b30c4c66a8e9/assets/stylesheets/bootstrap/_variables.scss#L374
+$portlet-topper-border: #686868 !default;
+//$portlet-topper-color: $navbar-default-color !default;
+//https://github.com/twbs/bootstrap-sass/blob/b34765d8a6aa775816c59012b2d6b30c4c66a8e9/assets/stylesheets/bootstrap/_variables.scss#L373
+//https://github.com/twbs/bootstrap/blob/ffb19e925cb18c46fc4efa73b1f839ace28a06a1/scss/_variables.scss#L856
+$portlet-topper-color: $navbar-dark-color !default;
+$portlet-topper-link-color: #777 !default;
+$portlet-topper-link-hover-color: $navbar-dark-hover-color !default;
 
 $portlet-topper-border-radius: $navbar-border-radius $navbar-border-radius 0 0 !default;
 
@@ -24,7 +30,7 @@ $portlet-content-border-width: $portlet-content-border-top-width $portlet-conten
 
 /* ---------- Portlet decorator ---------- */
 
-$portlet-decorate-bg: $gray-lighter !default;
-$portlet-decorate-border-color: $navbar-default-border !default;
+$portlet-decorate-bg: $gray-200 !default;
+$portlet-decorate-border-color: #686868 !default;
 $portlet-decorate-border-style: solid !default;
 $portlet-decorate-border-width: $portlet-content-border-width !default;

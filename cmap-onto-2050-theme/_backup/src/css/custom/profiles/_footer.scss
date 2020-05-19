@@ -1,0 +1,44 @@
+section.profile-footer{
+  display: flex;
+  align-items: center;
+
+  border-top: $site-border;
+  border-bottom: $site-border;
+
+  .profile-footer-item{
+    border-right: $site-border;
+    &:last-of-type{
+      border-right: 0;
+    }
+  }
+
+  .profile-footer-item-mobile{
+    display: none;
+  }
+
+  &.has-mobile-pictures{
+    @include tablet(){
+      .profile-footer-item{
+        display: none;
+      }
+      .profile-footer-item-mobile{
+        display: block;
+      }
+    }
+  }
+}
+
+section.profile-footer-alt{
+  position: relative;
+  .profile-footer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .profile-footer-inner-content{
+    width: 75%;
+    min-width: 200px;
+  }
+}

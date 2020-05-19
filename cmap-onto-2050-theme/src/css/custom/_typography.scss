@@ -12,31 +12,31 @@ $normal-weight: 400;
 
 .whitney-small{
   @extend .whitney;
-  font-size: $font-size-h6;
+  font-size: $h6-font-size;
 }
 .whitney-normal{
   @extend .whitney;
-  font-size: $font-size-h5;
+  font-size: $h5-font-size;
 }
 .whitney-middle{
   @extend .whitney;
-  font-size: $font-size-h4;
+  font-size: $h4-font-size;
 }
 .whitney-semi-large{
   @extend .whitney;
-  font-size: $font-size-h3;
+  font-size: $h3-font-size;
 }
 .whitney-large{
   @extend .whitney;
-  font-size: $font-size-h2;
+  font-size: $h2-font-size;
 }
 .whitney-huge{
   @extend .whitney;
-  font-size: $font-size-h1;
+  font-size: $h1-font-size;
 }
 .whitney-jumbo{
   @extend .whitney;
-  font-size: $font-size-jumbo;
+  font-size: $h1-font-size * 2;
 }
 
 .huge-headline{
@@ -78,7 +78,7 @@ $normal-weight: 400;
 .presna-large{
   @extend .presna;
   line-height: 1.2;
-  font-size: $font-size-h2;
+  font-size: $h2-font-size;
 }
 
 

@@ -1,0 +1,28 @@
+/* ---------- Column widths ---------- */
+
+.signed-in .portlet-column-content.empty {
+	padding: $portlet-column-content-empty-padding;
+	margin-bottom: $portlet-column-content-empty-padding / 2;
+	opacity: 0.5;
+	transition: all 0.2s ease-in-out;
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.blue-theme{
+	&.signed-in .portlet-column-content.empty {
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.5;
+		}
+	}
+}
+
+/* ---------- Wrapper ---------- */
+
+#wrapper {
+	padding-bottom: $wrapper-padding-bottom;
+	padding-top: $wrapper-padding-top;
+	position: relative;
+}

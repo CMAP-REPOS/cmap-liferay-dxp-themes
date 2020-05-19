@@ -1,10 +1,7 @@
 {
-	"name": "cmap-2017-theme",
+	"name": "cmap-onto-2050-theme",
 	"version": "1.0.0",
-	"description": "A Liferay 7.0 theme for the Chicago Metropolitan Agency of Planning or CMAP",
 	"main": "package.json",
-	"repository": "https://bitbucket.org/workstate-code/cmap-liferay-dxp-themes",
-	"license": "UNLICENSED",
 	"keywords": [
 		"liferay-theme"
 	],
@@ -13,13 +10,12 @@
 		"screenshot": "",
 		"rubySass": false,
 		"templateLanguage": "ftl",
-		"version": "7.1"
+		"version": "7.0"
 	},
 	"devDependencies": {
-		"gulp": "^3.8.10",
-		"liferay-theme-tasks": "8.0.9",
-		"require-directory": "^2.1.1",
-		"liferay-theme-deps-7.1": "8.0.9"
+		"gulp": "3.8.10",
+		"liferay-theme-tasks": "9.1.5",
+		"liferay-theme-deps-7.0": "~1.0.0"
 	},
 	"publishConfig": {
 		"tag": "7_0_x"

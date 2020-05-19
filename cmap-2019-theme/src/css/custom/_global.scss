@@ -37,7 +37,7 @@ body {
       @extend .whitney-normal__bold;
       
       @include huge() {
-        font-size: $font-size-h6;
+        font-size: $h6-font-size;
       }
       padding-right: 20px;
     }
@@ -97,7 +97,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    font-size: $font-size-h2;
+    font-size: $h2-font-size;
     transform: translateX(-100%);
   }
   &:after{
@@ -105,7 +105,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: $font-size-h2;
+    font-size: $h2-font-size;
     transform: translateX(100%);
   }
 }

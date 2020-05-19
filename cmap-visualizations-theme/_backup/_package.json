@@ -1,0 +1,26 @@
+{
+	"name": "cmap-visualizations-theme",
+	"version": "1.0.0",
+	"main": "package.json",
+	"keywords": [
+		"liferay-theme"
+	],
+	"liferayTheme": {
+		"baseTheme": "styled",
+		"screenshot": "",
+		"rubySass": false,
+		"templateLanguage": "ftl",
+		"version": "7.0"
+	},
+	"devDependencies": {
+		"gulp": "3.9.1",
+		"liferay-theme-tasks": "8.0.9",
+		"liferay-theme-deps-7.0": "8.0.9"
+	},
+	"publishConfig": {
+		"tag": "7_0_x"
+	},
+	"dependencies": {
+		"natives": "^1.1.6"
+	}
+}

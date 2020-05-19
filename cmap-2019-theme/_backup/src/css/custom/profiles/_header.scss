@@ -1,0 +1,43 @@
+section.profile-header{
+  position: relative;
+  border-bottom: 1px solid $light-grey;
+
+  .mobile-image{
+    display: none;
+  }
+
+  .background-image{
+    width: 100%;
+  }
+
+  span{
+    display: block;
+    line-height: 1.5;
+    font-weight: $font-weight-bold;
+  }
+
+  .profile-text{
+    position: absolute;
+    top: 0;
+  }
+  
+  @include tablet(){
+    height: auto;
+    background: transparent !important;
+    border-bottom: none;
+    .profile-text{
+      position: relative;
+    }
+    .mobile-image{
+      display: block;
+      border-bottom: 1px solid $light-grey;
+    }
+    .profile-name,
+    .profile-title{
+      @include container-margin(0);
+    }
+    .background-image{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.b-event-list {
+	padding-top: 1em;
+
+	@include tablet(){
+		padding: 0;
+	}
+
+	.header-hr{
+		margin: 0;
+    	margin-right: -20em;
+    	border: 0;
+    	border-top: $border;
+	}
+
+	.slider-container-calendar{
+		margin: 0;
+		margin-right: 5em;
+
+		.slider-slide{
+			flex: 0 0 100%;
+			border-right: $border;
+		  }
+	}
+
+	.header-col{
+		border-top: $border-thick;
+		border-bottom: $border;
+	}
+
+	.row {
+  		@include tablet(){
+		  padding: 0;
+		}
+	}
+
+	.b-event-item{
+		@include tablet(){
+			margin-left: $unit;
+		}
+	}
+
+	.b-event-list__header {
+		position: relative;
+		margin-bottom: 1em;
+		padding: 0 $gutter-width;
+
+		@include tablet(){
+			margin: 1em $unit;
+			padding: 0;
+		}
+
+		h2 {
+			@extend .whitney-normal__bold;
+			color: $black;
+			letter-spacing: 0.05em;
+    		margin: 0;
+		}
+
+		.b-event-list__today {
+			position: absolute;
+			top: 14px;
+			right: 0;
+			font-size: 12px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			width: 36px;
+			text-align: center;
+		}
+	}
+
+	.b-event-list__list {
+		padding: 0 $gutter-width;
+
+		@include tablet(){
+			padding: 0;
+		}
+	}
+
+	.b-event-list__view-all {
+		@extend .whitney-small__bold;
+		color: $dark-blue !important;
+		margin-left: 1.5em;
+		letter-spacing: 0.05em;
+		text-decoration: underline !important; 
+	}
+}
+
+.svg-calendar{
+	position: absolute;
+    top: .5rem;
+    right: 1.5em;
+}
+
+.row-mobile {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.b-event-item {
+
+	.b-event-item__event-date {
+		margin: 1.7em 0 0.5em 0;
+		@extend .whitney-normal__bold;
+		letter-spacing: 0.05em;
+
+		.b-event-item__date {
+			text-transform: uppercase;
+			@extend .whitney-normal__bold;
+			letter-spacing: 0.05em;
+			color: $black;
+		}
+
+		.b-event-item__day {
+			text-transform: uppercase;
+			@extend .whitney-small__bold;
+			letter-spacing: 0.05em;
+			color: $black;
+		}
+	}
+
+	&:first-child .b-event-item__event-date {
+		margin-top: 0.5em;
+	}
+
+	.b-event-item__event-time {
+		text-transform: lowercase;
+		@extend .whitney-normal;
+		margin: 0.5em 0 0 0;
+	}
+
+	.b-event-item__event-name {
+		@extend .whitney-normal;
+		margin: 0 0 1.2em 0;
+		color: $dark-blue !important;
+	}
+}
+
+.b-event-list--desktop{
+	@include desktop(){
+		font-size: smaller;
+	}
+}
+
+

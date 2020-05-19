@@ -1,0 +1,103 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+	{
+	  "type": "Feature",
+	  "properties": {
+		"label": "Lake"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -87.97937,
+		  42.32402
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "McHenry"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -88.45295,
+		  42.324287
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "Cook"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -87.89411,
+		  41.81194
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "DuPage"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -88.088554,
+		  41.839706
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "Will"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -87.89351,
+		  41.46527
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "Kane"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -88.42032,
+		  41.93692
+		]
+	  }
+	},
+
+    {
+	  "type": "Feature",
+	  "properties": {
+		"label": "Kendall"
+	  },
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+          -88.42795,
+          41.590897
+		]
+	  }
+	}
+
+  ]
+}

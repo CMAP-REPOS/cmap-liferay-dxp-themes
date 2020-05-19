@@ -1,0 +1,87 @@
+#footer{
+  background: $off-white;
+  padding-top: 1.75rem;
+  padding-bottom: 2rem;
+
+  .desktop-content{
+    @include tablet(){
+      display: none;
+    }
+  }
+
+
+
+  .jump-to-top-button{
+    @include container-margin-left();
+    @include tablet(){
+      display: none;
+    }
+  }
+
+  .mobile-content{
+    display: none;
+    @include tablet(){
+      display: block;
+    }
+
+    .footer-page-links{
+      padding-bottom: 1rem;
+    }
+    .jump-to-top-button{
+      padding-right: 1rem;
+    }
+  }
+
+
+  .row,
+  .footer-social-links{
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-page-links{
+    transform: translateY(0.1em);
+    a{
+      @extend .small-headline;
+      margin-right: 0.5em;
+      color: $grey-blue !important;
+      @include tablet(){
+        font-size: 10px;
+      }
+      &:hover{
+        color: $blue !important;
+        border-bottom: 1px solid $blue;
+      }
+    }
+  }
+
+  .footer-social-link{
+    display: inline-block;
+    height: 20px; // change to same value as svg height;
+    margin-right: 0.5em;
+
+    path{
+      fill: $grey-blue;
+      transition: all 0.2s ease-in-out;
+    }
+    &:hover{
+      path{
+        fill: $blue;
+      }
+    }
+
+    $logo-padding: 0.2em;
+    .youtube{
+      margin: 0 $logo-padding;
+      transform: translateY(-0.05em);
+    }
+    .instagram{
+      margin: 0 $logo-padding;
+    }
+  }
+
+  .copyright{
+    display: inline-block;
+    color: $grey-blue;
+  }
+}

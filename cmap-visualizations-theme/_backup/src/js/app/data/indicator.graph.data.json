@@ -1,0 +1,296 @@
+{
+	"roads": {
+		"indicators": {
+			"congestion": {
+				"indicatorData": {
+					"title": "Average congested highway <br> hours per weekday",
+					"explanation": "To measure progress toward reducing congestion, CMAP tracks how often speeds on limited access highways fall below 45 mph on weekdays between 6:00 a.m. and 10:00 p.m.  Due to a forecast of nearly 2.4 million additional residents from 2010-40, congestion could grow at an even faster rate unless we take decisive steps to address it.",
+					"type": "pieChart",
+					"width": 260,
+					"data": {
+						"2012": {
+							"label": "status 2012",
+							"value": 9,
+							"range": 24,
+							"metric": "hours"
+						},
+						"2020": {
+							"label": "target 2020",
+							"value": 12,
+							"range": 24,
+							"metric": "hours"
+						},
+						"2040": {
+							"label": "target 2040",
+							"value": 10,
+							"range": 24,
+							"metric": "hours"
+						}
+					},
+					"extra": "shown proportionally to a full 24-hour weekday",
+					"source": "Chicago Metropolitan Agency for Planning, U.S. Department of Transportation Mobility Monitoring Program."
+				}
+			},
+			"ride-quality": {
+				"indicatorData": {
+					"title": "Percentage of highway system <br> with acceptable ride quality",
+					"explanation": "GO TO 2040 recommends bringing the highway system to a state of good repair with “acceptable” ride quality, defined by pavement rating based on the International Roughness Index.  In addition to IRI scores, IDOT collects Condition Rating Survey data for the state highway system. Read more in this <a target='_blank' href='http://www.idot.illinois.gov/Assets/uploads/files/Transportation-System/Manuals-Guides-%26-Handbooks/Highways/IRIS_Manual.pdf'>IDOT manual</a> and <a target='_blank' href='http://ediillinois.org/ppa/docs/00/00/00/02/11/36/ConditionRatingSurveyManualApril2004.pdf'>CRS procedure</a>.",
+					"type":"horizontalBarChart",
+					"data":{
+						"2012":{
+							"label":"status 2012",
+							"value":74.6
+						},
+						"2020":{
+							"label":"target 2020",
+							"value":77.0
+						},
+						"2040":{
+							"label":"target 2040",
+							"value":90.0
+						}
+					}
+				}
+			},
+			"bridge-condition": {
+				"indicatorData": {
+					"title": "Percentage of bridges in <br> \"structurally deficient\" condition",
+					"explanation": "CMAP tracks the percentage of bridges regionally categorized by the Federal Highway Administration’s National Bridge Inventory (NBI) as “structurally deficient,” which indicates they are most in need of repair.  While a bridge with this classification is in the most severe rating category, it does not necessarily mean that it is unsafe.",
+					"type": "lineChart",
+					"points": [
+
+						{
+							"year": 2001,
+							"value": 13.5,
+							"label": "2001"
+						},
+						{
+							"year": 2006,
+							"value": 10.6,
+							"label": "2006"
+						},
+						{
+							"year": 2012,
+							"value": 9.7,
+							"label": "status 2012"
+						},
+						{
+							"year": 2020,
+							"value": 7.3,
+							"label": "target 2020"
+						},
+						{
+							"year": 2040,
+							"value": 4,
+							"label": "target 2040"
+						}
+
+					],
+					"split": 3
+				}
+			}
+		}
+	},
+	"transit": {
+		"indicators": {
+			"access-to-transit": {
+				"indicatorData": {
+					"title": "Population and jobs with at least <br> moderate access to transit",
+					"explanation": "CMAP tracks transit access of residents and jobs. As of 2010, only 71.5 percent of residents had at least moderate access to transit, and only 76.8 percent of jobs were moderately accessible. The 2040 goals are 78 percent for population and 81 percent for jobs.",
+					"type": "lineChart",
+					"points": [
+
+						{
+							"year": 2010,
+							"value": 76.8,
+							"label": "status 2010"
+						},
+						{
+							"year": 2020,
+							"value": 78,
+							"label": "target 2020"
+						},
+						{
+							"year": 2040,
+							"value": 81,
+							"label": "target 2040"
+						}
+
+					],
+					"points2": [
+
+						{
+							"year": 2010,
+							"value": 71.5,
+							"label": "status 2010"
+						},
+						{
+							"year": 2020,
+							"value": 73,
+							"label": "target 2020"
+						},
+						{
+							"year": 2040,
+							"value": 78,
+							"label": "target 2040"
+						}
+
+					],
+					"width": 580,
+					"labels": ["population", "jobs"]
+
+				}
+			},
+			"ridership": {
+				"indicatorData": {
+					"title": "Average weekday unlinked transit trips",
+					"explanation": "CMAP tracks ridership by looking at \"unlinked\" transit trips. An individual making one transfer is counted as two unlinked trips. This chart's trend may seem encouraging, but population is forecast to grow 28.6 percent from 2010-40, so the region needs significant transit investment to keep from losing ground.",
+					"type": "stackedBarChart",
+					"data": [
+
+						{
+							"label": "status 2002",
+							"value": 1.95
+						},
+						{
+							"label": "status 2012",
+							"value": 2.12
+						},
+						{
+							"label": "target 2015",
+							"value": 2.30
+						},
+						{
+							"label": "target 2020",
+							"value": 2.60
+						},
+						{
+							"label": "target 2040",
+							"value": 4.00
+						}
+
+					],
+					"units": "million",
+					"max": 4
+				}
+			},
+			"maintenance": {
+				"indicatorData": {
+					"title": "Percentage of transit assets in a state of good repair",
+					"explanation": "The region needs to pursue a \"state of good repair\" for its transit system: well-maintained, with no backlog of capital maintenance.  CMAP is working with the RTA, CTA, Metra, and Pace to monitor existing conditions and develop meaningful targets. Values shown are from 2011.",
+					"type": "pieChart",
+					"pieType": "large",
+					"width": 170,
+					"data": {
+						"facilities": {
+							"label": "Facilities",
+							"subtext": "buildings, equipment, storage yards",
+							"value": 72,
+							"range": 100,
+							"metric": "%"
+						},
+						"guidewayElements": {
+							"label": "Guideway elements",
+							"subtext": "track, rail, bridges, ties",
+							"value": 66,
+							"range": 100,
+							"metric": "%"
+						},
+						"stations": {
+							"label": "Stations",
+							"subtext": "passengers facilities, parking lots",
+							"value": 73,
+							"range": 100,
+							"metric": "%"
+						},
+						"systems": {
+							"label": "Systems",
+							"subtext": "signals, fare collection equipment, radios, phones",
+							"value": 69,
+							"range": 100,
+							"metric": "%"
+						},
+						"vehicles": {
+							"label": "Vehicles",
+							"subtext": "both revenue and non-revenue",
+							"value": 70,
+							"range": 100,
+							"metric": "%"
+						}
+					}
+				}
+			}
+		}
+	},
+	"freight": {
+		"indicators": {
+			"crossing-delay": {
+				"indicatorData": {
+					"title": "At-grade highway-rail crossing delay",
+					"explanation": "CMAP tracks the aggregate hours of weekday delay experienced by motorists at railroad crossings in the seven-county region. The GO TO 2040 goal is to reduce delays by just over 50 percent compared with 2002.",
+					"type": "verticalBarChart",
+					"data": [
+						{
+							"label": "status 2002",
+							"value": 10982
+						},
+
+						{
+							"label": "status 2011",
+							"value": 7816
+						},
+
+						{
+							"label": "target 2015",
+							"value": 7675
+						},
+
+						{
+							"label": "target 2020",
+							"value": 7500
+						},
+
+						{
+							"label": "target 2040",
+							"value": 5500
+						}
+					]
+				}
+			},
+			"create-projects": {
+				"indicatorData": {
+					"title": "Number of CREATE projects completed",
+					"explanation": "The GO TO 2040 plan calls for all 70 CREATE projects to be complete by 2030. So far 22 are finished, and 9 are under construction.",
+					"type": "timeline",
+					"data": [
+						{
+							"label": "status 2010",
+							"value": 11,
+							"align": "middle"
+						},
+						{
+							"label": "status 2014",
+							"value": 22,
+							"align": "end"
+						},
+						{
+							"label": "target 2015",
+							"value": 24,
+							"align": "start"
+						},
+						{
+							"label": "target 2020",
+							"value": 30,
+							"align": "middle"
+						},
+						{
+							"label": "target 2030",
+							"value": 70,
+							"align": "middle"
+						}
+					]
+				}
+			}
+		}
+	}
+}
