@@ -30,15 +30,15 @@
 	//}
 }
 
-@include media-query(sm) {
+@include media-breakpoint-up(small) {
 	@include set-portlet-topper-width();
 }
 
-@include media-query(md) {
+@include media-breakpoint-up(medium) {
 	@include set-portlet-topper-width("md");
 }
 
-@include media-query(lg) {
+@include media-breakpoint-up(large) {
 	@include set-portlet-topper-width("lg");
 }
 
@@ -55,7 +55,7 @@
 
 	> .portlet-topper {
 
-		@include media-query(sm) {
+		@include media-breakpoint-up(small) {
 			@include display(flex);
 
 			position: relative;
@@ -72,7 +72,7 @@
 .portlet {
 	&:hover, &.focus {
 		> .portlet-content-editable {
-			@include media-query(sm) {
+			@include media-breakpoint-up(small) {
 				border-color: $portlet-topper-border;
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
@@ -80,7 +80,7 @@
 		}
 
 		> .portlet-topper {
-			@include media-query(sm) {
+			@include media-breakpoint-up(small) {
 				opacity: 1;
 			}
 		}
@@ -157,7 +157,7 @@
 
 .controls-visible {
 	.portlet-content-editable {
-		@include media-query(null, $screen-xs-max) {
+		@include media-breakpoint-up(small) {
 			border-color: $portlet-topper-border;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
@@ -165,7 +165,7 @@
 	}
 
 	.portlet-topper {
-		@include media-query(null, $screen-xs-max) {
+		@include media-breakpoint-up(small) {
 			@include display(flex);
 		}
 	}

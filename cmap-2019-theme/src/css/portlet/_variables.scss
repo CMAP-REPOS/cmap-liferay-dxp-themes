@@ -30,6 +30,8 @@ $portlet-content-border-width: $portlet-content-border-top-width $portlet-conten
 
 /* ---------- Portlet decorator ---------- */
 
+$portlet-borderless-padding: 0px;
+$portlet-decorate-padding: 0px;
 $portlet-decorate-bg: $gray-200 !default;
 $portlet-decorate-border-color: #686868 !default;
 $portlet-decorate-border-style: solid !default;
