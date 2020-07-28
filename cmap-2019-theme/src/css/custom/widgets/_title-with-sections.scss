@@ -1,13 +1,5 @@
 .title-with-sections{
 
-    .page-nav-title-h2 {
-      font-size: 17px;
-    }
-
-    .page-nav-link {
-      font-size: 12px !important;
-    }
-
     @include section-padding();
     padding-top: 2em;
 

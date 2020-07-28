@@ -25,7 +25,6 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-	<!-- OLD Solution for Social Media Preview, now handled by Solution in CMAP-419
 	<meta property="og:site_name" content="${site_name}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="${the_title}" />
@@ -36,7 +35,6 @@
 	<meta name="twitter:title" content="${the_title}">
 	<meta name="twitter:description" content="${themeDisplay.getLayout().getDescriptionCurrentValue()}">
 	<meta name="twitter:image" content="${themeDisplay.getPathThemeImages()}/onto2050-social.png">
-	-->
 
 	<link rel="canonical" href="${themeDisplay.getPortalURL()}${themeDisplay.getURLCurrent()}" />
 
