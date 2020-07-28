@@ -2,3 +2,5 @@
 @import "clay/atlas-variables";
 @import "clay/atlas";
 @import "mixins";
+// Adds mixins removed by Bootstrap4
+@import "compat/mixins";
