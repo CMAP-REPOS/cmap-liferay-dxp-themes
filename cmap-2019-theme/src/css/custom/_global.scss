@@ -37,7 +37,8 @@ body {
       @extend .whitney-normal__bold;
       
       @include huge() {
-        font-size: $h6-font-size;
+        // CMAP-412
+        font-size: 14px;
       }
       padding-right: 20px;
     }
@@ -97,7 +98,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    font-size: $h2-font-size;
+    font-size: $font-size-h2;
     transform: translateX(-100%);
   }
   &:after{
@@ -105,7 +106,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: $h2-font-size;
+    font-size: $font-size-h2;
     transform: translateX(100%);
   }
 }

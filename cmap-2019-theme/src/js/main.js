@@ -445,7 +445,7 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	});
 
 	
-	$(window).load(function(){
+	AUI().ready(function(){
 		if(window.location.hash){
 			var jump_to_hash = setInterval(function(){
 				if($(window.location.hash).length){
