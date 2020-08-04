@@ -1,8 +1,12 @@
 {
 	"devDependencies": {
 		"gulp": "3.9.1",
-		"liferay-theme-tasks": "8.0.9",
-		"liferay-theme-deps-7.1": "8.0.9"
+		"liferay-theme-tasks": "^9.5.2",
+		"compass-mixins": "0.12.10",
+		"liferay-frontend-common-css": "1.0.4",
+		"liferay-frontend-theme-styled": "4.0.21",
+		"liferay-frontend-theme-unstyled": "4.0.17",
+		"liferay-font-awesome": "3.4.0"
 	},
 	"keywords": [
 		"liferay-theme"
@@ -12,8 +16,9 @@
 		"screenshot": "",
 		"rubySass": false,
 		"templateLanguage": "ftl",
-		"version": "7.1",
-		"themeletDependencies": {}
+		"version": "7.2",
+		"themeletDependencies": {},
+		"fontAwesome": true
 	},
 	"main": "package.json",
 	"name": "cmap-admin-theme",
