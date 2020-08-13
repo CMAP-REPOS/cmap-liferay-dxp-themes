@@ -435,7 +435,8 @@ window.cmap.global.init = window.cmap.global.init || function(){
 		$(this).find('.onto2050-endnote-anchor').css('height', push + $(this).innerHeight());
 	});
 
-	
+	// this is needed on 7.0 pre fixpack 92, AUI function is for post fixpack 92
+	// $(window).load(function(){
 	AUI().ready(function(){
 		if(window.location.hash){
 			var jump_to_hash = setInterval(function(){
