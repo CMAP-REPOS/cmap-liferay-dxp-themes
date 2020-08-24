@@ -76,17 +76,17 @@
 }
 
 // CMAP - 412
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-down(sm) {
 	@include set-portlet-topper-width();
 }
 
 // CMAP - 412
-@include media-breakpoint-up(md) {
+@include media-breakpoint-down(md) {
 	@include set-portlet-topper-width("md");
 }
 
 // CMAP - 412
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-down(lg) {
 	@include set-portlet-topper-width("lg");
 }
 
@@ -104,7 +104,7 @@
 	> .portlet-topper {
 
 		// CMAP - 412
-		@include media-breakpoint-up(sm) {
+		@include media-breakpoint-down(sm) {
 			@include display(flex);
 
 			position: relative;
@@ -122,7 +122,7 @@
 	&:hover, &.focus {
 		> .portlet-content-editable {
 			// CMAP - 412
-			@include media-breakpoint-up(sm) {
+			@include media-breakpoint-down(sm) {
 				border-color: $portlet-topper-border;
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
@@ -131,7 +131,7 @@
 
 		> .portlet-topper {
 			// CMAP - 412
-			@include media-breakpoint-up(sm) {
+			@include media-breakpoint-down(sm) {
 				opacity: 1;
 			}
 		}

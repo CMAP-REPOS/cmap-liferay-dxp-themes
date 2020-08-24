@@ -2123,7 +2123,7 @@ html {
 
 body {
   font-family: $font-family-base;
-  font-size: 17px;   // CMAP-412 (font-size was too big, 17px is what is on PROD.)
+  font-size: 15px;   // CMAP-412 (font-size was too big, 17px is what is on PROD.)
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
@@ -2263,8 +2263,9 @@ hr {
 .product-menu .list-group-heading.goto-link {
   color: #eeeffa;
   display: inline-flex;
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
   max-width: 100%;
+  font-weight: 200;
 }
 
 #banner .row:first-child {
