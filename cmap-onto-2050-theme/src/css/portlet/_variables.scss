@@ -1,3 +1,6 @@
+// CMAP - 413
+$portlet-borderless-padding: map-get($spacers, 3) !default;
+
 /* ---------- Portlet topper ---------- */
 
 $portlet-topper-bg: #f8f8f8 !default;
@@ -28,3 +31,11 @@ $portlet-decorate-bg: #eee !default;
 $portlet-decorate-border-color: #e9e9e9 !default;
 $portlet-decorate-border-style: solid !default;
 $portlet-decorate-border-width: $portlet-content-border-width !default;
+
+// CMAP-413
+
+$portlet-decorate-bg: $body-bg !default;
+$portlet-decorate-border-color: $navbar-default-border !default;
+$portlet-decorate-border-style: solid !default;
+$portlet-decorate-border-width: $portlet-content-border-width !default;
+$portlet-decorate-padding: map-get($spacers, 3) !default;

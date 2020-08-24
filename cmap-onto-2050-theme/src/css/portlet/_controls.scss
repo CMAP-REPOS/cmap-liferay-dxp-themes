@@ -74,10 +74,11 @@ body.portlet {
 
 .portlet {
 	.visible-interaction {
-		position: absolute;
+		//position: absolute;
 		right: 0;
 		z-index: 100;
-		@include sm {
+		// CMAP - 413
+		@include media-breakpoint-up(sm) {
 			display: none;
 		}
 	}
@@ -90,7 +91,8 @@ body.portlet {
 }
 
 .controls-hidden .portlet .visible-interaction {
-	@include media-query(null, $screen-xs-max) {
+	// CMAP - 413
+	@include media-breakpoint-up(sm) {
 		display: none;
 	}
 }
