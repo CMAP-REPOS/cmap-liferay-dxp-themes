@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="col-md-3 hidden-sm hidden-xs">
+  <div class="col-md-2 hidden-sm hidden-xs">
     <a data-senna-off="true" class="${logo_css_class} hidden-sm hidden-xs" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
       <svg xmlns="http://www.w3.org/2000/svg" width="102" height="20" viewBox="0 0 102 20">
         <g fill="none" fill-rule="evenodd" transform="translate(0 1)">
@@ -51,4 +51,9 @@
   <div class="col-md-3 hidden-sm hidden-xs search-col">
     <#include "${full_templates_path}/includes/search.ftl" />
   </div>
+  <#if is_signed_in>
+    <div class="col-md-1 hidden-sm hidden-xs">
+      <@liferay.user_personal_bar />
+    </div>
+  </#if>
 </div>

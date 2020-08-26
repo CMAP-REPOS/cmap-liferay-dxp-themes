@@ -55,7 +55,12 @@
       <div class="sr-only">On To 2050 Plan</div>
     </div>
   </div>
-  <div class="col-md-4 hidden-sm hidden-xs">
+  <div class="col-md-3 hidden-sm hidden-xs">
     <#include "${full_templates_path}/includes/search.ftl" />
   </div>
+  <#if is_signed_in>
+    <div class="col-md-1 hidden-sm hidden-xs">
+      <@liferay.user_personal_bar />
+    </div>
+  </#if>
 </div>
