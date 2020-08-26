@@ -267,7 +267,7 @@
   }
 
   .btn-plain {
-    @include button-variant($alt, $primary, $input-btn-focus-color);
+    @include button-variant($alt, $primary, $btn-plain-border);
   }
 
   &.signed-in{

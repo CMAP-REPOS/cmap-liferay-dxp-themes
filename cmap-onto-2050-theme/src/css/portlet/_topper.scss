@@ -81,7 +81,7 @@
 		}
 
 		> .portlet-topper {
-		media-breakpoint-down(sm) {
+			@include media-breakpoint-down(sm) {
 				opacity: 1;
 			}
 		}
@@ -158,7 +158,7 @@
 
 .controls-visible {
 	.portlet-content-editable {
-		@include media-breakpoint-down(sm) {
+		@include media-query(null, $screen-xs-max) {
 			border-color: $portlet-topper-border;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
@@ -166,7 +166,7 @@
 	}
 
 	.portlet-topper {
-		@include media-breakpoint-down(sm) {
+		@include media-query(null, $screen-xs-max) {
 			@include display(flex);
 		}
 	}
