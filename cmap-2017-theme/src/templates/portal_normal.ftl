@@ -62,14 +62,11 @@
 				currentUrl == '/web/guest/' >
 			<#else>
 
-<#--				Removing breadcrumbs when updating to 7.1 DXP per liferay documentation:
-https://help.liferay.com/hc/es/articles/360018167011-Updating-Theme-Templates- -->
-<#--			<nav id="breadcrumbs">-->
-<#--				&lt;#&ndash; makes sure that the breadcrumbs are full-width by default &ndash;&gt;-->
-<#--				<#assign VOID=freeMarkerPortletPreferences.setValue( "portletSetupPortletDecoratorId", "full-width-content")>-->
-<#--				<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}" />-->
-<#--				<#assign VOID=freeMarkerPortletPreferences.reset() />-->
-<#--			</nav>-->
+			<nav id="breadcrumbs">
+				<!-- makes sure that the breadcrumbs are full-width by default -->
+				<#assign preferences = freeMarkerPortletPreferences.getPreferences("portletSetupPortletDecoratorId", "full-width-content") />
+				<@liferay.breadcrumbs default_preferences="${preferences}" />
+			</nav>
 
 			</#if>
 
