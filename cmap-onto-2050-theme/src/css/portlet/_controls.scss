@@ -74,12 +74,12 @@ body.portlet {
 
 .portlet {
 	.visible-interaction {
-		position: absolute;
+		//position: absolute; //CMAP 413
 		right: 0;
 		z-index: 100;
-		@include sm {
-			display: none;
-		}
+		/*@include sm {
+			display: none; //CMAP 413
+		}*/
 	}
 
 	&:active, &:hover, &:focus, &.active {
