@@ -51,7 +51,8 @@
       }
     }
 
-    // Some special margin utils
+
+     //Some special margin utils
     .m#{$infix}-auto { margin: auto !important; }
     .mt#{$infix}-auto,
     .my#{$infix}-auto {
@@ -59,7 +60,7 @@
     }
     .mr#{$infix}-auto,
     .mx#{$infix}-auto {
-      margin-right: auto !important;
+      margin-right: auto; //CMAP 412
     }
     .mb#{$infix}-auto,
     .my#{$infix}-auto {
@@ -67,7 +68,7 @@
     }
     .ml#{$infix}-auto,
     .mx#{$infix}-auto {
-      margin-left: auto !important;
+      margin-left: auto; //CMAP 412
     }
   }
 }

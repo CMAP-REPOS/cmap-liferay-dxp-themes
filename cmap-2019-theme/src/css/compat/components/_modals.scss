@@ -1,4 +1,9 @@
 @if $compat-modals {
+
+  .modal{
+    z-index: 10001 !important; //CMAP 412
+  }
+
   .modal-header {
     .btn-toolbar {
       @extend .order-2 !optional;

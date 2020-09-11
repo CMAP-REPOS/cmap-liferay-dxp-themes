@@ -58,7 +58,7 @@
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-columns));
+      margin-left: percentage(($index / $grid-columns)) !important; //CMAP 412
     }
   }
 }

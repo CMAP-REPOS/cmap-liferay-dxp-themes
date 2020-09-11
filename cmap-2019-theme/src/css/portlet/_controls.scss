@@ -79,7 +79,7 @@ body.portlet {
 		z-index: 100;
 		// CMAP - 412
 		@include media-breakpoint-up(sm) {
-			display: none;
+			display: block;// CMAP - 412
 		}
 	}
 
