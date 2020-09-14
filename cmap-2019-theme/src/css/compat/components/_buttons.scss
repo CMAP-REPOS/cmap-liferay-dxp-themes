@@ -1,5 +1,5 @@
 @if $compat-buttons {
-  .btn-default {
+  /*.btn-default {
     @include button-variant(theme-color(secondary), theme-color(secondary), black);
 
     @include clay-button-variant(map-get($btn-palette, secondary));
@@ -33,7 +33,7 @@
     @include button-variant(theme-color(danger), theme-color(danger), black);
 
     @include clay-button-variant(map-get($btn-palette, danger));
-  }
+  }*/
 
   a.btn-monospaced,
   span.btn-monospaced {

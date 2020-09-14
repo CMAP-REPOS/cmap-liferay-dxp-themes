@@ -137,7 +137,7 @@
 }
 
 .dialog-with-footer {
-	.button-holder {
+	.button-holder, .sheet-footer {//CMAP 412
 		&.dialog-footer {
 			background-color: $dialog-footer-bg;
 			border-top: 1px solid $dialog-footer-border-color;
