@@ -28,9 +28,9 @@ body.cmap-on-to-2050-theme{
     left: $grid-gutter-width/2;
     @include container-margin-left();
 
-    .input-group{
-      max-width: 75%;
-    }
+    /*.input-group{
+      max-width: 75%; CMAP 413
+    }*/
   }
   .whitney-small{
     @include tablet(){
