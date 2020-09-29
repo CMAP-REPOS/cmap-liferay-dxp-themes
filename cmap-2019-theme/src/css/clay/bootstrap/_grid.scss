@@ -64,3 +64,7 @@
 @media (min-width: $screen-lg) {
   @include make-grid(xl);
 }
+
+.row{
+  width: 100%;
+}
