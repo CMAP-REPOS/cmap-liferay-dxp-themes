@@ -22,14 +22,15 @@
   a{
     display: inline-block;
     padding: 2rem 0;
-    font-weight: $font-weight-bold;
+    font-weight: 600;// CMAP-452 - was: $font-weight-bold;
     border-top: 0.1em solid transparent;
     transition: all 0.2s ease-in-out;
     color: $grey-blue !important;
+    font-size: 17px; // CMAP-452
 
-    @include desktop() { 
+    /*@include desktop() {
       font-size: small;
-    }
+    }*/
 
     &:hover{
       border-top: 0.1em solid $grey-blue;
