@@ -1,0 +1,120 @@
+$animation: all 0.3s ease-out;
+
+body.cmap-2017-theme{
+  #cmap-onto2050-breadcrumbs{
+    display: none;
+  }
+}
+#cmap-breadcrumbs{
+  position: relative;
+  border-top: 1px solid $off-white;
+  border-bottom: 1px solid $off-white;
+  margin-bottom: $unit * 2;
+  height: $unit * 2;
+  padding: 0 !important;
+
+  .row{
+    @include section-padding();
+    height: $unit * 2;
+
+    @include tablet(){
+      flex-wrap: wrap;
+    }
+
+    a{
+      color: $primary;
+      &:hover{
+        text-decoration: none;
+        color: $dark-blue;
+      }
+    }
+  }
+
+  .share-col{
+    display: flex;
+
+    .share-button,
+    .close-button{
+      @include desktop(){
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    @include tablet(){
+      display: none;
+    }
+  }
+
+  .trail-col{
+    display: flex;
+    align-items: center;
+
+    @include tablet(){
+      text-indent: 0;
+      margin: 0;
+
+      .home{
+        .square{
+          display: none;
+        }
+      }
+    }
+  }
+
+  .breadcrumb-trail{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: $animation;
+
+    @extend .single-line;
+
+    &.active{
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .home.entry{
+      position: relative;
+      display: inline-flex;
+      height: $unit;
+      align-items: center;
+      border-left: none;
+
+      .square{
+        position: relative;
+        left: 0;
+
+        display: inline-block;
+        width: $size-2;
+        height: $size-2;
+        padding: 0;
+        margin-right: $size-2;
+
+        border: 1px solid $dark-blue;
+        background: $white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      &:hover{
+        .square{
+          border: 1px solid $dark-blue;
+          background: $off-white;
+        }
+      }
+    }
+
+    a{
+      padding: 0 $size-2 0 #{$size-1 - 0.1em};
+      border-left: 1px solid $off-white;
+
+      &.active{
+        cursor: default;
+        color: $off-white-text;
+      }
+    }
+  }
+}

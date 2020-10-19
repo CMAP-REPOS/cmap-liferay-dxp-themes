@@ -63,13 +63,11 @@
 			<#else>
 
 			<nav id="breadcrumbs">
-				<#-- makes sure that the breadcrumbs are full-width by default -->
-				<#assign VOID=freeMarkerPortletPreferences.setValue( "portletSetupPortletDecoratorId", "full-width-content")>
-				<@liferay.breadcrumbs default_preferences="${freeMarkerPortletPreferences}" />
-				<#assign VOID=freeMarkerPortletPreferences.reset() />
-
-
+				<!-- makes sure that the breadcrumbs are full-width by default -->
+				<#assign preferences = freeMarkerPortletPreferences.getPreferences("portletSetupPortletDecoratorId", "full-width-content") />
+				<@liferay.breadcrumbs default_preferences="${preferences}" />
 			</nav>
+
 			</#if>
 
 			<#if selectable>

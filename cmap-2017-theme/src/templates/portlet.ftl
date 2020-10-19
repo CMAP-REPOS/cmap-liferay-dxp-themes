@@ -43,6 +43,10 @@
 						<@liferay_portlet["icon-options"] portletConfigurationIcons=portlet_configuration_icons />
 					</menu>
 				</#if>
+
+				<menu class="portlet-topper-toolbar">
+					<@liferay_util["dynamic-include"] key="portlet_header_${portlet_display_root_portlet_id}"/>
+				</menu>
 			</header>
 
 			<#assign portlet_content_css_class = portlet_content_css_class + " portlet-content-editable" />
@@ -51,7 +55,7 @@
 
 	<div class="${portlet_content_css_class}">
 		<#if portlet_display.isShowBackIcon()>
-			<a class="icon-monospaced portlet-icon-back text-default" href="${portlet_back_url}" title="<@liferay.language key="return-to-full-page" />">
+			<a class="icon-monospaced portlet-icon-back list-unstyled text-default" href="${portlet_back_url}" title="<@liferay.language key="return-to-full-page" />">
 				<@liferay_ui["icon"]
 					icon="angle-left"
 					markupView="lexicon"

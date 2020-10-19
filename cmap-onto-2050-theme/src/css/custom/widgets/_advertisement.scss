@@ -47,7 +47,8 @@ $ad-border: 1px solid rgba($light-blue, 0.5);
     }
   }
 
-  @include tablet(){
+  //@include tablet(){
+  @media screen and (max-width: 799px){
     min-height: auto !important;
     .row{
       position: relative;

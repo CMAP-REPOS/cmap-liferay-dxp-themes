@@ -74,7 +74,7 @@
 		height: calc(100% - #{$dialog-navbar-height});
 		position: relative;
 
-		@include sm {
+		@include media-breakpoint-up(sm) {
 			height: calc(100% - #{$dialog-desktop-navbar-height});
 		}
 	}
@@ -123,7 +123,7 @@
 		top: $dialog-navbar-height;
 		-webkit-overflow-scrolling: touch;
 
-		@include sm {
+		@include media-breakpoint-up(sm) {
 			top: $dialog-desktop-navbar-height;
 		}
 	}
@@ -150,14 +150,14 @@
 			position: absolute;
 			width: 100%;
 
-			@include sm {
+			@include media-breakpoint-up(sm) {
 				background-color: $dialog-desktop-footer-bg;
 				padding: $dialog-footer-padding;
 			}
 		}
 
 		.btn-lg {
-			@include media-query(null, $screen-xs-max) {
+			@include media-breakpoint-up(lg) {
 				font-size: 12px;
 				padding: 8px 24px;
 			}
@@ -168,7 +168,7 @@
 	.journal-article-button-row,
 	.kb-submit-buttons {
 		.btn-lg {
-			@include media-query(null, $screen-xs-max) {
+			@include media-breakpoint-up(lg) {
 				padding-left: 16px;
 				padding-right: 16px;
 			}
@@ -183,7 +183,7 @@
 	.roles-selector-body {
 		bottom: $dialog-footer-height;
 
-		@include sm {
+		@include media-breakpoint-up(sm) {
 			bottom: $dialog-desktop-footer-height;
 		}
 	}

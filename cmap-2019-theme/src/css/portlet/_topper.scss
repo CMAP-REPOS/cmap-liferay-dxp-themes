@@ -1,4 +1,7 @@
+//CMAP-412
+
 @mixin set-portlet-topper-width($size: "sm", $i: 6) {
+	$list: "";
 	@if $size == "lg" {
 		$list: ".col-lg-#{$i}";
 
@@ -30,15 +33,60 @@
 	}
 }
 
-@include media-query(sm) {
+@mixin media-query($min, $max: null) {
+	$maxWidth: -1;
+	$minWidth: -1;
+
+	@if $min != null {
+		@if map-has-key($media-query-sizes, $min) {
+			$minWidth: map-get($media-query-sizes, $min);
+		}
+		@else {
+			$minWidth: $min;
+		}
+	}
+
+	@if $max != null {
+		@if map-has-key($media-query-sizes, $max) {
+			$maxWidth: map-get($media-query-sizes, $max);
+		}
+		@else {
+			$maxWidth: $max;
+		}
+	}
+
+	@if $maxWidth <= 0 and $minWidth <= 0 {
+		@content;
+	}
+	@else if $maxWidth <= 0 {
+		@media only screen and (min-width: $minWidth) {
+			@content;
+		}
+	}
+	@else if $minWidth <= 0 {
+		@media only screen and (max-width: $maxWidth) {
+			@content;
+		}
+	}
+	@else {
+		@media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+			@content;
+		}
+	}
+}
+
+// CMAP - 412
+@include media-breakpoint-down(sm) {
 	@include set-portlet-topper-width();
 }
 
-@include media-query(md) {
+// CMAP - 412
+@include media-breakpoint-down(md) {
 	@include set-portlet-topper-width("md");
 }
 
-@include media-query(lg) {
+// CMAP - 412
+@include media-breakpoint-down(lg) {
 	@include set-portlet-topper-width("lg");
 }
 
@@ -55,7 +103,8 @@
 
 	> .portlet-topper {
 
-		@include media-query(sm) {
+		// CMAP - 412
+		@include media-breakpoint-down(sm) {
 			@include display(flex);
 
 			position: relative;
@@ -72,7 +121,8 @@
 .portlet {
 	&:hover, &.focus {
 		> .portlet-content-editable {
-			@include media-query(sm) {
+			// CMAP - 412
+			@include media-breakpoint-down(sm) {
 				border-color: $portlet-topper-border;
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
@@ -80,7 +130,8 @@
 		}
 
 		> .portlet-topper {
-			@include media-query(sm) {
+			// CMAP - 412
+			@include media-breakpoint-down(sm) {
 				opacity: 1;
 			}
 		}

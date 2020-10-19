@@ -1,0 +1,91 @@
+section.full-slider{
+
+  .row{
+    @include section-padding();
+  }
+
+  .slide{
+    position: relative;
+    transition: all 0.4s ease;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slide-text{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .slide-top.row{
+    padding-top: #{$unit * 2};
+
+    .col-xl-10{
+      @extend .presna-large__white;
+    }
+
+    a{
+      color: $white;
+      border-bottom: 1px solid white;
+      opacity: 1;
+      transition: all 0.2s;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    .top-content{
+      transform: translateX(-0.2em);
+    }
+  }
+
+  .slide-bottom.row{
+    color: $white;
+    padding-bottom: $unit;
+
+    .col-xl-10{
+      @extend .whitney-small__bold;
+    }
+
+    a{
+      color: $white;
+      border-bottom: 1px solid white;
+      opacity: 1;
+      transition: all 0.2s;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    .bottom-content{
+      transform: translateX(0.5em);
+    }
+  }
+
+  .slide-background{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+
+  .slider-nav{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .nav-item{
+      &:after{
+        background: $primary;
+      }
+      &.active{
+        &:after{
+          background: white;
+        }
+      }
+    }
+  }
+}

@@ -28,13 +28,20 @@ body.cmap-on-to-2050-theme{
     left: $grid-gutter-width/2;
     @include container-margin-left();
 
-    .input-group{
-      max-width: 75%;
-    }
+    /*.input-group{
+      max-width: 75%; CMAP 413
+    }*/
   }
   .whitney-small{
     @include tablet(){
       font-size: 10px;
     }
   }
+}
+.breadcrumb > li + li::before {
+  display: inline-block;
+  color: #6B6C7E;
+  content: "|";
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }

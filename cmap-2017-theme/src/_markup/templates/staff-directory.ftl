@@ -102,7 +102,7 @@
 					</#if>
 					<div class="staff-member-detail">
 						<#if i.Photo != "">
-						<img class="staff-member-photo" src="https://www.cmap.illinois.gov/${i.Photo}" alt="Photo of ${StaffName}" />
+						<img class="staff-member-photo" src="/${i.Photo}" alt="Photo of ${StaffName}" />
 						</#if>
 					</div>
 				</div>

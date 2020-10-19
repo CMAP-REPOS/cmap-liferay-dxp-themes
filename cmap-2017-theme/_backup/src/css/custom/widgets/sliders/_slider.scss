@@ -1,0 +1,85 @@
+.slider{
+  overflow: hidden;
+  
+  .row{
+    @include section-padding();
+  }
+
+  header{
+    $border: 1px solid $off-white;
+    border-top: $border;
+    border-bottom: $border;
+
+    .buttons{
+      display: flex;
+      align-items: center;
+      height: $unit * 2;
+    }
+
+    h3{
+      @extend .whitney-normal__bold;
+      margin-right: $size-2;
+    }
+    .view-all a{
+      @extend .underline-link;
+    }
+  }
+
+  // similar to a "track" for the slides
+  // moves back and forth with vw
+  .slider-container{
+    position: relative;
+    display: flex;
+    transition: all 0.4s ease-in-out;
+
+    .slider-slide{
+      flex: 0 0 100%;
+    }
+  }
+
+  .slider-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: $size0;
+    padding-top: $size-4;
+
+    .nav-item{
+      $size: $size0;
+      position: relative;
+      width: $size;
+      height: $size;
+      margin-right: $size-4;
+      transition: all 0.2s ease-in;
+      cursor: pointer;
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        $dot-size: $size-3;
+        width: $dot-size;
+        height: $dot-size;
+        background: $off-white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+
+      &.active{
+        &:after{
+          background: $primary;
+        }
+      }
+
+      &:hover{
+        &:after{
+          background: saturate($off-white, 20%); 
+        }
+      }
+    }
+  }
+}

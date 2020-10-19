@@ -1,0 +1,231 @@
+output {
+  font-size: $size0;
+  color: $dark-grey;
+}
+legend {
+  margin-bottom: $line-height-computed;
+  font-size: $size0;
+  color: $legend-color;
+  border-bottom: 1px solid $legend-border-color;
+}
+
+.form-group {
+  margin-bottom: $size0;
+}
+
+// Base form element styles
+.form-control {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background-image: none;
+  border-radius: 0;
+  
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+  @include placeholder($black);
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $dark-grey;
+    opacity: 1;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+.form-control-static {
+  padding-top: ($padding-base-vertical + 1);
+  padding-bottom: ($padding-base-vertical + 1);
+  margin-bottom: 0;
+  min-height: ($line-height-computed + $font-size-base);
+
+  &.input-lg,
+  &.input-sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Radio and check boxes
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 4px \9;
+}
+.radio+.radio,
+.checkbox+.checkbox {
+  margin-top: -5px;
+}
+.radio-inline,
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: $size-2;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+.radio-inline+.radio-inline,
+.checkbox-inline+.checkbox-inline {
+  margin-top: 0;
+  margin-left: $size-2;
+}
+
+// Small input modifier
+@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
+.form-group-sm {
+  .form-control {
+    height: $input-height-small;
+    padding: $padding-small-vertical $padding-small-horizontal;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    border-radius: $input-border-radius-small;
+  }
+  select.form-control {
+    height: $input-height-small;
+    line-height: $input-height-small;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    height: $input-height-small;
+    min-height: ($line-height-computed + $font-size-small);
+    padding: ($padding-small-vertical + 1) $padding-small-horizontal;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+  }
+}
+.input-sm+.form-control-feedback,
+.input-group-sm+.form-control-feedback,
+.form-group-sm .form-control+.form-control-feedback {
+  width: $input-height-small;
+  height: $input-height-small;
+  line-height: $input-height-small;
+}
+
+// Large input modifier
+@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
+.form-group-lg {
+  .form-control {
+    height: $input-height-large;
+    padding: $padding-large-vertical $padding-large-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    border-radius: $input-border-radius-large;
+  }
+  select.form-control {
+    height: $input-height-large;
+    line-height: $input-height-large;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    height: $input-height-large;
+    min-height: ($line-height-computed + $font-size-large);
+    padding: ($padding-large-vertical + 1) $padding-large-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+  }
+}
+.input-lg+.form-control-feedback,
+.input-group-lg+.form-control-feedback,
+.form-group-lg .form-control+.form-control-feedback {
+  width: $input-height-large;
+  height: $input-height-large;
+  line-height: $input-height-large;
+}
+
+
+.has-feedback {
+  position: relative;
+  .form-control {
+    padding-right: ($input-height-base * 1.25);
+  }
+}
+.form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: $input-height-base;
+  height: $input-height-base;
+  line-height: $input-height-base;
+  text-align: center;
+  pointer-events: none;
+}
+.has-feedback label {
+  &~.form-control-feedback {
+    top: ($line-height-computed + 5); // Height of the `label` and its margin
+  }
+  &.sr-only~.form-control-feedback {
+    top: 0;
+  }
+}
+
+.help-block {
+  display: block;
+  margin-top: $size-2;
+  margin-bottom: 0;
+  color: lighten($text-color, 25%); // lighten the text some for contrast
+}
+
+.form-inline {
+  @include form-inline;
+}
+
+.form-horizontal {
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: ($padding-base-vertical + 1);
+  }
+  .radio,
+  .checkbox {
+    min-height: ($line-height-computed + ($padding-base-vertical + 1));
+  }
+  .form-group {
+    @include make-row;
+  }
+  @media (min-width: $breakpoint-tablet) {
+    .control-label {
+      text-align: right;
+      margin-bottom: 0;
+      padding-top: ($padding-base-vertical + 1);
+    }
+  }
+  .has-feedback .form-control-feedback {
+    right: floor(($grid-gutter-width / 2));
+  }
+  .form-group-lg {
+    @media (min-width: $breakpoint-tablet) {
+      .control-label {
+        padding-top: (($padding-large-vertical * $line-height-large) + 1);
+        font-size: $font-size-large;
+      }
+    }
+  }
+  .form-group-sm {
+    @media (min-width: $breakpoint-tablet) {
+      .control-label {
+        padding-top: ($padding-small-vertical + 1);
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

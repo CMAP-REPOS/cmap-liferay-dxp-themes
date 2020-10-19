@@ -1,0 +1,92 @@
+.close-button,
+.share-button{
+  position: relative;
+  top: 50%;
+  transform: scale(1.1) translateX(-0.4em) translateY(-50%);
+
+  display: inline-flex;
+  align-items: center;
+  height: $size0;
+  padding: 0;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+
+  @include tablet(){
+    height: $unit * 2;
+  }
+
+  &:hover{
+    span{
+      color: $blue;
+    }
+    svg{
+      g{
+        fill: $blue !important;
+      }
+    }
+  }
+
+  // important to override in-line styles
+  // in-line styles are kept to display something before the CSS is loaded
+  svg{
+    height: $size0 !important;
+    transform: translateY(-0.05em) translateX(0.25em) scale(0.8);
+    
+    g{
+      fill: $dark-blue !important;
+      transition: all 0.2s;
+    }
+  }
+
+  span{
+    @extend .whitney-small__bold;
+    color: $dark-blue;
+    padding-left: $size-1;
+    transition: all 0.2s;
+  }
+
+  &.active{
+    opacity: 1;
+  }
+}
+
+// this usually starts hidden
+// not the best way to do this since close-button is pretty general
+.close-button{
+  display: none;
+}
+
+.share-menu{
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  left: $size5;
+  transition: $animation;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active{
+    left: $size0;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .addthis_inline_share_toolbox{
+    transform: scale(0.8);
+  }
+
+  svg.at-icon.at-icon-facebook,
+  svg.at-icon.at-icon-twitter,
+  svg.at-icon.at-icon-pinterest_share,
+  svg.at-icon.at-icon-linkedin,
+  svg.at-icon.at-icon-google_plusone_share{
+    fill: $primary !important;
+  }
+  .at-share-btn{
+    background: transparent !important;
+  }
+}

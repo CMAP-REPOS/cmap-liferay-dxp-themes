@@ -1,0 +1,327 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Caption"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Caption",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Show Caption"
+            },
+            "predefinedValue": {
+                "en_US": true
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "boolean",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "ShowCaption",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "checkbox"
+        },
+        {
+            "label": {
+                "en_US": "Show Header Row"
+            },
+            "predefinedValue": {
+                "en_US": true
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "boolean",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "ShowHeaderRow",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "checkbox"
+        },
+        {
+            "label": {
+                "en_US": "Header Row"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "HeaderRow",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Cell"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "HeaderCell",
+                    "readOnly": false,
+                    "repeatable": true,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-separator",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "Size"
+                            },
+                            "options": [
+                                {
+                                    "value": "1",
+                                    "label": {
+                                        "en_US": "1"
+                                    }
+                                },
+                                {
+                                    "value": "2",
+                                    "label": {
+                                        "en_US": "2"
+                                    }
+                                },
+                                {
+                                    "value": "3",
+                                    "label": {
+                                        "en_US": "3"
+                                    }
+                                },
+                                {
+                                    "value": "4",
+                                    "label": {
+                                        "en_US": "4"
+                                    }
+                                },
+                                {
+                                    "value": "5",
+                                    "label": {
+                                        "en_US": "5"
+                                    }
+                                },
+                                {
+                                    "value": "6",
+                                    "label": {
+                                        "en_US": "6"
+                                    }
+                                },
+                                {
+                                    "value": "7",
+                                    "label": {
+                                        "en_US": "7"
+                                    }
+                                },
+                                {
+                                    "value": "8",
+                                    "label": {
+                                        "en_US": "8"
+                                    }
+                                },
+                                {
+                                    "value": "9",
+                                    "label": {
+                                        "en_US": "9"
+                                    }
+                                },
+                                {
+                                    "value": "10",
+                                    "label": {
+                                        "en_US": "10"
+                                    }
+                                },
+                                {
+                                    "value": "11",
+                                    "label": {
+                                        "en_US": "11"
+                                    }
+                                },
+                                {
+                                    "value": "12",
+                                    "label": {
+                                        "en_US": "12"
+                                    }
+                                },
+                                {
+                                    "value": "13",
+                                    "label": {
+                                        "en_US": "13"
+                                    }
+                                },
+                                {
+                                    "value": "14",
+                                    "label": {
+                                        "en_US": "14"
+                                    }
+                                },
+                                {
+                                    "value": "15",
+                                    "label": {
+                                        "en_US": "15"
+                                    }
+                                },
+                                {
+                                    "value": "16",
+                                    "label": {
+                                        "en_US": "16"
+                                    }
+                                }
+                            ],
+                            "predefinedValue": {
+                                "en_US": [
+                                    ""
+                                ]
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "multiple": false,
+                            "name": "HeaderCellSize",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "select"
+                        },
+                        {
+                            "label": {
+                                "en_US": "Content"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "html",
+                            "fieldNamespace": "ddm",
+                            "indexType": "text",
+                            "localizable": true,
+                            "name": "HeaderCellContent",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "ddm-text-html"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Body Row"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "BodyRow",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-separator",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Cell Content"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "html",
+                    "fieldNamespace": "ddm",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "BodyCell",
+                    "readOnly": false,
+                    "repeatable": true,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-text-html"
+                }
+            ]
+        }
+    ]
+}

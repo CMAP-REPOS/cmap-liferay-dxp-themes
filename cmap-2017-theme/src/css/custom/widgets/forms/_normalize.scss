@@ -62,17 +62,17 @@ input[type="search"] {
   input[type="datetime-local"],
   input[type="month"] {
     &.form-control {
-      line-height: $input-height-base;
+      line-height: $input-height;
     }
 
     &.input-sm,
     .input-group-sm & {
-      line-height: $input-height-small;
+      line-height: $input-height-sm;
     }
 
     &.input-lg,
     .input-group-lg & {
-      line-height: $input-height-large;
+      line-height: $input-height-lg;
     }
   }
 }
@@ -83,7 +83,7 @@ input[type="search"] {
   display: block;
 
   label {
-    min-height: $line-height-computed; // Ensure the input doesn't jump when there is no text
+    min-height: $spacer; // Ensure the input doesn't jump when there is no text
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
@@ -94,14 +94,16 @@ input[type="checkbox"] {
   &[disabled],
   &.disabled,
   fieldset[disabled] & {
-    cursor: $cursor-disabled;
+    pointer-events: none;
+    cursor: not-allowed;
   }
 }
 .radio-inline,
 .checkbox-inline {
   &.disabled,
   fieldset[disabled] & {
-    cursor: $cursor-disabled;
+    pointer-events: none;
+    cursor: not-allowed;
   }
 }
 .radio,
@@ -109,7 +111,8 @@ input[type="checkbox"] {
   &.disabled,
   fieldset[disabled] & {
     label {
-      cursor: $cursor-disabled;
+      pointer-events: none;
+      cursor: not-allowed;
     }
   }
 }

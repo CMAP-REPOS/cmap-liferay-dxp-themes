@@ -90,19 +90,18 @@
       </#list>
     </div>
 
-
-    <div class="col-xl-3 col-sm-16 page-nav">
+    <div class="col-md-3 col-sm-16 page-nav">
       <#if showRightHandNav?? && getterUtil.getBoolean(showRightHandNav.getData())>
         <div class="page-nav-container">
           <#if sectionTitles?size != 0>
-            <div class="page-nav-title">
-              <h2>Sections</h2>
+            <div class="page-nav-title" style="margin-bottom: 1rem" >
+              <h2 class="page-nav-title-h2" >Sections</h2>
             </div>
             <nav class="page-nav-list">
               <#list Subtitle.getSiblings() as section>
                 <#if section.getData() != "">
                   <div class="page-nav-item">
-                    <a data-senna-off="true" href="#${section.getData()?replace(" ", "_")?replace("\\W","", "r")}">
+                    <a class="page-nav-link" data-senna-off="true" href="#${section.getData()?replace(" ", "_")?replace("\\W","", "r")}" >
                       ${section.getData()}
                     </a>
                   </div>
@@ -182,14 +181,14 @@
       <#if showRightHandNav?? && getterUtil.getBoolean(showRightHandNav.getData())>
         <div class="page-nav-container">
           <#if sectionTitles?size != 0>
-            <div class="page-nav-title">
-              <h2>Sections</h2>
+            <div class="page-nav-title" style="margin-bottom: 1rem" >
+              <h2 class="page-nav-title-h2">Sections</h2>
             </div>
             <nav class="page-nav-list">
               <#list Subtitle.getSiblings() as section>
                 <#if section.getData() != "">
                   <div class="page-nav-item">
-                    <a data-senna-off="true" href="#${section.getData()?replace(" ", "_")?replace("\\W","", "r")}">
+                    <a class="page-nav-link" data-senna-off="true" href="#${section.getData()?replace(" ", "_")?replace("\\W","", "r")}">
                       ${section.getData()}
                     </a>
                   </div>
@@ -217,9 +216,6 @@
   cmap.titleWithSections = cmap.titleWithSections || {};
 
   cmap.titleWithSections.init = function() {
-
-
-    $('.page-nav-title').css("margin-bottom", "1rem");
 
     $('.standalone-section').each(function() {
       var $this = $(this);

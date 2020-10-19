@@ -1,4 +1,5 @@
 @mixin set-portlet-topper-width($size: "sm", $i: 6) {
+	$list: "";
 	@if $size == "lg" {
 		$list: ".col-lg-#{$i}";
 
@@ -30,15 +31,15 @@
 	}
 }
 
-@include media-query(sm) {
+@include media-breakpoint-down(sm) {
 	@include set-portlet-topper-width();
 }
 
-@include media-query(md) {
+@include media-breakpoint-down(md) {
 	@include set-portlet-topper-width("md");
 }
 
-@include media-query(lg) {
+@include media-breakpoint-down(lg) {
 	@include set-portlet-topper-width("lg");
 }
 
@@ -55,7 +56,7 @@
 
 	> .portlet-topper {
 
-		@include media-query(sm) {
+		@include media-breakpoint-down(sm) {
 			@include display(flex);
 
 			position: relative;
@@ -72,7 +73,7 @@
 .portlet {
 	&:hover, &.focus {
 		> .portlet-content-editable {
-			@include media-query(sm) {
+			@include media-breakpoint-down(sm) {
 				border-color: $portlet-topper-border;
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
@@ -80,7 +81,7 @@
 		}
 
 		> .portlet-topper {
-			@include media-query(sm) {
+			@include media-breakpoint-down(sm) {
 				opacity: 1;
 			}
 		}

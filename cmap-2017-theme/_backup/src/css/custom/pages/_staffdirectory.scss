@@ -1,0 +1,51 @@
+section.staff-directory{
+
+  .staff-member-row{
+    &:hover{
+      background: hsla(204, 1%, 98%, 0.5);
+    }
+  }
+
+  .staff-member-name,
+  .staff-member-department,
+  .staff-member-phone,
+  .staff-member-contact{
+    display: flex;
+    align-items: center;
+    height: $unit * 2;
+  }
+
+  .staff-member-name{
+    @extend .whitney-normal__bold;
+    color: $primary;
+  }
+  .staff-member-department{
+    @extend .whitney-normal;
+    color: $primary;
+  }
+  .staff-member-phone a{
+    @extend .underline-link;
+  }
+  .staff-member-email{
+    padding-right: $size-2;
+  }
+
+  .staff-member-email,
+  .staff-member-vcard{
+    svg{
+      g{
+        fill: $primary !important;
+      }
+    }
+    &:hover{
+      a{
+        color: $dark-blue;
+      }
+      svg{
+        g{
+          fill: $dark-blue !important;
+        }
+      }
+    }
+  }
+}

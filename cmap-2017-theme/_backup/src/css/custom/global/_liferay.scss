@@ -1,0 +1,38 @@
+.portlet-content-editable,
+.portlet-content {
+  padding: 0;
+}
+
+.portlet-dynamic-data-lists-display .lfr-ddm-field-group,
+.portlet-dynamic-data-lists .lfr-ddm-field-group,
+.portlet-journal .lfr-ddm-field-group {
+  padding: 0 !important;
+}
+.product-menu .layout-set-tabs{
+  padding-bottom: 1em;
+}
+.list-group-heading{
+  padding: 1em 0.5em;
+}
+
+.portlet {
+  margin-bottom: 0;
+
+  &>.portlet-topper {
+    opacity: 1 !important;
+    position: relative !important;
+  }
+
+  &:hover {
+    &>.portlet-topper {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.portlet-centered {
+  .portlet-content>.row {
+    @include section-padding();
+  }
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="46px" height="46px" viewBox="0 0 46 46" enable-background="new 0 0 46 46" xml:space="preserve">
+<g>
+	<g opacity="0.25">
+		<defs>
+			<rect id="SVGID_1_" x="17" y="16.876" opacity="0.25" width="12" height="12"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#SVGID_2_)">
+			<g>
+				<defs>
+					<rect id="SVGID_3_" x="16.996" y="16.876" width="12" height="12"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  overflow="visible"/>
+				</clipPath>
+				<g clip-path="url(#SVGID_4_)">
+					
+						<image overflow="visible" enable-background="new    " width="13" height="13" xlink:href="4DA857B422511543.png"  transform="matrix(0.9231 0 0 0.9231 17.4951 16.8755)">
+					</image>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g>
+		<polygon fill="#5888AA" points="22.999,13.458 20.787,23 25.213,23 		"/>
+		<polygon fill="#ACB9BF" points="22.999,32.542 25.213,23 20.787,23 		"/>
+		<polygon fill="#ACB9BF" points="18.229,23 23,25.212 23,20.788 		"/>
+		<polygon fill="#ACB9BF" points="27.771,22.958 23.001,20.746 23.001,25.171 		"/>
+		<g>
+			<g>
+				<path fill="#FFFFFF" d="M25.213,22.958c0-1.221-0.992-2.212-2.214-2.212c-1.221,0-2.212,0.991-2.212,2.212
+					c0,1.222,0.991,2.213,2.212,2.213C24.221,25.171,25.213,24.18,25.213,22.958"/>
+				<circle fill="none" stroke="#5888AA" stroke-miterlimit="10" cx="22.999" cy="22.958" r="2.212"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

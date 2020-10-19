@@ -4,6 +4,8 @@
 	theme_display = themeDisplay
 	portlet_display = portletDisplay
 
+	layoutSet = layout.getLayoutSet()
+
 	theme_timestamp = themeDisplay.getTheme().getTimestamp()
 	theme_settings = themeDisplay.getThemeSettings()
 
@@ -139,7 +141,6 @@
 	the_title = ""
 	selectable = theme_display.isTilesSelectable()
 	is_maximized = layoutTypePortlet.hasStateMax()
-	is_freeform = themeDisplay.isFreeformLayout()
 
 	page_javascript_1 = ""
 	page_javascript_2 = ""
@@ -257,6 +258,16 @@
 	<#assign the_title = htmlUtil.escape(the_title) />
 </#if>
 
+<#assign
+	layout_friendly_url = layout.getFriendlyURL()
+
+	portlet_id = paramUtil.getString(request, "p_p_id")
+/>
+
+<#if validator.isNotNull(portlet_id) && layout.isSystem() && !layout.isTypeControlPanel() && stringUtil.equals(layout_friendly_url, "/manage")>
+	<#assign the_title = portalUtil.getPortletTitle(portlet_id, locale) />
+</#if>
+
 <#if the_title ?has_content && !stringUtil.equals(company_name, site_name) && !page_group.isLayoutPrototype()>
 	<#assign the_title = the_title + " - " + site_name />
 </#if>
@@ -269,7 +280,7 @@
 
 <#assign
 	logo_css_class = "logo"
-	use_company_logo = !layout.layoutSet.isLogo()
+	use_company_logo = !layoutSet.isLogo()
 	site_logo_height = company_logo_height
 	site_logo_width = company_logo_width
 />
@@ -293,7 +304,7 @@
 </#if>
 
 <#assign
-	show_site_name = getterUtil.getBoolean(layout.layoutSet.getSettingsProperty("showSiteName"), show_site_name_default)
+	show_site_name = getterUtil.getBoolean(layoutSet.getSettingsProperty("showSiteName"), show_site_name_default)
 
 	site_logo = company_logo
 

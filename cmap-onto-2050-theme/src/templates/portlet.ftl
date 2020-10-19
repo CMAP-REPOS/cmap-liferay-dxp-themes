@@ -44,6 +44,10 @@
 						<@liferay_portlet["icon-options"] portletConfigurationIcons=portlet_configuration_icons />
 					</menu>
 				</#if>
+
+				<menu class="portlet-topper-toolbar">
+					<@liferay_util["dynamic-include"] key="portlet_header_${portlet_display_root_portlet_id}"/>
+				</menu>
 			</header>
 
 			<#assign portlet_content_css_class = portlet_content_css_class + " portlet-content-editable" />

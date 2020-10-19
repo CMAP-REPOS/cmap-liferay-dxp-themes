@@ -1,0 +1,141 @@
+body {
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-size: 21px;
+  line-height: $variation;
+
+  @include tv() {
+    font-size: 18px;
+  }
+  @include desktop() {
+    font-size: 16px;
+  }
+  @include tablet() {
+    font-size: 15px;
+  }
+  @include phone() {
+    font-size: 14px;
+  }
+}
+
+p {
+  font-family: $font-serif;
+}
+
+$bold-weight: 600;
+$normal-weight: 400;
+
+.whitney-small {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size-1;
+  line-height: $variation;
+}
+.whitney-small__bold{
+  @extend .whitney-small;
+  font-weight: $bold-weight;
+}
+
+.whitney-normal {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size0;
+  line-height: $variation;
+}
+
+.whitney-normal__bold {
+  @extend .whitney-normal;
+  font-weight: $bold-weight;
+}
+
+.whitney-large {
+  font-family: $font-sans;
+  font-weight: $normal-weight;
+  font-size: $size1;
+  line-height: 1.1em;
+}
+
+.whitney-large__bold {
+  @extend .whitney-large;
+  font-weight: $bold-weight;
+}
+
+.whitney-huge {
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: $size2;
+  line-height: 1.1em;
+}
+
+.whitney-huge__bold{
+  @extend .whitney-huge;
+  font-weight: $bold-weight;
+}
+
+.whitney-huge__green {
+  @extend .whitney-huge;
+  color: $green;
+  a {
+    color: $green;
+  }
+}
+
+
+
+.presna-normal {
+  font-family: $font-serif;
+  font-size: $size0;
+  letter-spacing: 0.01em;
+  line-height: $variation;
+  margin: 0;
+
+  a {
+    line-height: $variation;
+    @extend .underline-link;
+  }
+  
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.presna-normal__white {
+  @extend .presna-normal;
+  color: $white;
+  a {
+    color: $white;
+  }
+}
+
+.presna-bold {
+  @extend .presna-normal;
+  font-weight: 700;
+}
+
+.presna-bold__white {
+  @extend .presna-bold;
+  color: $white;
+  a {
+    color: $white;
+  }
+}
+
+// not used much
+.presna-large {
+  font-family: $font-serif;
+  font-size: $size1;
+  letter-spacing: 0.01em;
+  line-height: $variation;
+  margin: 0;
+
+  a {
+    line-height: $variation;
+    @extend .underline-link;
+  }
+}
+.presna-large__white {
+  @extend .presna-large;
+  color: $white;
+  a {
+    color: $white;
+  }
+}

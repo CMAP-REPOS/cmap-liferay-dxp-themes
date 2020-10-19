@@ -34,16 +34,22 @@
 <header id="main-header" role="banner">
   <nav class="nav-row-one row">
 
-    <div class="left col-xl-13 col-lg-12 col-md-11 col-sm-8">
+    <div class="left col-xl-12 col-lg-11 col-md-10 col-sm-8">
       <div class="side-nav-trigger">
         <#include "${full_templates_path}/components/hamburgur.ftl" />
       </div>
       <#include "${full_templates_path}/components/logo.ftl" />
     </div>
     
-    <div class="right col-xl-3 col-lg-4 col-md-5 col-sm-8 hidden-sm hidden-xs">
+    <div class="right col-xl-3 col-lg-4 col-md-5 col-sm-7 hidden-sm hidden-xs">
       <#include "${full_templates_path}/components/search_widget.ftl" />
     </div>
+
+    <#if is_signed_in>
+      <div class="col-md-1 hidden-sm hidden-xs">
+        <@liferay.user_personal_bar />
+      </div>
+    </#if>
 
     <div class="right col-xs-4 hidden-md hidden-lg hidden-xl">
       <div class="site-subheadline mobile">

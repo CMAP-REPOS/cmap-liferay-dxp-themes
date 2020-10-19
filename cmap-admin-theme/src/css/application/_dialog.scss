@@ -74,7 +74,8 @@
 		height: calc(100% - #{$dialog-navbar-height});
 		position: relative;
 
-		@include sm {
+		// CMAP - 412
+		@include media-breakpoint-up(sm) {
 			height: calc(100% - #{$dialog-desktop-navbar-height});
 		}
 	}
@@ -103,7 +104,8 @@
 			padding-left: 3px;
 			padding-right: 3px;
 
-			@include sm {
+			// CMAP - 412
+			@include media-breakpoint-up(sm) {
 				padding-left: 8px;
 				padding-right: 8px;
 			}
@@ -123,7 +125,8 @@
 		top: $dialog-navbar-height;
 		-webkit-overflow-scrolling: touch;
 
-		@include sm {
+		// CMAP - 412
+		@include media-breakpoint-up(sm) {
 			top: $dialog-desktop-navbar-height;
 		}
 	}
@@ -150,14 +153,16 @@
 			position: absolute;
 			width: 100%;
 
-			@include sm {
+			// CMAP - 412
+			@include media-breakpoint-up(sm) {
 				background-color: $dialog-desktop-footer-bg;
 				padding: 10px;
 			}
 		}
 
 		.btn-lg {
-			@include media-query(null, $screen-xs-max) {
+			// CMAP - 412
+			@include media-breakpoint-up(lg) {
 				font-size: 12px;
 				padding: 8px 24px;
 			}
@@ -168,7 +173,8 @@
 	.journal-article-button-row,
 	.kb-submit-buttons {
 		.btn-lg {
-			@include media-query(null, $screen-xs-max) {
+			// CMAP - 412
+			@include media-breakpoint-up(lg) {
 				padding-left: 16px;
 				padding-right: 16px;
 			}
@@ -183,7 +189,8 @@
 	.roles-selector-body {
 		bottom: $dialog-footer-height;
 
-		@include sm {
+		// CMAP - 412
+		@include media-breakpoint-up(sm) {
 			bottom: $dialog-desktop-footer-height;
 		}
 	}

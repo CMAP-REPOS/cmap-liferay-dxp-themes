@@ -37,7 +37,8 @@ body {
       @extend .whitney-normal__bold;
       
       @include huge() {
-        font-size: $font-size-h6;
+        // CMAP-412
+        font-size: 12px;
       }
       padding-right: 20px;
     }

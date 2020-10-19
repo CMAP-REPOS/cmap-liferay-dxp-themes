@@ -1,0 +1,28 @@
+.logo{
+  display: flex;
+  align-items: center;
+  @include logo-size($size1);
+
+  &:hover{
+    text-decoration: none;
+  }
+
+  a{
+    display: flex;
+    align-items: center;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  
+}
+
+#side-nav .logo{
+  @include logo-size($size-1);
+}
+
+#scroll-nav .logo{
+  @include logo-size($size-1);
+}

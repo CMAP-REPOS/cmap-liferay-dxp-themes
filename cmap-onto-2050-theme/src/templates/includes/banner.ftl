@@ -37,12 +37,12 @@
           </li>
         </ul>
       </div>
-      <div class="col-lg-2 hidden-md">
+      <div class="col-lg-2 hidden-sm hidden-md">
         <a class="return-to-cmap" href="/" role="menuitem">
           <span> Back to CMAP.gov </span>
         </a>
       </div>
-      <div class="col-lg-2 hidden-md">
+      <div class="col-lg-2 hidden-sm hidden-md">
         <a class="return-to-cmap" href="/search?q=" role="menuitem">
           <span> Search CMAP.gov </span>
         </a>

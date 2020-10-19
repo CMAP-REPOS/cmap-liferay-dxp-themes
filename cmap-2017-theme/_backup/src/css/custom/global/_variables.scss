@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+// shows and hides the colored bars to identify viewports
+$debug: false;
+
+// Font
+$font-sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$font-serif: "Prensa LF", serif;
+
+// Colors
+$dark-red: #750709;
+$red: #DB2028;
+$light-red: #F47932;
+
+$light-gold: #5E5011;
+$gold: #9E7A38;
+$dark-gold: #E7BB20;
+
+$dark-green: #346139;
+$green: #6CAD4E;
+$light-green: #A2D06D;
+
+$grey-blue: #3C5976;
+$dark-blue: #004F93;
+$blue: #008FD4;
+$light-blue: #4DBEEE;
+
+$black: #000000;
+$dark-grey: #5E7A87;
+$grey:  #c9d5dc;
+$light-grey: #E2E7EA;
+$off-white: #E4EBEE;
+$off-white-text: #587387;
+$almost-white: #F7F9FA;
+$white: #FFFFFF;
+
+$link-blue: $blue;
+$primary: $dark-blue;
+
+//Border styles:
+$border: 1px solid $off-white;
+$border-thick: 4px solid $grey;
+
+// sizes
+$variation: 1.414;
+$size0: 1em;
+$size1: $size0 * $variation;
+$size2: $size1 * $variation;
+$size3: $size2 * $variation;
+$size4: $size3 * $variation;
+$size5: $size4 * $variation;
+$size6: $size5 * $variation;
+$size7: $size6 * $variation;
+$size8: $size7 * $variation;
+$size9: $size8 * $variation;
+$size10: $size9 * $variation;
+$size-1: $size0 / $variation;
+$size-2: $size-1 / $variation;
+$size-3: $size-2 / $variation;
+$size-4: $size-3 / $variation;
+$size-5: $size-4 / $variation;
+
+$unit: $size1;
+
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-tv: 1200px;
+
+$side-nav-animation: all 0.4s ease;

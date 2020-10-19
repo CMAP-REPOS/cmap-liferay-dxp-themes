@@ -3,43 +3,64 @@
 
 /* CALENDAR PORTLET */
 
-#portlet_com_liferay_calendar_web_portlet_CalendarPortlet {
+//#portlet_com_liferay_calendar_web_portlet_CalendarPortlet { CMAP 411
 
-    .scheduler-base-content {
 
-        >.yui3-widget-bd {
+    >.yui3-widget-bd {
+        border: none;
+
+        .scheduler-base-view-date {
+            display: none;
+        }
+    }
+
+    .scheduler-base-controls {
+        margin-bottom: 36px;
+        text-align: left;
+        width: 100%;
+
+        .scheduler-base-icon-next,
+        .scheduler-base-icon-prev {
             border: none;
+            display: inline-block;
+            float: none;
+            padding: 0;
 
-            .scheduler-base-view-date {
-                display: none;
+            span {
+                font-weight: normal;
+                color: black;
+                margin-right: 1em;
             }
         }
 
-        .scheduler-base-controls {
-            margin-bottom: 36px;
+        .scheduler-base-today {
+            display: none;
+        }
+
+        .btn-group {
             text-align: left;
-            width: 100%;
+            width: auto;
+        }
 
-            .scheduler-base-icon-next,
-            .scheduler-base-icon-prev {
-                border: none;
-                display: inline-block;
-                float: none;
-                padding: 0;
+        .jump-to-container {
 
-                span {
-                    font-weight: normal;
-                    color: black;
-                    margin-right: 1em;
+            .input-select-wrapper {
+
+                label {
+                    display: inline-block;
+                }
+
+                select {
+                    display: inline-block;
+                    width: auto;
                 }
             }
+        }
 
-            .scheduler-base-today {
-                display: none;
-            }
+        @include tablet() {
 
             .btn-group {
-                text-align: left;
+                text-align: center;
                 width: auto;
             }
 
@@ -48,66 +69,44 @@
                 .input-select-wrapper {
 
                     label {
-                        display: inline-block;
+                        display: none;
                     }
 
                     select {
-                        display: inline-block;
-                        width: auto;
+                        display: block;
+                        width: 100%;
                     }
-                }
-            }
-
-            @include tablet() {
-
-                .btn-group {
-                    text-align: center;
-                    width: auto;
-                }
-
-                .jump-to-container {
-
-                    .input-select-wrapper {
-
-                        label {
-                            display: none;
-                        }
-
-                        select {
-                            display: block;
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-        }
-
-        .scheduler-view-table-content {
-            .yui3-widget-hd {
-                background: $white;
-                border-bottom: 0;
-                color: inherit;
-            }
-        }
-
-        .scheduler-base-views {
-            display: none;
-        }
-
-        .scheduler-view-table-header-col {
-
-            .scheduler-view-table-header-day {
-                color: $blue;
-                text-align: left;
-
-                div {
-                    color: $off-white-text;
-                    font-weight: 600;
-                    opacity: .75;
                 }
             }
         }
     }
+
+    .scheduler-view-table-content {
+        .yui3-widget-hd {
+            background: $white;
+            border-bottom: 0;
+            color: inherit;
+        }
+    }
+
+    .scheduler-base-views {
+        display: none;
+    }
+
+    .scheduler-view-table-header-col {
+
+        .scheduler-view-table-header-day {
+            color: $blue;
+            text-align: left;
+
+            div {
+                color: $off-white-text;
+                font-weight: 600;
+                opacity: .75;
+            }
+        }
+    }
+
 
     .scheduler-view-table-events-overlay-node {
         border-color: $off-white;
@@ -168,7 +167,7 @@
             border-top: 1px solid $off-white !important;
             color: $blue;
             font-size: $size-1;
-            overflow: visivble;
+            overflow: visible;
             padding: 15px 0;
             text-align: left;
         }
@@ -222,7 +221,7 @@
             margin: 0 0 15px 0;
         }
     }
-}
+//} CMAP 411
 
 .scheduler-event-recorder-popover {
     background: $off-white;
