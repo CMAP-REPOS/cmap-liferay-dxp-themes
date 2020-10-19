@@ -38,7 +38,7 @@
                 <span class="glyphicon glyphicon-share"></span>
               </button>
             </span>
-            <input class="page-url form-control" type="text" value="http://www.cmap.illinois.gov/on-to-2050/resources/profiles" placeholder="https://www.cmap.illinois.gov">
+            <input class="page-url form-control" type="text" value="/on-to-2050/resources/profiles" placeholder="/">
           </div><!-- /input-group -->
           <div class="addthis_inline_share_toolbox"></div>
         </div>
