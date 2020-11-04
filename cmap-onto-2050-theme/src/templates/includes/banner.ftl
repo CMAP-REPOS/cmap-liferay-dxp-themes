@@ -38,12 +38,12 @@
         </ul>
       </div>
       <div class="col-lg-2 hidden-sm hidden-md">
-        <a class="return-to-cmap" href="/" role="menuitem">
+        <a class="return-to-cmap" href="/" role="menuitem" data-senna-off="true">
           <span> Back to CMAP.gov </span>
         </a>
       </div>
       <div class="col-lg-2 hidden-sm hidden-md">
-        <a class="return-to-cmap" href="/search?q=" role="menuitem">
+        <a class="return-to-cmap" href="/search?q=" role="menuitem" data-senna-off="true">
           <span> Search CMAP.gov </span>
         </a>
       </div>
