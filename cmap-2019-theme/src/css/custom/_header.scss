@@ -2,7 +2,8 @@
 #heading{
   display: flex;
   align-items: center;
-  padding: #{$grid-gutter-width} 0;
+  //padding: #{$grid-gutter-width} 0;
+  padding: 30px 0;
 
   @include tablet(){
     padding: #{$grid-gutter-width} 13px;
