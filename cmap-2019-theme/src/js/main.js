@@ -137,16 +137,16 @@ window.cmap.pageCards.init = window.cmap.pageCards.init || function(){
 		var $b_bot_h5 = $b_bot.find('.normal-headline');
 		var a_bot_height, b_bot_height, padding;
 		
-		console.log($cards);
-		for(var i=0; i<$cards.length; i=i+2){
-			console.log(i);
-		}
+		// console.log($cards);
+		// for(var i=0; i<$cards.length; i=i+2){
+		// 	console.log(i);
+		// }
 
 		function calculate(){
 			b_bot_height = $b_bot_h5.innerHeight();
 			a_bot_height = $a_bot_h5.innerHeight();
 			padding = parseInt($a.find('.bottom').css('padding'));
-			console.log(a_bot_height, b_bot_height, a_bot_height > b_bot_height)
+			// console.log(a_bot_height, b_bot_height, a_bot_height > b_bot_height)
 			if(a_bot_height > b_bot_height){
 				$a_bot.css('height', a_bot_height + (padding * 2));
 				$b_bot.css('height', a_bot_height + (padding * 2));
@@ -388,7 +388,8 @@ window.cmap.global.init = window.cmap.global.init || function(){
 	// removes empty paragraph tags
 	$('p').each(function(){
 		var $this = $(this);
-		if($.trim($this.text()) == ''){ 
+		if($.trim($this.text()) == ''){
+			if($this.find('iframe').length){ return; }
 			if($this.find('img').length){ return; }
 			$this.remove(); 
 		}
