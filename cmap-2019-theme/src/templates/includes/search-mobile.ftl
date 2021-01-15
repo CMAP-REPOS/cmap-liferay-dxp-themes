@@ -1,16 +1,16 @@
-<div id="mobile-search" class="input-group input-group-sm">
+<div id="mobile-search" class="input-group input-group-lg">
 	<span class="input-group-btn">
-		<button class="search-button btn btn-default" type="button">
+		<button class="search-button-mobile btn btn-default" type="button">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
 	</span>
-	<input class="search-input form-control" type="text" value="" placeholder="Search">
+	<input class="search-input-mobile form-control" type="text" value="" placeholder="Search">
 </div>
 
 <script type="text/javascript">
 Liferay.on('allPortletsReady', function(){
-	var $search_input = $('#mobile-search').find('.search-input'),
-		$search_button = $('#mobile-search').find('.search-button');
+	var $search_input = $('#mobile-search').find('.search-input-mobile'),
+		$search_button = $('#mobile-search').find('.search-button-mobile');
 	$search_input.on("focus",function(){
 		$search_input.attr('placeholder','');
 	});

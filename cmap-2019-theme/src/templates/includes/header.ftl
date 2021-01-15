@@ -8,7 +8,7 @@
       </button>
   </div>
 
-  <div class="col-xs-8 no-padding hidden-md hidden-lg hidden-xl">
+  <div class="col-xs-4 no-padding hidden-md hidden-lg hidden-xl">
       <a data-senna-off="true" class="${logo_css_class} mobile-logo" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20">
           <g fill="none" fill-rule="evenodd" transform="translate(0 1)">
@@ -19,7 +19,7 @@
       </a>
   </div>
 
-  <div class="col-xs-4 no-padding hidden-md hidden-lg hidden-xl">
+  <div class="hidden-xs no-padding hidden-md hidden-lg hidden-xl">
     <div class="site-subheadline mobile">
       <button class="hamburger hamburger--boring" type="button">
         <span class="hamburger-box">
@@ -50,6 +50,12 @@
   </div>
   <div class="col-md-3 hidden-sm hidden-xs search-col">
     <#include "${full_templates_path}/includes/search.ftl" />
+  </div>
+  <div class="col-xs-10 hidden-md hidden-sm hidden-lg search-col mobile">
+    <#include "${full_templates_path}/includes/search-mobile.ftl" />
+  </div>
+  <div class="col-sm-10 hidden-md hidden-xs hidden-lg search-col mobile">
+    <#include "${full_templates_path}/includes/search-tablet.ftl" />
   </div>
   <#if is_signed_in>
     <div class="col-md-1 hidden-sm hidden-xs">

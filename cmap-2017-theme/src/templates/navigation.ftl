@@ -51,7 +51,7 @@
       </div>
     </#if>
 
-    <div class="right col-xs-4 hidden-md hidden-lg hidden-xl">
+    <div class="right hidden-xs hidden-sm hidden-md hidden-lg hidden-xl">
       <div class="site-subheadline mobile">
         <button class="hamburger hamburger--boring" type="button">
           <span class="hamburger-box">

@@ -21,7 +21,7 @@
     transform: scale(1);
     -webkit-transform: scale(1); } }
 
-.search-button, section.search-results-widget .search-bar button.search-bar-submit {
+.search-button, .search-button-mobile, .search-button-tablet, section.search-results-widget .search-bar button.search-bar-submit {
   padding: 0.70721em 1.414em;
   border: 2px solid #004F93;
   border-radius: 1.414em;
@@ -30,7 +30,7 @@
   font-weight: 600;
   line-height: 1.2;
   color: $grey-blue !important; }
-  .search-button:hover, section.search-results-widget .search-bar button.search-bar-submit:hover {
+  .search-button:hover, search-button-mobile:hover, .search-button-tablet:hover, section.search-results-widget .search-bar button.search-bar-submit:hover {
     background: #004F93;
     color: #E4EBEE; }
 

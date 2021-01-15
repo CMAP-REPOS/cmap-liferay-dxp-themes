@@ -122,12 +122,36 @@
     border: none !important;
     background-color: $white !important;
   }
+
+  .search-button-mobile{
+    border: none !important;
+    background-color: $white !important;
+  }
+
+  .search-button-tablet{
+    border: none !important;
+    background-color: $white !important;
+  }
   
   .search-input{
     //border: 2px solid #495f69;
      //border-left: none;
      border: none;
      background-color: $white !important;
+  }
+
+  .search-input-mobile{
+    //border: 2px solid #495f69;
+    //border-left: none;
+    border: none;
+    background-color: $white !important;
+  }
+
+  .search-input-tablet{
+    //border: 2px solid #495f69;
+    //border-left: none;
+    border: none;
+    background-color: $white !important;
   }
 
   .header-row{
