@@ -4,7 +4,7 @@
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
 	</span>
-	<input class="search-input-mobile form-control" type="text" value="" placeholder="Search">
+	<input style="height: 3.5rem !important" class="search-input-mobile form-control" type="text" value="" placeholder="Search">
 </div>
 
 <script type="text/javascript">
