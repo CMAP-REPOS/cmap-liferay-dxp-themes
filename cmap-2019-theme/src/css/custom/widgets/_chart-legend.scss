@@ -47,11 +47,13 @@
         margin-right: 5px;
         height: 12px;
         width: 12px;
+        padding: 10px 5px 5px 10px;
       }
 
       .chart-legend-key-label {
         display: inline;
         vertical-align: bottom;
+        line-height: 1.5;
       }
     }
   }
