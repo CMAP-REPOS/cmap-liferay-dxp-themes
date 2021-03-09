@@ -12,7 +12,7 @@
       </svg>
       <div class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></div>
     </a>
-    <button class="hamburger is-active hamburger--boring" type="button">
+    <button class="hamburger is-active hamburger--boring" type="button" aria-label="hamburger">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -23,17 +23,17 @@
   <div class="hide-accessible"><@liferay.language key="navigation" /></div>
   <ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="site-nav list-inline list-unstyled">
 	<li>
-        <a href="/2050/" role="menuitem">
+        <a href="/2050/" role="menuitem" aria-label="Onto 2050">
             <span>ON TO 2050</span>
         </a>
     </li>
     <li>
-        <a href="/about" role="menuitem">
+        <a href="/about" role="menuitem" aria-label="About CMAP">
             <span>About CMAP</span>
         </a>
     </li>
     <li>
-        <a href="/programs" role="menuitem">
+        <a href="/programs" role="menuitem" aria-label="Programs">
         	<span>Programs</span>
         </a>
     </li>
@@ -43,27 +43,27 @@
         </a>
     </li-->
     <li>
-        <a href="/committees" role="menuitem">
+        <a href="/committees" role="menuitem" aria-label="Committees">
             <span>Committees</span>
         </a>
     </li>
     <li>
-        <a href="/data" role="menuitem">
+        <a href="/data" role="menuitem" aria-label="Data">
             <span>Data</span>
         </a>
     </li>
     <li>
-        <a href="/updates" role="menuitem">
+        <a href="/updates" role="menuitem" aria-label="Updates">
             <span>Updates</span>
         </a>
     </li>
     <li>
-        <a href="/events" role="menuitem">
+        <a href="/events" role="menuitem" aria-label="Events">
             <span>Events</span>
         </a>
         </li>
     <li>
-        <a href="/contact" role="menuitem">
+        <a href="/contact" role="menuitem" aria-label="Contact">
             <span>Contact</span>
         </a>
     </li>

@@ -9,7 +9,7 @@
 <#macro render_anchor name>
   <#if name != ''>
     <button class="page-anchor" data-anchor="${name}">
-      <img class="anchor-icon" src="${themeDisplay.getPathThemeImages()}/icons/ic_clipboard.svg" />
+      <img class="anchor-icon" src="/icons/ic_clipboard.svg" />
     </button>
     <script>
       function init_anchor(){
@@ -30,10 +30,10 @@
         document.body.removeChild(el);
       };
       Liferay.on(
-      	'allPortletsReady',
-      	function() {
-          init_anchor();
-      	}
+              'allPortletsReady',
+              function() {
+                init_anchor();
+              }
       );
     </script>
   </#if>

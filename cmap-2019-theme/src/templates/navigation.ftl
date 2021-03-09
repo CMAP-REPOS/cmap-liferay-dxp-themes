@@ -142,7 +142,6 @@
 </#if>
 
 <script>
-	console.log("Im working");
 	$(document).on("click", '.childnav-toggler', function() {
 		$(this).next().collapse('toggle');
 	});

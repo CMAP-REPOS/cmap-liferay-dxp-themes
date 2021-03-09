@@ -12,7 +12,7 @@
       </svg>
       <div class="site-title"><span class="sr-only site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />"> CMAP - Chicago Metro Agency of Planning </span></div>
     </a>
-    <button class="hamburger is-active hamburger--boring" type="button">
+    <button class="hamburger is-active hamburger--boring" type="button" aria-label="hamburger">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>

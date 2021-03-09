@@ -2,7 +2,7 @@
   <div class="row desktop-row">
     <div class="col-sm-3">
       <div class="left-container">
-        <button class="hamburger" type="button">
+        <button class="hamburger" type="button" aria-label="hamburger">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -38,7 +38,7 @@
 
   <div class="mobile-row">
     <div class="left">
-      <button class="hamburger" type="button">
+      <button class="hamburger" type="button" aria-label="Hamburger">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>

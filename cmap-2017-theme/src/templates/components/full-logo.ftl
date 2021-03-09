@@ -1,7 +1,7 @@
 <div class="logo custom-logo">
   <div class="site-title">
     <a data-senna-off="true" href="${theme_display.getURLPortal()}" title="Go to CMAP Homepage">
-      <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="66.63931062782109" viewBox="0, 0, 400,66.63931062782109">
+      <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="330" height="66.63931062782109" viewBox="0, 0, 400,66.63931062782109">
         <g id="svgg">
           <path id="path0" d="M0.000 30.083 L 0.000 60.167 30.083 60.167 L 60.167 60.167 60.167 54.424 L 60.167 48.682 59.625 48.595 C 59.327 48.547,58.708 48.474,58.250 48.433 C 49.440 47.639,40.850 41.282,34.675 30.987 C 33.470 28.977,31.464 24.830,31.256 23.917 C 31.235 23.825,31.125 23.525,31.011 23.250 C 28.549 17.303,26.699 7.556,26.668 0.375 L 26.667 0.000 13.333 0.000 L 0.000 0.000 0.000 30.083 " stroke="none" fill="#6cb34c" fill-rule="evenodd"></path>
           <path id="path1" d="M30.002 2.042 C 30.009 11.741,33.510 22.357,38.957 29.198 C 44.371 35.997,50.499 39.349,58.875 40.091 L 60.167 40.206 60.167 20.103 L 60.167 0.000 45.083 0.000 L 30.000 0.000 30.002 2.042 " stroke="none" fill="#048cd4" fill-rule="evenodd"></path>

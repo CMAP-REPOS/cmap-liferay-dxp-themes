@@ -9,6 +9,7 @@
 }
 // remember to add color rules to the theme mixin
 .chart-legend-2050 {
+  font-size: .8125rem !important;
   @extend .whitney-small;
   
   border-top: 0.25rem solid $grey-blue;

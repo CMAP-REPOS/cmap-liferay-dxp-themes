@@ -1,6 +1,6 @@
 <div id="mobile-search" class="input-group">
 	<span class="input-group-btn">
-		<button class="search-button btn btn-default" type="button">
+		<button class="search-button btn btn-default" type="button" aria-label="search-mobile">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
 	</span>

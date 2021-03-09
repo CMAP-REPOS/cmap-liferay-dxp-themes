@@ -1,6 +1,6 @@
 <div id="tablet-search" class="input-group input-group-lg">
 	<span class="input-group-btn">
-		<button class="search-button-tablet btn btn-default" type="button">
+		<button class="search-button-tablet btn btn-default" type="button" aria-label="search-tablet">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
 	</span>
