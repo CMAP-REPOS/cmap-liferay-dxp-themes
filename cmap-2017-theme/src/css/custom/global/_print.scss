@@ -1,93 +1,29 @@
 @charset "UTF-8";
 
 @media print {
-  a:after {
-    border-bottom: 1px dotted !important;
-    font-style: italic;
-    font-weight: lighter;
+  /* Adding page margins */
+  @page {
+    margin: 2cm;
   }
 
-  .branding {
-    width: 100% !important;
-
-    a {
-      &:after {
-        display: none;
-      }
-    }
+  /* Do not display navigation markup */
+  nav#breadcrumbs,
+  header#main-header,
+  footer#footer,
+  div.jump-to-top-button,
+  div.empty,
+  div.page-nav-container {
+    display: none;
   }
 
-  .nav-meta {
-    display: none !important;
+  /* "Push" down page date so it doesn't appear clipped */
+  div.page-date {
+    margin-top: 2cm;
   }
 
-  .nav-main {
-    border-bottom: 1px solid #C9D5DD;
-
-    a {
-      &:after {
-        display: none;
-      }
-    }
-
-    .nav-main-sub-wrap {
-      display: none !important;
-    }
+  /* Remove extra padding from Web Content with Title With Sections Template */
+  .title-with-sections {
+    padding-top: 0;
   }
 
-  .site-main {
-    margin-top: 24px;
-
-    .page-meta-data {
-      display: none !important;
-    }
-
-    .primary {
-      width: 100% !important;
-      padding: 40px;
-      float: none !important;
-
-      .the-content {
-        width: 100% !important;
-      }
-
-      .in-page-anchors {
-        display: none !important;
-      }
-
-      .featuredcard-portlet {
-        [class*="span"] {
-          width: 100% !important;
-
-          img {
-            display: block;
-          }
-        }
-      }
-
-      .featured-card-title {
-        margin-top: 24px;
-      }
-    }
-
-    .secondary {
-      display: none !important;
-    }
-
-    .lead,
-    .bg-intro,
-    .constrain {
-      min-height: 0 !important;
-      width: 100% !important;
-
-      .more {
-        display: none !important;
-      }
-    }
-  }
-
-  .footer-1 {
-    margin-left: 16px;
-    float: none !important;
-  }
 }

@@ -1,0 +1,28 @@
+@media print {
+  /* This media query will only be run on printed documents */
+
+  /* Adding page margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Do not display navigation markup */
+  nav#breadcrumbs,
+  header#banner,
+  footer#footer,
+  div.jump-to-top-button,
+  div.page-nav-container {
+    display: none;
+  }
+
+  /* Avoid breaking images in half. Img could not be targetted directly. All images are inside a p tag */
+  p {
+    page-break-inside: avoid;
+  }
+
+  /* Show background colors of legends */
+  div.chart-legend-2050 {
+    -webkit-print-color-adjust: exact;
+  }
+
+}
