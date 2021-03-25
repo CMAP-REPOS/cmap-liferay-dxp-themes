@@ -27,6 +27,29 @@
       "required": false,
       "showLabel": true,
       "type": "ddm-image"
+    },
+    {
+      "label": {
+        "en_US": "Social Media Card Title"
+      },
+      "predefinedValue": {
+        "en_US": ""
+      },
+      "style": {
+        "en_US": ""
+      },
+      "tip": {
+        "en_US": "This title will NOT show in the page, but will be the title shown in the Social Media Cards"
+      },
+      "dataType": "string",
+      "indexType": "keyword",
+      "localizable": true,
+      "name": "SocialMediaCardTitle",
+      "readOnly": false,
+      "repeatable": false,
+      "required": false,
+      "showLabel": true,
+      "type": "text"
     }
   ]
 }

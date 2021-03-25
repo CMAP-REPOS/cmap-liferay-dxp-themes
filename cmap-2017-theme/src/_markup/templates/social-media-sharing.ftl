@@ -19,8 +19,13 @@
     <#return returnString>
 </#function>
 
-<#assign title = themeDisplay.getURLCurrent()?keep_after_last("/") />
-<#assign title = cleanContractions(title)?replace("-", " ")?capitalize />
+<#if SocialMediaCardTitle.getData()?? && SocialMediaCardTitle.getData() != "">
+    <#assign title = SocialMediaCardTitle.getData() />
+<#else>
+    <#assign title = themeDisplay.getURLCurrent()?keep_after_last("/") />
+    <#assign title = cleanContractions(title)?replace("-", " ")?capitalize />
+</#if>
+
 <#assign imageURL = ThumbnailImage.getData() >
 
 <#function cleanImageURL imageURL>
@@ -38,6 +43,7 @@
     -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@onto2050">
+
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:image" content="https://www.cmap.illinois.gov${cleanImageURL(imageURL)}">
 
