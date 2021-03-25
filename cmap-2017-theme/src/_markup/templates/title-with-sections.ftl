@@ -239,7 +239,7 @@
 <!-- -->
 <#if UseThumbnailImage?? && getterUtil.getBoolean(UseThumbnailImage.getData())>
   <#if UseThumbnailImage.ThumbnailImage.getData()?? && UseThumbnailImage.ThumbnailImage.getData() != "">
-    <#if UseThumbnailImage.SocialMediaCardTitle.getData()?? && UseThumbnailImage.SocialMediaCardTitle.getData() != "">
+    <#if UseThumbnailImage.SocialMediaCardTitle?? && UseThumbnailImage.SocialMediaCardTitle.getData()?? && UseThumbnailImage.SocialMediaCardTitle.getData() != "">
       <#assign title = UseThumbnailImage.SocialMediaCardTitle.getData() />
     <#else>
       <#assign title = themeDisplay.getURLCurrent()?keep_after_last("/") />

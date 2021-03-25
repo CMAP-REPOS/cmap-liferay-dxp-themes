@@ -19,7 +19,7 @@
     <#return returnString>
 </#function>
 
-<#if SocialMediaCardTitle.getData()?? && SocialMediaCardTitle.getData() != "">
+<#if SocialMediaCardTitle?? && SocialMediaCardTitle.getData()?? && SocialMediaCardTitle.getData() != "">
     <#assign title = SocialMediaCardTitle.getData() />
 <#else>
     <#assign title = themeDisplay.getURLCurrent()?keep_after_last("/") />
