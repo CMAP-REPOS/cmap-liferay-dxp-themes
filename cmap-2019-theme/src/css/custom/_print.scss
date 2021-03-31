@@ -2,34 +2,36 @@
   /* This media query will only be run on printed documents */
 
   /* Adding page margins */
-  @page {
-    margin: 2cm;
-  }
+  @page { margin: 2cm; }
 
   /* Do not display navigation markup */
   nav#breadcrumbs,
   div.search-col,
   div.header-nav-col,
   div.col-social-links,
+  a.mobile-logo,
   footer#footer,
   div.jump-to-top-button,
   div.page-nav-container {
-    display: none;
+    display: none !important;
+  }
+
+  /* Display the full logo in the print screen */
+  div.full-logo,
+  div.full-logo a.full-logo {
+    display: block !important;
+    position: relative;
+    margin: auto;
+    right: 35%;
   }
 
   /* Avoid breaking images in half. Img could not be targetted directly. All images are inside a p tag */
-  p {
-    page-break-inside: avoid;
-  }
+  p { page-break-inside: avoid; }
 
   /* Show background colors of legends */
-  div.chart-legend {
-    -webkit-print-color-adjust: exact;
-  }
+  div.chart-legend { -webkit-print-color-adjust: exact; }
 
   /* Remove extra padding from Web Content with Title With Sections Template */
-  .title-with-sections {
-    padding-top: 0;
-  }
+  .title-with-sections { padding-top: 0; }
 
 }

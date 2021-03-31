@@ -2,28 +2,33 @@
 
 @media print {
   /* Adding page margins */
-  @page {
-    margin: 2cm;
-  }
+  @page { margin: 2cm; }
 
   /* Do not display navigation markup */
+  div#side-nav,
   nav#breadcrumbs,
-  header#main-header,
+  div.main-nav-links,
+  div.main-nav-social,
+  div.search-widget,
+  div.mobile-logo,
   footer#footer,
   div.jump-to-top-button,
   div.empty,
   div.page-nav-container {
-    display: none;
+    display: none !important;
   }
 
-  /* "Push" down page date so it doesn't appear clipped */
-  div.page-date {
-    margin-top: 2cm;
+  /* Display the full logo in the print screen */
+  div.full-logo,
+  div.full-logo a.full-logo {
+    display: block !important;
   }
+
+  /* "Push" down components so they don't appear clipped */
+  div.page-date { margin-top: 2cm; }
+  div.page-title { margin-top: 1cm; }
 
   /* Remove extra padding from Web Content with Title With Sections Template */
-  .title-with-sections {
-    padding-top: 0;
-  }
+  .title-with-sections { padding-top: 0; }
 
 }
