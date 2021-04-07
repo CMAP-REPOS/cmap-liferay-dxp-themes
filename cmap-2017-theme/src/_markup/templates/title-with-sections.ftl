@@ -293,7 +293,8 @@
     var pathname = window.location.pathname.replace('/web/guest','');
 
     if ((pathname.indexOf('/on-to-2050/') !== 0) && (pathname.indexOf('/2050/') !== 0)) {
-      $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,span,table').removeAttr('style');
+      $('.section-content').find('h1,h2,h3,h4,h5,h6,p,a,table').removeAttr('style');
+      $('.section-content').find('span').each((index, value) => { value.style.fontFamily = '' });
     }
 
     // remove empty paragraphs

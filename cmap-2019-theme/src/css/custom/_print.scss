@@ -1,19 +1,17 @@
-@charset "UTF-8";
-
 @media print {
+  /* This media query will only be run on printed documents */
+
   /* Adding page margins */
   @page { margin: 2cm; }
 
   /* Do not display navigation markup */
-  div#side-nav,
   nav#breadcrumbs,
-  div.main-nav-links,
-  div.main-nav-social,
-  div.search-widget,
-  div.mobile-logo,
+  div.search-col,
+  div.header-nav-col,
+  div.col-social-links,
+  a.mobile-logo,
   footer#footer,
   div.jump-to-top-button,
-  div.empty,
   div.page-nav-container {
     display: none !important;
   }
@@ -22,11 +20,16 @@
   div.full-logo,
   div.full-logo a.full-logo {
     display: block !important;
+    position: relative;
+    margin: auto;
+    right: 35%;
   }
 
-  /* "Push" down components so they don't appear clipped */
-  div.page-date { margin-top: 2cm; }
-  div.page-title { margin-top: 1cm; }
+  /* Avoid breaking images in half. Img could not be targetted directly. All images are inside a p tag */
+  p { page-break-inside: avoid; }
+
+  /* Show background colors of legends */
+  div.chart-legend { -webkit-print-color-adjust: exact; }
 
   /* Remove extra padding from Web Content with Title With Sections Template */
   .title-with-sections { padding-top: 0; }

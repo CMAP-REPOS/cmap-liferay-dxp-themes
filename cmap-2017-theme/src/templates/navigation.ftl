@@ -34,14 +34,14 @@
 <header id="main-header" role="banner">
   <nav class="nav-row-one row">
 
-    <div class="left hidden-xl hidden-lg hidden-md col-sm-8">
+    <div class="mobile-logo left hidden-xl hidden-lg hidden-md col-sm-8">
       <div class="side-nav-trigger">
         <#include "${full_templates_path}/components/hamburgur.ftl" />
       </div>
       <#include "${full_templates_path}/components/logo.ftl" />
     </div>
 
-    <div class="left col-xl-12 col-lg-11 col-md-10 hidden-sm hidden-xs">
+    <div class="full-logo left col-xl-12 col-lg-11 col-md-10 hidden-sm hidden-xs">
       <div class="side-nav-trigger">
         <#include "${full_templates_path}/components/hamburgur.ftl" />
       </div>
