@@ -35,6 +35,11 @@
             	<span>Implementing the Plan</span>
             </a>
           </li>
+          <li>
+            <a href="/2050/updating-the-plan" role="menuitem" aria-label="Updating the Plan">
+              <span>Updating the Plan</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="col-lg-2 hidden-sm hidden-md">
