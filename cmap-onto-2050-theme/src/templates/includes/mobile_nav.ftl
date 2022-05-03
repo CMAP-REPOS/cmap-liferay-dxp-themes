@@ -52,6 +52,11 @@
 		  <span>Implementing the Plan</span>
 		</a>
   	</li>
+  <li>
+	  <a href="/2050/updating-the-plan" role="menuitem">
+		  <span>Updating the Plan</span>
+	  </a>
+  </li>
   </ul>
 
   <a class="return-to-cmap" href="/" role="menuitem">
