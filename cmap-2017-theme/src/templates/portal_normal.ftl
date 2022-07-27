@@ -5,6 +5,15 @@
 <html class="${root_css_class}" dir="<@liferay.language key=" lang.dir " />" lang="${w3c_language_id}">
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJFHXK8DE5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-SJFHXK8DE5');
+	</script>
 	<title>${the_title} - ${company_name}</title>
 
 	<!-- Google Tag Manager -->

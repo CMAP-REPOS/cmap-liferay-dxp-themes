@@ -5,6 +5,15 @@
 <html class="${root_css_class}" dir="<@liferay.language key="lang.dir" />" lang="${w3c_language_id}">
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJFHXK8DE5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-SJFHXK8DE5');
+	</script>
 	<title>${the_title} - ${company_name}</title>
 
 	<script type="text/javascript" src="${themeDisplay.getPathThemeJavaScript()}/vendor/d3.min.js"></script>
@@ -48,6 +57,8 @@
 	<!-- CMAP -->
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7947314/7427752/css/fonts.css" />
 </head>
+
+
 
 <body class="${css_class} cmap-2019-theme">
 
