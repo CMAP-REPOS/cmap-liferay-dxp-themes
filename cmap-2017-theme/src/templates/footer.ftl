@@ -9,12 +9,13 @@
         <span>To Top</span>
       </div>
 
-      <div class="col-lg-5 col-md-10 col-xs-16 footer-page-links" aria-label="Site Pages" role="menubar">
+      <div class="col-lg-8 col-md-10 col-xs-16 footer-page-links" aria-label="Site Pages" role="menubar">
 
         <a href="/about/terms-and-conditions" role="menuitem"> <span role="presentation">Terms & Conditions</span> </a>
         <a href="/about/careers" role="menuitem"> <span role="presentation">Careers</span> </a>
         <a href="/sitemap" role="menuitem"> <span role="presentation">Sitemap</span> </a>
         <a href="/contact" role="menuitem"> <span role="presentation">Contact Us</span> </a>
+        <a href="https://public.govdelivery.com/accounts/ILCMAP/subscriber/topics?qsp=CODE_RED" role="menuitem"> <span role="presentation">Newsletter sign-up</span> </a>
         <span class="copyright" role="presentation"> ©</span>
       </div>
 

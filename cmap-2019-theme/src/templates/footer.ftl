@@ -10,11 +10,12 @@
         </div>
       </div>
 
-      <div class="col-lg-5 col-md-10 col-sm-16 footer-page-links" aria-label="Site Pages">
+      <div class="col-lg-8 col-md-10 col-sm-16 footer-page-links" aria-label="Site Pages">
         <a href="/about/terms-and-conditions" role="menuitem">Terms & Conditions</a>
         <a href="/about/careers" role="menuitem">Careers</a>
         <a href="/sitemap" role="menuitem">Sitemap</a>
         <a href="/contact" role="menuitem">Contact Us</a>
+        <a href="https://public.govdelivery.com/accounts/ILCMAP/subscriber/topics?qsp=CODE_RED" role="menuitem">Newsletter sign-up</a>
         <span class="copyright">©</span>
       </div>
 

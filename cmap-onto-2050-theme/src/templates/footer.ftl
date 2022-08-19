@@ -15,6 +15,7 @@
         <a href="/about/careers" role="menuitem" data-senna-off="true">Careers</a>
         <a href="/sitemap" role="menuitem" data-senna-off="true">Sitemap</a>
         <a href="/contact" role="menuitem" data-senna-off="true">Contact Us</a>
+        <a href="https://public.govdelivery.com/accounts/ILCMAP/subscriber/topics?qsp=CODE_RED" role="menuitem" data-senna-off="true">Newsletter sign-up</a>
       </div>
 
       <div class="col-lg-4 col-md-3 col-sm-16 footer-social-links" aria-label="Links to social media websites">
